@@ -949,36 +949,41 @@
 
 <body>
 
-  <div class="light">
-    <div class="content">
-    <header>
-  <div class="header">
-    <h1 class="header-title">
-      <a href="/">zishu.me | <span>子舒的博客</span></a>
-    </h1>
+  <div>
+    <div>
+    <script>
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.querySelector('body').classList.add('theme-dark')
+  }
+</script>
 
-    <div class="header-menu">
+<nav class="flex align-center font-ui">
+  <span class="flex-grow">
+    <a class="internal-link plain" href="/">ZISHU.ME</a>
+  </span>
+  <span class="flex-shrink ssr">
+    
+      <a href="/about/" class="muted plain ssl">About</a>
+    
+      <a href="/tags/" class="muted plain ssl">Tags</a>
+    
+      <a href="/message/" class="muted plain ssl">Message</a>
+    
+      <a href="/search/" class="muted plain ssl">Search</a>
+    
+      <a href="/index.xml" class="muted plain ssl">RSS</a>
+    
+  </span>
+  <span id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode" type="button" role="switch" aria-checked="false">
+    <div class="theme-toggle-slide"></div>
+    <div class="theme-toggle-switch"></div>
+  </span>
+</nav>
+
       
-      <p class="small "><a href="/">首页</a></p>
-      
-      <p class="small "><a href="/tags/">标签</a></p>
-      
-      <p class="small "><a href="/message/">留言</a></p>
-      
-      <p class="small "><a href="/about/">关于</a></p>
-      
-      <p class="small "><a href="/links/">友链</a></p>
-      
-      <p class="small "><a href="/search/">搜索</a></p>
-      
-      <p class="small "><a href="/index.xml">订阅</a></p>
-      
-    </div>
-  </div>
-</header>
-      
-      <div class="main">
-        <div class="intro">
+      <main class="main wrap">
+        <p class="muted font-ui">About</p>
+        <div class="small muted">
           <p>一个热爱生活的前端开发工程师。</p>
           <p>这是我的个人博客，已经运行了 <span id="days"></span> 天，写了 313 篇文章，共 201140 字。一共有 <span id="busuanzi_value_site_pv"></span> 个人访问过本站！</p>
         </div>
@@ -1007,8 +1012,8 @@
         
         </div>
 
-
-        <div class="list-container">
+        <p class="muted font-ui">Writing</p>
+        <ul class="list-plain tabular-nums">
           
           
           
@@ -1017,251 +1022,212 @@
           
           
 
-          <div class="post-line">
-            <p class="line-date">2023/06/29 </p>
-            <div>
-              <p class="line-title">
-                <a href="/blog/200.html/">aos 事件触发失败</a>
-              </p>
-              <p class="line-summary">
-                
-                标签：<a href="/tags/aos">#aos</a>
-                
-                
-              </p>
-            </div>
-          </div>
-
-
+          <li>
+            <a href="/blog/200.html/" class="internal-link plain">
+              <flex class="align-baseline">
+                <span class="muted ppr flex-shrink small mh nowrap font-ui">2023·06·29</span> 
+                <u style="font-size:18px">aos 事件触发失败</u>
+              </flex>
+            </a>
+          </li>
+          
           
           
           
 
-          <div class="post-line">
-            <p class="line-date">2023/06/26 </p>
-            <div>
-              <p class="line-title">
-                <a href="/blog/weekly-19.html/">奇趣周刊 - 第 19 期</a>
-              </p>
-              <p class="line-summary">
-                
-                标签：<a href="/tags/weekly">#weekly</a>
-                
-                
-              </p>
-            </div>
-          </div>
-
-
+          <li>
+            <a href="/blog/weekly-19.html/" class="internal-link plain">
+              <flex class="align-baseline">
+                <span class="muted ppr flex-shrink small mh nowrap font-ui">2023·06·26</span> 
+                <u style="font-size:18px">奇趣周刊 - 第 19 期</u>
+              </flex>
+            </a>
+          </li>
+          
           
           
           
 
-          <div class="post-line">
-            <p class="line-date">2023/06/26 </p>
-            <div>
-              <p class="line-title">
-                <a href="/blog/199.html/">晚霞彩虹</a>
-              </p>
-              <p class="line-summary">
-                
-                标签：<a href="/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D">#随手拍</a>
-                
-                
-              </p>
-            </div>
-          </div>
-
-
+          <li>
+            <a href="/blog/199.html/" class="internal-link plain">
+              <flex class="align-baseline">
+                <span class="muted ppr flex-shrink small mh nowrap font-ui">2023·06·26</span> 
+                <u style="font-size:18px">晚霞彩虹</u>
+              </flex>
+            </a>
+          </li>
+          
           
           
           
 
-          <div class="post-line">
-            <p class="line-date">2023/06/19 </p>
-            <div>
-              <p class="line-title">
-                <a href="/blog/weekly-18.html/">奇趣周刊 - 第 18 期</a>
-              </p>
-              <p class="line-summary">
-                
-                标签：<a href="/tags/weekly">#weekly</a>
-                
-                
-              </p>
-            </div>
-          </div>
-
-
+          <li>
+            <a href="/blog/weekly-18.html/" class="internal-link plain">
+              <flex class="align-baseline">
+                <span class="muted ppr flex-shrink small mh nowrap font-ui">2023·06·19</span> 
+                <u style="font-size:18px">奇趣周刊 - 第 18 期</u>
+              </flex>
+            </a>
+          </li>
+          
           
           
           
 
-          <div class="post-line">
-            <p class="line-date">2023/06/15 </p>
-            <div>
-              <p class="line-title">
-                <a href="/blog/198.html/">夜骑湘湖</a>
-              </p>
-              <p class="line-summary">
-                
-                标签：<a href="/tags/%E9%AA%91%E8%A1%8C">#骑行</a>
-                
-                
-              </p>
-            </div>
-          </div>
-
-
+          <li>
+            <a href="/blog/198.html/" class="internal-link plain">
+              <flex class="align-baseline">
+                <span class="muted ppr flex-shrink small mh nowrap font-ui">2023·06·15</span> 
+                <u style="font-size:18px">夜骑湘湖</u>
+              </flex>
+            </a>
+          </li>
+          
           
           
           
 
-          <div class="post-line">
-            <p class="line-date">2023/06/15 </p>
-            <div>
-              <p class="line-title">
-                <a href="/blog/198.html/">夜骑湘湖</a>
-              </p>
-              <p class="line-summary">
-                
-                标签：<a href="/tags/%E9%AA%91%E8%A1%8C">#骑行</a>
-                
-                
-              </p>
-            </div>
-          </div>
-
-
+          <li>
+            <a href="/blog/198.html/" class="internal-link plain">
+              <flex class="align-baseline">
+                <span class="muted ppr flex-shrink small mh nowrap font-ui">2023·06·15</span> 
+                <u style="font-size:18px">夜骑湘湖</u>
+              </flex>
+            </a>
+          </li>
+          
           
           
           
 
-          <div class="post-line">
-            <p class="line-date">2023/06/12 </p>
-            <div>
-              <p class="line-title">
-                <a href="/blog/weekly-17.html/">奇趣周刊 - 第 17 期</a>
-              </p>
-              <p class="line-summary">
-                
-                标签：<a href="/tags/weekly">#weekly</a>
-                
-                
-              </p>
-            </div>
-          </div>
-
-
+          <li>
+            <a href="/blog/weekly-17.html/" class="internal-link plain">
+              <flex class="align-baseline">
+                <span class="muted ppr flex-shrink small mh nowrap font-ui">2023·06·12</span> 
+                <u style="font-size:18px">奇趣周刊 - 第 17 期</u>
+              </flex>
+            </a>
+          </li>
+          
           
           
           
 
-          <div class="post-line">
-            <p class="line-date">2023/06/06 </p>
-            <div>
-              <p class="line-title">
-                <a href="/blog/197.html/">vue2 中引入 Ant Design 报错问题</a>
-              </p>
-              <p class="line-summary">
-                
-                标签：<a href="/tags/ant-design">#Ant Design</a>
-                
-                
-              </p>
-            </div>
-          </div>
-
-
+          <li>
+            <a href="/blog/197.html/" class="internal-link plain">
+              <flex class="align-baseline">
+                <span class="muted ppr flex-shrink small mh nowrap font-ui">2023·06·06</span> 
+                <u style="font-size:18px">vue2 中引入 Ant Design 报错问题</u>
+              </flex>
+            </a>
+          </li>
+          
           
           
           
 
-          <div class="post-line">
-            <p class="line-date">2023/06/03 </p>
-            <div>
-              <p class="line-title">
-                <a href="/blog/weekly-16.html/">奇趣周刊 - 第 16 期</a>
-              </p>
-              <p class="line-summary">
-                
-                标签：<a href="/tags/weekly">#weekly</a>
-                
-                
-              </p>
-            </div>
-          </div>
-
-
+          <li>
+            <a href="/blog/weekly-16.html/" class="internal-link plain">
+              <flex class="align-baseline">
+                <span class="muted ppr flex-shrink small mh nowrap font-ui">2023·06·03</span> 
+                <u style="font-size:18px">奇趣周刊 - 第 16 期</u>
+              </flex>
+            </a>
+          </li>
+          
           
           
           
 
-          <div class="post-line">
-            <p class="line-date">2023/06/02 </p>
-            <div>
-              <p class="line-title">
-                <a href="/blog/196.html/">关于 HugoFast 这个项目</a>
-              </p>
-              <p class="line-summary">
-                
-                标签：<a href="/tags/hugofast">#HugoFast</a>
-                
-                
-              </p>
-            </div>
-          </div>
-
-
+          <li>
+            <a href="/blog/196.html/" class="internal-link plain">
+              <flex class="align-baseline">
+                <span class="muted ppr flex-shrink small mh nowrap font-ui">2023·06·02</span> 
+                <u style="font-size:18px">关于 HugoFast 这个项目</u>
+              </flex>
+            </a>
+          </li>
           
-        </div>
+          
+        </ul>
+        <a href="/blog/">Read More</a>
         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="page">
-  
-  <a href="/page/12/" class="prev">上一页</a>
-  
-
-  
-  <a href="/page/14/" class="next">下一页</a>
-  
-
-
-</div>
-
-
-
         <footer class="footer">
-  <div class="l-wrap">
+  <div class="small muted">
     © 2020 - 2025 Powered by
     <a href="https://github.com/dlzmoe" target="_blank">子舒</a>
   </div>
+  <br>
   <img src="https://profile-counter.glitch.me/zishu_me/count.svg" alt="counter">
   <div class="gotop"></div>
 </footer>
 
 <script src="/js/main.js"></script>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="//instant.page/5.2.0" type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
-      </div>
+
+<script>
+
+var darkModeToggle = document.querySelector("#theme-toggle");
+
+  function toggleTheme() {
+    document.body.classList.toggle("theme-dark");
+    updateThemeState();
+  }
+
+  function updateThemeState() {
+    let isDarkMode = document.body.classList.contains("theme-dark");
+    let theme = isDarkMode ? "dark" : "light";
+    localStorage.setItem("theme", theme);
+    darkModeToggle.setAttribute("aria-checked", isDarkMode.toString());
+  }
+
+  function initializeTheme() {
+    let isDarkMode = document.body.classList.contains("theme-dark");
+    darkModeToggle.setAttribute("aria-checked", isDarkMode.toString());
+  }
+
+  darkModeToggle.addEventListener("click", toggleTheme);
+
+  window.addEventListener('keydown', function (e) {
+    if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+      return;
+    }
+    if ((e.key === 'd' || e.key === 'D') && !e.ctrlKey && !e.metaKey) {
+      toggleTheme();
+    }
+  });
+
+  initializeTheme();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const article = document.querySelector('article');
+  if (!article) return;
+  
+  const headings = article.querySelectorAll('h2, h3, h4, h5, h6');
+  
+  headings.forEach(heading => {
+    if (!heading.id) return;
+    
+    const anchor = document.createElement('a');
+    anchor.href = '#' + heading.id;
+    anchor.classList.add('anchor');
+    anchor.innerHTML = '#';
+    
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const url = window.location.origin + window.location.pathname + '#' + heading.id;
+      navigator.clipboard.writeText(url);
+      window.location.hash = heading.id;
+    });
+    
+    heading.appendChild(anchor);
+  });
+});
+</script>
+      </main>
     </div>
   </div>
 

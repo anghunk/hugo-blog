@@ -1,0 +1,65 @@
+<script src="{{ .Site.Params.staticPrefix }}{{ "js/main.js" | relURL }}"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- 预加载页面 -->
+<script src="//instant.page/5.2.0" type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
+
+<script>
+// 切换黑夜模式
+var darkModeToggle = document.querySelector("#theme-toggle");
+
+  function toggleTheme() {
+    document.body.classList.toggle("theme-dark");
+    updateThemeState();
+  }
+
+  function updateThemeState() {
+    let isDarkMode = document.body.classList.contains("theme-dark");
+    let theme = isDarkMode ? "dark" : "light";
+    localStorage.setItem("theme", theme);
+    darkModeToggle.setAttribute("aria-checked", isDarkMode.toString());
+  }
+
+  function initializeTheme() {
+    let isDarkMode = document.body.classList.contains("theme-dark");
+    darkModeToggle.setAttribute("aria-checked", isDarkMode.toString());
+  }
+
+  darkModeToggle.addEventListener("click", toggleTheme);
+
+  window.addEventListener('keydown', function (e) {
+    if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+      return;
+    }
+    if ((e.key === 'd' || e.key === 'D') && !e.ctrlKey && !e.metaKey) {
+      toggleTheme();
+    }
+  });
+
+  initializeTheme();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const article = document.querySelector('article');
+  if (!article) return;
+  
+  const headings = article.querySelectorAll('h2, h3, h4, h5, h6');
+  
+  headings.forEach(heading => {
+    if (!heading.id) return;
+    
+    const anchor = document.createElement('a');
+    anchor.href = '#' + heading.id;
+    anchor.classList.add('anchor');
+    anchor.innerHTML = '#';
+    
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const url = window.location.origin + window.location.pathname + '#' + heading.id;
+      navigator.clipboard.writeText(url);
+      window.location.hash = heading.id;
+    });
+    
+    heading.appendChild(anchor);
+  });
+});
+</script>

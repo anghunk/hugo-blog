@@ -1,7 +1,7 @@
 baseURL: https://zishu.me/
 languageCode: en-us
 title: 子舒的博客
-theme: 8 # 7
+theme: 9 # 9
 pagination:
   pagerSize: 10 # 首页文章显示个数
 summaryLength: 999999 # 首页文章摘要字数
@@ -37,26 +37,15 @@ params:
   buildDate: 2020-06-14 # 建站日期
   
   socials: # 导航
-    - name: 首页
-      icon: sparkles
-      link: /
-    - name: 标签
-      icon: tags
-      link: /tags/
-    - name: 留言
-      icon: message
-      link: /message/
-    - name: 关于
-      icon: about
+    - name: About
       link: /about/
-    - name: 友链
-      icon: friends
-      link: /links/
-    - name: 搜索
-      icon: search
+    - name: Tags
+      link: /tags/
+    - name: Message
+      link: /message/
+    - name: Search
       link: /search/
-    - name: 订阅
-      icon: rss
+    - name: RSS
       link: /index.xml
 
 sitemap:

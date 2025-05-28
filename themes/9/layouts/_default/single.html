@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+
+<body>
+  <div>
+    <div>
+    {{ partial "header.html" . }}
+      
+      <main class="main wrap">
+        <heading>
+          <h1>{{ .Title }}</h1>
+           {{ if in .Site.Params.mainSections .Type }}
+          <div class="metadata muted ms2 font-ui">
+            <time>{{ .Date.Format "2006·01·02"}}</time>
+            {{ with .Params.categories }}
+            {{ range . }}
+            <span class="tag-node">分类：<a href="{{ "categories/" | relURL }}{{ . | urlize }}">{{ . }}</a>
+            </span>
+            {{ end }}
+            {{ end }}
+
+            <span class="tag-node">
+            {{ with .Params.tags }}
+            标签：{{ range . }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}">#{{ . }}</a>
+            {{ end }}
+            {{ end }}
+            </span>
+          </div>
+          {{ end }}
+        </heading>
+
+        <article class="content post-content">
+          {{ .Site.Params.postHeaderContent | safeHTML }}
+          {{ .Content }}
+          <div class="weekly-pagination"></div>
+        </article>
+
+        {{ if in .Site.Params.mainSections .Type }}
+        {{ partial "comment.html" . }}
+        {{ end }}
+
+        {{ partial "footer.html" . }}
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
