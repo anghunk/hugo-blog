@@ -178,7 +178,6 @@ base run.sh 不然就访问不了端口，我也不可能时刻在终端保持�
       </div>
       
     
-
       
       <div class="toc">
         <details open>
@@ -236,11 +235,14 @@ base run.sh 不然就访问不了端口，我也不可能时刻在终端保持�
 
       
       <ul class="comment-tabs">
-  <li class="active">LinuxDo</li>
+  
+  <li>LinuxDo</li>
+  
   <li>Giscus</li>
   <li>Twikoo</li>
 </ul>
 <div class="comments">
+  
   <div>
     <div id='discourse-comments'></div>
     <meta name='discourse-username' content='anghunk'>
@@ -258,7 +260,8 @@ base run.sh 不然就访问不了端口，我也不可能时刻在终端保持�
       })();
     </script>
   </div>
-  <div class="giscus active"></div>
+  
+  <div class="giscus"></div>
   <div id="tcomment"></div>
 </div>
 <script 
@@ -289,22 +292,14 @@ twikoo.init({
 </script>
 
 <script>
-  const tabs = document.querySelectorAll('.comment-tabs li');
-  const contents = document.querySelectorAll('.comments > div');
-  const savedIndex = localStorage.getItem('activeCommentTab') || 0;
-  tabs.forEach(t => t.classList.remove('active'));
-  contents.forEach(c => c.classList.remove('active'));
-  tabs[savedIndex].classList.add('active');
-  contents[savedIndex].classList.add('active');
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      contents.forEach(c => c.classList.remove('active'));
-      tab.classList.add('active');
-      contents[index].classList.add('active');
-      localStorage.setItem('activeCommentTab', index);
-    });
-  });
+  $('.comment-tabs li').each(function(){
+    $('.comment-tabs li').eq(0).addClass('active');
+    $('.comments > div').eq(0).addClass('active');
+    $(this).click(function(){
+      $(this).addClass('active').siblings().removeClass('active');
+      $('.comments > div').eq($(this).index()).addClass('active').siblings().removeClass('active');
+    })
+  })
 </script>
       
 
