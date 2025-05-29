@@ -1,6 +1,7 @@
 ---
 slug: about
 title: 关于
+layout: message
 ---
 
 > ✨ 你可以通过下面这些便捷方式探索我的文字世界：  
