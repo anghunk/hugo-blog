@@ -1,8 +1,27 @@
 <ul class="comment-tabs">
-  <li class="active">giscus</li>
-  <li>twikoo</li>
+  <li class="active">LinuxDo</li>
+  <li>Giscus</li>
+  <li>Twikoo</li>
 </ul>
 <div class="comments">
+  <div>
+    <div id='discourse-comments'></div>
+    <meta name='discourse-username' content='anghunk'>
+
+    <script type="text/javascript">
+      DiscourseEmbed = {
+        discourseUrl: 'https://linux.do/',
+        discourseEmbedUrl: 'https://zishu.me{{ .RelPermalink }}',
+        // className: 'CLASS_NAME',
+      };
+
+      (function() {
+        var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+        d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+      })();
+    </script>
+  </div>
   <div class="giscus active"></div>
   <div id="tcomment"></div>
 </div>
@@ -36,26 +55,17 @@ twikoo.init({
 <script>
   const tabs = document.querySelectorAll('.comment-tabs li');
   const contents = document.querySelectorAll('.comments > div');
-  
-  // 从本地存储中获取上次选择的标签索引，默认为 0
   const savedIndex = localStorage.getItem('activeCommentTab') || 0;
-  
-  // 初始化时设置保存的标签为激活状态
   tabs.forEach(t => t.classList.remove('active'));
   contents.forEach(c => c.classList.remove('active'));
   tabs[savedIndex].classList.add('active');
   contents[savedIndex].classList.add('active');
   tabs.forEach((tab, index) => {
     tab.addEventListener('click', () => {
-      // 移除所有标签和内容的激活类
       tabs.forEach(t => t.classList.remove('active'));
       contents.forEach(c => c.classList.remove('active'));
-      
-      // 为点击的标签和对应内容添加激活类
       tab.classList.add('active');
       contents[index].classList.add('active');
-      
-      // 将当前选择的标签索引保存到本地存储
       localStorage.setItem('activeCommentTab', index);
     });
   });
