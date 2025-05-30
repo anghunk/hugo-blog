@@ -4,13 +4,12 @@ html {
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
+  margin: 0;
+  padding: 0;
   word-break: break-all;
-  line-height: 1.8;
 }
 
 img {
@@ -498,10 +497,6 @@ video {
   box-shadow: 0 -1px 0 var(--primary) inset;
 }
 
-.post-content a {
-  text-decoration: underline;
-}
-
 .post-content del {
   text-decoration: line-through;
 }
@@ -651,8 +646,8 @@ video {
 .post-content blockquote {
   margin: 20px 0;
   padding: 14px 14px;
-  border-inline-start: 3px solid #070d16;
-  background: #b7babe;
+  border-inline-start: 3px solid var(--primary);
+  background: var(--nav-item-background-color);
 }
 
 .post-content blockquote p {
@@ -662,7 +657,7 @@ video {
 .post-content hr {
   margin: 30px 0;
   height: 2px;
-  background: #6f7679;
+  background: #eee;
   border: 0;
 }
 
@@ -686,10 +681,9 @@ video {
 }
 
 .post-content figure>figcaption {
-  opacity: 0.6;
+  color: var(--primary);
   font-size: 16px;
   margin: 8px 0 16px;
-  text-align: center;
 }
 
 .post-content figure>figcaption>p {
@@ -925,16 +919,16 @@ details {
   padding-bottom: 40px;
 
   li a {
-    background: #e5e6eb;
-    height: 22px;
-    padding: 0 10px;
-    min-width: 20px;
-    text-align: center;
-    margin-right: 15px;
-    margin-bottom: 10px;
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: .7em;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    margin-right: .8rem;
+    margin-bottom: .8rem;
+    letter-spacing: 0;
+    border: 1px solid #dee2e6 !important;
+    box-shadow: 0 0 3px 0 #e9ecef;
+    text-decoration: none;
     transition: all 0.1s linear;
 
     &:hover {
@@ -954,7 +948,7 @@ details {
 .cate-list {
   a {
     display: inline-flex;
-    border-radius: 4px;
+    border-radius: .7em;
     padding: 5px 12px;
     box-sizing: border-box;
     margin-right: .3rem;
@@ -964,7 +958,6 @@ details {
     box-shadow: 0 0 3px 0 #e9ecef;
     text-decoration: none;
     transition: all 0.1s linear;
-    background: #e7e8ed;
 
     &:hover {
       color: #d2603a !important;
@@ -1053,7 +1046,7 @@ details {
 .tk-submit>.tk-row:first-child {
   flex-direction: column;
 
-  .tk-avatar {
+  .tk-avatar{
     margin-bottom: 10px;
   }
 }
