@@ -3,26 +3,24 @@
 {{ partial "head.html" . }}
 
 <body>
-  <div class="light">
-    <div class="content">
-    {{ partial "header.html" . }}
-      
-      <div class="main">
-        <h1 class="single-title">{{ .Title }}</h1>
+  <div class="wrapper">
+    <div class="main">
+      {{ partial "header.html" . }}
 
-        <article class="content post-content">
-          {{ .Site.Params.postHeaderContent | safeHTML }}
-          {{ .Content }}
+      <h1>{{ .Title }}</h1>
 
-          <ul class="tags-list">
-            {{ range .Site.Taxonomies.tags }}
-            <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }} <sup>{{ .Count }}</sup></a> </li>
-            {{ end }}
-          </ul>
-        </article>
+      <article class="content post-content">
+        {{ .Site.Params.postHeaderContent | safeHTML }}
+        {{ .Content }}
 
-        {{ partial "footer.html" . }}
-      </div>
+        <ul class="tags-list">
+          {{ range .Site.Taxonomies.tags }}
+          <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }} <sup>{{ .Count }}</sup></a> </li>
+          {{ end }}
+        </ul>
+      </article>
+
+      {{ partial "footer.html" . }}
     </div>
   </div>
 </body>

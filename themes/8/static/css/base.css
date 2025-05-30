@@ -4,12 +4,13 @@ html {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  padding: 0;
   word-break: break-all;
+  line-height: 1.8;
 }
 
 img {
@@ -33,13 +34,25 @@ video {
   z-index: 999;
 }
 
-figure {
-  width: 100%;
-  margin: 0;
-}
-
 .toc {
+  margin: 2em 2px 2em;
+  border: 1px solid #dddddd;
+  background: var(--nav-hover-color);
+  border-radius: 4px;
+  padding: 0.4em;
   display: none;
+}
+.toc details {
+  margin: 0;
+  display: inline;
+  font-weight: 500;
+}
+.toc details summary {
+  cursor: zoom-in;
+  margin-inline-start: 15px;
+}
+.toc .inner {
+  padding: 10px 10px;
 }
 .toc ul,
 .toc ol,
@@ -48,11 +61,9 @@ figure {
   margin: 0;
   list-style: none;
 }
-.toc #TableOfContents {
-  font-size: 15px;
-}
 .toc #TableOfContents > ul {
   margin: 0;
+  padding: 0 15px;
 }
 .toc #TableOfContents > ul ul ul {
   padding-left: 30px;
@@ -80,7 +91,7 @@ figure {
 
 .chroma {
   color: #cad3f5;
-  background-color: #24273a !important;
+  background-color: #24273a;
   padding: 10px;
   border-radius: 5px;
   overflow-x: auto;
@@ -473,6 +484,10 @@ figure {
   box-shadow: 0 -1px 0 var(--primary) inset;
 }
 
+.post-content a {
+  text-decoration: underline;
+}
+
 .post-content del {
   text-decoration: line-through;
 }
@@ -483,7 +498,6 @@ figure {
 .post-content figure,
 .post-content ul {
   margin-bottom: 1.5em;
-  line-height: 1.8;
 }
 
 .post-content ol,
@@ -492,7 +506,6 @@ figure {
 }
 
 .post-content li {
-  margin: 0;
   margin-top: 5px;
 }
 
@@ -602,9 +615,9 @@ figure {
 .post-content code {
   margin: auto 4px;
   padding: 4px 6px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
-  background: #bbc0d7;
+  background: var(--nav-hover-color);
   border-radius: 2px;
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
 }
@@ -623,13 +636,8 @@ figure {
 .post-content blockquote {
   margin: 20px 0;
   padding: 14px 14px;
-  border-inline-start: 3px solid var(--primary);
-  background: #edf3fd;
-}
-
-.post-content a {
-  color: #0C4072;
-  text-decoration: underline;
+  border-inline-start: 3px solid #070d16;
+  background: #b7babe;
 }
 
 .post-content blockquote p {
@@ -639,7 +647,7 @@ figure {
 .post-content hr {
   margin: 30px 0;
   height: 2px;
-  background: #eee;
+  background: #6f7679;
   border: 0;
 }
 
@@ -663,7 +671,7 @@ figure {
 }
 
 .post-content figure > figcaption {
-  color: var(--primary);
+  opacity: 0.6;
   font-size: 16px;
   margin: 8px 0 16px;
   text-align: center;
@@ -885,16 +893,16 @@ details summary {
   padding-bottom: 40px;
 }
 .tags-list li a {
+  background: #e5e6eb;
+  height: 22px;
+  padding: 0 10px;
+  min-width: 20px;
+  text-align: center;
+  margin-right: 15px;
+  margin-bottom: 10px;
   display: inline-flex;
-  border-radius: 0.7em;
-  padding: 5px 10px;
-  box-sizing: border-box;
-  margin-right: 0.8rem;
-  margin-bottom: 0.8rem;
-  letter-spacing: 0;
-  border: 1px solid #dee2e6 !important;
-  box-shadow: 0 0 3px 0 #e9ecef;
-  text-decoration: none;
+  align-items: center;
+  justify-content: center;
   transition: all 0.1s linear;
 }
 .tags-list li a:hover {
@@ -910,7 +918,7 @@ details summary {
 
 .cate-list a {
   display: inline-flex;
-  border-radius: 0.7em;
+  border-radius: 4px;
   padding: 5px 12px;
   box-sizing: border-box;
   margin-right: 0.3rem;
@@ -920,6 +928,7 @@ details summary {
   box-shadow: 0 0 3px 0 #e9ecef;
   text-decoration: none;
   transition: all 0.1s linear;
+  background: #e7e8ed;
 }
 .cate-list a:hover {
   color: #d2603a !important;

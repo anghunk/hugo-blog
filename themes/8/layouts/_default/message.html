@@ -3,21 +3,18 @@
 {{ partial "head.html" . }}
 
 <body>
-  <div class="light">
-    <div class="content">
-    {{ partial "header.html" . }}
-      
-      <div class="main">
-        <h1 class="single-title">{{ .Title }}</h1>
-  
-        <article class="content post-content">
-          {{ .Site.Params.postHeaderContent | safeHTML }}
-          {{ .Content }}
-        </article>
-  
-        {{ partial "comment.html" . }}
-        {{ partial "footer.html" . }}
-      </div>
+  <div class="wrapper">
+    <div class="main">
+      {{ partial "header.html" . }}
+      <h1>{{ .Title }}</h1>
+
+      <article class="content post-content">
+        {{ .Site.Params.postHeaderContent | safeHTML }}
+        {{ .Content }}
+      </article>
+
+      {{ partial "comment.html" . }}
+      {{ partial "footer.html" . }}
     </div>
   </div>
 </body>

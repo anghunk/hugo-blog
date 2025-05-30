@@ -4,42 +4,36 @@
 
 <body>
 
-  <div class="light">
-    <div class="content">
-    {{ partial "header.html" . }}
+  <div class="wrapper">
+    <div class="main">
+      {{ partial "header.html" . }}
 
-      
-      <div class="main">
+      <h1>{{ .Title }}</h1>
+      <div class="archive-count">该分类共有 {{ len .Pages }} 篇文章</div>
 
-        <h1 class="single-title">{{ .Title }}</h1>
-        <div class="archive-count">该分类共有 {{ len .Pages }} 篇文章</div>
+      <div class="container">
+        <div class="cate-list">
+          <a href="/categories/技术/">技术</a>
+          <a href="/categories/随笔/">随笔</a>
+          <a href="/categories/weekly/">周刊</a>
+        </div>
 
         <div class="archive-list">
           {{ range (where .Data.Pages "Type" "in" site.Params.mainSections).GroupByDate "2006" -}}
           <div class="archive-list-header" id="{{ .Key }}">{{ .Key }}</div>
-          <div class="posts-list">
+          <div class="items">
             {{ range .Pages }}
-            <div class="post-line">
-              <p class="line-date">{{ .Date.Format "2006/01/02"}} </p>
-              <div>
-                <p class="line-title">
-                  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                </p>
-                <p class="line-summary">
-                  {{ with .Params.tags }}
-                  标签：{{ range . }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}">#{{ . }}</a>
-                  {{ end }}
-                  {{ end }}
-                </p>
-              </div>
+            <div class="item">
+              <div class="item-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
+              <div class="item-date">{{ .Date.Format "2006-01-02"}}</div>
             </div>
             {{ end }}
           </div>
           {{ end }}
         </div>
 
-        {{ partial "footer.html" . }}
       </div>
+      {{ partial "footer.html" . }}
     </div>
   </div>
 </body>
