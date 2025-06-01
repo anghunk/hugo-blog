@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "KingHwa_OldSong";
+  display: swap;
+  src: url(/cdn/KingHwa_OldSong.woff2);
+}
+@font-face {
+  font-family: "LXGWNeoZhiSong";
+  display: swap;
+  src: url(/cdn/LXGWNeoZhiSong.ttf);
+}
+@font-face {
+  font-family: "LXGWWenKaiLite";
+  display: swap;
+  src: url(/cdn/LXGWWenKaiLite-Regular.ttf);
+}
 html {
   overflow-y: scroll;
 }
@@ -10,6 +25,7 @@ body {
   margin: 0;
   padding: 0;
   word-break: break-all;
+  font-family: "LXGWWenKaiLite";
 }
 
 img {
