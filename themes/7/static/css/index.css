@@ -86,15 +86,15 @@ html {
 
 @font-face {
   font-family: KingHwa_OldSong;
-  src: url(https://zishu.me/cdn/KingHwa_OldSong.woff2);
+  src: url(/cdn/KingHwa_OldSong.woff2);
 }
 @font-face {
   font-family: "LXGWNeoZhiSong";
-  src: url(https://zishu.me/cdn/LXGWNeoZhiSong.ttf);
+  src: url(/cdn/LXGWNeoZhiSong.ttf);
 }
 @font-face {
   font-family: "LXGWWenKaiLite";
-  src: url(https://zishu.me/cdn/LXGWWenKaiLite-Regular.ttf);
+  src: url(/cdn/LXGWWenKaiLite-Regular.ttf);
 }
 body {
   background-color: var(--background-color);
@@ -360,9 +360,9 @@ hr {
 .item {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 15px;
   margin-bottom: var(--item-gap);
-  align-items: top;
+  align-items: flex-start;
 }
 
 .item-main {
