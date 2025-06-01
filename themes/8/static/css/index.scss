@@ -5,12 +5,24 @@ html {
 
 @font-face {
   font-family: KingHwa_OldSong;
-  src: url(./KingHwa_OldSong.woff2);
+  src: url(https://zishu.me/cdn/KingHwa_OldSong.woff2)
+}
+
+@font-face {
+  font-family: "LXGWNeoZhiSong";
+  src: url(https://zishu.me/cdn/LXGWNeoZhiSong.ttf);
+}
+
+@font-face {
+  font-family: "LXGWWenKaiLite";
+  src: url(https://zishu.me/cdn/LXGWWenKaiLite-Regular.ttf);
 }
 
 body {
-  font-family: KingHwa_OldSong;
-  color: #272e3b;
+  // font-family: KingHwa_OldSong;
+  // font-family: "LXGWNeoZhiSong";
+  font-family: "LXGWWenKaiLite";
+  color: #333;
   max-width: 750px;
   margin: 0 auto;
   padding: 3rem 15px;
