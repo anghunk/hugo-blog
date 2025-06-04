@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
+<title>记录 vite 中引入 tailwindcss | Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+<meta name="title" content="记录 vite 中引入 tailwindcss" />
+<meta name="description" content="安装依赖并生成 tailwind.config.js 和 postcss.config.js。
+1yarn add -D tailwindcss postcss autoprefixer
+2npx tailwindcss init -p
+注意，配置中要使用 ES6 模块语法 export default。
+ 1// tailwind.config.js
+ 2export default {
+ 3  content: [
+ 4    &#34;./index.html&#34;,
+ 5    &#34;./src/**/*.{vue,js,ts,jsx,tsx}&#34;,
+ 6  ],
+ 7  theme: {
+ 8    extend: {},
+ 9  },
+10  plugins: [],
+11};
+添加 Tailwind 的 CSS 文件。" />
+<meta name="keywords" content="笔记,vite,tailwindcss," />
+
+
+<meta property="og:url" content="http://localhost:1313/237/">
+  <meta property="og:site_name" content="Hugo ʕ•ᴥ•ʔ Bear Blog">
+  <meta property="og:title" content="记录 vite 中引入 tailwindcss">
+  <meta property="og:description" content="安装依赖并生成 tailwind.config.js 和 postcss.config.js。
+1yarn add -D tailwindcss postcss autoprefixer 2npx tailwindcss init -p 注意，配置中要使用 ES6 模块语法 export default。
+1// tailwind.config.js 2export default { 3 content: [ 4 &#34;./index.html&#34;, 5 &#34;./src/**/*.{vue,js,ts,jsx,tsx}&#34;, 6 ], 7 theme: { 8 extend: {}, 9 }, 10 plugins: [], 11}; 添加 Tailwind 的 CSS 文件。">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2024-09-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-04T00:00:00+00:00">
+    <meta property="article:tag" content="笔记">
+    <meta property="article:tag" content="Vite">
+    <meta property="article:tag" content="Tailwindcss">
+    <meta property="og:image" content="http://localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.png">
+  <meta name="twitter:title" content="记录 vite 中引入 tailwindcss">
+  <meta name="twitter:description" content="安装依赖并生成 tailwind.config.js 和 postcss.config.js。
+1yarn add -D tailwindcss postcss autoprefixer 2npx tailwindcss init -p 注意，配置中要使用 ES6 模块语法 export default。
+1// tailwind.config.js 2export default { 3 content: [ 4 &#34;./index.html&#34;, 5 &#34;./src/**/*.{vue,js,ts,jsx,tsx}&#34;, 6 ], 7 theme: { 8 extend: {}, 9 }, 10 plugins: [], 11}; 添加 Tailwind 的 CSS 文件。">
+
+
+
+
+  <meta itemprop="name" content="记录 vite 中引入 tailwindcss">
+  <meta itemprop="description" content="安装依赖并生成 tailwind.config.js 和 postcss.config.js。
+1yarn add -D tailwindcss postcss autoprefixer 2npx tailwindcss init -p 注意，配置中要使用 ES6 模块语法 export default。
+1// tailwind.config.js 2export default { 3 content: [ 4 &#34;./index.html&#34;, 5 &#34;./src/**/*.{vue,js,ts,jsx,tsx}&#34;, 6 ], 7 theme: { 8 extend: {}, 9 }, 10 plugins: [], 11}; 添加 Tailwind 的 CSS 文件。">
+  <meta itemprop="datePublished" content="2024-09-04T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-09-04T00:00:00+00:00">
+  <meta itemprop="wordCount" content="66">
+  <meta itemprop="image" content="http://localhost:1313/images/share.png">
+  <meta itemprop="keywords" content="笔记,Vite,Tailwindcss">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Hugo ʕ•ᴥ•ʔ Bear Blog</h2>
+</a>
+<nav>
+</nav>
+</header>
+  <main>
+
+<h1>记录 vite 中引入 tailwindcss</h1>
+<p>
+  <i>
+    <time datetime='2024-09-04'>
+      04 Sep, 2024
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>安装依赖并生成 <code>tailwind.config.js</code> 和 <code>postcss.config.js</code>。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>yarn add -D tailwindcss postcss autoprefixer
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>npx tailwindcss init -p
+</span></span></code></pre></div><p>注意，配置中要使用 ES6 模块语法 <code>export default</code>。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#60a0b0;font-style:italic">// tailwind.config.js
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">export</span> <span style="color:#007020;font-weight:bold">default</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>  content<span style="color:#666">:</span> [
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    <span style="color:#4070a0">&#34;./index.html&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    <span style="color:#4070a0">&#34;./src/**/*.{vue,js,ts,jsx,tsx}&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>  ],
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>  theme<span style="color:#666">:</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    extend<span style="color:#666">:</span> {},
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>  },
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>  plugins<span style="color:#666">:</span> [],
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>};
+</span></span></code></pre></div><p>添加 Tailwind 的 CSS 文件。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#60a0b0;font-style:italic">/* src/index.css */</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>@<span style="color:#007020;font-weight:bold">tailwind</span> <span style="color:#062873;font-weight:bold">base</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>@<span style="color:#007020;font-weight:bold">tailwind</span> <span style="color:#062873;font-weight:bold">components</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>@<span style="color:#007020;font-weight:bold">tailwind</span> <span style="color:#062873;font-weight:bold">utilities</span>;
+</span></span></code></pre></div><p>在 <code>main.js</code> 中引入。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#60a0b0;font-style:italic">// main.js
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">import</span> <span style="color:#4070a0">&#39;./index.css&#39;</span>;
+</span></span></code></pre></div>
+</content>
+<p>
+  
+  <a href="http://localhost:1313/blog/%E7%AC%94%E8%AE%B0/">#笔记</a>
+  
+  <a href="http://localhost:1313/blog/vite/">#Vite</a>
+  
+  <a href="http://localhost:1313/blog/tailwindcss/">#Tailwindcss</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
+<title>vue 学习笔记 (1)－－什么是 vue? | Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+<meta name="title" content="vue 学习笔记 (1)－－什么是 vue?" />
+<meta name="description" content="一、什么是 vue?
+练习时使用，最新版本
+1&lt;script src=&#34;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&#34;&gt;&lt;/script&gt;
+生产时使用，明确版本号的版本，避免造成不可预见的问题
+1&lt;script src=&#34;https://cdn.jsdelivr.net/npm/vue@2.6.12&#34;&gt;&lt;/script&gt;
+hello world
+ 1&lt;div id=&#34;app&#34;&gt;
+ 2    {{message}}
+ 3&lt;/div&gt;
+ 4&lt;script&gt;
+ 5    var app = new Vue({
+ 6        el: &#34;#app&#34;,
+ 7        data: {
+ 8            message: &#39;hello,world&#39;
+ 9        }
+10    })
+11&lt;/script&gt;
+1.v-指令
+
+v-bind－－绑定属性
+
+ 1&lt;div id=&#34;app-2&#34;&gt;
+ 2  &lt;span v-bind:title=&#34;message&#34;&gt;
+ 3    鼠标悬停几秒钟查看此处动态绑定的提示信息！
+ 4  &lt;/span&gt;
+ 5&lt;/div&gt;
+ 6
+ 7&lt;script&gt;
+ 8  var app = new Vue({
+ 9  el: &#39;#app&#39;,
+10  data: {
+11    message: &#39;页面加载于 &#39; &#43; new Date().toLocaleString()
+12  }
+13})
+14&lt;/script&gt;
+v-bind是 vue 特有的提供的属性，他会在 dom 上应用一个响应式的操作" />
+<meta name="keywords" content="vue,笔记," />
+
+
+<meta property="og:url" content="http://localhost:1313/27/">
+  <meta property="og:site_name" content="Hugo ʕ•ᴥ•ʔ Bear Blog">
+  <meta property="og:title" content="vue 学习笔记 (1)－－什么是 vue?">
+  <meta property="og:description" content="一、什么是 vue? 练习时使用，最新版本
+1&lt;script src=&#34;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&#34;&gt;&lt;/script&gt; 生产时使用，明确版本号的版本，避免造成不可预见的问题
+1&lt;script src=&#34;https://cdn.jsdelivr.net/npm/vue@2.6.12&#34;&gt;&lt;/script&gt; hello world
+1&lt;div id=&#34;app&#34;&gt; 2 {{message}} 3&lt;/div&gt; 4&lt;script&gt; 5 var app = new Vue({ 6 el: &#34;#app&#34;, 7 data: { 8 message: &#39;hello,world&#39; 9 } 10 }) 11&lt;/script&gt; 1.v-指令 v-bind－－绑定属性 1&lt;div id=&#34;app-2&#34;&gt; 2 &lt;span v-bind:title=&#34;message&#34;&gt; 3 鼠标悬停几秒钟查看此处动态绑定的提示信息！ 4 &lt;/span&gt; 5&lt;/div&gt; 6 7&lt;script&gt; 8 var app = new Vue({ 9 el: &#39;#app&#39;, 10 data: { 11 message: &#39;页面加载于 &#39; &#43; new Date().toLocaleString() 12 } 13}) 14&lt;/script&gt; v-bind是 vue 特有的提供的属性，他会在 dom 上应用一个响应式的操作">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2020-11-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2020-11-23T00:00:00+00:00">
+    <meta property="article:tag" content="Vue">
+    <meta property="article:tag" content="笔记">
+    <meta property="og:image" content="http://localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.png">
+  <meta name="twitter:title" content="vue 学习笔记 (1)－－什么是 vue?">
+  <meta name="twitter:description" content="一、什么是 vue? 练习时使用，最新版本
+1&lt;script src=&#34;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&#34;&gt;&lt;/script&gt; 生产时使用，明确版本号的版本，避免造成不可预见的问题
+1&lt;script src=&#34;https://cdn.jsdelivr.net/npm/vue@2.6.12&#34;&gt;&lt;/script&gt; hello world
+1&lt;div id=&#34;app&#34;&gt; 2 {{message}} 3&lt;/div&gt; 4&lt;script&gt; 5 var app = new Vue({ 6 el: &#34;#app&#34;, 7 data: { 8 message: &#39;hello,world&#39; 9 } 10 }) 11&lt;/script&gt; 1.v-指令 v-bind－－绑定属性 1&lt;div id=&#34;app-2&#34;&gt; 2 &lt;span v-bind:title=&#34;message&#34;&gt; 3 鼠标悬停几秒钟查看此处动态绑定的提示信息！ 4 &lt;/span&gt; 5&lt;/div&gt; 6 7&lt;script&gt; 8 var app = new Vue({ 9 el: &#39;#app&#39;, 10 data: { 11 message: &#39;页面加载于 &#39; &#43; new Date().toLocaleString() 12 } 13}) 14&lt;/script&gt; v-bind是 vue 特有的提供的属性，他会在 dom 上应用一个响应式的操作">
+
+
+
+
+  <meta itemprop="name" content="vue 学习笔记 (1)－－什么是 vue?">
+  <meta itemprop="description" content="一、什么是 vue? 练习时使用，最新版本
+1&lt;script src=&#34;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&#34;&gt;&lt;/script&gt; 生产时使用，明确版本号的版本，避免造成不可预见的问题
+1&lt;script src=&#34;https://cdn.jsdelivr.net/npm/vue@2.6.12&#34;&gt;&lt;/script&gt; hello world
+1&lt;div id=&#34;app&#34;&gt; 2 {{message}} 3&lt;/div&gt; 4&lt;script&gt; 5 var app = new Vue({ 6 el: &#34;#app&#34;, 7 data: { 8 message: &#39;hello,world&#39; 9 } 10 }) 11&lt;/script&gt; 1.v-指令 v-bind－－绑定属性 1&lt;div id=&#34;app-2&#34;&gt; 2 &lt;span v-bind:title=&#34;message&#34;&gt; 3 鼠标悬停几秒钟查看此处动态绑定的提示信息！ 4 &lt;/span&gt; 5&lt;/div&gt; 6 7&lt;script&gt; 8 var app = new Vue({ 9 el: &#39;#app&#39;, 10 data: { 11 message: &#39;页面加载于 &#39; &#43; new Date().toLocaleString() 12 } 13}) 14&lt;/script&gt; v-bind是 vue 特有的提供的属性，他会在 dom 上应用一个响应式的操作">
+  <meta itemprop="datePublished" content="2020-11-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2020-11-23T00:00:00+00:00">
+  <meta itemprop="wordCount" content="708">
+  <meta itemprop="image" content="http://localhost:1313/images/share.png">
+  <meta itemprop="keywords" content="Vue,笔记">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Hugo ʕ•ᴥ•ʔ Bear Blog</h2>
+</a>
+<nav>
+</nav>
+</header>
+  <main>
+
+<h1>vue 学习笔记 (1)－－什么是 vue?</h1>
+<p>
+  <i>
+    <time datetime='2020-11-23'>
+      23 Nov, 2020
+    </time>
+  </i>
+</p>
+
+<content>
+  <h2 id="一什么是-vue">一、什么是 vue?</h2>
+<p>练习时使用，最新版本</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&lt;<span style="color:#062873;font-weight:bold">script</span> <span style="color:#4070a0">src</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span></code></pre></div><p>生产时使用，明确版本号的版本，避免造成不可预见的问题</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&lt;<span style="color:#062873;font-weight:bold">script</span> <span style="color:#4070a0">src</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;https://cdn.jsdelivr.net/npm/vue@2.6.12&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span></code></pre></div><p><strong>hello world</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>    {{message}}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>&lt;<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    <span style="color:#007020;font-weight:bold">var</span> app <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> Vue({
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>        el<span style="color:#666">:</span> <span style="color:#4070a0">&#34;#app&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>        data<span style="color:#666">:</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>            message<span style="color:#666">:</span> <span style="color:#4070a0">&#39;hello,world&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>        }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    })
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>&lt;/<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span></code></pre></div><h3 id="1v-指令">1.v-指令</h3>
+<ol>
+<li>v-bind－－绑定属性</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;app-2&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>  &lt;<span style="color:#062873;font-weight:bold">span</span> <span style="color:#4070a0">v-bind:title</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;message&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    鼠标悬停几秒钟查看此处动态绑定的提示信息！
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>  &lt;/<span style="color:#062873;font-weight:bold">span</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>&lt;<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>  <span style="color:#007020;font-weight:bold">var</span> app <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> Vue({
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>  el<span style="color:#666">:</span> <span style="color:#4070a0">&#39;#app&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>  data<span style="color:#666">:</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    message<span style="color:#666">:</span> <span style="color:#4070a0">&#39;页面加载于 &#39;</span> <span style="color:#666">+</span> <span style="color:#007020;font-weight:bold">new</span> <span style="color:#007020">Date</span>().toLocaleString()
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>  }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>})
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>&lt;/<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span></code></pre></div><p><code>v-bind</code>是 vue 特有的提供的属性，他会在 dom 上应用一个响应式的操作</p>
+<p>打开 console，输入<code>app.message = &quot;hello&quot;</code>，页面会改变内容只显示<code>hello</code></p>
+<p>又或者输入<code>app.message = false</code>，内容会直接不显示</p>
+<p>vue 官网例子：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#60a0b0;font-style:italic">&lt;!-- 绑定一个 attribute --&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>&lt;<span style="color:#062873;font-weight:bold">img</span> <span style="color:#4070a0">v-bind:src</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;imageSrc&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#60a0b0;font-style:italic">&lt;!-- 动态 attribute 名 (2.6.0+) --&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>&lt;<span style="color:#062873;font-weight:bold">button</span> <span style="color:#4070a0">v-bind:</span><span style="">[</span><span style="color:#4070a0">key</span><span style="">]=&#34;</span><span style="color:#4070a0">value</span><span style="">&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">button</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#60a0b0;font-style:italic">&lt;!-- 缩写 --&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>&lt;<span style="color:#062873;font-weight:bold">img</span> <span style="color:#4070a0">:src</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;imageSrc&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#60a0b0;font-style:italic">&lt;!-- 动态 attribute 名缩写 (2.6.0+) --&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>&lt;<span style="color:#062873;font-weight:bold">button</span> <span style="color:#4070a0">:</span><span style="">[</span><span style="color:#4070a0">key</span><span style="">]=&#34;</span><span style="color:#4070a0">value</span><span style="">&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">button</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#60a0b0;font-style:italic">&lt;!-- 内联字符串拼接 --&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>&lt;<span style="color:#062873;font-weight:bold">img</span> <span style="color:#4070a0">:src</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;&#39;/path/to/images/&#39; + fileName&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span><span style="color:#60a0b0;font-style:italic">&lt;!-- class 绑定 --&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">:class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;{ red: isRed }&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">:class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;[classA, classB]&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">:class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;[classA, { classB: isB, classC: isC }]&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span><span style="color:#60a0b0;font-style:italic">&lt;!-- style 绑定 --&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">:style</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;{ fontSize: size + &#39;px&#39; }&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">:style</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;[styleObjectA, styleObjectB]&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span><span style="color:#60a0b0;font-style:italic">&lt;!-- 绑定一个全是 attribute 的对象 --&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">v-bind</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;{ id: someProp, &#39;other-attr&#39;: otherProp }&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span><span style="color:#60a0b0;font-style:italic">&lt;!-- 通过 prop 修饰符绑定 DOM attribute --&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">v-bind:text-content</span><span style="">.</span><span style="color:#4070a0">prop</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;text&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span><span style="color:#60a0b0;font-style:italic">&lt;!-- prop 绑定。“prop”必须在 my-component 中声明。--&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>&lt;<span style="color:#062873;font-weight:bold">my-component</span> <span style="color:#4070a0">:prop</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;someThing&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">my-component</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span><span style="color:#60a0b0;font-style:italic">&lt;!-- 通过 $props 将父组件的 props 一起传给子组件 --&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>&lt;<span style="color:#062873;font-weight:bold">child-component</span> <span style="color:#4070a0">v-bind</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;$props&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">child-component</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span><span style="color:#60a0b0;font-style:italic">&lt;!-- XLink --&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>&lt;<span style="color:#062873;font-weight:bold">svg</span>&gt;&lt;<span style="color:#062873;font-weight:bold">a</span> <span style="color:#4070a0">:xlink:special</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;foo&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">a</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">svg</span>&gt;
+</span></span></code></pre></div><hr>
+<ol start="2">
+<li>v-if－－控制元素的显示隐藏</li>
+</ol>
+<p>刚才写了，通过<code>app.message = false</code>，可以让<code>message</code>代表的内容处于隐藏状态，但是控制的只能是通过<code>v-for</code>引入的内容，无法直接让元素隐藏</p>
+<p>其实，vue 中还有一个专门控制元素显示隐藏的指令－－<code>v-if</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>  &lt;<span style="color:#062873;font-weight:bold">span</span> <span style="color:#4070a0">v-if</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;show&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    {{message}}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>  &lt;/<span style="color:#062873;font-weight:bold">span</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>&lt;<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>  <span style="color:#007020;font-weight:bold">var</span> app <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> Vue({
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    el<span style="color:#666">:</span> <span style="color:#4070a0">&#34;#app&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    data<span style="color:#666">:</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>      message<span style="color:#666">:</span> <span style="color:#4070a0">&#39;hello,world&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>      show<span style="color:#666">:</span> <span style="color:#007020;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>  })
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>&lt;/<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span></code></pre></div><p>给元素绑定一个指令<code>v-if = &quot;show&quot;</code>，然后在 data 中控制<code>show</code>的布尔值，true 显示，false 隐藏</p>
+<p>同时还有这个功能的指令<code>v-show</code>，根据表达式之真假值，切换元素的<code>display</code> CSS property，也是通过绑定的布尔值来显示隐藏</p>
+<p><strong>但是<code>v-if</code>和<code>v-show</code>有些区别</strong></p>
+<p>(1) v-if 是控制元素是否渲染最终控制元素的显示隐藏，适用于切换频率低的情况
+(2) v-show 不管显示隐藏都渲染，然后通过布尔值绑定<code>display: none</code>属性，适用于切换频率高的情况</p>
+<blockquote>
+<p>注意：<code>v-show</code>不支持<code>&lt;tempalte&gt;</code>元素，也不支持<code>v-else</code></p></blockquote>
+<p><strong>搭配用法</strong></p>
+<p><code>v-else</code>和<code>v-else-if</code></p>
+<p>可以通过使用<code>v-else</code>达到<code>v-if</code>的效果，必须和<code>v-if</code>搭配使用，比如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">v-if</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;1&gt;2&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>  hello
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">v-else</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>  hi
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span></code></pre></div><p>如果<code>v-if</code>不成立，执行<code>v-else</code>，也就是显示 v-else 里面的内容</p>
+<p>是不是有点 javascript 里面<code>if函数</code>的感觉了</p>
+<p><code>v-else-if</code>用法大致一样，必须和<code>v-if</code>和<code>v-else</code>搭配使用</p>
+<hr>
+<ol start="3">
+<li>v-for－－遍历数组并显示到页面上</li>
+</ol>
+<p><code>v-for</code>算是 vue 的核心指令之一了把，主要是渲染一个项目列表的</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>  &lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">v-for</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;item in list&#34;</span>&gt;{{item.message}}&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>&lt;<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>  <span style="color:#007020;font-weight:bold">var</span> app <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> Vue({
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    el<span style="color:#666">:</span> <span style="color:#4070a0">&#34;#app&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    data<span style="color:#666">:</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>      list<span style="color:#666">:</span> [
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        {message<span style="color:#666">:</span> <span style="color:#4070a0">&#39;html&#39;</span>},
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>        {message<span style="color:#666">:</span> <span style="color:#4070a0">&#39;css&#39;</span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>      ]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>  })
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>&lt;/<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span></code></pre></div><p>可以直接把列表数据循环输出</p>
+<p>并且在控制台中通过<code>push()</code>还能添加新的列表项</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>app.list.push({message<span style="color:#666">:</span> <span style="color:#4070a0">&#34;js&#34;</span>})
+</span></span></code></pre></div><p>vue 对数据操作，就是这么神奇</p>
+<p><strong>不推荐<code>v-for</code>和<code>v-if</code>同时使用，因为<code>v-for</code>拥有更高的优先级</strong></p>
+<hr>
+<ol>
+<li>v-on－－绑定事件监听器</li>
+</ol>
+<p>即绑定事件，通过<code>v-on</code>给 div 绑定了一个点击事件，注意，在<code>reverseMessage</code>方法中，我们更新了应用的状态，但是吗诶呀触碰到 dom，直接通过 vue 来进行处理，编写代码时只需要关注逻辑层即可</p>
+<p><code>v-on:click=&quot;messagenone&quot;</code>，然后在<code>methods</code>里面写上事件方法</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>  &lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">v-on:click</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;messagenone&#34;</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;demo&#34;</span>&gt;{{message}}&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>&lt;<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>  <span style="color:#007020;font-weight:bold">var</span> app <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> Vue({
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    el<span style="color:#666">:</span> <span style="color:#4070a0">&#34;#app&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    data<span style="color:#666">:</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>      message<span style="color:#666">:</span> <span style="color:#4070a0">&#39;hello,wolrd&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    },
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    methods<span style="color:#666">:</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>      messagenone<span style="color:#666">:</span> <span style="color:#007020;font-weight:bold">function</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>        <span style="color:#007020;font-weight:bold">var</span> demo <span style="color:#666">=</span> <span style="color:#007020">document</span>.getElementById(<span style="color:#4070a0">&#39;demo&#39;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>        demo.innerHTML <span style="color:#666">=</span> <span style="color:#4070a0">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>      }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>  })
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>&lt;/<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span></code></pre></div><hr>
+<ol start="5">
+<li>v-model－－数据的双向绑定</li>
+</ol>
+<p>vue 还提供了<code>v-model</code>指令，它能轻松实现表单输入和应用状态之间的双向绑定</p>
+<p><strong>可使用场景：标签 input, select, textarea 和 components</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>  &lt;<span style="color:#062873;font-weight:bold">div</span>&gt;{{message}}&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>  &lt;<span style="color:#062873;font-weight:bold">input</span> <span style="color:#4070a0">type</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;text&#34;</span> <span style="color:#4070a0">v-model</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;message&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>&lt;<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>  <span style="color:#007020;font-weight:bold">var</span> app <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> Vue({
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    el<span style="color:#666">:</span> <span style="color:#4070a0">&#34;#app&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    data<span style="color:#666">:</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>      message<span style="color:#666">:</span> <span style="color:#4070a0">&#39;hello,wolrd&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>  })
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>&lt;/<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span></code></pre></div><hr>
+<ol start="6">
+<li>v-text 更新元素的内容</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>    &lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">v-text</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;message&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    &lt;<span style="color:#062873;font-weight:bold">div</span>&gt;{{message}}&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>&lt;<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    <span style="color:#007020;font-weight:bold">var</span> vm <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> Vue({
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        el<span style="color:#666">:</span> <span style="color:#4070a0">&#39;#app&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>        data<span style="color:#666">:</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>            message<span style="color:#666">:</span> <span style="color:#4070a0">&#39;hello,wolrd&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>        }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    })
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>&lt;/<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span></code></pre></div><p>上面的 div 和下面的 div 内容跟随一致变化</p>
+<hr>
+<ol start="7">
+<li>v-html－－更新元素的 innerHTML</li>
+</ol>
+<p><!-- raw HTML omitted -->不建议使用，在网站上动态渲染 html 是非常危险的，容易导致<code>XXS 攻击</code>，不能用在用户提交的内容上，如果必须使用 v-html，可以考虑通过使用组件来代替<!-- raw HTML omitted --></p>
+<hr>
+<ol start="8">
+<li>v-pre</li>
+</ol>
+<p>跳过绑定的元素和他的子元素的编译，直接显示原始内容</p>
+<p>跳过没有指令的节点不进行编译，直接显示内容，会加快页面的响应</p>
+<hr>
+<ol start="9">
+<li>v-cloak</li>
+</ol>
+<p>在编译没有编译完成之前，模板处于的状态</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>&lt;<span style="color:#062873;font-weight:bold">style</span>&gt;<span style="color:#062873;font-weight:bold">v-cloak</span><span style="color:#666">]</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>  <span style="color:#007020;font-weight:bold">display</span>: <span style="color:#007020;font-weight:bold">none</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>}&lt;/<span style="color:#062873;font-weight:bold">style</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">v-cloak</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>  {{message}}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>&lt;<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>  <span style="color:#007020;font-weight:bold">var</span> vm <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> Vue({
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    el<span style="color:#666">:</span> <span style="color:#4070a0">&#39;#app&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    data<span style="color:#666">:</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    	message<span style="color:#666">:</span> <span style="color:#4070a0">&#39;hello,wolrd&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>  })
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>&lt;/<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span></code></pre></div><p>上述代码表示的含义是，如果网络不好，<code>{{message}}</code>模板代表的<code>hello,world</code>还没有编译成功，此时<code>{{message}}</code>处于隐藏状态，当编译完成，页面直接显示<code>hello,world</code></p>
+<hr>
+<ol start="10">
+<li>v-once－－一次性渲染</li>
+</ol>
+<p>绑定该指令的元素及其子元素只会进行一次渲染，之后页面的第二次渲染会将其视为静态资源并跳过，可以用来优化性能</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>    &lt;<span style="color:#062873;font-weight:bold">span</span> <span style="color:#4070a0">v-once</span>&gt;{{message}}&lt;/<span style="color:#062873;font-weight:bold">span</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>&lt;<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    <span style="color:#007020;font-weight:bold">var</span> vm <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> Vue({
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>        el<span style="color:#666">:</span> <span style="color:#4070a0">&#39;#app&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        data<span style="color:#666">:</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>            message<span style="color:#666">:</span> <span style="color:#4070a0">&#39;hello,wolrd&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    })
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>&lt;/<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span></code></pre></div><p>使用场景：表单提交。可防止用户在请求未及时响应时，多次提交~</p>
+<h3 id="2组件化构建应用">2.组件化构建应用</h3>
+<p>组件化也是 vue 的核心机制之一，它允许我们使用小型，可复用的组件来构建大型应用</p>
+<p><img src="https://i.loli.net/2020/11/28/UDzxwoIJLq9u6nG.png" alt=""></p>
+<p>在 vue 里，一个组件本质上是一个拥有预定义选项的一个 vue 实例。在 vue 中注册组件很简单</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#60a0b0;font-style:italic">// 定义名为 todo-item 的新组件
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#60a0b0;font-style:italic"></span>Vue.component(<span style="color:#4070a0">&#39;todo-item&#39;</span>, {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>  template<span style="color:#666">:</span> <span style="color:#4070a0">&#39;&lt;li&gt;这是个待办项&lt;/li&gt;&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>})
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#007020;font-weight:bold">var</span> app <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> Vue(...)
+</span></span></code></pre></div><p>现在可以用它构建另一个组件模板</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&lt;<span style="color:#062873;font-weight:bold">ol</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>  <span style="color:#60a0b0;font-style:italic">&lt;!-- 创建一个 todo-item 组件的实例 --&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>  &lt;<span style="color:#062873;font-weight:bold">todo-item</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">todo-item</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>&lt;/<span style="color:#062873;font-weight:bold">ol</span>&gt;
+</span></span></code></pre></div><p>但是这样会为每个待办项渲染同样的文本，这看起来并不炫酷。我们应该能从父作用域将数据传到子组件才对。让我们来修改一下组件的定义，使之能够接受一个<code>props</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Vue.component(<span style="color:#4070a0">&#39;todo-item&#39;</span>, {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>  <span style="color:#60a0b0;font-style:italic">// todo-item 组件现在接受一个
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#60a0b0;font-style:italic"></span>  <span style="color:#60a0b0;font-style:italic">// &#34;props&#34;，类似于一个自定义 attribute。
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#60a0b0;font-style:italic"></span>  <span style="color:#60a0b0;font-style:italic">// 这个 props 名为 todo。
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#60a0b0;font-style:italic"></span>  props<span style="color:#666">:</span> [<span style="color:#4070a0">&#39;todo&#39;</span>],
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>  template<span style="color:#666">:</span> <span style="color:#4070a0">&#39;&lt;li&gt;{{ todo.text }}&lt;/li&gt;&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>})
+</span></span></code></pre></div><p>现在，我们可以使用<code>v-bind</code>指令将待办项传到循环输出的每个组件中</p>
+<p>现在我们为每个 todo-item 提供 todo 对象 todo 对象是变量，即其内容可以是动态的，我们也需要为每个组件提供一个<code>key</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;app-7&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>  &lt;<span style="color:#062873;font-weight:bold">ol</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    &lt;<span style="color:#062873;font-weight:bold">todo-item</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>      <span style="color:#4070a0">v-for</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;item in groceryList&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>      <span style="color:#4070a0">v-bind:todo</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;item&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>      <span style="color:#4070a0">v-bind:key</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;item.id&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>    &gt;&lt;/<span style="color:#062873;font-weight:bold">todo-item</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>  &lt;/<span style="color:#062873;font-weight:bold">ol</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>Vue.component(<span style="color:#4070a0">&#39;todo-item&#39;</span>, {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>  props<span style="color:#666">:</span> [<span style="color:#4070a0">&#39;todo&#39;</span>],
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>  template<span style="color:#666">:</span> <span style="color:#4070a0">&#39;&lt;li&gt;{{ todo.text }}&lt;/li&gt;&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>})
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#007020;font-weight:bold">var</span> app7 <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> Vue({
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>  el<span style="color:#666">:</span> <span style="color:#4070a0">&#39;#app-7&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>  data<span style="color:#666">:</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    groceryList<span style="color:#666">:</span> [
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>      { id<span style="color:#666">:</span> <span style="color:#40a070">0</span>, text<span style="color:#666">:</span> <span style="color:#4070a0">&#39;蔬菜&#39;</span> },
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>      { id<span style="color:#666">:</span> <span style="color:#40a070">1</span>, text<span style="color:#666">:</span> <span style="color:#4070a0">&#39;奶酪&#39;</span> },
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>      { id<span style="color:#666">:</span> <span style="color:#40a070">2</span>, text<span style="color:#666">:</span> <span style="color:#4070a0">&#39;随便其它什么人吃的东西&#39;</span> }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    ]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>  }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>})
+</span></span></code></pre></div><p>尽管这只是一个刻意设计的例子，但是我们已经设法将应用分割成了两个更小的单元。子单元通过<code>prop</code>接口与父单元进行了良好的解耦。我们现在可以进一步改进 <!-- raw HTML omitted --> 组件，提供更为复杂的模板和逻辑，而不会影响到父单元</p>
+<p>在一个大型应用中，有必要将整个应用程序划分为组件，以使开发更易管理</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>  &lt;<span style="color:#062873;font-weight:bold">app-nav</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">app-nav</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>  &lt;<span style="color:#062873;font-weight:bold">app-view</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>    &lt;<span style="color:#062873;font-weight:bold">app-sidebar</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">app-sidebar</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>    &lt;<span style="color:#062873;font-weight:bold">app-content</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">app-content</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>  &lt;/<span style="color:#062873;font-weight:bold">app-view</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span></code></pre></div>
+</content>
+<p>
+  
+  <a href="http://localhost:1313/blog/vue/">#Vue</a>
+  
+  <a href="http://localhost:1313/blog/%E7%AC%94%E8%AE%B0/">#笔记</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
+<title>Cherry Studio 接入高德地图 MCP 示例 | Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+<meta name="title" content="Cherry Studio 接入高德地图 MCP 示例" />
+<meta name="description" content="本教程使用环境 Cherry Studio 1.1.17.
+最近 Cherry Studio 也接入了 MCP 服务器，闲着无聊准备尝试一番，就拿最简单的高德地图来做演示，刚好最近高德也支持了 MCP 服务。
+需要申请高德开发者账号，这个就不赘述了。在高德开发者控制台找到 应用管理&gt;我的应用，点击创建新应用，类型名称随便填一下，绑定服务要选择 Web服务，然后不要限制 IP，最后会生成一个 key。
+配置 Cherry Studio 的 MCP 服务器
+拿到高德地图的 key 后，在 Cherry Studio 的 MCP 服务器设置填入，有两种方法。
+
+方法一：直接导入配置（推荐）
+
+在右上角 编辑 MCP 配置 中直接将下面的配置复制进去，改一下 AMAP_MAPS_API_KEY
+ 1{
+ 2  &#34;mcpServers&#34;: {
+ 3    &#34;@amap/amap-maps&#34;: {
+ 4      &#34;name&#34;: &#34;@amap/amap-maps&#34;,
+ 5      &#34;isActive&#34;: true,
+ 6      &#34;command&#34;: &#34;npx&#34;,
+ 7      &#34;args&#34;: [
+ 8        &#34;-y&#34;,
+ 9        &#34;@amap/amap-maps-mcp-server&#34;
+10      ],
+11      &#34;env&#34;: {
+12        &#34;AMAP_MAPS_API_KEY&#34;: &#34;xxxxxxxxxxx&#34;
+13      }
+14    }
+15  }
+16}
+
+方法二：手动填写配置
+
+在 Cherry Studio 中打开 MCP 服务器设置界面，按以下参数填写：" />
+<meta name="keywords" content="Cherry Studio,MCP,AI," />
+
+
+<meta property="og:url" content="http://localhost:1313/255/">
+  <meta property="og:site_name" content="Hugo ʕ•ᴥ•ʔ Bear Blog">
+  <meta property="og:title" content="Cherry Studio 接入高德地图 MCP 示例">
+  <meta property="og:description" content="本教程使用环境 Cherry Studio 1.1.17.
+最近 Cherry Studio 也接入了 MCP 服务器，闲着无聊准备尝试一番，就拿最简单的高德地图来做演示，刚好最近高德也支持了 MCP 服务。
+需要申请高德开发者账号，这个就不赘述了。在高德开发者控制台找到 应用管理&gt;我的应用，点击创建新应用，类型名称随便填一下，绑定服务要选择 Web服务，然后不要限制 IP，最后会生成一个 key。
+配置 Cherry Studio 的 MCP 服务器 拿到高德地图的 key 后，在 Cherry Studio 的 MCP 服务器设置填入，有两种方法。
+方法一：直接导入配置（推荐） 在右上角 编辑 MCP 配置 中直接将下面的配置复制进去，改一下 AMAP_MAPS_API_KEY
+1{ 2 &#34;mcpServers&#34;: { 3 &#34;@amap/amap-maps&#34;: { 4 &#34;name&#34;: &#34;@amap/amap-maps&#34;, 5 &#34;isActive&#34;: true, 6 &#34;command&#34;: &#34;npx&#34;, 7 &#34;args&#34;: [ 8 &#34;-y&#34;, 9 &#34;@amap/amap-maps-mcp-server&#34; 10 ], 11 &#34;env&#34;: { 12 &#34;AMAP_MAPS_API_KEY&#34;: &#34;xxxxxxxxxxx&#34; 13 } 14 } 15 } 16} 方法二：手动填写配置 在 Cherry Studio 中打开 MCP 服务器设置界面，按以下参数填写：">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-04-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-02T00:00:00+00:00">
+    <meta property="article:tag" content="Cherry Studio">
+    <meta property="article:tag" content="MCP">
+    <meta property="article:tag" content="AI">
+    <meta property="og:image" content="http://localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.png">
+  <meta name="twitter:title" content="Cherry Studio 接入高德地图 MCP 示例">
+  <meta name="twitter:description" content="本教程使用环境 Cherry Studio 1.1.17.
+最近 Cherry Studio 也接入了 MCP 服务器，闲着无聊准备尝试一番，就拿最简单的高德地图来做演示，刚好最近高德也支持了 MCP 服务。
+需要申请高德开发者账号，这个就不赘述了。在高德开发者控制台找到 应用管理&gt;我的应用，点击创建新应用，类型名称随便填一下，绑定服务要选择 Web服务，然后不要限制 IP，最后会生成一个 key。
+配置 Cherry Studio 的 MCP 服务器 拿到高德地图的 key 后，在 Cherry Studio 的 MCP 服务器设置填入，有两种方法。
+方法一：直接导入配置（推荐） 在右上角 编辑 MCP 配置 中直接将下面的配置复制进去，改一下 AMAP_MAPS_API_KEY
+1{ 2 &#34;mcpServers&#34;: { 3 &#34;@amap/amap-maps&#34;: { 4 &#34;name&#34;: &#34;@amap/amap-maps&#34;, 5 &#34;isActive&#34;: true, 6 &#34;command&#34;: &#34;npx&#34;, 7 &#34;args&#34;: [ 8 &#34;-y&#34;, 9 &#34;@amap/amap-maps-mcp-server&#34; 10 ], 11 &#34;env&#34;: { 12 &#34;AMAP_MAPS_API_KEY&#34;: &#34;xxxxxxxxxxx&#34; 13 } 14 } 15 } 16} 方法二：手动填写配置 在 Cherry Studio 中打开 MCP 服务器设置界面，按以下参数填写：">
+
+
+
+
+  <meta itemprop="name" content="Cherry Studio 接入高德地图 MCP 示例">
+  <meta itemprop="description" content="本教程使用环境 Cherry Studio 1.1.17.
+最近 Cherry Studio 也接入了 MCP 服务器，闲着无聊准备尝试一番，就拿最简单的高德地图来做演示，刚好最近高德也支持了 MCP 服务。
+需要申请高德开发者账号，这个就不赘述了。在高德开发者控制台找到 应用管理&gt;我的应用，点击创建新应用，类型名称随便填一下，绑定服务要选择 Web服务，然后不要限制 IP，最后会生成一个 key。
+配置 Cherry Studio 的 MCP 服务器 拿到高德地图的 key 后，在 Cherry Studio 的 MCP 服务器设置填入，有两种方法。
+方法一：直接导入配置（推荐） 在右上角 编辑 MCP 配置 中直接将下面的配置复制进去，改一下 AMAP_MAPS_API_KEY
+1{ 2 &#34;mcpServers&#34;: { 3 &#34;@amap/amap-maps&#34;: { 4 &#34;name&#34;: &#34;@amap/amap-maps&#34;, 5 &#34;isActive&#34;: true, 6 &#34;command&#34;: &#34;npx&#34;, 7 &#34;args&#34;: [ 8 &#34;-y&#34;, 9 &#34;@amap/amap-maps-mcp-server&#34; 10 ], 11 &#34;env&#34;: { 12 &#34;AMAP_MAPS_API_KEY&#34;: &#34;xxxxxxxxxxx&#34; 13 } 14 } 15 } 16} 方法二：手动填写配置 在 Cherry Studio 中打开 MCP 服务器设置界面，按以下参数填写：">
+  <meta itemprop="datePublished" content="2025-04-02T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-04-02T00:00:00+00:00">
+  <meta itemprop="wordCount" content="246">
+  <meta itemprop="image" content="http://localhost:1313/images/share.png">
+  <meta itemprop="keywords" content="Cherry Studio,MCP,AI">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Hugo ʕ•ᴥ•ʔ Bear Blog</h2>
+</a>
+<nav>
+</nav>
+</header>
+  <main>
+
+<h1>Cherry Studio 接入高德地图 MCP 示例</h1>
+<p>
+  <i>
+    <time datetime='2025-04-02'>
+      02 Apr, 2025
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>本教程使用环境 Cherry Studio 1.1.17.</p>
+<p>最近 Cherry Studio 也接入了 MCP 服务器，闲着无聊准备尝试一番，就拿最简单的高德地图来做演示，刚好最近高德也支持了 MCP 服务。</p>
+<p>需要申请高德开发者账号，这个就不赘述了。在高德开发者控制台找到 <code>应用管理&gt;我的应用</code>，点击<code>创建新应用</code>，类型名称随便填一下，绑定服务要选择 <code>Web服务</code>，然后不要限制 IP，最后会生成一个 key。</p>
+<h3 id="配置-cherry-studio-的-mcp-服务器">配置 Cherry Studio 的 MCP 服务器</h3>
+<p>拿到高德地图的 key 后，在 Cherry Studio 的 MCP 服务器设置填入，有两种方法。</p>
+<ol>
+<li>方法一：直接导入配置（推荐）</li>
+</ol>
+<p>在右上角 <code>编辑 MCP 配置</code> 中直接将下面的配置复制进去，改一下 <code>AMAP_MAPS_API_KEY</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>  <span style="color:#062873;font-weight:bold">&#34;mcpServers&#34;</span>: {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#062873;font-weight:bold">&#34;@amap/amap-maps&#34;</span>: {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>      <span style="color:#062873;font-weight:bold">&#34;name&#34;</span>: <span style="color:#4070a0">&#34;@amap/amap-maps&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>      <span style="color:#062873;font-weight:bold">&#34;isActive&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>      <span style="color:#062873;font-weight:bold">&#34;command&#34;</span>: <span style="color:#4070a0">&#34;npx&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>      <span style="color:#062873;font-weight:bold">&#34;args&#34;</span>: [
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        <span style="color:#4070a0">&#34;-y&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>        <span style="color:#4070a0">&#34;@amap/amap-maps-mcp-server&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>      ],
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>      <span style="color:#062873;font-weight:bold">&#34;env&#34;</span>: {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>        <span style="color:#062873;font-weight:bold">&#34;AMAP_MAPS_API_KEY&#34;</span>: <span style="color:#4070a0">&#34;xxxxxxxxxxx&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>      }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>  }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>}
+</span></span></code></pre></div><ol start="2">
+<li>方法二：手动填写配置</li>
+</ol>
+<p>在 Cherry Studio 中打开 MCP 服务器设置界面，按以下参数填写：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>名称：@amap/amap-maps
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>命令：npx
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>参数：-y @amap/amap-maps-mcp-server
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>环境变量：添加 AMAP_MAPS_API_KEY 并填入您的 Key。
+</span></span></code></pre></div><p>保存配置后，系统会自动加载高德地图的 MCP 服务。</p>
+<p><img src="https://imgurl.zishu.me/2025/04/1743571909183.webp" alt=""></p>
+<p>会在下方显示高德地图支持的工具，就是 AI 模型可以调用的工具。</p>
+<p><img src="https://imgurl.zishu.me/2025/04/1743571892735.webp" alt=""></p>
+<h3 id="启用-ai-模型的函数调用功能">启用 AI 模型的函数调用功能</h3>
+<p>使用方法也很简单，需要 AI 模型支持函数调用，以火山引擎作为示例，我使用了 DeepSeek-R1 模型，默认是没有函数调用的（会显示那个小扳手），需要在设置中手动开启</p>
+<p><img src="https://imgurl.zishu.me/2025/04/1743571944482.webp" alt=""></p>
+<p><img src="https://imgurl.zishu.me/2025/04/1743571984748.webp" alt=""></p>
+<p>这样在聊天框下方会出现一个 MCP 的标志，勾选后可以直接跟模型进行对话，可以输出天气地点等信息，如果再搭配你的 prompt，可以直接规划公交地铁线路等。</p>
+<p><img src="https://imgurl.zishu.me/2025/04/1743571957570.webp" alt=""></p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#800080;font-weight:bold">### 🧑‍💻 User
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#800080;font-weight:bold"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>规划一下这周清明节在杭州出去玩的攻略。
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>---
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#800080;font-weight:bold">### 🤖 Assistant
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#800080;font-weight:bold"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>根据杭州清明节期间的天气情况，我为您规划一份兼顾自然风光与文化体验的 3 日游攻略，天气友好且行程灵活：
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>---
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="font-style:italic">**</span>🌿 清明小长假 3 日游行程推荐（4 月 3 日 -5 日）**  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span><span style="font-style:italic">*注：4 月 2 日周二为工作日，建议提前抵达杭州做准备*</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>---
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span><span style="font-weight:bold">**Day1（4 月 3 日·晴转多云｜7-19℃）**</span>  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span><span style="font-weight:bold">**主题：西湖经典文化线**</span>  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>☀️ 上午  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>7:30 乘摇橹船游「乌龟潭路线」  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>（郭庄码头→茅家埠→曲院风荷，避开人潮享樱花碧水）  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>9:30 步行至「岳王庙」拜谒民族英雄  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>🌤️ 下午  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>13:00「中国茶叶博物馆（双峰馆）」  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>（亲手体验龙井茶炒制，观千亩茶田）  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>15:30「茅家埠黛色参天」古风摄影  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>（黛色牌坊 + 睡莲初绽，汉服出片胜地）  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>🌙 夜晚  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>19:00「西湖音乐喷泉」灯光秀  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>（提前占位，夜赏湖滨灯光璀璨）  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>---
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span><span style="font-weight:bold">**Day2（4 月 4 日·多云｜12-26℃）**</span>  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span><span style="font-weight:bold">**主题：春日野趣轻徒步**</span>  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>🌸 上午  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>8:00「九溪烟树」溯溪徒步  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>（穿越迷雾森林，十八涧水映杜鹃）  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span>11:00「龙井村」茶农家访  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span>（品明前龙井，尝茶香土鸡汤）  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span><span>🌿 下午  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span><span>14:00「云栖竹径」洗肺之旅  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span><span>（千年古树 + 竹林秘境，电影《卧虎藏龙》取景地）  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span><span>16:30「梅家坞」茶园骑行  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span><span>（租电动车漫游茶山，俯瞰层叠青绿）  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52</span><span>🍵 傍晚  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53</span><span>18:30「茶人村」晚餐  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54</span><span>（百年老宅尝桂花藕韵、茶香虾）  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56</span><span>---
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58</span><span><span style="font-weight:bold">**Day3（4 月 5 日·小雨转晴｜13-25℃）**</span>  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59</span><span><span style="font-weight:bold">**主题：运河文艺漫游**</span>  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60</span><span>🌧️ 上午（微雨意境）  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61</span><span>9:00「桥西历史街区」  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62</span><span>（逛刀剪/伞/扇博物馆，体验非遗手作）  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63</span><span>11:00「小河直街」咖啡探店  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64</span><span>（推荐河下咖啡·《人间草木》主题书咖）  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66</span><span>☀️ 下午（放晴后）  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67</span><span>14:00「拱宸桥」乘漕舫船  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68</span><span>（水路穿越古今，听评弹吴侬软语）  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69</span><span>16:00「富义仓艺术中心」看展  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70</span><span>（旧粮仓改造的先锋艺术空间）  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72</span><span>🎑 夜晚  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73</span><span>19:30「胜利河美食街」夜宵  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74</span><span>（推荐老头油爆虾、脆皮大肠）  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76</span><span>---
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78</span><span><span style="font-style:italic">**</span>⚠️ 出行贴士**  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79</span><span>1️⃣ 穿衣：洋葱式穿搭（薄毛衣 + 防风外套），备晴雨伞  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80</span><span>2️⃣ 交通：西湖景区周末单双号限行，推荐地铁 + 共享单车  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">81</span><span>3️⃣ 预约：岳王庙/茶叶博物馆等需提前 1 天在「掌上西湖」预约  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">82</span><span>4️⃣ 备选：若遇大雨可调整为「浙江省博」+「南宋官窑博物馆」室内游  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">83</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">84</span><span>清明时节的杭州既有烟雨江南的朦胧美，又有春和景明的清朗，建议随身带本《杭州记事》手账，在各景点盖限定章留念哦~ 🌸
+</span></span></code></pre></div><!-- raw HTML omitted -->
+
+</content>
+<p>
+  
+  <a href="http://localhost:1313/blog/cherry-studio/">#Cherry Studio</a>
+  
+  <a href="http://localhost:1313/blog/mcp/">#MCP</a>
+  
+  <a href="http://localhost:1313/blog/ai/">#AI</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

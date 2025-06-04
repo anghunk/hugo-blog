@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
+<title>typecho 博客小表情无法显示问题 | Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+<meta name="title" content="typecho 博客小表情无法显示问题" />
+<meta name="description" content="typecho 博客建立完成之后，会发现如果插入一些小表情，页面渲染完之后，表情不会显示，并且表情之后的内容全部消失，导致体验感很差。
+表情无法显示的原因是 uft-8 编码的问题，无法识别小表情，需要将其改成 utf8mb4
+第一步，进入数据库
+首先登陆博客后台的数据库，然后点击 sql，输入下列代码：
+1alter table typecho_comments convert to character set utf8mb4 collate utf8mb4_unicode_ci;
+2alter table typecho_contents convert to character set utf8mb4 collate utf8mb4_unicode_ci;
+3alter table typecho_fields convert to character set utf8mb4 collate utf8mb4_unicode_ci;
+4alter table typecho_metas convert to character set utf8mb4 collate utf8mb4_unicode_ci;
+5alter table typecho_options convert to character set utf8mb4 collate utf8mb4_unicode_ci;
+6alter table typecho_relationships convert to character set utf8mb4 collate utf8mb4_unicode_ci;
+7alter table typecho_users convert to character set utf8mb4 collate utf8mb4_unicode_ci;
+直接复制，然后点击右下角的执行" />
+<meta name="keywords" content="博客,typecho," />
+
+
+<meta property="og:url" content="http://localhost:1313/50/">
+  <meta property="og:site_name" content="Hugo ʕ•ᴥ•ʔ Bear Blog">
+  <meta property="og:title" content="typecho 博客小表情无法显示问题">
+  <meta property="og:description" content="typecho 博客建立完成之后，会发现如果插入一些小表情，页面渲染完之后，表情不会显示，并且表情之后的内容全部消失，导致体验感很差。
+表情无法显示的原因是 uft-8 编码的问题，无法识别小表情，需要将其改成 utf8mb4
+第一步，进入数据库 首先登陆博客后台的数据库，然后点击 sql，输入下列代码：
+1alter table typecho_comments convert to character set utf8mb4 collate utf8mb4_unicode_ci; 2alter table typecho_contents convert to character set utf8mb4 collate utf8mb4_unicode_ci; 3alter table typecho_fields convert to character set utf8mb4 collate utf8mb4_unicode_ci; 4alter table typecho_metas convert to character set utf8mb4 collate utf8mb4_unicode_ci; 5alter table typecho_options convert to character set utf8mb4 collate utf8mb4_unicode_ci; 6alter table typecho_relationships convert to character set utf8mb4 collate utf8mb4_unicode_ci; 7alter table typecho_users convert to character set utf8mb4 collate utf8mb4_unicode_ci; 直接复制，然后点击右下角的执行">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2021-02-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-02-04T00:00:00+00:00">
+    <meta property="article:tag" content="博客">
+    <meta property="article:tag" content="Typecho">
+    <meta property="og:image" content="http://localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.png">
+  <meta name="twitter:title" content="typecho 博客小表情无法显示问题">
+  <meta name="twitter:description" content="typecho 博客建立完成之后，会发现如果插入一些小表情，页面渲染完之后，表情不会显示，并且表情之后的内容全部消失，导致体验感很差。
+表情无法显示的原因是 uft-8 编码的问题，无法识别小表情，需要将其改成 utf8mb4
+第一步，进入数据库 首先登陆博客后台的数据库，然后点击 sql，输入下列代码：
+1alter table typecho_comments convert to character set utf8mb4 collate utf8mb4_unicode_ci; 2alter table typecho_contents convert to character set utf8mb4 collate utf8mb4_unicode_ci; 3alter table typecho_fields convert to character set utf8mb4 collate utf8mb4_unicode_ci; 4alter table typecho_metas convert to character set utf8mb4 collate utf8mb4_unicode_ci; 5alter table typecho_options convert to character set utf8mb4 collate utf8mb4_unicode_ci; 6alter table typecho_relationships convert to character set utf8mb4 collate utf8mb4_unicode_ci; 7alter table typecho_users convert to character set utf8mb4 collate utf8mb4_unicode_ci; 直接复制，然后点击右下角的执行">
+
+
+
+
+  <meta itemprop="name" content="typecho 博客小表情无法显示问题">
+  <meta itemprop="description" content="typecho 博客建立完成之后，会发现如果插入一些小表情，页面渲染完之后，表情不会显示，并且表情之后的内容全部消失，导致体验感很差。
+表情无法显示的原因是 uft-8 编码的问题，无法识别小表情，需要将其改成 utf8mb4
+第一步，进入数据库 首先登陆博客后台的数据库，然后点击 sql，输入下列代码：
+1alter table typecho_comments convert to character set utf8mb4 collate utf8mb4_unicode_ci; 2alter table typecho_contents convert to character set utf8mb4 collate utf8mb4_unicode_ci; 3alter table typecho_fields convert to character set utf8mb4 collate utf8mb4_unicode_ci; 4alter table typecho_metas convert to character set utf8mb4 collate utf8mb4_unicode_ci; 5alter table typecho_options convert to character set utf8mb4 collate utf8mb4_unicode_ci; 6alter table typecho_relationships convert to character set utf8mb4 collate utf8mb4_unicode_ci; 7alter table typecho_users convert to character set utf8mb4 collate utf8mb4_unicode_ci; 直接复制，然后点击右下角的执行">
+  <meta itemprop="datePublished" content="2021-02-04T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-02-04T00:00:00+00:00">
+  <meta itemprop="wordCount" content="142">
+  <meta itemprop="image" content="http://localhost:1313/images/share.png">
+  <meta itemprop="keywords" content="博客,Typecho">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Hugo ʕ•ᴥ•ʔ Bear Blog</h2>
+</a>
+<nav>
+</nav>
+</header>
+  <main>
+
+<h1>typecho 博客小表情无法显示问题</h1>
+<p>
+  <i>
+    <time datetime='2021-02-04'>
+      04 Feb, 2021
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>typecho 博客建立完成之后，会发现如果插入一些小表情，页面渲染完之后，表情不会显示，并且表情之后的内容全部消失，导致体验感很差。</p>
+<p>表情无法显示的原因是 uft-8 编码的问题，无法识别小表情，需要将其改成 utf8mb4</p>
+<h3 id="第一步进入数据库">第一步，进入数据库</h3>
+<p>首先登陆博客后台的数据库，然后点击 sql，输入下列代码：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#007020;font-weight:bold">alter</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">table</span><span style="color:#bbb"> </span>typecho_comments<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">convert</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span><span style="color:#007020">character</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">set</span><span style="color:#bbb"> </span>utf8mb4<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">collate</span><span style="color:#bbb"> </span>utf8mb4_unicode_ci;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">alter</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">table</span><span style="color:#bbb"> </span>typecho_contents<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">convert</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span><span style="color:#007020">character</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">set</span><span style="color:#bbb"> </span>utf8mb4<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">collate</span><span style="color:#bbb"> </span>utf8mb4_unicode_ci;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">alter</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">table</span><span style="color:#bbb"> </span>typecho_fields<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">convert</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span><span style="color:#007020">character</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">set</span><span style="color:#bbb"> </span>utf8mb4<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">collate</span><span style="color:#bbb"> </span>utf8mb4_unicode_ci;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">alter</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">table</span><span style="color:#bbb"> </span>typecho_metas<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">convert</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span><span style="color:#007020">character</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">set</span><span style="color:#bbb"> </span>utf8mb4<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">collate</span><span style="color:#bbb"> </span>utf8mb4_unicode_ci;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">alter</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">table</span><span style="color:#bbb"> </span>typecho_options<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">convert</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span><span style="color:#007020">character</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">set</span><span style="color:#bbb"> </span>utf8mb4<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">collate</span><span style="color:#bbb"> </span>utf8mb4_unicode_ci;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">alter</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">table</span><span style="color:#bbb"> </span>typecho_relationships<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">convert</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span><span style="color:#007020">character</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">set</span><span style="color:#bbb"> </span>utf8mb4<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">collate</span><span style="color:#bbb"> </span>utf8mb4_unicode_ci;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">alter</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">table</span><span style="color:#bbb"> </span>typecho_users<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">convert</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span><span style="color:#007020">character</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">set</span><span style="color:#bbb"> </span>utf8mb4<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">collate</span><span style="color:#bbb"> </span>utf8mb4_unicode_ci;<span style="color:#bbb">
+</span></span></span></code></pre></div><p>直接复制，然后点击右下角的执行</p>
+<h3 id="第二步修改-typecho-配置文件">第二步，修改 typecho 配置文件</h3>
+<p>我使用的宝塔面板，点击左侧 <code>网站</code> ，然后点击我们这个网站的根目录，进入之后，可以找到一个 <code>config.inc.php</code> 的文件，进入然后滑到最下面。</p>
+<p>**可以发现 <code>'charset' =&gt; 'utf8',</code>**下面我为了更直观的显示，将其注释掉，重新写的，实际操作中，将 <code>utf8</code> 改为 <code>utf8mb4</code> 即可。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#4070a0;font-style:italic">/** 定义数据库参数 */</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#bb60d5">$db</span> <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> Typecho_Db(<span style="color:#4070a0">&#39;Pdo_Mysql&#39;</span>, <span style="color:#4070a0">&#39;typecho_&#39;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#bb60d5">$db</span><span style="color:#666">-&gt;</span><span style="color:#4070a0">addServer</span>(<span style="color:#007020;font-weight:bold">array</span> (
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>  <span style="color:#4070a0">&#39;host&#39;</span> <span style="color:#666">=&gt;</span> <span style="color:#4070a0">&#39;localhost&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>  <span style="color:#4070a0">&#39;user&#39;</span> <span style="color:#666">=&gt;</span> <span style="color:#4070a0">&#39;blog&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>  <span style="color:#4070a0">&#39;password&#39;</span> <span style="color:#666">=&gt;</span> <span style="color:#4070a0">&#39;blog&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>  <span style="color:#4070a0;font-style:italic">/** &#39;charset&#39; =&gt; &#39;utf8&#39;, */</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>  <span style="color:#4070a0">&#39;charset&#39;</span> <span style="color:#666">=&gt;</span> <span style="color:#4070a0">&#39;utf8mb4&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>  <span style="color:#4070a0">&#39;port&#39;</span> <span style="color:#666">=&gt;</span> <span style="color:#4070a0">&#39;3306&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>  <span style="color:#4070a0">&#39;database&#39;</span> <span style="color:#666">=&gt;</span> <span style="color:#4070a0">&#39;blog&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>), Typecho_Db<span style="color:#666">::</span><span style="color:#4070a0">READ</span> <span style="color:#666">|</span> Typecho_Db<span style="color:#666">::</span><span style="color:#4070a0">WRITE</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>Typecho_Db<span style="color:#666">::</span><span style="color:#4070a0">set</span>(<span style="color:#bb60d5">$db</span>);
+</span></span></code></pre></div><p>在文章后台重新输入小表情，然后保存回到页面，小表情成功显示了。</p>
+
+</content>
+<p>
+  
+  <a href="http://localhost:1313/blog/%E5%8D%9A%E5%AE%A2/">#博客</a>
+  
+  <a href="http://localhost:1313/blog/typecho/">#Typecho</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

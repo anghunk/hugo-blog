@@ -1,9 +1,6 @@
 {
   "origins": [
-    "https://zishu.me",
-    "https://www.zishu.me",
-    "https://zsh.im",
-    "https://www.zsh.im"
+    "https://zishu.me"
   ],
   "defaultCommentOrder": "newest"
 }

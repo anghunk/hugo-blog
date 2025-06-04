@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
+<title>说说 | Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+<meta name="title" content="说说" />
+<meta name="description" content="Hugo &#43; Bear = :heart:" />
+<meta name="keywords" content="weekly,技术,随笔,ai,ajax,ant design,aos,axios,bitwarden,canvas,chatgpt,cherry studio,chrome,cloudflare,css,docker,docsify,es6,github,gpt,gravatar,hugo,hugofast,ie,jquery,js,jsdelivr,json,lobechat,markdown,mcp,memos,npm,nuxt,php,python,react,rustdesk,seo,serve00,sql,tailwindcss,tdk,twikoo,typecho,v2ex,vaultwarden,vite,vue,webdav,webpack,weekly,win11,windows 系统,wtx,七日谈,主题开发,信息茧房,出行,博客,博物馆,原创,厨房,图床,图片,地理,坚果云,备份,字体,宝塔,密码管理,工具,徒步,思源笔记,总结,感想,报错,拆机,掘金,插件,搜索,数据同步,数据库,新冠,新闻,旅游,旅行,日出,日记,时间戳,月全食,服务器,杂谈,梦,油猴脚本,浏览器,爬山,电影,看雪,短篇小说,端午节,笑话,笔记,笔记本电脑,粽子,组件,终端,编程,网站,翻译,脚本,航拍,评论,说说,读书,谷歌插件,象山,路由,转载,邮箱,随想录,随手拍,随笔,露营,音乐,骑行," />
+
+
+<meta property="og:url" content="http://localhost:1313/blog/%E8%AF%B4%E8%AF%B4/">
+  <meta property="og:site_name" content="Hugo ʕ•ᴥ•ʔ Bear Blog">
+  <meta property="og:title" content="说说">
+  <meta property="og:description" content="Hugo &#43; Bear = :heart:">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="http://localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.png">
+  <meta name="twitter:title" content="说说">
+  <meta name="twitter:description" content="Hugo &#43; Bear = :heart:">
+
+
+
+
+  <meta itemprop="name" content="说说">
+  <meta itemprop="description" content="Hugo &#43; Bear = :heart:">
+  <meta itemprop="datePublished" content="2023-01-09T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-01-09T00:00:00+00:00">
+  <meta itemprop="image" content="http://localhost:1313/images/share.png">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/blog/%E8%AF%B4%E8%AF%B4/index.xml" title="Hugo ʕ•ᴥ•ʔ Bear Blog" />
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Hugo ʕ•ᴥ•ʔ Bear Blog</h2>
+</a>
+<nav>
+</nav>
+</header>
+  <main>
+<content>
+  
+  <h3 style="margin-bottom:0">Filtering for "说说"</h3>
+  <small>
+    <a href="/blog">Remove filter</a>
+  </small>
+  
+  <ul class="blog-posts">
+    
+    <li>
+      <span>
+        <i>
+          <time datetime='2023-01-09'>
+            09 Jan, 2023
+          </time>
+        </i>
+      </span>
+      <a href="http://localhost:1313/blog/181.html/">利用 memos 生成的在线动态列表</a>
+    </li>
+    
+  </ul>
+  
+</content>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

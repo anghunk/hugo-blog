@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
+<title>在 js 中运算不能随便把 value 属性定义成变量 | Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+<meta name="title" content="在 js 中运算不能随便把 value 属性定义成变量" />
+<meta name="description" content="在写一个小 demo 的时候，无意中发现定义变量的时候直接写入 value，会导致获取不到数据，或者获取的不是我们想要的内容，在 js 中运算不能随便把 value 属性定义成变量
+先看一段代码
+ 1&lt;input type=&#34;text&#34;&#34; id=&#34;a&#34;&gt;
+ 2&lt;span&gt;*&lt;/span&gt;
+ 3&lt;input type=&#34;text&#34; id=&#34;b&#34;&gt;
+ 4&lt;input type=&#34;button&#34; value=&#34;=&#34; onclick=&#34;beto()&#34;&gt;
+ 5&lt;input type=&#34;text&#34; id=&#34;sub&#34; disabled&gt;
+ 6
+ 7&lt;script&gt;
+ 8    function beto() {
+ 9        var a = document.getElementById(&#39;a&#39;).value
+10        var b = document.getElementById(&#39;b&#39;).value
+11        var sub = document.getElementById(&#39;sub&#39;).value
+12        
+13        sub = a &#43; b
+14    }
+15&lt;/script&gt;
+就这么一看，逻辑貌似没有问题，获取 a 和 b 的 value，乘法运算，然后输出 sub" />
+<meta name="keywords" content="js," />
+
+
+<meta property="og:url" content="http://localhost:1313/22/">
+  <meta property="og:site_name" content="Hugo ʕ•ᴥ•ʔ Bear Blog">
+  <meta property="og:title" content="在 js 中运算不能随便把 value 属性定义成变量">
+  <meta property="og:description" content="在写一个小 demo 的时候，无意中发现定义变量的时候直接写入 value，会导致获取不到数据，或者获取的不是我们想要的内容，在 js 中运算不能随便把 value 属性定义成变量
+先看一段代码
+1&lt;input type=&#34;text&#34;&#34; id=&#34;a&#34;&gt; 2&lt;span&gt;*&lt;/span&gt; 3&lt;input type=&#34;text&#34; id=&#34;b&#34;&gt; 4&lt;input type=&#34;button&#34; value=&#34;=&#34; onclick=&#34;beto()&#34;&gt; 5&lt;input type=&#34;text&#34; id=&#34;sub&#34; disabled&gt; 6 7&lt;script&gt; 8 function beto() { 9 var a = document.getElementById(&#39;a&#39;).value 10 var b = document.getElementById(&#39;b&#39;).value 11 var sub = document.getElementById(&#39;sub&#39;).value 12 13 sub = a &#43; b 14 } 15&lt;/script&gt; 就这么一看，逻辑貌似没有问题，获取 a 和 b 的 value，乘法运算，然后输出 sub">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2020-11-18T00:00:00+00:00">
+    <meta property="article:modified_time" content="2020-11-18T00:00:00+00:00">
+    <meta property="article:tag" content="Js">
+    <meta property="og:image" content="http://localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.png">
+  <meta name="twitter:title" content="在 js 中运算不能随便把 value 属性定义成变量">
+  <meta name="twitter:description" content="在写一个小 demo 的时候，无意中发现定义变量的时候直接写入 value，会导致获取不到数据，或者获取的不是我们想要的内容，在 js 中运算不能随便把 value 属性定义成变量
+先看一段代码
+1&lt;input type=&#34;text&#34;&#34; id=&#34;a&#34;&gt; 2&lt;span&gt;*&lt;/span&gt; 3&lt;input type=&#34;text&#34; id=&#34;b&#34;&gt; 4&lt;input type=&#34;button&#34; value=&#34;=&#34; onclick=&#34;beto()&#34;&gt; 5&lt;input type=&#34;text&#34; id=&#34;sub&#34; disabled&gt; 6 7&lt;script&gt; 8 function beto() { 9 var a = document.getElementById(&#39;a&#39;).value 10 var b = document.getElementById(&#39;b&#39;).value 11 var sub = document.getElementById(&#39;sub&#39;).value 12 13 sub = a &#43; b 14 } 15&lt;/script&gt; 就这么一看，逻辑貌似没有问题，获取 a 和 b 的 value，乘法运算，然后输出 sub">
+
+
+
+
+  <meta itemprop="name" content="在 js 中运算不能随便把 value 属性定义成变量">
+  <meta itemprop="description" content="在写一个小 demo 的时候，无意中发现定义变量的时候直接写入 value，会导致获取不到数据，或者获取的不是我们想要的内容，在 js 中运算不能随便把 value 属性定义成变量
+先看一段代码
+1&lt;input type=&#34;text&#34;&#34; id=&#34;a&#34;&gt; 2&lt;span&gt;*&lt;/span&gt; 3&lt;input type=&#34;text&#34; id=&#34;b&#34;&gt; 4&lt;input type=&#34;button&#34; value=&#34;=&#34; onclick=&#34;beto()&#34;&gt; 5&lt;input type=&#34;text&#34; id=&#34;sub&#34; disabled&gt; 6 7&lt;script&gt; 8 function beto() { 9 var a = document.getElementById(&#39;a&#39;).value 10 var b = document.getElementById(&#39;b&#39;).value 11 var sub = document.getElementById(&#39;sub&#39;).value 12 13 sub = a &#43; b 14 } 15&lt;/script&gt; 就这么一看，逻辑貌似没有问题，获取 a 和 b 的 value，乘法运算，然后输出 sub">
+  <meta itemprop="datePublished" content="2020-11-18T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2020-11-18T00:00:00+00:00">
+  <meta itemprop="wordCount" content="222">
+  <meta itemprop="image" content="http://localhost:1313/images/share.png">
+  <meta itemprop="keywords" content="Js">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Hugo ʕ•ᴥ•ʔ Bear Blog</h2>
+</a>
+<nav>
+</nav>
+</header>
+  <main>
+
+<h1>在 js 中运算不能随便把 value 属性定义成变量</h1>
+<p>
+  <i>
+    <time datetime='2020-11-18'>
+      18 Nov, 2020
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>在写一个小 demo 的时候，无意中发现定义变量的时候直接写入 value，会导致获取不到数据，或者获取的不是我们想要的内容，在 js 中运算不能随便把 value 属性定义成变量</p>
+<p>先看一段代码</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>&lt;<span style="color:#062873;font-weight:bold">input</span> <span style="color:#4070a0">type</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;text&#34;</span><span style="">&#34;</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;a&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>&lt;<span style="color:#062873;font-weight:bold">span</span>&gt;*&lt;/<span style="color:#062873;font-weight:bold">span</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>&lt;<span style="color:#062873;font-weight:bold">input</span> <span style="color:#4070a0">type</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;text&#34;</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;b&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>&lt;<span style="color:#062873;font-weight:bold">input</span> <span style="color:#4070a0">type</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;button&#34;</span> <span style="color:#4070a0">value</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;=&#34;</span> <span style="color:#4070a0">onclick</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;beto()&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>&lt;<span style="color:#062873;font-weight:bold">input</span> <span style="color:#4070a0">type</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;text&#34;</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;sub&#34;</span> <span style="color:#4070a0">disabled</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>&lt;<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    <span style="color:#007020;font-weight:bold">function</span> beto() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>        <span style="color:#007020;font-weight:bold">var</span> a <span style="color:#666">=</span> <span style="color:#007020">document</span>.getElementById(<span style="color:#4070a0">&#39;a&#39;</span>).value
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        <span style="color:#007020;font-weight:bold">var</span> b <span style="color:#666">=</span> <span style="color:#007020">document</span>.getElementById(<span style="color:#4070a0">&#39;b&#39;</span>).value
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>        <span style="color:#007020;font-weight:bold">var</span> sub <span style="color:#666">=</span> <span style="color:#007020">document</span>.getElementById(<span style="color:#4070a0">&#39;sub&#39;</span>).value
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>        
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>        sub <span style="color:#666">=</span> a <span style="color:#666">+</span> b
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>&lt;/<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span></code></pre></div><p>就这么一看，逻辑貌似没有问题，获取 a 和 b 的 value，乘法运算，然后输出 sub</p>
+<p>但是放在浏览器运行的时候，发现完全没有反应</p>
+<p>为什么呢？</p>
+<p>（假装思考五分钟&hellip;）</p>
+<p>因为 sub.value 不能直接定义在变量中</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#60a0b0;font-style:italic">// 先定义 id 为 sub 的 input 框
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">var</span> sub <span style="color:#666">=</span> <span style="color:#007020">document</span>.getElementById(<span style="color:#4070a0">&#39;sub&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#60a0b0;font-style:italic">// 然后在运算的时候在直接使用 sub.value
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#60a0b0;font-style:italic"></span>sub.value <span style="color:#666">=</span> a <span style="color:#666">*</span> b
+</span></span></code></pre></div><p>顺手放一个写 demo 时候用的简易计算器</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#007020">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>&lt;<span style="color:#062873;font-weight:bold">html</span> <span style="color:#4070a0">lang</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>&lt;<span style="color:#062873;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    &lt;<span style="color:#062873;font-weight:bold">meta</span> <span style="color:#4070a0">charset</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>    &lt;<span style="color:#062873;font-weight:bold">title</span>&gt;简易计算器&lt;/<span style="color:#062873;font-weight:bold">title</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>&lt;/<span style="color:#062873;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>&lt;<span style="color:#062873;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    &lt;<span style="color:#062873;font-weight:bold">input</span> <span style="color:#4070a0">type</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;text&#34;</span><span style="">&#34;</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;a&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    &lt;<span style="color:#062873;font-weight:bold">select</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;c&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        &lt;<span style="color:#062873;font-weight:bold">option</span> <span style="color:#4070a0">value</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;+&#34;</span>&gt;+&lt;/<span style="color:#062873;font-weight:bold">option</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>        &lt;<span style="color:#062873;font-weight:bold">option</span> <span style="color:#4070a0">value</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;-&#34;</span>&gt;-&lt;/<span style="color:#062873;font-weight:bold">option</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>        &lt;<span style="color:#062873;font-weight:bold">option</span> <span style="color:#4070a0">value</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;*&#34;</span>&gt;*&lt;/<span style="color:#062873;font-weight:bold">option</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>        &lt;<span style="color:#062873;font-weight:bold">option</span> <span style="color:#4070a0">value</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;/&#34;</span>&gt;/&lt;/<span style="color:#062873;font-weight:bold">option</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>    &lt;/<span style="color:#062873;font-weight:bold">select</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>    &lt;<span style="color:#062873;font-weight:bold">input</span> <span style="color:#4070a0">type</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;text&#34;</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;b&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>    &lt;<span style="color:#062873;font-weight:bold">input</span> <span style="color:#4070a0">type</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;button&#34;</span> <span style="color:#4070a0">value</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;=&#34;</span> <span style="color:#4070a0">onclick</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;beto()&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    &lt;<span style="color:#062873;font-weight:bold">input</span> <span style="color:#4070a0">type</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;text&#34;</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;sub&#34;</span> <span style="color:#4070a0">disabled</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>   
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    &lt;<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>        <span style="color:#007020;font-weight:bold">function</span> beto() {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>            <span style="color:#007020;font-weight:bold">var</span> a <span style="color:#666">=</span> <span style="color:#007020">document</span>.getElementById(<span style="color:#4070a0">&#39;a&#39;</span>).value
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>            <span style="color:#007020;font-weight:bold">var</span> b <span style="color:#666">=</span> <span style="color:#007020">document</span>.getElementById(<span style="color:#4070a0">&#39;b&#39;</span>).value
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>            <span style="color:#007020;font-weight:bold">var</span> c <span style="color:#666">=</span> <span style="color:#007020">document</span>.getElementById(<span style="color:#4070a0">&#39;c&#39;</span>).value
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>            <span style="color:#007020;font-weight:bold">var</span> sub <span style="color:#666">=</span> <span style="color:#007020">document</span>.getElementById(<span style="color:#4070a0">&#39;sub&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>            
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>            <span style="color:#007020;font-weight:bold">switch</span>(c) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>                <span style="color:#007020;font-weight:bold">case</span>  <span style="color:#4070a0">&#34;+&#34;</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>                sub.value <span style="color:#666">=</span> <span style="color:#007020">parseInt</span>(a) <span style="color:#666">+</span> <span style="color:#007020">parseInt</span>(b);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>                <span style="color:#007020;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>                <span style="color:#007020;font-weight:bold">case</span>  <span style="color:#4070a0">&#34;-&#34;</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>                sub.value <span style="color:#666">=</span> <span style="color:#007020">parseInt</span>(a) <span style="color:#666">-</span> <span style="color:#007020">parseInt</span>(b);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>                <span style="color:#007020;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>                <span style="color:#007020;font-weight:bold">case</span>  <span style="color:#4070a0">&#34;*&#34;</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>                sub.value <span style="color:#666">=</span> <span style="color:#007020">parseInt</span>(a) <span style="color:#666">*</span> <span style="color:#007020">parseInt</span>(b);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>                <span style="color:#007020;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>                <span style="color:#007020;font-weight:bold">case</span>  <span style="color:#4070a0">&#34;/&#34;</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>                sub.value <span style="color:#666">=</span> <span style="color:#007020">parseInt</span>(a) <span style="color:#666">/</span> <span style="color:#007020">parseInt</span>(b);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>                <span style="color:#007020;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>            }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>        }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>    &lt;/<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>&lt;/<span style="color:#062873;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span>&lt;/<span style="color:#062873;font-weight:bold">html</span>&gt;
+</span></span></code></pre></div>
+</content>
+<p>
+  
+  <a href="http://localhost:1313/blog/js/">#Js</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

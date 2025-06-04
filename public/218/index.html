@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
+<title>无法从非 EcmaScript 模块导入命名导出 | Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+<meta name="title" content="无法从非 EcmaScript 模块导入命名导出" />
+<meta name="description" content="https://github.com/markdown-it/markdown-it
+markdown-it 是一个基于 vue 的解析 markdown 语法的库。
+在 vue 中引入 markdown-it 模块时遇到一个问题，dev 开发运行时报出以下错误，无法从非 EcmaScript 模块导入命名导出。
+ 1# shell
+ 2 error  in ./node_modules/markdown-it/lib/common/utils.mjs
+ 3Can&#39;t import the named export &#39;P&#39; from non EcmaScript module (only default export is available)
+ 4 error  in ./node_modules/markdown-it/lib/index.mjs
+ 5Can&#39;t import the named export &#39;decode&#39; from non EcmaScript module (only default export is available)
+ 6 error  in ./node_modules/markdown-it/lib/index.mjs
+ 7Can&#39;t import the named export &#39;decode&#39; from non EcmaScript module (only default export is available)
+ 8 error  in ./node_modules/markdown-it/lib/common/utils.mjs
+ 9Can&#39;t import the named export &#39;decodeHTML&#39; from non EcmaScript module (only default export is available)
+10 error  in ./node_modules/markdown-it/lib/rules_inline/entity.mjs
+11Can&#39;t import the named export &#39;decodeHTML&#39; from non EcmaScript module (only default export is available)
+12 error  in ./node_modules/markdown-it/lib/index.mjs
+13Can&#39;t import the named export &#39;encode&#39; from non EcmaScript module (only default export is available)
+14 error  in ./node_modules/markdown-it/lib/index.mjs
+15Can&#39;t import the named export &#39;format&#39; from non EcmaScript module (only default export is available)
+16 error  in ./node_modules/markdown-it/lib/index.mjs
+17Can&#39;t import the named export &#39;format&#39; from non EcmaScript module (only default export is available)
+18 error  in ./node_modules/markdown-it/lib/index.mjs
+19Can&#39;t import the named export &#39;parse&#39; from non EcmaScript module (only default export is available)
+20 error  in ./node_modules/markdown-it/lib/index.mjs
+21Can&#39;t import the named export &#39;parse&#39; from non EcmaScript module (only default export is available)
+导致 import 该库出现错误，解决方案需要修改 vue.config.js" />
+<meta name="keywords" content="vue,js," />
+
+
+<meta property="og:url" content="http://localhost:1313/218/">
+  <meta property="og:site_name" content="Hugo ʕ•ᴥ•ʔ Bear Blog">
+  <meta property="og:title" content="无法从非 EcmaScript 模块导入命名导出">
+  <meta property="og:description" content="https://github.com/markdown-it/markdown-it
+markdown-it 是一个基于 vue 的解析 markdown 语法的库。
+在 vue 中引入 markdown-it 模块时遇到一个问题，dev 开发运行时报出以下错误，无法从非 EcmaScript 模块导入命名导出。
+1# shell 2 error in ./node_modules/markdown-it/lib/common/utils.mjs 3Can&#39;t import the named export &#39;P&#39; from non EcmaScript module (only default export is available) 4 error in ./node_modules/markdown-it/lib/index.mjs 5Can&#39;t import the named export &#39;decode&#39; from non EcmaScript module (only default export is available) 6 error in ./node_modules/markdown-it/lib/index.mjs 7Can&#39;t import the named export &#39;decode&#39; from non EcmaScript module (only default export is available) 8 error in ./node_modules/markdown-it/lib/common/utils.mjs 9Can&#39;t import the named export &#39;decodeHTML&#39; from non EcmaScript module (only default export is available) 10 error in ./node_modules/markdown-it/lib/rules_inline/entity.mjs 11Can&#39;t import the named export &#39;decodeHTML&#39; from non EcmaScript module (only default export is available) 12 error in ./node_modules/markdown-it/lib/index.mjs 13Can&#39;t import the named export &#39;encode&#39; from non EcmaScript module (only default export is available) 14 error in ./node_modules/markdown-it/lib/index.mjs 15Can&#39;t import the named export &#39;format&#39; from non EcmaScript module (only default export is available) 16 error in ./node_modules/markdown-it/lib/index.mjs 17Can&#39;t import the named export &#39;format&#39; from non EcmaScript module (only default export is available) 18 error in ./node_modules/markdown-it/lib/index.mjs 19Can&#39;t import the named export &#39;parse&#39; from non EcmaScript module (only default export is available) 20 error in ./node_modules/markdown-it/lib/index.mjs 21Can&#39;t import the named export &#39;parse&#39; from non EcmaScript module (only default export is available) 导致 import 该库出现错误，解决方案需要修改 vue.config.js">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2024-02-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-02-23T00:00:00+00:00">
+    <meta property="article:tag" content="Vue">
+    <meta property="article:tag" content="Js">
+    <meta property="og:image" content="http://localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.png">
+  <meta name="twitter:title" content="无法从非 EcmaScript 模块导入命名导出">
+  <meta name="twitter:description" content="https://github.com/markdown-it/markdown-it
+markdown-it 是一个基于 vue 的解析 markdown 语法的库。
+在 vue 中引入 markdown-it 模块时遇到一个问题，dev 开发运行时报出以下错误，无法从非 EcmaScript 模块导入命名导出。
+1# shell 2 error in ./node_modules/markdown-it/lib/common/utils.mjs 3Can&#39;t import the named export &#39;P&#39; from non EcmaScript module (only default export is available) 4 error in ./node_modules/markdown-it/lib/index.mjs 5Can&#39;t import the named export &#39;decode&#39; from non EcmaScript module (only default export is available) 6 error in ./node_modules/markdown-it/lib/index.mjs 7Can&#39;t import the named export &#39;decode&#39; from non EcmaScript module (only default export is available) 8 error in ./node_modules/markdown-it/lib/common/utils.mjs 9Can&#39;t import the named export &#39;decodeHTML&#39; from non EcmaScript module (only default export is available) 10 error in ./node_modules/markdown-it/lib/rules_inline/entity.mjs 11Can&#39;t import the named export &#39;decodeHTML&#39; from non EcmaScript module (only default export is available) 12 error in ./node_modules/markdown-it/lib/index.mjs 13Can&#39;t import the named export &#39;encode&#39; from non EcmaScript module (only default export is available) 14 error in ./node_modules/markdown-it/lib/index.mjs 15Can&#39;t import the named export &#39;format&#39; from non EcmaScript module (only default export is available) 16 error in ./node_modules/markdown-it/lib/index.mjs 17Can&#39;t import the named export &#39;format&#39; from non EcmaScript module (only default export is available) 18 error in ./node_modules/markdown-it/lib/index.mjs 19Can&#39;t import the named export &#39;parse&#39; from non EcmaScript module (only default export is available) 20 error in ./node_modules/markdown-it/lib/index.mjs 21Can&#39;t import the named export &#39;parse&#39; from non EcmaScript module (only default export is available) 导致 import 该库出现错误，解决方案需要修改 vue.config.js">
+
+
+
+
+  <meta itemprop="name" content="无法从非 EcmaScript 模块导入命名导出">
+  <meta itemprop="description" content="https://github.com/markdown-it/markdown-it
+markdown-it 是一个基于 vue 的解析 markdown 语法的库。
+在 vue 中引入 markdown-it 模块时遇到一个问题，dev 开发运行时报出以下错误，无法从非 EcmaScript 模块导入命名导出。
+1# shell 2 error in ./node_modules/markdown-it/lib/common/utils.mjs 3Can&#39;t import the named export &#39;P&#39; from non EcmaScript module (only default export is available) 4 error in ./node_modules/markdown-it/lib/index.mjs 5Can&#39;t import the named export &#39;decode&#39; from non EcmaScript module (only default export is available) 6 error in ./node_modules/markdown-it/lib/index.mjs 7Can&#39;t import the named export &#39;decode&#39; from non EcmaScript module (only default export is available) 8 error in ./node_modules/markdown-it/lib/common/utils.mjs 9Can&#39;t import the named export &#39;decodeHTML&#39; from non EcmaScript module (only default export is available) 10 error in ./node_modules/markdown-it/lib/rules_inline/entity.mjs 11Can&#39;t import the named export &#39;decodeHTML&#39; from non EcmaScript module (only default export is available) 12 error in ./node_modules/markdown-it/lib/index.mjs 13Can&#39;t import the named export &#39;encode&#39; from non EcmaScript module (only default export is available) 14 error in ./node_modules/markdown-it/lib/index.mjs 15Can&#39;t import the named export &#39;format&#39; from non EcmaScript module (only default export is available) 16 error in ./node_modules/markdown-it/lib/index.mjs 17Can&#39;t import the named export &#39;format&#39; from non EcmaScript module (only default export is available) 18 error in ./node_modules/markdown-it/lib/index.mjs 19Can&#39;t import the named export &#39;parse&#39; from non EcmaScript module (only default export is available) 20 error in ./node_modules/markdown-it/lib/index.mjs 21Can&#39;t import the named export &#39;parse&#39; from non EcmaScript module (only default export is available) 导致 import 该库出现错误，解决方案需要修改 vue.config.js">
+  <meta itemprop="datePublished" content="2024-02-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-02-23T00:00:00+00:00">
+  <meta itemprop="wordCount" content="242">
+  <meta itemprop="image" content="http://localhost:1313/images/share.png">
+  <meta itemprop="keywords" content="Vue,Js">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Hugo ʕ•ᴥ•ʔ Bear Blog</h2>
+</a>
+<nav>
+</nav>
+</header>
+  <main>
+
+<h1>无法从非 EcmaScript 模块导入命名导出</h1>
+<p>
+  <i>
+    <time datetime='2024-02-23'>
+      23 Feb, 2024
+    </time>
+  </i>
+</p>
+
+<content>
+  <p><a href="https://github.com/markdown-it/markdown-it">https://github.com/markdown-it/markdown-it</a></p>
+<p>markdown-it 是一个基于 vue 的解析 markdown 语法的库。</p>
+<p>在 vue 中引入 markdown-it 模块时遇到一个问题，dev 开发运行时报出以下错误，无法从非 EcmaScript 模块导入命名导出。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#60a0b0;font-style:italic"># shell</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span> error  in ./node_modules/markdown-it/lib/common/utils.mjs
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>Can<span style="color:#4070a0">&#39;t import the named export &#39;</span>P<span style="color:#4070a0">&#39; from non EcmaScript module (only default export is available)
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#4070a0"> error  in ./node_modules/markdown-it/lib/index.mjs
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#4070a0">Can&#39;</span>t import the named <span style="color:#007020">export</span> <span style="color:#4070a0">&#39;decode&#39;</span> from non EcmaScript module <span style="color:#666">(</span>only default <span style="color:#007020">export</span> is available<span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span> error  in ./node_modules/markdown-it/lib/index.mjs
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>Can<span style="color:#4070a0">&#39;t import the named export &#39;</span>decode<span style="color:#4070a0">&#39; from non EcmaScript module (only default export is available)
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#4070a0"> error  in ./node_modules/markdown-it/lib/common/utils.mjs
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#4070a0">Can&#39;</span>t import the named <span style="color:#007020">export</span> <span style="color:#4070a0">&#39;decodeHTML&#39;</span> from non EcmaScript module <span style="color:#666">(</span>only default <span style="color:#007020">export</span> is available<span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span> error  in ./node_modules/markdown-it/lib/rules_inline/entity.mjs
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>Can<span style="color:#4070a0">&#39;t import the named export &#39;</span>decodeHTML<span style="color:#4070a0">&#39; from non EcmaScript module (only default export is available)
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#4070a0"> error  in ./node_modules/markdown-it/lib/index.mjs
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#4070a0">Can&#39;</span>t import the named <span style="color:#007020">export</span> <span style="color:#4070a0">&#39;encode&#39;</span> from non EcmaScript module <span style="color:#666">(</span>only default <span style="color:#007020">export</span> is available<span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span> error  in ./node_modules/markdown-it/lib/index.mjs
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>Can<span style="color:#4070a0">&#39;t import the named export &#39;</span>format<span style="color:#4070a0">&#39; from non EcmaScript module (only default export is available)
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span><span style="color:#4070a0"> error  in ./node_modules/markdown-it/lib/index.mjs
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span><span style="color:#4070a0">Can&#39;</span>t import the named <span style="color:#007020">export</span> <span style="color:#4070a0">&#39;format&#39;</span> from non EcmaScript module <span style="color:#666">(</span>only default <span style="color:#007020">export</span> is available<span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span> error  in ./node_modules/markdown-it/lib/index.mjs
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>Can<span style="color:#4070a0">&#39;t import the named export &#39;</span>parse<span style="color:#4070a0">&#39; from non EcmaScript module (only default export is available)
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span><span style="color:#4070a0"> error  in ./node_modules/markdown-it/lib/index.mjs
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span><span style="color:#4070a0">Can&#39;</span>t import the named <span style="color:#007020">export</span> <span style="color:#4070a0">&#39;parse&#39;</span> from non EcmaScript module <span style="color:#666">(</span>only default <span style="color:#007020">export</span> is available<span style="color:#666">)</span>
+</span></span></code></pre></div><p>导致 import 该库出现错误，解决方案需要修改 <code>vue.config.js</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#60a0b0;font-style:italic">// vue.config.js
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#60a0b0;font-style:italic"></span>module.exports <span style="color:#666">=</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>  configureWebpack<span style="color:#666">:</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    module<span style="color:#666">:</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>      rules<span style="color:#666">:</span> [{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>        test<span style="color:#666">:</span> <span style="color:#235388">/\.mjs$/</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>        include<span style="color:#666">:</span> <span style="color:#235388">/node_modules/</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        type<span style="color:#666">:</span> <span style="color:#4070a0">&#34;javascript/auto&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>      }]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>  },
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>};
+</span></span></code></pre></div><p>参考文献：<a href="https://github.com/vuejs/pinia/issues/675">https://github.com/vuejs/pinia/issues/675</a></p>
+
+</content>
+<p>
+  
+  <a href="http://localhost:1313/blog/vue/">#Vue</a>
+  
+  <a href="http://localhost:1313/blog/js/">#Js</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

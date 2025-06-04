@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
+<title>js 奇怪的知识--console.table | Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+<meta name="title" content="js 奇怪的知识--console.table" />
+<meta name="description" content="这个属性对我来说还真有些陌生，无意中发现的，查询过 MDN 之后听得挺有意思的，就记录一下。
+根据字面意思就是“将数据以表格的形式显示”。这个方法需要一个必须参数 data，data 必须是一个数组或者是一个对象；还可以使用一个可选参数 columns。
+表格的第一列是 index。如果数据 data 是一个数组，那么这一列的单元格的值就是数组的索引。如果数据是一个对象，那么它们的值就是各对象的属性名称。注意（在 FireFox 中）console.table 被限制为只显示 1000 行（第一行是被标记的索引）。
+1.直接输出
+直接进行尝试，在控制台输出 console.table
+1console.table([&#34;双十一&#34;, &#34;双十二&#34;, &#34;双十三&#34;]);
+2
+3PS E:\demo&gt; node 1.js
+4┌─────────┬──────────┐
+5│ (index) │  Values  │
+6├─────────┼──────────┤
+7│    1    │ &#39;双十二&#39; │
+8│    2    │ &#39;双十三&#39; │
+9└─────────┴──────────┘
+复制下来怪怪的，直接上个图，就是下面这个样子。
+
+
+2.定义对象进行输出
+同样也可以定义一个对象然后输出
+ 1function Fun(title, date) {
+ 2  this.title = title
+ 3  this.date = date
+ 4}
+ 5
+ 6const one = new Fun(&#34;双十一&#34;, &#34;11.11&#34;)
+ 7const two = new Fun(&#34;双十二&#34;, &#34;12.12&#34;)
+ 8const three = new Fun(&#34;双十三&#34;, &#34;你是傻子吗，没有 13 月&#34;)
+ 9
+10console.table([one, two, three], [&#34;title&#34;, &#34;date&#34;])
+打印出来，就是下面这个样子。" />
+<meta name="keywords" content="js," />
+
+
+<meta property="og:url" content="http://localhost:1313/81/">
+  <meta property="og:site_name" content="Hugo ʕ•ᴥ•ʔ Bear Blog">
+  <meta property="og:title" content="js 奇怪的知识--console.table">
+  <meta property="og:description" content="这个属性对我来说还真有些陌生，无意中发现的，查询过 MDN 之后听得挺有意思的，就记录一下。
+根据字面意思就是“将数据以表格的形式显示”。这个方法需要一个必须参数 data，data 必须是一个数组或者是一个对象；还可以使用一个可选参数 columns。
+表格的第一列是 index。如果数据 data 是一个数组，那么这一列的单元格的值就是数组的索引。如果数据是一个对象，那么它们的值就是各对象的属性名称。注意（在 FireFox 中）console.table 被限制为只显示 1000 行（第一行是被标记的索引）。
+1.直接输出 直接进行尝试，在控制台输出 console.table
+1console.table([&#34;双十一&#34;, &#34;双十二&#34;, &#34;双十三&#34;]); 2 3PS E:\demo&gt; node 1.js 4┌─────────┬──────────┐ 5│ (index) │ Values │ 6├─────────┼──────────┤ 7│ 1 │ &#39;双十二&#39; │ 8│ 2 │ &#39;双十三&#39; │ 9└─────────┴──────────┘ 复制下来怪怪的，直接上个图，就是下面这个样子。
+2.定义对象进行输出 同样也可以定义一个对象然后输出
+1function Fun(title, date) { 2 this.title = title 3 this.date = date 4} 5 6const one = new Fun(&#34;双十一&#34;, &#34;11.11&#34;) 7const two = new Fun(&#34;双十二&#34;, &#34;12.12&#34;) 8const three = new Fun(&#34;双十三&#34;, &#34;你是傻子吗，没有 13 月&#34;) 9 10console.table([one, two, three], [&#34;title&#34;, &#34;date&#34;]) 打印出来，就是下面这个样子。">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2021-11-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-11-04T00:00:00+00:00">
+    <meta property="article:tag" content="Js">
+    <meta property="og:image" content="http://localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.png">
+  <meta name="twitter:title" content="js 奇怪的知识--console.table">
+  <meta name="twitter:description" content="这个属性对我来说还真有些陌生，无意中发现的，查询过 MDN 之后听得挺有意思的，就记录一下。
+根据字面意思就是“将数据以表格的形式显示”。这个方法需要一个必须参数 data，data 必须是一个数组或者是一个对象；还可以使用一个可选参数 columns。
+表格的第一列是 index。如果数据 data 是一个数组，那么这一列的单元格的值就是数组的索引。如果数据是一个对象，那么它们的值就是各对象的属性名称。注意（在 FireFox 中）console.table 被限制为只显示 1000 行（第一行是被标记的索引）。
+1.直接输出 直接进行尝试，在控制台输出 console.table
+1console.table([&#34;双十一&#34;, &#34;双十二&#34;, &#34;双十三&#34;]); 2 3PS E:\demo&gt; node 1.js 4┌─────────┬──────────┐ 5│ (index) │ Values │ 6├─────────┼──────────┤ 7│ 1 │ &#39;双十二&#39; │ 8│ 2 │ &#39;双十三&#39; │ 9└─────────┴──────────┘ 复制下来怪怪的，直接上个图，就是下面这个样子。
+2.定义对象进行输出 同样也可以定义一个对象然后输出
+1function Fun(title, date) { 2 this.title = title 3 this.date = date 4} 5 6const one = new Fun(&#34;双十一&#34;, &#34;11.11&#34;) 7const two = new Fun(&#34;双十二&#34;, &#34;12.12&#34;) 8const three = new Fun(&#34;双十三&#34;, &#34;你是傻子吗，没有 13 月&#34;) 9 10console.table([one, two, three], [&#34;title&#34;, &#34;date&#34;]) 打印出来，就是下面这个样子。">
+
+
+
+
+  <meta itemprop="name" content="js 奇怪的知识--console.table">
+  <meta itemprop="description" content="这个属性对我来说还真有些陌生，无意中发现的，查询过 MDN 之后听得挺有意思的，就记录一下。
+根据字面意思就是“将数据以表格的形式显示”。这个方法需要一个必须参数 data，data 必须是一个数组或者是一个对象；还可以使用一个可选参数 columns。
+表格的第一列是 index。如果数据 data 是一个数组，那么这一列的单元格的值就是数组的索引。如果数据是一个对象，那么它们的值就是各对象的属性名称。注意（在 FireFox 中）console.table 被限制为只显示 1000 行（第一行是被标记的索引）。
+1.直接输出 直接进行尝试，在控制台输出 console.table
+1console.table([&#34;双十一&#34;, &#34;双十二&#34;, &#34;双十三&#34;]); 2 3PS E:\demo&gt; node 1.js 4┌─────────┬──────────┐ 5│ (index) │ Values │ 6├─────────┼──────────┤ 7│ 1 │ &#39;双十二&#39; │ 8│ 2 │ &#39;双十三&#39; │ 9└─────────┴──────────┘ 复制下来怪怪的，直接上个图，就是下面这个样子。
+2.定义对象进行输出 同样也可以定义一个对象然后输出
+1function Fun(title, date) { 2 this.title = title 3 this.date = date 4} 5 6const one = new Fun(&#34;双十一&#34;, &#34;11.11&#34;) 7const two = new Fun(&#34;双十二&#34;, &#34;12.12&#34;) 8const three = new Fun(&#34;双十三&#34;, &#34;你是傻子吗，没有 13 月&#34;) 9 10console.table([one, two, three], [&#34;title&#34;, &#34;date&#34;]) 打印出来，就是下面这个样子。">
+  <meta itemprop="datePublished" content="2021-11-04T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-11-04T00:00:00+00:00">
+  <meta itemprop="wordCount" content="96">
+  <meta itemprop="image" content="http://localhost:1313/images/share.png">
+  <meta itemprop="keywords" content="Js">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Hugo ʕ•ᴥ•ʔ Bear Blog</h2>
+</a>
+<nav>
+</nav>
+</header>
+  <main>
+
+<h1>js 奇怪的知识--console.table</h1>
+<p>
+  <i>
+    <time datetime='2021-11-04'>
+      04 Nov, 2021
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>这个属性对我来说还真有些陌生，无意中发现的，查询过 MDN 之后听得挺有意思的，就记录一下。</p>
+<p>根据字面意思就是“将数据以表格的形式显示”。这个方法需要一个必须参数 data，data 必须是一个数组或者是一个对象；还可以使用一个可选参数 columns。</p>
+<p>表格的第一列是 index。如果数据 data 是一个数组，那么这一列的单元格的值就是数组的索引。如果数据是一个对象，那么它们的值就是各对象的属性名称。注意（在 FireFox 中）console.table 被限制为只显示 1000 行（第一行是被标记的索引）。</p>
+<h3 id="1直接输出">1.直接输出</h3>
+<p>直接进行尝试，在控制台输出 console.table</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>console.table([<span style="color:#4070a0">&#34;双十一&#34;</span>, <span style="color:#4070a0">&#34;双十二&#34;</span>, <span style="color:#4070a0">&#34;双十三&#34;</span>]);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>PS E<span style="color:#666">:</span><span style="">\</span>demo<span style="color:#666">&gt;</span> node <span style="color:#40a070">1.</span>js
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="">┌─────────┬──────────┐</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="">│</span> (index) <span style="">│</span>  Values  <span style="">│</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="">├─────────┼──────────┤</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span><span style="">│</span>    <span style="color:#40a070">1</span>    <span style="">│</span> <span style="color:#4070a0">&#39;双十二&#39;</span> <span style="">│</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span><span style="">│</span>    <span style="color:#40a070">2</span>    <span style="">│</span> <span style="color:#4070a0">&#39;双十三&#39;</span> <span style="">│</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span><span style="">└─────────┴──────────┘</span>
+</span></span></code></pre></div><p>复制下来怪怪的，直接上个图，就是下面这个样子。</p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/11/04/5b865e6a38851240419ceb0984e6557e.png" alt=""></p>
+<hr>
+<h3 id="2定义对象进行输出">2.定义对象进行输出</h3>
+<p>同样也可以定义一个对象然后输出</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#007020;font-weight:bold">function</span> Fun(title, date) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>  <span style="color:#007020;font-weight:bold">this</span>.title <span style="color:#666">=</span> title
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>  <span style="color:#007020;font-weight:bold">this</span>.date <span style="color:#666">=</span> date
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#007020;font-weight:bold">const</span> one <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> Fun(<span style="color:#4070a0">&#34;双十一&#34;</span>, <span style="color:#4070a0">&#34;11.11&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#007020;font-weight:bold">const</span> two <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> Fun(<span style="color:#4070a0">&#34;双十二&#34;</span>, <span style="color:#4070a0">&#34;12.12&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#007020;font-weight:bold">const</span> three <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">new</span> Fun(<span style="color:#4070a0">&#34;双十三&#34;</span>, <span style="color:#4070a0">&#34;你是傻子吗，没有 13 月&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>console.table([one, two, three], [<span style="color:#4070a0">&#34;title&#34;</span>, <span style="color:#4070a0">&#34;date&#34;</span>])
+</span></span></code></pre></div><p>打印出来，就是下面这个样子。</p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/11/04/ed587c8b3373abe1fca2c9cdc6dd50dd.png" alt=""></p>
+<h3 id="3consoletable-的应用场景">3.console.table() 的应用场景</h3>
+<p>前面是在通过在编辑器中使用 node.js 输出数据，看看在浏览器中输出会不会不一样的效果。</p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/11/04/092caebd508948e18d29468739d17e18.png" alt=""></p>
+<p>可以看到成功输出数据，并且点击表头时，可以按照不同顺序进行排序，这么一看&hellip;.嗯，还挺有用的（假笑）</p>
+<p>应用场景大概就是可以对打印的数据进行更直观的观看，在某些情况下有利于调试代码，以后看看是否能用得上这种方法。</p>
+
+</content>
+<p>
+  
+  <a href="http://localhost:1313/blog/js/">#Js</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

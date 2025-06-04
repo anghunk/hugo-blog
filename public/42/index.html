@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
+<title>React 脚手架项目打包时的路径问题 | Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+<meta name="title" content="React 脚手架项目打包时的路径问题" />
+<meta name="description" content="create-react-app 脚手架指令可以生成 React 项目，在项目完成之后执行打包命令 npm run build，文件夹内生成 build文件夹，就是打包后的文件，在浏览器运行 index.html 发现页面空白，打开控制台有报错，css 和 js 文件的引用路径有问题。
+浏览 index.html 代码可以发现：
+ 1&lt;!-- index.html --&gt;
+ 2
+ 3&lt;!doctype html&gt;
+ 4&lt;html lang=&#34;zh&#34;&gt;
+ 5
+ 6&lt;head&gt;
+ 7    &lt;meta charset=&#34;utf-8&#34; /&gt;
+ 8    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width,initial-scale=1&#34; /&gt;
+ 9    &lt;meta name=&#34;theme-color&#34; content=&#34;#000000&#34; /&gt;
+10    &lt;meta name=&#34;description&#34; content=&#34;Web site created using create-react-app&#34; /&gt;
+11    &lt;title&gt;React App&lt;/title&gt;
+12    &lt;link href=&#34;/static/css/main.3394d54e.chunk.css&#34; rel=&#34;stylesheet&#34;&gt;
+13&lt;/head&gt;
+14
+15&lt;body&gt;&lt;noscript&gt;You need to enable JavaScript to run this app.&lt;/noscript&gt;
+16    &lt;div id=&#34;root&#34;&gt;&lt;/div&gt;
+17    &lt;script&gt;!function (e) { function r(r) { for (var n, l, f = r[0], i = r[1], a = r[2], c = 0, s = []; c &lt; f.length; c&#43;&#43;)l = f[c], Object.prototype.hasOwnProperty.call(o, l) &amp;&amp; o[l] &amp;&amp; s.push(o[l][0]), o[l] = 0; for (n in i) Object.prototype.hasOwnProperty.call(i, n) &amp;&amp; (e[n] = i[n]); for (p &amp;&amp; p(r); s.length;)s.shift()(); return u.push.apply(u, a || []), t() } function t() { for (var e, r = 0; r &lt; u.length; r&#43;&#43;) { for (var t = u[r], n = !0, f = 1; f &lt; t.length; f&#43;&#43;) { var i = t[f]; 0 !== o[i] &amp;&amp; (n = !1) } n &amp;&amp; (u.splice(r--, 1), e = l(l.s = t[0])) } return e } var n = {}, o = { 1: 0 }, u = []; function l(r) { if (n[r]) return n[r].exports; var t = n[r] = { i: r, l: !1, exports: {} }; return e[r].call(t.exports, t, t.exports, l), t.l = !0, t.exports } l.m = e, l.c = n, l.d = function (e, r, t) { l.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: t }) }, l.r = function (e) { &#34;undefined&#34; != typeof Symbol &amp;&amp; Symbol.toStringTag &amp;&amp; Object.defineProperty(e, Symbol.toStringTag, { value: &#34;Module&#34; }), Object.defineProperty(e, &#34;__esModule&#34;, { value: !0 }) }, l.t = function (e, r) { if (1 &amp; r &amp;&amp; (e = l(e)), 8 &amp; r) return e; if (4 &amp; r &amp;&amp; &#34;object&#34; == typeof e &amp;&amp; e &amp;&amp; e.__esModule) return e; var t = Object.create(null); if (l.r(t), Object.defineProperty(t, &#34;default&#34;, { enumerable: !0, value: e }), 2 &amp; r &amp;&amp; &#34;string&#34; != typeof e) for (var n in e) l.d(t, n, function (r) { return e[r] }.bind(null, n)); return t }, l.n = function (e) { var r = e &amp;&amp; e.__esModule ? function () { return e.default } : function () { return e }; return l.d(r, &#34;a&#34;, r), r }, l.o = function (e, r) { return Object.prototype.hasOwnProperty.call(e, r) }, l.p = &#34;./&#34;; var f = this.webpackJsonpdemo = this.webpackJsonpdemo || [], i = f.push.bind(f); f.push = r, f = f.slice(); for (var a = 0; a &lt; f.length; a&#43;&#43;)r(f[a]); var p = i; t() }([])&lt;/script&gt;
+18    &lt;script src=&#34;/static/js/2.1902eda2.chunk.js&#34;&gt;&lt;/script&gt;
+19    &lt;script src=&#34;/static/js/main.cbf35db7.chunk.js&#34;&gt;&lt;/script&gt;
+20&lt;/body&gt;
+21
+22&lt;/html&gt;
+发现 css 和 js 文件都是用绝对路径引用的，这是 webpack 打包一贯拥有的问题，将 /static 改成 ./static ，再运行，页面没有问题成功显示。" />
+<meta name="keywords" content="react," />
+
+
+<meta property="og:url" content="http://localhost:1313/42/">
+  <meta property="og:site_name" content="Hugo ʕ•ᴥ•ʔ Bear Blog">
+  <meta property="og:title" content="React 脚手架项目打包时的路径问题">
+  <meta property="og:description" content="create-react-app 脚手架指令可以生成 React 项目，在项目完成之后执行打包命令 npm run build，文件夹内生成 build文件夹，就是打包后的文件，在浏览器运行 index.html 发现页面空白，打开控制台有报错，css 和 js 文件的引用路径有问题。
+浏览 index.html 代码可以发现：
+1&lt;!-- index.html --&gt; 2 3&lt;!doctype html&gt; 4&lt;html lang=&#34;zh&#34;&gt; 5 6&lt;head&gt; 7 &lt;meta charset=&#34;utf-8&#34; /&gt; 8 &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width,initial-scale=1&#34; /&gt; 9 &lt;meta name=&#34;theme-color&#34; content=&#34;#000000&#34; /&gt; 10 &lt;meta name=&#34;description&#34; content=&#34;Web site created using create-react-app&#34; /&gt; 11 &lt;title&gt;React App&lt;/title&gt; 12 &lt;link href=&#34;/static/css/main.3394d54e.chunk.css&#34; rel=&#34;stylesheet&#34;&gt; 13&lt;/head&gt; 14 15&lt;body&gt;&lt;noscript&gt;You need to enable JavaScript to run this app.&lt;/noscript&gt; 16 &lt;div id=&#34;root&#34;&gt;&lt;/div&gt; 17 &lt;script&gt;!function (e) { function r(r) { for (var n, l, f = r[0], i = r[1], a = r[2], c = 0, s = []; c &lt; f.length; c&#43;&#43;)l = f[c], Object.prototype.hasOwnProperty.call(o, l) &amp;&amp; o[l] &amp;&amp; s.push(o[l][0]), o[l] = 0; for (n in i) Object.prototype.hasOwnProperty.call(i, n) &amp;&amp; (e[n] = i[n]); for (p &amp;&amp; p(r); s.length;)s.shift()(); return u.push.apply(u, a || []), t() } function t() { for (var e, r = 0; r &lt; u.length; r&#43;&#43;) { for (var t = u[r], n = !0, f = 1; f &lt; t.length; f&#43;&#43;) { var i = t[f]; 0 !== o[i] &amp;&amp; (n = !1) } n &amp;&amp; (u.splice(r--, 1), e = l(l.s = t[0])) } return e } var n = {}, o = { 1: 0 }, u = []; function l(r) { if (n[r]) return n[r].exports; var t = n[r] = { i: r, l: !1, exports: {} }; return e[r].call(t.exports, t, t.exports, l), t.l = !0, t.exports } l.m = e, l.c = n, l.d = function (e, r, t) { l.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: t }) }, l.r = function (e) { &#34;undefined&#34; != typeof Symbol &amp;&amp; Symbol.toStringTag &amp;&amp; Object.defineProperty(e, Symbol.toStringTag, { value: &#34;Module&#34; }), Object.defineProperty(e, &#34;__esModule&#34;, { value: !0 }) }, l.t = function (e, r) { if (1 &amp; r &amp;&amp; (e = l(e)), 8 &amp; r) return e; if (4 &amp; r &amp;&amp; &#34;object&#34; == typeof e &amp;&amp; e &amp;&amp; e.__esModule) return e; var t = Object.create(null); if (l.r(t), Object.defineProperty(t, &#34;default&#34;, { enumerable: !0, value: e }), 2 &amp; r &amp;&amp; &#34;string&#34; != typeof e) for (var n in e) l.d(t, n, function (r) { return e[r] }.bind(null, n)); return t }, l.n = function (e) { var r = e &amp;&amp; e.__esModule ? function () { return e.default } : function () { return e }; return l.d(r, &#34;a&#34;, r), r }, l.o = function (e, r) { return Object.prototype.hasOwnProperty.call(e, r) }, l.p = &#34;./&#34;; var f = this.webpackJsonpdemo = this.webpackJsonpdemo || [], i = f.push.bind(f); f.push = r, f = f.slice(); for (var a = 0; a &lt; f.length; a&#43;&#43;)r(f[a]); var p = i; t() }([])&lt;/script&gt; 18 &lt;script src=&#34;/static/js/2.1902eda2.chunk.js&#34;&gt;&lt;/script&gt; 19 &lt;script src=&#34;/static/js/main.cbf35db7.chunk.js&#34;&gt;&lt;/script&gt; 20&lt;/body&gt; 21 22&lt;/html&gt; 发现 css 和 js 文件都是用绝对路径引用的，这是 webpack 打包一贯拥有的问题，将 /static 改成 ./static ，再运行，页面没有问题成功显示。">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2021-01-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-01-05T00:00:00+00:00">
+    <meta property="article:tag" content="React">
+    <meta property="og:image" content="http://localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.png">
+  <meta name="twitter:title" content="React 脚手架项目打包时的路径问题">
+  <meta name="twitter:description" content="create-react-app 脚手架指令可以生成 React 项目，在项目完成之后执行打包命令 npm run build，文件夹内生成 build文件夹，就是打包后的文件，在浏览器运行 index.html 发现页面空白，打开控制台有报错，css 和 js 文件的引用路径有问题。
+浏览 index.html 代码可以发现：
+1&lt;!-- index.html --&gt; 2 3&lt;!doctype html&gt; 4&lt;html lang=&#34;zh&#34;&gt; 5 6&lt;head&gt; 7 &lt;meta charset=&#34;utf-8&#34; /&gt; 8 &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width,initial-scale=1&#34; /&gt; 9 &lt;meta name=&#34;theme-color&#34; content=&#34;#000000&#34; /&gt; 10 &lt;meta name=&#34;description&#34; content=&#34;Web site created using create-react-app&#34; /&gt; 11 &lt;title&gt;React App&lt;/title&gt; 12 &lt;link href=&#34;/static/css/main.3394d54e.chunk.css&#34; rel=&#34;stylesheet&#34;&gt; 13&lt;/head&gt; 14 15&lt;body&gt;&lt;noscript&gt;You need to enable JavaScript to run this app.&lt;/noscript&gt; 16 &lt;div id=&#34;root&#34;&gt;&lt;/div&gt; 17 &lt;script&gt;!function (e) { function r(r) { for (var n, l, f = r[0], i = r[1], a = r[2], c = 0, s = []; c &lt; f.length; c&#43;&#43;)l = f[c], Object.prototype.hasOwnProperty.call(o, l) &amp;&amp; o[l] &amp;&amp; s.push(o[l][0]), o[l] = 0; for (n in i) Object.prototype.hasOwnProperty.call(i, n) &amp;&amp; (e[n] = i[n]); for (p &amp;&amp; p(r); s.length;)s.shift()(); return u.push.apply(u, a || []), t() } function t() { for (var e, r = 0; r &lt; u.length; r&#43;&#43;) { for (var t = u[r], n = !0, f = 1; f &lt; t.length; f&#43;&#43;) { var i = t[f]; 0 !== o[i] &amp;&amp; (n = !1) } n &amp;&amp; (u.splice(r--, 1), e = l(l.s = t[0])) } return e } var n = {}, o = { 1: 0 }, u = []; function l(r) { if (n[r]) return n[r].exports; var t = n[r] = { i: r, l: !1, exports: {} }; return e[r].call(t.exports, t, t.exports, l), t.l = !0, t.exports } l.m = e, l.c = n, l.d = function (e, r, t) { l.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: t }) }, l.r = function (e) { &#34;undefined&#34; != typeof Symbol &amp;&amp; Symbol.toStringTag &amp;&amp; Object.defineProperty(e, Symbol.toStringTag, { value: &#34;Module&#34; }), Object.defineProperty(e, &#34;__esModule&#34;, { value: !0 }) }, l.t = function (e, r) { if (1 &amp; r &amp;&amp; (e = l(e)), 8 &amp; r) return e; if (4 &amp; r &amp;&amp; &#34;object&#34; == typeof e &amp;&amp; e &amp;&amp; e.__esModule) return e; var t = Object.create(null); if (l.r(t), Object.defineProperty(t, &#34;default&#34;, { enumerable: !0, value: e }), 2 &amp; r &amp;&amp; &#34;string&#34; != typeof e) for (var n in e) l.d(t, n, function (r) { return e[r] }.bind(null, n)); return t }, l.n = function (e) { var r = e &amp;&amp; e.__esModule ? function () { return e.default } : function () { return e }; return l.d(r, &#34;a&#34;, r), r }, l.o = function (e, r) { return Object.prototype.hasOwnProperty.call(e, r) }, l.p = &#34;./&#34;; var f = this.webpackJsonpdemo = this.webpackJsonpdemo || [], i = f.push.bind(f); f.push = r, f = f.slice(); for (var a = 0; a &lt; f.length; a&#43;&#43;)r(f[a]); var p = i; t() }([])&lt;/script&gt; 18 &lt;script src=&#34;/static/js/2.1902eda2.chunk.js&#34;&gt;&lt;/script&gt; 19 &lt;script src=&#34;/static/js/main.cbf35db7.chunk.js&#34;&gt;&lt;/script&gt; 20&lt;/body&gt; 21 22&lt;/html&gt; 发现 css 和 js 文件都是用绝对路径引用的，这是 webpack 打包一贯拥有的问题，将 /static 改成 ./static ，再运行，页面没有问题成功显示。">
+
+
+
+
+  <meta itemprop="name" content="React 脚手架项目打包时的路径问题">
+  <meta itemprop="description" content="create-react-app 脚手架指令可以生成 React 项目，在项目完成之后执行打包命令 npm run build，文件夹内生成 build文件夹，就是打包后的文件，在浏览器运行 index.html 发现页面空白，打开控制台有报错，css 和 js 文件的引用路径有问题。
+浏览 index.html 代码可以发现：
+1&lt;!-- index.html --&gt; 2 3&lt;!doctype html&gt; 4&lt;html lang=&#34;zh&#34;&gt; 5 6&lt;head&gt; 7 &lt;meta charset=&#34;utf-8&#34; /&gt; 8 &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width,initial-scale=1&#34; /&gt; 9 &lt;meta name=&#34;theme-color&#34; content=&#34;#000000&#34; /&gt; 10 &lt;meta name=&#34;description&#34; content=&#34;Web site created using create-react-app&#34; /&gt; 11 &lt;title&gt;React App&lt;/title&gt; 12 &lt;link href=&#34;/static/css/main.3394d54e.chunk.css&#34; rel=&#34;stylesheet&#34;&gt; 13&lt;/head&gt; 14 15&lt;body&gt;&lt;noscript&gt;You need to enable JavaScript to run this app.&lt;/noscript&gt; 16 &lt;div id=&#34;root&#34;&gt;&lt;/div&gt; 17 &lt;script&gt;!function (e) { function r(r) { for (var n, l, f = r[0], i = r[1], a = r[2], c = 0, s = []; c &lt; f.length; c&#43;&#43;)l = f[c], Object.prototype.hasOwnProperty.call(o, l) &amp;&amp; o[l] &amp;&amp; s.push(o[l][0]), o[l] = 0; for (n in i) Object.prototype.hasOwnProperty.call(i, n) &amp;&amp; (e[n] = i[n]); for (p &amp;&amp; p(r); s.length;)s.shift()(); return u.push.apply(u, a || []), t() } function t() { for (var e, r = 0; r &lt; u.length; r&#43;&#43;) { for (var t = u[r], n = !0, f = 1; f &lt; t.length; f&#43;&#43;) { var i = t[f]; 0 !== o[i] &amp;&amp; (n = !1) } n &amp;&amp; (u.splice(r--, 1), e = l(l.s = t[0])) } return e } var n = {}, o = { 1: 0 }, u = []; function l(r) { if (n[r]) return n[r].exports; var t = n[r] = { i: r, l: !1, exports: {} }; return e[r].call(t.exports, t, t.exports, l), t.l = !0, t.exports } l.m = e, l.c = n, l.d = function (e, r, t) { l.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: t }) }, l.r = function (e) { &#34;undefined&#34; != typeof Symbol &amp;&amp; Symbol.toStringTag &amp;&amp; Object.defineProperty(e, Symbol.toStringTag, { value: &#34;Module&#34; }), Object.defineProperty(e, &#34;__esModule&#34;, { value: !0 }) }, l.t = function (e, r) { if (1 &amp; r &amp;&amp; (e = l(e)), 8 &amp; r) return e; if (4 &amp; r &amp;&amp; &#34;object&#34; == typeof e &amp;&amp; e &amp;&amp; e.__esModule) return e; var t = Object.create(null); if (l.r(t), Object.defineProperty(t, &#34;default&#34;, { enumerable: !0, value: e }), 2 &amp; r &amp;&amp; &#34;string&#34; != typeof e) for (var n in e) l.d(t, n, function (r) { return e[r] }.bind(null, n)); return t }, l.n = function (e) { var r = e &amp;&amp; e.__esModule ? function () { return e.default } : function () { return e }; return l.d(r, &#34;a&#34;, r), r }, l.o = function (e, r) { return Object.prototype.hasOwnProperty.call(e, r) }, l.p = &#34;./&#34;; var f = this.webpackJsonpdemo = this.webpackJsonpdemo || [], i = f.push.bind(f); f.push = r, f = f.slice(); for (var a = 0; a &lt; f.length; a&#43;&#43;)r(f[a]); var p = i; t() }([])&lt;/script&gt; 18 &lt;script src=&#34;/static/js/2.1902eda2.chunk.js&#34;&gt;&lt;/script&gt; 19 &lt;script src=&#34;/static/js/main.cbf35db7.chunk.js&#34;&gt;&lt;/script&gt; 20&lt;/body&gt; 21 22&lt;/html&gt; 发现 css 和 js 文件都是用绝对路径引用的，这是 webpack 打包一贯拥有的问题，将 /static 改成 ./static ，再运行，页面没有问题成功显示。">
+  <meta itemprop="datePublished" content="2021-01-05T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-01-05T00:00:00+00:00">
+  <meta itemprop="wordCount" content="486">
+  <meta itemprop="image" content="http://localhost:1313/images/share.png">
+  <meta itemprop="keywords" content="React">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Hugo ʕ•ᴥ•ʔ Bear Blog</h2>
+</a>
+<nav>
+</nav>
+</header>
+  <main>
+
+<h1>React 脚手架项目打包时的路径问题</h1>
+<p>
+  <i>
+    <time datetime='2021-01-05'>
+      05 Jan, 2021
+    </time>
+  </i>
+</p>
+
+<content>
+  <p><code>create-react-app</code> 脚手架指令可以生成 React 项目，在项目完成之后执行打包命令 <code>npm run build</code>，文件夹内生成 <code>build</code>文件夹，就是打包后的文件，在浏览器运行 <code>index.html</code> 发现页面空白，打开控制台有报错，css 和 js 文件的引用路径有问题。</p>
+<p>浏览 <code>index.html</code> 代码可以发现：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#60a0b0;font-style:italic">&lt;!-- index.html --&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#007020">&lt;!doctype html&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>&lt;<span style="color:#062873;font-weight:bold">html</span> <span style="color:#4070a0">lang</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;zh&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>&lt;<span style="color:#062873;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    &lt;<span style="color:#062873;font-weight:bold">meta</span> <span style="color:#4070a0">charset</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;utf-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    &lt;<span style="color:#062873;font-weight:bold">meta</span> <span style="color:#4070a0">name</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;viewport&#34;</span> <span style="color:#4070a0">content</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;width=device-width,initial-scale=1&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    &lt;<span style="color:#062873;font-weight:bold">meta</span> <span style="color:#4070a0">name</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;theme-color&#34;</span> <span style="color:#4070a0">content</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;#000000&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    &lt;<span style="color:#062873;font-weight:bold">meta</span> <span style="color:#4070a0">name</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;description&#34;</span> <span style="color:#4070a0">content</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;Web site created using create-react-app&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    &lt;<span style="color:#062873;font-weight:bold">title</span>&gt;React App&lt;/<span style="color:#062873;font-weight:bold">title</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    &lt;<span style="color:#062873;font-weight:bold">link</span> <span style="color:#4070a0">href</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;/static/css/main.3394d54e.chunk.css&#34;</span> <span style="color:#4070a0">rel</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;stylesheet&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>&lt;/<span style="color:#062873;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>&lt;<span style="color:#062873;font-weight:bold">body</span>&gt;&lt;<span style="color:#062873;font-weight:bold">noscript</span>&gt;You need to enable JavaScript to run this app.&lt;/<span style="color:#062873;font-weight:bold">noscript</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>    &lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">id</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;root&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    &lt;<span style="color:#062873;font-weight:bold">script</span>&gt;<span style="color:#666">!</span><span style="color:#007020;font-weight:bold">function</span> (e) { <span style="color:#007020;font-weight:bold">function</span> r(r) { <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#007020;font-weight:bold">var</span> n, l, f <span style="color:#666">=</span> r[<span style="color:#40a070">0</span>], i <span style="color:#666">=</span> r[<span style="color:#40a070">1</span>], a <span style="color:#666">=</span> r[<span style="color:#40a070">2</span>], c <span style="color:#666">=</span> <span style="color:#40a070">0</span>, s <span style="color:#666">=</span> []; c <span style="color:#666">&lt;</span> f.length; c<span style="color:#666">++</span>)l <span style="color:#666">=</span> f[c], <span style="color:#007020">Object</span>.prototype.hasOwnProperty.call(o, l) <span style="color:#666">&amp;&amp;</span> o[l] <span style="color:#666">&amp;&amp;</span> s.push(o[l][<span style="color:#40a070">0</span>]), o[l] <span style="color:#666">=</span> <span style="color:#40a070">0</span>; <span style="color:#007020;font-weight:bold">for</span> (n <span style="color:#007020;font-weight:bold">in</span> i) <span style="color:#007020">Object</span>.prototype.hasOwnProperty.call(i, n) <span style="color:#666">&amp;&amp;</span> (e[n] <span style="color:#666">=</span> i[n]); <span style="color:#007020;font-weight:bold">for</span> (p <span style="color:#666">&amp;&amp;</span> p(r); s.length;)s.shift()(); <span style="color:#007020;font-weight:bold">return</span> u.push.apply(u, a <span style="color:#666">||</span> []), t() } <span style="color:#007020;font-weight:bold">function</span> t() { <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#007020;font-weight:bold">var</span> e, r <span style="color:#666">=</span> <span style="color:#40a070">0</span>; r <span style="color:#666">&lt;</span> u.length; r<span style="color:#666">++</span>) { <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#007020;font-weight:bold">var</span> t <span style="color:#666">=</span> u[r], n <span style="color:#666">=</span> <span style="color:#666">!</span><span style="color:#40a070">0</span>, f <span style="color:#666">=</span> <span style="color:#40a070">1</span>; f <span style="color:#666">&lt;</span> t.length; f<span style="color:#666">++</span>) { <span style="color:#007020;font-weight:bold">var</span> i <span style="color:#666">=</span> t[f]; <span style="color:#40a070">0</span> <span style="color:#666">!==</span> o[i] <span style="color:#666">&amp;&amp;</span> (n <span style="color:#666">=</span> <span style="color:#666">!</span><span style="color:#40a070">1</span>) } n <span style="color:#666">&amp;&amp;</span> (u.splice(r<span style="color:#666">--</span>, <span style="color:#40a070">1</span>), e <span style="color:#666">=</span> l(l.s <span style="color:#666">=</span> t[<span style="color:#40a070">0</span>])) } <span style="color:#007020;font-weight:bold">return</span> e } <span style="color:#007020;font-weight:bold">var</span> n <span style="color:#666">=</span> {}, o <span style="color:#666">=</span> { <span style="color:#40a070">1</span><span style="color:#666">:</span> <span style="color:#40a070">0</span> }, u <span style="color:#666">=</span> []; <span style="color:#007020;font-weight:bold">function</span> l(r) { <span style="color:#007020;font-weight:bold">if</span> (n[r]) <span style="color:#007020;font-weight:bold">return</span> n[r].exports; <span style="color:#007020;font-weight:bold">var</span> t <span style="color:#666">=</span> n[r] <span style="color:#666">=</span> { i<span style="color:#666">:</span> r, l<span style="color:#666">:</span> <span style="color:#666">!</span><span style="color:#40a070">1</span>, exports<span style="color:#666">:</span> {} }; <span style="color:#007020;font-weight:bold">return</span> e[r].call(t.exports, t, t.exports, l), t.l <span style="color:#666">=</span> <span style="color:#666">!</span><span style="color:#40a070">0</span>, t.exports } l.m <span style="color:#666">=</span> e, l.c <span style="color:#666">=</span> n, l.d <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">function</span> (e, r, t) { l.o(e, r) <span style="color:#666">||</span> <span style="color:#007020">Object</span>.defineProperty(e, r, { enumerable<span style="color:#666">:</span> <span style="color:#666">!</span><span style="color:#40a070">0</span>, get<span style="color:#666">:</span> t }) }, l.r <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">function</span> (e) { <span style="color:#4070a0">&#34;undefined&#34;</span> <span style="color:#666">!=</span> <span style="color:#007020;font-weight:bold">typeof</span> Symbol <span style="color:#666">&amp;&amp;</span> Symbol.toStringTag <span style="color:#666">&amp;&amp;</span> <span style="color:#007020">Object</span>.defineProperty(e, Symbol.toStringTag, { value<span style="color:#666">:</span> <span style="color:#4070a0">&#34;Module&#34;</span> }), <span style="color:#007020">Object</span>.defineProperty(e, <span style="color:#4070a0">&#34;__esModule&#34;</span>, { value<span style="color:#666">:</span> <span style="color:#666">!</span><span style="color:#40a070">0</span> }) }, l.t <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">function</span> (e, r) { <span style="color:#007020;font-weight:bold">if</span> (<span style="color:#40a070">1</span> <span style="color:#666">&amp;</span> r <span style="color:#666">&amp;&amp;</span> (e <span style="color:#666">=</span> l(e)), <span style="color:#40a070">8</span> <span style="color:#666">&amp;</span> r) <span style="color:#007020;font-weight:bold">return</span> e; <span style="color:#007020;font-weight:bold">if</span> (<span style="color:#40a070">4</span> <span style="color:#666">&amp;</span> r <span style="color:#666">&amp;&amp;</span> <span style="color:#4070a0">&#34;object&#34;</span> <span style="color:#666">==</span> <span style="color:#007020;font-weight:bold">typeof</span> e <span style="color:#666">&amp;&amp;</span> e <span style="color:#666">&amp;&amp;</span> e.__esModule) <span style="color:#007020;font-weight:bold">return</span> e; <span style="color:#007020;font-weight:bold">var</span> t <span style="color:#666">=</span> <span style="color:#007020">Object</span>.create(<span style="color:#007020;font-weight:bold">null</span>); <span style="color:#007020;font-weight:bold">if</span> (l.r(t), <span style="color:#007020">Object</span>.defineProperty(t, <span style="color:#4070a0">&#34;default&#34;</span>, { enumerable<span style="color:#666">:</span> <span style="color:#666">!</span><span style="color:#40a070">0</span>, value<span style="color:#666">:</span> e }), <span style="color:#40a070">2</span> <span style="color:#666">&amp;</span> r <span style="color:#666">&amp;&amp;</span> <span style="color:#4070a0">&#34;string&#34;</span> <span style="color:#666">!=</span> <span style="color:#007020;font-weight:bold">typeof</span> e) <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#007020;font-weight:bold">var</span> n <span style="color:#007020;font-weight:bold">in</span> e) l.d(t, n, <span style="color:#007020;font-weight:bold">function</span> (r) { <span style="color:#007020;font-weight:bold">return</span> e[r] }.bind(<span style="color:#007020;font-weight:bold">null</span>, n)); <span style="color:#007020;font-weight:bold">return</span> t }, l.n <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">function</span> (e) { <span style="color:#007020;font-weight:bold">var</span> r <span style="color:#666">=</span> e <span style="color:#666">&amp;&amp;</span> e.__esModule <span style="color:#666">?</span> <span style="color:#007020;font-weight:bold">function</span> () { <span style="color:#007020;font-weight:bold">return</span> e.<span style="color:#007020;font-weight:bold">default</span> } <span style="color:#666">:</span> <span style="color:#007020;font-weight:bold">function</span> () { <span style="color:#007020;font-weight:bold">return</span> e }; <span style="color:#007020;font-weight:bold">return</span> l.d(r, <span style="color:#4070a0">&#34;a&#34;</span>, r), r }, l.o <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">function</span> (e, r) { <span style="color:#007020;font-weight:bold">return</span> <span style="color:#007020">Object</span>.prototype.hasOwnProperty.call(e, r) }, l.p <span style="color:#666">=</span> <span style="color:#4070a0">&#34;./&#34;</span>; <span style="color:#007020;font-weight:bold">var</span> f <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">this</span>.webpackJsonpdemo <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">this</span>.webpackJsonpdemo <span style="color:#666">||</span> [], i <span style="color:#666">=</span> f.push.bind(f); f.push <span style="color:#666">=</span> r, f <span style="color:#666">=</span> f.slice(); <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#007020;font-weight:bold">var</span> a <span style="color:#666">=</span> <span style="color:#40a070">0</span>; a <span style="color:#666">&lt;</span> f.length; a<span style="color:#666">++</span>)r(f[a]); <span style="color:#007020;font-weight:bold">var</span> p <span style="color:#666">=</span> i; t() }([])&lt;/<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>    &lt;<span style="color:#062873;font-weight:bold">script</span> <span style="color:#4070a0">src</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;/static/js/2.1902eda2.chunk.js&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    &lt;<span style="color:#062873;font-weight:bold">script</span> <span style="color:#4070a0">src</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;/static/js/main.cbf35db7.chunk.js&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>&lt;/<span style="color:#062873;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>&lt;/<span style="color:#062873;font-weight:bold">html</span>&gt;
+</span></span></code></pre></div><p>发现 css 和 js 文件都是用绝对路径引用的，这是 webpack 打包一贯拥有的问题，将 <code>/static</code> 改成 <code>./static</code> ，再运行，页面没有问题成功显示。</p>
+<p>但是在写实际项目的时候手动修改相对路径，不但麻烦，而且容易引起其他问题。因此直接在项目的 <code>package.json</code> 配置文件进行修改，添加 <code>&quot;homepage&quot;: &quot;.&quot;</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#60a0b0;font-style:italic">// package.json
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#60a0b0;font-style:italic"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>  <span style="color:#062873;font-weight:bold">&#34;name&#34;</span>: <span style="color:#4070a0">&#34;demo&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>  <span style="color:#062873;font-weight:bold">&#34;version&#34;</span>: <span style="color:#4070a0">&#34;0.1.0&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>  <span style="color:#062873;font-weight:bold">&#34;private&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>  <span style="color:#062873;font-weight:bold">&#34;homepage&#34;</span>: <span style="color:#4070a0">&#34;.&#34;</span>,  <span style="color:#60a0b0;font-style:italic">// 添加这一行
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#60a0b0;font-style:italic"></span>  <span style="color:#062873;font-weight:bold">&#34;dependencies&#34;</span>: {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    <span style="color:#062873;font-weight:bold">&#34;@babel/core&#34;</span>: <span style="color:#4070a0">&#34;7.12.3&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    <span style="">...</span>
+</span></span></code></pre></div><p>然后再执行 <code>npm run build</code> ，运行打包后的文件，没有任何问题。</p>
+
+</content>
+<p>
+  
+  <a href="http://localhost:1313/blog/react/">#React</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

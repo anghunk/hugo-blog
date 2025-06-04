@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
+<title>我的 python 学习笔记 | Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+<meta name="title" content="我的 python 学习笔记" />
+<meta name="description" content="之所以学习 Python，本意是想写一些脚本之类的程序，用来在浏览器爬一些自己想要的文字，图片等资料，这些程序其实 GitHub 蛮多的，但奈何我对后端的语言一窍不通，直接拿过来给我用我都不会。
+因此就萌生了先学习 Python 基础知识的想法，一直听说廖雪峰的 Python 教程写的不错，这次趁着这个机会要好好研读一番。也没想说用的多牛逼，至少希望能为自己浅薄的技术栈再增加一点光彩，毕竟我也曾梦想成为一个全栈开发。
+下载安装完 Python 环境，就开始学习吧！
+运行我的第一个 python 程序
+1print(&#39;hello,world&#39;)
+数据类型
+在 Python 中，能直接处理的数据类型有几种，整数、浮点数、字符串、布尔值、空值、变量。
+这与其他语言其实差别并不大，数据类型基本都是相似的，大概只有变量有自己的特性，所以我单独拿出来记录一下。
+变量
+python 是一门动态语言，在赋值时可以不断改变，比如：
+1a = 123
+2print(a) # 终端输出数值 123
+3a = &#39;abc&#39;
+4print(a) # 终端输出字符串 abc
+这是允许的，而在 Java 中则不行，它是一门静态语言，如果多次赋值会报错。相对来说，动态语言更灵活，当然，各有利弊罢了。
+并且在赋值上面有一个逻辑顺序，比如定义一个 a = &#39;a&#39; 的变量。在 Python 中其实走了两步，先创造了一个字符串 a ，然后将这个字符串赋值给变量 a。
+其实这在数学上是有些反逻辑的，x = x &#43; 2 这个计算是行不通的在数学上，但是在计算机中，先计算 x &#43; 2 ，然后将其赋值给左侧的 x ，这是计算机的逻辑。" />
+<meta name="keywords" content="笔记,python," />
+
+
+<meta property="og:url" content="http://localhost:1313/61/">
+  <meta property="og:site_name" content="Hugo ʕ•ᴥ•ʔ Bear Blog">
+  <meta property="og:title" content="我的 python 学习笔记">
+  <meta property="og:description" content="之所以学习 Python，本意是想写一些脚本之类的程序，用来在浏览器爬一些自己想要的文字，图片等资料，这些程序其实 GitHub 蛮多的，但奈何我对后端的语言一窍不通，直接拿过来给我用我都不会。
+因此就萌生了先学习 Python 基础知识的想法，一直听说廖雪峰的 Python 教程写的不错，这次趁着这个机会要好好研读一番。也没想说用的多牛逼，至少希望能为自己浅薄的技术栈再增加一点光彩，毕竟我也曾梦想成为一个全栈开发。
+下载安装完 Python 环境，就开始学习吧！
+运行我的第一个 python 程序 1print(&#39;hello,world&#39;) 数据类型 在 Python 中，能直接处理的数据类型有几种，整数、浮点数、字符串、布尔值、空值、变量。
+这与其他语言其实差别并不大，数据类型基本都是相似的，大概只有变量有自己的特性，所以我单独拿出来记录一下。
+变量 python 是一门动态语言，在赋值时可以不断改变，比如：
+1a = 123 2print(a) # 终端输出数值 123 3a = &#39;abc&#39; 4print(a) # 终端输出字符串 abc 这是允许的，而在 Java 中则不行，它是一门静态语言，如果多次赋值会报错。相对来说，动态语言更灵活，当然，各有利弊罢了。
+并且在赋值上面有一个逻辑顺序，比如定义一个 a = &#39;a&#39; 的变量。在 Python 中其实走了两步，先创造了一个字符串 a ，然后将这个字符串赋值给变量 a。
+其实这在数学上是有些反逻辑的，x = x &#43; 2 这个计算是行不通的在数学上，但是在计算机中，先计算 x &#43; 2 ，然后将其赋值给左侧的 x ，这是计算机的逻辑。">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2021-04-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-04-01T00:00:00+00:00">
+    <meta property="article:tag" content="笔记">
+    <meta property="article:tag" content="Python">
+    <meta property="og:image" content="http://localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.png">
+  <meta name="twitter:title" content="我的 python 学习笔记">
+  <meta name="twitter:description" content="之所以学习 Python，本意是想写一些脚本之类的程序，用来在浏览器爬一些自己想要的文字，图片等资料，这些程序其实 GitHub 蛮多的，但奈何我对后端的语言一窍不通，直接拿过来给我用我都不会。
+因此就萌生了先学习 Python 基础知识的想法，一直听说廖雪峰的 Python 教程写的不错，这次趁着这个机会要好好研读一番。也没想说用的多牛逼，至少希望能为自己浅薄的技术栈再增加一点光彩，毕竟我也曾梦想成为一个全栈开发。
+下载安装完 Python 环境，就开始学习吧！
+运行我的第一个 python 程序 1print(&#39;hello,world&#39;) 数据类型 在 Python 中，能直接处理的数据类型有几种，整数、浮点数、字符串、布尔值、空值、变量。
+这与其他语言其实差别并不大，数据类型基本都是相似的，大概只有变量有自己的特性，所以我单独拿出来记录一下。
+变量 python 是一门动态语言，在赋值时可以不断改变，比如：
+1a = 123 2print(a) # 终端输出数值 123 3a = &#39;abc&#39; 4print(a) # 终端输出字符串 abc 这是允许的，而在 Java 中则不行，它是一门静态语言，如果多次赋值会报错。相对来说，动态语言更灵活，当然，各有利弊罢了。
+并且在赋值上面有一个逻辑顺序，比如定义一个 a = &#39;a&#39; 的变量。在 Python 中其实走了两步，先创造了一个字符串 a ，然后将这个字符串赋值给变量 a。
+其实这在数学上是有些反逻辑的，x = x &#43; 2 这个计算是行不通的在数学上，但是在计算机中，先计算 x &#43; 2 ，然后将其赋值给左侧的 x ，这是计算机的逻辑。">
+
+
+
+
+  <meta itemprop="name" content="我的 python 学习笔记">
+  <meta itemprop="description" content="之所以学习 Python，本意是想写一些脚本之类的程序，用来在浏览器爬一些自己想要的文字，图片等资料，这些程序其实 GitHub 蛮多的，但奈何我对后端的语言一窍不通，直接拿过来给我用我都不会。
+因此就萌生了先学习 Python 基础知识的想法，一直听说廖雪峰的 Python 教程写的不错，这次趁着这个机会要好好研读一番。也没想说用的多牛逼，至少希望能为自己浅薄的技术栈再增加一点光彩，毕竟我也曾梦想成为一个全栈开发。
+下载安装完 Python 环境，就开始学习吧！
+运行我的第一个 python 程序 1print(&#39;hello,world&#39;) 数据类型 在 Python 中，能直接处理的数据类型有几种，整数、浮点数、字符串、布尔值、空值、变量。
+这与其他语言其实差别并不大，数据类型基本都是相似的，大概只有变量有自己的特性，所以我单独拿出来记录一下。
+变量 python 是一门动态语言，在赋值时可以不断改变，比如：
+1a = 123 2print(a) # 终端输出数值 123 3a = &#39;abc&#39; 4print(a) # 终端输出字符串 abc 这是允许的，而在 Java 中则不行，它是一门静态语言，如果多次赋值会报错。相对来说，动态语言更灵活，当然，各有利弊罢了。
+并且在赋值上面有一个逻辑顺序，比如定义一个 a = &#39;a&#39; 的变量。在 Python 中其实走了两步，先创造了一个字符串 a ，然后将这个字符串赋值给变量 a。
+其实这在数学上是有些反逻辑的，x = x &#43; 2 这个计算是行不通的在数学上，但是在计算机中，先计算 x &#43; 2 ，然后将其赋值给左侧的 x ，这是计算机的逻辑。">
+  <meta itemprop="datePublished" content="2021-04-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-04-01T00:00:00+00:00">
+  <meta itemprop="wordCount" content="257">
+  <meta itemprop="image" content="http://localhost:1313/images/share.png">
+  <meta itemprop="keywords" content="笔记,Python">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Hugo ʕ•ᴥ•ʔ Bear Blog</h2>
+</a>
+<nav>
+</nav>
+</header>
+  <main>
+
+<h1>我的 python 学习笔记</h1>
+<p>
+  <i>
+    <time datetime='2021-04-01'>
+      01 Apr, 2021
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>之所以学习 Python，本意是想写一些脚本之类的程序，用来在浏览器爬一些自己想要的文字，图片等资料，这些程序其实 GitHub 蛮多的，但奈何我对后端的语言一窍不通，直接拿过来给我用我都不会。</p>
+<p>因此就萌生了先学习 Python 基础知识的想法，一直听说廖雪峰的 Python 教程写的不错，这次趁着这个机会要好好研读一番。也没想说用的多牛逼，至少希望能为自己浅薄的技术栈再增加一点光彩，毕竟我也曾梦想成为一个全栈开发。</p>
+<p>下载安装完 Python 环境，就开始学习吧！</p>
+<h2 id="运行我的第一个-python-程序">运行我的第一个 python 程序</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#007020">print</span>(<span style="color:#4070a0">&#39;hello,world&#39;</span>)
+</span></span></code></pre></div><h2 id="数据类型">数据类型</h2>
+<p>在 Python 中，能直接处理的数据类型有几种，整数、浮点数、字符串、布尔值、空值、变量。</p>
+<p>这与其他语言其实差别并不大，数据类型基本都是相似的，大概只有变量有自己的特性，所以我单独拿出来记录一下。</p>
+<h3 id="变量">变量</h3>
+<p>python 是一门动态语言，在赋值时可以不断改变，比如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>a <span style="color:#666">=</span> <span style="color:#40a070">123</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#007020">print</span>(a) <span style="color:#60a0b0;font-style:italic"># 终端输出数值 123</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>a <span style="color:#666">=</span> <span style="color:#4070a0">&#39;abc&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#007020">print</span>(a) <span style="color:#60a0b0;font-style:italic"># 终端输出字符串 abc</span>
+</span></span></code></pre></div><p>这是允许的，而在 Java 中则不行，它是一门静态语言，如果多次赋值会报错。相对来说，动态语言更灵活，当然，各有利弊罢了。</p>
+<p>并且在赋值上面有一个逻辑顺序，比如定义一个 <code>a = 'a'</code> 的变量。在 Python 中其实走了两步，先创造了一个字符串 <code>a</code> ，然后将这个字符串赋值给变量 a。</p>
+<p>其实这在数学上是有些反逻辑的，<code>x = x + 2</code> 这个计算是行不通的在数学上，但是在计算机中，先计算 <code>x + 2</code> ，然后将其赋值给左侧的 <code>x</code> ，这是计算机的逻辑。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>x <span style="color:#666">=</span> <span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>x <span style="color:#666">=</span> x <span style="color:#666">+</span> <span style="color:#40a070">2</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#007020">print</span>(x) <span style="color:#60a0b0;font-style:italic"># 3</span>
+</span></span></code></pre></div><p>其实很多计算机语言都是如此，比如我们所熟知的 js 等等。</p>
+<p>如果有多个变量相互赋值的话，都是一行一行执行</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#bb60d5">a</span> <span style="color:#666">=</span> <span style="color:#40a070">1</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#bb60d5">b</span> <span style="color:#666">=</span> a
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#bb60d5">a</span> <span style="color:#666">=</span> <span style="color:#40a070">2</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>print<span style="color:#666">(</span>a<span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>print<span style="color:#666">(</span>b<span style="color:#666">)</span>
+</span></span></code></pre></div><p>最后输出的结果分别是 <code>2</code>, <code>1</code></p>
+<blockquote>
+<p>Python 支持多种数据类型，在计算机内部，可以把任何数据都看成一个“对象”，而变量就是在程序中用来指向这些数据对象的，对变量赋值就是把数据和变量给关联起来。
+对变量赋值 x = y 是把变量 x 指向真正的对象，该对象是变量 y 所指向的。随后对变量 y 的赋值不影响变量 x 的指向。
+注意：Python 的整数没有大小限制，而某些语言的整数根据其存储长度是有大小限制的，例如 Java 对 32 位整数的范围限制在 -2147483648-2147483647。
+Python 的浮点数也没有大小限制，但是超出一定范围就直接表示为 inf（无限大）。&mdash;《廖雪峰的官方网站》</p></blockquote>
+<h2 id="字符串和编码">字符串和编码</h2>
+<p>Python 提供了两个处理编码的属性，<code>ord</code> 和 <code>chr</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#007020">ord</span>(<span style="color:#4070a0">&#39;舒&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#60a0b0;font-style:italic"># 33298</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#60a0b0;font-style:italic"># 将字符串转换为整数表示</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#007020">chr</span>(<span style="color:#40a070">33298</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#60a0b0;font-style:italic"># &#39;舒&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span><span style="color:#60a0b0;font-style:italic"># 将整数表示的内容转换为字符串</span>
+</span></span></code></pre></div><h2 id="list">list</h2>
+<p><code>list</code> 类似于 js 中的 <code>Array</code>，是多个数据的列表，写法如下</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&gt;&gt;&gt; <span style="color:#bb60d5">classmates</span> <span style="color:#666">=</span> <span style="color:#666">[</span><span style="color:#4070a0">&#39;a&#39;</span>, <span style="color:#4070a0">&#39;b&#39;</span>, <span style="color:#4070a0">&#39;c&#39;</span><span style="color:#666">]</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>&gt;&gt;&gt; classmates
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#666">[</span><span style="color:#4070a0">&#39;a&#39;</span>, <span style="color:#4070a0">&#39;b&#39;</span>, <span style="color:#4070a0">&#39;c&#39;</span><span style="color:#666">]</span>
+</span></span></code></pre></div><p>这时候我们就可以说变量 <code>classmates</code> 是一个 list。</p>
+<p>有一个 <code>len()</code> 可以输出 list 元素的个数</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&gt;&gt;&gt; len<span style="color:#666">(</span>classmates<span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>&gt;&gt;&gt; <span style="color:#40a070">3</span>
+</span></span></code></pre></div><p>同时 list 也有索引，从 0 开始，最后一个索引是 <code>len(classmates)-1</code>，同时如果想直接输出最后一个元素，可以使用 <code>classmates[-1]</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&gt;&gt;&gt; classmates<span style="color:#666">[</span>-1<span style="color:#666">]</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>&gt;&gt;&gt; <span style="color:#4070a0">&#39;c&#39;</span>
+</span></span></code></pre></div><p>既然都可以用 <code>-1</code> 表示最后一个元素，能不能用 <code>-2</code> 表示倒数第二个呢？答案是可以的。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&gt;&gt;&gt; classmates<span style="color:#666">[</span>-2<span style="color:#666">]</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>&gt;&gt;&gt; <span style="color:#4070a0">&#39;b&#39;</span>
+</span></span></code></pre></div><p><strong>另外需要注意的是，在使用索引时不可超出范围，否则会报出下面的错误。</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&gt;&gt;&gt; classmates<span style="color:#666">[</span>4<span style="color:#666">]</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Traceback <span style="color:#666">(</span>most recent call last<span style="color:#666">)</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>  File <span style="color:#4070a0">&#34;&lt;stdin&gt;&#34;</span>, line 1, in &lt;module&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>IndexError: list index out of range
+</span></span></code></pre></div><p><strong>list</strong> 是一个可变的有序列表，可以往里面添加或者删除元素。</p>
+<ol>
+<li>append 在末尾添加元素</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&gt;&gt;&gt; classmates.append<span style="color:#666">(</span><span style="color:#4070a0">&#39;d&#39;</span><span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>&gt;&gt;&gt; classmates
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#666">[</span><span style="color:#4070a0">&#39;a&#39;</span>, <span style="color:#4070a0">&#39;b&#39;</span>, <span style="color:#4070a0">&#39;c&#39;</span>, <span style="color:#4070a0">&#39;d&#39;</span><span style="color:#666">]</span>
+</span></span></code></pre></div><ol start="2">
+<li>insert 在指定位置添加元素</li>
+</ol>
+<p>其中 <code>1</code> 是索引，表示在索引为 1 的地方插入元素，后面的元素自然往后顺延。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&gt;&gt;&gt; classmates.insert<span style="color:#666">(</span>1, <span style="color:#4070a0">&#39;d&#39;</span><span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>&gt;&gt;&gt; classmates
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#666">[</span><span style="color:#4070a0">&#39;a&#39;</span>, <span style="color:#4070a0">&#39;d&#39;</span>, <span style="color:#4070a0">&#39;b&#39;</span>, <span style="color:#4070a0">&#39;c&#39;</span><span style="color:#666">]</span>
+</span></span></code></pre></div><ol start="3">
+<li>pop 删除末尾的元素</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&gt;&gt;&gt; classmates.pop<span style="color:#666">()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#4070a0">&#39;c&#39;</span> <span style="color:#60a0b0;font-style:italic"># 输出的时候被删除的元素</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>&gt;&gt;&gt; classmates
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#666">[</span><span style="color:#4070a0">&#39;a&#39;</span>, <span style="color:#4070a0">&#39;b&#39;</span><span style="color:#666">]</span>
+</span></span></code></pre></div><ol start="4">
+<li>pop(i) 删除指定位置的元素</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&gt;&gt;&gt; classmates.pop<span style="color:#666">(</span>1<span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#4070a0">&#39;b&#39;</span> <span style="color:#60a0b0;font-style:italic"># 输出被删除的元素</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>&gt;&gt;&gt; classmates
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#666">[</span><span style="color:#4070a0">&#39;a&#39;</span>, <span style="color:#4070a0">&#39;c&#39;</span><span style="color:#666">]</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>&gt;&gt;&gt; 
+</span></span></code></pre></div>
+</content>
+<p>
+  
+  <a href="http://localhost:1313/blog/%E7%AC%94%E8%AE%B0/">#笔记</a>
+  
+  <a href="http://localhost:1313/blog/python/">#Python</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
+<title>奇趣周刊 - 第 38 期 | Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+<meta name="title" content="奇趣周刊 - 第 38 期" />
+<meta name="description" content="
+奇趣周刊，分享有趣的软件，程序，动态新闻等。 周刊列表 | rss 订阅
+1. 幻兽帕鲁自建服务端 docker
+https://github.com/thijsvanloef/palworld-server-docker
+最近一周，steam 游戏《幻兽帕鲁》非常火热，游戏内核很好玩，并且官方支持自建服务端，该仓库可以使用 docker 一键部署服务端，存档可以放在自己手中，但是自建服务端对机器配置要求还是比较高的，内存最好 16G 往上。
+2. 将 warp 节点转换成订阅地址
+https://tofree.zeabur.app/
+https://github.com/vvbbnn00/WARP-Clash-API/
+cloudflare 提供了免费的代理工具 warp&#43;，但是需要借助软件，网络不稳定，这个网站将 warp 的节点转换成订阅地址，让你可以在各种客户端上通过订阅使用 warp&#43; 节点，代码已开源，提供了 docker 自部署，自动刷新订阅，IP 优选等功能。
+
+3. 没有人关心你的 Git 历史记录
+https://spin.atomicobject.com/git-history/
+这篇文章讨论了 Git 历史的重要性，以及变基、压缩和提交消息的意义。Git 历史对于软件团队来说是一个无名英雄，但对其他人可能构成了困扰。文章探讨了“干净的 Git 历史”的含义，以及进行重写和压缩的必要性和优点；还讨论了哪些团队和个人应该使用变基，以及使用变基的利弊；同时提到了保持详细的提交历史的价值和重要性，以及重写历史可能带来的问题和风险。
+4. 新版本 Chrome network 展示修改
+新版本 Chrome network 资源类型展示变成下来，看起来非常别扭，可以在控制台设置中修改，将此项取消勾选。
+
+
+5. AITDK：一键查看网站流量/Whois/SEO 等信息
+https://chromewebstore.google.com/detail/hhfkpjffbhledfpkhhcoidplcebgdgbk
+当我们分析某个网站的流量/Whois/SEO 等信息时，经常需要打开多个插件或多个网站，非常低效，AITDK Extension 可以一键快速查看网站流量/Whois/SEO 等信息。
+
+6. daisyui：使用纯 css 实现的组件库
+https://daisyui.com/
+https://github.com/saadeghi/daisyui
+不局限于前端框架，和 Tailwind 结合使用，将类名整合起来，更简单易用，可以使用 npm / yarn 等包管理工具引入到各类框架中，也可以使用 cdn 引入到 html 中。" />
+<meta name="keywords" content="weekly," />
+
+
+<meta property="og:url" content="http://localhost:1313/weekly-38/">
+  <meta property="og:site_name" content="Hugo ʕ•ᴥ•ʔ Bear Blog">
+  <meta property="og:title" content="奇趣周刊 - 第 38 期">
+  <meta property="og:description" content="奇趣周刊，分享有趣的软件，程序，动态新闻等。 周刊列表 | rss 订阅
+1. 幻兽帕鲁自建服务端 docker https://github.com/thijsvanloef/palworld-server-docker
+最近一周，steam 游戏《幻兽帕鲁》非常火热，游戏内核很好玩，并且官方支持自建服务端，该仓库可以使用 docker 一键部署服务端，存档可以放在自己手中，但是自建服务端对机器配置要求还是比较高的，内存最好 16G 往上。
+2. 将 warp 节点转换成订阅地址 https://tofree.zeabur.app/
+https://github.com/vvbbnn00/WARP-Clash-API/
+cloudflare 提供了免费的代理工具 warp&#43;，但是需要借助软件，网络不稳定，这个网站将 warp 的节点转换成订阅地址，让你可以在各种客户端上通过订阅使用 warp&#43; 节点，代码已开源，提供了 docker 自部署，自动刷新订阅，IP 优选等功能。
+3. 没有人关心你的 Git 历史记录 https://spin.atomicobject.com/git-history/
+这篇文章讨论了 Git 历史的重要性，以及变基、压缩和提交消息的意义。Git 历史对于软件团队来说是一个无名英雄，但对其他人可能构成了困扰。文章探讨了“干净的 Git 历史”的含义，以及进行重写和压缩的必要性和优点；还讨论了哪些团队和个人应该使用变基，以及使用变基的利弊；同时提到了保持详细的提交历史的价值和重要性，以及重写历史可能带来的问题和风险。
+4. 新版本 Chrome network 展示修改 新版本 Chrome network 资源类型展示变成下来，看起来非常别扭，可以在控制台设置中修改，将此项取消勾选。
+5. AITDK：一键查看网站流量/Whois/SEO 等信息 https://chromewebstore.google.com/detail/hhfkpjffbhledfpkhhcoidplcebgdgbk
+当我们分析某个网站的流量/Whois/SEO 等信息时，经常需要打开多个插件或多个网站，非常低效，AITDK Extension 可以一键快速查看网站流量/Whois/SEO 等信息。
+6. daisyui：使用纯 css 实现的组件库 https://daisyui.com/
+https://github.com/saadeghi/daisyui
+不局限于前端框架，和 Tailwind 结合使用，将类名整合起来，更简单易用，可以使用 npm / yarn 等包管理工具引入到各类框架中，也可以使用 cdn 引入到 html 中。">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2024-02-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-02-01T00:00:00+00:00">
+    <meta property="article:tag" content="Weekly">
+    <meta property="og:image" content="http://localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.png">
+  <meta name="twitter:title" content="奇趣周刊 - 第 38 期">
+  <meta name="twitter:description" content="奇趣周刊，分享有趣的软件，程序，动态新闻等。 周刊列表 | rss 订阅
+1. 幻兽帕鲁自建服务端 docker https://github.com/thijsvanloef/palworld-server-docker
+最近一周，steam 游戏《幻兽帕鲁》非常火热，游戏内核很好玩，并且官方支持自建服务端，该仓库可以使用 docker 一键部署服务端，存档可以放在自己手中，但是自建服务端对机器配置要求还是比较高的，内存最好 16G 往上。
+2. 将 warp 节点转换成订阅地址 https://tofree.zeabur.app/
+https://github.com/vvbbnn00/WARP-Clash-API/
+cloudflare 提供了免费的代理工具 warp&#43;，但是需要借助软件，网络不稳定，这个网站将 warp 的节点转换成订阅地址，让你可以在各种客户端上通过订阅使用 warp&#43; 节点，代码已开源，提供了 docker 自部署，自动刷新订阅，IP 优选等功能。
+3. 没有人关心你的 Git 历史记录 https://spin.atomicobject.com/git-history/
+这篇文章讨论了 Git 历史的重要性，以及变基、压缩和提交消息的意义。Git 历史对于软件团队来说是一个无名英雄，但对其他人可能构成了困扰。文章探讨了“干净的 Git 历史”的含义，以及进行重写和压缩的必要性和优点；还讨论了哪些团队和个人应该使用变基，以及使用变基的利弊；同时提到了保持详细的提交历史的价值和重要性，以及重写历史可能带来的问题和风险。
+4. 新版本 Chrome network 展示修改 新版本 Chrome network 资源类型展示变成下来，看起来非常别扭，可以在控制台设置中修改，将此项取消勾选。
+5. AITDK：一键查看网站流量/Whois/SEO 等信息 https://chromewebstore.google.com/detail/hhfkpjffbhledfpkhhcoidplcebgdgbk
+当我们分析某个网站的流量/Whois/SEO 等信息时，经常需要打开多个插件或多个网站，非常低效，AITDK Extension 可以一键快速查看网站流量/Whois/SEO 等信息。
+6. daisyui：使用纯 css 实现的组件库 https://daisyui.com/
+https://github.com/saadeghi/daisyui
+不局限于前端框架，和 Tailwind 结合使用，将类名整合起来，更简单易用，可以使用 npm / yarn 等包管理工具引入到各类框架中，也可以使用 cdn 引入到 html 中。">
+
+
+
+
+  <meta itemprop="name" content="奇趣周刊 - 第 38 期">
+  <meta itemprop="description" content="奇趣周刊，分享有趣的软件，程序，动态新闻等。 周刊列表 | rss 订阅
+1. 幻兽帕鲁自建服务端 docker https://github.com/thijsvanloef/palworld-server-docker
+最近一周，steam 游戏《幻兽帕鲁》非常火热，游戏内核很好玩，并且官方支持自建服务端，该仓库可以使用 docker 一键部署服务端，存档可以放在自己手中，但是自建服务端对机器配置要求还是比较高的，内存最好 16G 往上。
+2. 将 warp 节点转换成订阅地址 https://tofree.zeabur.app/
+https://github.com/vvbbnn00/WARP-Clash-API/
+cloudflare 提供了免费的代理工具 warp&#43;，但是需要借助软件，网络不稳定，这个网站将 warp 的节点转换成订阅地址，让你可以在各种客户端上通过订阅使用 warp&#43; 节点，代码已开源，提供了 docker 自部署，自动刷新订阅，IP 优选等功能。
+3. 没有人关心你的 Git 历史记录 https://spin.atomicobject.com/git-history/
+这篇文章讨论了 Git 历史的重要性，以及变基、压缩和提交消息的意义。Git 历史对于软件团队来说是一个无名英雄，但对其他人可能构成了困扰。文章探讨了“干净的 Git 历史”的含义，以及进行重写和压缩的必要性和优点；还讨论了哪些团队和个人应该使用变基，以及使用变基的利弊；同时提到了保持详细的提交历史的价值和重要性，以及重写历史可能带来的问题和风险。
+4. 新版本 Chrome network 展示修改 新版本 Chrome network 资源类型展示变成下来，看起来非常别扭，可以在控制台设置中修改，将此项取消勾选。
+5. AITDK：一键查看网站流量/Whois/SEO 等信息 https://chromewebstore.google.com/detail/hhfkpjffbhledfpkhhcoidplcebgdgbk
+当我们分析某个网站的流量/Whois/SEO 等信息时，经常需要打开多个插件或多个网站，非常低效，AITDK Extension 可以一键快速查看网站流量/Whois/SEO 等信息。
+6. daisyui：使用纯 css 实现的组件库 https://daisyui.com/
+https://github.com/saadeghi/daisyui
+不局限于前端框架，和 Tailwind 结合使用，将类名整合起来，更简单易用，可以使用 npm / yarn 等包管理工具引入到各类框架中，也可以使用 cdn 引入到 html 中。">
+  <meta itemprop="datePublished" content="2024-02-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-02-01T00:00:00+00:00">
+  <meta itemprop="wordCount" content="109">
+  <meta itemprop="image" content="http://localhost:1313/images/share.png">
+  <meta itemprop="keywords" content="Weekly">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Hugo ʕ•ᴥ•ʔ Bear Blog</h2>
+</a>
+<nav>
+</nav>
+</header>
+  <main>
+
+<h1>奇趣周刊 - 第 38 期</h1>
+<p>
+  <i>
+    <time datetime='2024-02-01'>
+      01 Feb, 2024
+    </time>
+  </i>
+</p>
+
+<content>
+  <blockquote>
+<p>奇趣周刊，分享有趣的软件，程序，动态新闻等。 <a href="/categories/weekly/">周刊列表</a> | <a href="/categories/weekly/index.xml">rss 订阅</a></p></blockquote>
+<h3 id="1-幻兽帕鲁自建服务端-docker">1. 幻兽帕鲁自建服务端 docker</h3>
+<p><a href="https://github.com/thijsvanloef/palworld-server-docker">https://github.com/thijsvanloef/palworld-server-docker</a></p>
+<p>最近一周，steam 游戏《幻兽帕鲁》非常火热，游戏内核很好玩，并且官方支持自建服务端，该仓库可以使用 docker 一键部署服务端，存档可以放在自己手中，但是自建服务端对机器配置要求还是比较高的，内存最好 16G 往上。</p>
+<h3 id="2-将-warp-节点转换成订阅地址">2. 将 warp 节点转换成订阅地址</h3>
+<p><a href="https://tofree.zeabur.app/">https://tofree.zeabur.app/</a><br>
+<a href="https://github.com/vvbbnn00/WARP-Clash-API/">https://github.com/vvbbnn00/WARP-Clash-API/</a></p>
+<p>cloudflare 提供了免费的代理工具 warp+，但是需要借助软件，网络不稳定，这个网站将 warp 的节点转换成订阅地址，让你可以在各种客户端上通过订阅使用 warp+ 节点，代码已开源，提供了 docker 自部署，自动刷新订阅，IP 优选等功能。</p>
+<p><img src="https://imgurl.zishu.me/2024/01/1706496643123.webp" alt=""></p>
+<h3 id="3-没有人关心你的-git-历史记录">3. 没有人关心你的 Git 历史记录</h3>
+<p><a href="https://spin.atomicobject.com/git-history/">https://spin.atomicobject.com/git-history/</a></p>
+<p>这篇文章讨论了 Git 历史的重要性，以及变基、压缩和提交消息的意义。Git 历史对于软件团队来说是一个无名英雄，但对其他人可能构成了困扰。文章探讨了“干净的 Git 历史”的含义，以及进行重写和压缩的必要性和优点；还讨论了哪些团队和个人应该使用变基，以及使用变基的利弊；同时提到了保持详细的提交历史的价值和重要性，以及重写历史可能带来的问题和风险。</p>
+<h3 id="4-新版本-chrome-network-展示修改">4. 新版本 Chrome network 展示修改</h3>
+<p>新版本 Chrome network 资源类型展示变成下来，看起来非常别扭，可以在控制台设置中修改，将此项取消勾选。</p>
+<p><img src="https://imgurl.zishu.me/2024/01/1706260620905.webp" alt=""></p>
+<p><img src="https://imgurl.zishu.me/2024/01/1706260504246.webp" alt=""></p>
+<h3 id="5-aitdk一键查看网站流量whoisseo-等信息">5. AITDK：一键查看网站流量/Whois/SEO 等信息</h3>
+<p><a href="https://chromewebstore.google.com/detail/hhfkpjffbhledfpkhhcoidplcebgdgbk">https://chromewebstore.google.com/detail/hhfkpjffbhledfpkhhcoidplcebgdgbk</a></p>
+<p>当我们分析某个网站的流量/Whois/SEO 等信息时，经常需要打开多个插件或多个网站，非常低效，AITDK Extension 可以一键快速查看网站流量/Whois/SEO 等信息。</p>
+<p><img src="https://imgurl.zishu.me/2024/01/1706582130424.webp" alt=""></p>
+<h3 id="6-daisyui使用纯-css-实现的组件库">6. daisyui：使用纯 css 实现的组件库</h3>
+<p><a href="https://daisyui.com/">https://daisyui.com/</a><br>
+<a href="https://github.com/saadeghi/daisyui">https://github.com/saadeghi/daisyui</a></p>
+<p>不局限于前端框架，和 Tailwind 结合使用，将类名整合起来，更简单易用，可以使用 npm / yarn 等包管理工具引入到各类框架中，也可以使用 cdn 引入到 html 中。</p>
+<p><img src="https://imgurl.zishu.me/2024/01/1706583481983.webp" alt="">
+<img src="https://imgurl.zishu.me/2024/01/1706583682653.webp" alt="">
+<img src="https://imgurl.zishu.me/2024/01/1706583682937.webp" alt=""></p>
+<h3 id="7-掌上宇宙">7. 掌上宇宙</h3>
+<p><a href="https://cocosmos.online/">https://cocosmos.online/</a></p>
+<p>可以通过在线网站实时观测宇宙模型，挺好玩的一个工具。</p>
+<p><img src="https://imgurl.zishu.me/2024/01/1706671093303.webp" alt=""></p>
+<h3 id="8-gemini-在线网页">8. Gemini 在线网页</h3>
+<p><a href="https://ibcl.us/ChatGemini/">https://ibcl.us/ChatGemini/</a><br>
+<a href="https://github.com/bclswl0827/ChatGemini/">https://github.com/bclswl0827/ChatGemini/</a></p>
+<p>ChatGemini 是一个基于 Google Gemini 的网页客户端，对标 ChatGPT 3.5，使用逻辑同 ChatGPT 3.5 一致，同时支持在聊天中上传图片，自动调用 Gemini-Pro-Vision 模型进行识图。</p>
+<p>本项目还可自定义 Gemini API 服务器地址，用户可将本项目部署至支持 PHP 的服务器或虚拟主机上，或是自行配置 Nginx 反向代理，透过修改 Gemini API 路径，从而在中国大陆无障碍使用。</p>
+<p><img src="https://imgurl.zishu.me/2024/02/1706748456237.webp" alt=""></p>
+
+</content>
+<p>
+  
+  <a href="http://localhost:1313/blog/weekly/">#Weekly</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

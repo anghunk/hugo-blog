@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
+<title>javascript 进阶问题 | Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+<meta name="title" content="javascript 进阶问题" />
+<meta name="description" content="Github: https://github.com/lydiahallie/javascript-questions
+相当不错的一个 Github 仓库，javascript questions ，作者每周都会发布一些有关 javascript 的题目，虽然不难但是考察细节，刷了一会，其实一些很简单的问题，结果因为细节思考不到位直接出错。
+
+引用作者的话：我在我的 Instagram 上每天都会发布 JavaScript 的多选问题，并且同时也会在这个仓库中发布。
+
+从基础到进阶，测试你有多了解 JavaScript，刷新你的知识，或者帮助你的 coding 面试！" />
+<meta name="keywords" content="js," />
+
+
+<meta property="og:url" content="http://localhost:1313/36/">
+  <meta property="og:site_name" content="Hugo ʕ•ᴥ•ʔ Bear Blog">
+  <meta property="og:title" content="javascript 进阶问题">
+  <meta property="og:description" content="Github: https://github.com/lydiahallie/javascript-questions
+相当不错的一个 Github 仓库，javascript questions ，作者每周都会发布一些有关 javascript 的题目，虽然不难但是考察细节，刷了一会，其实一些很简单的问题，结果因为细节思考不到位直接出错。
+引用作者的话：我在我的 Instagram 上每天都会发布 JavaScript 的多选问题，并且同时也会在这个仓库中发布。
+从基础到进阶，测试你有多了解 JavaScript，刷新你的知识，或者帮助你的 coding 面试！">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2020-12-19T00:00:00+00:00">
+    <meta property="article:modified_time" content="2020-12-19T00:00:00+00:00">
+    <meta property="article:tag" content="Js">
+    <meta property="og:image" content="http://localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.png">
+  <meta name="twitter:title" content="javascript 进阶问题">
+  <meta name="twitter:description" content="Github: https://github.com/lydiahallie/javascript-questions
+相当不错的一个 Github 仓库，javascript questions ，作者每周都会发布一些有关 javascript 的题目，虽然不难但是考察细节，刷了一会，其实一些很简单的问题，结果因为细节思考不到位直接出错。
+引用作者的话：我在我的 Instagram 上每天都会发布 JavaScript 的多选问题，并且同时也会在这个仓库中发布。
+从基础到进阶，测试你有多了解 JavaScript，刷新你的知识，或者帮助你的 coding 面试！">
+
+
+
+
+  <meta itemprop="name" content="javascript 进阶问题">
+  <meta itemprop="description" content="Github: https://github.com/lydiahallie/javascript-questions
+相当不错的一个 Github 仓库，javascript questions ，作者每周都会发布一些有关 javascript 的题目，虽然不难但是考察细节，刷了一会，其实一些很简单的问题，结果因为细节思考不到位直接出错。
+引用作者的话：我在我的 Instagram 上每天都会发布 JavaScript 的多选问题，并且同时也会在这个仓库中发布。
+从基础到进阶，测试你有多了解 JavaScript，刷新你的知识，或者帮助你的 coding 面试！">
+  <meta itemprop="datePublished" content="2020-12-19T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2020-12-19T00:00:00+00:00">
+  <meta itemprop="wordCount" content="18">
+  <meta itemprop="image" content="http://localhost:1313/images/share.png">
+  <meta itemprop="keywords" content="Js">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Hugo ʕ•ᴥ•ʔ Bear Blog</h2>
+</a>
+<nav>
+</nav>
+</header>
+  <main>
+
+<h1>javascript 进阶问题</h1>
+<p>
+  <i>
+    <time datetime='2020-12-19'>
+      19 Dec, 2020
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>Github: <a href="https://github.com/lydiahallie/javascript-questions">https://github.com/lydiahallie/javascript-questions</a></p>
+<p>相当不错的一个 Github 仓库，<code>javascript questions</code> ，作者每周都会发布一些有关 javascript 的题目，虽然不难但是考察细节，刷了一会，其实一些很简单的问题，结果因为细节思考不到位直接出错。</p>
+<blockquote>
+<p>引用作者的话：我在我的 Instagram 上每天都会发布 JavaScript 的多选问题，并且同时也会在这个仓库中发布。</p></blockquote>
+<blockquote>
+<p>从基础到进阶，测试你有多了解 JavaScript，刷新你的知识，或者帮助你的 coding 面试！</p></blockquote>
+
+</content>
+<p>
+  
+  <a href="http://localhost:1313/blog/js/">#Js</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

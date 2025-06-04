@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
+<title>hugo 的一些模板语法 | Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+<meta name="title" content="hugo 的一些模板语法" />
+<meta name="description" content="分享一下 hugo 的语法模板，如何获取总文章数和总字数，效果可以参考我的首页。
+1{{ $articleCount := len .Site.RegularPages }}
+2{{ $totalWordCount := 0 }}
+3{{ range .Site.Pages }}
+4{{ $totalWordCount = add $totalWordCount .WordCount }}
+5{{ end }}
+1&lt;p&gt;已经写了 {{ $articleCount }} 篇文章，共 {{ $totalWordCount }} 字。&lt;/p&gt;
+在首页过滤某个分类。
+ 1{{ $pages := .Site.RegularPages }}
+ 2{{ $paginator := .Paginate ($pages) }}
+ 3{{ $count := 0 }}
+ 4
+ 5{{ range $paginator.Pages }}
+ 6{{ $title := .Title }}
+ 7{{ $summary := .Summary }}
+ 8
+ 9{{ if and (not (in .Params.categories &#34;weekly&#34;)) (lt $count 7) }}
+10{{ $count = add $count 1 }}
+11
+12&lt;article class=&#34;post-entry&#34;&gt;
+13  &lt;header class=&#34;entry-header&#34;&gt;
+14    &lt;h2 class=&#34;entry-hint-parent&#34;&gt;{{ .Title }}&lt;/h2&gt;
+15  &lt;/header&gt;
+16  &lt;div class=&#34;entry-content&#34;&gt;
+17    &lt;p&gt;{{ .Summary }}&lt;/p&gt;
+18  &lt;/div&gt;
+19  &lt;footer class=&#34;entry-footer&#34;&gt;
+20    &lt;time datetime=&#34;{{ .Date.Format &#34; 2006-01-02 15:04:05 MST&#34; }}&#34;&gt;{{ .Date.Format &#34;2006-01-02&#34;}}&lt;/time&gt;
+21    &lt;span class=&#34;category&#34;&gt;
+22      {{ range $key, $value := .Params.categories -}}
+23      {{- if $key }}, {{ end }}
+24      {{ . }}
+25      {{- end }}
+26    &lt;/span&gt;
+27  &lt;/footer&gt;
+28  &lt;a class=&#34;entry-link&#34; href=&#34;{{ .RelPermalink }}&#34;&gt;&lt;/a&gt;
+29&lt;/article&gt;
+30{{ end }}
+31
+32{{ end }}
+" />
+<meta name="keywords" content="hugo," />
+
+
+<meta property="og:url" content="http://localhost:1313/213/">
+  <meta property="og:site_name" content="Hugo ʕ•ᴥ•ʔ Bear Blog">
+  <meta property="og:title" content="hugo 的一些模板语法">
+  <meta property="og:description" content="分享一下 hugo 的语法模板，如何获取总文章数和总字数，效果可以参考我的首页。
+1{{ $articleCount := len .Site.RegularPages }} 2{{ $totalWordCount := 0 }} 3{{ range .Site.Pages }} 4{{ $totalWordCount = add $totalWordCount .WordCount }} 5{{ end }} 1&lt;p&gt;已经写了 {{ $articleCount }} 篇文章，共 {{ $totalWordCount }} 字。&lt;/p&gt; 在首页过滤某个分类。
+1{{ $pages := .Site.RegularPages }} 2{{ $paginator := .Paginate ($pages) }} 3{{ $count := 0 }} 4 5{{ range $paginator.Pages }} 6{{ $title := .Title }} 7{{ $summary := .Summary }} 8 9{{ if and (not (in .Params.categories &#34;weekly&#34;)) (lt $count 7) }} 10{{ $count = add $count 1 }} 11 12&lt;article class=&#34;post-entry&#34;&gt; 13 &lt;header class=&#34;entry-header&#34;&gt; 14 &lt;h2 class=&#34;entry-hint-parent&#34;&gt;{{ .Title }}&lt;/h2&gt; 15 &lt;/header&gt; 16 &lt;div class=&#34;entry-content&#34;&gt; 17 &lt;p&gt;{{ .Summary }}&lt;/p&gt; 18 &lt;/div&gt; 19 &lt;footer class=&#34;entry-footer&#34;&gt; 20 &lt;time datetime=&#34;{{ .Date.Format &#34; 2006-01-02 15:04:05 MST&#34; }}&#34;&gt;{{ .Date.Format &#34;2006-01-02&#34;}}&lt;/time&gt; 21 &lt;span class=&#34;category&#34;&gt; 22 {{ range $key, $value := .Params.categories -}} 23 {{- if $key }}, {{ end }} 24 {{ . }} 25 {{- end }} 26 &lt;/span&gt; 27 &lt;/footer&gt; 28 &lt;a class=&#34;entry-link&#34; href=&#34;{{ .RelPermalink }}&#34;&gt;&lt;/a&gt; 29&lt;/article&gt; 30{{ end }} 31 32{{ end }}">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2023-11-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-11-15T00:00:00+00:00">
+    <meta property="article:tag" content="Hugo">
+    <meta property="og:image" content="http://localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.png">
+  <meta name="twitter:title" content="hugo 的一些模板语法">
+  <meta name="twitter:description" content="分享一下 hugo 的语法模板，如何获取总文章数和总字数，效果可以参考我的首页。
+1{{ $articleCount := len .Site.RegularPages }} 2{{ $totalWordCount := 0 }} 3{{ range .Site.Pages }} 4{{ $totalWordCount = add $totalWordCount .WordCount }} 5{{ end }} 1&lt;p&gt;已经写了 {{ $articleCount }} 篇文章，共 {{ $totalWordCount }} 字。&lt;/p&gt; 在首页过滤某个分类。
+1{{ $pages := .Site.RegularPages }} 2{{ $paginator := .Paginate ($pages) }} 3{{ $count := 0 }} 4 5{{ range $paginator.Pages }} 6{{ $title := .Title }} 7{{ $summary := .Summary }} 8 9{{ if and (not (in .Params.categories &#34;weekly&#34;)) (lt $count 7) }} 10{{ $count = add $count 1 }} 11 12&lt;article class=&#34;post-entry&#34;&gt; 13 &lt;header class=&#34;entry-header&#34;&gt; 14 &lt;h2 class=&#34;entry-hint-parent&#34;&gt;{{ .Title }}&lt;/h2&gt; 15 &lt;/header&gt; 16 &lt;div class=&#34;entry-content&#34;&gt; 17 &lt;p&gt;{{ .Summary }}&lt;/p&gt; 18 &lt;/div&gt; 19 &lt;footer class=&#34;entry-footer&#34;&gt; 20 &lt;time datetime=&#34;{{ .Date.Format &#34; 2006-01-02 15:04:05 MST&#34; }}&#34;&gt;{{ .Date.Format &#34;2006-01-02&#34;}}&lt;/time&gt; 21 &lt;span class=&#34;category&#34;&gt; 22 {{ range $key, $value := .Params.categories -}} 23 {{- if $key }}, {{ end }} 24 {{ . }} 25 {{- end }} 26 &lt;/span&gt; 27 &lt;/footer&gt; 28 &lt;a class=&#34;entry-link&#34; href=&#34;{{ .RelPermalink }}&#34;&gt;&lt;/a&gt; 29&lt;/article&gt; 30{{ end }} 31 32{{ end }}">
+
+
+
+
+  <meta itemprop="name" content="hugo 的一些模板语法">
+  <meta itemprop="description" content="分享一下 hugo 的语法模板，如何获取总文章数和总字数，效果可以参考我的首页。
+1{{ $articleCount := len .Site.RegularPages }} 2{{ $totalWordCount := 0 }} 3{{ range .Site.Pages }} 4{{ $totalWordCount = add $totalWordCount .WordCount }} 5{{ end }} 1&lt;p&gt;已经写了 {{ $articleCount }} 篇文章，共 {{ $totalWordCount }} 字。&lt;/p&gt; 在首页过滤某个分类。
+1{{ $pages := .Site.RegularPages }} 2{{ $paginator := .Paginate ($pages) }} 3{{ $count := 0 }} 4 5{{ range $paginator.Pages }} 6{{ $title := .Title }} 7{{ $summary := .Summary }} 8 9{{ if and (not (in .Params.categories &#34;weekly&#34;)) (lt $count 7) }} 10{{ $count = add $count 1 }} 11 12&lt;article class=&#34;post-entry&#34;&gt; 13 &lt;header class=&#34;entry-header&#34;&gt; 14 &lt;h2 class=&#34;entry-hint-parent&#34;&gt;{{ .Title }}&lt;/h2&gt; 15 &lt;/header&gt; 16 &lt;div class=&#34;entry-content&#34;&gt; 17 &lt;p&gt;{{ .Summary }}&lt;/p&gt; 18 &lt;/div&gt; 19 &lt;footer class=&#34;entry-footer&#34;&gt; 20 &lt;time datetime=&#34;{{ .Date.Format &#34; 2006-01-02 15:04:05 MST&#34; }}&#34;&gt;{{ .Date.Format &#34;2006-01-02&#34;}}&lt;/time&gt; 21 &lt;span class=&#34;category&#34;&gt; 22 {{ range $key, $value := .Params.categories -}} 23 {{- if $key }}, {{ end }} 24 {{ . }} 25 {{- end }} 26 &lt;/span&gt; 27 &lt;/footer&gt; 28 &lt;a class=&#34;entry-link&#34; href=&#34;{{ .RelPermalink }}&#34;&gt;&lt;/a&gt; 29&lt;/article&gt; 30{{ end }} 31 32{{ end }}">
+  <meta itemprop="datePublished" content="2023-11-15T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-11-15T00:00:00+00:00">
+  <meta itemprop="wordCount" content="169">
+  <meta itemprop="image" content="http://localhost:1313/images/share.png">
+  <meta itemprop="keywords" content="Hugo">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Hugo ʕ•ᴥ•ʔ Bear Blog</h2>
+</a>
+<nav>
+</nav>
+</header>
+  <main>
+
+<h1>hugo 的一些模板语法</h1>
+<p>
+  <i>
+    <time datetime='2023-11-15'>
+      15 Nov, 2023
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>分享一下 hugo 的语法模板，如何获取总文章数和总字数，效果可以参考我的首页。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>{{ $articleCount := len .Site.RegularPages }}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>{{ $totalWordCount := 0 }}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>{{ range .Site.Pages }}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>{{ $totalWordCount = add $totalWordCount .WordCount }}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>{{ end }}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&lt;<span style="color:#062873;font-weight:bold">p</span>&gt;已经写了 {{ $articleCount }} 篇文章，共 {{ $totalWordCount }} 字。&lt;/<span style="color:#062873;font-weight:bold">p</span>&gt;
+</span></span></code></pre></div><p>在首页过滤某个分类。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>{{ $pages := .Site.RegularPages }}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>{{ $paginator := .Paginate ($pages) }}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>{{ $count := 0 }}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>{{ range $paginator.Pages }}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>{{ $title := .Title }}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>{{ $summary := .Summary }}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>{{ if and (not (in .Params.categories &#34;weekly&#34;)) (lt $count 7) }}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>{{ $count = add $count 1 }}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>&lt;<span style="color:#062873;font-weight:bold">article</span> <span style="color:#4070a0">class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;post-entry&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>  &lt;<span style="color:#062873;font-weight:bold">header</span> <span style="color:#4070a0">class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;entry-header&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>    &lt;<span style="color:#062873;font-weight:bold">h2</span> <span style="color:#4070a0">class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;entry-hint-parent&#34;</span>&gt;{{ .Title }}&lt;/<span style="color:#062873;font-weight:bold">h2</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>  &lt;/<span style="color:#062873;font-weight:bold">header</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>  &lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;entry-content&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    &lt;<span style="color:#062873;font-weight:bold">p</span>&gt;{{ .Summary }}&lt;/<span style="color:#062873;font-weight:bold">p</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>  &lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>  &lt;<span style="color:#062873;font-weight:bold">footer</span> <span style="color:#4070a0">class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;entry-footer&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>    &lt;<span style="color:#062873;font-weight:bold">time</span> <span style="color:#4070a0">datetime</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;{{ .Date.Format &#34;</span> <span style="color:#4070a0">2006-01-02</span> <span style="color:#4070a0">15:04:05</span> <span style="color:#4070a0">MST</span><span style="">&#34;</span> <span style="">}}&#34;</span>&gt;{{ .Date.Format &#34;2006-01-02&#34;}}&lt;/<span style="color:#062873;font-weight:bold">time</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>    &lt;<span style="color:#062873;font-weight:bold">span</span> <span style="color:#4070a0">class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;category&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>      {{ range $key, $value := .Params.categories -}}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>      {{- if $key }}, {{ end }}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>      {{ . }}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>      {{- end }}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>    &lt;/<span style="color:#062873;font-weight:bold">span</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>  &lt;/<span style="color:#062873;font-weight:bold">footer</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>  &lt;<span style="color:#062873;font-weight:bold">a</span> <span style="color:#4070a0">class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;entry-link&#34;</span> <span style="color:#4070a0">href</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;{{ .RelPermalink }}&#34;</span>&gt;&lt;/<span style="color:#062873;font-weight:bold">a</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>&lt;/<span style="color:#062873;font-weight:bold">article</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>{{ end }}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>{{ end }}
+</span></span></code></pre></div>
+</content>
+<p>
+  
+  <a href="http://localhost:1313/blog/hugo/">#Hugo</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

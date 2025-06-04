@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
+<title>Chrome 浏览器无法显示 12px 以下的字体 | Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+<meta name="title" content="Chrome 浏览器无法显示 12px 以下的字体" />
+<meta name="description" content="最近正在面试，遇到了很多有意思的东西，比如今天，在面试前先做了一套面试题，其中有这么一道题，觉得挺有意思，之前也没见过，就打算记录下来：
+1&lt;!-- Chrome 浏览器 12px 字体大小以下无法显示，均显示为 12px，应该怎么解决。 --&gt;
+我确实有点蒙，在之前写代码的时候，没有遇到过这样的情况，不过既然这样问了，就得想出解决的办法。
+首先我想到之前的一个问题，0.5px 的边框该如何实现，通过 scale(0.5) 可以实现，这是 css3 新属性。
+所以当时我就写了通过 transform:scale() 可以实现。不过后续在面试的中，面试官也没有提及这些问题。
+
+回到家之后，吃完饭坐在电脑旁，正准备逛一逛 github，突然想起来了这么一个问题，就自己测试了一遍：
+1&lt;div style=&#34;font-size: 13px;&#34;&gt;
+2    测试
+3&lt;/div&gt;
+4&lt;div style=&#34;font-size: 12px;&#34;&gt;
+5    测试
+6&lt;/div&gt;
+7&lt;div style=&#34;font-size: 11px;&#34;&gt;
+8    测试
+9&lt;/div&gt;
+
+竟然真的存在这样的问题，Chrome 12px 以下的字体无法正常显示，均显示为 12px。" />
+<meta name="keywords" content="css,浏览器," />
+
+
+<meta property="og:url" content="http://localhost:1313/52/">
+  <meta property="og:site_name" content="Hugo ʕ•ᴥ•ʔ Bear Blog">
+  <meta property="og:title" content="Chrome 浏览器无法显示 12px 以下的字体">
+  <meta property="og:description" content="最近正在面试，遇到了很多有意思的东西，比如今天，在面试前先做了一套面试题，其中有这么一道题，觉得挺有意思，之前也没见过，就打算记录下来：
+1&lt;!-- Chrome 浏览器 12px 字体大小以下无法显示，均显示为 12px，应该怎么解决。 --&gt; 我确实有点蒙，在之前写代码的时候，没有遇到过这样的情况，不过既然这样问了，就得想出解决的办法。
+首先我想到之前的一个问题，0.5px 的边框该如何实现，通过 scale(0.5) 可以实现，这是 css3 新属性。
+所以当时我就写了通过 transform:scale() 可以实现。不过后续在面试的中，面试官也没有提及这些问题。
+回到家之后，吃完饭坐在电脑旁，正准备逛一逛 github，突然想起来了这么一个问题，就自己测试了一遍：
+1&lt;div style=&#34;font-size: 13px;&#34;&gt; 2 测试 3&lt;/div&gt; 4&lt;div style=&#34;font-size: 12px;&#34;&gt; 5 测试 6&lt;/div&gt; 7&lt;div style=&#34;font-size: 11px;&#34;&gt; 8 测试 9&lt;/div&gt; 竟然真的存在这样的问题，Chrome 12px 以下的字体无法正常显示，均显示为 12px。">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2021-02-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-02-26T00:00:00+00:00">
+    <meta property="article:tag" content="Css">
+    <meta property="article:tag" content="浏览器">
+    <meta property="og:image" content="http://localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.png">
+  <meta name="twitter:title" content="Chrome 浏览器无法显示 12px 以下的字体">
+  <meta name="twitter:description" content="最近正在面试，遇到了很多有意思的东西，比如今天，在面试前先做了一套面试题，其中有这么一道题，觉得挺有意思，之前也没见过，就打算记录下来：
+1&lt;!-- Chrome 浏览器 12px 字体大小以下无法显示，均显示为 12px，应该怎么解决。 --&gt; 我确实有点蒙，在之前写代码的时候，没有遇到过这样的情况，不过既然这样问了，就得想出解决的办法。
+首先我想到之前的一个问题，0.5px 的边框该如何实现，通过 scale(0.5) 可以实现，这是 css3 新属性。
+所以当时我就写了通过 transform:scale() 可以实现。不过后续在面试的中，面试官也没有提及这些问题。
+回到家之后，吃完饭坐在电脑旁，正准备逛一逛 github，突然想起来了这么一个问题，就自己测试了一遍：
+1&lt;div style=&#34;font-size: 13px;&#34;&gt; 2 测试 3&lt;/div&gt; 4&lt;div style=&#34;font-size: 12px;&#34;&gt; 5 测试 6&lt;/div&gt; 7&lt;div style=&#34;font-size: 11px;&#34;&gt; 8 测试 9&lt;/div&gt; 竟然真的存在这样的问题，Chrome 12px 以下的字体无法正常显示，均显示为 12px。">
+
+
+
+
+  <meta itemprop="name" content="Chrome 浏览器无法显示 12px 以下的字体">
+  <meta itemprop="description" content="最近正在面试，遇到了很多有意思的东西，比如今天，在面试前先做了一套面试题，其中有这么一道题，觉得挺有意思，之前也没见过，就打算记录下来：
+1&lt;!-- Chrome 浏览器 12px 字体大小以下无法显示，均显示为 12px，应该怎么解决。 --&gt; 我确实有点蒙，在之前写代码的时候，没有遇到过这样的情况，不过既然这样问了，就得想出解决的办法。
+首先我想到之前的一个问题，0.5px 的边框该如何实现，通过 scale(0.5) 可以实现，这是 css3 新属性。
+所以当时我就写了通过 transform:scale() 可以实现。不过后续在面试的中，面试官也没有提及这些问题。
+回到家之后，吃完饭坐在电脑旁，正准备逛一逛 github，突然想起来了这么一个问题，就自己测试了一遍：
+1&lt;div style=&#34;font-size: 13px;&#34;&gt; 2 测试 3&lt;/div&gt; 4&lt;div style=&#34;font-size: 12px;&#34;&gt; 5 测试 6&lt;/div&gt; 7&lt;div style=&#34;font-size: 11px;&#34;&gt; 8 测试 9&lt;/div&gt; 竟然真的存在这样的问题，Chrome 12px 以下的字体无法正常显示，均显示为 12px。">
+  <meta itemprop="datePublished" content="2021-02-26T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-02-26T00:00:00+00:00">
+  <meta itemprop="wordCount" content="77">
+  <meta itemprop="image" content="http://localhost:1313/images/share.png">
+  <meta itemprop="keywords" content="Css,浏览器">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Hugo ʕ•ᴥ•ʔ Bear Blog</h2>
+</a>
+<nav>
+</nav>
+</header>
+  <main>
+
+<h1>Chrome 浏览器无法显示 12px 以下的字体</h1>
+<p>
+  <i>
+    <time datetime='2021-02-26'>
+      26 Feb, 2021
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>最近正在面试，遇到了很多有意思的东西，比如今天，在面试前先做了一套面试题，其中有这么一道题，觉得挺有意思，之前也没见过，就打算记录下来：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#60a0b0;font-style:italic">&lt;!-- Chrome 浏览器 12px 字体大小以下无法显示，均显示为 12px，应该怎么解决。 --&gt;</span>
+</span></span></code></pre></div><p>我确实有点蒙，在之前写代码的时候，没有遇到过这样的情况，不过既然这样问了，就得想出解决的办法。</p>
+<p>首先我想到之前的一个问题，0.5px 的边框该如何实现，通过 scale(0.5) 可以实现，这是 css3 新属性。</p>
+<p>所以当时我就写了通过 <code>transform:scale()</code> 可以实现。不过后续在面试的中，面试官也没有提及这些问题。</p>
+<hr>
+<p>回到家之后，吃完饭坐在电脑旁，正准备逛一逛 github，突然想起来了这么一个问题，就自己测试了一遍：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">style</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;font-size: 13px;&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    测试
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">style</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;font-size: 12px;&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>    测试
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">style</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;font-size: 11px;&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>    测试
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span></code></pre></div><p><img src="https://imgurl.zishu.me/images/old/2021/02/26/d3c345e515d6a29d9ff49f78382ac95b.png" alt=""></p>
+<p>竟然真的存在这样的问题，Chrome 12px 以下的字体无法正常显示，均显示为 12px。</p>
+<p>然后我用 scale 设置了一下属性，</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">style</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;font-size: 13px;&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    测试
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">style</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;font-size: 12px;&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>    测试
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">style</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;font-size: 11px;transform: scale(0.5);&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>    测试
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span>&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+</span></span></code></pre></div><p><img src="https://imgurl.zishu.me/images/old/2021/02/26/9e5f13c26524aae53acbc9bd5edd57f9.png" alt=""></p>
+<p>字体确实可以再次缩小到自己想到的程度，但是存在一些弊端，所有带有长度的属性均被缩小，比如图中的 div 的长度，本来默认是 <code>100%</code> ，但是显示只有原来的一半了。</p>
+<p>虽然存在这么个问题，但是按照我自己的预估，平时我们浏览的网站基本没有低于 12px 大小的字体吧！反正我是没有遇到过，我估计面试题也是想考验我们对一些生僻知识的处理吧，不过也不算生僻，前有 0.5px，后有 12px，其实都大同小异。</p>
+<p>在遇到这个问题的时候，确实可以通过 <code>scale()</code> 处理一下，然后在认真设置其他属性，尽量避免更多的弊端。</p>
+
+</content>
+<p>
+  
+  <a href="http://localhost:1313/blog/css/">#Css</a>
+  
+  <a href="http://localhost:1313/blog/%E6%B5%8F%E8%A7%88%E5%99%A8/">#浏览器</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

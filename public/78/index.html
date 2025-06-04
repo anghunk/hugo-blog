@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
+<title>使用 js 随机生成背景颜色 | Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+<meta name="title" content="使用 js 随机生成背景颜色" />
+<meta name="description" content="先写一个简单的 html 页面出来
+1&lt;style&gt;
+2  /* ... */
+3&lt;/style&gt;
+4
+5&lt;ul&gt;
+6  &lt;li&gt;html&lt;/li&gt;
+7  &lt;li&gt;css&lt;/li&gt;
+8  &lt;li&gt;js&lt;/li&gt;
+9&lt;/ul&gt;
+通过 Math.random() 属性可以随机生成一个数字，然后通过转化为十六进制的方法进行处理，下面就是随机生成 6 位数字的代码，并进行转化的代码。
+1const randomHex = () =&gt; `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, &#34;0&#34;)}`;
+可以在控制台输出看一下结果，随机生成了一个结果 #62113b。
+
+接下来就需要将这个颜色传给上面的 li 标签，首先需要将所有的 li 遍历然后生成一个数组，可以使用 for 循环进行遍历。
+1var arr = document.getElementsByTagName(&#39;li&#39;), temp = [];
+2for (var i = 0; i &lt; arr.length; i&#43;&#43;) {
+3  temp.push(arr[i].innerHTML);
+4}
+然后再对数组进行循环处理，每个 li 标签要要运行一遍随机生成颜色，并且传给自身。同样也是通过 for 循环进行操作。" />
+<meta name="keywords" content="js," />
+
+
+<meta property="og:url" content="http://localhost:1313/78/">
+  <meta property="og:site_name" content="Hugo ʕ•ᴥ•ʔ Bear Blog">
+  <meta property="og:title" content="使用 js 随机生成背景颜色">
+  <meta property="og:description" content="先写一个简单的 html 页面出来
+1&lt;style&gt; 2 /* ... */ 3&lt;/style&gt; 4 5&lt;ul&gt; 6 &lt;li&gt;html&lt;/li&gt; 7 &lt;li&gt;css&lt;/li&gt; 8 &lt;li&gt;js&lt;/li&gt; 9&lt;/ul&gt; 通过 Math.random() 属性可以随机生成一个数字，然后通过转化为十六进制的方法进行处理，下面就是随机生成 6 位数字的代码，并进行转化的代码。
+1const randomHex = () =&gt; `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, &#34;0&#34;)}`; 可以在控制台输出看一下结果，随机生成了一个结果 #62113b。
+接下来就需要将这个颜色传给上面的 li 标签，首先需要将所有的 li 遍历然后生成一个数组，可以使用 for 循环进行遍历。
+1var arr = document.getElementsByTagName(&#39;li&#39;), temp = []; 2for (var i = 0; i &lt; arr.length; i&#43;&#43;) { 3 temp.push(arr[i].innerHTML); 4} 然后再对数组进行循环处理，每个 li 标签要要运行一遍随机生成颜色，并且传给自身。同样也是通过 for 循环进行操作。">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2021-09-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-09-29T00:00:00+00:00">
+    <meta property="article:tag" content="Js">
+    <meta property="og:image" content="http://localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.png">
+  <meta name="twitter:title" content="使用 js 随机生成背景颜色">
+  <meta name="twitter:description" content="先写一个简单的 html 页面出来
+1&lt;style&gt; 2 /* ... */ 3&lt;/style&gt; 4 5&lt;ul&gt; 6 &lt;li&gt;html&lt;/li&gt; 7 &lt;li&gt;css&lt;/li&gt; 8 &lt;li&gt;js&lt;/li&gt; 9&lt;/ul&gt; 通过 Math.random() 属性可以随机生成一个数字，然后通过转化为十六进制的方法进行处理，下面就是随机生成 6 位数字的代码，并进行转化的代码。
+1const randomHex = () =&gt; `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, &#34;0&#34;)}`; 可以在控制台输出看一下结果，随机生成了一个结果 #62113b。
+接下来就需要将这个颜色传给上面的 li 标签，首先需要将所有的 li 遍历然后生成一个数组，可以使用 for 循环进行遍历。
+1var arr = document.getElementsByTagName(&#39;li&#39;), temp = []; 2for (var i = 0; i &lt; arr.length; i&#43;&#43;) { 3 temp.push(arr[i].innerHTML); 4} 然后再对数组进行循环处理，每个 li 标签要要运行一遍随机生成颜色，并且传给自身。同样也是通过 for 循环进行操作。">
+
+
+
+
+  <meta itemprop="name" content="使用 js 随机生成背景颜色">
+  <meta itemprop="description" content="先写一个简单的 html 页面出来
+1&lt;style&gt; 2 /* ... */ 3&lt;/style&gt; 4 5&lt;ul&gt; 6 &lt;li&gt;html&lt;/li&gt; 7 &lt;li&gt;css&lt;/li&gt; 8 &lt;li&gt;js&lt;/li&gt; 9&lt;/ul&gt; 通过 Math.random() 属性可以随机生成一个数字，然后通过转化为十六进制的方法进行处理，下面就是随机生成 6 位数字的代码，并进行转化的代码。
+1const randomHex = () =&gt; `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, &#34;0&#34;)}`; 可以在控制台输出看一下结果，随机生成了一个结果 #62113b。
+接下来就需要将这个颜色传给上面的 li 标签，首先需要将所有的 li 遍历然后生成一个数组，可以使用 for 循环进行遍历。
+1var arr = document.getElementsByTagName(&#39;li&#39;), temp = []; 2for (var i = 0; i &lt; arr.length; i&#43;&#43;) { 3 temp.push(arr[i].innerHTML); 4} 然后再对数组进行循环处理，每个 li 标签要要运行一遍随机生成颜色，并且传给自身。同样也是通过 for 循环进行操作。">
+  <meta itemprop="datePublished" content="2021-09-29T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-09-29T00:00:00+00:00">
+  <meta itemprop="wordCount" content="283">
+  <meta itemprop="image" content="http://localhost:1313/images/share.png">
+  <meta itemprop="keywords" content="Js">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Hugo ʕ•ᴥ•ʔ Bear Blog</h2>
+</a>
+<nav>
+</nav>
+</header>
+  <main>
+
+<h1>使用 js 随机生成背景颜色</h1>
+<p>
+  <i>
+    <time datetime='2021-09-29'>
+      29 Sep, 2021
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>先写一个简单的 html 页面出来</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&lt;<span style="color:#062873;font-weight:bold">style</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>  <span style="color:#60a0b0;font-style:italic">/* ... */</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>&lt;/<span style="color:#062873;font-weight:bold">style</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>&lt;<span style="color:#062873;font-weight:bold">ul</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>  &lt;<span style="color:#062873;font-weight:bold">li</span>&gt;html&lt;/<span style="color:#062873;font-weight:bold">li</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>  &lt;<span style="color:#062873;font-weight:bold">li</span>&gt;css&lt;/<span style="color:#062873;font-weight:bold">li</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>  &lt;<span style="color:#062873;font-weight:bold">li</span>&gt;js&lt;/<span style="color:#062873;font-weight:bold">li</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span>&lt;/<span style="color:#062873;font-weight:bold">ul</span>&gt;
+</span></span></code></pre></div><p>通过 <code>Math.random()</code> 属性可以随机生成一个数字，然后通过转化为十六进制的方法进行处理，下面就是随机生成 6 位数字的代码，并进行转化的代码。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#007020;font-weight:bold">const</span> randomHex <span style="color:#666">=</span> () =&gt; <span style="color:#4070a0">`#</span><span style="color:#70a0d0">${</span><span style="color:#007020">Math</span>.floor(<span style="color:#007020">Math</span>.random() <span style="color:#666">*</span> <span style="color:#40a070">0xffffff</span>).toString(<span style="color:#40a070">16</span>).padEnd(<span style="color:#40a070">6</span>, <span style="color:#4070a0">&#34;0&#34;</span>)<span style="color:#70a0d0">}</span><span style="color:#4070a0">`</span>;
+</span></span></code></pre></div><p>可以在控制台输出看一下结果，随机生成了一个结果 <code>#62113b</code>。</p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/09/29/157fa8f9834a8e9001c270d7223a1aa9.png" alt=""></p>
+<p>接下来就需要将这个颜色传给上面的 li 标签，首先需要将所有的 li 遍历然后生成一个数组，可以使用 for 循环进行遍历。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#007020;font-weight:bold">var</span> arr <span style="color:#666">=</span> <span style="color:#007020">document</span>.getElementsByTagName(<span style="color:#4070a0">&#39;li&#39;</span>), temp <span style="color:#666">=</span> [];
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#007020;font-weight:bold">for</span> (<span style="color:#007020;font-weight:bold">var</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> arr.length; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>  temp.push(arr[i].innerHTML);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>}
+</span></span></code></pre></div><p>然后再对数组进行循环处理，每个 li 标签要要运行一遍随机生成颜色，并且传给自身。同样也是通过 for 循环进行操作。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#007020;font-weight:bold">var</span> li <span style="color:#666">=</span> <span style="color:#007020">document</span>.getElementsByTagName(<span style="color:#4070a0">&#34;li&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#007020;font-weight:bold">for</span> (<span style="color:#007020;font-weight:bold">var</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> li.length; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>  <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#007020;font-weight:bold">var</span> num <span style="color:#666">=</span> <span style="color:#40a070">0</span>; num <span style="color:#666">&lt;</span> li.length; num<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>    li[num].style.background <span style="color:#666">=</span> randomHex();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>  }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>}
+</span></span></code></pre></div><p>这些事件都是在页面加载完成之后运行的，所以需要通过 <code>window.onload</code> 写入事件，然后把所有的代码合在一起。</p>
+<p>看看效果如果。</p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/09/29/ea9f9e27be2f3587cda141bc998d4b80.png" alt=""></p>
+<p>把这些复制下来放到本地运行一下就可以看到效果了。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#007020">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>&lt;<span style="color:#062873;font-weight:bold">html</span> <span style="color:#4070a0">lang</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>&lt;<span style="color:#062873;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>  &lt;<span style="color:#062873;font-weight:bold">meta</span> <span style="color:#4070a0">charset</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>  &lt;<span style="color:#062873;font-weight:bold">meta</span> <span style="color:#4070a0">http-equiv</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;X-UA-Compatible&#34;</span> <span style="color:#4070a0">content</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;IE=edge&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>  &lt;<span style="color:#062873;font-weight:bold">meta</span> <span style="color:#4070a0">name</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;viewport&#34;</span> <span style="color:#4070a0">content</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>  &lt;<span style="color:#062873;font-weight:bold">title</span>&gt;随机生成颜色&lt;/<span style="color:#062873;font-weight:bold">title</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>  &lt;<span style="color:#062873;font-weight:bold">style</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    <span style="color:#062873;font-weight:bold">body</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>      <span style="color:#007020;font-weight:bold">display</span>: <span style="color:#007020;font-weight:bold">flex</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>      <span style="color:#007020;font-weight:bold">justify-content</span>: <span style="color:#007020;font-weight:bold">center</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>      <span style="color:#007020;font-weight:bold">padding-top</span>: <span style="color:#40a070">100</span><span style="color:#902000">px</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>    <span style="color:#062873;font-weight:bold">ul</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>      <span style="color:#007020;font-weight:bold">list-style</span>: <span style="color:#007020;font-weight:bold">none</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>      <span style="color:#007020;font-weight:bold">padding</span>: <span style="color:#40a070">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>      <span style="color:#007020;font-weight:bold">display</span>: <span style="color:#007020;font-weight:bold">flex</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    <span style="color:#062873;font-weight:bold">li</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>      <span style="color:#007020;font-weight:bold">width</span>: <span style="color:#40a070">100</span><span style="color:#902000">px</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>      <span style="color:#007020;font-weight:bold">height</span>: <span style="color:#40a070">40</span><span style="color:#902000">px</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>      <span style="color:#007020;font-weight:bold">color</span>: <span style="color:#40a070">#333</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>      <span style="color:#007020;font-weight:bold">display</span>: <span style="color:#007020;font-weight:bold">flex</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>      <span style="color:#007020;font-weight:bold">justify-content</span>: <span style="color:#007020;font-weight:bold">center</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>      <span style="color:#007020;font-weight:bold">align-items</span>: <span style="color:#007020;font-weight:bold">center</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>      <span style="color:#007020;font-weight:bold">margin-right</span>: <span style="color:#40a070">30</span><span style="color:#902000">px</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>  &lt;/<span style="color:#062873;font-weight:bold">style</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>&lt;/<span style="color:#062873;font-weight:bold">head</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>&lt;<span style="color:#062873;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>  &lt;<span style="color:#062873;font-weight:bold">ul</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>    &lt;<span style="color:#062873;font-weight:bold">li</span>&gt;html&lt;/<span style="color:#062873;font-weight:bold">li</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>    &lt;<span style="color:#062873;font-weight:bold">li</span>&gt;css&lt;/<span style="color:#062873;font-weight:bold">li</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>    &lt;<span style="color:#062873;font-weight:bold">li</span>&gt;js&lt;/<span style="color:#062873;font-weight:bold">li</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>  &lt;/<span style="color:#062873;font-weight:bold">ul</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>  &lt;<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>    <span style="color:#007020;font-weight:bold">const</span> randomHex <span style="color:#666">=</span> () =&gt; <span style="color:#4070a0">`#</span><span style="color:#70a0d0">${</span><span style="color:#007020">Math</span>.floor(<span style="color:#007020">Math</span>.random() <span style="color:#666">*</span> <span style="color:#40a070">0xffffff</span>).toString(<span style="color:#40a070">16</span>).padEnd(<span style="color:#40a070">6</span>, <span style="color:#4070a0">&#34;0&#34;</span>)<span style="color:#70a0d0">}</span><span style="color:#4070a0">`</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>    console.log(randomHex());
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>    <span style="color:#007020;font-weight:bold">var</span> arr <span style="color:#666">=</span> <span style="color:#007020">document</span>.getElementsByTagName(<span style="color:#4070a0">&#39;li&#39;</span>), temp <span style="color:#666">=</span> [];
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>    <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#007020;font-weight:bold">var</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> arr.length; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>      temp.push(arr[i].innerHTML);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span>    <span style="color:#007020">window</span>.onload <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">function</span> () {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span><span>      <span style="color:#007020;font-weight:bold">var</span> li <span style="color:#666">=</span> <span style="color:#007020">document</span>.getElementsByTagName(<span style="color:#4070a0">&#34;li&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span><span>      <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#007020;font-weight:bold">var</span> i <span style="color:#666">=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">&lt;</span> li.length; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span><span>        
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span><span>        <span style="color:#007020;font-weight:bold">for</span> (<span style="color:#007020;font-weight:bold">var</span> num <span style="color:#666">=</span> <span style="color:#40a070">0</span>; num <span style="color:#666">&lt;</span> li.length; num<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span><span>          li[num].style.background <span style="color:#666">=</span> randomHex();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span><span>        }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53</span><span>      }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span><span>  &lt;/<span style="color:#062873;font-weight:bold">script</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56</span><span>&lt;/<span style="color:#062873;font-weight:bold">body</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57</span><span>&lt;/<span style="color:#062873;font-weight:bold">html</span>&gt;
+</span></span></code></pre></div><p>如果有更好的写法，欢迎评论！</p>
+
+</content>
+<p>
+  
+  <a href="http://localhost:1313/blog/js/">#Js</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

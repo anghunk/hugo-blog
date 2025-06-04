@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
+<title>奇趣周刊 - 第 82 期 | Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+<meta name="title" content="奇趣周刊 - 第 82 期" />
+<meta name="description" content="
+奇趣周刊，分享有趣的软件，程序，动态新闻等。 周刊列表 | rss 订阅
+祝大家新年快乐，大吉大利！在新的一年里，事业节节高升，财源滚滚。
+1. barba.js - 一个让网站平滑跳转的库
+https://barba.js.org/
+这个库的功能与 pjax 类似，但是更轻量、易用，本站已经引入该库实现平滑跳转。它使网站像 SPA（单页应用程序）一样运行，并有助于减少页面之间的延迟、最大限度地减少浏览器 HTTP 请求并增强用户的 Web 体验。
+可以进入官网体验这种效果。
+2. RetroUI - 一个复古风格的 UI 组件库
+https://retroui.dev/
+这是一个基于 Tailwind CSS 的复古风格 UI 库，与现代化千篇一律的样式不同。
+
+3. 字节跳动出品的 Trae
+https://www.trae.ai/
+对标 Cussor，可以用 claude3.5，限时免费。Trae 是一个人工智能集成开发环境（IDE），旨在通过人工智能与开发者的协作，提高开发效率和项目构建速度。
+
+4. Github 官方的 css 组件
+https://primer.style/css/storybook/?path=/docs/gettingstarted--docs
+无意中发现 GitHub 居然有一个官方提供的 UI 组件库，但是似乎维护的不是很上心，不过单纯使用 css 的话还是会跟 GitHub 网站保持一样的风格，感觉还不错，支持 cdn 直接引入、或者 npm 包导入。
+" />
+<meta name="keywords" content="weekly," />
+
+
+<meta property="og:url" content="http://localhost:1313/weekly-82/">
+  <meta property="og:site_name" content="Hugo ʕ•ᴥ•ʔ Bear Blog">
+  <meta property="og:title" content="奇趣周刊 - 第 82 期">
+  <meta property="og:description" content="奇趣周刊，分享有趣的软件，程序，动态新闻等。 周刊列表 | rss 订阅
+祝大家新年快乐，大吉大利！在新的一年里，事业节节高升，财源滚滚。
+1. barba.js - 一个让网站平滑跳转的库 https://barba.js.org/
+这个库的功能与 pjax 类似，但是更轻量、易用，本站已经引入该库实现平滑跳转。它使网站像 SPA（单页应用程序）一样运行，并有助于减少页面之间的延迟、最大限度地减少浏览器 HTTP 请求并增强用户的 Web 体验。
+可以进入官网体验这种效果。
+2. RetroUI - 一个复古风格的 UI 组件库 https://retroui.dev/
+这是一个基于 Tailwind CSS 的复古风格 UI 库，与现代化千篇一律的样式不同。
+3. 字节跳动出品的 Trae https://www.trae.ai/
+对标 Cussor，可以用 claude3.5，限时免费。Trae 是一个人工智能集成开发环境（IDE），旨在通过人工智能与开发者的协作，提高开发效率和项目构建速度。
+4. Github 官方的 css 组件 https://primer.style/css/storybook/?path=/docs/gettingstarted--docs
+无意中发现 GitHub 居然有一个官方提供的 UI 组件库，但是似乎维护的不是很上心，不过单纯使用 css 的话还是会跟 GitHub 网站保持一样的风格，感觉还不错，支持 cdn 直接引入、或者 npm 包导入。">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-02-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-01T00:00:00+00:00">
+    <meta property="article:tag" content="Weekly">
+    <meta property="og:image" content="http://localhost:1313/images/share.png">
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.png">
+  <meta name="twitter:title" content="奇趣周刊 - 第 82 期">
+  <meta name="twitter:description" content="奇趣周刊，分享有趣的软件，程序，动态新闻等。 周刊列表 | rss 订阅
+祝大家新年快乐，大吉大利！在新的一年里，事业节节高升，财源滚滚。
+1. barba.js - 一个让网站平滑跳转的库 https://barba.js.org/
+这个库的功能与 pjax 类似，但是更轻量、易用，本站已经引入该库实现平滑跳转。它使网站像 SPA（单页应用程序）一样运行，并有助于减少页面之间的延迟、最大限度地减少浏览器 HTTP 请求并增强用户的 Web 体验。
+可以进入官网体验这种效果。
+2. RetroUI - 一个复古风格的 UI 组件库 https://retroui.dev/
+这是一个基于 Tailwind CSS 的复古风格 UI 库，与现代化千篇一律的样式不同。
+3. 字节跳动出品的 Trae https://www.trae.ai/
+对标 Cussor，可以用 claude3.5，限时免费。Trae 是一个人工智能集成开发环境（IDE），旨在通过人工智能与开发者的协作，提高开发效率和项目构建速度。
+4. Github 官方的 css 组件 https://primer.style/css/storybook/?path=/docs/gettingstarted--docs
+无意中发现 GitHub 居然有一个官方提供的 UI 组件库，但是似乎维护的不是很上心，不过单纯使用 css 的话还是会跟 GitHub 网站保持一样的风格，感觉还不错，支持 cdn 直接引入、或者 npm 包导入。">
+
+
+
+
+  <meta itemprop="name" content="奇趣周刊 - 第 82 期">
+  <meta itemprop="description" content="奇趣周刊，分享有趣的软件，程序，动态新闻等。 周刊列表 | rss 订阅
+祝大家新年快乐，大吉大利！在新的一年里，事业节节高升，财源滚滚。
+1. barba.js - 一个让网站平滑跳转的库 https://barba.js.org/
+这个库的功能与 pjax 类似，但是更轻量、易用，本站已经引入该库实现平滑跳转。它使网站像 SPA（单页应用程序）一样运行，并有助于减少页面之间的延迟、最大限度地减少浏览器 HTTP 请求并增强用户的 Web 体验。
+可以进入官网体验这种效果。
+2. RetroUI - 一个复古风格的 UI 组件库 https://retroui.dev/
+这是一个基于 Tailwind CSS 的复古风格 UI 库，与现代化千篇一律的样式不同。
+3. 字节跳动出品的 Trae https://www.trae.ai/
+对标 Cussor，可以用 claude3.5，限时免费。Trae 是一个人工智能集成开发环境（IDE），旨在通过人工智能与开发者的协作，提高开发效率和项目构建速度。
+4. Github 官方的 css 组件 https://primer.style/css/storybook/?path=/docs/gettingstarted--docs
+无意中发现 GitHub 居然有一个官方提供的 UI 组件库，但是似乎维护的不是很上心，不过单纯使用 css 的话还是会跟 GitHub 网站保持一样的风格，感觉还不错，支持 cdn 直接引入、或者 npm 包导入。">
+  <meta itemprop="datePublished" content="2025-02-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-02-01T00:00:00+00:00">
+  <meta itemprop="wordCount" content="60">
+  <meta itemprop="image" content="http://localhost:1313/images/share.png">
+  <meta itemprop="keywords" content="Weekly">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --code-background-color: #f2f2f2;
+    --code-color: #222;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --code-background-color: #000;
+      --code-color: #ddd;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>Hugo ʕ•ᴥ•ʔ Bear Blog</h2>
+</a>
+<nav>
+</nav>
+</header>
+  <main>
+
+<h1>奇趣周刊 - 第 82 期</h1>
+<p>
+  <i>
+    <time datetime='2025-02-01'>
+      01 Feb, 2025
+    </time>
+  </i>
+</p>
+
+<content>
+  <blockquote>
+<p>奇趣周刊，分享有趣的软件，程序，动态新闻等。 <a href="/categories/weekly/">周刊列表</a> | <a href="/categories/weekly/index.xml">rss 订阅</a></p></blockquote>
+<p>祝大家新年快乐，大吉大利！在新的一年里，事业节节高升，财源滚滚。</p>
+<h3 id="1-barbajs---一个让网站平滑跳转的库">1. barba.js - 一个让网站平滑跳转的库</h3>
+<p><a href="https://barba.js.org/">https://barba.js.org/</a></p>
+<p>这个库的功能与 pjax 类似，但是更轻量、易用，本站已经引入该库实现平滑跳转。它使网站像 SPA（单页应用程序）一样运行，并有助于减少页面之间的延迟、最大限度地减少浏览器 HTTP 请求并增强用户的 Web 体验。<br>
+可以进入官网体验这种效果。</p>
+<h3 id="2-retroui---一个复古风格的-ui-组件库">2. RetroUI - 一个复古风格的 UI 组件库</h3>
+<p><a href="https://retroui.dev/">https://retroui.dev/</a></p>
+<p>这是一个基于 Tailwind CSS 的复古风格 UI 库，与现代化千篇一律的样式不同。</p>
+<p><img src="https://imgurl.zishu.me/2025/01/1737078743290.webp" alt=""></p>
+<h3 id="3-字节跳动出品的-trae">3. 字节跳动出品的 Trae</h3>
+<p><a href="https://www.trae.ai/">https://www.trae.ai/</a></p>
+<p>对标 Cussor，可以用 claude3.5，限时免费。Trae 是一个人工智能集成开发环境（IDE），旨在通过人工智能与开发者的协作，提高开发效率和项目构建速度。</p>
+<p><img src="https://imgurl.zishu.me/2025/01/1737350631964.webp" alt=""></p>
+<h3 id="4-github-官方的-css-组件">4. Github 官方的 css 组件</h3>
+<p><a href="https://primer.style/css/storybook/?path=/docs/gettingstarted--docs">https://primer.style/css/storybook/?path=/docs/gettingstarted--docs</a></p>
+<p>无意中发现 GitHub 居然有一个官方提供的 UI 组件库，但是似乎维护的不是很上心，不过单纯使用 css 的话还是会跟 GitHub 网站保持一样的风格，感觉还不错，支持 cdn 直接引入、或者 npm 包导入。</p>
+<p><img src="https://imgurl.zishu.me/2025/01/1737353787992.webp" alt=""></p>
+
+</content>
+<p>
+  
+  <a href="http://localhost:1313/blog/weekly/">#Weekly</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>
