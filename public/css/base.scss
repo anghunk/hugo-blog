@@ -647,14 +647,15 @@ video {
   margin: 1rem auto;
 }
 
-.post-content figure.align-center {
+.post-content figure {
   text-align: center;
+  margin: 0;
 }
 
 .post-content figure>figcaption {
-  color: var(--primary);
-  font-size: 16px;
-  font-weight: 700;
+  color: #666;
+  font-size: 15px;
+  font-weight: 300;
   margin: 8px 0 16px;
 }
 

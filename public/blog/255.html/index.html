@@ -172,15 +172,50 @@
 </span></span><span class="line"><span class="cl">参数：-y @amap/amap-maps-mcp-server
 </span></span><span class="line"><span class="cl">环境变量：添加 AMAP_MAPS_API_KEY 并填入您的 Key。
 </span></span></code></pre></div><p>保存配置后，系统会自动加载高德地图的 MCP 服务。</p>
-<p><img src="https://imgurl.zishu.me/2025/04/1743571909183.webp" alt=""></p>
+<p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2025/04/1743571909183.webp"
+    alt=""class="lazy"
+	>
+  <figcaption></figcaption>
+</figure></p>
 <p>会在下方显示高德地图支持的工具，就是 AI 模型可以调用的工具。</p>
-<p><img src="https://imgurl.zishu.me/2025/04/1743571892735.webp" alt=""></p>
+<p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2025/04/1743571892735.webp"
+    alt=""class="lazy"
+	>
+  <figcaption></figcaption>
+</figure></p>
 <h3 id="启用-ai-模型的函数调用功能">启用 AI 模型的函数调用功能</h3>
 <p>使用方法也很简单，需要 AI 模型支持函数调用，以火山引擎作为示例，我使用了 DeepSeek-R1 模型，默认是没有函数调用的（会显示那个小扳手），需要在设置中手动开启</p>
-<p><img src="https://imgurl.zishu.me/2025/04/1743571944482.webp" alt=""></p>
-<p><img src="https://imgurl.zishu.me/2025/04/1743571984748.webp" alt=""></p>
+<p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2025/04/1743571944482.webp"
+    alt=""class="lazy"
+	>
+  <figcaption></figcaption>
+</figure></p>
+<p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2025/04/1743571984748.webp"
+    alt=""class="lazy"
+	>
+  <figcaption></figcaption>
+</figure></p>
 <p>这样在聊天框下方会出现一个 MCP 的标志，勾选后可以直接跟模型进行对话，可以输出天气地点等信息，如果再搭配你的 prompt，可以直接规划公交地铁线路等。</p>
-<p><img src="https://imgurl.zishu.me/2025/04/1743571957570.webp" alt=""></p>
+<p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2025/04/1743571957570.webp"
+    alt=""class="lazy"
+	>
+  <figcaption></figcaption>
+</figure></p>
 <details>
 <summary>测试 MCP 对话效果</summary>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl"><span class="gu">### 🧑‍💻 User
@@ -353,6 +388,7 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
 <style>
   .comment-tabs {
     display: flex;
+    margin-top: 3em;
   }
   .comment-tabs li {
     margin-right: 40px;
