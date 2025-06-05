@@ -38,162 +38,6 @@
 </script><title>js 基本语法 - 子舒的博客</title>
 <meta property="og:title" content="js 基本语法" />
 <meta property="og:type" content="article" />
-
-
-<meta property="og:keywords" content="在学习 js 基本语法的过程中，把遇见的知识点和问题记录写下来，以便未来复习和参考。
-数据类型有：数据，字符串，数组，数字，布尔值等。
-一、数据类型 1.number 2.布尔值 只有 true 和 false 两种，可以直接用 true 和 false 来表达，比如：
-true;	//true false;	//false 2&gt;1;	//true 2&gt;3;	//fasle 与	&amp;&amp; 两者同时为true，运算结果为true
-或	|| 只要有一个为true，运算结果就是true
-非	！ 当程序为true时，运算结果取反为false
-var age = 15; if(age &gt;= 18) { alert(&#39;adult&#39;) }else{ alert(&#39;teenager&#39;) } age 值是 15，当 age 大于且等于 18 的时候浏览器弹出 adult，反之弹出 teenager
-3.字符串 4.比较运算符 ==和===
-当使用==进行比较的时候，一般会自动转换类型然后再进行比较
-当使用===进行比较的时候，如果数据类型不一样，直接返回false，等到类型一致了，然后再进行比较
-有一个特殊的number就是NaN，它不与任何值相等，包括它自己NaN
-NaN === NaN	//false 5.null和undefined null表示一个空值，0表示一个数值，&#39;&#39;表示长度为 0 的字符串，但是null表示空
-undefined表示未定义
-但是区分两者意义不大，大多数还是在用null，undefined仅仅在判断函数参数是否传递的情况下有用
-6.数组 Array [ ] ，表示一组按顺序排列的集合，其中的每个值称为元素
-new Array(1,2,3)	//[1,2,3] 数组的索引
-二、对象和变量 var person = { name: &#39;jack&#39;, age: 20, city: &#39;hangzhou&#39; } person是对象变量，name: &#39;jack&#39;这就是一个键值对，name是属性名，&#39;jack&#39;是属性
-要获取一个对象的属性，用对象变量.属性，也就是person.name，结果是jack
-person.name	//jack person.age	//20 var是一个动态语言，就算 var 定义了 x = 100，后面又有 x = x&#43; 100，所以就变成了 200,
-var x = 100; x = x&#43; 100; console.log(x)	//200 假如用 int 来定义 x，后面的 x = x &#43; 100 就会报错
-并且使用 var 定义的变量只会存在与该函数作用域，并不是默认的全局变量
-而如果没有使用var，直接定义i = 100，变量 i 会被默认为全局变量
-三、字符串 需要用到转义字符\
-1.模板字符串 var name = &#39;小明&#39;; var age = 20; var message = name &#43; &#39;今年&#39; &#43; age &#43; &#39;了&#39;; //小明今年20了 var message = `${naem}，你今年${20}了` //ES6新增的语法，一样的结果 字符串不可改变
-如果对字符串的某个索引赋值，不会报错，不会发生任何改变
-var a = &#39;hello,world!&#39; a[0];	//h a[0] = k; console.log(a);	//结果为&#39;hello,world!&#39;，不会发生改变 2.toUpperCase 大写 他会返回一个新的字符串，把一个字符串全部变成大写
-var a = &#39;hello&#39;; a.toUpperCase();	//返回HELLO 3.toLowerCase 小写 他会返回一个新的字符串，他会把一个字符串全部变成小写
-var a = &#39;hello&#39; a.toLowerCase();	//HELLO 4.indexOf 他会返回指定字符串的索引，如果没有找到指定的字符串，则会返回-1
-var a = &#39;hello,world!&#39; a.indexOf(&#39;world&#39;);	//6 5.substring 他会返回指定区间索引的字符串，包括前一个数，不包括后一个数
-var a = &#39;hello,world!&#39; a.substrng(0, 5);	//hello 如果()里面只有一个数值，则从这个数值的索引开始直到结束，比如：
-var a = &#39;hello,world!&#39;; a.substring(6);	//返回world! 四、数组 数组Array可以包含任何类型的数据，并通过索引来访问每个数据
-1.length 属性 Array的长度可以用length属性来获取，它和索引不一样，从 1 开始计算
-var arr = [1,2,3,&#39;hello&#39;,null,true] arr.length;	//返回6 并且通过改变length的值，可以改变数组的内容大小变化
-var arr = [1,2,3,&#39;hello&#39;,null,true] arr.length;	//6 arr.length = 8;	//[1,2,3,&#39;hello&#39;,null,true,undefined,undefined] arr.length = 2;	//[1,2] 2.通过索引改变数组 Array可以直接通过索引修改对应的元素
-var arr = [1,2,3] arr[1] = &#39;hello&#39; console.log(arr); //[1,&#39;hello&#39;,3] js 允许直接通过索引改变数组的长度，不会报错，但是不建议这么做
-3.indexOf Array可以通过indexOf来搜索一个指定的元素的索引
-var arr = [1,2,3,&#39;hello&#39;] arr.indexOf(1);	//0 arr.indexOf(3); //2 4.slice slice属性与substring类似，后者是截取字符串的内容，slice是截取数组的内容，然后返回一个新的数组
-如果有两个数值，包括前面的数值，不包括后面的数值；如果只有一个数值，则从它开始算起一直到结束
-var arr = [1,2,3,4,5]; arr.slice[0,2];	//返回[1,2] arr.slice[2];	//返回[3,4,5] 如果slice不指定数值，则返回数组的全部内容，可以利用这个特性复制一个相同的数组出来
-var arr = [1,2,3]; var arr1 = arr.slice(); console.log(arr1);	//[1,2,3] arr1 === arr;	//true 注意：两个数组相比都是 false，就算数组内容一样也会 false
-var arr = [1,2,3] var arr1 = [1,2,3] arr === arr1	//false 5.push 和 pop push()向数组的末尾添加元素
-pop()把数组的最后一个元素删掉
-6.unshifth 和 shift unshift()向数组的头部添加元素
-shift()把数组的第一个元素删掉
-7.sort sort()可以对数组进行排序，会直接修改当前数组的元素位置，直接调用时，会按照默认的方式排序
-var arr = [B,A,C] arr.sort(); arr	//[A,B,C] 8.reverse reverse()会把整个数组调个个，不是反向排序
-var arr = [2,1,3] arr.reverse(); arr;	//[3,1,2] 9.splice 这个属性是万能的方法，通过调用splice()，可以从指定的索引删除元素或者添加元素
-五、条件判断 在 js 中，使用 if() {...} else {...}进行条件判断
-var age = 22; if(age&gt;20) { // 如果age&gt;20成立，执行该语句 console.log(&#39;22&gt;20&#39;) }else { // 如果age&gt;20不成立，则执行该语句 conosle.log(&#39;22&lt;20&#39;) } 最终，控制台会打印出22&gt;20，因为条件成立
-执行的语句要用{}包裹起来，防止其他情况会报错
-多条件判断语句
-三个或者三个以上多判断语句，被称为多条件判断语句
-var a = 10 if(a&lt;10) { console.log(&#39;a&lt;10&#39;) }else if(a&gt;20){ console.log(&#39;a&gt;10&#39;) }else{ console.log(&#39;10&lt;=a&lt;=20&#39;) } 如果多个条件中都满足，则取第一个满足的结果，执行其代码，之后满足的自动忽略掉，所以在 进行条件判断的时候，不要重复判断情况
-一个复杂的多条件判断语句
-var height = parseFloat(prompt(&#39;请输入身高(m):&#39;)); var weight = parseFloat(prompt(&#39;请输入体重(kg):&#39;)); var bmi = weight/(height*height); if(bmi &lt; 18.5) { console.log(&#39;过轻&#39;) }else if(bmi&gt;18.5,bmi&lt;25) { console.log(&#39;正常&#39;) }else if(bmi&gt;25,bmi&lt;28){ console.log(&#39;过重&#39;) }else if(bmi&gt;28,bmi&lt;32){ console.log(&#39;肥胖&#39;) }else{ console.log(&#39;严重肥胖&#39;) } parseFloat可以解析一个字符串，并返回一个数字
-六、循环 简单的运算可以手打出来
-1 &#43; 2 &#43; 3 // 控制台输出 6 但是几百次，几千次，几万次的运算无法手打，可以依靠循环语句来进行计算，为了让计算机能够进行成千上万次的运算
-循环语句有两种 for 和 while，他们有不同的用法，适应不同的情况
-1. for 循环 通过初始条件，结束条件和递增条件来循环执行语句块
-var x = 0 var i for(i = 1; i &lt;= 1000; i&#43;&#43;) { x = x &#43; i } i = 1 是初始条件，i 从 1 开始算起 i&lt;=是判断条件，满足就执行循环，不满足就退出循环 i&#43;&#43; 是递增条件，每次循环过后都是＋1，当无数次后不满足了 i&lt;=1000，会跳出循环
-2. 通过 for 语句遍历数组 var arr = [&#39;apple&#39;, &#39;banana&#39;, &#39;oringen&#39;] var x,i for(i = 0; i &lt;= arr.length; i&#43;&#43;) { x = arr[i] console.log(x) } 3. 用 break 终止 for 循环 var x = 0; for ( ; ; ) { // 将无限循环下去 if (x &gt; 100) { console.log(x) break; // 通过if判断来退出循环 } x &#43;&#43;; } 4. for&hellip;in 可以把一个对象对属性循环遍历出来
-var person = { name: &#39;jack&#39;, age: 20, city: &#39;beijing&#39; }; for(var i in person) { console.log(i) console.log(person[i]) } var i in person会把 person 里面所有对属性遍历，然后通过console.log(i)可以把属性名打印出来，console.log(person[i])可以把属性值打印出来
-如果对一个数组进行这样的操作，就可以把数组元素对索引打印出来，打印结果是字符串形式
-5. while 循环 while循环适用于忽视判断条件的情况，for适用于明确了初始条件和结束条件的情况
-比如要计算 1-100 之间的寄数和，可以用while循环
-var x = 0 var n = 99 while (n &gt; 0) { x = x &#43; n n = n - 2 } x 在变量内部，n 不断自减，直接 n=-1，不满足判断条件，此时退出循环
-6. do&hellip;while do...while循环是先循环，然后再判断条件，所以不论条件是否满足，do...while至少循环一次，这是它与for和while的区别
-比如：
-var n = 0 do{ n = n &#43; 1 }while(n &gt; 1) n;	//1 先定义n=0，然后执行n=n&#43;1，所以n=1，再判断条件，当 n&gt;1 的时候执行，不符合，退出循环，控制台输出n，结果为 1
-七、Map 和 Set 1. Map Map是一组键值对的结构，具有极快的查找速度
-只要我们定义一个属性名和属性值对应的数组，就可以从这个数组里面通过 name 直接查找数据
-var m = new Map([[&#39;jack&#39;, 95], [&#39;Bob&#39;, 94], [&#39;linda&#39;, 93]]) m.get(&#39;jack&#39;) 首先，要初始化一个Map数组
-var m = new Map();	//空map m.set(&#39;jack&#39;, 95)	//添加一个新的键值对	key-value m.has(&#39;jack&#39;)	//检查是否存在 &#39;	jack&#39;key m.get(&#39;jack&#39;)	//获取&#39;jack&#39;对应的数据	value m.delete(&#39;jack&#39;)	//删除&#39;jack&#39;键值对	key-value m.get(&#39;jack&#39;)	//undefined 一个 key 只能对应一个 value，所以如果重复赋值的话，后面的数据会把前面的数据覆盖掉
-var m = new Map(); m.set(&#39;Adam&#39;, 67); m.set(&#39;Adam&#39;, 88); m.get(&#39;Adam&#39;); // 88 2. Set set中值储存key，不储存value，而且在set中，key不能重复，如果重复了，会自动忽略掉重复
-首先，创建一个空的set
-var m = new Set()	//空set m.add(1)	//添加一个key m.delete(1)	//删除一个key m	//控制台输入［ ］空数组，没有数据 " />
-<meta name="keywords" content="在学习 js 基本语法的过程中，把遇见的知识点和问题记录写下来，以便未来复习和参考。
-数据类型有：数据，字符串，数组，数字，布尔值等。
-一、数据类型 1.number 2.布尔值 只有 true 和 false 两种，可以直接用 true 和 false 来表达，比如：
-true;	//true false;	//false 2&gt;1;	//true 2&gt;3;	//fasle 与	&amp;&amp; 两者同时为true，运算结果为true
-或	|| 只要有一个为true，运算结果就是true
-非	！ 当程序为true时，运算结果取反为false
-var age = 15; if(age &gt;= 18) { alert(&#39;adult&#39;) }else{ alert(&#39;teenager&#39;) } age 值是 15，当 age 大于且等于 18 的时候浏览器弹出 adult，反之弹出 teenager
-3.字符串 4.比较运算符 ==和===
-当使用==进行比较的时候，一般会自动转换类型然后再进行比较
-当使用===进行比较的时候，如果数据类型不一样，直接返回false，等到类型一致了，然后再进行比较
-有一个特殊的number就是NaN，它不与任何值相等，包括它自己NaN
-NaN === NaN	//false 5.null和undefined null表示一个空值，0表示一个数值，&#39;&#39;表示长度为 0 的字符串，但是null表示空
-undefined表示未定义
-但是区分两者意义不大，大多数还是在用null，undefined仅仅在判断函数参数是否传递的情况下有用
-6.数组 Array [ ] ，表示一组按顺序排列的集合，其中的每个值称为元素
-new Array(1,2,3)	//[1,2,3] 数组的索引
-二、对象和变量 var person = { name: &#39;jack&#39;, age: 20, city: &#39;hangzhou&#39; } person是对象变量，name: &#39;jack&#39;这就是一个键值对，name是属性名，&#39;jack&#39;是属性
-要获取一个对象的属性，用对象变量.属性，也就是person.name，结果是jack
-person.name	//jack person.age	//20 var是一个动态语言，就算 var 定义了 x = 100，后面又有 x = x&#43; 100，所以就变成了 200,
-var x = 100; x = x&#43; 100; console.log(x)	//200 假如用 int 来定义 x，后面的 x = x &#43; 100 就会报错
-并且使用 var 定义的变量只会存在与该函数作用域，并不是默认的全局变量
-而如果没有使用var，直接定义i = 100，变量 i 会被默认为全局变量
-三、字符串 需要用到转义字符\
-1.模板字符串 var name = &#39;小明&#39;; var age = 20; var message = name &#43; &#39;今年&#39; &#43; age &#43; &#39;了&#39;; //小明今年20了 var message = `${naem}，你今年${20}了` //ES6新增的语法，一样的结果 字符串不可改变
-如果对字符串的某个索引赋值，不会报错，不会发生任何改变
-var a = &#39;hello,world!&#39; a[0];	//h a[0] = k; console.log(a);	//结果为&#39;hello,world!&#39;，不会发生改变 2.toUpperCase 大写 他会返回一个新的字符串，把一个字符串全部变成大写
-var a = &#39;hello&#39;; a.toUpperCase();	//返回HELLO 3.toLowerCase 小写 他会返回一个新的字符串，他会把一个字符串全部变成小写
-var a = &#39;hello&#39; a.toLowerCase();	//HELLO 4.indexOf 他会返回指定字符串的索引，如果没有找到指定的字符串，则会返回-1
-var a = &#39;hello,world!&#39; a.indexOf(&#39;world&#39;);	//6 5.substring 他会返回指定区间索引的字符串，包括前一个数，不包括后一个数
-var a = &#39;hello,world!&#39; a.substrng(0, 5);	//hello 如果()里面只有一个数值，则从这个数值的索引开始直到结束，比如：
-var a = &#39;hello,world!&#39;; a.substring(6);	//返回world! 四、数组 数组Array可以包含任何类型的数据，并通过索引来访问每个数据
-1.length 属性 Array的长度可以用length属性来获取，它和索引不一样，从 1 开始计算
-var arr = [1,2,3,&#39;hello&#39;,null,true] arr.length;	//返回6 并且通过改变length的值，可以改变数组的内容大小变化
-var arr = [1,2,3,&#39;hello&#39;,null,true] arr.length;	//6 arr.length = 8;	//[1,2,3,&#39;hello&#39;,null,true,undefined,undefined] arr.length = 2;	//[1,2] 2.通过索引改变数组 Array可以直接通过索引修改对应的元素
-var arr = [1,2,3] arr[1] = &#39;hello&#39; console.log(arr); //[1,&#39;hello&#39;,3] js 允许直接通过索引改变数组的长度，不会报错，但是不建议这么做
-3.indexOf Array可以通过indexOf来搜索一个指定的元素的索引
-var arr = [1,2,3,&#39;hello&#39;] arr.indexOf(1);	//0 arr.indexOf(3); //2 4.slice slice属性与substring类似，后者是截取字符串的内容，slice是截取数组的内容，然后返回一个新的数组
-如果有两个数值，包括前面的数值，不包括后面的数值；如果只有一个数值，则从它开始算起一直到结束
-var arr = [1,2,3,4,5]; arr.slice[0,2];	//返回[1,2] arr.slice[2];	//返回[3,4,5] 如果slice不指定数值，则返回数组的全部内容，可以利用这个特性复制一个相同的数组出来
-var arr = [1,2,3]; var arr1 = arr.slice(); console.log(arr1);	//[1,2,3] arr1 === arr;	//true 注意：两个数组相比都是 false，就算数组内容一样也会 false
-var arr = [1,2,3] var arr1 = [1,2,3] arr === arr1	//false 5.push 和 pop push()向数组的末尾添加元素
-pop()把数组的最后一个元素删掉
-6.unshifth 和 shift unshift()向数组的头部添加元素
-shift()把数组的第一个元素删掉
-7.sort sort()可以对数组进行排序，会直接修改当前数组的元素位置，直接调用时，会按照默认的方式排序
-var arr = [B,A,C] arr.sort(); arr	//[A,B,C] 8.reverse reverse()会把整个数组调个个，不是反向排序
-var arr = [2,1,3] arr.reverse(); arr;	//[3,1,2] 9.splice 这个属性是万能的方法，通过调用splice()，可以从指定的索引删除元素或者添加元素
-五、条件判断 在 js 中，使用 if() {...} else {...}进行条件判断
-var age = 22; if(age&gt;20) { // 如果age&gt;20成立，执行该语句 console.log(&#39;22&gt;20&#39;) }else { // 如果age&gt;20不成立，则执行该语句 conosle.log(&#39;22&lt;20&#39;) } 最终，控制台会打印出22&gt;20，因为条件成立
-执行的语句要用{}包裹起来，防止其他情况会报错
-多条件判断语句
-三个或者三个以上多判断语句，被称为多条件判断语句
-var a = 10 if(a&lt;10) { console.log(&#39;a&lt;10&#39;) }else if(a&gt;20){ console.log(&#39;a&gt;10&#39;) }else{ console.log(&#39;10&lt;=a&lt;=20&#39;) } 如果多个条件中都满足，则取第一个满足的结果，执行其代码，之后满足的自动忽略掉，所以在 进行条件判断的时候，不要重复判断情况
-一个复杂的多条件判断语句
-var height = parseFloat(prompt(&#39;请输入身高(m):&#39;)); var weight = parseFloat(prompt(&#39;请输入体重(kg):&#39;)); var bmi = weight/(height*height); if(bmi &lt; 18.5) { console.log(&#39;过轻&#39;) }else if(bmi&gt;18.5,bmi&lt;25) { console.log(&#39;正常&#39;) }else if(bmi&gt;25,bmi&lt;28){ console.log(&#39;过重&#39;) }else if(bmi&gt;28,bmi&lt;32){ console.log(&#39;肥胖&#39;) }else{ console.log(&#39;严重肥胖&#39;) } parseFloat可以解析一个字符串，并返回一个数字
-六、循环 简单的运算可以手打出来
-1 &#43; 2 &#43; 3 // 控制台输出 6 但是几百次，几千次，几万次的运算无法手打，可以依靠循环语句来进行计算，为了让计算机能够进行成千上万次的运算
-循环语句有两种 for 和 while，他们有不同的用法，适应不同的情况
-1. for 循环 通过初始条件，结束条件和递增条件来循环执行语句块
-var x = 0 var i for(i = 1; i &lt;= 1000; i&#43;&#43;) { x = x &#43; i } i = 1 是初始条件，i 从 1 开始算起 i&lt;=是判断条件，满足就执行循环，不满足就退出循环 i&#43;&#43; 是递增条件，每次循环过后都是＋1，当无数次后不满足了 i&lt;=1000，会跳出循环
-2. 通过 for 语句遍历数组 var arr = [&#39;apple&#39;, &#39;banana&#39;, &#39;oringen&#39;] var x,i for(i = 0; i &lt;= arr.length; i&#43;&#43;) { x = arr[i] console.log(x) } 3. 用 break 终止 for 循环 var x = 0; for ( ; ; ) { // 将无限循环下去 if (x &gt; 100) { console.log(x) break; // 通过if判断来退出循环 } x &#43;&#43;; } 4. for&hellip;in 可以把一个对象对属性循环遍历出来
-var person = { name: &#39;jack&#39;, age: 20, city: &#39;beijing&#39; }; for(var i in person) { console.log(i) console.log(person[i]) } var i in person会把 person 里面所有对属性遍历，然后通过console.log(i)可以把属性名打印出来，console.log(person[i])可以把属性值打印出来
-如果对一个数组进行这样的操作，就可以把数组元素对索引打印出来，打印结果是字符串形式
-5. while 循环 while循环适用于忽视判断条件的情况，for适用于明确了初始条件和结束条件的情况
-比如要计算 1-100 之间的寄数和，可以用while循环
-var x = 0 var n = 99 while (n &gt; 0) { x = x &#43; n n = n - 2 } x 在变量内部，n 不断自减，直接 n=-1，不满足判断条件，此时退出循环
-6. do&hellip;while do...while循环是先循环，然后再判断条件，所以不论条件是否满足，do...while至少循环一次，这是它与for和while的区别
-比如：
-var n = 0 do{ n = n &#43; 1 }while(n &gt; 1) n;	//1 先定义n=0，然后执行n=n&#43;1，所以n=1，再判断条件，当 n&gt;1 的时候执行，不符合，退出循环，控制台输出n，结果为 1
-七、Map 和 Set 1. Map Map是一组键值对的结构，具有极快的查找速度
-只要我们定义一个属性名和属性值对应的数组，就可以从这个数组里面通过 name 直接查找数据
-var m = new Map([[&#39;jack&#39;, 95], [&#39;Bob&#39;, 94], [&#39;linda&#39;, 93]]) m.get(&#39;jack&#39;) 首先，要初始化一个Map数组
-var m = new Map();	//空map m.set(&#39;jack&#39;, 95)	//添加一个新的键值对	key-value m.has(&#39;jack&#39;)	//检查是否存在 &#39;	jack&#39;key m.get(&#39;jack&#39;)	//获取&#39;jack&#39;对应的数据	value m.delete(&#39;jack&#39;)	//删除&#39;jack&#39;键值对	key-value m.get(&#39;jack&#39;)	//undefined 一个 key 只能对应一个 value，所以如果重复赋值的话，后面的数据会把前面的数据覆盖掉
-var m = new Map(); m.set(&#39;Adam&#39;, 67); m.set(&#39;Adam&#39;, 88); m.get(&#39;Adam&#39;); // 88 2. Set set中值储存key，不储存value，而且在set中，key不能重复，如果重复了，会自动忽略掉重复
-首先，创建一个空的set
-var m = new Set()	//空set m.add(1)	//添加一个key m.delete(1)	//删除一个key m	//控制台输入［ ］空数组，没有数据 " />
-
-
 <meta property="og:description" content="在学习 js 基本语法的过程中，把遇见的知识点和问题记录写下来，以便未来复习和参考。
 数据类型有：数据，字符串，数组，数字，布尔值等。
 一、数据类型 1.number 2.布尔值 只有 true 和 false 两种，可以直接用 true 和 false 来表达，比如：
@@ -348,112 +192,64 @@ var m = new Map(); m.set(&#39;Adam&#39;, 67); m.set(&#39;Adam&#39;, 88); m.get(&
 var m = new Set()	//空set m.add(1)	//添加一个key m.delete(1)	//删除一个key m	//控制台输入［ ］空数组，没有数据 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/index.css">
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
-<script src="/js/jquery3.6.0.min.js"></script>
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BGB227HN9X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BGB227HN9X');
-</script>
 </head>
 
 <body>
-  <div class="wrapper">
-    <div class="main">
-      <div class="aside">
-  <div class="top">
-    <a href="/" title="子舒的博客"><img src="https://imgurl.zishu.me/author.png" width="72" height="72" class="avatar" alt="子舒的博客" border="0"></a>
-    <div class="site-info">
-      
-       <a href="/"><svg width="104.597" height="39.369" viewBox="0 0 104.597 39.369" xmlns="http://www.w3.org/2000/svg"><g id="svgGroup" stroke-linecap="round" fill-rule="evenodd" font-size="9pt" stroke="#000000" stroke-width="0.1mm" fill="#000000" style="stroke:#000000;stroke-width:0.1mm;fill:#000000"><path d="M 67.659 29.801 L 68.763 19.635 Q 68.763 18.393 68.119 17.565 Q 67.475 16.737 66.049 16.737 Q 64.623 16.737 63.634 17.864 Q 62.645 18.991 62.185 20.831 Q 61.863 23.453 61.219 28.49 A 2866.126 2866.126 0 0 0 60.69 32.647 A 536.88 536.88 0 0 0 60.391 35.045 L 54.273 35.045 A 18068.443 18068.443 0 0 0 55.744 22.484 Q 57.283 9.299 57.949 3.362 A 627.499 627.499 0 0 0 58.275 0.407 Q 59.241 0.039 60.897 0.039 A 3.976 3.976 0 0 1 64.139 1.045 A 1.775 1.775 0 0 1 64.485 2.155 L 64.485 2.431 A 270.679 270.679 0 0 1 63.046 13.731 A 177.594 177.594 0 0 1 62.829 15.127 Q 65.267 12.919 68.349 12.919 Q 71.431 12.919 73.225 14.483 Q 75.019 16.047 75.019 18.439 Q 75.019 19.083 74.743 20.831 A 276.731 276.731 0 0 0 73.983 26.046 Q 73.685 28.292 73.685 28.927 Q 73.685 31.089 75.111 31.089 Q 76.307 31.089 77.664 29.502 A 11.951 11.951 0 0 0 77.825 29.282 A 18.722 18.722 0 0 1 78.055 27.041 Q 79.113 18.485 79.665 13.425 Q 81.091 12.919 82.287 12.919 Q 83.483 12.919 84.081 13.011 Q 84.679 13.103 85.231 13.701 Q 85.783 14.299 85.783 15.403 L 84.265 27.133 Q 84.173 27.685 84.173 28.145 Q 84.173 30.859 86.657 30.859 Q 88.957 30.859 90.475 28.605 Q 90.475 28.099 90.567 26.995 L 92.085 14.759 Q 92.407 13.977 93.465 13.448 Q 94.523 12.919 96.11 12.919 Q 97.697 12.919 98.479 13.379 Q 96.924 25.663 96.651 28.479 A 10.731 10.731 0 0 0 96.593 29.249 Q 96.593 31.089 97.927 31.089 Q 99.123 31.089 100.526 29.456 Q 101.929 27.823 102.757 24.557 Q 104.275 26.213 104.597 27.133 A 12.282 12.282 0 0 1 101.894 32.831 A 6.516 6.516 0 0 1 101.239 33.435 Q 98.939 35.275 96.501 35.275 Q 92.499 35.275 91.119 32.193 Q 88.727 35.275 84.725 35.275 Q 81.413 35.275 79.619 33.619 A 5.611 5.611 0 0 1 78.856 32.75 A 13.283 13.283 0 0 1 78.373 33.275 A 7.221 7.221 0 0 1 73.271 35.229 Q 70.419 35.229 69.039 33.481 Q 67.659 31.733 67.659 29.801 Z M 20.739 28.881 L 22.395 14.667 Q 22.855 13.839 24.143 13.402 Q 25.431 12.965 26.696 12.965 Q 27.961 12.965 28.927 13.287 Q 27.133 27.133 27.133 27.271 Q 26.903 28.191 26.903 28.812 Q 26.903 29.433 26.995 29.893 A 1.435 1.435 0 0 0 27.961 31.04 A 8.754 8.754 0 0 1 28.881 28.421 Q 30.752 24.861 37.604 18.675 A 123.618 123.618 0 0 1 37.713 18.577 Q 36.011 16.875 36.011 14.943 Q 36.011 13.011 37.46 11.677 Q 38.909 10.343 40.887 10.343 Q 42.681 10.343 44.015 11.769 Q 44.889 12.735 44.889 14.207 Q 44.889 15.679 43.923 17.519 A 72.971 72.971 0 0 1 48.835 19.902 A 18.079 18.079 0 0 1 50.593 20.969 Q 54.227 23.637 54.227 27.271 Q 54.227 30.905 51.375 33.113 Q 48.523 35.321 44.199 35.321 Q 41.393 35.321 39.53 33.918 Q 37.667 32.515 37.667 30.445 Q 37.667 28.375 39.047 27.156 Q 40.427 25.937 42.497 25.661 Q 41.531 27.041 41.531 28.306 Q 41.531 29.571 42.405 30.353 Q 43.279 31.135 44.613 31.135 Q 45.947 31.135 46.821 30.146 Q 47.695 29.157 47.695 27.869 Q 47.695 25.753 45.717 24.097 Q 44.521 23.131 43.141 22.28 A 104.019 104.019 0 0 0 41.712 21.407 A 0.982 0.982 0 0 0 41.669 21.383 Q 41.485 21.245 41.301 21.153 Q 40.473 22.119 38.909 23.798 Q 37.345 25.477 36.425 26.489 A 12.83 12.83 0 0 0 34.85 28.396 A 12.665 12.665 0 0 1 33.52 31.218 A 6.915 6.915 0 0 0 33.435 32.584 Q 33.435 33.619 34.056 34.723 Q 34.677 35.827 35.551 36.379 Q 36.425 36.931 37.276 37.276 Q 38.127 37.621 38.748 37.759 Q 39.369 37.897 39.369 37.943 Q 39.369 38.265 38.357 38.679 Q 36.471 39.369 34.424 39.369 Q 32.377 39.369 30.445 37.897 A 6.46 6.46 0 0 1 28.329 35.212 A 7.144 7.144 0 0 1 26.765 35.367 Q 23.683 35.367 22.188 33.849 Q 20.693 32.331 20.693 29.939 Q 20.693 29.433 20.739 28.881 Z M 13.471 35.459 L 0.683 35.183 A 1.327 1.327 0 0 1 0.085 33.556 A 8.453 8.453 0 0 1 0.085 33.55 Q 0.085 31.917 0.775 30.997 A 13.911 13.911 0 0 1 2.876 27.663 A 47.078 47.078 0 0 1 4.593 25.615 Q 5.605 24.465 8.365 21.475 A 141.512 141.512 0 0 0 11.268 18.255 A 27.559 27.559 0 0 0 11.999 17.381 L 9.561 17.243 Q 8.871 18.899 7.56 19.934 Q 6.249 20.969 4.639 20.969 Q 2.799 20.969 1.649 19.888 Q 0.499 18.807 0.499 16.875 Q 0.499 14.943 1.833 13.793 Q 3.167 12.643 5.513 12.643 L 18.301 12.919 Q 18.899 12.919 18.899 14.483 Q 18.899 16.093 18.301 16.967 Q 17.749 17.979 16.714 19.106 Q 15.679 20.233 13.701 22.096 A 175.609 175.609 0 0 0 11.155 24.529 A 38.997 38.997 0 0 0 10.941 24.741 Q 7.859 27.823 6.341 30.675 L 9.423 30.859 Q 10.113 29.203 11.424 28.168 Q 12.735 27.133 14.345 27.133 Q 16.185 27.133 17.335 28.214 Q 18.485 29.295 18.485 31.227 Q 18.485 33.159 17.151 34.309 Q 15.817 35.459 13.471 35.459 Z M 24.281 1.166 Q 25.339 0.085 26.857 0.085 Q 28.375 0.085 29.456 1.166 Q 30.537 2.247 30.537 3.765 Q 30.537 5.283 29.456 6.341 Q 28.375 7.399 26.857 7.399 Q 25.339 7.399 24.281 6.341 Q 23.223 5.283 23.223 3.765 Q 23.223 2.247 24.281 1.166 Z M 7.583 17.105 L 5.697 16.967 Q 5.421 16.921 5.145 16.921 Q 3.535 16.921 3.535 17.979 Q 3.535 19.037 4.731 19.037 Q 6.525 19.037 7.583 17.105 Z M 11.401 30.997 L 13.287 31.135 Q 13.563 31.181 13.839 31.181 Q 15.449 31.181 15.449 30.123 Q 15.449 29.065 14.253 29.065 Q 12.459 29.065 11.401 30.997 Z M 40.611 15.771 Q 41.715 14.621 41.715 14.115 Q 41.715 12.965 40.703 12.873 Q 39.553 12.873 39.553 14.161 Q 39.553 14.943 40.611 15.771 Z"/></g></svg></a>
-      <div class="site-about">
-        <p>一个热爱生活的前端开发工程师。</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="nav-container">
-    <div class="nav">
-      
-      <a href="/" class="nav-item">
-        <img src="/images/sparkles.png" width="17" height="17" alt="sparkles" />
-        <span>首页</span>
-      </a>
-      
-      <a href="/tags/" class="nav-item">
-        <img src="/images/tags.png" width="17" height="17" alt="tags" />
-        <span>标签</span>
-      </a>
-      
-      <a href="/message/" class="nav-item">
-        <img src="/images/message.png" width="17" height="17" alt="message" />
-        <span>留言</span>
-      </a>
-      
-      <a href="/about/" class="nav-item">
-        <img src="/images/about.png" width="17" height="17" alt="about" />
-        <span>关于</span>
-      </a>
-      
-      <a href="/search/" class="nav-item">
-        <img src="/images/search.png" width="17" height="17" alt="search" />
-        <span>搜索</span>
-      </a>
-      
-      <a href="/index.xml" class="nav-item">
-        <img src="/images/rss.png" width="17" height="17" alt="rss" />
-        <span>订阅</span>
-      </a>
-      
-    </div>
-    <div class="share">
-      <a href="/index.xml" target="_blank" title="RSS"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-file-rss"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 2l.117 .007a1 1 0 0 1 .876 .876l.007 .117v4l.005 .15a2 2 0 0 0 1.838 1.844l.157 .006h4l.117 .007a1 1 0 0 1 .876 .876l.007 .117v9a3 3 0 0 1 -2.824 2.995l-.176 .005h-10a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-14a3 3 0 0 1 2.824 -2.995l.176 -.005zm-3 11a1 1 0 0 0 0 2a2 2 0 0 1 1.995 1.85l.005 .15a1 1 0 0 0 2 0a4 4 0 0 0 -4 -4m0 -3a1 1 0 0 0 0 2a5 5 0 0 1 5 5a1 1 0 0 0 2 0a7 7 0 0 0 -7 -7m.01 6h-.01a1 1 0 0 0 -.117 1.993l.127 .007a1 1 0 0 0 0 -2m5.989 -13.001l4.001 4.001h-4z" /></svg></a>
-      <a href="https://github.com/dlzmoe" target="_blank" title="GitHub"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5.315 2.1c.791 -.113 1.9 .145 3.333 .966l.272 .161l.16 .1l.397 -.083a13.3 13.3 0 0 1 4.59 -.08l.456 .08l.396 .083l.161 -.1c1.385 -.84 2.487 -1.17 3.322 -1.148l.164 .008l.147 .017l.076 .014l.05 .011l.144 .047a1 1 0 0 1 .53 .514a5.2 5.2 0 0 1 .397 2.91l-.047 .267l-.046 .196l.123 .163c.574 .795 .93 1.728 1.03 2.707l.023 .295l.007 .272c0 3.855 -1.659 5.883 -4.644 6.68l-.245 .061l-.132 .029l.014 .161l.008 .157l.004 .365l-.002 .213l-.003 3.834a1 1 0 0 1 -.883 .993l-.117 .007h-6a1 1 0 0 1 -.993 -.883l-.007 -.117v-.734c-1.818 .26 -3.03 -.424 -4.11 -1.878l-.535 -.766c-.28 -.396 -.455 -.579 -.589 -.644l-.048 -.019a1 1 0 0 1 .564 -1.918c.642 .188 1.074 .568 1.57 1.239l.538 .769c.76 1.079 1.36 1.459 2.609 1.191l.001 -.678l-.018 -.168a5.03 5.03 0 0 1 -.021 -.824l.017 -.185l.019 -.12l-.108 -.024c-2.976 -.71 -4.703 -2.573 -4.875 -6.139l-.01 -.31l-.004 -.292a5.6 5.6 0 0 1 .908 -3.051l.152 -.222l.122 -.163l-.045 -.196a5.2 5.2 0 0 1 .145 -2.642l.1 -.282l.106 -.253a1 1 0 0 1 .529 -.514l.144 -.047l.154 -.03z" /></svg></a>
-      <a href="https://discord.com/invite/n2pErsD7Kg" target="_blank" title="Discord"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-brand-discord"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14.983 3l.123 .006c2.014 .214 3.527 .672 4.966 1.673a1 1 0 0 1 .371 .488c1.876 5.315 2.373 9.987 1.451 12.28c-1.003 2.005 -2.606 3.553 -4.394 3.553c-.732 0 -1.693 -.968 -2.328 -2.045a21.512 21.512 0 0 0 2.103 -.493a1 1 0 1 0 -.55 -1.924c-3.32 .95 -6.13 .95 -9.45 0a1 1 0 0 0 -.55 1.924c.717 .204 1.416 .37 2.103 .494c-.635 1.075 -1.596 2.044 -2.328 2.044c-1.788 0 -3.391 -1.548 -4.428 -3.629c-.888 -2.217 -.39 -6.89 1.485 -12.204a1 1 0 0 1 .371 -.488c1.439 -1.001 2.952 -1.459 4.966 -1.673a1 1 0 0 1 .935 .435l.063 .107l.651 1.285l.137 -.016a12.97 12.97 0 0 1 2.643 0l.134 .016l.65 -1.284a1 1 0 0 1 .754 -.54l.122 -.009zm-5.983 7a2 2 0 0 0 -1.977 1.697l-.018 .154l-.005 .149l.005 .15a2 2 0 1 0 1.995 -2.15zm6 0a2 2 0 0 0 -1.977 1.697l-.018 .154l-.005 .149l.005 .15a2 2 0 1 0 1.995 -2.15z" /></svg></a>
-    </div>
-  </div>
-</div>
-
-
-      <h1>js 基本语法</h1>
-
-      
-      <div class="meta">
-        <div class="date">2020 年 10 月 21 日</div>
-        <div class="post-tags">
-          
-          
-          <span class="namenode">分类：<a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-          </span>
-          
-          
-          <span class="tag-node">
-            
-            标签：<a href="/tags/%E7%AC%94%E8%AE%B0">#笔记</a>
-            
-            
-          </span>
-        </div>
-      </div>
-      
+  <nav class="headnav">
+  <a href="/" class="logo">zishu.me</a>
+  <ul id="menu">
     
+    <li><a href="/">首页</a></li>
+    
+    <li><a href="/blog/">博客</a></li>
+    
+    <li><a href="/tags/">标签</a></li>
+    
+    <li><a href="/message/">留言</a></li>
+    
+    <li><a href="/about/">关于</a></li>
+    
+    <li><a href="/search/">搜索</a></li>
+    
+    <li><a href="/index.xml" target="_blank">订阅</a></li>
+  </ul>
+</nav>
+  <section>
+    
+    <div class="body-title">js 基本语法</div>
+
+    
+    <div class="post-meta">
+      <time> 2020-10-21</time>
       
-      <div class="toc">
-        <details open>
-          <summary accesskey="c" title="(Alt + C)"><span class="details">Table of Contents</span></summary>
-          <div class="inner"> <nav id="TableOfContents">
+      
+      <span class="namenode">分类：
+        <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+      </span>
+      
+      
+
+      <span class="tag-node">
+        
+        标签：
+        
+        <a href="/tags/%E7%AC%94%E8%AE%B0">#笔记</a>
+        
+        
+      </span>
+
+    </div>
+    
+
+    
+    <div class="toc">
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#一数据类型">一、数据类型</a>
       <ul>
@@ -506,14 +302,13 @@ var m = new Set()	//空set m.add(1)	//添加一个key m.delete(1)	//删除一个
       </ul>
     </li>
   </ul>
-</nav></div>
-        </details>
-      </div>
-      
+</nav>
+    </div>
+    
 
-      <article class="content post-content">
-        
-        <p>在学习 js 基本语法的过程中，把遇见的知识点和问题记录写下来，以便未来复习和参考。</p>
+    <article class="post-content">
+      
+      <p>在学习 js 基本语法的过程中，把遇见的知识点和问题记录写下来，以便未来复习和参考。</p>
 <p>数据类型有：<strong>数据，字符串，数组，数字，布尔值</strong>等。</p>
 <h2 id="一数据类型">一、数据类型</h2>
 <h3 id="1number">1.number</h3>
@@ -794,11 +589,10 @@ i++ 是递增条件，每次循环过后都是＋1，当无数次后不满足了
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">m</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>			<span class="c1">//删除一个key
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">m</span>	 							<span class="c1">//控制台输入［ ］空数组，没有数据
 </span></span></span></code></pre></div>
-        <div class="weekly-pagination"></div>
-      </article>
+    </article>
 
-      
-      <ul class="comment-tabs">
+    
+    <ul class="comment-tabs">
   
   <li>LinuxDo</li>
   
@@ -856,31 +650,55 @@ twikoo.init({
 </script>
 
 <script>
-  $('.comment-tabs li').each(function(){
-    $('.comment-tabs li').eq(0).addClass('active');
-    $('.comments > div').eq(0).addClass('active');
-    $(this).click(function(){
-      $(this).addClass('active').siblings().removeClass('active');
-      $('.comments > div').eq($(this).index()).addClass('active').siblings().removeClass('active');
-    })
-  })
+document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+  if (index === 0) {
+    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+    document.querySelectorAll('.comments > div')[0].classList.add('active');
+  }
+  
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+      sibling.classList.remove('active');
+    });
+    this.classList.add('active');
+    
+    document.querySelectorAll('.comments > div').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.querySelectorAll('.comments > div')[index].classList.add('active');
+  });
+});
 </script>
-      
 
-      <footer class="footer">
-  <div class="l-wrap">
-    © 2020 - 2025 Powered by
-    <a href="https://github.com/dlzmoe" target="_blank">子舒</a>
-  </div>
-  <img src="https://profile-counter.glitch.me/zishu_me/count.svg" alt="counter">
-  <div class="gotop"></div>
+<style>
+  .comment-tabs {
+    display: flex;
+  }
+  .comment-tabs li {
+    margin-right: 40px;
+    cursor: pointer;
+  }
+  .comment-tabs li.active {
+    text-decoration: underline;
+  }
+  .comments > div.active {
+    display: block;
+  }
+  .comments > div {
+    display: none;
+  }
+</style>
+    
+    
+  </section>
+  <footer class="footer">
+  <p>© 2020 - 2025 Powered by
+    <a href="https://github.com/dlzmoe" target="_blank">Github</a>
+    / <a href="/index.xml" target="_blank">RSS</a>
+  </p>
 </footer>
 
-<script src="/js/main.js"></script>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="//instant.page/5.2.0" type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
-    </div>
-  </div>
+
 </body>
 
 </html>

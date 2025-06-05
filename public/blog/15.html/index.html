@@ -38,102 +38,6 @@
 </script><title>面向对象编程 - 子舒的博客</title>
 <meta property="og:title" content="面向对象编程" />
 <meta property="og:type" content="article" />
-
-
-<meta property="og:keywords" content="面向对象把构成问题的 transaction 分解成各个对象，而建立对象的目的也不是为了完成一个个步骤，而是为了描述某个事物在解决整个问题的过程中所发生的行为，意在写出通用代码，加强代码重用，屏蔽差异性。
-一、什么是面向对象编程 js 是基于原型的，基于面向对象编程
-面向对象就是把数据和对数据的操作方法放在一起，作为一个整体——对象。对同类对象抽象出其共性，形成类
-1.面向过程程序设计 将一个项目（或者一个事件）从头到尾按顺序，一步一步完成，先做什么，后做什么，一直到结束，也是我们人做事的方法。
-自上而下，先确定一个整体的框架，然后添砖加瓦，逐步实现想要得到的效果，适用于简单的系统，容易理解。但是难以应对复杂的系统，不易维护扩展，难以复用
-面向过程是分析解决问题的步骤，然后用函数把这些步骤一步一步的实现，然后在使用的时候一一调用则可。强调的是完成这件事儿的动作，更接近我们日常处理事情的思维。
-2.面向对象程序设计 将一个项目（或者一个事件）分成更小的项目，每一个部分负责一方面的功能，最后由这些部分组成一个整体，先设计组件，在完成拼装，适用于大型复杂的系统
-面向对象把构成问题的 transaction 分解成各个对象，而建立对象的目的也不是为了完成一个个步骤，而是为了描述某个事物在解决整个问题的过程中所发生的行为，意在写出通用代码，加强代码重用，屏蔽差异性。
-想要弄明白面向对象，需要先理解类和对象的概念
-《什么是类和对象？》
-二、创建对象的方法 1.创建字面量和实例 window.onload = function() { // 实例 var person = new Object(); person.name = &#39;小明&#39;; person.age = 22; person.year = function() { console.log(this.name &#43; &#39;今年&#39; &#43; this.age &#43; &#39;岁了！&#39;) }; person.year(); // 字面量 var student = { name: &#39;小明&#39;, age: 22, year: function () { console.log(this.name &#43; &#39;今年&#39; &#43; this.age &#43; &#39;岁了！&#39;) } } student.year(); } // 小明今年22岁了！ 两者输出的结果是一样的，控制台输出：
-缺点：重复实例化对象，代码冗余高
-2.工厂模式 window.onload = function() { function createObj(name, age) { var obj = new Object(); obj.name = name, obj.age = age, obj.year = function() { console.log(this.name &#43; &#39;今年&#39; &#43; this.age &#43; &#39;岁了！&#39;) } return obj; } var obj = createObj(&#39;小明&#39;, 22); obj.year(); } // 小明今年22岁了！ 优点：解决重复实例化对象的问题 缺点：无法识别对象的类型，因为所有的实例都指向一个原型
-3.构造函数 window.onload = function() { function Person(name, age) { this.name = name; this.age = age; this.year = function() { console.log(this.name &#43; &#39;今年&#39; &#43; this.age &#43; &#39;岁了！&#39;) } } var student = new Person(&#39;小明&#39;, 22); student.year(); } // 小明今年22岁了！ 优点：可以识别对象的类型 缺点：多个实例重复创建方法，无法共享
-4. 原型模式 window.onload = function() { function Par() {} Par.prototype = { constructor: &#39;Par&#39;, name: &#39;小明&#39;, age: 22, year: function() { console.log(this.name &#43; &#39;今年&#39; &#43; this.age &#43; &#39;岁了！&#39;) } }; var son = new Par(); son.year(); } // 小明今年22岁了！ 缺点：所有实例共享他的属性和方法，不能传参和初始化属性值
-5.混合模式 (推荐使用) 是构造函数和原型模式混合的写法，拥有各自的优点，构造函数共享实例属性，原型模式共享方法和想要共享的属性，可以传参和初始化属性值
-先用构造函数定义对象的属性方法，然后用原型模式创建方法，使用的属性通过 prototype 获取，有一个 constructor 属性，可以指向要操作的函数对象（构造函数）
-比如constructor: Par，就代表下面这个原型方法指向Par()对象（构造函数）
-window.onload = function() { function Par(name, age) { this.name = name; this.age = age; } Par.prototype = { constructor: Par, year: function() { console.log(this.name &#43; &#39;今年&#39; &#43; this.age &#43; &#39;岁了！&#39;); } }; var son = new Par(&#39;小明&#39;, 22) son.year(); } // 小明今年22岁了！ 三、原型，原型链 1.原型对象 函数对象都具有prototype属性，它指向函数的原型对象 (浏览器内存创建的对象)，原型对象都具有constructor属性，它指向prototype属性所在的函数对象 (构造函数) window.onload = function() { function Par(name, age) { this.name = name; this.age = age; } Par.prototype = { // constructor指向对象 constructor: Par, year: function() { console.log(this.name &#43; &#39;今年&#39; &#43; this.age &#43; &#39;岁了！&#39;); } }; var son = new Par(&#39;小明&#39;, 22) son.year(); /*********************************************/ console.log(Par.prototype) console.log(Par.prototype.constructor) /*********************************************/ } 通过控制台可以看到
-构造函数的prototypr属性指向原型对象
-原型对象的construcyor属性指向构造函数
-当调用构造函数创建一个实例后，该实例会有一个隐藏属性__proto__ ，它指向构造函数的原型对象 console.log(son.__proto__ === Par.prototype) // true 所有的构造函数的 prototype 都是 object 类型 console.log(typeof Par.prototype) // object Function 的 prototype 是一个空函数，所有内置函数的__proto__属性都指向这个空函数 console.log(Math.__proto__) 如果构造函数实例和原型对象中同时定义了一个属性，在调用时，会屏蔽原型对象中的属性，如果想要访问原型对象中的属性值，需要通过delete方法将同名属性在实例（构造函数）中彻底删除 window.onload = function () { function Par(name) { this.name = name; } Par.prototype.name = &#34;张三&#34;; var son = new Par(&#34;李四&#34;); console.log(son.name); // 李四 console.log(son.__proto__.name); // 张三 // 使用 delete 删除实例的同名属性值 console.log(delete son.name); // true console.log(son.name); // 张三 } 通过hasOwnProperty(属性名)可以判断一个属性存在于构造函数中，还是原型对象中 true表示存在构造函数中；false表示存在原型对象中
-console.log(Par.hasOwnProperty(name)); // false 操作符in，可以判断一个属性是否存在（存在于构造函数和原型对象中皆可） window.onload = function () { function Par(name, age) { this.name = name; this.age = age; } Par.prototype = { constructor: Par, year: function() { console.log(this.name &#43; this.age) } }; var son = new Par(&#39;xm&#39;, &#39;22&#39;) son.year(); console.log(&#39;name&#39; in Par); // true console.log(&#39;age&#39; in Par); // false } 同样的两个属性，判断其是否存在于实例或者原型对象中，输出的结果不一样
-参考:《对象中是否有某一个属性 in》https://www.cnblogs.com/IwishIcould/p/12333739.html
-2.__proto__和 prototype 的区别 prototype属性只有函数对象上才有，而__proto__属性所有对象都有
-prototype是由函数对象指向原型对象，而__proto__是由实例指向函数对象的原型对象
-原型链，将父类型的实例作为子类型的原型对象，这种链式关系叫做原型链
-3.继承 原型链继承 优点：父类原型定义的属性和方法可以复用 缺点：子类实例没有自己的属性，不能向父类传递参数
-function test1() { function SuperType() { this.city = [ &#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34; ]; this.property = true; } SuperType.prototype = { constructor : SuperType, // 保持构造函数和原型对象的完整性 age : 15, getSuperValue : function() { return this.property; } }; function SonType() { this.property = false; } // 重写子类的原型指向父类的实例：继承父类的原型 SubType.prototype = new SuperType(); SubType.prototype = { constructor : SubType, getSonType : function() { return this.property; } }; // 优点验证 let son = new SubType(); console.log(son.age); // 15 console.log(son.getSuperValue()); // false // 缺点验证 let instance1 = new SubType(); instance1.city.push(&#34;重庆&#34;); console.log(instance1.city); // [&#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34;, &#34;重庆&#34;] let instance2 = new SubType(); console.log(instance2.city); // [&#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34;, &#34;重庆&#34;] } // test1(); 构造函数继承 优点：子类实例有自己的属性，可以向父类传递参数，解决原型链继承的缺点 缺点：父类原型的属性和方法不可复用
-function test2() { function SuperType(name) { this.name = name; this.city = [ &#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34; ] } SuperType.prototype = { constructor : SuperType, age : 18, showInfo : function() { return this.name; } }; function SubType() { // 父类调用 call() 或者 apply() 方法和子类共用同一个 this，实现子类实例属性的继承 SuperType.call(this, &#34;张三&#34;); } // 优点验证 let instance = new SubType(); instance.city.push(&#34;重庆&#34;); console.log(instance.city); // [&#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34;, &#34;重庆&#34;] let instance1 = new SubType(); console.log(instance1.city); // [&#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34;] // 缺点验证 console.log(instance.age); // undefined instance.showInfo(); // son.showInfo is not a function } // test2(); 组合继承（推荐） 优点：原型的属性和方法可以复用，每个子类实例都有自己的属性 缺点：父类构造函数调用了两次，子类原型中的父类实例属性被子类实例覆盖
-function test3() { function SuperType(name) { this.name = name; this.city = [ &#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34; ] } SuperType.prototype = { constructor : SuperType, showInfo : function() { console.log(this.name &#43; &#34;今年&#34; &#43; this.age &#43; &#34;岁了&#34;); } }; function SubType(name, age) { // 1. 通过构造方法继承实现实例属性的继承 SuperType.call(this, name); this.age = age; } // 2. 通过原型链继承实现原型方法的继承 SubType.prototype = new SuperType(); // 优点验证 let instance = new SubType(&#34;张三&#34;, 15); instance.showInfo(); // 张三今年 15 岁了 let instance1 = new SubType(); instance1.city.push(&#34;重庆&#34;); console.log(instance1.city); // [&#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34;, &#34;重庆&#34;] let instance2 = new SubType(); console.log(instance2.city); // [&#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34;] } // test3(); 寄生组合继承（推荐） 优点：解决了组合继承的缺点，效率高 缺点：基本没有
-function test4() { function inheritPrototype(subType, superType) { // 1. 继承父类的原型 var prototype = Object.create(superType.prototype); // 2. 重写被污染的 construct prototype.constructor = subType; // 3. 重写子类的原型 subType.prototype = prototype; } function SuperType(name) { this.name = name; this.city = [ &#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34; ]; } SuperType.prototype.sayName = function() { console.log(this.name); }; function SubType(name, age) { SuperType.call(this, name); this.age = age; } // 将父类原型指向子类 inheritPrototype(SubType, SuperType); SubType.prototype.sayAge = function() { console.log(this.age); } // 优点验证 let instance = new SubType(&#34;张三&#34;, 15); instance.sayName(); // 张三 let instance1 = new SubType(); instance1.city.push(&#34;重庆&#34;); console.log(instance1.city); // [&#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34;, &#34;重庆&#34;] let instance2 = new SubType(); console.log(instance2.city); // [&#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34;] } // test4(); 4.ES6 新方法－－class 新的关键字class在 es6 开始被引入到 javascript 中来，class的目的就是让定义类更简单
-用函数方法实现：
-function Person(name) { this.name = name; } Person.prototype.hello = function () { console.log(&#39;Hello, &#39; &#43; this.name &#43; &#39;!&#39;); } var son = new Person(&#39;xm&#39;) son.hello(); // Hello, xm! 用class来实现：
-class Person { constructor(name) { this.name = name; } hello() { console.log(&#39;Hello, &#39; &#43; this.name &#43; &#39;!&#39;); } } var son = new person(&#39;xm&#39;) son.hello(); // Hello, xm! 可以在看到，在定义class中，直接包含了构造函数constructor属性，和原型对象上的函数hello()方法，省略掉了function关键字
-需要注意：原来的写法是，构造函数和原型对象分散开来写，现在用class可以直接把两者串在一个对象中，只有最后传参和调用方法时写法是一样的
-class 继承
-用class定义对象的另一个巨大的好处是继承更方便了。想一想我们从Person派生一个PrimaryPerson需要编写的代码量。现在，原型继承的中间对象，原型对象的构造函数等等都不需要考虑了，直接通过extends来实现：
-class PrimaryPerson extends Person { constructor(name, grade) { super(name); // 记得用 super 调用父类的构造方法！ this.grade = grade; } myGrade() { alert(&#39;I am at grade &#39; &#43; this.grade); } } 注意PrimaryPerson的定义也是通过 class 关键字实现的，而extends则表示原型链对象来自Person，子类的构造函数可能会和父类的不太相同
-例如，PrimaryPerson需要name和grade两个参数，并且需要通过super(name)来调用父类的构造函数，否则父类的name属性无法正常初始化。
-PrimaryPerson已经自动获得了父类Person的hello方法，我们又在子类中定义了新的myGrade方法。
-ES6 引入的class和原有的JavaScript原型继承有什么区别呢？
-实际上它们没有任何区别，class的作用就是让 JavaScript 引擎去实现原来需要我们自己编写的原型链代码。简而言之，用class的好处就是极大地简化了原型链代码。
-但是！
-目前并不是所有的浏览器都支持class，所以在选择的时候一定要慎重！
-" />
-<meta name="keywords" content="面向对象把构成问题的 transaction 分解成各个对象，而建立对象的目的也不是为了完成一个个步骤，而是为了描述某个事物在解决整个问题的过程中所发生的行为，意在写出通用代码，加强代码重用，屏蔽差异性。
-一、什么是面向对象编程 js 是基于原型的，基于面向对象编程
-面向对象就是把数据和对数据的操作方法放在一起，作为一个整体——对象。对同类对象抽象出其共性，形成类
-1.面向过程程序设计 将一个项目（或者一个事件）从头到尾按顺序，一步一步完成，先做什么，后做什么，一直到结束，也是我们人做事的方法。
-自上而下，先确定一个整体的框架，然后添砖加瓦，逐步实现想要得到的效果，适用于简单的系统，容易理解。但是难以应对复杂的系统，不易维护扩展，难以复用
-面向过程是分析解决问题的步骤，然后用函数把这些步骤一步一步的实现，然后在使用的时候一一调用则可。强调的是完成这件事儿的动作，更接近我们日常处理事情的思维。
-2.面向对象程序设计 将一个项目（或者一个事件）分成更小的项目，每一个部分负责一方面的功能，最后由这些部分组成一个整体，先设计组件，在完成拼装，适用于大型复杂的系统
-面向对象把构成问题的 transaction 分解成各个对象，而建立对象的目的也不是为了完成一个个步骤，而是为了描述某个事物在解决整个问题的过程中所发生的行为，意在写出通用代码，加强代码重用，屏蔽差异性。
-想要弄明白面向对象，需要先理解类和对象的概念
-《什么是类和对象？》
-二、创建对象的方法 1.创建字面量和实例 window.onload = function() { // 实例 var person = new Object(); person.name = &#39;小明&#39;; person.age = 22; person.year = function() { console.log(this.name &#43; &#39;今年&#39; &#43; this.age &#43; &#39;岁了！&#39;) }; person.year(); // 字面量 var student = { name: &#39;小明&#39;, age: 22, year: function () { console.log(this.name &#43; &#39;今年&#39; &#43; this.age &#43; &#39;岁了！&#39;) } } student.year(); } // 小明今年22岁了！ 两者输出的结果是一样的，控制台输出：
-缺点：重复实例化对象，代码冗余高
-2.工厂模式 window.onload = function() { function createObj(name, age) { var obj = new Object(); obj.name = name, obj.age = age, obj.year = function() { console.log(this.name &#43; &#39;今年&#39; &#43; this.age &#43; &#39;岁了！&#39;) } return obj; } var obj = createObj(&#39;小明&#39;, 22); obj.year(); } // 小明今年22岁了！ 优点：解决重复实例化对象的问题 缺点：无法识别对象的类型，因为所有的实例都指向一个原型
-3.构造函数 window.onload = function() { function Person(name, age) { this.name = name; this.age = age; this.year = function() { console.log(this.name &#43; &#39;今年&#39; &#43; this.age &#43; &#39;岁了！&#39;) } } var student = new Person(&#39;小明&#39;, 22); student.year(); } // 小明今年22岁了！ 优点：可以识别对象的类型 缺点：多个实例重复创建方法，无法共享
-4. 原型模式 window.onload = function() { function Par() {} Par.prototype = { constructor: &#39;Par&#39;, name: &#39;小明&#39;, age: 22, year: function() { console.log(this.name &#43; &#39;今年&#39; &#43; this.age &#43; &#39;岁了！&#39;) } }; var son = new Par(); son.year(); } // 小明今年22岁了！ 缺点：所有实例共享他的属性和方法，不能传参和初始化属性值
-5.混合模式 (推荐使用) 是构造函数和原型模式混合的写法，拥有各自的优点，构造函数共享实例属性，原型模式共享方法和想要共享的属性，可以传参和初始化属性值
-先用构造函数定义对象的属性方法，然后用原型模式创建方法，使用的属性通过 prototype 获取，有一个 constructor 属性，可以指向要操作的函数对象（构造函数）
-比如constructor: Par，就代表下面这个原型方法指向Par()对象（构造函数）
-window.onload = function() { function Par(name, age) { this.name = name; this.age = age; } Par.prototype = { constructor: Par, year: function() { console.log(this.name &#43; &#39;今年&#39; &#43; this.age &#43; &#39;岁了！&#39;); } }; var son = new Par(&#39;小明&#39;, 22) son.year(); } // 小明今年22岁了！ 三、原型，原型链 1.原型对象 函数对象都具有prototype属性，它指向函数的原型对象 (浏览器内存创建的对象)，原型对象都具有constructor属性，它指向prototype属性所在的函数对象 (构造函数) window.onload = function() { function Par(name, age) { this.name = name; this.age = age; } Par.prototype = { // constructor指向对象 constructor: Par, year: function() { console.log(this.name &#43; &#39;今年&#39; &#43; this.age &#43; &#39;岁了！&#39;); } }; var son = new Par(&#39;小明&#39;, 22) son.year(); /*********************************************/ console.log(Par.prototype) console.log(Par.prototype.constructor) /*********************************************/ } 通过控制台可以看到
-构造函数的prototypr属性指向原型对象
-原型对象的construcyor属性指向构造函数
-当调用构造函数创建一个实例后，该实例会有一个隐藏属性__proto__ ，它指向构造函数的原型对象 console.log(son.__proto__ === Par.prototype) // true 所有的构造函数的 prototype 都是 object 类型 console.log(typeof Par.prototype) // object Function 的 prototype 是一个空函数，所有内置函数的__proto__属性都指向这个空函数 console.log(Math.__proto__) 如果构造函数实例和原型对象中同时定义了一个属性，在调用时，会屏蔽原型对象中的属性，如果想要访问原型对象中的属性值，需要通过delete方法将同名属性在实例（构造函数）中彻底删除 window.onload = function () { function Par(name) { this.name = name; } Par.prototype.name = &#34;张三&#34;; var son = new Par(&#34;李四&#34;); console.log(son.name); // 李四 console.log(son.__proto__.name); // 张三 // 使用 delete 删除实例的同名属性值 console.log(delete son.name); // true console.log(son.name); // 张三 } 通过hasOwnProperty(属性名)可以判断一个属性存在于构造函数中，还是原型对象中 true表示存在构造函数中；false表示存在原型对象中
-console.log(Par.hasOwnProperty(name)); // false 操作符in，可以判断一个属性是否存在（存在于构造函数和原型对象中皆可） window.onload = function () { function Par(name, age) { this.name = name; this.age = age; } Par.prototype = { constructor: Par, year: function() { console.log(this.name &#43; this.age) } }; var son = new Par(&#39;xm&#39;, &#39;22&#39;) son.year(); console.log(&#39;name&#39; in Par); // true console.log(&#39;age&#39; in Par); // false } 同样的两个属性，判断其是否存在于实例或者原型对象中，输出的结果不一样
-参考:《对象中是否有某一个属性 in》https://www.cnblogs.com/IwishIcould/p/12333739.html
-2.__proto__和 prototype 的区别 prototype属性只有函数对象上才有，而__proto__属性所有对象都有
-prototype是由函数对象指向原型对象，而__proto__是由实例指向函数对象的原型对象
-原型链，将父类型的实例作为子类型的原型对象，这种链式关系叫做原型链
-3.继承 原型链继承 优点：父类原型定义的属性和方法可以复用 缺点：子类实例没有自己的属性，不能向父类传递参数
-function test1() { function SuperType() { this.city = [ &#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34; ]; this.property = true; } SuperType.prototype = { constructor : SuperType, // 保持构造函数和原型对象的完整性 age : 15, getSuperValue : function() { return this.property; } }; function SonType() { this.property = false; } // 重写子类的原型指向父类的实例：继承父类的原型 SubType.prototype = new SuperType(); SubType.prototype = { constructor : SubType, getSonType : function() { return this.property; } }; // 优点验证 let son = new SubType(); console.log(son.age); // 15 console.log(son.getSuperValue()); // false // 缺点验证 let instance1 = new SubType(); instance1.city.push(&#34;重庆&#34;); console.log(instance1.city); // [&#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34;, &#34;重庆&#34;] let instance2 = new SubType(); console.log(instance2.city); // [&#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34;, &#34;重庆&#34;] } // test1(); 构造函数继承 优点：子类实例有自己的属性，可以向父类传递参数，解决原型链继承的缺点 缺点：父类原型的属性和方法不可复用
-function test2() { function SuperType(name) { this.name = name; this.city = [ &#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34; ] } SuperType.prototype = { constructor : SuperType, age : 18, showInfo : function() { return this.name; } }; function SubType() { // 父类调用 call() 或者 apply() 方法和子类共用同一个 this，实现子类实例属性的继承 SuperType.call(this, &#34;张三&#34;); } // 优点验证 let instance = new SubType(); instance.city.push(&#34;重庆&#34;); console.log(instance.city); // [&#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34;, &#34;重庆&#34;] let instance1 = new SubType(); console.log(instance1.city); // [&#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34;] // 缺点验证 console.log(instance.age); // undefined instance.showInfo(); // son.showInfo is not a function } // test2(); 组合继承（推荐） 优点：原型的属性和方法可以复用，每个子类实例都有自己的属性 缺点：父类构造函数调用了两次，子类原型中的父类实例属性被子类实例覆盖
-function test3() { function SuperType(name) { this.name = name; this.city = [ &#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34; ] } SuperType.prototype = { constructor : SuperType, showInfo : function() { console.log(this.name &#43; &#34;今年&#34; &#43; this.age &#43; &#34;岁了&#34;); } }; function SubType(name, age) { // 1. 通过构造方法继承实现实例属性的继承 SuperType.call(this, name); this.age = age; } // 2. 通过原型链继承实现原型方法的继承 SubType.prototype = new SuperType(); // 优点验证 let instance = new SubType(&#34;张三&#34;, 15); instance.showInfo(); // 张三今年 15 岁了 let instance1 = new SubType(); instance1.city.push(&#34;重庆&#34;); console.log(instance1.city); // [&#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34;, &#34;重庆&#34;] let instance2 = new SubType(); console.log(instance2.city); // [&#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34;] } // test3(); 寄生组合继承（推荐） 优点：解决了组合继承的缺点，效率高 缺点：基本没有
-function test4() { function inheritPrototype(subType, superType) { // 1. 继承父类的原型 var prototype = Object.create(superType.prototype); // 2. 重写被污染的 construct prototype.constructor = subType; // 3. 重写子类的原型 subType.prototype = prototype; } function SuperType(name) { this.name = name; this.city = [ &#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34; ]; } SuperType.prototype.sayName = function() { console.log(this.name); }; function SubType(name, age) { SuperType.call(this, name); this.age = age; } // 将父类原型指向子类 inheritPrototype(SubType, SuperType); SubType.prototype.sayAge = function() { console.log(this.age); } // 优点验证 let instance = new SubType(&#34;张三&#34;, 15); instance.sayName(); // 张三 let instance1 = new SubType(); instance1.city.push(&#34;重庆&#34;); console.log(instance1.city); // [&#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34;, &#34;重庆&#34;] let instance2 = new SubType(); console.log(instance2.city); // [&#34;北京&#34;, &#34;上海&#34;, &#34;天津&#34;] } // test4(); 4.ES6 新方法－－class 新的关键字class在 es6 开始被引入到 javascript 中来，class的目的就是让定义类更简单
-用函数方法实现：
-function Person(name) { this.name = name; } Person.prototype.hello = function () { console.log(&#39;Hello, &#39; &#43; this.name &#43; &#39;!&#39;); } var son = new Person(&#39;xm&#39;) son.hello(); // Hello, xm! 用class来实现：
-class Person { constructor(name) { this.name = name; } hello() { console.log(&#39;Hello, &#39; &#43; this.name &#43; &#39;!&#39;); } } var son = new person(&#39;xm&#39;) son.hello(); // Hello, xm! 可以在看到，在定义class中，直接包含了构造函数constructor属性，和原型对象上的函数hello()方法，省略掉了function关键字
-需要注意：原来的写法是，构造函数和原型对象分散开来写，现在用class可以直接把两者串在一个对象中，只有最后传参和调用方法时写法是一样的
-class 继承
-用class定义对象的另一个巨大的好处是继承更方便了。想一想我们从Person派生一个PrimaryPerson需要编写的代码量。现在，原型继承的中间对象，原型对象的构造函数等等都不需要考虑了，直接通过extends来实现：
-class PrimaryPerson extends Person { constructor(name, grade) { super(name); // 记得用 super 调用父类的构造方法！ this.grade = grade; } myGrade() { alert(&#39;I am at grade &#39; &#43; this.grade); } } 注意PrimaryPerson的定义也是通过 class 关键字实现的，而extends则表示原型链对象来自Person，子类的构造函数可能会和父类的不太相同
-例如，PrimaryPerson需要name和grade两个参数，并且需要通过super(name)来调用父类的构造函数，否则父类的name属性无法正常初始化。
-PrimaryPerson已经自动获得了父类Person的hello方法，我们又在子类中定义了新的myGrade方法。
-ES6 引入的class和原有的JavaScript原型继承有什么区别呢？
-实际上它们没有任何区别，class的作用就是让 JavaScript 引擎去实现原来需要我们自己编写的原型链代码。简而言之，用class的好处就是极大地简化了原型链代码。
-但是！
-目前并不是所有的浏览器都支持class，所以在选择的时候一定要慎重！
-" />
-
-
 <meta property="og:description" content="面向对象把构成问题的 transaction 分解成各个对象，而建立对象的目的也不是为了完成一个个步骤，而是为了描述某个事物在解决整个问题的过程中所发生的行为，意在写出通用代码，加强代码重用，屏蔽差异性。
 一、什么是面向对象编程 js 是基于原型的，基于面向对象编程
 面向对象就是把数据和对数据的操作方法放在一起，作为一个整体——对象。对同类对象抽象出其共性，形成类
@@ -228,113 +132,66 @@ ES6 引入的class和原有的JavaScript原型继承有什么区别呢？
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/index.css">
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
-<script src="/js/jquery3.6.0.min.js"></script>
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BGB227HN9X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BGB227HN9X');
-</script>
 </head>
 
 <body>
-  <div class="wrapper">
-    <div class="main">
-      <div class="aside">
-  <div class="top">
-    <a href="/" title="子舒的博客"><img src="https://imgurl.zishu.me/author.png" width="72" height="72" class="avatar" alt="子舒的博客" border="0"></a>
-    <div class="site-info">
-      
-       <a href="/"><svg width="104.597" height="39.369" viewBox="0 0 104.597 39.369" xmlns="http://www.w3.org/2000/svg"><g id="svgGroup" stroke-linecap="round" fill-rule="evenodd" font-size="9pt" stroke="#000000" stroke-width="0.1mm" fill="#000000" style="stroke:#000000;stroke-width:0.1mm;fill:#000000"><path d="M 67.659 29.801 L 68.763 19.635 Q 68.763 18.393 68.119 17.565 Q 67.475 16.737 66.049 16.737 Q 64.623 16.737 63.634 17.864 Q 62.645 18.991 62.185 20.831 Q 61.863 23.453 61.219 28.49 A 2866.126 2866.126 0 0 0 60.69 32.647 A 536.88 536.88 0 0 0 60.391 35.045 L 54.273 35.045 A 18068.443 18068.443 0 0 0 55.744 22.484 Q 57.283 9.299 57.949 3.362 A 627.499 627.499 0 0 0 58.275 0.407 Q 59.241 0.039 60.897 0.039 A 3.976 3.976 0 0 1 64.139 1.045 A 1.775 1.775 0 0 1 64.485 2.155 L 64.485 2.431 A 270.679 270.679 0 0 1 63.046 13.731 A 177.594 177.594 0 0 1 62.829 15.127 Q 65.267 12.919 68.349 12.919 Q 71.431 12.919 73.225 14.483 Q 75.019 16.047 75.019 18.439 Q 75.019 19.083 74.743 20.831 A 276.731 276.731 0 0 0 73.983 26.046 Q 73.685 28.292 73.685 28.927 Q 73.685 31.089 75.111 31.089 Q 76.307 31.089 77.664 29.502 A 11.951 11.951 0 0 0 77.825 29.282 A 18.722 18.722 0 0 1 78.055 27.041 Q 79.113 18.485 79.665 13.425 Q 81.091 12.919 82.287 12.919 Q 83.483 12.919 84.081 13.011 Q 84.679 13.103 85.231 13.701 Q 85.783 14.299 85.783 15.403 L 84.265 27.133 Q 84.173 27.685 84.173 28.145 Q 84.173 30.859 86.657 30.859 Q 88.957 30.859 90.475 28.605 Q 90.475 28.099 90.567 26.995 L 92.085 14.759 Q 92.407 13.977 93.465 13.448 Q 94.523 12.919 96.11 12.919 Q 97.697 12.919 98.479 13.379 Q 96.924 25.663 96.651 28.479 A 10.731 10.731 0 0 0 96.593 29.249 Q 96.593 31.089 97.927 31.089 Q 99.123 31.089 100.526 29.456 Q 101.929 27.823 102.757 24.557 Q 104.275 26.213 104.597 27.133 A 12.282 12.282 0 0 1 101.894 32.831 A 6.516 6.516 0 0 1 101.239 33.435 Q 98.939 35.275 96.501 35.275 Q 92.499 35.275 91.119 32.193 Q 88.727 35.275 84.725 35.275 Q 81.413 35.275 79.619 33.619 A 5.611 5.611 0 0 1 78.856 32.75 A 13.283 13.283 0 0 1 78.373 33.275 A 7.221 7.221 0 0 1 73.271 35.229 Q 70.419 35.229 69.039 33.481 Q 67.659 31.733 67.659 29.801 Z M 20.739 28.881 L 22.395 14.667 Q 22.855 13.839 24.143 13.402 Q 25.431 12.965 26.696 12.965 Q 27.961 12.965 28.927 13.287 Q 27.133 27.133 27.133 27.271 Q 26.903 28.191 26.903 28.812 Q 26.903 29.433 26.995 29.893 A 1.435 1.435 0 0 0 27.961 31.04 A 8.754 8.754 0 0 1 28.881 28.421 Q 30.752 24.861 37.604 18.675 A 123.618 123.618 0 0 1 37.713 18.577 Q 36.011 16.875 36.011 14.943 Q 36.011 13.011 37.46 11.677 Q 38.909 10.343 40.887 10.343 Q 42.681 10.343 44.015 11.769 Q 44.889 12.735 44.889 14.207 Q 44.889 15.679 43.923 17.519 A 72.971 72.971 0 0 1 48.835 19.902 A 18.079 18.079 0 0 1 50.593 20.969 Q 54.227 23.637 54.227 27.271 Q 54.227 30.905 51.375 33.113 Q 48.523 35.321 44.199 35.321 Q 41.393 35.321 39.53 33.918 Q 37.667 32.515 37.667 30.445 Q 37.667 28.375 39.047 27.156 Q 40.427 25.937 42.497 25.661 Q 41.531 27.041 41.531 28.306 Q 41.531 29.571 42.405 30.353 Q 43.279 31.135 44.613 31.135 Q 45.947 31.135 46.821 30.146 Q 47.695 29.157 47.695 27.869 Q 47.695 25.753 45.717 24.097 Q 44.521 23.131 43.141 22.28 A 104.019 104.019 0 0 0 41.712 21.407 A 0.982 0.982 0 0 0 41.669 21.383 Q 41.485 21.245 41.301 21.153 Q 40.473 22.119 38.909 23.798 Q 37.345 25.477 36.425 26.489 A 12.83 12.83 0 0 0 34.85 28.396 A 12.665 12.665 0 0 1 33.52 31.218 A 6.915 6.915 0 0 0 33.435 32.584 Q 33.435 33.619 34.056 34.723 Q 34.677 35.827 35.551 36.379 Q 36.425 36.931 37.276 37.276 Q 38.127 37.621 38.748 37.759 Q 39.369 37.897 39.369 37.943 Q 39.369 38.265 38.357 38.679 Q 36.471 39.369 34.424 39.369 Q 32.377 39.369 30.445 37.897 A 6.46 6.46 0 0 1 28.329 35.212 A 7.144 7.144 0 0 1 26.765 35.367 Q 23.683 35.367 22.188 33.849 Q 20.693 32.331 20.693 29.939 Q 20.693 29.433 20.739 28.881 Z M 13.471 35.459 L 0.683 35.183 A 1.327 1.327 0 0 1 0.085 33.556 A 8.453 8.453 0 0 1 0.085 33.55 Q 0.085 31.917 0.775 30.997 A 13.911 13.911 0 0 1 2.876 27.663 A 47.078 47.078 0 0 1 4.593 25.615 Q 5.605 24.465 8.365 21.475 A 141.512 141.512 0 0 0 11.268 18.255 A 27.559 27.559 0 0 0 11.999 17.381 L 9.561 17.243 Q 8.871 18.899 7.56 19.934 Q 6.249 20.969 4.639 20.969 Q 2.799 20.969 1.649 19.888 Q 0.499 18.807 0.499 16.875 Q 0.499 14.943 1.833 13.793 Q 3.167 12.643 5.513 12.643 L 18.301 12.919 Q 18.899 12.919 18.899 14.483 Q 18.899 16.093 18.301 16.967 Q 17.749 17.979 16.714 19.106 Q 15.679 20.233 13.701 22.096 A 175.609 175.609 0 0 0 11.155 24.529 A 38.997 38.997 0 0 0 10.941 24.741 Q 7.859 27.823 6.341 30.675 L 9.423 30.859 Q 10.113 29.203 11.424 28.168 Q 12.735 27.133 14.345 27.133 Q 16.185 27.133 17.335 28.214 Q 18.485 29.295 18.485 31.227 Q 18.485 33.159 17.151 34.309 Q 15.817 35.459 13.471 35.459 Z M 24.281 1.166 Q 25.339 0.085 26.857 0.085 Q 28.375 0.085 29.456 1.166 Q 30.537 2.247 30.537 3.765 Q 30.537 5.283 29.456 6.341 Q 28.375 7.399 26.857 7.399 Q 25.339 7.399 24.281 6.341 Q 23.223 5.283 23.223 3.765 Q 23.223 2.247 24.281 1.166 Z M 7.583 17.105 L 5.697 16.967 Q 5.421 16.921 5.145 16.921 Q 3.535 16.921 3.535 17.979 Q 3.535 19.037 4.731 19.037 Q 6.525 19.037 7.583 17.105 Z M 11.401 30.997 L 13.287 31.135 Q 13.563 31.181 13.839 31.181 Q 15.449 31.181 15.449 30.123 Q 15.449 29.065 14.253 29.065 Q 12.459 29.065 11.401 30.997 Z M 40.611 15.771 Q 41.715 14.621 41.715 14.115 Q 41.715 12.965 40.703 12.873 Q 39.553 12.873 39.553 14.161 Q 39.553 14.943 40.611 15.771 Z"/></g></svg></a>
-      <div class="site-about">
-        <p>一个热爱生活的前端开发工程师。</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="nav-container">
-    <div class="nav">
-      
-      <a href="/" class="nav-item">
-        <img src="/images/sparkles.png" width="17" height="17" alt="sparkles" />
-        <span>首页</span>
-      </a>
-      
-      <a href="/tags/" class="nav-item">
-        <img src="/images/tags.png" width="17" height="17" alt="tags" />
-        <span>标签</span>
-      </a>
-      
-      <a href="/message/" class="nav-item">
-        <img src="/images/message.png" width="17" height="17" alt="message" />
-        <span>留言</span>
-      </a>
-      
-      <a href="/about/" class="nav-item">
-        <img src="/images/about.png" width="17" height="17" alt="about" />
-        <span>关于</span>
-      </a>
-      
-      <a href="/search/" class="nav-item">
-        <img src="/images/search.png" width="17" height="17" alt="search" />
-        <span>搜索</span>
-      </a>
-      
-      <a href="/index.xml" class="nav-item">
-        <img src="/images/rss.png" width="17" height="17" alt="rss" />
-        <span>订阅</span>
-      </a>
-      
-    </div>
-    <div class="share">
-      <a href="/index.xml" target="_blank" title="RSS"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-file-rss"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 2l.117 .007a1 1 0 0 1 .876 .876l.007 .117v4l.005 .15a2 2 0 0 0 1.838 1.844l.157 .006h4l.117 .007a1 1 0 0 1 .876 .876l.007 .117v9a3 3 0 0 1 -2.824 2.995l-.176 .005h-10a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-14a3 3 0 0 1 2.824 -2.995l.176 -.005zm-3 11a1 1 0 0 0 0 2a2 2 0 0 1 1.995 1.85l.005 .15a1 1 0 0 0 2 0a4 4 0 0 0 -4 -4m0 -3a1 1 0 0 0 0 2a5 5 0 0 1 5 5a1 1 0 0 0 2 0a7 7 0 0 0 -7 -7m.01 6h-.01a1 1 0 0 0 -.117 1.993l.127 .007a1 1 0 0 0 0 -2m5.989 -13.001l4.001 4.001h-4z" /></svg></a>
-      <a href="https://github.com/dlzmoe" target="_blank" title="GitHub"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5.315 2.1c.791 -.113 1.9 .145 3.333 .966l.272 .161l.16 .1l.397 -.083a13.3 13.3 0 0 1 4.59 -.08l.456 .08l.396 .083l.161 -.1c1.385 -.84 2.487 -1.17 3.322 -1.148l.164 .008l.147 .017l.076 .014l.05 .011l.144 .047a1 1 0 0 1 .53 .514a5.2 5.2 0 0 1 .397 2.91l-.047 .267l-.046 .196l.123 .163c.574 .795 .93 1.728 1.03 2.707l.023 .295l.007 .272c0 3.855 -1.659 5.883 -4.644 6.68l-.245 .061l-.132 .029l.014 .161l.008 .157l.004 .365l-.002 .213l-.003 3.834a1 1 0 0 1 -.883 .993l-.117 .007h-6a1 1 0 0 1 -.993 -.883l-.007 -.117v-.734c-1.818 .26 -3.03 -.424 -4.11 -1.878l-.535 -.766c-.28 -.396 -.455 -.579 -.589 -.644l-.048 -.019a1 1 0 0 1 .564 -1.918c.642 .188 1.074 .568 1.57 1.239l.538 .769c.76 1.079 1.36 1.459 2.609 1.191l.001 -.678l-.018 -.168a5.03 5.03 0 0 1 -.021 -.824l.017 -.185l.019 -.12l-.108 -.024c-2.976 -.71 -4.703 -2.573 -4.875 -6.139l-.01 -.31l-.004 -.292a5.6 5.6 0 0 1 .908 -3.051l.152 -.222l.122 -.163l-.045 -.196a5.2 5.2 0 0 1 .145 -2.642l.1 -.282l.106 -.253a1 1 0 0 1 .529 -.514l.144 -.047l.154 -.03z" /></svg></a>
-      <a href="https://discord.com/invite/n2pErsD7Kg" target="_blank" title="Discord"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-brand-discord"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14.983 3l.123 .006c2.014 .214 3.527 .672 4.966 1.673a1 1 0 0 1 .371 .488c1.876 5.315 2.373 9.987 1.451 12.28c-1.003 2.005 -2.606 3.553 -4.394 3.553c-.732 0 -1.693 -.968 -2.328 -2.045a21.512 21.512 0 0 0 2.103 -.493a1 1 0 1 0 -.55 -1.924c-3.32 .95 -6.13 .95 -9.45 0a1 1 0 0 0 -.55 1.924c.717 .204 1.416 .37 2.103 .494c-.635 1.075 -1.596 2.044 -2.328 2.044c-1.788 0 -3.391 -1.548 -4.428 -3.629c-.888 -2.217 -.39 -6.89 1.485 -12.204a1 1 0 0 1 .371 -.488c1.439 -1.001 2.952 -1.459 4.966 -1.673a1 1 0 0 1 .935 .435l.063 .107l.651 1.285l.137 -.016a12.97 12.97 0 0 1 2.643 0l.134 .016l.65 -1.284a1 1 0 0 1 .754 -.54l.122 -.009zm-5.983 7a2 2 0 0 0 -1.977 1.697l-.018 .154l-.005 .149l.005 .15a2 2 0 1 0 1.995 -2.15zm6 0a2 2 0 0 0 -1.977 1.697l-.018 .154l-.005 .149l.005 .15a2 2 0 1 0 1.995 -2.15z" /></svg></a>
-    </div>
-  </div>
-</div>
-
-
-      <h1>面向对象编程</h1>
-
-      
-      <div class="meta">
-        <div class="date">2020 年 11 月 12 日</div>
-        <div class="post-tags">
-          
-          
-          <span class="namenode">分类：<a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-          </span>
-          
-          
-          <span class="tag-node">
-            
-            标签：<a href="/tags/%E7%BC%96%E7%A8%8B">#编程</a>
-            <a href="/tags/js">#js</a>
-            
-            
-          </span>
-        </div>
-      </div>
-      
+  <nav class="headnav">
+  <a href="/" class="logo">zishu.me</a>
+  <ul id="menu">
     
+    <li><a href="/">首页</a></li>
+    
+    <li><a href="/blog/">博客</a></li>
+    
+    <li><a href="/tags/">标签</a></li>
+    
+    <li><a href="/message/">留言</a></li>
+    
+    <li><a href="/about/">关于</a></li>
+    
+    <li><a href="/search/">搜索</a></li>
+    
+    <li><a href="/index.xml" target="_blank">订阅</a></li>
+  </ul>
+</nav>
+  <section>
+    
+    <div class="body-title">面向对象编程</div>
+
+    
+    <div class="post-meta">
+      <time> 2020-11-12</time>
       
-      <div class="toc">
-        <details open>
-          <summary accesskey="c" title="(Alt + C)"><span class="details">Table of Contents</span></summary>
-          <div class="inner"> <nav id="TableOfContents">
+      
+      <span class="namenode">分类：
+        <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+      </span>
+      
+      
+
+      <span class="tag-node">
+        
+        标签：
+        
+        <a href="/tags/%E7%BC%96%E7%A8%8B">#编程</a>
+        
+        <a href="/tags/js">#js</a>
+        
+        
+      </span>
+
+    </div>
+    
+
+    
+    <div class="toc">
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#一什么是面向对象编程">一、什么是面向对象编程</a>
       <ul>
@@ -360,14 +217,13 @@ ES6 引入的class和原有的JavaScript原型继承有什么区别呢？
       </ul>
     </li>
   </ul>
-</nav></div>
-        </details>
-      </div>
-      
+</nav>
+    </div>
+    
 
-      <article class="content post-content">
-        
-        <p>面向对象把构成问题的 transaction 分解成各个对象，而建立对象的目的也不是为了完成一个个步骤，而是为了描述某个事物在解决整个问题的过程中所发生的行为，意在写出通用代码，加强代码重用，屏蔽差异性。</p>
+    <article class="post-content">
+      
+      <p>面向对象把构成问题的 transaction 分解成各个对象，而建立对象的目的也不是为了完成一个个步骤，而是为了描述某个事物在解决整个问题的过程中所发生的行为，意在写出通用代码，加强代码重用，屏蔽差异性。</p>
 <h2 id="一什么是面向对象编程">一、什么是面向对象编程</h2>
 <p>js 是<code>基于原型</code>的，基于<code>面向对象编程</code></p>
 <p>面向对象就是把数据和对数据的操作方法放在一起，作为一个整体——对象。对同类对象抽象出其共性，形成类</p>
@@ -806,11 +662,10 @@ ES6 引入的class和原有的JavaScript原型继承有什么区别呢？
 <p>但是！</p>
 <p>目前并不是所有的浏览器都支持<code>class</code>，所以在选择的时候一定要慎重！</p>
 
-        <div class="weekly-pagination"></div>
-      </article>
+    </article>
 
-      
-      <ul class="comment-tabs">
+    
+    <ul class="comment-tabs">
   
   <li>LinuxDo</li>
   
@@ -868,31 +723,55 @@ twikoo.init({
 </script>
 
 <script>
-  $('.comment-tabs li').each(function(){
-    $('.comment-tabs li').eq(0).addClass('active');
-    $('.comments > div').eq(0).addClass('active');
-    $(this).click(function(){
-      $(this).addClass('active').siblings().removeClass('active');
-      $('.comments > div').eq($(this).index()).addClass('active').siblings().removeClass('active');
-    })
-  })
+document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+  if (index === 0) {
+    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+    document.querySelectorAll('.comments > div')[0].classList.add('active');
+  }
+  
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+      sibling.classList.remove('active');
+    });
+    this.classList.add('active');
+    
+    document.querySelectorAll('.comments > div').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.querySelectorAll('.comments > div')[index].classList.add('active');
+  });
+});
 </script>
-      
 
-      <footer class="footer">
-  <div class="l-wrap">
-    © 2020 - 2025 Powered by
-    <a href="https://github.com/dlzmoe" target="_blank">子舒</a>
-  </div>
-  <img src="https://profile-counter.glitch.me/zishu_me/count.svg" alt="counter">
-  <div class="gotop"></div>
+<style>
+  .comment-tabs {
+    display: flex;
+  }
+  .comment-tabs li {
+    margin-right: 40px;
+    cursor: pointer;
+  }
+  .comment-tabs li.active {
+    text-decoration: underline;
+  }
+  .comments > div.active {
+    display: block;
+  }
+  .comments > div {
+    display: none;
+  }
+</style>
+    
+    
+  </section>
+  <footer class="footer">
+  <p>© 2020 - 2025 Powered by
+    <a href="https://github.com/dlzmoe" target="_blank">Github</a>
+    / <a href="/index.xml" target="_blank">RSS</a>
+  </p>
 </footer>
 
-<script src="/js/main.js"></script>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="//instant.page/5.2.0" type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
-    </div>
-  </div>
+
 </body>
 
 </html>

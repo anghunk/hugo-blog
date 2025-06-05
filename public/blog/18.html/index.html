@@ -38,80 +38,6 @@
 </script><title>DOM－－文档对象模型 - 子舒的博客</title>
 <meta property="og:title" content="DOM－－文档对象模型" />
 <meta property="og:type" content="article" />
-
-
-<meta property="og:keywords" content="DOM 中文名文档对象模型，英文名 Document Object Model，我们简称为 DOM，是针对 html 和 xml 文档的一种 API，将 html 以一种树状结构呈现出来，可以更直观去研究文档结构，我们将这种树状文档结构称为－－DOM 树，或者节点树，一样的概念
-一、什么是 DOM？ DOM 中文名文档对象模型，英文名 Document Object Model，我们简称为 DOM，是针对 html 和 xml 文档的一种 API，将 html 以一种树状结构呈现出来，可以更直观去研究文档结构，我们将这种树状文档结构称为－－DOM 树，或者节点树，一样的概念
-js 通过 dom 节点，可以对文档的 html 标签，属性，css 样式，以及具体的内容做出修改，并对页面中的所有事件进行响应
-二、节点树 1.节点类型 文档节点－－Document 标签节点－－Element 文本节点－－Text 注释节点－－Comment 属性节点－－Attr 2. 属性 节点类型－－nodeType 节点名称－－nodeName 节点值－－nodeValue 子节点－－childNodes 父节点－－parentNodes 上一个节点－－previousSibling 下一个节点－－nextSibling 第一个子节点－－firstChild 最后一个子节点－－lastChild 3.文档节点－－document (1) 获取 getElementById()－－通过 id 获取元素 &lt;div id=&#34;demo&#34;&gt;通过 id 获取元素&lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;); demo.onclick = function() { console.log(&#39;通过 id 获取元素&#39;) } &lt;/script&gt; &lt;!-- 点击 id 为 demo 的元素，控制台输出&#39;通过 id 获取元素&#39; --&gt; getElementsByName()－－通过 name 获取元素 &lt;input type=&#34;text&#34; name=&#34;int&#34; value=&#34;通过name获取元素1&#34;&gt; &lt;input type=&#34;text&#34; name=&#34;int&#34; value=&#34;通过name获取元素2&#34;&gt; &lt;script&gt; var int = document.getElementsByName(&#39;int&#39;); for(var i = 0;i &lt; int.length; i&#43;&#43;) { console.log(int[i].value); } &lt;/script&gt; &lt;!-- 控制台输出 name 为 int 的元素的 value 值 --&gt; getElementsByTagName()－－通过标签名获取元素 &lt;div&gt;通过标签名获取元素 1&lt;/div&gt; &lt;div&gt;通过标签名获取元素 2&lt;/div&gt; &lt;script&gt; var div = document.getElementsByTagName(&#39;div&#39;); for(var i = 0;i &lt; div.length; i&#43;&#43;) { console.log(div[i].innerHTML) } &lt;/script&gt; &lt;!-- 控制台输出标签名为 div 的元素的文本内容 --&gt; getElementsByClassName()－－通过 class 获取元素 &lt;div class=&#34;demo&#34;&gt;通过 class 获取元素 1&lt;/div&gt; &lt;div class=&#34;demo&#34;&gt;通过 class 获取元素 2&lt;/div&gt; &lt;script&gt; var demo = document.getElementsByClassName(&#39;demo&#39;); for(var i = 0;i &lt; demo.length; i&#43;&#43;) { console.log(demo[i].innerHTML) } &lt;/script&gt; &lt;!-- 控制台输出 class 为 demo 的元素的文本内容 --&gt; querySelector()－－通过选择器获取元素 querySelector() 括号里面要跟上符号，class就写.，id就写#，标签直接写标签名TagName
-&lt;div&gt;通过选择器获取标签名&lt;/div&gt; &lt;div class=&#34;div&#34;&gt;通过选择器获取 class&lt;/div&gt; &lt;div id=&#34;div&#34;&gt;通过选择器获取 id&lt;/div&gt; &lt;script&gt; var divtag = document.querySelector(&#39;div&#39;); var divclass = document.querySelector(&#39;.div&#39;); var divid = document.querySelector(&#39;#div&#39;); divtag.onclick = function() { console.log(&#39;通过选择器获取标签名&#39;) }; // 点击标签 div，控制台输出&#34;通过选择器获取标签名&#34; divclass.onclick = function() { console.log(&#39;通过选择器获取 class&#39;) }; // 点击 class 为 div，控制台输出&#34;通过选择器获取 class&#34; divid.onclick = function() { console.log(&#39;通过选择器获取 id&#39;) }; // 点击 id 为 div，控制台输出&#34;通过选择器获取 id&#34; &lt;/script&gt; querySelectorAll()－－通过选择器获取元素集合 获取的是一个数组集合
-&lt;input type=&#34;text&#34; value=&#34;int1&#34;&gt; &lt;input type=&#34;text&#34; value=&#34;int2&#34;&gt; &lt;input type=&#34;text&#34; value=&#34;int3&#34;&gt; &lt;script&gt; var int = document.querySelectorAll(&#39;input&#39;) for(i = 0; i &lt; int.length; i&#43;&#43;) { console.log(int[i].value) } &lt;/script&gt; &lt;!-- 浏览器依次打印出`int1`,`int2`,`int3` --&gt; (2) 创建 createElement()－－创建元素（标签）节点 &lt;ul id=&#34;ul&#34;&gt;&lt;/ul&gt; &lt;script&gt; var ul = document.getElementById(&#39;ul&#39;); ul.appendChild(document.createElement(&#39;li&#39;)) &lt;/script&gt; 可以看到，ul 下面已经生成了一个 li 标签
-createTextNode()－－创建文本节点 &lt;ul id=&#34;ul&#34;&gt;&lt;/ul&gt; &lt;script&gt; var ul = document.getElementById(&#39;ul&#39;); var li = ul.appendChild(document.createElement(&#39;li&#39;)); var node = document.createTextNode(&#39;我是 li&#39;); li.appendChild(node); &lt;/script&gt; li 标签中生成了一段文本
-createAttribute()－－创建属性节点 &lt;input type=&#34;text&#34;&gt; &lt;script&gt; var int = document.getElementsByTagName(&#39;input&#39;)[0]; var value = document.createAttribute(&#39;value&#39;); value.nodeValue = &#39;通过创建属性节点生成&#39;; int.setAttributeNode(value); &lt;/script&gt; 可以看到 value 属性值被成功创建
-createComment()－－创建注释节点 &lt;div id=&#34;div&#34;&gt;创建一个注释节点&lt;/div&gt; &lt;script&gt; var div = document.getElementById(&#39;div&#39;); var comment = document.createComment(&#39;添加一个注释节点&#39;); div.appendChild(comment); &lt;/script&gt; f12 查看源码，可以看到 div 生成一行注释
-createDocumentFragment()－－创建文档片段 文档片段的作用，就相当于是添加的所有的节点的父元素
-1.假如没有 createDocumentFragment，添加了很多节点，也可以在 dom 上呈现，但是每次添加的时候都会调用一次 appendChild() 方法，产生很多次页面渲染，显得比较臃肿 2.把多次添加的节点放在一个 createDocumentFragment 节点里面，页面只会调用一次就可以把所有的节点都渲染了
-createEvent()－－创建事件对象
-addEventListener()－－添加事件监听函数
-removeEventListener()－－移除事件监听函数
-事件监听函数详解
-dispatchEvent()－－触发事件 操作 css &lt;div id=&#34;demo&#34;&gt;dom&lt;/div&gt; &lt;script&gt; // 直接通过&#39;.&#39;来操作 style var demo= document.getElementById(&#39;demo&#39;); demo.style.color = &#39;red&#39;; // 通过 setAttribute() 来创建属性节点 demo.setAttribute(&#39;style&#39;,&#39;background-color: green&#39;); // 通过 style 的 cssText 属性 demo.style.cssText = &#34;border: 10px solid black&#34;; &lt;/script&gt; 4.元素节点 (element 对象) 有关 innerHTML, innerText, outerHTML, outerText 的区别
-一个是元素内容，一个是文本内容
-&lt;div id=&#34;div1&#34;&gt;第一个 div&lt;/div&gt; &lt;div id=&#34;div2&#34;&gt;第二个 div&lt;/div&gt; &lt;div id=&#34;div3&#34;&gt;第三个 div&lt;/div&gt; &lt;div id=&#34;div4&#34;&gt;第四个 div&lt;/div&gt; &lt;div id=&#34;div5&#34;&gt;&lt;/div&gt; &lt;div id=&#34;div6&#34;&gt;&lt;/div&gt; &lt;div id=&#34;div7&#34;&gt;&lt;/div&gt; &lt;div id=&#34;div8&#34;&gt;&lt;/div&gt; &lt;script&gt; var div1 = document.getElementById(&#39;div1&#39;).innerHTML console.log(div1) // 第一个 div var div1 = document.getElementById(&#39;div1&#39;).outerHTML console.log(div1) // &lt;div id=&#34;div1&#34;&gt;第一个 div&lt;/div&gt; var div2 = document.getElementById(&#39;div2&#39;).innerText console.log(div2) // 第二个 div var div2 = document.getElementById(&#39;div2&#39;).outerText console.log(div2) // 第二个 div document.getElementById(&#39;div5&#39;).innerHTML = &#39;&lt;a&gt;《第 5 个 div》&lt;/a&gt;&#39; // 在原有的标签内增加内容，如果有标签会被识别 document.getElementById(&#39;div6&#39;).outerHTML = &#39;&lt;a&gt;《第 6 个 div》&lt;/a&gt;&#39; // 原来的标签会被覆盖，新的文本中如果含有标签会自动生成，如果没有标签则直接以文本形式展示 document.getElementById(&#39;div7&#39;).innerText = &#39;&lt;a&gt;《第 7 个 div》&lt;/a&gt;&#39; // 在原有的标签内增加内容，新标签不会被识别为标签元素，而是被当作文本内容直接写入原标签内 document.getElementById(&#39;div8&#39;).outerText = &#39;&lt;a&gt;《第 8 个 div》&lt;/a&gt;&#39; // 原来的标签会被覆盖，新标签不会被识别为标签元素，而是直接被当作文本形式展示 &lt;/script&gt; (1) 节点属性 childElementCount－－返回当前元素的子节点的个数 &lt;div id=&#34;demo&#34;&gt; &lt;a&gt;&lt;/a&gt; &lt;span&gt;&lt;/span&gt; &lt;p&gt;&lt;/p&gt; &lt;div&gt;&lt;/div&gt; &lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) console.log(demo.childElementCount) // 4 &lt;/script&gt; firstElementChild－－返回当前元素的第一个子元素节点 lastElementChild－－返回当前元素的最后一个子元素节点 &lt;div id=&#34;demo&#34;&gt; &lt;a&gt;&lt;/a&gt; &lt;span&gt;&lt;/span&gt; &lt;p&gt;&lt;/p&gt; &lt;div&gt;&lt;/div&gt; &lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) console.log(demo.firstElementChild) // &lt;a&gt;&lt;/a&gt; console.log(demo.lastElementChild) // &lt;div&gt;&lt;/div&gt; &lt;/script&gt; nextElementSibling－－返回当前元素的下一个兄弟元素节点 previousElementSibling－－返回当前元素的上一个兄弟元素节点 &lt;span&gt;&lt;/span&gt; &lt;div id=&#34;demo&#34;&gt;&lt;/div&gt; &lt;p&gt;&lt;/p&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) console.log(demo.nextElementSibling) // &lt;p&gt;&lt;/p&gt; console.log(demo.previousElementSibling) // &lt;span&gt;&lt;/span&gt; &lt;/script&gt; 返回当前元素所有的子节点 &lt;div id=&#34;demo&#34;&gt; &lt;span&gt;&lt;/span&gt; &lt;p&gt;&lt;/p&gt; &lt;a&gt;&lt;/a&gt; &lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;).children for(var i in demo) { console.log(demo[i]) } &lt;/script&gt; 控制台查看返回结果
-返回所有子节点集合 &lt;div id=&#34;demo&#34;&gt; &lt;span&gt;&lt;/span&gt; &lt;p&gt;&lt;/p&gt; &lt;a id=&#34;demo1&#34;&gt;&lt;/a&gt; &lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;).children for(var i in demo1.childNodes) { console.log(demo[i]) } &lt;/script&gt; (2) 节点方法 appendChild－－插入子节点 &lt;div id=&#34;demo&#34;&gt;&lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) var node = document.createTextNode(&#39;插入一个子节点&#39;) demo.appendChild(node) &lt;/script&gt; f12 可以看到，div 被插入了一个节点
-insertBefore(a, b)－－在指定位置插入节点 参数 a 表示要插入的内容，b 表示定位，在 b 节点之前插入 a 节点
-&lt;div id=&#34;demo&#34;&gt;&lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) var node = document.createTextNode(&#39;插入一个子节点&#39;) demo.appendChild(node) var hr = document.createElement(&#39;hr&#39;) demo.insertBefore(hr, node) &lt;/script&gt; 可以看到，原来的文本节点之前，被添加了一个新的元素节点
-replaceChild(a, b)－－替换节点 用参数 a 替换参数 b，a 表示新节点，b 表示旧节点
-&lt;div id=&#34;demo&#34;&gt;&lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) var node = document.createTextNode(&#39;插入一个子节点&#39;) demo.appendChild(node) var h3 = document.createElement(&#39;h3&#39;) var h3node = document.createTextNode(&#39;title 标题&#39;) h3.appendChild(h3node) demo.replaceChild(h3, node) &lt;/script&gt; h3是新节点，node是旧节点，根据图片可以看到，b 替换掉了 a，成功上位
-removeChild－－父节点删除子节点 &lt;div id=&#34;demo&#34;&gt; &lt;div id=&#34;son&#34;&gt;&lt;/div&gt; &lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) var son = document.getElementById(&#39;son&#39;) demo.removeChild(son) &lt;/script&gt; f12 可以看到，id 为 son 的元素节点，通过demo.removeChild()已经被删除了
-removeAttribute－－删除属性节点 &lt;div id=&#34;demo&#34; class=&#34;div&#34;&gt;&lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) demo.removeAttribute(&#39;class&#39;) &lt;/script&gt; class 属性已经被删除了
-删除文本节点 &lt;div id=&#34;demo&#34;&gt;文本&lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) demo.removeChild(demo.childNodes[0]) &lt;/script&gt; 通过demo.childNodesp[0]获取 demo 的第一个节点，即文本节点，然后removeChild它，就删除了
-isEqualNode－－判断两个元素是否相等 isSameNode－－判断两个元素是否相同 两者分别代表相等和相同
-(1) isEqualNode相等，指的是两个节点是否是同一类型，具有相等的属性（包括：nodeName, nodeValue&hellip;等等），还有相等的 attributes,childNodes（相等的位置包含相同的值） (2) isSameNode相同，指的是两个节点引用的是同一个对象
-&lt;form action=&#34;#&#34;&gt; &lt;input type=&#34;button&#34; /&gt; &lt;/form&gt; &lt;form action=&#34;#&#34;&gt; &lt;input type=&#34;button&#34; /&gt; &lt;/form&gt; &lt;form action=&#34;#&#34; id=&#34;o&#34;&gt; &lt;input type=&#34;button&#34; /&gt; &lt;/form&gt; &lt;form action=&#34;#&#34; id=&#34;o&#34;&gt; &lt;input type=&#34;text&#34; /&gt; &lt;/form&gt; &lt;script&gt; var forms = document.forms; var form1 = forms[0]; var form2 = forms[1]; var form3 = forms[2]; var form4 = forms[3]; var _form1 = document.querySelectorAll(&#39;form&#39;)[0]; console.log(form1.isSameNode(form1)) //true 两个节点引用的对象都是第一个 form console.log(form1.isSameNode(_form1)) //true 两个节点引用的对象都是第一个 form console.log(form1.isSameNode(form2)) //false 两个节点引用的不是一个对象 console.log(form1.isEqualNode(form2)) //true 两个节点具有完全等同属性 console.log(form1.isEqualNode(form3)) //false form1 中无等同的 id 属性 console.log(form3.isEqualNode(form4)) //fasle form4 的 childNodes 中的 input 为 text 类别，与 form3 不同 &lt;/script&gt; 根据例子代码可以看出区别：
-(1) isSameNode只有引用同一个对象时才相同，比如用两中方法调用同一个对象，再比较这两种方法，比来比去还是那个对象，所以相同 (2) 而isEqualNode比较两个对象的元素节点是否相等，只要两者一致就可以相等 true
-hasChildNodes()－－判断一个元素是否拥有子节点 判断demo是否拥有子节点，然后输出他的子节点
-&lt;div id=&#34;demo&#34;&gt; &lt;!-- &lt;a&gt;&lt;/a&gt; --&gt; &lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) console.log(demo.hasChildNodes()) console.log(demo.childNodes) &lt;/script&gt; contains(a)－－判断一个节点是否包含指定子节点（参数 a 表示要判断的子节点） 存在id=&quot;a&quot;的元素，因此 contains 判断成功输出true，
-不存在id=&quot;b&quot;的元素，因此输出false
-&lt;div id=&#34;demo&#34;&gt; &lt;a id=&#34;a&#34;&gt;&lt;/a&gt; &lt;a&gt;&lt;/a&gt; &lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) var a = document.getElementById(&#39;a&#39;) console.log(demo.contains(a)) // true var b = document.getElementById(&#39;b&#39;) console.log(demo.contains(b)) // false &lt;/script&gt; 5.属性节点 (Attr 对象) &lt;input type=&#34;text&#34; id=&#34;int&#34;&gt; &lt;script&gt; var int = document.getElementById(&#39;int&#39;) // 1.获取属性值 console.log(int.getAttribute(&#34;type&#34;)) // text // 2.获取属性节点 console.log(int.getAttributeNode(&#34;type&#34;)) // type=&#34;text&#34; // 3.设置属性值 int.setAttribute(&#34;value&#34;, &#34;input 框&#34;) // &lt;input type=&#34;text&#34; id=&#34;int&#34; value=&#34;input 框&#34;&gt; // 4.设置属性节点 let name = document.createAttribute(&#34;name&#34;); name.nodeValue = &#34;uname&#34;; int.setAttributeNode(name); console.log(int.getAttributeNode(&#39;name&#39;).value) // &lt;input type=&#34;text&#34; id=&#34;int&#34; value=&#34;input 框&#34; name=&#34;uname&#34;&gt; // 5.删除属性节点 console.log(int.removeAttribute(&#39;name&#39;)) // &lt;input type=&#34;text&#34; id=&#34;int&#34; value=&#34;input 框&#34;&gt; // 6.判断是否存在属性 console.log(int.hasAttributes()) // true // 7.判断是否存在指定属性 console.log(int.hasAttribute(&#39;value&#39;)) // true &lt;/script&gt; 注意：hasAttribute和hasAttributes的区别 hasAttributes判断是否存在属性， hasAttribute判断是否存在指定属性
-" />
-<meta name="keywords" content="DOM 中文名文档对象模型，英文名 Document Object Model，我们简称为 DOM，是针对 html 和 xml 文档的一种 API，将 html 以一种树状结构呈现出来，可以更直观去研究文档结构，我们将这种树状文档结构称为－－DOM 树，或者节点树，一样的概念
-一、什么是 DOM？ DOM 中文名文档对象模型，英文名 Document Object Model，我们简称为 DOM，是针对 html 和 xml 文档的一种 API，将 html 以一种树状结构呈现出来，可以更直观去研究文档结构，我们将这种树状文档结构称为－－DOM 树，或者节点树，一样的概念
-js 通过 dom 节点，可以对文档的 html 标签，属性，css 样式，以及具体的内容做出修改，并对页面中的所有事件进行响应
-二、节点树 1.节点类型 文档节点－－Document 标签节点－－Element 文本节点－－Text 注释节点－－Comment 属性节点－－Attr 2. 属性 节点类型－－nodeType 节点名称－－nodeName 节点值－－nodeValue 子节点－－childNodes 父节点－－parentNodes 上一个节点－－previousSibling 下一个节点－－nextSibling 第一个子节点－－firstChild 最后一个子节点－－lastChild 3.文档节点－－document (1) 获取 getElementById()－－通过 id 获取元素 &lt;div id=&#34;demo&#34;&gt;通过 id 获取元素&lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;); demo.onclick = function() { console.log(&#39;通过 id 获取元素&#39;) } &lt;/script&gt; &lt;!-- 点击 id 为 demo 的元素，控制台输出&#39;通过 id 获取元素&#39; --&gt; getElementsByName()－－通过 name 获取元素 &lt;input type=&#34;text&#34; name=&#34;int&#34; value=&#34;通过name获取元素1&#34;&gt; &lt;input type=&#34;text&#34; name=&#34;int&#34; value=&#34;通过name获取元素2&#34;&gt; &lt;script&gt; var int = document.getElementsByName(&#39;int&#39;); for(var i = 0;i &lt; int.length; i&#43;&#43;) { console.log(int[i].value); } &lt;/script&gt; &lt;!-- 控制台输出 name 为 int 的元素的 value 值 --&gt; getElementsByTagName()－－通过标签名获取元素 &lt;div&gt;通过标签名获取元素 1&lt;/div&gt; &lt;div&gt;通过标签名获取元素 2&lt;/div&gt; &lt;script&gt; var div = document.getElementsByTagName(&#39;div&#39;); for(var i = 0;i &lt; div.length; i&#43;&#43;) { console.log(div[i].innerHTML) } &lt;/script&gt; &lt;!-- 控制台输出标签名为 div 的元素的文本内容 --&gt; getElementsByClassName()－－通过 class 获取元素 &lt;div class=&#34;demo&#34;&gt;通过 class 获取元素 1&lt;/div&gt; &lt;div class=&#34;demo&#34;&gt;通过 class 获取元素 2&lt;/div&gt; &lt;script&gt; var demo = document.getElementsByClassName(&#39;demo&#39;); for(var i = 0;i &lt; demo.length; i&#43;&#43;) { console.log(demo[i].innerHTML) } &lt;/script&gt; &lt;!-- 控制台输出 class 为 demo 的元素的文本内容 --&gt; querySelector()－－通过选择器获取元素 querySelector() 括号里面要跟上符号，class就写.，id就写#，标签直接写标签名TagName
-&lt;div&gt;通过选择器获取标签名&lt;/div&gt; &lt;div class=&#34;div&#34;&gt;通过选择器获取 class&lt;/div&gt; &lt;div id=&#34;div&#34;&gt;通过选择器获取 id&lt;/div&gt; &lt;script&gt; var divtag = document.querySelector(&#39;div&#39;); var divclass = document.querySelector(&#39;.div&#39;); var divid = document.querySelector(&#39;#div&#39;); divtag.onclick = function() { console.log(&#39;通过选择器获取标签名&#39;) }; // 点击标签 div，控制台输出&#34;通过选择器获取标签名&#34; divclass.onclick = function() { console.log(&#39;通过选择器获取 class&#39;) }; // 点击 class 为 div，控制台输出&#34;通过选择器获取 class&#34; divid.onclick = function() { console.log(&#39;通过选择器获取 id&#39;) }; // 点击 id 为 div，控制台输出&#34;通过选择器获取 id&#34; &lt;/script&gt; querySelectorAll()－－通过选择器获取元素集合 获取的是一个数组集合
-&lt;input type=&#34;text&#34; value=&#34;int1&#34;&gt; &lt;input type=&#34;text&#34; value=&#34;int2&#34;&gt; &lt;input type=&#34;text&#34; value=&#34;int3&#34;&gt; &lt;script&gt; var int = document.querySelectorAll(&#39;input&#39;) for(i = 0; i &lt; int.length; i&#43;&#43;) { console.log(int[i].value) } &lt;/script&gt; &lt;!-- 浏览器依次打印出`int1`,`int2`,`int3` --&gt; (2) 创建 createElement()－－创建元素（标签）节点 &lt;ul id=&#34;ul&#34;&gt;&lt;/ul&gt; &lt;script&gt; var ul = document.getElementById(&#39;ul&#39;); ul.appendChild(document.createElement(&#39;li&#39;)) &lt;/script&gt; 可以看到，ul 下面已经生成了一个 li 标签
-createTextNode()－－创建文本节点 &lt;ul id=&#34;ul&#34;&gt;&lt;/ul&gt; &lt;script&gt; var ul = document.getElementById(&#39;ul&#39;); var li = ul.appendChild(document.createElement(&#39;li&#39;)); var node = document.createTextNode(&#39;我是 li&#39;); li.appendChild(node); &lt;/script&gt; li 标签中生成了一段文本
-createAttribute()－－创建属性节点 &lt;input type=&#34;text&#34;&gt; &lt;script&gt; var int = document.getElementsByTagName(&#39;input&#39;)[0]; var value = document.createAttribute(&#39;value&#39;); value.nodeValue = &#39;通过创建属性节点生成&#39;; int.setAttributeNode(value); &lt;/script&gt; 可以看到 value 属性值被成功创建
-createComment()－－创建注释节点 &lt;div id=&#34;div&#34;&gt;创建一个注释节点&lt;/div&gt; &lt;script&gt; var div = document.getElementById(&#39;div&#39;); var comment = document.createComment(&#39;添加一个注释节点&#39;); div.appendChild(comment); &lt;/script&gt; f12 查看源码，可以看到 div 生成一行注释
-createDocumentFragment()－－创建文档片段 文档片段的作用，就相当于是添加的所有的节点的父元素
-1.假如没有 createDocumentFragment，添加了很多节点，也可以在 dom 上呈现，但是每次添加的时候都会调用一次 appendChild() 方法，产生很多次页面渲染，显得比较臃肿 2.把多次添加的节点放在一个 createDocumentFragment 节点里面，页面只会调用一次就可以把所有的节点都渲染了
-createEvent()－－创建事件对象
-addEventListener()－－添加事件监听函数
-removeEventListener()－－移除事件监听函数
-事件监听函数详解
-dispatchEvent()－－触发事件 操作 css &lt;div id=&#34;demo&#34;&gt;dom&lt;/div&gt; &lt;script&gt; // 直接通过&#39;.&#39;来操作 style var demo= document.getElementById(&#39;demo&#39;); demo.style.color = &#39;red&#39;; // 通过 setAttribute() 来创建属性节点 demo.setAttribute(&#39;style&#39;,&#39;background-color: green&#39;); // 通过 style 的 cssText 属性 demo.style.cssText = &#34;border: 10px solid black&#34;; &lt;/script&gt; 4.元素节点 (element 对象) 有关 innerHTML, innerText, outerHTML, outerText 的区别
-一个是元素内容，一个是文本内容
-&lt;div id=&#34;div1&#34;&gt;第一个 div&lt;/div&gt; &lt;div id=&#34;div2&#34;&gt;第二个 div&lt;/div&gt; &lt;div id=&#34;div3&#34;&gt;第三个 div&lt;/div&gt; &lt;div id=&#34;div4&#34;&gt;第四个 div&lt;/div&gt; &lt;div id=&#34;div5&#34;&gt;&lt;/div&gt; &lt;div id=&#34;div6&#34;&gt;&lt;/div&gt; &lt;div id=&#34;div7&#34;&gt;&lt;/div&gt; &lt;div id=&#34;div8&#34;&gt;&lt;/div&gt; &lt;script&gt; var div1 = document.getElementById(&#39;div1&#39;).innerHTML console.log(div1) // 第一个 div var div1 = document.getElementById(&#39;div1&#39;).outerHTML console.log(div1) // &lt;div id=&#34;div1&#34;&gt;第一个 div&lt;/div&gt; var div2 = document.getElementById(&#39;div2&#39;).innerText console.log(div2) // 第二个 div var div2 = document.getElementById(&#39;div2&#39;).outerText console.log(div2) // 第二个 div document.getElementById(&#39;div5&#39;).innerHTML = &#39;&lt;a&gt;《第 5 个 div》&lt;/a&gt;&#39; // 在原有的标签内增加内容，如果有标签会被识别 document.getElementById(&#39;div6&#39;).outerHTML = &#39;&lt;a&gt;《第 6 个 div》&lt;/a&gt;&#39; // 原来的标签会被覆盖，新的文本中如果含有标签会自动生成，如果没有标签则直接以文本形式展示 document.getElementById(&#39;div7&#39;).innerText = &#39;&lt;a&gt;《第 7 个 div》&lt;/a&gt;&#39; // 在原有的标签内增加内容，新标签不会被识别为标签元素，而是被当作文本内容直接写入原标签内 document.getElementById(&#39;div8&#39;).outerText = &#39;&lt;a&gt;《第 8 个 div》&lt;/a&gt;&#39; // 原来的标签会被覆盖，新标签不会被识别为标签元素，而是直接被当作文本形式展示 &lt;/script&gt; (1) 节点属性 childElementCount－－返回当前元素的子节点的个数 &lt;div id=&#34;demo&#34;&gt; &lt;a&gt;&lt;/a&gt; &lt;span&gt;&lt;/span&gt; &lt;p&gt;&lt;/p&gt; &lt;div&gt;&lt;/div&gt; &lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) console.log(demo.childElementCount) // 4 &lt;/script&gt; firstElementChild－－返回当前元素的第一个子元素节点 lastElementChild－－返回当前元素的最后一个子元素节点 &lt;div id=&#34;demo&#34;&gt; &lt;a&gt;&lt;/a&gt; &lt;span&gt;&lt;/span&gt; &lt;p&gt;&lt;/p&gt; &lt;div&gt;&lt;/div&gt; &lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) console.log(demo.firstElementChild) // &lt;a&gt;&lt;/a&gt; console.log(demo.lastElementChild) // &lt;div&gt;&lt;/div&gt; &lt;/script&gt; nextElementSibling－－返回当前元素的下一个兄弟元素节点 previousElementSibling－－返回当前元素的上一个兄弟元素节点 &lt;span&gt;&lt;/span&gt; &lt;div id=&#34;demo&#34;&gt;&lt;/div&gt; &lt;p&gt;&lt;/p&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) console.log(demo.nextElementSibling) // &lt;p&gt;&lt;/p&gt; console.log(demo.previousElementSibling) // &lt;span&gt;&lt;/span&gt; &lt;/script&gt; 返回当前元素所有的子节点 &lt;div id=&#34;demo&#34;&gt; &lt;span&gt;&lt;/span&gt; &lt;p&gt;&lt;/p&gt; &lt;a&gt;&lt;/a&gt; &lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;).children for(var i in demo) { console.log(demo[i]) } &lt;/script&gt; 控制台查看返回结果
-返回所有子节点集合 &lt;div id=&#34;demo&#34;&gt; &lt;span&gt;&lt;/span&gt; &lt;p&gt;&lt;/p&gt; &lt;a id=&#34;demo1&#34;&gt;&lt;/a&gt; &lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;).children for(var i in demo1.childNodes) { console.log(demo[i]) } &lt;/script&gt; (2) 节点方法 appendChild－－插入子节点 &lt;div id=&#34;demo&#34;&gt;&lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) var node = document.createTextNode(&#39;插入一个子节点&#39;) demo.appendChild(node) &lt;/script&gt; f12 可以看到，div 被插入了一个节点
-insertBefore(a, b)－－在指定位置插入节点 参数 a 表示要插入的内容，b 表示定位，在 b 节点之前插入 a 节点
-&lt;div id=&#34;demo&#34;&gt;&lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) var node = document.createTextNode(&#39;插入一个子节点&#39;) demo.appendChild(node) var hr = document.createElement(&#39;hr&#39;) demo.insertBefore(hr, node) &lt;/script&gt; 可以看到，原来的文本节点之前，被添加了一个新的元素节点
-replaceChild(a, b)－－替换节点 用参数 a 替换参数 b，a 表示新节点，b 表示旧节点
-&lt;div id=&#34;demo&#34;&gt;&lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) var node = document.createTextNode(&#39;插入一个子节点&#39;) demo.appendChild(node) var h3 = document.createElement(&#39;h3&#39;) var h3node = document.createTextNode(&#39;title 标题&#39;) h3.appendChild(h3node) demo.replaceChild(h3, node) &lt;/script&gt; h3是新节点，node是旧节点，根据图片可以看到，b 替换掉了 a，成功上位
-removeChild－－父节点删除子节点 &lt;div id=&#34;demo&#34;&gt; &lt;div id=&#34;son&#34;&gt;&lt;/div&gt; &lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) var son = document.getElementById(&#39;son&#39;) demo.removeChild(son) &lt;/script&gt; f12 可以看到，id 为 son 的元素节点，通过demo.removeChild()已经被删除了
-removeAttribute－－删除属性节点 &lt;div id=&#34;demo&#34; class=&#34;div&#34;&gt;&lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) demo.removeAttribute(&#39;class&#39;) &lt;/script&gt; class 属性已经被删除了
-删除文本节点 &lt;div id=&#34;demo&#34;&gt;文本&lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) demo.removeChild(demo.childNodes[0]) &lt;/script&gt; 通过demo.childNodesp[0]获取 demo 的第一个节点，即文本节点，然后removeChild它，就删除了
-isEqualNode－－判断两个元素是否相等 isSameNode－－判断两个元素是否相同 两者分别代表相等和相同
-(1) isEqualNode相等，指的是两个节点是否是同一类型，具有相等的属性（包括：nodeName, nodeValue&hellip;等等），还有相等的 attributes,childNodes（相等的位置包含相同的值） (2) isSameNode相同，指的是两个节点引用的是同一个对象
-&lt;form action=&#34;#&#34;&gt; &lt;input type=&#34;button&#34; /&gt; &lt;/form&gt; &lt;form action=&#34;#&#34;&gt; &lt;input type=&#34;button&#34; /&gt; &lt;/form&gt; &lt;form action=&#34;#&#34; id=&#34;o&#34;&gt; &lt;input type=&#34;button&#34; /&gt; &lt;/form&gt; &lt;form action=&#34;#&#34; id=&#34;o&#34;&gt; &lt;input type=&#34;text&#34; /&gt; &lt;/form&gt; &lt;script&gt; var forms = document.forms; var form1 = forms[0]; var form2 = forms[1]; var form3 = forms[2]; var form4 = forms[3]; var _form1 = document.querySelectorAll(&#39;form&#39;)[0]; console.log(form1.isSameNode(form1)) //true 两个节点引用的对象都是第一个 form console.log(form1.isSameNode(_form1)) //true 两个节点引用的对象都是第一个 form console.log(form1.isSameNode(form2)) //false 两个节点引用的不是一个对象 console.log(form1.isEqualNode(form2)) //true 两个节点具有完全等同属性 console.log(form1.isEqualNode(form3)) //false form1 中无等同的 id 属性 console.log(form3.isEqualNode(form4)) //fasle form4 的 childNodes 中的 input 为 text 类别，与 form3 不同 &lt;/script&gt; 根据例子代码可以看出区别：
-(1) isSameNode只有引用同一个对象时才相同，比如用两中方法调用同一个对象，再比较这两种方法，比来比去还是那个对象，所以相同 (2) 而isEqualNode比较两个对象的元素节点是否相等，只要两者一致就可以相等 true
-hasChildNodes()－－判断一个元素是否拥有子节点 判断demo是否拥有子节点，然后输出他的子节点
-&lt;div id=&#34;demo&#34;&gt; &lt;!-- &lt;a&gt;&lt;/a&gt; --&gt; &lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) console.log(demo.hasChildNodes()) console.log(demo.childNodes) &lt;/script&gt; contains(a)－－判断一个节点是否包含指定子节点（参数 a 表示要判断的子节点） 存在id=&quot;a&quot;的元素，因此 contains 判断成功输出true，
-不存在id=&quot;b&quot;的元素，因此输出false
-&lt;div id=&#34;demo&#34;&gt; &lt;a id=&#34;a&#34;&gt;&lt;/a&gt; &lt;a&gt;&lt;/a&gt; &lt;/div&gt; &lt;script&gt; var demo = document.getElementById(&#39;demo&#39;) var a = document.getElementById(&#39;a&#39;) console.log(demo.contains(a)) // true var b = document.getElementById(&#39;b&#39;) console.log(demo.contains(b)) // false &lt;/script&gt; 5.属性节点 (Attr 对象) &lt;input type=&#34;text&#34; id=&#34;int&#34;&gt; &lt;script&gt; var int = document.getElementById(&#39;int&#39;) // 1.获取属性值 console.log(int.getAttribute(&#34;type&#34;)) // text // 2.获取属性节点 console.log(int.getAttributeNode(&#34;type&#34;)) // type=&#34;text&#34; // 3.设置属性值 int.setAttribute(&#34;value&#34;, &#34;input 框&#34;) // &lt;input type=&#34;text&#34; id=&#34;int&#34; value=&#34;input 框&#34;&gt; // 4.设置属性节点 let name = document.createAttribute(&#34;name&#34;); name.nodeValue = &#34;uname&#34;; int.setAttributeNode(name); console.log(int.getAttributeNode(&#39;name&#39;).value) // &lt;input type=&#34;text&#34; id=&#34;int&#34; value=&#34;input 框&#34; name=&#34;uname&#34;&gt; // 5.删除属性节点 console.log(int.removeAttribute(&#39;name&#39;)) // &lt;input type=&#34;text&#34; id=&#34;int&#34; value=&#34;input 框&#34;&gt; // 6.判断是否存在属性 console.log(int.hasAttributes()) // true // 7.判断是否存在指定属性 console.log(int.hasAttribute(&#39;value&#39;)) // true &lt;/script&gt; 注意：hasAttribute和hasAttributes的区别 hasAttributes判断是否存在属性， hasAttribute判断是否存在指定属性
-" />
-
-
 <meta property="og:description" content="DOM 中文名文档对象模型，英文名 Document Object Model，我们简称为 DOM，是针对 html 和 xml 文档的一种 API，将 html 以一种树状结构呈现出来，可以更直观去研究文档结构，我们将这种树状文档结构称为－－DOM 树，或者节点树，一样的概念
 一、什么是 DOM？ DOM 中文名文档对象模型，英文名 Document Object Model，我们简称为 DOM，是针对 html 和 xml 文档的一种 API，将 html 以一种树状结构呈现出来，可以更直观去研究文档结构，我们将这种树状文档结构称为－－DOM 树，或者节点树，一样的概念
 js 通过 dom 节点，可以对文档的 html 标签，属性，css 样式，以及具体的内容做出修改，并对页面中的所有事件进行响应
@@ -184,112 +110,64 @@ hasChildNodes()－－判断一个元素是否拥有子节点 判断demo是否拥
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/index.css">
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
-<script src="/js/jquery3.6.0.min.js"></script>
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BGB227HN9X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BGB227HN9X');
-</script>
 </head>
 
 <body>
-  <div class="wrapper">
-    <div class="main">
-      <div class="aside">
-  <div class="top">
-    <a href="/" title="子舒的博客"><img src="https://imgurl.zishu.me/author.png" width="72" height="72" class="avatar" alt="子舒的博客" border="0"></a>
-    <div class="site-info">
-      
-       <a href="/"><svg width="104.597" height="39.369" viewBox="0 0 104.597 39.369" xmlns="http://www.w3.org/2000/svg"><g id="svgGroup" stroke-linecap="round" fill-rule="evenodd" font-size="9pt" stroke="#000000" stroke-width="0.1mm" fill="#000000" style="stroke:#000000;stroke-width:0.1mm;fill:#000000"><path d="M 67.659 29.801 L 68.763 19.635 Q 68.763 18.393 68.119 17.565 Q 67.475 16.737 66.049 16.737 Q 64.623 16.737 63.634 17.864 Q 62.645 18.991 62.185 20.831 Q 61.863 23.453 61.219 28.49 A 2866.126 2866.126 0 0 0 60.69 32.647 A 536.88 536.88 0 0 0 60.391 35.045 L 54.273 35.045 A 18068.443 18068.443 0 0 0 55.744 22.484 Q 57.283 9.299 57.949 3.362 A 627.499 627.499 0 0 0 58.275 0.407 Q 59.241 0.039 60.897 0.039 A 3.976 3.976 0 0 1 64.139 1.045 A 1.775 1.775 0 0 1 64.485 2.155 L 64.485 2.431 A 270.679 270.679 0 0 1 63.046 13.731 A 177.594 177.594 0 0 1 62.829 15.127 Q 65.267 12.919 68.349 12.919 Q 71.431 12.919 73.225 14.483 Q 75.019 16.047 75.019 18.439 Q 75.019 19.083 74.743 20.831 A 276.731 276.731 0 0 0 73.983 26.046 Q 73.685 28.292 73.685 28.927 Q 73.685 31.089 75.111 31.089 Q 76.307 31.089 77.664 29.502 A 11.951 11.951 0 0 0 77.825 29.282 A 18.722 18.722 0 0 1 78.055 27.041 Q 79.113 18.485 79.665 13.425 Q 81.091 12.919 82.287 12.919 Q 83.483 12.919 84.081 13.011 Q 84.679 13.103 85.231 13.701 Q 85.783 14.299 85.783 15.403 L 84.265 27.133 Q 84.173 27.685 84.173 28.145 Q 84.173 30.859 86.657 30.859 Q 88.957 30.859 90.475 28.605 Q 90.475 28.099 90.567 26.995 L 92.085 14.759 Q 92.407 13.977 93.465 13.448 Q 94.523 12.919 96.11 12.919 Q 97.697 12.919 98.479 13.379 Q 96.924 25.663 96.651 28.479 A 10.731 10.731 0 0 0 96.593 29.249 Q 96.593 31.089 97.927 31.089 Q 99.123 31.089 100.526 29.456 Q 101.929 27.823 102.757 24.557 Q 104.275 26.213 104.597 27.133 A 12.282 12.282 0 0 1 101.894 32.831 A 6.516 6.516 0 0 1 101.239 33.435 Q 98.939 35.275 96.501 35.275 Q 92.499 35.275 91.119 32.193 Q 88.727 35.275 84.725 35.275 Q 81.413 35.275 79.619 33.619 A 5.611 5.611 0 0 1 78.856 32.75 A 13.283 13.283 0 0 1 78.373 33.275 A 7.221 7.221 0 0 1 73.271 35.229 Q 70.419 35.229 69.039 33.481 Q 67.659 31.733 67.659 29.801 Z M 20.739 28.881 L 22.395 14.667 Q 22.855 13.839 24.143 13.402 Q 25.431 12.965 26.696 12.965 Q 27.961 12.965 28.927 13.287 Q 27.133 27.133 27.133 27.271 Q 26.903 28.191 26.903 28.812 Q 26.903 29.433 26.995 29.893 A 1.435 1.435 0 0 0 27.961 31.04 A 8.754 8.754 0 0 1 28.881 28.421 Q 30.752 24.861 37.604 18.675 A 123.618 123.618 0 0 1 37.713 18.577 Q 36.011 16.875 36.011 14.943 Q 36.011 13.011 37.46 11.677 Q 38.909 10.343 40.887 10.343 Q 42.681 10.343 44.015 11.769 Q 44.889 12.735 44.889 14.207 Q 44.889 15.679 43.923 17.519 A 72.971 72.971 0 0 1 48.835 19.902 A 18.079 18.079 0 0 1 50.593 20.969 Q 54.227 23.637 54.227 27.271 Q 54.227 30.905 51.375 33.113 Q 48.523 35.321 44.199 35.321 Q 41.393 35.321 39.53 33.918 Q 37.667 32.515 37.667 30.445 Q 37.667 28.375 39.047 27.156 Q 40.427 25.937 42.497 25.661 Q 41.531 27.041 41.531 28.306 Q 41.531 29.571 42.405 30.353 Q 43.279 31.135 44.613 31.135 Q 45.947 31.135 46.821 30.146 Q 47.695 29.157 47.695 27.869 Q 47.695 25.753 45.717 24.097 Q 44.521 23.131 43.141 22.28 A 104.019 104.019 0 0 0 41.712 21.407 A 0.982 0.982 0 0 0 41.669 21.383 Q 41.485 21.245 41.301 21.153 Q 40.473 22.119 38.909 23.798 Q 37.345 25.477 36.425 26.489 A 12.83 12.83 0 0 0 34.85 28.396 A 12.665 12.665 0 0 1 33.52 31.218 A 6.915 6.915 0 0 0 33.435 32.584 Q 33.435 33.619 34.056 34.723 Q 34.677 35.827 35.551 36.379 Q 36.425 36.931 37.276 37.276 Q 38.127 37.621 38.748 37.759 Q 39.369 37.897 39.369 37.943 Q 39.369 38.265 38.357 38.679 Q 36.471 39.369 34.424 39.369 Q 32.377 39.369 30.445 37.897 A 6.46 6.46 0 0 1 28.329 35.212 A 7.144 7.144 0 0 1 26.765 35.367 Q 23.683 35.367 22.188 33.849 Q 20.693 32.331 20.693 29.939 Q 20.693 29.433 20.739 28.881 Z M 13.471 35.459 L 0.683 35.183 A 1.327 1.327 0 0 1 0.085 33.556 A 8.453 8.453 0 0 1 0.085 33.55 Q 0.085 31.917 0.775 30.997 A 13.911 13.911 0 0 1 2.876 27.663 A 47.078 47.078 0 0 1 4.593 25.615 Q 5.605 24.465 8.365 21.475 A 141.512 141.512 0 0 0 11.268 18.255 A 27.559 27.559 0 0 0 11.999 17.381 L 9.561 17.243 Q 8.871 18.899 7.56 19.934 Q 6.249 20.969 4.639 20.969 Q 2.799 20.969 1.649 19.888 Q 0.499 18.807 0.499 16.875 Q 0.499 14.943 1.833 13.793 Q 3.167 12.643 5.513 12.643 L 18.301 12.919 Q 18.899 12.919 18.899 14.483 Q 18.899 16.093 18.301 16.967 Q 17.749 17.979 16.714 19.106 Q 15.679 20.233 13.701 22.096 A 175.609 175.609 0 0 0 11.155 24.529 A 38.997 38.997 0 0 0 10.941 24.741 Q 7.859 27.823 6.341 30.675 L 9.423 30.859 Q 10.113 29.203 11.424 28.168 Q 12.735 27.133 14.345 27.133 Q 16.185 27.133 17.335 28.214 Q 18.485 29.295 18.485 31.227 Q 18.485 33.159 17.151 34.309 Q 15.817 35.459 13.471 35.459 Z M 24.281 1.166 Q 25.339 0.085 26.857 0.085 Q 28.375 0.085 29.456 1.166 Q 30.537 2.247 30.537 3.765 Q 30.537 5.283 29.456 6.341 Q 28.375 7.399 26.857 7.399 Q 25.339 7.399 24.281 6.341 Q 23.223 5.283 23.223 3.765 Q 23.223 2.247 24.281 1.166 Z M 7.583 17.105 L 5.697 16.967 Q 5.421 16.921 5.145 16.921 Q 3.535 16.921 3.535 17.979 Q 3.535 19.037 4.731 19.037 Q 6.525 19.037 7.583 17.105 Z M 11.401 30.997 L 13.287 31.135 Q 13.563 31.181 13.839 31.181 Q 15.449 31.181 15.449 30.123 Q 15.449 29.065 14.253 29.065 Q 12.459 29.065 11.401 30.997 Z M 40.611 15.771 Q 41.715 14.621 41.715 14.115 Q 41.715 12.965 40.703 12.873 Q 39.553 12.873 39.553 14.161 Q 39.553 14.943 40.611 15.771 Z"/></g></svg></a>
-      <div class="site-about">
-        <p>一个热爱生活的前端开发工程师。</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="nav-container">
-    <div class="nav">
-      
-      <a href="/" class="nav-item">
-        <img src="/images/sparkles.png" width="17" height="17" alt="sparkles" />
-        <span>首页</span>
-      </a>
-      
-      <a href="/tags/" class="nav-item">
-        <img src="/images/tags.png" width="17" height="17" alt="tags" />
-        <span>标签</span>
-      </a>
-      
-      <a href="/message/" class="nav-item">
-        <img src="/images/message.png" width="17" height="17" alt="message" />
-        <span>留言</span>
-      </a>
-      
-      <a href="/about/" class="nav-item">
-        <img src="/images/about.png" width="17" height="17" alt="about" />
-        <span>关于</span>
-      </a>
-      
-      <a href="/search/" class="nav-item">
-        <img src="/images/search.png" width="17" height="17" alt="search" />
-        <span>搜索</span>
-      </a>
-      
-      <a href="/index.xml" class="nav-item">
-        <img src="/images/rss.png" width="17" height="17" alt="rss" />
-        <span>订阅</span>
-      </a>
-      
-    </div>
-    <div class="share">
-      <a href="/index.xml" target="_blank" title="RSS"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-file-rss"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 2l.117 .007a1 1 0 0 1 .876 .876l.007 .117v4l.005 .15a2 2 0 0 0 1.838 1.844l.157 .006h4l.117 .007a1 1 0 0 1 .876 .876l.007 .117v9a3 3 0 0 1 -2.824 2.995l-.176 .005h-10a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-14a3 3 0 0 1 2.824 -2.995l.176 -.005zm-3 11a1 1 0 0 0 0 2a2 2 0 0 1 1.995 1.85l.005 .15a1 1 0 0 0 2 0a4 4 0 0 0 -4 -4m0 -3a1 1 0 0 0 0 2a5 5 0 0 1 5 5a1 1 0 0 0 2 0a7 7 0 0 0 -7 -7m.01 6h-.01a1 1 0 0 0 -.117 1.993l.127 .007a1 1 0 0 0 0 -2m5.989 -13.001l4.001 4.001h-4z" /></svg></a>
-      <a href="https://github.com/dlzmoe" target="_blank" title="GitHub"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5.315 2.1c.791 -.113 1.9 .145 3.333 .966l.272 .161l.16 .1l.397 -.083a13.3 13.3 0 0 1 4.59 -.08l.456 .08l.396 .083l.161 -.1c1.385 -.84 2.487 -1.17 3.322 -1.148l.164 .008l.147 .017l.076 .014l.05 .011l.144 .047a1 1 0 0 1 .53 .514a5.2 5.2 0 0 1 .397 2.91l-.047 .267l-.046 .196l.123 .163c.574 .795 .93 1.728 1.03 2.707l.023 .295l.007 .272c0 3.855 -1.659 5.883 -4.644 6.68l-.245 .061l-.132 .029l.014 .161l.008 .157l.004 .365l-.002 .213l-.003 3.834a1 1 0 0 1 -.883 .993l-.117 .007h-6a1 1 0 0 1 -.993 -.883l-.007 -.117v-.734c-1.818 .26 -3.03 -.424 -4.11 -1.878l-.535 -.766c-.28 -.396 -.455 -.579 -.589 -.644l-.048 -.019a1 1 0 0 1 .564 -1.918c.642 .188 1.074 .568 1.57 1.239l.538 .769c.76 1.079 1.36 1.459 2.609 1.191l.001 -.678l-.018 -.168a5.03 5.03 0 0 1 -.021 -.824l.017 -.185l.019 -.12l-.108 -.024c-2.976 -.71 -4.703 -2.573 -4.875 -6.139l-.01 -.31l-.004 -.292a5.6 5.6 0 0 1 .908 -3.051l.152 -.222l.122 -.163l-.045 -.196a5.2 5.2 0 0 1 .145 -2.642l.1 -.282l.106 -.253a1 1 0 0 1 .529 -.514l.144 -.047l.154 -.03z" /></svg></a>
-      <a href="https://discord.com/invite/n2pErsD7Kg" target="_blank" title="Discord"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-brand-discord"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14.983 3l.123 .006c2.014 .214 3.527 .672 4.966 1.673a1 1 0 0 1 .371 .488c1.876 5.315 2.373 9.987 1.451 12.28c-1.003 2.005 -2.606 3.553 -4.394 3.553c-.732 0 -1.693 -.968 -2.328 -2.045a21.512 21.512 0 0 0 2.103 -.493a1 1 0 1 0 -.55 -1.924c-3.32 .95 -6.13 .95 -9.45 0a1 1 0 0 0 -.55 1.924c.717 .204 1.416 .37 2.103 .494c-.635 1.075 -1.596 2.044 -2.328 2.044c-1.788 0 -3.391 -1.548 -4.428 -3.629c-.888 -2.217 -.39 -6.89 1.485 -12.204a1 1 0 0 1 .371 -.488c1.439 -1.001 2.952 -1.459 4.966 -1.673a1 1 0 0 1 .935 .435l.063 .107l.651 1.285l.137 -.016a12.97 12.97 0 0 1 2.643 0l.134 .016l.65 -1.284a1 1 0 0 1 .754 -.54l.122 -.009zm-5.983 7a2 2 0 0 0 -1.977 1.697l-.018 .154l-.005 .149l.005 .15a2 2 0 1 0 1.995 -2.15zm6 0a2 2 0 0 0 -1.977 1.697l-.018 .154l-.005 .149l.005 .15a2 2 0 1 0 1.995 -2.15z" /></svg></a>
-    </div>
-  </div>
-</div>
-
-
-      <h1>DOM－－文档对象模型</h1>
-
-      
-      <div class="meta">
-        <div class="date">2020 年 11 月 15 日</div>
-        <div class="post-tags">
-          
-          
-          <span class="namenode">分类：<a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-          </span>
-          
-          
-          <span class="tag-node">
-            
-            标签：<a href="/tags/%E7%AC%94%E8%AE%B0">#笔记</a>
-            
-            
-          </span>
-        </div>
-      </div>
-      
+  <nav class="headnav">
+  <a href="/" class="logo">zishu.me</a>
+  <ul id="menu">
     
+    <li><a href="/">首页</a></li>
+    
+    <li><a href="/blog/">博客</a></li>
+    
+    <li><a href="/tags/">标签</a></li>
+    
+    <li><a href="/message/">留言</a></li>
+    
+    <li><a href="/about/">关于</a></li>
+    
+    <li><a href="/search/">搜索</a></li>
+    
+    <li><a href="/index.xml" target="_blank">订阅</a></li>
+  </ul>
+</nav>
+  <section>
+    
+    <div class="body-title">DOM－－文档对象模型</div>
+
+    
+    <div class="post-meta">
+      <time> 2020-11-15</time>
       
-      <div class="toc">
-        <details open>
-          <summary accesskey="c" title="(Alt + C)"><span class="details">Table of Contents</span></summary>
-          <div class="inner"> <nav id="TableOfContents">
+      
+      <span class="namenode">分类：
+        <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+      </span>
+      
+      
+
+      <span class="tag-node">
+        
+        标签：
+        
+        <a href="/tags/%E7%AC%94%E8%AE%B0">#笔记</a>
+        
+        
+      </span>
+
+    </div>
+    
+
+    
+    <div class="toc">
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#一什么是-dom">一、什么是 DOM？</a></li>
     <li><a href="#二节点树">二、节点树</a>
@@ -302,14 +180,13 @@ hasChildNodes()－－判断一个元素是否拥有子节点 判断demo是否拥
       </ul>
     </li>
   </ul>
-</nav></div>
-        </details>
-      </div>
-      
+</nav>
+    </div>
+    
 
-      <article class="content post-content">
-        
-        <p>DOM 中文名文档对象模型，英文名 Document Object Model，我们简称为 DOM，是针对 html 和 xml 文档的一种 API，将 html 以一种树状结构呈现出来，可以更直观去研究文档结构，我们将这种树状文档结构称为－－DOM 树，或者节点树，一样的概念</p>
+    <article class="post-content">
+      
+      <p>DOM 中文名文档对象模型，英文名 Document Object Model，我们简称为 DOM，是针对 html 和 xml 文档的一种 API，将 html 以一种树状结构呈现出来，可以更直观去研究文档结构，我们将这种树状文档结构称为－－DOM 树，或者节点树，一样的概念</p>
 <h2 id="一什么是-dom">一、什么是 DOM？</h2>
 <p>DOM 中文名文档对象模型，英文名 Document Object Model，我们简称为 DOM，是针对 html 和 xml 文档的一种 API，将 html 以一种树状结构呈现出来，可以更直观去研究文档结构，我们将这种树状文档结构称为－－DOM 树，或者节点树，一样的概念</p>
 <p>js 通过 dom 节点，可以对文档的 html 标签，属性，css 样式，以及具体的内容做出修改，并对页面中的所有事件进行响应</p>
@@ -821,11 +698,10 @@ isSameNode－－判断两个元素是否<code>相同</code></li>
 <code>hasAttributes</code>判断是否存在属性，
 <code>hasAttribute</code>判断是否存在指定属性</p></blockquote>
 
-        <div class="weekly-pagination"></div>
-      </article>
+    </article>
 
-      
-      <ul class="comment-tabs">
+    
+    <ul class="comment-tabs">
   
   <li>LinuxDo</li>
   
@@ -883,31 +759,55 @@ twikoo.init({
 </script>
 
 <script>
-  $('.comment-tabs li').each(function(){
-    $('.comment-tabs li').eq(0).addClass('active');
-    $('.comments > div').eq(0).addClass('active');
-    $(this).click(function(){
-      $(this).addClass('active').siblings().removeClass('active');
-      $('.comments > div').eq($(this).index()).addClass('active').siblings().removeClass('active');
-    })
-  })
+document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+  if (index === 0) {
+    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+    document.querySelectorAll('.comments > div')[0].classList.add('active');
+  }
+  
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+      sibling.classList.remove('active');
+    });
+    this.classList.add('active');
+    
+    document.querySelectorAll('.comments > div').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.querySelectorAll('.comments > div')[index].classList.add('active');
+  });
+});
 </script>
-      
 
-      <footer class="footer">
-  <div class="l-wrap">
-    © 2020 - 2025 Powered by
-    <a href="https://github.com/dlzmoe" target="_blank">子舒</a>
-  </div>
-  <img src="https://profile-counter.glitch.me/zishu_me/count.svg" alt="counter">
-  <div class="gotop"></div>
+<style>
+  .comment-tabs {
+    display: flex;
+  }
+  .comment-tabs li {
+    margin-right: 40px;
+    cursor: pointer;
+  }
+  .comment-tabs li.active {
+    text-decoration: underline;
+  }
+  .comments > div.active {
+    display: block;
+  }
+  .comments > div {
+    display: none;
+  }
+</style>
+    
+    
+  </section>
+  <footer class="footer">
+  <p>© 2020 - 2025 Powered by
+    <a href="https://github.com/dlzmoe" target="_blank">Github</a>
+    / <a href="/index.xml" target="_blank">RSS</a>
+  </p>
 </footer>
 
-<script src="/js/main.js"></script>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="//instant.page/5.2.0" type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
-    </div>
-  </div>
+
 </body>
 
 </html>

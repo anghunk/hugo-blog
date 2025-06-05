@@ -38,172 +38,6 @@
 </script><title>Typecho 博客搭建及优化教程 (详细) - 子舒的博客</title>
 <meta property="og:title" content="Typecho 博客搭建及优化教程 (详细)" />
 <meta property="og:type" content="article" />
-
-
-<meta property="og:keywords" content="1.前言 本文从Typecho 简介开始讲解，其中包括服务器的选择，以及域名注册，服务器系统选择，宝塔安装，环境配置，Typecho 安装包括中间的防采坑注意事项，为您提供完整的保姆级搭建流程，请珍惜哦！
-如果不喜欢前面的啰嗦讲解，请跳过，直接从宝塔安装开始。
-不喜勿喷，谢谢！
-需要买服务器可以 点击链接在腾讯云购买服务器有优惠哦~ 不嫖白不嫖，省个十几二十块钱不香吗？
-2.Typecho 简介 Typecho 基于 PHP5 开发，支持多种数据库，是一款内核强健﹑扩展方便﹑体验友好﹑运行流畅的轻量级开源博客程序。
-Typecho 非常简洁，仅仅 7 张数据表，加上不足 400KB 的代码，就实现了完整的插件与模板机制。超低的 CPU 和内存使用率，足以发挥主机的最高性能。
-原生支持 Markdown 语法，易读更易写。支持 BAE/GAE/SAE 等各类云主机，即使面对突如其来的高访问量，也能轻松应对。
-Typecho 的默认模板和后台，全部采用了响应式设计。所以 Typecho 的大多数自制模板，都采用了自适应设计。
-现在Typecho 拥有很多用户，完整的生态，各种功能插件和简洁优美的主题，是做博客的不二选择，相信你会喜欢上她简洁的风格！
-3.准备 服务器 &#43; 域名
-搭建Typecho 博客需要使用服务器或者虚拟机，最近也看到一篇使用 Vercel&#43;Mysql 搭建 Typecho 的文章，但是这种是使用外部 Mysql 服务的，相比使用服务器或者虚拟机这种还是不太方便配置和管理的。使用服务器相比虚拟机会更加的好用。
-**注：**本文只讲解服务器的搭建流程，虚拟机请参考！
-**服务器选择：**推荐去腾讯云或阿里云，有学生机（9 元/月）可供选择，腾讯云还是 25 岁以下免学生认证的，学生价续费三次，所以有条件可以选择 1 年购买和续费，腾讯的还有免费升配置，，阿里云的学生机下架了，但是也可以买为新用户提供的，建议选择 轻量应用服务器，1h2g 的配置完全够用，流量也完全够用。
-腾讯云：https://cloud.tencent.com/act/campus
-阿里云：https://developer.aliyun.com/plan/grow-up
-如果你买不了这种，也可以去其他服务商买新用户优惠的服务器，建议选择大厂。
-选择服务器要看下地区，如果是大陆地区的服务器，需要去其对应的服务商进行域名备案，否者你无法使用，如果是香港地区或者国外的服务器，则不需要进行备案。
-**注：**阿里和腾讯这两种轻量应用服务器都是需要 备案的，如果嫌麻烦或者不想备案，可选择其他地区的服务器！
-备案操作有些复杂，也需要好几天的时间，但是备案也有备案的好处，比如使用国内的 CDN 加速等。另请仔细参考各服务商提供的流程，要注意看清备案流程上的注意事项，防止备案驳回浪费时间。
-相比国外和香港的服务器，使用大陆的服务器在国内的访问速度是最好的，当然如果你搞外国业务当我没说。。。
-**域名选择：**域名选择很简单，去各大服务商注册一个就完事了，喜欢什么就注册什么，但是如果你要备案使用大陆服务器，一定不要注册不支持备案的域名，当然绝大多数都是支持备案的。另各大服务商也有新用户注册域名优惠活动，在百度仔细找一下就行了。 腾讯云：https://cloud.tencent.com/act/domainsales
-阿里云：https://wanwang.aliyun.com/domain
-华为云：https://activity.huaweicloud.com/domain1.html
-下面开始搭建流程：
-4.LNMP 环境 首先我们要搭建的就是 LNMP 环境，LNMP 代表的就是：Linux 系统下 Nginx&#43;MySQL&#43;PHP 这种网站服务器架构。
-Linux 是一类 Unix 计算机操作系统的统称，是目前最流行的免费操作系统。代表版本有：debian、centos、ubuntu、fedora、gentoo 等。
-Nginx 是一个高性能的 HTTP 和反向代理 web 服务器，同时也提供了 IMAP/POP3/SMTP 服务。
-Mysql 是一款安全、跨平台、高效的，并与 PHP、Java 等主流编程语言紧密结合的数据库系统。
-PHP 是一种在服务器端执行的嵌入 HTML 文档的脚本语言。
-当然如果你不喜欢使用 Nginx，或者 Mysql，请自行更换其它的，这里不过多介绍！
-Linux 系统的话，本文使用 Centos 8 系统讲解。
-搭建 LNMP 环境，我们可以选择自行下载对应的安装包，然后在 Centos 系统中，安装Nginx，Mysql，PHP等，这种纯动手的方式，非常麻烦和复杂，在后期进行多网站管理和配置 HTTPS 证书，以及网站伪静态配置时非常麻烦。
-所以本文讲解使用宝塔面板来进行安装部署环境！
-5.宝塔是什么 宝塔面板是一款服务器管理软件，支持 windows 和 linux 系统，可以通过 Web 端轻松管理服务器，提升运维效率。例如：创建管理网站、FTP、数据库，拥有可视化文件管理器，可视化软件管理器，可视化 CPU、内存、流量监控图表，计划任务等功能。
-宝塔面板拥有极速方便的一键配置与管理，可一键配置服务器环境（LAMP/LNMP/Tomcat/Node.js），一键部署 SSL，异地备份；提供 SSH 开启关闭服务，SSH 端口更改，禁 ping，防火墙端口放行以及操作日志查看；CPU、内存、磁盘 IO、网络 IO 数据监测，可设置记录保存天数以及任意查看某天数据；
-计划任务可按周期添加执行，支持 SHELL 脚本，提供网站、数据库备份以及日志切割，且支持一键备份到又拍云存储空间，或者其他云存储空间里；通过 web 界面就可以轻松管理安装所用的服务器软件，还有实用的扩展插件；集成方便高效的文件管理器，支持上传、下载、打包、解压以及文件编辑查看。
-进入搭建正题：
-6.安装宝塔 选择服务器时，选择系统镜像，不要选择服务商提供的应用镜像，操作系统选择 Centos，版本的话 7 和 8 都可以。当然你也可以选择其他系统，，，
-接着到服务商的控制台，找到你的服务器，进入控制台，重置密码。
-然后在安全&ndash;》防火墙那里添加规则。
-端口范围8888，其他默认，备注随意。
-**注：**如果你不添加 8888，安装宝塔以后你是进不去的，安装宝塔以后可以修改宝塔的进入端口，再修改一下这里就可以了！
-使用 SSH 工具连接你的服务器，如果没有 SSH 工具也可以使用控制台那里提供的远程连接！
-在终端界面输入一下命令开始安装！
-Centos 安装命令：
-yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh 不同操作系统有不同的安装命令，详情请去宝塔官网查看！
-遇到安装提示直接输入：y
-安装完成后如下：
-在浏览器中访问外网面板地址。
-**注：**如果你刚才没有在服务器控制台安全防火墙那里添加端口 8888 是打不开的。
-使用 username 和 password 登录宝塔面板，点击我已阅读并同意“《用户协议》”后进入宝塔面板！
-进入宝塔面板后，会弹出一键安装环境套件选择界面，这时我们选择左边的 LNMP 环境！
-Nginx 1.18，Mysql 5.6（如果服务器内存在 2g 以上可以选择 5.7），PHP 7.4（php 建议版本选择 7.0 以上），Pure-Ftpd 1.0.49，phpMyAdmin 5.0（这是一个可以在浏览器页面管理数据库的软件程序，要在服务器控制台安全防火墙那里添加端口 888，否则无法打开）
-安装方式有两个，极速安装（安装速度快，节省时间），编译安装（安装速度超级慢，有时会卡死，但会提升服务器性能），可自行选择。本文以极速安装为例！
-安装过程：
-安装完成后，会提示绑定宝塔账号，点击免费注册，去注册一个，然后绑定就可以了！
-**说明：**建议，安装完成后，左侧，面板设置，设置下面板的登录信息，修改一下登录入口，用户名，密码和端口。 注： 如果修改面板设置中的端口，也要在服务器控制台安全防火墙那里修改端口。
-7.安装 Typecho 访问Typecho 官网，点击立即下载，点击下载 1.1 正式版。
-下载完成后，得到一个 1.1-17.10.30-release.tar.gz 压缩包，解压后可以看到里面有一个 build 文件夹，文件夹里面便是 Typecho 程序文件。
-先域名解析一下，去你的域名服务商，控制台找到你的域名，解析，添加记录。主机记录填写@，www 或者 blog 其他的都可以（你填写的是什么就要以什么访问，比如填写 www 便是 www.xxx.com 等），记录类型 A 类型，记录值填写自己服务器的 IP 地址（如果不知道，可查看宝塔页面的左上角），确认就可以了！
-打开宝塔页面，左侧&ndash;》网站&ndash;》添加站点
-添加域名，数据库选择 Mysql utf-8，填写数据库账号和密码以及对应的 PHP 版本，然后提交。
-这里可以先设置一下站点，点击站点右侧的设置，需要设置的有伪静态，SSL 证书，，，
-伪静态选择 typecho，然后保存。
-SSL 证书，选择宝塔 SSL 证书，申请证书，填写相关信息，提交资料等申请成功就可以了。
-如果申请失败，可以去域名服务商那里，有提供单域名免费 SSL 证书，然后选择其他证书，上传证书，开启右上角的强制 HTTPs 就可以了。
-关闭设置窗口，点击根目录下的路径地址**/www/wwwroot/你的域名**，直接进入根目录文件夹，删除 index.html 文件。
-点击上传，弹出窗口，点击上传文件，找到下载的 Typecho 压缩包，打开，然后开始上传，上传完毕关闭窗口。
-解压该压缩包后（删除压缩包），得到 build 文件夹，进入其文件夹内，选择文件名旁边的框，全选文件，右上角选择剪贴，然后回到上一级根目录下，黏贴，然后删掉没用的 build 文件夹就可以了。
-到这一步，浏览器输入你的域名，就可以安装 Typecho 了。
-如有在上方遇到Deprecated: Function get_magic_quotes_gpc() is deprecated in /www/wwwroot/woshishabi.top/var/Typecho/Common.php on line 208报错，不用管，没什么影响。
-点击下一步，进入初始化配置，这一步需要填写修改的是数据库用户名（添加站点时设置的数据库账号，如果忘了可去宝塔面板页面左侧，数据库查看），数据库密码，数据库名（数据库名和数据库用户名是一样的！），用户名，登录密码，邮件地址，确认，开始安装。
-不出意外，安装成功！
-现在再浏览器访问域名，便可以查看你的 Typecho 博客了，当然现在是默认主题，还是比较丑的。
-去百度你喜欢的主题下载，然后上传根目录/usr/themes/目录里面，在后台外观设置中更换。各主题教程以及配置教程都有主题文档。
-插件安装是将下载的插件上传根目录/usr/plugin/ 目录里面，在后台设置中启用插件，设置插件。
-你的后台面板地址就是你的域名/admin，用设置的用户名和密码登录就可以了！
-基本的安装到此为止了，下面说一些优化问题！
-8.优化 **永久链接：**对文章和页面进行重写地址，可以去掉地址栏中的 index.php，对 seo 也是很友好的。
-启用重写功能，选择文章路径，选择你喜欢的风格，也可以自定义风格，下面有可选参数，本站使用的是个性化定义 /{cid}.html 。然后保存设置，会出现（重写功能检测失败，请检查你的服务器设置，如果你仍然想启用此功能，请勾选这里。），勾选这里，再次点击保存设置就可以了。
-" />
-<meta name="keywords" content="1.前言 本文从Typecho 简介开始讲解，其中包括服务器的选择，以及域名注册，服务器系统选择，宝塔安装，环境配置，Typecho 安装包括中间的防采坑注意事项，为您提供完整的保姆级搭建流程，请珍惜哦！
-如果不喜欢前面的啰嗦讲解，请跳过，直接从宝塔安装开始。
-不喜勿喷，谢谢！
-需要买服务器可以 点击链接在腾讯云购买服务器有优惠哦~ 不嫖白不嫖，省个十几二十块钱不香吗？
-2.Typecho 简介 Typecho 基于 PHP5 开发，支持多种数据库，是一款内核强健﹑扩展方便﹑体验友好﹑运行流畅的轻量级开源博客程序。
-Typecho 非常简洁，仅仅 7 张数据表，加上不足 400KB 的代码，就实现了完整的插件与模板机制。超低的 CPU 和内存使用率，足以发挥主机的最高性能。
-原生支持 Markdown 语法，易读更易写。支持 BAE/GAE/SAE 等各类云主机，即使面对突如其来的高访问量，也能轻松应对。
-Typecho 的默认模板和后台，全部采用了响应式设计。所以 Typecho 的大多数自制模板，都采用了自适应设计。
-现在Typecho 拥有很多用户，完整的生态，各种功能插件和简洁优美的主题，是做博客的不二选择，相信你会喜欢上她简洁的风格！
-3.准备 服务器 &#43; 域名
-搭建Typecho 博客需要使用服务器或者虚拟机，最近也看到一篇使用 Vercel&#43;Mysql 搭建 Typecho 的文章，但是这种是使用外部 Mysql 服务的，相比使用服务器或者虚拟机这种还是不太方便配置和管理的。使用服务器相比虚拟机会更加的好用。
-**注：**本文只讲解服务器的搭建流程，虚拟机请参考！
-**服务器选择：**推荐去腾讯云或阿里云，有学生机（9 元/月）可供选择，腾讯云还是 25 岁以下免学生认证的，学生价续费三次，所以有条件可以选择 1 年购买和续费，腾讯的还有免费升配置，，阿里云的学生机下架了，但是也可以买为新用户提供的，建议选择 轻量应用服务器，1h2g 的配置完全够用，流量也完全够用。
-腾讯云：https://cloud.tencent.com/act/campus
-阿里云：https://developer.aliyun.com/plan/grow-up
-如果你买不了这种，也可以去其他服务商买新用户优惠的服务器，建议选择大厂。
-选择服务器要看下地区，如果是大陆地区的服务器，需要去其对应的服务商进行域名备案，否者你无法使用，如果是香港地区或者国外的服务器，则不需要进行备案。
-**注：**阿里和腾讯这两种轻量应用服务器都是需要 备案的，如果嫌麻烦或者不想备案，可选择其他地区的服务器！
-备案操作有些复杂，也需要好几天的时间，但是备案也有备案的好处，比如使用国内的 CDN 加速等。另请仔细参考各服务商提供的流程，要注意看清备案流程上的注意事项，防止备案驳回浪费时间。
-相比国外和香港的服务器，使用大陆的服务器在国内的访问速度是最好的，当然如果你搞外国业务当我没说。。。
-**域名选择：**域名选择很简单，去各大服务商注册一个就完事了，喜欢什么就注册什么，但是如果你要备案使用大陆服务器，一定不要注册不支持备案的域名，当然绝大多数都是支持备案的。另各大服务商也有新用户注册域名优惠活动，在百度仔细找一下就行了。 腾讯云：https://cloud.tencent.com/act/domainsales
-阿里云：https://wanwang.aliyun.com/domain
-华为云：https://activity.huaweicloud.com/domain1.html
-下面开始搭建流程：
-4.LNMP 环境 首先我们要搭建的就是 LNMP 环境，LNMP 代表的就是：Linux 系统下 Nginx&#43;MySQL&#43;PHP 这种网站服务器架构。
-Linux 是一类 Unix 计算机操作系统的统称，是目前最流行的免费操作系统。代表版本有：debian、centos、ubuntu、fedora、gentoo 等。
-Nginx 是一个高性能的 HTTP 和反向代理 web 服务器，同时也提供了 IMAP/POP3/SMTP 服务。
-Mysql 是一款安全、跨平台、高效的，并与 PHP、Java 等主流编程语言紧密结合的数据库系统。
-PHP 是一种在服务器端执行的嵌入 HTML 文档的脚本语言。
-当然如果你不喜欢使用 Nginx，或者 Mysql，请自行更换其它的，这里不过多介绍！
-Linux 系统的话，本文使用 Centos 8 系统讲解。
-搭建 LNMP 环境，我们可以选择自行下载对应的安装包，然后在 Centos 系统中，安装Nginx，Mysql，PHP等，这种纯动手的方式，非常麻烦和复杂，在后期进行多网站管理和配置 HTTPS 证书，以及网站伪静态配置时非常麻烦。
-所以本文讲解使用宝塔面板来进行安装部署环境！
-5.宝塔是什么 宝塔面板是一款服务器管理软件，支持 windows 和 linux 系统，可以通过 Web 端轻松管理服务器，提升运维效率。例如：创建管理网站、FTP、数据库，拥有可视化文件管理器，可视化软件管理器，可视化 CPU、内存、流量监控图表，计划任务等功能。
-宝塔面板拥有极速方便的一键配置与管理，可一键配置服务器环境（LAMP/LNMP/Tomcat/Node.js），一键部署 SSL，异地备份；提供 SSH 开启关闭服务，SSH 端口更改，禁 ping，防火墙端口放行以及操作日志查看；CPU、内存、磁盘 IO、网络 IO 数据监测，可设置记录保存天数以及任意查看某天数据；
-计划任务可按周期添加执行，支持 SHELL 脚本，提供网站、数据库备份以及日志切割，且支持一键备份到又拍云存储空间，或者其他云存储空间里；通过 web 界面就可以轻松管理安装所用的服务器软件，还有实用的扩展插件；集成方便高效的文件管理器，支持上传、下载、打包、解压以及文件编辑查看。
-进入搭建正题：
-6.安装宝塔 选择服务器时，选择系统镜像，不要选择服务商提供的应用镜像，操作系统选择 Centos，版本的话 7 和 8 都可以。当然你也可以选择其他系统，，，
-接着到服务商的控制台，找到你的服务器，进入控制台，重置密码。
-然后在安全&ndash;》防火墙那里添加规则。
-端口范围8888，其他默认，备注随意。
-**注：**如果你不添加 8888，安装宝塔以后你是进不去的，安装宝塔以后可以修改宝塔的进入端口，再修改一下这里就可以了！
-使用 SSH 工具连接你的服务器，如果没有 SSH 工具也可以使用控制台那里提供的远程连接！
-在终端界面输入一下命令开始安装！
-Centos 安装命令：
-yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh 不同操作系统有不同的安装命令，详情请去宝塔官网查看！
-遇到安装提示直接输入：y
-安装完成后如下：
-在浏览器中访问外网面板地址。
-**注：**如果你刚才没有在服务器控制台安全防火墙那里添加端口 8888 是打不开的。
-使用 username 和 password 登录宝塔面板，点击我已阅读并同意“《用户协议》”后进入宝塔面板！
-进入宝塔面板后，会弹出一键安装环境套件选择界面，这时我们选择左边的 LNMP 环境！
-Nginx 1.18，Mysql 5.6（如果服务器内存在 2g 以上可以选择 5.7），PHP 7.4（php 建议版本选择 7.0 以上），Pure-Ftpd 1.0.49，phpMyAdmin 5.0（这是一个可以在浏览器页面管理数据库的软件程序，要在服务器控制台安全防火墙那里添加端口 888，否则无法打开）
-安装方式有两个，极速安装（安装速度快，节省时间），编译安装（安装速度超级慢，有时会卡死，但会提升服务器性能），可自行选择。本文以极速安装为例！
-安装过程：
-安装完成后，会提示绑定宝塔账号，点击免费注册，去注册一个，然后绑定就可以了！
-**说明：**建议，安装完成后，左侧，面板设置，设置下面板的登录信息，修改一下登录入口，用户名，密码和端口。 注： 如果修改面板设置中的端口，也要在服务器控制台安全防火墙那里修改端口。
-7.安装 Typecho 访问Typecho 官网，点击立即下载，点击下载 1.1 正式版。
-下载完成后，得到一个 1.1-17.10.30-release.tar.gz 压缩包，解压后可以看到里面有一个 build 文件夹，文件夹里面便是 Typecho 程序文件。
-先域名解析一下，去你的域名服务商，控制台找到你的域名，解析，添加记录。主机记录填写@，www 或者 blog 其他的都可以（你填写的是什么就要以什么访问，比如填写 www 便是 www.xxx.com 等），记录类型 A 类型，记录值填写自己服务器的 IP 地址（如果不知道，可查看宝塔页面的左上角），确认就可以了！
-打开宝塔页面，左侧&ndash;》网站&ndash;》添加站点
-添加域名，数据库选择 Mysql utf-8，填写数据库账号和密码以及对应的 PHP 版本，然后提交。
-这里可以先设置一下站点，点击站点右侧的设置，需要设置的有伪静态，SSL 证书，，，
-伪静态选择 typecho，然后保存。
-SSL 证书，选择宝塔 SSL 证书，申请证书，填写相关信息，提交资料等申请成功就可以了。
-如果申请失败，可以去域名服务商那里，有提供单域名免费 SSL 证书，然后选择其他证书，上传证书，开启右上角的强制 HTTPs 就可以了。
-关闭设置窗口，点击根目录下的路径地址**/www/wwwroot/你的域名**，直接进入根目录文件夹，删除 index.html 文件。
-点击上传，弹出窗口，点击上传文件，找到下载的 Typecho 压缩包，打开，然后开始上传，上传完毕关闭窗口。
-解压该压缩包后（删除压缩包），得到 build 文件夹，进入其文件夹内，选择文件名旁边的框，全选文件，右上角选择剪贴，然后回到上一级根目录下，黏贴，然后删掉没用的 build 文件夹就可以了。
-到这一步，浏览器输入你的域名，就可以安装 Typecho 了。
-如有在上方遇到Deprecated: Function get_magic_quotes_gpc() is deprecated in /www/wwwroot/woshishabi.top/var/Typecho/Common.php on line 208报错，不用管，没什么影响。
-点击下一步，进入初始化配置，这一步需要填写修改的是数据库用户名（添加站点时设置的数据库账号，如果忘了可去宝塔面板页面左侧，数据库查看），数据库密码，数据库名（数据库名和数据库用户名是一样的！），用户名，登录密码，邮件地址，确认，开始安装。
-不出意外，安装成功！
-现在再浏览器访问域名，便可以查看你的 Typecho 博客了，当然现在是默认主题，还是比较丑的。
-去百度你喜欢的主题下载，然后上传根目录/usr/themes/目录里面，在后台外观设置中更换。各主题教程以及配置教程都有主题文档。
-插件安装是将下载的插件上传根目录/usr/plugin/ 目录里面，在后台设置中启用插件，设置插件。
-你的后台面板地址就是你的域名/admin，用设置的用户名和密码登录就可以了！
-基本的安装到此为止了，下面说一些优化问题！
-8.优化 **永久链接：**对文章和页面进行重写地址，可以去掉地址栏中的 index.php，对 seo 也是很友好的。
-启用重写功能，选择文章路径，选择你喜欢的风格，也可以自定义风格，下面有可选参数，本站使用的是个性化定义 /{cid}.html 。然后保存设置，会出现（重写功能检测失败，请检查你的服务器设置，如果你仍然想启用此功能，请勾选这里。），勾选这里，再次点击保存设置就可以了。
-" />
-
-
 <meta property="og:description" content="1.前言 本文从Typecho 简介开始讲解，其中包括服务器的选择，以及域名注册，服务器系统选择，宝塔安装，环境配置，Typecho 安装包括中间的防采坑注意事项，为您提供完整的保姆级搭建流程，请珍惜哦！
 如果不喜欢前面的啰嗦讲解，请跳过，直接从宝塔安装开始。
 不喜勿喷，谢谢！
@@ -368,114 +202,68 @@ SSL 证书，选择宝塔 SSL 证书，申请证书，填写相关信息，提�
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/index.css">
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
-<script src="/js/jquery3.6.0.min.js"></script>
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BGB227HN9X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BGB227HN9X');
-</script>
 </head>
 
 <body>
-  <div class="wrapper">
-    <div class="main">
-      <div class="aside">
-  <div class="top">
-    <a href="/" title="子舒的博客"><img src="https://imgurl.zishu.me/author.png" width="72" height="72" class="avatar" alt="子舒的博客" border="0"></a>
-    <div class="site-info">
-      
-       <a href="/"><svg width="104.597" height="39.369" viewBox="0 0 104.597 39.369" xmlns="http://www.w3.org/2000/svg"><g id="svgGroup" stroke-linecap="round" fill-rule="evenodd" font-size="9pt" stroke="#000000" stroke-width="0.1mm" fill="#000000" style="stroke:#000000;stroke-width:0.1mm;fill:#000000"><path d="M 67.659 29.801 L 68.763 19.635 Q 68.763 18.393 68.119 17.565 Q 67.475 16.737 66.049 16.737 Q 64.623 16.737 63.634 17.864 Q 62.645 18.991 62.185 20.831 Q 61.863 23.453 61.219 28.49 A 2866.126 2866.126 0 0 0 60.69 32.647 A 536.88 536.88 0 0 0 60.391 35.045 L 54.273 35.045 A 18068.443 18068.443 0 0 0 55.744 22.484 Q 57.283 9.299 57.949 3.362 A 627.499 627.499 0 0 0 58.275 0.407 Q 59.241 0.039 60.897 0.039 A 3.976 3.976 0 0 1 64.139 1.045 A 1.775 1.775 0 0 1 64.485 2.155 L 64.485 2.431 A 270.679 270.679 0 0 1 63.046 13.731 A 177.594 177.594 0 0 1 62.829 15.127 Q 65.267 12.919 68.349 12.919 Q 71.431 12.919 73.225 14.483 Q 75.019 16.047 75.019 18.439 Q 75.019 19.083 74.743 20.831 A 276.731 276.731 0 0 0 73.983 26.046 Q 73.685 28.292 73.685 28.927 Q 73.685 31.089 75.111 31.089 Q 76.307 31.089 77.664 29.502 A 11.951 11.951 0 0 0 77.825 29.282 A 18.722 18.722 0 0 1 78.055 27.041 Q 79.113 18.485 79.665 13.425 Q 81.091 12.919 82.287 12.919 Q 83.483 12.919 84.081 13.011 Q 84.679 13.103 85.231 13.701 Q 85.783 14.299 85.783 15.403 L 84.265 27.133 Q 84.173 27.685 84.173 28.145 Q 84.173 30.859 86.657 30.859 Q 88.957 30.859 90.475 28.605 Q 90.475 28.099 90.567 26.995 L 92.085 14.759 Q 92.407 13.977 93.465 13.448 Q 94.523 12.919 96.11 12.919 Q 97.697 12.919 98.479 13.379 Q 96.924 25.663 96.651 28.479 A 10.731 10.731 0 0 0 96.593 29.249 Q 96.593 31.089 97.927 31.089 Q 99.123 31.089 100.526 29.456 Q 101.929 27.823 102.757 24.557 Q 104.275 26.213 104.597 27.133 A 12.282 12.282 0 0 1 101.894 32.831 A 6.516 6.516 0 0 1 101.239 33.435 Q 98.939 35.275 96.501 35.275 Q 92.499 35.275 91.119 32.193 Q 88.727 35.275 84.725 35.275 Q 81.413 35.275 79.619 33.619 A 5.611 5.611 0 0 1 78.856 32.75 A 13.283 13.283 0 0 1 78.373 33.275 A 7.221 7.221 0 0 1 73.271 35.229 Q 70.419 35.229 69.039 33.481 Q 67.659 31.733 67.659 29.801 Z M 20.739 28.881 L 22.395 14.667 Q 22.855 13.839 24.143 13.402 Q 25.431 12.965 26.696 12.965 Q 27.961 12.965 28.927 13.287 Q 27.133 27.133 27.133 27.271 Q 26.903 28.191 26.903 28.812 Q 26.903 29.433 26.995 29.893 A 1.435 1.435 0 0 0 27.961 31.04 A 8.754 8.754 0 0 1 28.881 28.421 Q 30.752 24.861 37.604 18.675 A 123.618 123.618 0 0 1 37.713 18.577 Q 36.011 16.875 36.011 14.943 Q 36.011 13.011 37.46 11.677 Q 38.909 10.343 40.887 10.343 Q 42.681 10.343 44.015 11.769 Q 44.889 12.735 44.889 14.207 Q 44.889 15.679 43.923 17.519 A 72.971 72.971 0 0 1 48.835 19.902 A 18.079 18.079 0 0 1 50.593 20.969 Q 54.227 23.637 54.227 27.271 Q 54.227 30.905 51.375 33.113 Q 48.523 35.321 44.199 35.321 Q 41.393 35.321 39.53 33.918 Q 37.667 32.515 37.667 30.445 Q 37.667 28.375 39.047 27.156 Q 40.427 25.937 42.497 25.661 Q 41.531 27.041 41.531 28.306 Q 41.531 29.571 42.405 30.353 Q 43.279 31.135 44.613 31.135 Q 45.947 31.135 46.821 30.146 Q 47.695 29.157 47.695 27.869 Q 47.695 25.753 45.717 24.097 Q 44.521 23.131 43.141 22.28 A 104.019 104.019 0 0 0 41.712 21.407 A 0.982 0.982 0 0 0 41.669 21.383 Q 41.485 21.245 41.301 21.153 Q 40.473 22.119 38.909 23.798 Q 37.345 25.477 36.425 26.489 A 12.83 12.83 0 0 0 34.85 28.396 A 12.665 12.665 0 0 1 33.52 31.218 A 6.915 6.915 0 0 0 33.435 32.584 Q 33.435 33.619 34.056 34.723 Q 34.677 35.827 35.551 36.379 Q 36.425 36.931 37.276 37.276 Q 38.127 37.621 38.748 37.759 Q 39.369 37.897 39.369 37.943 Q 39.369 38.265 38.357 38.679 Q 36.471 39.369 34.424 39.369 Q 32.377 39.369 30.445 37.897 A 6.46 6.46 0 0 1 28.329 35.212 A 7.144 7.144 0 0 1 26.765 35.367 Q 23.683 35.367 22.188 33.849 Q 20.693 32.331 20.693 29.939 Q 20.693 29.433 20.739 28.881 Z M 13.471 35.459 L 0.683 35.183 A 1.327 1.327 0 0 1 0.085 33.556 A 8.453 8.453 0 0 1 0.085 33.55 Q 0.085 31.917 0.775 30.997 A 13.911 13.911 0 0 1 2.876 27.663 A 47.078 47.078 0 0 1 4.593 25.615 Q 5.605 24.465 8.365 21.475 A 141.512 141.512 0 0 0 11.268 18.255 A 27.559 27.559 0 0 0 11.999 17.381 L 9.561 17.243 Q 8.871 18.899 7.56 19.934 Q 6.249 20.969 4.639 20.969 Q 2.799 20.969 1.649 19.888 Q 0.499 18.807 0.499 16.875 Q 0.499 14.943 1.833 13.793 Q 3.167 12.643 5.513 12.643 L 18.301 12.919 Q 18.899 12.919 18.899 14.483 Q 18.899 16.093 18.301 16.967 Q 17.749 17.979 16.714 19.106 Q 15.679 20.233 13.701 22.096 A 175.609 175.609 0 0 0 11.155 24.529 A 38.997 38.997 0 0 0 10.941 24.741 Q 7.859 27.823 6.341 30.675 L 9.423 30.859 Q 10.113 29.203 11.424 28.168 Q 12.735 27.133 14.345 27.133 Q 16.185 27.133 17.335 28.214 Q 18.485 29.295 18.485 31.227 Q 18.485 33.159 17.151 34.309 Q 15.817 35.459 13.471 35.459 Z M 24.281 1.166 Q 25.339 0.085 26.857 0.085 Q 28.375 0.085 29.456 1.166 Q 30.537 2.247 30.537 3.765 Q 30.537 5.283 29.456 6.341 Q 28.375 7.399 26.857 7.399 Q 25.339 7.399 24.281 6.341 Q 23.223 5.283 23.223 3.765 Q 23.223 2.247 24.281 1.166 Z M 7.583 17.105 L 5.697 16.967 Q 5.421 16.921 5.145 16.921 Q 3.535 16.921 3.535 17.979 Q 3.535 19.037 4.731 19.037 Q 6.525 19.037 7.583 17.105 Z M 11.401 30.997 L 13.287 31.135 Q 13.563 31.181 13.839 31.181 Q 15.449 31.181 15.449 30.123 Q 15.449 29.065 14.253 29.065 Q 12.459 29.065 11.401 30.997 Z M 40.611 15.771 Q 41.715 14.621 41.715 14.115 Q 41.715 12.965 40.703 12.873 Q 39.553 12.873 39.553 14.161 Q 39.553 14.943 40.611 15.771 Z"/></g></svg></a>
-      <div class="site-about">
-        <p>一个热爱生活的前端开发工程师。</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="nav-container">
-    <div class="nav">
-      
-      <a href="/" class="nav-item">
-        <img src="/images/sparkles.png" width="17" height="17" alt="sparkles" />
-        <span>首页</span>
-      </a>
-      
-      <a href="/tags/" class="nav-item">
-        <img src="/images/tags.png" width="17" height="17" alt="tags" />
-        <span>标签</span>
-      </a>
-      
-      <a href="/message/" class="nav-item">
-        <img src="/images/message.png" width="17" height="17" alt="message" />
-        <span>留言</span>
-      </a>
-      
-      <a href="/about/" class="nav-item">
-        <img src="/images/about.png" width="17" height="17" alt="about" />
-        <span>关于</span>
-      </a>
-      
-      <a href="/search/" class="nav-item">
-        <img src="/images/search.png" width="17" height="17" alt="search" />
-        <span>搜索</span>
-      </a>
-      
-      <a href="/index.xml" class="nav-item">
-        <img src="/images/rss.png" width="17" height="17" alt="rss" />
-        <span>订阅</span>
-      </a>
-      
-    </div>
-    <div class="share">
-      <a href="/index.xml" target="_blank" title="RSS"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-file-rss"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 2l.117 .007a1 1 0 0 1 .876 .876l.007 .117v4l.005 .15a2 2 0 0 0 1.838 1.844l.157 .006h4l.117 .007a1 1 0 0 1 .876 .876l.007 .117v9a3 3 0 0 1 -2.824 2.995l-.176 .005h-10a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-14a3 3 0 0 1 2.824 -2.995l.176 -.005zm-3 11a1 1 0 0 0 0 2a2 2 0 0 1 1.995 1.85l.005 .15a1 1 0 0 0 2 0a4 4 0 0 0 -4 -4m0 -3a1 1 0 0 0 0 2a5 5 0 0 1 5 5a1 1 0 0 0 2 0a7 7 0 0 0 -7 -7m.01 6h-.01a1 1 0 0 0 -.117 1.993l.127 .007a1 1 0 0 0 0 -2m5.989 -13.001l4.001 4.001h-4z" /></svg></a>
-      <a href="https://github.com/dlzmoe" target="_blank" title="GitHub"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5.315 2.1c.791 -.113 1.9 .145 3.333 .966l.272 .161l.16 .1l.397 -.083a13.3 13.3 0 0 1 4.59 -.08l.456 .08l.396 .083l.161 -.1c1.385 -.84 2.487 -1.17 3.322 -1.148l.164 .008l.147 .017l.076 .014l.05 .011l.144 .047a1 1 0 0 1 .53 .514a5.2 5.2 0 0 1 .397 2.91l-.047 .267l-.046 .196l.123 .163c.574 .795 .93 1.728 1.03 2.707l.023 .295l.007 .272c0 3.855 -1.659 5.883 -4.644 6.68l-.245 .061l-.132 .029l.014 .161l.008 .157l.004 .365l-.002 .213l-.003 3.834a1 1 0 0 1 -.883 .993l-.117 .007h-6a1 1 0 0 1 -.993 -.883l-.007 -.117v-.734c-1.818 .26 -3.03 -.424 -4.11 -1.878l-.535 -.766c-.28 -.396 -.455 -.579 -.589 -.644l-.048 -.019a1 1 0 0 1 .564 -1.918c.642 .188 1.074 .568 1.57 1.239l.538 .769c.76 1.079 1.36 1.459 2.609 1.191l.001 -.678l-.018 -.168a5.03 5.03 0 0 1 -.021 -.824l.017 -.185l.019 -.12l-.108 -.024c-2.976 -.71 -4.703 -2.573 -4.875 -6.139l-.01 -.31l-.004 -.292a5.6 5.6 0 0 1 .908 -3.051l.152 -.222l.122 -.163l-.045 -.196a5.2 5.2 0 0 1 .145 -2.642l.1 -.282l.106 -.253a1 1 0 0 1 .529 -.514l.144 -.047l.154 -.03z" /></svg></a>
-      <a href="https://discord.com/invite/n2pErsD7Kg" target="_blank" title="Discord"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-brand-discord"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14.983 3l.123 .006c2.014 .214 3.527 .672 4.966 1.673a1 1 0 0 1 .371 .488c1.876 5.315 2.373 9.987 1.451 12.28c-1.003 2.005 -2.606 3.553 -4.394 3.553c-.732 0 -1.693 -.968 -2.328 -2.045a21.512 21.512 0 0 0 2.103 -.493a1 1 0 1 0 -.55 -1.924c-3.32 .95 -6.13 .95 -9.45 0a1 1 0 0 0 -.55 1.924c.717 .204 1.416 .37 2.103 .494c-.635 1.075 -1.596 2.044 -2.328 2.044c-1.788 0 -3.391 -1.548 -4.428 -3.629c-.888 -2.217 -.39 -6.89 1.485 -12.204a1 1 0 0 1 .371 -.488c1.439 -1.001 2.952 -1.459 4.966 -1.673a1 1 0 0 1 .935 .435l.063 .107l.651 1.285l.137 -.016a12.97 12.97 0 0 1 2.643 0l.134 .016l.65 -1.284a1 1 0 0 1 .754 -.54l.122 -.009zm-5.983 7a2 2 0 0 0 -1.977 1.697l-.018 .154l-.005 .149l.005 .15a2 2 0 1 0 1.995 -2.15zm6 0a2 2 0 0 0 -1.977 1.697l-.018 .154l-.005 .149l.005 .15a2 2 0 1 0 1.995 -2.15z" /></svg></a>
-    </div>
-  </div>
-</div>
-
-
-      <h1>Typecho 博客搭建及优化教程 (详细)</h1>
-
-      
-      <div class="meta">
-        <div class="date">2021 年 5 月 11 日</div>
-        <div class="post-tags">
-          
-          
-          <span class="namenode">分类：<a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-          </span>
-          
-          
-          <span class="tag-node">
-            
-            标签：<a href="/tags/%E5%8D%9A%E5%AE%A2">#博客</a>
-            <a href="/tags/typecho">#typecho</a>
-            <a href="/tags/%E8%BD%AC%E8%BD%BD">#转载</a>
-            
-            
-          </span>
-        </div>
-      </div>
-      
+  <nav class="headnav">
+  <a href="/" class="logo">zishu.me</a>
+  <ul id="menu">
     
+    <li><a href="/">首页</a></li>
+    
+    <li><a href="/blog/">博客</a></li>
+    
+    <li><a href="/tags/">标签</a></li>
+    
+    <li><a href="/message/">留言</a></li>
+    
+    <li><a href="/about/">关于</a></li>
+    
+    <li><a href="/search/">搜索</a></li>
+    
+    <li><a href="/index.xml" target="_blank">订阅</a></li>
+  </ul>
+</nav>
+  <section>
+    
+    <div class="body-title">Typecho 博客搭建及优化教程 (详细)</div>
+
+    
+    <div class="post-meta">
+      <time> 2021-05-11</time>
       
-      <div class="toc">
-        <details open>
-          <summary accesskey="c" title="(Alt + C)"><span class="details">Table of Contents</span></summary>
-          <div class="inner"> <nav id="TableOfContents">
+      
+      <span class="namenode">分类：
+        <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+      </span>
+      
+      
+
+      <span class="tag-node">
+        
+        标签：
+        
+        <a href="/tags/%E5%8D%9A%E5%AE%A2">#博客</a>
+        
+        <a href="/tags/typecho">#typecho</a>
+        
+        <a href="/tags/%E8%BD%AC%E8%BD%BD">#转载</a>
+        
+        
+      </span>
+
+    </div>
+    
+
+    
+    <div class="toc">
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#1前言">1.前言</a></li>
     <li><a href="#2typecho-简介">2.Typecho 简介</a></li>
@@ -486,14 +274,13 @@ SSL 证书，选择宝塔 SSL 证书，申请证书，填写相关信息，提�
     <li><a href="#7安装-typecho">7.安装 Typecho</a></li>
     <li><a href="#8优化">8.优化</a></li>
   </ul>
-</nav></div>
-        </details>
-      </div>
-      
+</nav>
+    </div>
+    
 
-      <article class="content post-content">
-        
-        <h2 id="1前言">1.前言</h2>
+    <article class="post-content">
+      
+      <h2 id="1前言">1.前言</h2>
 <p>本文从<a href="http://typecho.org/">Typecho</a> 简介开始讲解，其中包括服务器的选择，以及域名注册，服务器系统选择，宝塔安装，环境配置，Typecho 安装包括中间的防采坑注意事项，为您提供完整的保姆级搭建流程，请珍惜哦！</p>
 <p>如果不喜欢前面的啰嗦讲解，请跳过，直接从宝塔安装开始。</p>
 <p>不喜勿喷，谢谢！</p>
@@ -510,23 +297,9 @@ SSL 证书，选择宝塔 SSL 证书，申请证书，填写相关信息，提�
 <p>**注：**本文只讲解服务器的搭建流程，虚拟机请参考！</p>
 <p>**服务器选择：**推荐去腾讯云或阿里云，有学生机（9 元/月）可供选择，腾讯云还是 25 岁以下免学生认证的，学生价续费三次，所以有条件可以选择 1 年购买和续费，腾讯的还有免费升配置，，阿里云的学生机下架了，但是也可以买为新用户提供的，建议选择 <strong>轻量应用服务器</strong>，1h2g 的配置完全够用，流量也完全够用。</p>
 <p>腾讯云：<a href="https://cloud.tencent.com/act/campus">https://cloud.tencent.com/act/campus</a></p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/09/49e7bb85ed4228bb7811bf78f79878d0.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/09/49e7bb85ed4228bb7811bf78f79878d0.png" alt=""></p>
 <p>阿里云：<a href="https://developer.aliyun.com/plan/grow-up">https://developer.aliyun.com/plan/grow-up</a></p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/09/4f77bef832af425c57bbab74075bad78.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/09/4f77bef832af425c57bbab74075bad78.png" alt=""></p>
 <p>如果你买不了这种，也可以去其他服务商买新用户优惠的服务器，建议选择大厂。</p>
 <p>选择服务器要看下地区，如果是大陆地区的服务器，需要去其对应的服务商进行域名备案，否者你无法使用，如果是香港地区或者国外的服务器，则不需要进行备案。</p>
 <p>**注：**阿里和腾讯这两种轻量应用服务器都是需要 <strong>备案</strong>的，如果嫌麻烦或者不想备案，可选择其他地区的服务器！</p>
@@ -534,32 +307,11 @@ SSL 证书，选择宝塔 SSL 证书，申请证书，填写相关信息，提�
 <p>相比国外和香港的服务器，使用大陆的服务器在国内的访问速度是最好的，当然如果你搞外国业务当我没说。。。</p>
 <p>**域名选择：**域名选择很简单，去各大服务商注册一个就完事了，喜欢什么就注册什么，但是如果你要备案使用大陆服务器，一定不要注册不支持备案的域名，当然绝大多数都是支持备案的。另各大服务商也有新用户注册域名优惠活动，在百度仔细找一下就行了。
 腾讯云：<a href="https://cloud.tencent.com/act/domainsales">https://cloud.tencent.com/act/domainsales</a></p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/8857ba9becbbb51df2256bd0cf6acbd3.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/8857ba9becbbb51df2256bd0cf6acbd3.png" alt=""></p>
 <p>阿里云：<a href="https://wanwang.aliyun.com/domain">https://wanwang.aliyun.com/domain</a></p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/28dea75217501fa6090df5374a994608.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/28dea75217501fa6090df5374a994608.png" alt=""></p>
 <p>华为云：<a href="https://activity.huaweicloud.com/domain1.html">https://activity.huaweicloud.com/domain1.html</a></p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/545398ef8ec2147e76d06536ac1bc62a.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/545398ef8ec2147e76d06536ac1bc62a.png" alt=""></p>
 <p>下面开始搭建流程：</p>
 <h2 id="4lnmp-环境">4.LNMP 环境</h2>
 <p>首先我们要搭建的就是 LNMP 环境，LNMP 代表的就是：Linux 系统下 Nginx+MySQL+PHP 这种网站服务器架构。</p>
@@ -586,218 +338,70 @@ SSL 证书，选择宝塔 SSL 证书，申请证书，填写相关信息，提�
 <p>在终端界面输入一下命令开始安装！</p>
 <p>Centos 安装命令：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum install -y wget <span class="o">&amp;&amp;</span> wget -O install.sh http://download.bt.cn/install/install_6.0.sh <span class="o">&amp;&amp;</span> sh install.sh
-</span></span></code></pre></div><p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/8c9554cec2f765f559c272a6ac360d6b.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+</span></span></code></pre></div><p><img src="https://imgurl.zishu.me/images/old/2021/05/11/8c9554cec2f765f559c272a6ac360d6b.png" alt=""></p>
 <p>不同操作系统有不同的安装命令，详情请去<a href="https://www.bt.cn/bbs/thread-19376-1-1.html">宝塔官网</a>查看！</p>
 <p>遇到安装提示直接输入：y</p>
 <p>安装完成后如下：</p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/e556f7143c95278a969612242a46ebae.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/e556f7143c95278a969612242a46ebae.png" alt=""></p>
 <p>在浏览器中访问外网面板地址。</p>
 <p>**注：**如果你刚才没有在服务器控制台安全防火墙那里添加端口 8888 是打不开的。</p>
 <p>使用 username 和 password 登录宝塔面板，点击我已阅读并同意“《用户协议》”后进入宝塔面板！</p>
 <p>进入宝塔面板后，会弹出一键安装环境套件选择界面，这时我们选择左边的 LNMP 环境！</p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/c1a01ea7140e5669dd2a039fe5ef81b5.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/c1a01ea7140e5669dd2a039fe5ef81b5.png" alt=""></p>
 <p><strong>Nginx 1.18，Mysql 5.6（如果服务器内存在 2g 以上可以选择 5.7），PHP 7.4（php 建议版本选择 7.0 以上），Pure-Ftpd 1.0.49，phpMyAdmin 5.0（这是一个可以在浏览器页面管理数据库的软件程序，要在服务器控制台安全防火墙那里添加端口 888，否则无法打开）</strong></p>
 <p>安装方式有两个，极速安装（安装速度快，节省时间），编译安装（安装速度超级慢，有时会卡死，但会提升服务器性能），可自行选择。本文以极速安装为例！</p>
 <p>安装过程：</p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/9f0adbe007c866d5f99d7aecc811c0dd.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/9f0adbe007c866d5f99d7aecc811c0dd.png" alt=""></p>
 <p>安装完成后，会提示绑定宝塔账号，点击免费注册，去注册一个，然后绑定就可以了！</p>
 <p>**说明：**建议，安装完成后，左侧，面板设置，设置下面板的登录信息，修改一下登录入口，用户名，密码和端口。
 <strong>注：</strong> 如果修改面板设置中的端口，也要在服务器控制台安全防火墙那里修改端口。</p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/80adff2edec40d09eac4a104b1fd2b0a.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/80adff2edec40d09eac4a104b1fd2b0a.png" alt=""></p>
 <h2 id="7安装-typecho">7.安装 Typecho</h2>
 <p>访问<a href="http://typecho.org/">Typecho</a> 官网，点击立即下载，点击下载 1.1 正式版。</p>
 <p>下载完成后，得到一个 1.1-17.10.30-release.tar.gz 压缩包，解压后可以看到里面有一个 build 文件夹，文件夹里面便是 Typecho 程序文件。</p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/cdfd81118b588eb1591281b9fda9c115.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/cdfd81118b588eb1591281b9fda9c115.png" alt=""></p>
 <p>先域名解析一下，去你的域名服务商，控制台找到你的域名，解析，添加记录。主机记录填写@，www 或者 blog 其他的都可以（你填写的是什么就要以什么访问，比如填写 www 便是 <a href="https://www.xxx.com">www.xxx.com</a> 等），记录类型 A 类型，记录值填写自己服务器的 IP 地址（如果不知道，可查看宝塔页面的左上角），确认就可以了！</p>
 <p>打开宝塔页面，左侧&ndash;》网站&ndash;》添加站点</p>
 <p>添加域名，数据库选择 Mysql utf-8，填写数据库账号和密码以及对应的 PHP 版本，然后提交。</p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/3d4ae9731d4c32a7d828e3c4d6218ef9.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/3d4ae9731d4c32a7d828e3c4d6218ef9.png" alt=""></p>
 <p>这里可以先设置一下站点，点击站点右侧的设置，需要设置的有伪静态，SSL 证书，，，</p>
 <p>伪静态选择 typecho，然后保存。</p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/bb5a833133b91a2bcb05fe7c8ad07f97.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/bb5a833133b91a2bcb05fe7c8ad07f97.png" alt=""></p>
 <p>SSL 证书，选择宝塔 SSL 证书，申请证书，填写相关信息，提交资料等申请成功就可以了。</p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/63078aa08ab79cd588722a625640bc55.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/98cecc20651ad2aa9056965a4004c2a6.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/63078aa08ab79cd588722a625640bc55.png" alt=""></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/98cecc20651ad2aa9056965a4004c2a6.png" alt=""></p>
 <p>如果申请失败，可以去域名服务商那里，有提供单域名免费 SSL 证书，然后选择其他证书，上传证书，开启右上角的强制 HTTPs 就可以了。</p>
 <p>关闭设置窗口，点击<strong>根目录</strong>下的路径地址**/www/wwwroot/你的域名**，直接进入根目录文件夹，删除 index.html 文件。</p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/4764539572826852ef33d9f4f1b4737f.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/4764539572826852ef33d9f4f1b4737f.png" alt=""></p>
 <p>点击上传，弹出窗口，点击上传文件，找到下载的 Typecho 压缩包，打开，然后开始上传，上传完毕关闭窗口。</p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/019bdf158e1ff508e71662e2ef06bda8.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/38a903132952557ffce43ff3d11999c4.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/019bdf158e1ff508e71662e2ef06bda8.png" alt=""></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/38a903132952557ffce43ff3d11999c4.png" alt=""></p>
 <p>解压该压缩包后（删除压缩包），得到 build 文件夹，进入其文件夹内，选择文件名旁边的框，全选文件，右上角选择剪贴，然后回到上一级根目录下，黏贴，然后删掉没用的 build 文件夹就可以了。</p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/7bfe1bcbc959ee73c9869bf11ab950d6.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/ea2c1bc80de015657cf1fad157df5274.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/7bfe1bcbc959ee73c9869bf11ab950d6.png" alt=""></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/ea2c1bc80de015657cf1fad157df5274.png" alt=""></p>
 <p>到这一步，浏览器输入你的域名，就可以安装 Typecho 了。</p>
 <p>如有在上方遇到<code>Deprecated: Function get_magic_quotes_gpc() is deprecated in /www/wwwroot/woshishabi.top/var/Typecho/Common.php on line 208</code>报错，不用管，没什么影响。</p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/f82fb90632987b1cdaddb583e4534664.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/f82fb90632987b1cdaddb583e4534664.png" alt=""></p>
 <p>点击下一步，进入初始化配置，这一步需要填写修改的是数据库用户名（添加站点时设置的数据库账号，如果忘了可去宝塔面板页面左侧，数据库查看），数据库密码，数据库名（数据库名和数据库用户名是一样的！），用户名，登录密码，邮件地址，确认，开始安装。</p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/0d5e93682c1ec6e5d0b441d49bf28618.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/0d5e93682c1ec6e5d0b441d49bf28618.png" alt=""></p>
 <p>不出意外，安装成功！</p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/f9c0d8bae2e1f5d652774332a986a3ea.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/f9c0d8bae2e1f5d652774332a986a3ea.png" alt=""></p>
 <p>现在再浏览器访问域名，便可以查看你的 Typecho 博客了，当然现在是默认主题，还是比较丑的。</p>
 <p>去百度你喜欢的主题下载，然后上传根目录/usr/themes/目录里面，在后台外观设置中更换。各主题教程以及配置教程都有主题文档。</p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/8a851580aaff42f50f52703898b66d6b.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/8a851580aaff42f50f52703898b66d6b.png" alt=""></p>
 <p>插件安装是将下载的插件上传根目录/usr/plugin/ 目录里面，在后台设置中启用插件，设置插件。</p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/316748ca1a877075d9e0d50ee0775d9e.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/316748ca1a877075d9e0d50ee0775d9e.png" alt=""></p>
 <p>你的后台面板地址就是你的域名/admin，用设置的用户名和密码登录就可以了！</p>
 <p>基本的安装到此为止了，下面说一些优化问题！</p>
 <h2 id="8优化">8.优化</h2>
 <p>**永久链接：**对文章和页面进行重写地址，可以去掉地址栏中的 index.php，对 seo 也是很友好的。</p>
 <p>启用重写功能，选择文章路径，选择你喜欢的风格，也可以自定义风格，下面有可选参数，本站使用的是个性化定义 <code>/{cid}.html</code> 。然后保存设置，会出现（重写功能检测失败，请检查你的服务器设置，如果你仍然想启用此功能，请勾选这里。），勾选这里，再次点击保存设置就可以了。</p>
-<p>     
-<figure>
-  <img 
-		src="https://imgurl.zishu.me/images/old/2021/05/11/bc2528e7c7fa51abd06530cd16cc3b7a.png"
-    alt=""class="lazy"
-	>
-  <figcaption></figcaption>
-</figure></p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/05/11/bc2528e7c7fa51abd06530cd16cc3b7a.png" alt=""></p>
 
-        <div class="weekly-pagination"></div>
-      </article>
+    </article>
 
-      
-      <ul class="comment-tabs">
+    
+    <ul class="comment-tabs">
   
   <li>LinuxDo</li>
   
@@ -855,31 +459,55 @@ twikoo.init({
 </script>
 
 <script>
-  $('.comment-tabs li').each(function(){
-    $('.comment-tabs li').eq(0).addClass('active');
-    $('.comments > div').eq(0).addClass('active');
-    $(this).click(function(){
-      $(this).addClass('active').siblings().removeClass('active');
-      $('.comments > div').eq($(this).index()).addClass('active').siblings().removeClass('active');
-    })
-  })
+document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+  if (index === 0) {
+    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+    document.querySelectorAll('.comments > div')[0].classList.add('active');
+  }
+  
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+      sibling.classList.remove('active');
+    });
+    this.classList.add('active');
+    
+    document.querySelectorAll('.comments > div').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.querySelectorAll('.comments > div')[index].classList.add('active');
+  });
+});
 </script>
-      
 
-      <footer class="footer">
-  <div class="l-wrap">
-    © 2020 - 2025 Powered by
-    <a href="https://github.com/dlzmoe" target="_blank">子舒</a>
-  </div>
-  <img src="https://profile-counter.glitch.me/zishu_me/count.svg" alt="counter">
-  <div class="gotop"></div>
+<style>
+  .comment-tabs {
+    display: flex;
+  }
+  .comment-tabs li {
+    margin-right: 40px;
+    cursor: pointer;
+  }
+  .comment-tabs li.active {
+    text-decoration: underline;
+  }
+  .comments > div.active {
+    display: block;
+  }
+  .comments > div {
+    display: none;
+  }
+</style>
+    
+    
+  </section>
+  <footer class="footer">
+  <p>© 2020 - 2025 Powered by
+    <a href="https://github.com/dlzmoe" target="_blank">Github</a>
+    / <a href="/index.xml" target="_blank">RSS</a>
+  </p>
 </footer>
 
-<script src="/js/main.js"></script>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="//instant.page/5.2.0" type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
-    </div>
-  </div>
+
 </body>
 
 </html>

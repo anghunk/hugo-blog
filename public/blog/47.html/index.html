@@ -38,74 +38,6 @@
 </script><title>webpack 的核心概念和构建流程 - 子舒的博客</title>
 <meta property="og:title" content="webpack 的核心概念和构建流程" />
 <meta property="og:type" content="article" />
-
-
-<meta property="og:keywords" content="1.webpack 的核心概念 entry（入口）：一个可执行模块或者库的入口。定义了打包后的入口文件。 output（出口）：指示 webpack 如何去输出，以及在哪里输出。 path: 打包文件存放的绝对路径 publicPath: 网站运行时的访问路径 filename: 打包后的文件名 module（模块）：在 webpack 里，一切皆模块，一个模块对应一个文件。webpack 会从配置的 entry 中开始递归找出所有依赖的模块。 chunk（代码块）：一个 chunk 由多个 模块 组合而成。可以将可执行的模块和他所依赖的模块组合成一个 chunk，这就是打包。 loader（模块转换器）：用于把一个模块原内容按照需求转换成新的内容。例如：es6 转换为 es5，scss 转换为 css 等。 plugin（扩展）：扩展 webpack 功能的插件。在 webpack 构建的生命周期节点上加入扩展 hook，添加功能。 2.webpack 构建流程 初始化参数：解析 webpack 的配置参数，合并 shell 传入和 webpack.config.js 文件配置的参数，形成最后的配置结果。 开始编译：上一步得到的参数初始化 compiler 对象，注册所有配置的插件，插件监听 webpack 构建生命周期的事件节点，做出相应的反应，执行对象的 run 方法开始执行编译。 确定入口：其配置的 entry 入口，开始解析文件构建的 AST 语法树，找出依赖，递归下去。 编译模块：根据文件类型和 loader 配置，调用所有配置的 loader 对文件进行转换，再找出该模块依赖的模块，再递归本步骤知道所有入口依赖的文件都经过了本步骤的处理。 完成模块编译并输出：递归完后，得到每个文件结果，包含了每个模块及她们之间的依赖关系，根据 entry 配置生成代码块 chunk。 输出完成：输出所有的 chunk 到文件系统。 3.有哪些常见的 loader？ babel-loader：把 es6 转成 es5； css-loader：加载 css，支持模块化，压缩，文件导入等特性； style-loader：把 css 代码注入到 js 中，通过 dom 操作去加载 css； eslint-loader：通过 Eslint 检查 js 代码； image-loader：加载并且压缩图片晚间； file-loader：文件输出到一个文件夹中，在代码中通过相对 url 去引用输出的文件； url-loader：和 file-loader 类似，文件很小的时候可以 base64 方式吧文件内容注入到代码中。 source-map-loader：加载额外的 source map 文件，方便调试。 4.业务场景和对应解决方案 1.单页应用 一个单页应用需要配置一个 entry 指明执行入口，web-webpack-plugin 里的 WebPlugin 可以自动的完成这些工作：webpack 会为 entry 生成一个包含这个入口的所有依赖文件的 chunk，但是还需要一个 html 来加载 chunk 生成的 js，如果还提取出 css 需要 HTML 文件中引入提取的 css。
-一个简单的 webpack 配置文件例子：
-const { WebPlugin } = require(&#39;web-webpack-plugin&#39;); module.exports = { entry: { app: &#39;./src/doc/index.js&#39;, home: &#39;./src/doc/home.js&#39; }, plugins: [ // 一个 WebPlugin 对应生成一个 html 文件 new WebPlugin({ //输出的 html 文件名称 filename: &#39;index.html&#39;, //这个 html 依赖的`entry` requires: [&#39;app&#39;,&#39;home&#39;], }), ], }; 说明：require: [&lsquo;app&rsquo;, &lsquo;home&rsquo;]指明这个 html 依赖哪些 entry，entry 生成的 js 和 css 会自动注入到 html 中。
-还支持配置这些资源注入方式，支持如下属性：
-_dist 只有在生产环境中才引入的资源； _dev 只有在开发环境中才引入的资源； _inline 把资源的内容潜入到 html 中； _ie 只有 IE 浏览器才需要引入的资源。 这些属性可以通过在 js 里配置，看个简单例子：
-new WebPlugin({ filename: &#39;index.html&#39;, requires: { app:{ _dist:true, _inline:false, } }, }), 这些属性还可以在模板中设置，使用模板好处就是可以灵活的控制资源的注入点
-new WebPlugin({ filename: &#39;index.html&#39;, template: &#39;./template.html&#39;, }), &lt;!DOCTYPE html&gt; &lt;html lang=&#34;zh-cn&#34;&gt; &lt;head&gt; &lt;link rel=&#34;stylesheet&#34; href=&#34;app?_inline&#34;&gt; &lt;script src=&#34;ie-polyfill?_ie&#34;&gt;&lt;/script&gt; &lt;/head&gt; &lt;body&gt; &lt;div id=&#34;react-body&#34;&gt;&lt;/div&gt; &lt;script src=&#34;app&#34;&gt;&lt;/script&gt; &lt;/body&gt; &lt;/html&gt; WebPlugin 插件借鉴了 fis3 的思想，补足了 webpack 缺失的以 HTML 为入口的功能。想了解 WebPlugin 的更多功能，见文档。
-2.一个项目管理多个单页面 一个项目中会包含多个单页应用，虽然多个单页面应用可以合成一个，但是这样做会导致用户没有访问的部分也加载了，如果项目中有很多的单页应用。为每一个单页应用配置一个 entry 和 WebPlugin？如果又新增，又要新增 webpack 配置，这样做麻烦，这时候有一个插件 web-webpack-plugin 里的 AutoWebPlugin 方法可以解决这些问题。
-module.exports = { plugins: [ // 所有页面的入口目录 new AutoWebPlugin(&#39;./src/&#39;), ] }; 分析：
-AutoWebPlugin会把./src/目录下所有每个文件夹作为一个单页页面的入口，自动为所有的页面入口配置一个 WebPlugin 输出对应的 html。 要新增一个页面就在 ./src/ 下新建一个文件夹包含这个单页应用所依赖的代码，AutoWebPlugin 自动生成一个名叫文件夹名称的 html 文件。 3.代码分隔优化 一个好的代码分割对浏览器首屏效果提升很大。
-最常见的 react 体系：
-先抽出基础库 react react-dom redux react-redux 到一个单独的文件而不是和其它文件放在一起打包为一个文件，这样做的好处是只要你不升级他们的版本这个文件永远不会被刷新。如果你把这些基础库和业务代码打包在一个文件里每次改动业务代码都会导致文件 hash 值变化从而导致缓存失效浏览器重复下载这些包含基础库的代码。所以把基础库打包成一个文件。 // vender.js 文件抽离基础库到单独的一个文件里防止跟随业务代码被刷新 // 所有页面都依赖的第三方库 // react 基础 import &#39;react&#39;; import &#39;react-dom&#39;; import &#39;react-redux&#39;; // redux 基础 import &#39;redux&#39;; import &#39;redux-thunk&#39;; // webpack 配置 { entry: { vendor: &#39;./path/to/vendor.js&#39;, }, } 通过 CommonsChunkPlugin 可以提取出多个代码块都依赖的代码形成一个单独的 chunk。在应用有多个页面的场景下提取出所有页面公共的代码减少单个页面的代码，在不同页面之间切换时所有页面公共的代码之前被加载过而不必重新加载。所以通过 CommonsChunkPlugin 可以提取出多个代码块都依赖的代码形成一个单独的 chunk。 4.构建服务端渲染 服务端渲染的代码要运行在 nodejs 环境，和浏览器不同的是，服务端渲染代码需要采用 commonjs 规范同时不应该包含除 js 之外的文件比如 css。
-webpack 配置如下：
-module.exports = { target: &#39;node&#39;, entry: { &#39;server_render&#39;: &#39;./src/server_render&#39;, }, output: { filename: &#39;./dist/server/[name].js&#39;, libraryTarget: &#39;commonjs2&#39;, }, module: { rules: [ { test: /\.js$/, loader: &#39;babel-loader&#39;, }, { test: /\.(scss|css|pdf)$/, loader: &#39;ignore-loader&#39;, }, ] }, }; 分析一下：
-target: &#39;node&#39; 指明构建出代码要运行在 node 环境中。 libraryTarget: &#39;commonjs2&#39; 指明输出的代码要是 commonjs 规范。 {test: /\.(scss|css|pdf)$/,loader: &#39;ignore-loader&#39;} 是为了防止不能在 node 里执行服务端渲染也用不上的文件被打包进去。 5.fis3 迁移到 webpack fis3 和 webpack 有很多相似地方也有不同的地方，相似地方：都采用 commonjs 规范，不同地方：导入 css 这些非 js 资源的方式。
-fis3 通过@require &lsquo;./index.scss&rsquo;，而 webpack 是通过 require(&rsquo;./index.scss&rsquo;)。
-如果想把 fis3 平滑迁移到 webpack，可以使用 comment-require-loader。
-比如：你想在 webpack 构建是使用采用了 fis3 方式的 imui 模块
-loaders:[{ test: /\.js$/, loaders: [&#39;comment-require-loader&#39;], include: [path.resolve(__dirname, &#39;node_modules/imui&#39;),] }] 5.自定义 webpack 扩展 如果你在社区找不到你的应用场景的解决方案，那就需要自己动手了写 loader 或者 plugin 了。
-在你编写自定义 webpack 扩展前你需要想明白到底是要做一个 loader 还是 plugin 呢？可以这样判断：
-如果你的扩展是想对一个个单独的文件进行转换那么就编写 loader 剩下的都是 plugin。
-其中对文件进行转换可以是像：
-babel-loader 把 es6 转为 es5； file-loader 把文件替换成对应的 url； raw-loader 注入文本文件内容到代码中。 1.编写 webpack loader 编写 loader 非常简单，以 comment-require-loader 为例：
-module.exports = function (content) { return replace(content); }; loader 的入口需要导出一个函数，这个函数要干的事情就是转换一个文件的内容。
-函数接收的参数 content 是一个文件在转换前的字符串形式内容，需要返回一个新的字符串形式内容作为转换后的结果，所有通过模块化倒入的文件都会经过 loader。从这里可以看出 loader 只能处理一个个单独的文件而不能处理代码块。可以参考官方文档。
-2. 编写 webpack plugin plugin 应用场景广泛，所以稍微复杂点。以 end-webpack-plugin 为例：
-class EndWebpackPlugin { constructor(doneCallback, failCallback) { this.doneCallback = doneCallback; this.failCallback = failCallback; } apply(compiler) { // 监听 webpack 生命周期里的事件，做相应的处理 compiler.plugin(&#39;done&#39;, (stats) =&gt; { this.doneCallback(stats); }); compiler.plugin(&#39;failed&#39;, (err) =&gt; { this.failCallback(err); }); } } module.exports = EndWebpackPlugin; loader 的入口需要导出一个 class，在 new EndWebpackPlugin() 的时候通过构造函数传入这个插件需要的参数，在 webpack 启动的时候会先实例化 plugin，再调用 plugin 的 apply 方法，插件在 apply 函数里监听 webpack 生命周期里的事件，做相应的处理。
-webpack plugin 的两个核心概念：
-compiler：从 webpack 启动到退出只存在一个 Compiler，compiler 存放着 webpack 的配置。 compilation：由于 webpack 的监听文件变化自动编译机制，compilation 代表一次编译。 Compiler 和 Compilation 都会广播一系列事件。webpack 生命周期里有非常多的事件。
-以上只是一个最简单的 demo，更复杂的可以查看 how to write a plugin 或参考 web-webpack-plugin。
-参考文章：https://www.cnblogs.com/chengxs/p/11022842.html
-" />
-<meta name="keywords" content="1.webpack 的核心概念 entry（入口）：一个可执行模块或者库的入口。定义了打包后的入口文件。 output（出口）：指示 webpack 如何去输出，以及在哪里输出。 path: 打包文件存放的绝对路径 publicPath: 网站运行时的访问路径 filename: 打包后的文件名 module（模块）：在 webpack 里，一切皆模块，一个模块对应一个文件。webpack 会从配置的 entry 中开始递归找出所有依赖的模块。 chunk（代码块）：一个 chunk 由多个 模块 组合而成。可以将可执行的模块和他所依赖的模块组合成一个 chunk，这就是打包。 loader（模块转换器）：用于把一个模块原内容按照需求转换成新的内容。例如：es6 转换为 es5，scss 转换为 css 等。 plugin（扩展）：扩展 webpack 功能的插件。在 webpack 构建的生命周期节点上加入扩展 hook，添加功能。 2.webpack 构建流程 初始化参数：解析 webpack 的配置参数，合并 shell 传入和 webpack.config.js 文件配置的参数，形成最后的配置结果。 开始编译：上一步得到的参数初始化 compiler 对象，注册所有配置的插件，插件监听 webpack 构建生命周期的事件节点，做出相应的反应，执行对象的 run 方法开始执行编译。 确定入口：其配置的 entry 入口，开始解析文件构建的 AST 语法树，找出依赖，递归下去。 编译模块：根据文件类型和 loader 配置，调用所有配置的 loader 对文件进行转换，再找出该模块依赖的模块，再递归本步骤知道所有入口依赖的文件都经过了本步骤的处理。 完成模块编译并输出：递归完后，得到每个文件结果，包含了每个模块及她们之间的依赖关系，根据 entry 配置生成代码块 chunk。 输出完成：输出所有的 chunk 到文件系统。 3.有哪些常见的 loader？ babel-loader：把 es6 转成 es5； css-loader：加载 css，支持模块化，压缩，文件导入等特性； style-loader：把 css 代码注入到 js 中，通过 dom 操作去加载 css； eslint-loader：通过 Eslint 检查 js 代码； image-loader：加载并且压缩图片晚间； file-loader：文件输出到一个文件夹中，在代码中通过相对 url 去引用输出的文件； url-loader：和 file-loader 类似，文件很小的时候可以 base64 方式吧文件内容注入到代码中。 source-map-loader：加载额外的 source map 文件，方便调试。 4.业务场景和对应解决方案 1.单页应用 一个单页应用需要配置一个 entry 指明执行入口，web-webpack-plugin 里的 WebPlugin 可以自动的完成这些工作：webpack 会为 entry 生成一个包含这个入口的所有依赖文件的 chunk，但是还需要一个 html 来加载 chunk 生成的 js，如果还提取出 css 需要 HTML 文件中引入提取的 css。
-一个简单的 webpack 配置文件例子：
-const { WebPlugin } = require(&#39;web-webpack-plugin&#39;); module.exports = { entry: { app: &#39;./src/doc/index.js&#39;, home: &#39;./src/doc/home.js&#39; }, plugins: [ // 一个 WebPlugin 对应生成一个 html 文件 new WebPlugin({ //输出的 html 文件名称 filename: &#39;index.html&#39;, //这个 html 依赖的`entry` requires: [&#39;app&#39;,&#39;home&#39;], }), ], }; 说明：require: [&lsquo;app&rsquo;, &lsquo;home&rsquo;]指明这个 html 依赖哪些 entry，entry 生成的 js 和 css 会自动注入到 html 中。
-还支持配置这些资源注入方式，支持如下属性：
-_dist 只有在生产环境中才引入的资源； _dev 只有在开发环境中才引入的资源； _inline 把资源的内容潜入到 html 中； _ie 只有 IE 浏览器才需要引入的资源。 这些属性可以通过在 js 里配置，看个简单例子：
-new WebPlugin({ filename: &#39;index.html&#39;, requires: { app:{ _dist:true, _inline:false, } }, }), 这些属性还可以在模板中设置，使用模板好处就是可以灵活的控制资源的注入点
-new WebPlugin({ filename: &#39;index.html&#39;, template: &#39;./template.html&#39;, }), &lt;!DOCTYPE html&gt; &lt;html lang=&#34;zh-cn&#34;&gt; &lt;head&gt; &lt;link rel=&#34;stylesheet&#34; href=&#34;app?_inline&#34;&gt; &lt;script src=&#34;ie-polyfill?_ie&#34;&gt;&lt;/script&gt; &lt;/head&gt; &lt;body&gt; &lt;div id=&#34;react-body&#34;&gt;&lt;/div&gt; &lt;script src=&#34;app&#34;&gt;&lt;/script&gt; &lt;/body&gt; &lt;/html&gt; WebPlugin 插件借鉴了 fis3 的思想，补足了 webpack 缺失的以 HTML 为入口的功能。想了解 WebPlugin 的更多功能，见文档。
-2.一个项目管理多个单页面 一个项目中会包含多个单页应用，虽然多个单页面应用可以合成一个，但是这样做会导致用户没有访问的部分也加载了，如果项目中有很多的单页应用。为每一个单页应用配置一个 entry 和 WebPlugin？如果又新增，又要新增 webpack 配置，这样做麻烦，这时候有一个插件 web-webpack-plugin 里的 AutoWebPlugin 方法可以解决这些问题。
-module.exports = { plugins: [ // 所有页面的入口目录 new AutoWebPlugin(&#39;./src/&#39;), ] }; 分析：
-AutoWebPlugin会把./src/目录下所有每个文件夹作为一个单页页面的入口，自动为所有的页面入口配置一个 WebPlugin 输出对应的 html。 要新增一个页面就在 ./src/ 下新建一个文件夹包含这个单页应用所依赖的代码，AutoWebPlugin 自动生成一个名叫文件夹名称的 html 文件。 3.代码分隔优化 一个好的代码分割对浏览器首屏效果提升很大。
-最常见的 react 体系：
-先抽出基础库 react react-dom redux react-redux 到一个单独的文件而不是和其它文件放在一起打包为一个文件，这样做的好处是只要你不升级他们的版本这个文件永远不会被刷新。如果你把这些基础库和业务代码打包在一个文件里每次改动业务代码都会导致文件 hash 值变化从而导致缓存失效浏览器重复下载这些包含基础库的代码。所以把基础库打包成一个文件。 // vender.js 文件抽离基础库到单独的一个文件里防止跟随业务代码被刷新 // 所有页面都依赖的第三方库 // react 基础 import &#39;react&#39;; import &#39;react-dom&#39;; import &#39;react-redux&#39;; // redux 基础 import &#39;redux&#39;; import &#39;redux-thunk&#39;; // webpack 配置 { entry: { vendor: &#39;./path/to/vendor.js&#39;, }, } 通过 CommonsChunkPlugin 可以提取出多个代码块都依赖的代码形成一个单独的 chunk。在应用有多个页面的场景下提取出所有页面公共的代码减少单个页面的代码，在不同页面之间切换时所有页面公共的代码之前被加载过而不必重新加载。所以通过 CommonsChunkPlugin 可以提取出多个代码块都依赖的代码形成一个单独的 chunk。 4.构建服务端渲染 服务端渲染的代码要运行在 nodejs 环境，和浏览器不同的是，服务端渲染代码需要采用 commonjs 规范同时不应该包含除 js 之外的文件比如 css。
-webpack 配置如下：
-module.exports = { target: &#39;node&#39;, entry: { &#39;server_render&#39;: &#39;./src/server_render&#39;, }, output: { filename: &#39;./dist/server/[name].js&#39;, libraryTarget: &#39;commonjs2&#39;, }, module: { rules: [ { test: /\.js$/, loader: &#39;babel-loader&#39;, }, { test: /\.(scss|css|pdf)$/, loader: &#39;ignore-loader&#39;, }, ] }, }; 分析一下：
-target: &#39;node&#39; 指明构建出代码要运行在 node 环境中。 libraryTarget: &#39;commonjs2&#39; 指明输出的代码要是 commonjs 规范。 {test: /\.(scss|css|pdf)$/,loader: &#39;ignore-loader&#39;} 是为了防止不能在 node 里执行服务端渲染也用不上的文件被打包进去。 5.fis3 迁移到 webpack fis3 和 webpack 有很多相似地方也有不同的地方，相似地方：都采用 commonjs 规范，不同地方：导入 css 这些非 js 资源的方式。
-fis3 通过@require &lsquo;./index.scss&rsquo;，而 webpack 是通过 require(&rsquo;./index.scss&rsquo;)。
-如果想把 fis3 平滑迁移到 webpack，可以使用 comment-require-loader。
-比如：你想在 webpack 构建是使用采用了 fis3 方式的 imui 模块
-loaders:[{ test: /\.js$/, loaders: [&#39;comment-require-loader&#39;], include: [path.resolve(__dirname, &#39;node_modules/imui&#39;),] }] 5.自定义 webpack 扩展 如果你在社区找不到你的应用场景的解决方案，那就需要自己动手了写 loader 或者 plugin 了。
-在你编写自定义 webpack 扩展前你需要想明白到底是要做一个 loader 还是 plugin 呢？可以这样判断：
-如果你的扩展是想对一个个单独的文件进行转换那么就编写 loader 剩下的都是 plugin。
-其中对文件进行转换可以是像：
-babel-loader 把 es6 转为 es5； file-loader 把文件替换成对应的 url； raw-loader 注入文本文件内容到代码中。 1.编写 webpack loader 编写 loader 非常简单，以 comment-require-loader 为例：
-module.exports = function (content) { return replace(content); }; loader 的入口需要导出一个函数，这个函数要干的事情就是转换一个文件的内容。
-函数接收的参数 content 是一个文件在转换前的字符串形式内容，需要返回一个新的字符串形式内容作为转换后的结果，所有通过模块化倒入的文件都会经过 loader。从这里可以看出 loader 只能处理一个个单独的文件而不能处理代码块。可以参考官方文档。
-2. 编写 webpack plugin plugin 应用场景广泛，所以稍微复杂点。以 end-webpack-plugin 为例：
-class EndWebpackPlugin { constructor(doneCallback, failCallback) { this.doneCallback = doneCallback; this.failCallback = failCallback; } apply(compiler) { // 监听 webpack 生命周期里的事件，做相应的处理 compiler.plugin(&#39;done&#39;, (stats) =&gt; { this.doneCallback(stats); }); compiler.plugin(&#39;failed&#39;, (err) =&gt; { this.failCallback(err); }); } } module.exports = EndWebpackPlugin; loader 的入口需要导出一个 class，在 new EndWebpackPlugin() 的时候通过构造函数传入这个插件需要的参数，在 webpack 启动的时候会先实例化 plugin，再调用 plugin 的 apply 方法，插件在 apply 函数里监听 webpack 生命周期里的事件，做相应的处理。
-webpack plugin 的两个核心概念：
-compiler：从 webpack 启动到退出只存在一个 Compiler，compiler 存放着 webpack 的配置。 compilation：由于 webpack 的监听文件变化自动编译机制，compilation 代表一次编译。 Compiler 和 Compilation 都会广播一系列事件。webpack 生命周期里有非常多的事件。
-以上只是一个最简单的 demo，更复杂的可以查看 how to write a plugin 或参考 web-webpack-plugin。
-参考文章：https://www.cnblogs.com/chengxs/p/11022842.html
-" />
-
-
 <meta property="og:description" content="1.webpack 的核心概念 entry（入口）：一个可执行模块或者库的入口。定义了打包后的入口文件。 output（出口）：指示 webpack 如何去输出，以及在哪里输出。 path: 打包文件存放的绝对路径 publicPath: 网站运行时的访问路径 filename: 打包后的文件名 module（模块）：在 webpack 里，一切皆模块，一个模块对应一个文件。webpack 会从配置的 entry 中开始递归找出所有依赖的模块。 chunk（代码块）：一个 chunk 由多个 模块 组合而成。可以将可执行的模块和他所依赖的模块组合成一个 chunk，这就是打包。 loader（模块转换器）：用于把一个模块原内容按照需求转换成新的内容。例如：es6 转换为 es5，scss 转换为 css 等。 plugin（扩展）：扩展 webpack 功能的插件。在 webpack 构建的生命周期节点上加入扩展 hook，添加功能。 2.webpack 构建流程 初始化参数：解析 webpack 的配置参数，合并 shell 传入和 webpack.config.js 文件配置的参数，形成最后的配置结果。 开始编译：上一步得到的参数初始化 compiler 对象，注册所有配置的插件，插件监听 webpack 构建生命周期的事件节点，做出相应的反应，执行对象的 run 方法开始执行编译。 确定入口：其配置的 entry 入口，开始解析文件构建的 AST 语法树，找出依赖，递归下去。 编译模块：根据文件类型和 loader 配置，调用所有配置的 loader 对文件进行转换，再找出该模块依赖的模块，再递归本步骤知道所有入口依赖的文件都经过了本步骤的处理。 完成模块编译并输出：递归完后，得到每个文件结果，包含了每个模块及她们之间的依赖关系，根据 entry 配置生成代码块 chunk。 输出完成：输出所有的 chunk 到文件系统。 3.有哪些常见的 loader？ babel-loader：把 es6 转成 es5； css-loader：加载 css，支持模块化，压缩，文件导入等特性； style-loader：把 css 代码注入到 js 中，通过 dom 操作去加载 css； eslint-loader：通过 Eslint 检查 js 代码； image-loader：加载并且压缩图片晚间； file-loader：文件输出到一个文件夹中，在代码中通过相对 url 去引用输出的文件； url-loader：和 file-loader 类似，文件很小的时候可以 base64 方式吧文件内容注入到代码中。 source-map-loader：加载额外的 source map 文件，方便调试。 4.业务场景和对应解决方案 1.单页应用 一个单页应用需要配置一个 entry 指明执行入口，web-webpack-plugin 里的 WebPlugin 可以自动的完成这些工作：webpack 会为 entry 生成一个包含这个入口的所有依赖文件的 chunk，但是还需要一个 html 来加载 chunk 生成的 js，如果还提取出 css 需要 HTML 文件中引入提取的 css。
 一个简单的 webpack 配置文件例子：
 const { WebPlugin } = require(&#39;web-webpack-plugin&#39;); module.exports = { entry: { app: &#39;./src/doc/index.js&#39;, home: &#39;./src/doc/home.js&#39; }, plugins: [ // 一个 WebPlugin 对应生成一个 html 文件 new WebPlugin({ //输出的 html 文件名称 filename: &#39;index.html&#39;, //这个 html 依赖的`entry` requires: [&#39;app&#39;,&#39;home&#39;], }), ], }; 说明：require: [&lsquo;app&rsquo;, &lsquo;home&rsquo;]指明这个 html 依赖哪些 entry，entry 生成的 js 和 css 会自动注入到 html 中。
@@ -172,113 +104,66 @@ compiler：从 webpack 启动到退出只存在一个 Compiler，compiler 存放
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/index.css">
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
-<script src="/js/jquery3.6.0.min.js"></script>
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BGB227HN9X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BGB227HN9X');
-</script>
 </head>
 
 <body>
-  <div class="wrapper">
-    <div class="main">
-      <div class="aside">
-  <div class="top">
-    <a href="/" title="子舒的博客"><img src="https://imgurl.zishu.me/author.png" width="72" height="72" class="avatar" alt="子舒的博客" border="0"></a>
-    <div class="site-info">
-      
-       <a href="/"><svg width="104.597" height="39.369" viewBox="0 0 104.597 39.369" xmlns="http://www.w3.org/2000/svg"><g id="svgGroup" stroke-linecap="round" fill-rule="evenodd" font-size="9pt" stroke="#000000" stroke-width="0.1mm" fill="#000000" style="stroke:#000000;stroke-width:0.1mm;fill:#000000"><path d="M 67.659 29.801 L 68.763 19.635 Q 68.763 18.393 68.119 17.565 Q 67.475 16.737 66.049 16.737 Q 64.623 16.737 63.634 17.864 Q 62.645 18.991 62.185 20.831 Q 61.863 23.453 61.219 28.49 A 2866.126 2866.126 0 0 0 60.69 32.647 A 536.88 536.88 0 0 0 60.391 35.045 L 54.273 35.045 A 18068.443 18068.443 0 0 0 55.744 22.484 Q 57.283 9.299 57.949 3.362 A 627.499 627.499 0 0 0 58.275 0.407 Q 59.241 0.039 60.897 0.039 A 3.976 3.976 0 0 1 64.139 1.045 A 1.775 1.775 0 0 1 64.485 2.155 L 64.485 2.431 A 270.679 270.679 0 0 1 63.046 13.731 A 177.594 177.594 0 0 1 62.829 15.127 Q 65.267 12.919 68.349 12.919 Q 71.431 12.919 73.225 14.483 Q 75.019 16.047 75.019 18.439 Q 75.019 19.083 74.743 20.831 A 276.731 276.731 0 0 0 73.983 26.046 Q 73.685 28.292 73.685 28.927 Q 73.685 31.089 75.111 31.089 Q 76.307 31.089 77.664 29.502 A 11.951 11.951 0 0 0 77.825 29.282 A 18.722 18.722 0 0 1 78.055 27.041 Q 79.113 18.485 79.665 13.425 Q 81.091 12.919 82.287 12.919 Q 83.483 12.919 84.081 13.011 Q 84.679 13.103 85.231 13.701 Q 85.783 14.299 85.783 15.403 L 84.265 27.133 Q 84.173 27.685 84.173 28.145 Q 84.173 30.859 86.657 30.859 Q 88.957 30.859 90.475 28.605 Q 90.475 28.099 90.567 26.995 L 92.085 14.759 Q 92.407 13.977 93.465 13.448 Q 94.523 12.919 96.11 12.919 Q 97.697 12.919 98.479 13.379 Q 96.924 25.663 96.651 28.479 A 10.731 10.731 0 0 0 96.593 29.249 Q 96.593 31.089 97.927 31.089 Q 99.123 31.089 100.526 29.456 Q 101.929 27.823 102.757 24.557 Q 104.275 26.213 104.597 27.133 A 12.282 12.282 0 0 1 101.894 32.831 A 6.516 6.516 0 0 1 101.239 33.435 Q 98.939 35.275 96.501 35.275 Q 92.499 35.275 91.119 32.193 Q 88.727 35.275 84.725 35.275 Q 81.413 35.275 79.619 33.619 A 5.611 5.611 0 0 1 78.856 32.75 A 13.283 13.283 0 0 1 78.373 33.275 A 7.221 7.221 0 0 1 73.271 35.229 Q 70.419 35.229 69.039 33.481 Q 67.659 31.733 67.659 29.801 Z M 20.739 28.881 L 22.395 14.667 Q 22.855 13.839 24.143 13.402 Q 25.431 12.965 26.696 12.965 Q 27.961 12.965 28.927 13.287 Q 27.133 27.133 27.133 27.271 Q 26.903 28.191 26.903 28.812 Q 26.903 29.433 26.995 29.893 A 1.435 1.435 0 0 0 27.961 31.04 A 8.754 8.754 0 0 1 28.881 28.421 Q 30.752 24.861 37.604 18.675 A 123.618 123.618 0 0 1 37.713 18.577 Q 36.011 16.875 36.011 14.943 Q 36.011 13.011 37.46 11.677 Q 38.909 10.343 40.887 10.343 Q 42.681 10.343 44.015 11.769 Q 44.889 12.735 44.889 14.207 Q 44.889 15.679 43.923 17.519 A 72.971 72.971 0 0 1 48.835 19.902 A 18.079 18.079 0 0 1 50.593 20.969 Q 54.227 23.637 54.227 27.271 Q 54.227 30.905 51.375 33.113 Q 48.523 35.321 44.199 35.321 Q 41.393 35.321 39.53 33.918 Q 37.667 32.515 37.667 30.445 Q 37.667 28.375 39.047 27.156 Q 40.427 25.937 42.497 25.661 Q 41.531 27.041 41.531 28.306 Q 41.531 29.571 42.405 30.353 Q 43.279 31.135 44.613 31.135 Q 45.947 31.135 46.821 30.146 Q 47.695 29.157 47.695 27.869 Q 47.695 25.753 45.717 24.097 Q 44.521 23.131 43.141 22.28 A 104.019 104.019 0 0 0 41.712 21.407 A 0.982 0.982 0 0 0 41.669 21.383 Q 41.485 21.245 41.301 21.153 Q 40.473 22.119 38.909 23.798 Q 37.345 25.477 36.425 26.489 A 12.83 12.83 0 0 0 34.85 28.396 A 12.665 12.665 0 0 1 33.52 31.218 A 6.915 6.915 0 0 0 33.435 32.584 Q 33.435 33.619 34.056 34.723 Q 34.677 35.827 35.551 36.379 Q 36.425 36.931 37.276 37.276 Q 38.127 37.621 38.748 37.759 Q 39.369 37.897 39.369 37.943 Q 39.369 38.265 38.357 38.679 Q 36.471 39.369 34.424 39.369 Q 32.377 39.369 30.445 37.897 A 6.46 6.46 0 0 1 28.329 35.212 A 7.144 7.144 0 0 1 26.765 35.367 Q 23.683 35.367 22.188 33.849 Q 20.693 32.331 20.693 29.939 Q 20.693 29.433 20.739 28.881 Z M 13.471 35.459 L 0.683 35.183 A 1.327 1.327 0 0 1 0.085 33.556 A 8.453 8.453 0 0 1 0.085 33.55 Q 0.085 31.917 0.775 30.997 A 13.911 13.911 0 0 1 2.876 27.663 A 47.078 47.078 0 0 1 4.593 25.615 Q 5.605 24.465 8.365 21.475 A 141.512 141.512 0 0 0 11.268 18.255 A 27.559 27.559 0 0 0 11.999 17.381 L 9.561 17.243 Q 8.871 18.899 7.56 19.934 Q 6.249 20.969 4.639 20.969 Q 2.799 20.969 1.649 19.888 Q 0.499 18.807 0.499 16.875 Q 0.499 14.943 1.833 13.793 Q 3.167 12.643 5.513 12.643 L 18.301 12.919 Q 18.899 12.919 18.899 14.483 Q 18.899 16.093 18.301 16.967 Q 17.749 17.979 16.714 19.106 Q 15.679 20.233 13.701 22.096 A 175.609 175.609 0 0 0 11.155 24.529 A 38.997 38.997 0 0 0 10.941 24.741 Q 7.859 27.823 6.341 30.675 L 9.423 30.859 Q 10.113 29.203 11.424 28.168 Q 12.735 27.133 14.345 27.133 Q 16.185 27.133 17.335 28.214 Q 18.485 29.295 18.485 31.227 Q 18.485 33.159 17.151 34.309 Q 15.817 35.459 13.471 35.459 Z M 24.281 1.166 Q 25.339 0.085 26.857 0.085 Q 28.375 0.085 29.456 1.166 Q 30.537 2.247 30.537 3.765 Q 30.537 5.283 29.456 6.341 Q 28.375 7.399 26.857 7.399 Q 25.339 7.399 24.281 6.341 Q 23.223 5.283 23.223 3.765 Q 23.223 2.247 24.281 1.166 Z M 7.583 17.105 L 5.697 16.967 Q 5.421 16.921 5.145 16.921 Q 3.535 16.921 3.535 17.979 Q 3.535 19.037 4.731 19.037 Q 6.525 19.037 7.583 17.105 Z M 11.401 30.997 L 13.287 31.135 Q 13.563 31.181 13.839 31.181 Q 15.449 31.181 15.449 30.123 Q 15.449 29.065 14.253 29.065 Q 12.459 29.065 11.401 30.997 Z M 40.611 15.771 Q 41.715 14.621 41.715 14.115 Q 41.715 12.965 40.703 12.873 Q 39.553 12.873 39.553 14.161 Q 39.553 14.943 40.611 15.771 Z"/></g></svg></a>
-      <div class="site-about">
-        <p>一个热爱生活的前端开发工程师。</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="nav-container">
-    <div class="nav">
-      
-      <a href="/" class="nav-item">
-        <img src="/images/sparkles.png" width="17" height="17" alt="sparkles" />
-        <span>首页</span>
-      </a>
-      
-      <a href="/tags/" class="nav-item">
-        <img src="/images/tags.png" width="17" height="17" alt="tags" />
-        <span>标签</span>
-      </a>
-      
-      <a href="/message/" class="nav-item">
-        <img src="/images/message.png" width="17" height="17" alt="message" />
-        <span>留言</span>
-      </a>
-      
-      <a href="/about/" class="nav-item">
-        <img src="/images/about.png" width="17" height="17" alt="about" />
-        <span>关于</span>
-      </a>
-      
-      <a href="/search/" class="nav-item">
-        <img src="/images/search.png" width="17" height="17" alt="search" />
-        <span>搜索</span>
-      </a>
-      
-      <a href="/index.xml" class="nav-item">
-        <img src="/images/rss.png" width="17" height="17" alt="rss" />
-        <span>订阅</span>
-      </a>
-      
-    </div>
-    <div class="share">
-      <a href="/index.xml" target="_blank" title="RSS"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-file-rss"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 2l.117 .007a1 1 0 0 1 .876 .876l.007 .117v4l.005 .15a2 2 0 0 0 1.838 1.844l.157 .006h4l.117 .007a1 1 0 0 1 .876 .876l.007 .117v9a3 3 0 0 1 -2.824 2.995l-.176 .005h-10a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-14a3 3 0 0 1 2.824 -2.995l.176 -.005zm-3 11a1 1 0 0 0 0 2a2 2 0 0 1 1.995 1.85l.005 .15a1 1 0 0 0 2 0a4 4 0 0 0 -4 -4m0 -3a1 1 0 0 0 0 2a5 5 0 0 1 5 5a1 1 0 0 0 2 0a7 7 0 0 0 -7 -7m.01 6h-.01a1 1 0 0 0 -.117 1.993l.127 .007a1 1 0 0 0 0 -2m5.989 -13.001l4.001 4.001h-4z" /></svg></a>
-      <a href="https://github.com/dlzmoe" target="_blank" title="GitHub"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5.315 2.1c.791 -.113 1.9 .145 3.333 .966l.272 .161l.16 .1l.397 -.083a13.3 13.3 0 0 1 4.59 -.08l.456 .08l.396 .083l.161 -.1c1.385 -.84 2.487 -1.17 3.322 -1.148l.164 .008l.147 .017l.076 .014l.05 .011l.144 .047a1 1 0 0 1 .53 .514a5.2 5.2 0 0 1 .397 2.91l-.047 .267l-.046 .196l.123 .163c.574 .795 .93 1.728 1.03 2.707l.023 .295l.007 .272c0 3.855 -1.659 5.883 -4.644 6.68l-.245 .061l-.132 .029l.014 .161l.008 .157l.004 .365l-.002 .213l-.003 3.834a1 1 0 0 1 -.883 .993l-.117 .007h-6a1 1 0 0 1 -.993 -.883l-.007 -.117v-.734c-1.818 .26 -3.03 -.424 -4.11 -1.878l-.535 -.766c-.28 -.396 -.455 -.579 -.589 -.644l-.048 -.019a1 1 0 0 1 .564 -1.918c.642 .188 1.074 .568 1.57 1.239l.538 .769c.76 1.079 1.36 1.459 2.609 1.191l.001 -.678l-.018 -.168a5.03 5.03 0 0 1 -.021 -.824l.017 -.185l.019 -.12l-.108 -.024c-2.976 -.71 -4.703 -2.573 -4.875 -6.139l-.01 -.31l-.004 -.292a5.6 5.6 0 0 1 .908 -3.051l.152 -.222l.122 -.163l-.045 -.196a5.2 5.2 0 0 1 .145 -2.642l.1 -.282l.106 -.253a1 1 0 0 1 .529 -.514l.144 -.047l.154 -.03z" /></svg></a>
-      <a href="https://discord.com/invite/n2pErsD7Kg" target="_blank" title="Discord"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-brand-discord"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14.983 3l.123 .006c2.014 .214 3.527 .672 4.966 1.673a1 1 0 0 1 .371 .488c1.876 5.315 2.373 9.987 1.451 12.28c-1.003 2.005 -2.606 3.553 -4.394 3.553c-.732 0 -1.693 -.968 -2.328 -2.045a21.512 21.512 0 0 0 2.103 -.493a1 1 0 1 0 -.55 -1.924c-3.32 .95 -6.13 .95 -9.45 0a1 1 0 0 0 -.55 1.924c.717 .204 1.416 .37 2.103 .494c-.635 1.075 -1.596 2.044 -2.328 2.044c-1.788 0 -3.391 -1.548 -4.428 -3.629c-.888 -2.217 -.39 -6.89 1.485 -12.204a1 1 0 0 1 .371 -.488c1.439 -1.001 2.952 -1.459 4.966 -1.673a1 1 0 0 1 .935 .435l.063 .107l.651 1.285l.137 -.016a12.97 12.97 0 0 1 2.643 0l.134 .016l.65 -1.284a1 1 0 0 1 .754 -.54l.122 -.009zm-5.983 7a2 2 0 0 0 -1.977 1.697l-.018 .154l-.005 .149l.005 .15a2 2 0 1 0 1.995 -2.15zm6 0a2 2 0 0 0 -1.977 1.697l-.018 .154l-.005 .149l.005 .15a2 2 0 1 0 1.995 -2.15z" /></svg></a>
-    </div>
-  </div>
-</div>
-
-
-      <h1>webpack 的核心概念和构建流程</h1>
-
-      
-      <div class="meta">
-        <div class="date">2021 年 1 月 18 日</div>
-        <div class="post-tags">
-          
-          
-          <span class="namenode">分类：<a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-          </span>
-          
-          
-          <span class="tag-node">
-            
-            标签：<a href="/tags/js">#js</a>
-            <a href="/tags/webpack">#webpack</a>
-            
-            
-          </span>
-        </div>
-      </div>
-      
+  <nav class="headnav">
+  <a href="/" class="logo">zishu.me</a>
+  <ul id="menu">
     
+    <li><a href="/">首页</a></li>
+    
+    <li><a href="/blog/">博客</a></li>
+    
+    <li><a href="/tags/">标签</a></li>
+    
+    <li><a href="/message/">留言</a></li>
+    
+    <li><a href="/about/">关于</a></li>
+    
+    <li><a href="/search/">搜索</a></li>
+    
+    <li><a href="/index.xml" target="_blank">订阅</a></li>
+  </ul>
+</nav>
+  <section>
+    
+    <div class="body-title">webpack 的核心概念和构建流程</div>
+
+    
+    <div class="post-meta">
+      <time> 2021-01-18</time>
       
-      <div class="toc">
-        <details open>
-          <summary accesskey="c" title="(Alt + C)"><span class="details">Table of Contents</span></summary>
-          <div class="inner"> <nav id="TableOfContents">
+      
+      <span class="namenode">分类：
+        <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+      </span>
+      
+      
+
+      <span class="tag-node">
+        
+        标签：
+        
+        <a href="/tags/js">#js</a>
+        
+        <a href="/tags/webpack">#webpack</a>
+        
+        
+      </span>
+
+    </div>
+    
+
+    
+    <div class="toc">
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#1webpack-的核心概念">1.webpack 的核心概念</a></li>
     <li><a href="#2webpack-构建流程">2.webpack 构建流程</a></li>
@@ -299,14 +184,13 @@ compiler：从 webpack 启动到退出只存在一个 Compiler，compiler 存放
       </ul>
     </li>
   </ul>
-</nav></div>
-        </details>
-      </div>
-      
+</nav>
+    </div>
+    
 
-      <article class="content post-content">
-        
-        <h2 id="1webpack-的核心概念">1.webpack 的核心概念</h2>
+    <article class="post-content">
+      
+      <h2 id="1webpack-的核心概念">1.webpack 的核心概念</h2>
 <ol>
 <li><strong>entry（入口）</strong>：一个可执行模块或者库的入口。定义了打包后的入口文件。</li>
 <li><strong>output（出口）</strong>：指示 webpack 如何去输出，以及在哪里输出。
@@ -521,11 +405,10 @@ filename: 打包后的文件名</li>
 <blockquote>
 <p>参考文章：https://www.cnblogs.com/chengxs/p/11022842.html</p></blockquote>
 
-        <div class="weekly-pagination"></div>
-      </article>
+    </article>
 
-      
-      <ul class="comment-tabs">
+    
+    <ul class="comment-tabs">
   
   <li>LinuxDo</li>
   
@@ -583,31 +466,55 @@ twikoo.init({
 </script>
 
 <script>
-  $('.comment-tabs li').each(function(){
-    $('.comment-tabs li').eq(0).addClass('active');
-    $('.comments > div').eq(0).addClass('active');
-    $(this).click(function(){
-      $(this).addClass('active').siblings().removeClass('active');
-      $('.comments > div').eq($(this).index()).addClass('active').siblings().removeClass('active');
-    })
-  })
+document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+  if (index === 0) {
+    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+    document.querySelectorAll('.comments > div')[0].classList.add('active');
+  }
+  
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+      sibling.classList.remove('active');
+    });
+    this.classList.add('active');
+    
+    document.querySelectorAll('.comments > div').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.querySelectorAll('.comments > div')[index].classList.add('active');
+  });
+});
 </script>
-      
 
-      <footer class="footer">
-  <div class="l-wrap">
-    © 2020 - 2025 Powered by
-    <a href="https://github.com/dlzmoe" target="_blank">子舒</a>
-  </div>
-  <img src="https://profile-counter.glitch.me/zishu_me/count.svg" alt="counter">
-  <div class="gotop"></div>
+<style>
+  .comment-tabs {
+    display: flex;
+  }
+  .comment-tabs li {
+    margin-right: 40px;
+    cursor: pointer;
+  }
+  .comment-tabs li.active {
+    text-decoration: underline;
+  }
+  .comments > div.active {
+    display: block;
+  }
+  .comments > div {
+    display: none;
+  }
+</style>
+    
+    
+  </section>
+  <footer class="footer">
+  <p>© 2020 - 2025 Powered by
+    <a href="https://github.com/dlzmoe" target="_blank">Github</a>
+    / <a href="/index.xml" target="_blank">RSS</a>
+  </p>
 </footer>
 
-<script src="/js/main.js"></script>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="//instant.page/5.2.0" type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
-    </div>
-  </div>
+
 </body>
 
 </html>
