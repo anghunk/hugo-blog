@@ -2202,6 +2202,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://zishu.me/jianli/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://zishu.me/resume/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://zishu.me/plan/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
