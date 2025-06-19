@@ -6,6 +6,7 @@ title: 关于
 > ✨ 你可以通过下面这些便捷方式探索我的文字世界：  
 > 📚 [全部文章](/blog/)、🏷️ [标签管理](/tags/)、🔍 [关键词搜索](/search/)、📡 [RSS 订阅](/index.xml)。
 
+## 1. Hello ~
 
 📧 如果你想与我交流，欢迎发送电子邮件至 `hi@zishu.me`，或者在文章评论区留下你的足迹。
 
@@ -54,15 +55,16 @@ title: 关于
 **总结**：子舒是一位兼具技术理性与人文情怀的博主，其内容融合了技术实践、生活哲思和社区共建，核心价值在于“真实记录”与“利他分享”，在浮躁的互联网环境中保持了一份难得的沉淀感。
 ```
 
-### 项目
+## 2. 项目
 
-- **[LinuxDo Scripts 扩展](https://github.com/dlzmoe/linuxdo-scripts)**  
-一个关于 linux.do 网站的增强扩展。
+-  [LinuxDo Scripts](https://github.com/dlzmoe/linuxdo-scripts) - LinuxDo Scripts 是一个功能丰富的浏览器扩展，旨在提升 LinuxDo 论坛的使用体验。它集成了多项实用功能，从基础的界面优化到高级的 AI 辅助功能，让您的论坛浏览和互动体验更加流畅和高效。
+-  [UserScript](https://github.com/dlzmoe/UserScript) - 自用的 GM 油猴脚本，一部分脚本已经发布到 greasyfork.org，一部分在本地未发布，功能列表在 README.md 中说明。
 
-- **[Obsidian AI 生成标签](https://github.com/dlzmoe/obsidian-ai-tags)**  
-一个强大的 Obsidian 插件，使用 AI 技术为笔记文件智能生成标签，帮助你更好地组织和管理知识库。
+**Obsidian Plugin**
+-  [AI Tags Generator](https://github.com/dlzmoe/obsidian-ai-tags) - 使用 AI 技术为笔记文件智能生成标签，帮助你更好地组织和管理知识库。
+-  [Obsidian Home](https://github.com/dlzmoe/obsidian-home) - 为 Obsidian 添加一个美观实用的首页功能，便于快速访问和搜索笔记。
 
-### 版权声明
+## 3. 版权声明
 
 【郑重声明】本人依法享有本网站所有原创内容的完整著作权及版权权益。任何个人或机构未经本人授权许可，严禁擅自转载、摘编、复制或以其他任何形式使用本站内容。如有转载需求者，请通过邮箱与本人取得直接联系。侵权必究，特此严正声明。
 
