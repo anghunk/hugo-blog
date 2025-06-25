@@ -56,6 +56,15 @@ params:
     # - name: 订阅
     #   link: /index.xml
 
+  # 极客终端主题配置
+  geek:
+    enableMatrixBackground: true # 启用Matrix风格背景
+    terminalPrefix: "zishu@terminal" # 终端前缀
+    typingSpeed: 50 # 打字效果速度
+    primaryColor: "#33ff33" # 主要文字颜色
+    secondaryColor: "#00cc00" # 次要文字颜色
+    backgroundColor: "#0c0c0c" # 背景颜色
+
 sitemap:
   changefreq: monthly
   filename: sitemap.xml
