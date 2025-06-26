@@ -48,6 +48,7 @@
 <link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/index.css">
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
+<script src="/js/jquery3.6.0.min.js"></script>
 </head>
 
 
@@ -950,7 +951,7 @@
 
 <body>
   <nav class="headnav">
-  <a href="/" class="logo">zishu.me</a>
+  
   <ul id="menu">
     
     <li><a href="/">首页</a></li>
@@ -967,16 +968,24 @@
     
     <li><a href="/index.xml" target="_blank">订阅</a></li>
   </ul>
+
 </nav>
 
   <section>
+    <div class="aboutme">
+      <div class="author"><img src="https://imgurl.zishu.me/author.png" alt="author"></div>
+      <div class="info">
+        <div class="name">zishu</div>
 
-    <article class="post-content">
-      <p>这是我的个人博客，已经运行了 <span id="days"></span> 天，写了 317 篇文章，共 202268 字。</p>
-      
-      <p>代码是我的工作，文字是我的爱好。</p>
+        <p>这是我的个人博客，已经运行了 <span id="days"></span> 天，写了 317 篇文章，共 202268 字。</p>
+        
+        <p>代码是我的工作，文字是我的爱好。</p>
 <p>如果你想与我交流，欢迎发送电子邮件至 <code>hi@zishu.me</code>，更多 <a href="/about/">关于我</a>。</p>
 
+      </div>
+    </div>
+    <article class="post-content">
+     
       <div class="indextitle">最新的文章</div>
       <div class="indexpost">
         
@@ -1012,7 +1021,7 @@
   <img src="https://profile-counter.glitch.me/zishu_me/count.svg" alt="count">
 </footer>
 
-
+<script src="/js/main.js"></script>
 
   <script>
     const time = "2020-06-14";

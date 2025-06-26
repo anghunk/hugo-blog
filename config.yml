@@ -1,7 +1,7 @@
 baseURL: https://zishu.me/
 languageCode: en-us
 title: 子舒的博客
-theme: 8 # 7
+theme: 9 # 8
 pagination:
   pagerSize: 7 # 首页文章显示个数
 summaryLength: 999999 # 首页文章摘要字数
@@ -58,7 +58,7 @@ params:
 
   # 极客终端主题配置
   geek:
-    enableMatrixBackground: true # 启用Matrix风格背景
+    enableMatrixBackground: true # 启用 Matrix 风格背景
     terminalPrefix: "zishu@terminal" # 终端前缀
     typingSpeed: 50 # 打字效果速度
     primaryColor: "#33ff33" # 主要文字颜色
