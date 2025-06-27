@@ -759,18 +759,7 @@ ol {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .u-header {
   margin-bottom: .5rem;
-}
-
-@media (min-width: 55rem) {
-  .u-header {
-    padding-top: 1rem;
-  }
-}
-
-@media (min-width: 75rem) {
-  .u-header {
-    padding-top: 3rem;
-  }
+  padding-top: 3rem;
 }
 
 .u-footer {
@@ -778,6 +767,9 @@ ol {
   margin-bottom: 2rem;
 }
 
+footer {
+  padding-bottom: 2rem !important;
+}
 
 /* #Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
