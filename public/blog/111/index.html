@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Hugo 0.146.5">
+	<title>在 vue 中制作 canvas 波浪图 - Manis</title>
+
+	<meta name="description" content="新建组件 Canvas.vue 。
+// @/components/Canvas.vue
+
+&lt;template&gt;
+  &lt;div :style=&#34;{ height: waveAllHeight &#43; &#39;px&#39;, background: bgColor }&#34; class=&#34;wave&#34;&gt;
+    &lt;canvas id=&#34;wave1&#34;&gt;&lt;/canvas&gt;
+    &lt;canvas id=&#34;wave2&#34;&gt;&lt;/canvas&gt;
+    &lt;canvas id=&#34;wave3&#34;&gt;&lt;/canvas&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: &#34;Canvas&#34;,
+  props: {
+    bgColor: {
+      default: &#34;none&#34;,
+    }, // 背景色
+    waveAllHeight: { default: 160 }, // 波浪的整体高度
+    waveCount: { default: 2 }, // 波峰个数
+    waveHeight: { default: 50 }, // 波浪起伏高度
+    // 波浪颜色
+    waveColor: {
+      default () {
+        return [
+          &#34;#f3f3f3&#34;,
+          &#34;#f3f3f3&#34;,
+          &#34;#f3f3f3&#34;,
+        ];
+      },
+    },
+    // 波浪速率
+    waveTime: {
+      default () {
+        return [4000, 4000, 4000];
+      },
+    },
+  },
+  data () {
+    return {};
+  },
+  mounted () {
+    this.wavePlay(&#34;wave1&#34;, 140, this.waveColor[0], this.waveTime[0]);
+    this.wavePlay(&#34;wave2&#34;, 140, this.waveColor[1], this.waveTime[1]);
+    this.wavePlay(&#34;wave3&#34;, 140, this.waveColor[2], this.waveTime[2]);
+  },
+  methods: {
+    wavePlay ($canvasID, $progress, $maveColor, $time) {
+      const that = this;
+      let waveWidth = 3300, // 波浪长度
+        offset = 0,
+        waveHeight = that.waveHeight, // 波浪起伏高度
+        waveCount = that.waveCount, // 波浪个数
+        startX = -1200,
+        startY = 212, // canvas 高度
+        progress = $progress, // 波浪位置高度
+        d2 = waveWidth / waveCount, // 单个波浪的宽度
+        d = d2 / 2,
+        hd = d / 2,
+        c = document.getElementById($canvasID),
+        ctx = c.getContext(&#34;2d&#34;);
+      c.width = 1920; // 画布宽度
+      c.height = that.waveAllHeight; // 画布高度
+      function move () {
+        offset -= 5;
+        if (-1 * offset === d2) {
+          offset = 0;
+        }
+        ctx.clearRect(0, 0, c.width, c.height);
+        ctx.fillStyle = $maveColor; // 画布填充色
+        ctx.beginPath();
+        let offsetY = startY - progress;
+        // 绘制贝塞尔曲线
+        ctx.moveTo(startX - offset, offsetY); // 开始点
+        for (let i = 0; i &lt; waveCount; i&#43;&#43;) {
+          let dx = i * d2;
+          let offsetX = dx &#43; startX - offset;
+          ctx.quadraticCurveTo(
+            offsetX &#43; hd,
+            offsetY &#43; waveHeight,
+            offsetX &#43; d,
+            offsetY
+          );
+          ctx.quadraticCurveTo(
+            offsetX &#43; hd &#43; d,
+            offsetY - waveHeight,
+            offsetX &#43; d2,
+            offsetY
+          );
+        }
+        ctx.lineTo(startX &#43; waveWidth, 3000);
+        ctx.lineTo(startX, 0);
+        ctx.fill();
+        setTimeout(move, $time / 60); // 速度
+      }
+
+      move();
+    },
+  },
+};
+&lt;/script&gt;
+
+&lt;style scoped lang=&#34;scss&#34;&gt;
+.wave {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-top: -8%;
+  canvas {
+    width: 100%;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+@media (max-width: 900px) {
+  .wave {
+    display: none;
+  }
+}
+&lt;/style&gt;
+">
+
+
+	
+	
+	
+
+
+
+
+<link rel="stylesheet" href="/css/ui.css">
+
+	
+	
+
+	<script defer src="/js/dark-mode.js"></script>
+	<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+	<link  rel="stylesheet" href="/css/dropdown.css">
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3973436778637330"
+	crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+	
+				
+	
+</head>
+
+<body>
+<header class="container no-print">
+	<div class="u-header">
+		<nav class="bar">
+	<ul><li>
+			<a href="/">
+				<img class="icon-text" src="/img/prev.svg"/>
+			</a>
+		</li><li><img class="icon-text" id="dark-mode-toggle" src="/img/moon-regular.svg" alt="Toggle Dark Mode"></a></li><li><a href="/about">About</a></li><li><a href="/post/">Post</a></li>
+
+
+
+
+
+	</ul>
+</nav>
+
+	</div>
+</header>
+<main class="container">
+
+<article>
+	<header><hgroup id="brand">
+	<h1>在 vue 中制作 canvas 波浪图</h1>
+	<h5>
+		
+		<time datetime="2022-03-29 00:00:00 &#43;0000 UTC">Mar 29, 2022 00:00</time>
+		<span class="no-print">
+			|
+				
+				<a href="/tags/vue">vue</a>
+				
+				<a href="/tags/canvas">canvas</a>
+				<span>
+	</h5>
+	
+</hgroup>
+<hr class="sep" />
+</header>
+	<p>新建组件 <code>Canvas.vue</code> 。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// @/components/Canvas.vue
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="nx">div</span> <span class="o">:</span><span class="nx">style</span><span class="o">=</span><span class="s2">&#34;{ height: waveAllHeight + &#39;px&#39;, background: bgColor }&#34;</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;wave&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">canvas</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;wave1&#34;</span><span class="o">&gt;&lt;</span><span class="err">/canvas&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">canvas</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;wave2&#34;</span><span class="o">&gt;&lt;</span><span class="err">/canvas&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">canvas</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;wave3&#34;</span><span class="o">&gt;&lt;</span><span class="err">/canvas&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/template&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Canvas&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">props</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bgColor</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">default</span><span class="o">:</span> <span class="s2">&#34;none&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span> <span class="c1">// 背景色
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">waveAllHeight</span><span class="o">:</span> <span class="p">{</span> <span class="k">default</span><span class="o">:</span> <span class="mi">160</span> <span class="p">},</span> <span class="c1">// 波浪的整体高度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">waveCount</span><span class="o">:</span> <span class="p">{</span> <span class="k">default</span><span class="o">:</span> <span class="mi">2</span> <span class="p">},</span> <span class="c1">// 波峰个数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">waveHeight</span><span class="o">:</span> <span class="p">{</span> <span class="k">default</span><span class="o">:</span> <span class="mi">50</span> <span class="p">},</span> <span class="c1">// 波浪起伏高度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 波浪颜色
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">waveColor</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">default</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;#f3f3f3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;#f3f3f3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;#f3f3f3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 波浪速率
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">waveTime</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">default</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="mi">4000</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">data</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">mounted</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">wavePlay</span><span class="p">(</span><span class="s2">&#34;wave1&#34;</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">waveColor</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="k">this</span><span class="p">.</span><span class="nx">waveTime</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">wavePlay</span><span class="p">(</span><span class="s2">&#34;wave2&#34;</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">waveColor</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="k">this</span><span class="p">.</span><span class="nx">waveTime</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">wavePlay</span><span class="p">(</span><span class="s2">&#34;wave3&#34;</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">waveColor</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="k">this</span><span class="p">.</span><span class="nx">waveTime</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">wavePlay</span> <span class="p">(</span><span class="nx">$canvasID</span><span class="p">,</span> <span class="nx">$progress</span><span class="p">,</span> <span class="nx">$maveColor</span><span class="p">,</span> <span class="nx">$time</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">let</span> <span class="nx">waveWidth</span> <span class="o">=</span> <span class="mi">3300</span><span class="p">,</span> <span class="c1">// 波浪长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">waveHeight</span> <span class="o">=</span> <span class="nx">that</span><span class="p">.</span><span class="nx">waveHeight</span><span class="p">,</span> <span class="c1">// 波浪起伏高度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">waveCount</span> <span class="o">=</span> <span class="nx">that</span><span class="p">.</span><span class="nx">waveCount</span><span class="p">,</span> <span class="c1">// 波浪个数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">startX</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1200</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">startY</span> <span class="o">=</span> <span class="mi">212</span><span class="p">,</span> <span class="c1">// canvas 高度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">progress</span> <span class="o">=</span> <span class="nx">$progress</span><span class="p">,</span> <span class="c1">// 波浪位置高度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">d2</span> <span class="o">=</span> <span class="nx">waveWidth</span> <span class="o">/</span> <span class="nx">waveCount</span><span class="p">,</span> <span class="c1">// 单个波浪的宽度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">d</span> <span class="o">=</span> <span class="nx">d2</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">hd</span> <span class="o">=</span> <span class="nx">d</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">$canvasID</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&#34;2d&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">c</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">1920</span><span class="p">;</span> <span class="c1">// 画布宽度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">c</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">that</span><span class="p">.</span><span class="nx">waveAllHeight</span><span class="p">;</span> <span class="c1">// 画布高度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kd">function</span> <span class="nx">move</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">offset</span> <span class="o">-=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="nx">offset</span> <span class="o">===</span> <span class="nx">d2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ctx</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">$maveColor</span><span class="p">;</span> <span class="c1">// 画布填充色
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">offsetY</span> <span class="o">=</span> <span class="nx">startY</span> <span class="o">-</span> <span class="nx">progress</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 绘制贝塞尔曲线
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">ctx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">startX</span> <span class="o">-</span> <span class="nx">offset</span><span class="p">,</span> <span class="nx">offsetY</span><span class="p">);</span> <span class="c1">// 开始点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">waveCount</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="kd">let</span> <span class="nx">dx</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">*</span> <span class="nx">d2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="kd">let</span> <span class="nx">offsetX</span> <span class="o">=</span> <span class="nx">dx</span> <span class="o">+</span> <span class="nx">startX</span> <span class="o">-</span> <span class="nx">offset</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">ctx</span><span class="p">.</span><span class="nx">quadraticCurveTo</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">offsetX</span> <span class="o">+</span> <span class="nx">hd</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">offsetY</span> <span class="o">+</span> <span class="nx">waveHeight</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">offsetX</span> <span class="o">+</span> <span class="nx">d</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">offsetY</span>
+</span></span><span class="line"><span class="cl">          <span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">ctx</span><span class="p">.</span><span class="nx">quadraticCurveTo</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">offsetX</span> <span class="o">+</span> <span class="nx">hd</span> <span class="o">+</span> <span class="nx">d</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">offsetY</span> <span class="o">-</span> <span class="nx">waveHeight</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">offsetX</span> <span class="o">+</span> <span class="nx">d2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">offsetY</span>
+</span></span><span class="line"><span class="cl">          <span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ctx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">startX</span> <span class="o">+</span> <span class="nx">waveWidth</span><span class="p">,</span> <span class="mi">3000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ctx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">startX</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ctx</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">move</span><span class="p">,</span> <span class="nx">$time</span> <span class="o">/</span> <span class="mi">60</span><span class="p">);</span> <span class="c1">// 速度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nx">move</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">style</span> <span class="nx">scoped</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&#34;scss&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">wave</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">width</span><span class="o">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">height</span><span class="o">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">position</span><span class="o">:</span> <span class="nx">relative</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">top</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">left</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">margin</span><span class="o">-</span><span class="nx">top</span><span class="o">:</span> <span class="o">-</span><span class="mi">8</span><span class="o">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">canvas</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">width</span><span class="o">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">opacity</span><span class="o">:</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">position</span><span class="o">:</span> <span class="nx">absolute</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">top</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">left</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="err">@</span><span class="nx">media</span> <span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">900</span><span class="nx">px</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nx">wave</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">display</span><span class="o">:</span> <span class="nx">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/style&gt;</span>
+</span></span></code></pre></div>
+</article>
+<nav class="no-print post-nav">
+
+	<a class="prev-post" href="//localhost:1313/blog/110/">
+		<img class="icon-text" src="/img/prev.svg"/>增加了站内搜索功能</a>
+
+
+	<a class="next-post" href="//localhost:1313/blog/112/">在 nuxt 中实现图片放大预览功能<img class="icon-text" src="/img/next.svg"/>
+	</a>
+
+</nav>
+
+
+<section id="related">
+  <h4>See Also</h4>
+  <ul>
+    
+  	<li><a href="/blog/71/">在 vue 中使用 axios 调用数据</a></li>
+  	
+  	<li><a href="/blog/43/">使用 React 与 Vue 创建同一款 App，差别究竟有多大？</a></li>
+  	
+  	<li><a href="/blog/29/">vue 学习笔记 (3)－－computed, watch，calss, style</a></li>
+  	
+  </ul>
+</section>
+
+
+
+	
+
+<script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="url"
+        label=""
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+	
+
+			<hr class="sep" />
+		</main>
+		<footer class="container no-print">
+			<div class="u-footer">
+				
+<a href="mailto:mail@yurizal-san.com"><img class="icon-social" src="/img/email.svg" alt="Email Me!"/></a>
+
+
+<a href="https://github.com/yursan9/"><img class="icon-social" src="/img/github.svg" alt="Github"/></a>
+
+
+
+<a href="https://twitter.com/yuri_boya"><img class="icon-social" src="/img/twitter.svg" alt="Twitter"/></a>
+
+
+
+
+
+				<p>
+					
+					Theme used: <a href="https://github.com/yursan9/manis-hugo-theme">Manis</a><br>
+					
+					
+					&copy; 2019 Yurizal Susanto
+					
+					
+					| <a href="/about/license">License</a>
+					
+				</p>
+				
+				<a href="#brand">
+					<img class="icon-text" src="/img/toup.svg" alt="To Up"/>
+					<span>Back to Up</span>
+				</a>
+				
+			</div>
+		</footer>
+		
+	</body>
+</html>
+

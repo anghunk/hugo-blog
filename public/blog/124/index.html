@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Hugo 0.146.5">
+	<title>docker 部署思源笔记 - Manis</title>
+
+	<meta name="description" content="
+文章废弃
+部署
+docker run --name siyuan -itd -p 6806:6806 -v /opt/my_siyuan_path:/opt/siyuan --restart always b3log/siyuan
+备份
+sudo su
+
+# 查看容器列表
+docker ps -a
+
+# 制作备份
+docker commit -p 7409ce6aae7b siyuan_backup
+# 其中 403e6db0c 是容器id, jenkins_backup是备份名称
+
+# 查看备份是否成功
+docker images
+
+# 将镜像制作成文件 docker save -o [filename] [image]
+docker save -o siyuan_backup.tar siyuan_backup
+ls
+
+# 在 /home/ubuntu/ 中可以看到制作后的压缩包
+">
+
+
+	
+	
+	
+
+
+
+
+<link rel="stylesheet" href="/css/ui.css">
+
+	
+	
+
+	<script defer src="/js/dark-mode.js"></script>
+	<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+	<link  rel="stylesheet" href="/css/dropdown.css">
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3973436778637330"
+	crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+	
+				
+	
+</head>
+
+<body>
+<header class="container no-print">
+	<div class="u-header">
+		<nav class="bar">
+	<ul><li>
+			<a href="/">
+				<img class="icon-text" src="/img/prev.svg"/>
+			</a>
+		</li><li><img class="icon-text" id="dark-mode-toggle" src="/img/moon-regular.svg" alt="Toggle Dark Mode"></a></li><li><a href="/about">About</a></li><li><a href="/post/">Post</a></li>
+
+
+
+
+
+	</ul>
+</nav>
+
+	</div>
+</header>
+<main class="container">
+
+<article>
+	<header><hgroup id="brand">
+	<h1>docker 部署思源笔记</h1>
+	<h5>
+		
+		<time datetime="2022-05-05 00:00:00 &#43;0000 UTC">May 05, 2022 00:00</time>
+		<span class="no-print">
+			|
+				
+				<a href="/tags/%e6%80%9d%e6%ba%90%e7%ac%94%e8%ae%b0">思源笔记</a>
+				
+				<a href="/tags/docker">docker</a>
+				<span>
+	</h5>
+	
+</hgroup>
+<hr class="sep" />
+</header>
+	<blockquote>
+<p>文章废弃</p></blockquote>
+<h3 id="部署">部署</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run --name siyuan -itd -p 6806:6806 -v /opt/my_siyuan_path:/opt/siyuan --restart always b3log/siyuan
+</span></span></code></pre></div><h3 id="备份">备份</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo su
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看容器列表</span>
+</span></span><span class="line"><span class="cl">docker ps -a
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 制作备份</span>
+</span></span><span class="line"><span class="cl">docker commit -p 7409ce6aae7b siyuan_backup
+</span></span><span class="line"><span class="cl"><span class="c1"># 其中 403e6db0c 是容器id, jenkins_backup是备份名称</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看备份是否成功</span>
+</span></span><span class="line"><span class="cl">docker images
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 将镜像制作成文件 docker save -o [filename] [image]</span>
+</span></span><span class="line"><span class="cl">docker save -o siyuan_backup.tar siyuan_backup
+</span></span><span class="line"><span class="cl">ls
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 在 /home/ubuntu/ 中可以看到制作后的压缩包</span>
+</span></span></code></pre></div>
+</article>
+<nav class="no-print post-nav">
+
+	<a class="prev-post" href="//localhost:1313/blog/122/">
+		<img class="icon-text" src="/img/prev.svg"/>随想录 (2)</a>
+
+
+	<a class="next-post" href="//localhost:1313/blog/125/">随想录 (3)<img class="icon-text" src="/img/next.svg"/>
+	</a>
+
+</nav>
+
+
+
+
+	
+
+<script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="url"
+        label=""
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+	
+
+			<hr class="sep" />
+		</main>
+		<footer class="container no-print">
+			<div class="u-footer">
+				
+<a href="mailto:mail@yurizal-san.com"><img class="icon-social" src="/img/email.svg" alt="Email Me!"/></a>
+
+
+<a href="https://github.com/yursan9/"><img class="icon-social" src="/img/github.svg" alt="Github"/></a>
+
+
+
+<a href="https://twitter.com/yuri_boya"><img class="icon-social" src="/img/twitter.svg" alt="Twitter"/></a>
+
+
+
+
+
+				<p>
+					
+					Theme used: <a href="https://github.com/yursan9/manis-hugo-theme">Manis</a><br>
+					
+					
+					&copy; 2019 Yurizal Susanto
+					
+					
+					| <a href="/about/license">License</a>
+					
+				</p>
+				
+				<a href="#brand">
+					<img class="icon-text" src="/img/toup.svg" alt="To Up"/>
+					<span>Back to Up</span>
+				</a>
+				
+			</div>
+		</footer>
+		
+	</body>
+</html>
+

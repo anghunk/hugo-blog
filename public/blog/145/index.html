@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Hugo 0.146.5">
+	<title>人民币小写转大写 - Manis</title>
+
+	<meta name="description" content="一个有趣的 demo
+this.smalltoBIG(43533534.78); //肆仟叁佰伍拾叁万叁仟伍佰叁拾肆元柒角捌分
+	
+smalltoBIG (n) {
+  var fraction = [&#39;角&#39;, &#39;分&#39;];
+  var digit = [&#39;零&#39;, &#39;壹&#39;, &#39;贰&#39;, &#39;叁&#39;, &#39;肆&#39;, &#39;伍&#39;, &#39;陆&#39;, &#39;柒&#39;, &#39;捌&#39;, &#39;玖&#39;];
+  var unit = [
+    [&#39;元&#39;, &#39;万&#39;, &#39;亿&#39;],[&#39;&#39;, &#39;拾&#39;, &#39;佰&#39;, &#39;仟&#39;]
+  ];
+  var head = n &lt; 0 ? &#39;欠&#39; : &#39;&#39;;
+  n = Math.abs(n);
+
+  var s = &#39;&#39;;
+
+  for (var i = 0; i &lt; fraction.length; i&#43;&#43;) {
+    s &#43;= (digit[Math.floor(n * 10 * Math.pow(10, i)) % 10] &#43; fraction[i]).replace(/零./, &#39;&#39;);
+  }
+  s = s || &#39;整&#39;;
+  n = Math.floor(n);
+
+  for (var i = 0; i &lt; unit[0].length &amp;&amp; n &gt; 0; i&#43;&#43;) {
+    var p = &#39;&#39;;
+    for (var j = 0; j &lt; unit[1].length &amp;&amp; n &gt; 0; j&#43;&#43;) {
+      p = digit[n % 10] &#43; unit[1][j] &#43; p;
+      n = Math.floor(n / 10);
+    }
+    s = p.replace(/(零.)*零$/, &#39;&#39;).replace(/^$/, &#39;零&#39;) &#43; unit[0][i] &#43; s;
+  }
+  return head &#43; s.replace(/(零.)*零元/, &#39;元&#39;).replace(/(零.)&#43;/g, &#39;零&#39;).replace(/^整$/, &#39;零元整&#39;);
+},
+">
+
+
+	
+	
+	
+
+
+
+
+<link rel="stylesheet" href="/css/ui.css">
+
+	
+	
+
+	<script defer src="/js/dark-mode.js"></script>
+	<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+	<link  rel="stylesheet" href="/css/dropdown.css">
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3973436778637330"
+	crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+	
+				
+	
+</head>
+
+<body>
+<header class="container no-print">
+	<div class="u-header">
+		<nav class="bar">
+	<ul><li>
+			<a href="/">
+				<img class="icon-text" src="/img/prev.svg"/>
+			</a>
+		</li><li><img class="icon-text" id="dark-mode-toggle" src="/img/moon-regular.svg" alt="Toggle Dark Mode"></a></li><li><a href="/about">About</a></li><li><a href="/post/">Post</a></li>
+
+
+
+
+
+	</ul>
+</nav>
+
+	</div>
+</header>
+<main class="container">
+
+<article>
+	<header><hgroup id="brand">
+	<h1>人民币小写转大写</h1>
+	<h5>
+		
+		<time datetime="2022-06-24 00:00:00 &#43;0000 UTC">Jun 24, 2022 00:00</time>
+		<span class="no-print">
+			|
+				
+				<a href="/tags/js">js</a>
+				<span>
+	</h5>
+	
+</hgroup>
+<hr class="sep" />
+</header>
+	<p>一个有趣的 demo</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="k">this</span><span class="p">.</span><span class="nx">smalltoBIG</span><span class="p">(</span><span class="mf">43533534.78</span><span class="p">);</span> <span class="c1">//肆仟叁佰伍拾叁万叁仟伍佰叁拾肆元柒角捌分
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	
+</span></span><span class="line"><span class="cl"><span class="nx">smalltoBIG</span> <span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">fraction</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;角&#39;</span><span class="p">,</span> <span class="s1">&#39;分&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">digit</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;零&#39;</span><span class="p">,</span> <span class="s1">&#39;壹&#39;</span><span class="p">,</span> <span class="s1">&#39;贰&#39;</span><span class="p">,</span> <span class="s1">&#39;叁&#39;</span><span class="p">,</span> <span class="s1">&#39;肆&#39;</span><span class="p">,</span> <span class="s1">&#39;伍&#39;</span><span class="p">,</span> <span class="s1">&#39;陆&#39;</span><span class="p">,</span> <span class="s1">&#39;柒&#39;</span><span class="p">,</span> <span class="s1">&#39;捌&#39;</span><span class="p">,</span> <span class="s1">&#39;玖&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">unit</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="s1">&#39;元&#39;</span><span class="p">,</span> <span class="s1">&#39;万&#39;</span><span class="p">,</span> <span class="s1">&#39;亿&#39;</span><span class="p">],[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;拾&#39;</span><span class="p">,</span> <span class="s1">&#39;佰&#39;</span><span class="p">,</span> <span class="s1">&#39;仟&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">head</span> <span class="o">=</span> <span class="nx">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="s1">&#39;欠&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">n</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">fraction</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">digit</span><span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">n</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">i</span><span class="p">))</span> <span class="o">%</span> <span class="mi">10</span><span class="p">]</span> <span class="o">+</span> <span class="nx">fraction</span><span class="p">[</span><span class="nx">i</span><span class="p">]).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/零./</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">s</span> <span class="o">=</span> <span class="nx">s</span> <span class="o">||</span> <span class="s1">&#39;整&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">n</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">unit</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">length</span> <span class="o">&amp;&amp;</span> <span class="nx">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">unit</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">length</span> <span class="o">&amp;&amp;</span> <span class="nx">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">p</span> <span class="o">=</span> <span class="nx">digit</span><span class="p">[</span><span class="nx">n</span> <span class="o">%</span> <span class="mi">10</span><span class="p">]</span> <span class="o">+</span> <span class="nx">unit</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="o">+</span> <span class="nx">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">n</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">n</span> <span class="o">/</span> <span class="mi">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(零.)*零$/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^$/</span><span class="p">,</span> <span class="s1">&#39;零&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">unit</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="nx">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">head</span> <span class="o">+</span> <span class="nx">s</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(零.)*零元/</span><span class="p">,</span> <span class="s1">&#39;元&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(零.)+/g</span><span class="p">,</span> <span class="s1">&#39;零&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^整$/</span><span class="p">,</span> <span class="s1">&#39;零元整&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">},</span>
+</span></span></code></pre></div>
+</article>
+<nav class="no-print post-nav">
+
+	<a class="prev-post" href="//localhost:1313/blog/143/">
+		<img class="icon-text" src="/img/prev.svg"/>掘金抽奖脚本</a>
+
+
+	<a class="next-post" href="//localhost:1313/blog/146/">Obsidian:如何使用坚果云进行多端同步？<img class="icon-text" src="/img/next.svg"/>
+	</a>
+
+</nav>
+
+
+<section id="related">
+  <h4>See Also</h4>
+  <ul>
+    
+  	<li><a href="/blog/120/">浏览器收藏夹一键填写博客评论信息</a></li>
+  	
+  	<li><a href="/blog/82/">揭秘箭头函数</a></li>
+  	
+  	<li><a href="/blog/81/">js 奇怪的知识--console.table</a></li>
+  	
+  </ul>
+</section>
+
+
+
+	
+
+<script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="url"
+        label=""
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+	
+
+			<hr class="sep" />
+		</main>
+		<footer class="container no-print">
+			<div class="u-footer">
+				
+<a href="mailto:mail@yurizal-san.com"><img class="icon-social" src="/img/email.svg" alt="Email Me!"/></a>
+
+
+<a href="https://github.com/yursan9/"><img class="icon-social" src="/img/github.svg" alt="Github"/></a>
+
+
+
+<a href="https://twitter.com/yuri_boya"><img class="icon-social" src="/img/twitter.svg" alt="Twitter"/></a>
+
+
+
+
+
+				<p>
+					
+					Theme used: <a href="https://github.com/yursan9/manis-hugo-theme">Manis</a><br>
+					
+					
+					&copy; 2019 Yurizal Susanto
+					
+					
+					| <a href="/about/license">License</a>
+					
+				</p>
+				
+				<a href="#brand">
+					<img class="icon-text" src="/img/toup.svg" alt="To Up"/>
+					<span>Back to Up</span>
+				</a>
+				
+			</div>
+		</footer>
+		
+	</body>
+</html>
+

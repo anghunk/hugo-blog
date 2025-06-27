@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Hugo 0.146.5">
+	<title>sql 中时间戳转日期 - Manis</title>
+
+	<meta name="description" content="需求：我将博客和 typecho 后台结合起来，打算做一个在线说说的功能，在 typecho 中输入内容，然后调用接口，实现在我的博客查看说说功能的功能。是不是有点绕？我也这么觉得，但是折腾一下也挺好的。
+typecho 导出的数据默认是时间戳格式，那我在前端调用的时候就很麻烦，所以选择在 sql 查询时直接转换，created 是表里面的参数。
+// 时间转换语句
+FROM_UNIXTIME(created)
+// 数据库查询语句
+$sql = &#34;select FROM_UNIXTIME(created),text from ... order by created desc&#34;;
+这里导出的数据就是下面这个样子。
+
+所以使用 as 参数将前面的语句自定义一下。
+$sql = &#34;select FROM_UNIXTIME(created) as created,text from ... order by created desc&#34;;
+
+成功导出，接下来调用就很简单了。
+多谢梦繁星的指导。">
+
+
+	
+	
+	
+
+
+
+
+<link rel="stylesheet" href="/css/ui.css">
+
+	
+	
+
+	<script defer src="/js/dark-mode.js"></script>
+	<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+	<link  rel="stylesheet" href="/css/dropdown.css">
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3973436778637330"
+	crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+	
+				
+	
+</head>
+
+<body>
+<header class="container no-print">
+	<div class="u-header">
+		<nav class="bar">
+	<ul><li>
+			<a href="/">
+				<img class="icon-text" src="/img/prev.svg"/>
+			</a>
+		</li><li><img class="icon-text" id="dark-mode-toggle" src="/img/moon-regular.svg" alt="Toggle Dark Mode"></a></li><li><a href="/about">About</a></li><li><a href="/post/">Post</a></li>
+
+
+
+
+
+	</ul>
+</nav>
+
+	</div>
+</header>
+<main class="container">
+
+<article>
+	<header><hgroup id="brand">
+	<h1>sql 中时间戳转日期</h1>
+	<h5>
+		
+		<time datetime="2022-03-10 00:00:00 &#43;0000 UTC">Mar 10, 2022 00:00</time>
+		<span class="no-print">
+			|
+				
+				<a href="/tags/sql">sql</a>
+				
+				<a href="/tags/%e6%97%b6%e9%97%b4%e6%88%b3">时间戳</a>
+				<span>
+	</h5>
+	
+</hgroup>
+<hr class="sep" />
+</header>
+	<p>需求：我将博客和 typecho 后台结合起来，打算做一个在线说说的功能，在 typecho 中输入内容，然后调用接口，实现在我的博客查看说说功能的功能。是不是有点绕？我也这么觉得，但是折腾一下也挺好的。</p>
+<p>typecho 导出的数据默认是时间戳格式，那我在前端调用的时候就很麻烦，所以选择在 sql 查询时直接转换，created 是表里面的参数。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">// 时间转换语句
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">FROM_UNIXTIME</span><span class="p">(</span><span class="nx">created</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">// 数据库查询语句
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&#34;select FROM_UNIXTIME(created),text from ... order by created desc&#34;</span><span class="p">;</span>
+</span></span></code></pre></div><p>这里导出的数据就是下面这个样子。</p>
+<p><img src="https://imgurl.zishu.me/images/old/2022/03/10/bca1ba598bbfc240545a5ba9c194a115.png" alt=""></p>
+<p>所以使用 <code>as</code> 参数将前面的语句自定义一下。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&#34;select FROM_UNIXTIME(created) as created,text from ... order by created desc&#34;</span><span class="p">;</span>
+</span></span></code></pre></div><p><img src="https://imgurl.zishu.me/images/old/2022/03/10/2f2a51643ff08d48fdbf9eec5cf193c5.png" alt=""></p>
+<p>成功导出，接下来调用就很简单了。</p>
+<p>多谢<a href="https://www.emoao.com/">梦繁星</a>的指导。</p>
+
+</article>
+<nav class="no-print post-nav">
+
+	<a class="prev-post" href="//localhost:1313/blog/105/">
+		<img class="icon-text" src="/img/prev.svg"/>时隔六年我终于换电脑了</a>
+
+
+	<a class="next-post" href="//localhost:1313/blog/110/">增加了站内搜索功能<img class="icon-text" src="/img/next.svg"/>
+	</a>
+
+</nav>
+
+
+
+
+	
+
+<script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="url"
+        label=""
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+	
+
+			<hr class="sep" />
+		</main>
+		<footer class="container no-print">
+			<div class="u-footer">
+				
+<a href="mailto:mail@yurizal-san.com"><img class="icon-social" src="/img/email.svg" alt="Email Me!"/></a>
+
+
+<a href="https://github.com/yursan9/"><img class="icon-social" src="/img/github.svg" alt="Github"/></a>
+
+
+
+<a href="https://twitter.com/yuri_boya"><img class="icon-social" src="/img/twitter.svg" alt="Twitter"/></a>
+
+
+
+
+
+				<p>
+					
+					Theme used: <a href="https://github.com/yursan9/manis-hugo-theme">Manis</a><br>
+					
+					
+					&copy; 2019 Yurizal Susanto
+					
+					
+					| <a href="/about/license">License</a>
+					
+				</p>
+				
+				<a href="#brand">
+					<img class="icon-text" src="/img/toup.svg" alt="To Up"/>
+					<span>Back to Up</span>
+				</a>
+				
+			</div>
+		</footer>
+		
+	</body>
+</html>
+

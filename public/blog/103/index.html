@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Hugo 0.146.5">
+	<title>【笔记】使用 php 写接口文件调用数据 - Manis</title>
+
+	<meta name="description" content="如何使用 php 写一个接口，然后将数据以 json 文件格式调用。
+&lt;?php
+
+header(&#39;Content-Type:application/json; charset=utf-8&#39;);
+header(&#34;Access-Control-Allow-Origin:*&#34;);
+
+
+$servername = &#34;localhost&#34;;
+$username = &#34;数据库账号&#34;;
+$password = &#34;数据库密码&#34;;
+$dbname = &#34;数据库名称&#34;;
+
+// 创建连接
+$conn = new mysqli($servername, $username, $password, $dbname);
+ 
+// 检测连接
+if ($conn-&gt;connect_error) {
+    die(&#34;连接失败：&#34; . $conn-&gt;connect_error);
+}
+
+
+$sql = &#34;select slug,title,created,text from typecho_contents&#34;;
+$result = $conn-&gt;query($sql);
+
+
+if ($result-&gt;num_rows &gt; 0) {
+    // 输出数据
+    while($row = $result-&gt;fetch_assoc()) {
+        
+    $data[]=$row;
+    
+    }
+    
+    $json = json_encode($data,JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);//把数据转换为 JSON 数据。
+    
+    exit($json) ;
+
+} else {
+    echo &#34;未查询到结果！&#34;;
+}
+
+$conn-&gt;close();
+?&gt;
+
+根据某个条件排序，将 32 行的 sql 语句改为下面的，意为根据 created 进行排序。
+$sql = &#34;select slug,title,created,text from typecho_contents order by created desc&#34;;
+">
+
+
+	
+	
+	
+
+
+
+
+<link rel="stylesheet" href="/css/ui.css">
+
+	
+	
+
+	<script defer src="/js/dark-mode.js"></script>
+	<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+	<link  rel="stylesheet" href="/css/dropdown.css">
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3973436778637330"
+	crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+	
+				
+	
+</head>
+
+<body>
+<header class="container no-print">
+	<div class="u-header">
+		<nav class="bar">
+	<ul><li>
+			<a href="/">
+				<img class="icon-text" src="/img/prev.svg"/>
+			</a>
+		</li><li><img class="icon-text" id="dark-mode-toggle" src="/img/moon-regular.svg" alt="Toggle Dark Mode"></a></li><li><a href="/about">About</a></li><li><a href="/post/">Post</a></li>
+
+
+
+
+
+	</ul>
+</nav>
+
+	</div>
+</header>
+<main class="container">
+
+<article>
+	<header><hgroup id="brand">
+	<h1>【笔记】使用 php 写接口文件调用数据</h1>
+	<h5>
+		
+		<time datetime="2022-02-22 00:00:00 &#43;0000 UTC">Feb 22, 2022 00:00</time>
+		<span class="no-print">
+			|
+				
+				<a href="/tags/%e7%ac%94%e8%ae%b0">笔记</a>
+				
+				<a href="/tags/%e6%95%b0%e6%8d%ae%e5%ba%93">数据库</a>
+				
+				<a href="/tags/php">php</a>
+				<span>
+	</h5>
+	
+</hgroup>
+<hr class="sep" />
+</header>
+	<p>如何使用 php 写一个接口，然后将数据以 json 文件格式调用。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">header</span><span class="p">(</span><span class="s1">&#39;Content-Type:application/json; charset=utf-8&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">header</span><span class="p">(</span><span class="s2">&#34;Access-Control-Allow-Origin:*&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$servername</span> <span class="o">=</span> <span class="s2">&#34;localhost&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$username</span> <span class="o">=</span> <span class="s2">&#34;数据库账号&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$password</span> <span class="o">=</span> <span class="s2">&#34;数据库密码&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$dbname</span> <span class="o">=</span> <span class="s2">&#34;数据库名称&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 创建连接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$conn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mysqli</span><span class="p">(</span><span class="nv">$servername</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span> <span class="nv">$dbname</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// 检测连接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">connect_error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">die</span><span class="p">(</span><span class="s2">&#34;连接失败：&#34;</span> <span class="o">.</span> <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">connect_error</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&#34;select slug,title,created,text from typecho_contents&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nv">$result</span><span class="o">-&gt;</span><span class="na">num_rows</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 输出数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">while</span><span class="p">(</span><span class="nv">$row</span> <span class="o">=</span> <span class="nv">$result</span><span class="o">-&gt;</span><span class="na">fetch_assoc</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="nv">$data</span><span class="p">[]</span><span class="o">=</span><span class="nv">$row</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nv">$json</span> <span class="o">=</span> <span class="nx">json_encode</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span><span class="nx">JSON_UNESCAPED_UNICODE</span><span class="o">|</span><span class="nx">JSON_PRETTY_PRINT</span><span class="p">);</span><span class="c1">//把数据转换为 JSON 数据。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="cl">    <span class="k">exit</span><span class="p">(</span><span class="nv">$json</span><span class="p">)</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">echo</span> <span class="s2">&#34;未查询到结果！&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">close</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="cp">?&gt;</span><span class="err">
+</span></span></span></code></pre></div><hr>
+<p>根据某个条件排序，将 32 行的 sql 语句改为下面的，意为根据 <code>created</code> 进行排序。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&#34;select slug,title,created,text from typecho_contents order by created desc&#34;</span><span class="p">;</span>
+</span></span></code></pre></div>
+</article>
+<nav class="no-print post-nav">
+
+	<a class="prev-post" href="//localhost:1313/blog/102/">
+		<img class="icon-text" src="/img/prev.svg"/>Nuxt.js 如何部署 Artalk 和遇到的问题</a>
+
+
+	<a class="next-post" href="//localhost:1313/blog/104/">“不如吃茶去”<img class="icon-text" src="/img/next.svg"/>
+	</a>
+
+</nav>
+
+
+<section id="related">
+  <h4>See Also</h4>
+  <ul>
+    
+  	<li><a href="/blog/73/">将数据库中的图片信息导出并调用</a></li>
+  	
+  	<li><a href="/blog/68/">Oracle 数据库安装教程（超详细）</a></li>
+  	
+  	<li><a href="/blog/61/">我的 python 学习笔记</a></li>
+  	
+  </ul>
+</section>
+
+
+
+	
+
+<script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="url"
+        label=""
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+	
+
+			<hr class="sep" />
+		</main>
+		<footer class="container no-print">
+			<div class="u-footer">
+				
+<a href="mailto:mail@yurizal-san.com"><img class="icon-social" src="/img/email.svg" alt="Email Me!"/></a>
+
+
+<a href="https://github.com/yursan9/"><img class="icon-social" src="/img/github.svg" alt="Github"/></a>
+
+
+
+<a href="https://twitter.com/yuri_boya"><img class="icon-social" src="/img/twitter.svg" alt="Twitter"/></a>
+
+
+
+
+
+				<p>
+					
+					Theme used: <a href="https://github.com/yursan9/manis-hugo-theme">Manis</a><br>
+					
+					
+					&copy; 2019 Yurizal Susanto
+					
+					
+					| <a href="/about/license">License</a>
+					
+				</p>
+				
+				<a href="#brand">
+					<img class="icon-text" src="/img/toup.svg" alt="To Up"/>
+					<span>Back to Up</span>
+				</a>
+				
+			</div>
+		</footer>
+		
+	</body>
+</html>
+

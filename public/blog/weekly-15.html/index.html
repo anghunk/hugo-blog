@@ -56,59 +56,72 @@ https://g.thoughtflow.org/
 
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/css/base.css">
-<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+<link rel="stylesheet" href="/css/ui.css">
+<script defer src="/js/dark-mode.js"></script>
+<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+<link rel="stylesheet" href="/css/dropdown.css">
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
-<script src="/js/jquery3.6.0.min.js"></script>
 </head>
 
 <body>
-  <nav class="headnav">
-  
-  <ul id="menu">
-    
-    <li><a href="/">首页</a></li>
-    
-    <li><a href="/blog/">博客</a></li>
-    
-    <li><a href="/tags/">标签</a></li>
-    
-    <li><a href="/message/">留言</a></li>
-    
-    <li><a href="/about/">关于</a></li>
-    
-    <li><a href="/search/">搜索</a></li>
-    
-    <li><a href="/index.xml" target="_blank">订阅</a></li>
-  </ul>
+  <header class="container no-print">
+  <div class="u-header">
+    <nav class="bar">
+      <ul>
+        <li><img class="icon-text" id="dark-mode-toggle" src="/img/moon.svg" alt="Toggle Dark Mode"></li>
 
-</nav>
-  <section>
-    
-    <div class="body-title">奇趣周刊 - 第 15 期</div>
+        
+        <li><a href="/">首页</a></li>
+        
+        <li><a href="/blog/">博客</a></li>
+        
+        <li><a href="/tags/">标签</a></li>
+        
+        <li><a href="/message/">留言</a></li>
+        
+        <li><a href="/about/">关于</a></li>
+        
+        <li><a href="/search/">搜索</a></li>
+        
 
-    
-    <div class="post-meta">
-      <time> 2023-05-26</time>
-      
-      
-      <span class="namenode">分类：
-        <a href="/categories/weekly">weekly</a>
-      </span>
-      
-      
+        <li><a href="/index.xml" target="_blank">订阅</a></li>
+      </ul>
+    </nav>
 
-      <span class="tag-node">
-        
-        标签：
-        
-        <a href="/tags/weekly">#weekly</a>
-        
-        
-      </span>
+  </div>
+</header>
+  <main class="container">
 
-    </div>
+    <header>
+      <hgroup id="brand">
+        <h1>奇趣周刊 - 第 15 期</h1>
+
+        
+        <h5>
+          <time>2023/05/26</time>
+
+          
+          <span class="no-print">|
+          
+          <a href="/tags/weekly">#weekly</a>
+          
+          </span>
+          
+
+          
+          
+          <span class="no-print">|
+            <a href="/categories/weekly">weekly</a>
+          </span>
+          
+          
+        </h5>
+        
+
+      </hgroup>
+      <hr class="sep">
+    </header>
     
 
     
@@ -182,7 +195,7 @@ https://g.thoughtflow.org/
   data-reactions-enabled="1" 
   data-emit-metadata="1" 
   data-input-position="top" 
-  data-theme="light"
+  data-theme="light_tritanopia"
   data-lang="zh-CN" 
   data-loading="lazy" 
   crossorigin="anonymous" 
@@ -240,16 +253,16 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
 </style>
     
     
-  </section>
-  <footer class="footer">
-  <p>© 2020 - 2025 Powered by
-    <a href="https://github.com/ezyshu" target="_blank">Github</a>
-    / <a href="/index.xml" target="_blank">RSS</a>
-  </p>
+  </main>
+  <footer class="container no-print">
+  <div class="u-footer">
+    © 2020 - 2025 Powered by <a href="https://github.com/ezyshu/" target="_blank"><img class="icon-social" src="/images/github.svg" alt="Github"></a>
+    <a href="/index.xml" target="_blank" title="RSS Feed"><img class="icon-social" src="/images/feed.svg" alt="Feed"></a>
+  </div>
   <img src="https://profile-counter.glitch.me/zishu_me/count.svg" alt="count">
 </footer>
 
-<script src="/js/main.js"></script>
+
 </body>
 
 </html>

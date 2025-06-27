@@ -44,11 +44,12 @@
 
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/css/base.css">
-<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+<link rel="stylesheet" href="/css/ui.css">
+<script defer src="/js/dark-mode.js"></script>
+<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+<link rel="stylesheet" href="/css/dropdown.css">
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
-<script src="/js/jquery3.6.0.min.js"></script>
 </head>
 
 
@@ -950,113 +951,155 @@
 
 
 <body>
-  <nav class="headnav">
-  
-  <ul id="menu">
-    
-    <li><a href="/">首页</a></li>
-    
-    <li><a href="/blog/">博客</a></li>
-    
-    <li><a href="/tags/">标签</a></li>
-    
-    <li><a href="/message/">留言</a></li>
-    
-    <li><a href="/about/">关于</a></li>
-    
-    <li><a href="/search/">搜索</a></li>
-    
-    <li><a href="/index.xml" target="_blank">订阅</a></li>
-  </ul>
+  <header class="container no-print">
+  <div class="u-header">
+    <nav class="bar">
+      <ul>
+        <li><img class="icon-text" id="dark-mode-toggle" src="/img/moon.svg" alt="Toggle Dark Mode"></li>
 
-</nav>
+        
+        <li><a href="/">首页</a></li>
+        
+        <li><a href="/blog/">博客</a></li>
+        
+        <li><a href="/tags/">标签</a></li>
+        
+        <li><a href="/message/">留言</a></li>
+        
+        <li><a href="/about/">关于</a></li>
+        
+        <li><a href="/search/">搜索</a></li>
+        
 
-  <section>
-    <div class="aboutme">
-      <div class="author"><img src="https://imgurl.zishu.me/author.png" alt="author"></div>
-      <div class="info">
-        <div class="name">zishu</div>
+        <li><a href="/index.xml" target="_blank">订阅</a></li>
+      </ul>
+    </nav>
 
+  </div>
+</header>
+
+  <main class="container">
+
+    <article>
+      <header>
+        <hgroup id="brand">
+          <h1>zishu</h1>
+          <h5></h5>
+        </hgroup>
+        <hr class="sep">
+      </header>
+      <section class="aboutme">
         <p>这是我的个人博客，已经运行了 <span id="days"></span> 天，写了 317 篇文章，共 202268 字。</p>
         
         <p>代码是我的工作，文字是我的爱好。</p>
 <p>如果你想与我交流，欢迎发送电子邮件至 <code>hi@zishu.me</code>，更多 <a href="/about/">关于我</a>。</p>
 
-      </div>
-    </div>
-    <article class="post-content">
-     
-      <div class="indextitle">最新的文章</div>
-      <div class="indexpost">
-        
-        
-        
+      </section>
+      <hr class="sep">
+      <section>
+        <h4>最新的文章</h4>
+        <ul class="no-bullet">
+          
+          
+          
 
-        
-        
-        
-        <div class="posts-item">
-          <span class="date">2022-09-21</span>
-          <a href="/blog/167.html/">关于密码的一些想法</a>
-        </div>
-        
-        
-        
-        <div class="posts-item">
-          <span class="date">2022-09-14</span>
-          <a href="/blog/166.html/">你是否想过成为一名作家？</a>
-        </div>
-        
-        
-        
-        <div class="posts-item">
-          <span class="date">2022-09-07</span>
-          <a href="/blog/165.html/">文档和视频，你更喜欢哪种学习方式？</a>
-        </div>
-        
-        
-        
-        <div class="posts-item">
-          <span class="date">2022-09-03</span>
-          <a href="/blog/164.html/">浴鹄湾游记</a>
-        </div>
-        
-        
-        
-        <div class="posts-item">
-          <span class="date">2022-08-22</span>
-          <a href="/blog/162.html/">水利博物馆照片</a>
-        </div>
-        
-        
-        
-        <div class="posts-item">
-          <span class="date">2022-08-12</span>
-          <a href="/blog/159.html/">火烧云</a>
-        </div>
-        
-        
-        
-        <div class="posts-item">
-          <span class="date">2022-08-10</span>
-          <a href="/blog/158.html/">一些容易遗漏的点</a>
-        </div>
-        
-      </div>
+          
+          
+          
 
+          <li>
+            <span><time>2021/12/21</time></span>
+            <a href="/blog/92.html/">typecho 更换 gravatar 头像源</a>
+          </li>
+
+          
+          
+          
+
+          <li>
+            <span><time>2021/12/20</time></span>
+            <a href="/blog/91.html/">有关 cdn.jsdelivr.net 证书错误的一些想法</a>
+          </li>
+
+          
+          
+          
+
+          <li>
+            <span><time>2021/12/17</time></span>
+            <a href="/blog/90.html/">闲谈 2021</a>
+          </li>
+
+          
+          
+          
+
+          <li>
+            <span><time>2021/12/07</time></span>
+            <a href="/blog/88.html/">实现图片灯箱功能</a>
+          </li>
+
+          
+          
+          
+
+          <li>
+            <span><time>2021/11/24</time></span>
+            <a href="/blog/4.html/">关于人际交往的礼节感触</a>
+          </li>
+
+          
+          
+          
+
+          <li>
+            <span><time>2021/11/18</time></span>
+            <a href="/blog/84.html/">网易云摸鱼，测测你的听歌流量</a>
+          </li>
+
+          
+          
+          
+
+          <li>
+            <span><time>2021/11/11</time></span>
+            <a href="/blog/83.html/">这两天的碎碎念</a>
+          </li>
+
+          
+          
+          
+
+          <li>
+            <span><time>2021/11/05</time></span>
+            <a href="/blog/82.html/">揭秘箭头函数</a>
+          </li>
+
+          
+          
+          
+
+          <li>
+            <span><time>2021/11/04</time></span>
+            <a href="/blog/81.html/">js 奇怪的知识--console.table</a>
+          </li>
+
+          
+        </ul>
+      </section>
     </article>
+    <hr class="sep">
 
-
-  </section>
-  <footer class="footer">
-  <p>© 2020 - 2025 Powered by
-    <a href="https://github.com/ezyshu" target="_blank">Github</a>
-    / <a href="/index.xml" target="_blank">RSS</a>
-  </p>
+  </main>
+  <footer class="container no-print">
+  <div class="u-footer">
+    © 2020 - 2025 Powered by <a href="https://github.com/ezyshu/" target="_blank"><img class="icon-social" src="/images/github.svg" alt="Github"></a>
+    <a href="/index.xml" target="_blank" title="RSS Feed"><img class="icon-social" src="/images/feed.svg" alt="Feed"></a>
+  </div>
   <img src="https://profile-counter.glitch.me/zishu_me/count.svg" alt="count">
 </footer>
 
-<script src="/js/main.js"></script>
+
 
   <script>
     const time = "2020-06-14";
@@ -1065,7 +1108,6 @@
     var diff = Math.abs(now - end);
     var days = Math.ceil(diff / (1000 * 60 * 60 * 24));
     document.getElementById('days').innerHTML = days;
-
   </script>
 </body>
 

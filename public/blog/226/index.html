@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Hugo 0.146.5">
+	<title>vue 中配置 env 文件 - Manis</title>
+
+	<meta name="description" content=".env 命名规则。
+# 开发环境 .env 文件名
+.env.development
+
+# 开发环境 .env 文件名
+.env.production
+在 vue-cli 中，要求环境配置文件必须以 VUE_APP 开头，如下：
+# .env
+VUE_APP_BASE_URL = http://0.0.0.0
+
+# 使用
+const baseURL = process.env.VUE_APP_BASE_URL;
+修改 package.json 文件，在运行指令后加上 --mode 标识。
+// package.json
+&#34;scripts&#34;: {
+  &#34;dev&#34;: &#34;vue-cli-service serve --mode development&#34;,
+  &#34;build&#34;: &#34;vue-cli-service build --mode production&#34;,
+}
+">
+
+
+	
+	
+	
+
+
+
+
+<link rel="stylesheet" href="/css/ui.css">
+
+	
+	
+
+	<script defer src="/js/dark-mode.js"></script>
+	<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+	<link  rel="stylesheet" href="/css/dropdown.css">
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3973436778637330"
+	crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+	
+				
+	
+</head>
+
+<body>
+<header class="container no-print">
+	<div class="u-header">
+		<nav class="bar">
+	<ul><li>
+			<a href="/">
+				<img class="icon-text" src="/img/prev.svg"/>
+			</a>
+		</li><li><img class="icon-text" id="dark-mode-toggle" src="/img/moon-regular.svg" alt="Toggle Dark Mode"></a></li><li><a href="/about">About</a></li><li><a href="/post/">Post</a></li>
+
+
+
+
+
+	</ul>
+</nav>
+
+	</div>
+</header>
+<main class="container">
+
+<article>
+	<header><hgroup id="brand">
+	<h1>vue 中配置 env 文件</h1>
+	<h5>
+		
+		<time datetime="2024-04-24 00:00:00 &#43;0000 UTC">Apr 24, 2024 00:00</time>
+		<span class="no-print">
+			|
+				
+				<a href="/tags/vue">vue</a>
+				<span>
+	</h5>
+	
+</hgroup>
+<hr class="sep" />
+</header>
+	<p><code>.env</code> 命名规则。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 开发环境 .env 文件名</span>
+</span></span><span class="line"><span class="cl">.env.development
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 开发环境 .env 文件名</span>
+</span></span><span class="line"><span class="cl">.env.production
+</span></span></code></pre></div><p>在 vue-cli 中，要求环境配置文件必须以 <code>VUE_APP</code> 开头，如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># .env</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VUE_APP_BASE_URL</span> <span class="o">=</span> http://0.0.0.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用</span>
+</span></span><span class="line"><span class="cl">const <span class="nv">baseURL</span> <span class="o">=</span> process.env.VUE_APP_BASE_URL<span class="p">;</span>
+</span></span></code></pre></div><p>修改 <code>package.json</code> 文件，在运行指令后加上 <code>--mode</code> 标识。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="c1">// package.json
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="s2">&#34;scripts&#34;</span><span class="err">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;dev&#34;</span><span class="p">:</span> <span class="s2">&#34;vue-cli-service serve --mode development&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;build&#34;</span><span class="p">:</span> <span class="s2">&#34;vue-cli-service build --mode production&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+</article>
+<nav class="no-print post-nav">
+
+	<a class="prev-post" href="//localhost:1313/blog/weekly-49/">
+		<img class="icon-text" src="/img/prev.svg"/>奇趣周刊 - 第 49 期</a>
+
+
+	<a class="next-post" href="//localhost:1313/blog/227/">黄公望隐居地<img class="icon-text" src="/img/next.svg"/>
+	</a>
+
+</nav>
+
+
+<section id="related">
+  <h4>See Also</h4>
+  <ul>
+    
+  	<li><a href="/blog/218/">无法从非 EcmaScript 模块导入命名导出</a></li>
+  	
+  	<li><a href="/blog/186/">this.$set 给 vue 数组添加数据</a></li>
+  	
+  	<li><a href="/blog/111/">在 vue 中制作 canvas 波浪图</a></li>
+  	
+  </ul>
+</section>
+
+
+
+	
+
+<script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="url"
+        label=""
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+	
+
+			<hr class="sep" />
+		</main>
+		<footer class="container no-print">
+			<div class="u-footer">
+				
+<a href="mailto:mail@yurizal-san.com"><img class="icon-social" src="/img/email.svg" alt="Email Me!"/></a>
+
+
+<a href="https://github.com/yursan9/"><img class="icon-social" src="/img/github.svg" alt="Github"/></a>
+
+
+
+<a href="https://twitter.com/yuri_boya"><img class="icon-social" src="/img/twitter.svg" alt="Twitter"/></a>
+
+
+
+
+
+				<p>
+					
+					Theme used: <a href="https://github.com/yursan9/manis-hugo-theme">Manis</a><br>
+					
+					
+					&copy; 2019 Yurizal Susanto
+					
+					
+					| <a href="/about/license">License</a>
+					
+				</p>
+				
+				<a href="#brand">
+					<img class="icon-text" src="/img/toup.svg" alt="To Up"/>
+					<span>Back to Up</span>
+				</a>
+				
+			</div>
+		</footer>
+		
+	</body>
+</html>
+

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Hugo 0.146.5">
+	<title>js 奇怪的知识--console.table - Manis</title>
+
+	<meta name="description" content="这个属性对我来说还真有些陌生，无意中发现的，查询过 MDN 之后听得挺有意思的，就记录一下。
+根据字面意思就是“将数据以表格的形式显示”。这个方法需要一个必须参数 data，data 必须是一个数组或者是一个对象；还可以使用一个可选参数 columns。
+表格的第一列是 index。如果数据 data 是一个数组，那么这一列的单元格的值就是数组的索引。如果数据是一个对象，那么它们的值就是各对象的属性名称。注意（在 FireFox 中）console.table 被限制为只显示 1000 行（第一行是被标记的索引）。
+1.直接输出
+直接进行尝试，在控制台输出 console.table
+console.table([&#34;双十一&#34;, &#34;双十二&#34;, &#34;双十三&#34;]);
+
+PS E:\demo&gt; node 1.js
+┌─────────┬──────────┐
+│ (index) │  Values  │
+├─────────┼──────────┤
+│    1    │ &#39;双十二&#39; │
+│    2    │ &#39;双十三&#39; │
+└─────────┴──────────┘
+复制下来怪怪的，直接上个图，就是下面这个样子。
+
+
+2.定义对象进行输出
+同样也可以定义一个对象然后输出
+function Fun(title, date) {
+  this.title = title
+  this.date = date
+}
+
+const one = new Fun(&#34;双十一&#34;, &#34;11.11&#34;)
+const two = new Fun(&#34;双十二&#34;, &#34;12.12&#34;)
+const three = new Fun(&#34;双十三&#34;, &#34;你是傻子吗，没有 13 月&#34;)
+
+console.table([one, two, three], [&#34;title&#34;, &#34;date&#34;])
+打印出来，就是下面这个样子。
+
+3.console.table() 的应用场景
+前面是在通过在编辑器中使用 node.js 输出数据，看看在浏览器中输出会不会不一样的效果。
+
+可以看到成功输出数据，并且点击表头时，可以按照不同顺序进行排序，这么一看&hellip;.嗯，还挺有用的（假笑）
+应用场景大概就是可以对打印的数据进行更直观的观看，在某些情况下有利于调试代码，以后看看是否能用得上这种方法。">
+
+
+	
+	
+	
+
+
+
+
+<link rel="stylesheet" href="/css/ui.css">
+
+	
+	
+
+	<script defer src="/js/dark-mode.js"></script>
+	<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+	<link  rel="stylesheet" href="/css/dropdown.css">
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3973436778637330"
+	crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+	
+				
+	
+</head>
+
+<body>
+<header class="container no-print">
+	<div class="u-header">
+		<nav class="bar">
+	<ul><li>
+			<a href="/">
+				<img class="icon-text" src="/img/prev.svg"/>
+			</a>
+		</li><li><img class="icon-text" id="dark-mode-toggle" src="/img/moon-regular.svg" alt="Toggle Dark Mode"></a></li><li><a href="/about">About</a></li><li><a href="/post/">Post</a></li>
+
+
+
+
+
+	</ul>
+</nav>
+
+	</div>
+</header>
+<main class="container">
+
+<article>
+	<header><hgroup id="brand">
+	<h1>js 奇怪的知识--console.table</h1>
+	<h5>
+		
+		<time datetime="2021-11-04 00:00:00 &#43;0000 UTC">Nov 04, 2021 00:00</time>
+		<span class="no-print">
+			|
+				
+				<a href="/tags/js">js</a>
+				<span>
+	</h5>
+	
+</hgroup>
+<hr class="sep" />
+</header>
+	<p>这个属性对我来说还真有些陌生，无意中发现的，查询过 MDN 之后听得挺有意思的，就记录一下。</p>
+<p>根据字面意思就是“将数据以表格的形式显示”。这个方法需要一个必须参数 data，data 必须是一个数组或者是一个对象；还可以使用一个可选参数 columns。</p>
+<p>表格的第一列是 index。如果数据 data 是一个数组，那么这一列的单元格的值就是数组的索引。如果数据是一个对象，那么它们的值就是各对象的属性名称。注意（在 FireFox 中）console.table 被限制为只显示 1000 行（第一行是被标记的索引）。</p>
+<h3 id="1直接输出">1.直接输出</h3>
+<p>直接进行尝试，在控制台输出 console.table</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">table</span><span class="p">([</span><span class="s2">&#34;双十一&#34;</span><span class="p">,</span> <span class="s2">&#34;双十二&#34;</span><span class="p">,</span> <span class="s2">&#34;双十三&#34;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">PS</span> <span class="nx">E</span><span class="o">:</span><span class="err">\</span><span class="nx">demo</span><span class="o">&gt;</span> <span class="nx">node</span> <span class="mf">1.</span><span class="nx">js</span>
+</span></span><span class="line"><span class="cl"><span class="err">┌─────────┬──────────┐</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span> <span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="err">│</span>  <span class="nx">Values</span>  <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">├─────────┼──────────┤</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>    <span class="mi">1</span>    <span class="err">│</span> <span class="s1">&#39;双十二&#39;</span> <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">│</span>    <span class="mi">2</span>    <span class="err">│</span> <span class="s1">&#39;双十三&#39;</span> <span class="err">│</span>
+</span></span><span class="line"><span class="cl"><span class="err">└─────────┴──────────┘</span>
+</span></span></code></pre></div><p>复制下来怪怪的，直接上个图，就是下面这个样子。</p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/11/04/5b865e6a38851240419ceb0984e6557e.png" alt=""></p>
+<hr>
+<h3 id="2定义对象进行输出">2.定义对象进行输出</h3>
+<p>同样也可以定义一个对象然后输出</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Fun</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span> <span class="nx">date</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="nx">title</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">date</span> <span class="o">=</span> <span class="nx">date</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">one</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Fun</span><span class="p">(</span><span class="s2">&#34;双十一&#34;</span><span class="p">,</span> <span class="s2">&#34;11.11&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">two</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Fun</span><span class="p">(</span><span class="s2">&#34;双十二&#34;</span><span class="p">,</span> <span class="s2">&#34;12.12&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">three</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Fun</span><span class="p">(</span><span class="s2">&#34;双十三&#34;</span><span class="p">,</span> <span class="s2">&#34;你是傻子吗，没有 13 月&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">table</span><span class="p">([</span><span class="nx">one</span><span class="p">,</span> <span class="nx">two</span><span class="p">,</span> <span class="nx">three</span><span class="p">],</span> <span class="p">[</span><span class="s2">&#34;title&#34;</span><span class="p">,</span> <span class="s2">&#34;date&#34;</span><span class="p">])</span>
+</span></span></code></pre></div><p>打印出来，就是下面这个样子。</p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/11/04/ed587c8b3373abe1fca2c9cdc6dd50dd.png" alt=""></p>
+<h3 id="3consoletable-的应用场景">3.console.table() 的应用场景</h3>
+<p>前面是在通过在编辑器中使用 node.js 输出数据，看看在浏览器中输出会不会不一样的效果。</p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/11/04/092caebd508948e18d29468739d17e18.png" alt=""></p>
+<p>可以看到成功输出数据，并且点击表头时，可以按照不同顺序进行排序，这么一看&hellip;.嗯，还挺有用的（假笑）</p>
+<p>应用场景大概就是可以对打印的数据进行更直观的观看，在某些情况下有利于调试代码，以后看看是否能用得上这种方法。</p>
+
+</article>
+<nav class="no-print post-nav">
+
+	<a class="prev-post" href="//localhost:1313/blog/80/">
+		<img class="icon-text" src="/img/prev.svg"/>通过 getTimezoneOffset() 方法判断当前时区是否为夏令时</a>
+
+
+	<a class="next-post" href="//localhost:1313/blog/82/">揭秘箭头函数<img class="icon-text" src="/img/next.svg"/>
+	</a>
+
+</nav>
+
+
+<section id="related">
+  <h4>See Also</h4>
+  <ul>
+    
+  	<li><a href="/blog/80/">通过 getTimezoneOffset() 方法判断当前时区是否为夏令时</a></li>
+  	
+  	<li><a href="/blog/78/">使用 js 随机生成背景颜色</a></li>
+  	
+  	<li><a href="/blog/60/">实时监听页面的变化</a></li>
+  	
+  </ul>
+</section>
+
+
+
+	
+
+<script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="url"
+        label=""
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+	
+
+			<hr class="sep" />
+		</main>
+		<footer class="container no-print">
+			<div class="u-footer">
+				
+<a href="mailto:mail@yurizal-san.com"><img class="icon-social" src="/img/email.svg" alt="Email Me!"/></a>
+
+
+<a href="https://github.com/yursan9/"><img class="icon-social" src="/img/github.svg" alt="Github"/></a>
+
+
+
+<a href="https://twitter.com/yuri_boya"><img class="icon-social" src="/img/twitter.svg" alt="Twitter"/></a>
+
+
+
+
+
+				<p>
+					
+					Theme used: <a href="https://github.com/yursan9/manis-hugo-theme">Manis</a><br>
+					
+					
+					&copy; 2019 Yurizal Susanto
+					
+					
+					| <a href="/about/license">License</a>
+					
+				</p>
+				
+				<a href="#brand">
+					<img class="icon-text" src="/img/toup.svg" alt="To Up"/>
+					<span>Back to Up</span>
+				</a>
+				
+			</div>
+		</footer>
+		
+	</body>
+</html>
+

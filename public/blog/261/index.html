@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Hugo 0.146.5">
+	<title>Obsidian:移动端同步笔记 - Manis</title>
+
+	<meta name="description" content="
+前景提示：Obsidian:如何使用坚果云进行多端同步？
+时隔三年，终于完成了这个系列，Obsidian 多端同步坚果云之移动端同步。这依赖于坚果云的官方插件 &mdash; Nutstore Sync，这个插件支持通过 Webdav 协议将坚果云与 Obsidian 本地笔记进行链接。
+Github: https://github.com/nutstore/Obsidian-nutstore-sync
+由于该插件还未通过 Obsidian 插件商店审核的原因，需要借助另外一个已上架的插件 &ndash; BRAT，可在官方商店直接搜索下载。
+
+需要在 PC 端和移动端同时安装以下两个插件才能进行同步，安装流程都是一样的，我暂以移动端为例。
+1. 安装插件
+下面是图示流程；
+
+下载安装完成之后，在 BRAT 的设置页面找到 Add beta plugin 按钮点击它。
+
+在添加插件窗口中输入 Nutstore Sync 的 GitHub 地址，点击 Add plugin 安装，即可完成安装。
+
+这一步完成之后，这个插件就已经存在于你的 Obsidian 设置中，下次打开 Obsidian 就可以直接使用了。
+2. 使用插件
+
+PC 端和移动端使用方法都是一致的，我暂以 PC 端为例进行截图说明。
+Nutstore Sync 中我建议以账号密码进行登录，这样 webdav 的权限更稳定一些，有尝试过使用单点登录，但是容易掉登录权限。
+
+账号密码就是你的坚果云密码，注意不是登录密码，需要在坚果云网页设置中进行操作。
+
+https://www.jianguoyun.com/
+
+3. 配置推荐
+
+可以参考一下我的设置。
+
+远程目录就是存储数据的地方，PC 端和移动端选择同一目录即可
+冲突策略选择推荐即可
+开启使用 Git 语法标记冲突（程序员比较习惯）
+同步前确认，可以检查一下文件对不对，二次保险
+自动同步关掉（推荐），个人用着不太适应，偶尔会出现同步冲突的情况，更喜欢手动操作
+同步模式宽松，速度更快
+
+过滤规则：过滤一些不想同步的文件，由于 .Obsidian 很多配置文件，我不想在手机上同步，就过滤掉了。">
+
+
+	
+	
+	
+
+
+
+
+<link rel="stylesheet" href="/css/ui.css">
+
+	
+	
+
+	<script defer src="/js/dark-mode.js"></script>
+	<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+	<link  rel="stylesheet" href="/css/dropdown.css">
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3973436778637330"
+	crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+	
+				
+	
+</head>
+
+<body>
+<header class="container no-print">
+	<div class="u-header">
+		<nav class="bar">
+	<ul><li>
+			<a href="/">
+				<img class="icon-text" src="/img/prev.svg"/>
+			</a>
+		</li><li><img class="icon-text" id="dark-mode-toggle" src="/img/moon-regular.svg" alt="Toggle Dark Mode"></a></li><li><a href="/about">About</a></li><li><a href="/post/">Post</a></li>
+
+
+
+
+
+	</ul>
+</nav>
+
+	</div>
+</header>
+<main class="container">
+
+<article>
+	<header><hgroup id="brand">
+	<h1>Obsidian:移动端同步笔记</h1>
+	<h5>
+		
+		<time datetime="2025-06-11 00:00:00 &#43;0000 UTC">Jun 11, 2025 00:00</time>
+		<span class="no-print">
+			|
+				
+				<a href="/tags/%e7%ac%94%e8%ae%b0">笔记</a>
+				
+				<a href="/tags/%e5%9d%9a%e6%9e%9c%e4%ba%91">坚果云</a>
+				<span>
+	</h5>
+	
+</hgroup>
+<hr class="sep" />
+</header>
+	<style>.post-content img.mob{max-width:300px;margin:10px auto;display:block}</style>
+<p>前景提示：<a href="/blog/146.html">Obsidian:如何使用坚果云进行多端同步？</a></p>
+<p>时隔三年，终于完成了这个系列，Obsidian 多端同步坚果云之移动端同步。这依赖于坚果云的官方插件 &mdash; Nutstore Sync，这个插件支持通过 Webdav 协议将坚果云与 Obsidian 本地笔记进行链接。</p>
+<p>Github: <a href="https://github.com/nutstore/Obsidian-nutstore-sync">https://github.com/nutstore/Obsidian-nutstore-sync</a></p>
+<p>由于该插件还未通过 Obsidian 插件商店审核的原因，需要借助另外一个已上架的插件 &ndash; BRAT，可在官方商店直接搜索下载。</p>
+<blockquote>
+<p>需要在 PC 端和移动端同时安装以下两个插件才能进行同步，安装流程都是一样的，我暂以移动端为例。</p></blockquote>
+<h3 id="1-安装插件">1. 安装插件</h3>
+<p>下面是图示流程；</p>
+<img class="mob" src="https://imgurl.zishu.me/2025/06/1749604078547.webp">
+<p>下载安装完成之后，在 BRAT 的设置页面找到 <code>Add beta plugin</code> 按钮点击它。</p>
+<img class="mob" src="https://imgurl.zishu.me/2025/06/1749604199736.webp">
+<p>在添加插件窗口中输入 Nutstore Sync 的 GitHub 地址，点击 <code>Add plugin</code> 安装，即可完成安装。</p>
+<img class="mob" src="https://imgurl.zishu.me/2025/06/1749604248738.webp">
+<p>这一步完成之后，这个插件就已经存在于你的 Obsidian 设置中，下次打开 Obsidian 就可以直接使用了。</p>
+<h3 id="2-使用插件">2. 使用插件</h3>
+<blockquote>
+<p>PC 端和移动端使用方法都是一致的，我暂以 PC 端为例进行截图说明。</p></blockquote>
+<p>Nutstore Sync 中我建议以账号密码进行登录，这样 webdav 的权限更稳定一些，有尝试过使用单点登录，但是容易掉登录权限。</p>
+<p><img src="https://imgurl.zishu.me/2025/06/1749604565459.webp" alt="设置面板"></p>
+<p>账号密码就是你的坚果云密码，注意不是登录密码，需要在坚果云网页设置中进行操作。</p>
+<blockquote>
+<p><a href="https://www.jianguoyun.com/">https://www.jianguoyun.com/</a></p></blockquote>
+<p><img src="https://imgurl.zishu.me/2025/06/1749604723442.webp" alt="坚果云密钥获取演示"></p>
+<h3 id="3-配置推荐">3. 配置推荐</h3>
+<p><img src="https://imgurl.zishu.me/2025/06/1749604964274.webp" alt=""></p>
+<p>可以参考一下我的设置。</p>
+<ul>
+<li>远程目录就是存储数据的地方，PC 端和移动端选择同一目录即可</li>
+<li>冲突策略选择推荐即可</li>
+<li>开启使用 <code>Git</code> 语法标记冲突（程序员比较习惯）</li>
+<li>同步前确认，可以检查一下文件对不对，二次保险</li>
+<li>自动同步关掉（推荐），个人用着不太适应，偶尔会出现同步冲突的情况，更喜欢手动操作</li>
+<li>同步模式宽松，速度更快</li>
+</ul>
+<p>过滤规则：过滤一些不想同步的文件，由于 <code>.Obsidian</code> 很多配置文件，我不想在手机上同步，就过滤掉了。</p>
+<p><img src="https://imgurl.zishu.me/2025/06/1749605051374.webp" alt=""></p>
+
+</article>
+<nav class="no-print post-nav">
+
+	<a class="prev-post" href="//localhost:1313/blog/260/">
+		<img class="icon-text" src="/img/prev.svg"/>端午节包粽子</a>
+
+
+</nav>
+
+
+<section id="related">
+  <h4>See Also</h4>
+  <ul>
+    
+  	<li><a href="/blog/146/">Obsidian:如何使用坚果云进行多端同步？</a></li>
+  	
+  	<li><a href="/blog/237/">记录 vite 中引入 tailwindcss</a></li>
+  	
+  	<li><a href="/blog/234/">vite 配置相关笔记</a></li>
+  	
+  </ul>
+</section>
+
+
+
+	
+
+<script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="url"
+        label=""
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+	
+
+			<hr class="sep" />
+		</main>
+		<footer class="container no-print">
+			<div class="u-footer">
+				
+<a href="mailto:mail@yurizal-san.com"><img class="icon-social" src="/img/email.svg" alt="Email Me!"/></a>
+
+
+<a href="https://github.com/yursan9/"><img class="icon-social" src="/img/github.svg" alt="Github"/></a>
+
+
+
+<a href="https://twitter.com/yuri_boya"><img class="icon-social" src="/img/twitter.svg" alt="Twitter"/></a>
+
+
+
+
+
+				<p>
+					
+					Theme used: <a href="https://github.com/yursan9/manis-hugo-theme">Manis</a><br>
+					
+					
+					&copy; 2019 Yurizal Susanto
+					
+					
+					| <a href="/about/license">License</a>
+					
+				</p>
+				
+				<a href="#brand">
+					<img class="icon-text" src="/img/toup.svg" alt="To Up"/>
+					<span>Back to Up</span>
+				</a>
+				
+			</div>
+		</footer>
+		
+	</body>
+</html>
+

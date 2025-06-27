@@ -44,39 +44,51 @@
 
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/css/base.css">
-<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+<link rel="stylesheet" href="/css/ui.css">
+<script defer src="/js/dark-mode.js"></script>
+<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+<link rel="stylesheet" href="/css/dropdown.css">
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
-<script src="/js/jquery3.6.0.min.js"></script>
 </head>
 
 <body>
-  <nav class="headnav">
-  
-  <ul id="menu">
-    
-    <li><a href="/">首页</a></li>
-    
-    <li><a href="/blog/">博客</a></li>
-    
-    <li><a href="/tags/">标签</a></li>
-    
-    <li><a href="/message/">留言</a></li>
-    
-    <li><a href="/about/">关于</a></li>
-    
-    <li><a href="/search/">搜索</a></li>
-    
-    <li><a href="/index.xml" target="_blank">订阅</a></li>
-  </ul>
+  <header class="container no-print">
+  <div class="u-header">
+    <nav class="bar">
+      <ul>
+        <li><img class="icon-text" id="dark-mode-toggle" src="/img/moon.svg" alt="Toggle Dark Mode"></li>
 
-</nav>
+        
+        <li><a href="/">首页</a></li>
+        
+        <li><a href="/blog/">博客</a></li>
+        
+        <li><a href="/tags/">标签</a></li>
+        
+        <li><a href="/message/">留言</a></li>
+        
+        <li><a href="/about/">关于</a></li>
+        
+        <li><a href="/search/">搜索</a></li>
+        
 
-  <section>
-    
+        <li><a href="/index.xml" target="_blank">订阅</a></li>
+      </ul>
+    </nav>
 
-    <div class="container">
+  </div>
+</header>
+
+  <main class="container">
+    <header>
+      <hgroup id="brand">
+        <h1>Js</h1>
+      </hgroup>
+      <hr class="sep">
+    </header>
+
+    <div>
       <div class="aside-list">
         <a href="/blog/">全部</a>
         <a href="/categories/技术/">技术</a>
@@ -86,159 +98,159 @@
 
       <div class="posts">
         <h3 class="posts-year" id="2024">2024</h3>
-        <div class="posts-list">
+        <ul class="no-bullet">
           
-          <div class="posts-item">
-            <span class="date">2024-03-01</span>
+          <li>
+            <span><time>2024/03/01</time></span>
             <a href="/blog/220.html/">值传递和引用传递、深拷贝和浅拷贝</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2024-02-23</span>
+          <li>
+            <span><time>2024/02/23</time></span>
             <a href="/blog/218.html/">无法从非 EcmaScript 模块导入命名导出</a>
-          </div>
+          </li>
           
-        </div>
+        </ul>
         <h3 class="posts-year" id="2023">2023</h3>
-        <div class="posts-list">
+        <ul class="no-bullet">
           
-          <div class="posts-item">
-            <span class="date">2023-05-13</span>
+          <li>
+            <span><time>2023/05/13</time></span>
             <a href="/blog/194.html/">hugo 纯静态编写一个字数统计脚本</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2023-03-17</span>
+          <li>
+            <span><time>2023/03/17</time></span>
             <a href="/blog/189.html/">用原生 js 给网站写个搜索功能</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2023-01-09</span>
+          <li>
+            <span><time>2023/01/09</time></span>
             <a href="/blog/181.html/">利用 memos 生成的在线动态列表</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2023-01-06</span>
+          <li>
+            <span><time>2023/01/06</time></span>
             <a href="/blog/180.html/">分享一个页面点击特效</a>
-          </div>
+          </li>
           
-        </div>
+        </ul>
         <h3 class="posts-year" id="2022">2022</h3>
-        <div class="posts-list">
+        <ul class="no-bullet">
           
-          <div class="posts-item">
-            <span class="date">2022-11-15</span>
+          <li>
+            <span><time>2022/11/15</time></span>
             <a href="/blog/175.html/">js 中 [ ]&#43;{ } 和 { }&#43;[ ] 的区别</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2022-10-20</span>
+          <li>
+            <span><time>2022/10/20</time></span>
             <a href="/blog/171.html/">localStorage 的相关运用</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2022-09-26</span>
+          <li>
+            <span><time>2022/09/26</time></span>
             <a href="/blog/168.html/">将数组中多个对象的同名属性值取出合并成新数组</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2022-06-24</span>
+          <li>
+            <span><time>2022/06/24</time></span>
             <a href="/blog/145.html/">人民币小写转大写</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2022-04-26</span>
+          <li>
+            <span><time>2022/04/26</time></span>
             <a href="/blog/120.html/">浏览器收藏夹一键填写博客评论信息</a>
-          </div>
+          </li>
           
-        </div>
+        </ul>
         <h3 class="posts-year" id="2021">2021</h3>
-        <div class="posts-list">
+        <ul class="no-bullet">
           
-          <div class="posts-item">
-            <span class="date">2021-11-05</span>
+          <li>
+            <span><time>2021/11/05</time></span>
             <a href="/blog/82.html/">揭秘箭头函数</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2021-11-04</span>
+          <li>
+            <span><time>2021/11/04</time></span>
             <a href="/blog/81.html/">js 奇怪的知识--console.table</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2021-10-22</span>
+          <li>
+            <span><time>2021/10/22</time></span>
             <a href="/blog/80.html/">通过 getTimezoneOffset() 方法判断当前时区是否为夏令时</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2021-09-29</span>
+          <li>
+            <span><time>2021/09/29</time></span>
             <a href="/blog/78.html/">使用 js 随机生成背景颜色</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2021-03-26</span>
+          <li>
+            <span><time>2021/03/26</time></span>
             <a href="/blog/60.html/">实时监听页面的变化</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2021-03-19</span>
+          <li>
+            <span><time>2021/03/19</time></span>
             <a href="/blog/57.html/">用 ajax 请求获取数据</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2021-01-20</span>
+          <li>
+            <span><time>2021/01/20</time></span>
             <a href="/blog/48.html/">ES5 和 ES6 的区别？</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2021-01-18</span>
+          <li>
+            <span><time>2021/01/18</time></span>
             <a href="/blog/47.html/">webpack 的核心概念和构建流程</a>
-          </div>
+          </li>
           
-        </div>
+        </ul>
         <h3 class="posts-year" id="2020">2020</h3>
-        <div class="posts-list">
+        <ul class="no-bullet">
           
-          <div class="posts-item">
-            <span class="date">2020-12-19</span>
+          <li>
+            <span><time>2020/12/19</time></span>
             <a href="/blog/36.html/">javascript 进阶问题</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2020-11-18</span>
+          <li>
+            <span><time>2020/11/18</time></span>
             <a href="/blog/22.html/">在 js 中运算不能随便把 value 属性定义成变量</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2020-11-17</span>
+          <li>
+            <span><time>2020/11/17</time></span>
             <a href="/blog/21.html/">事件监听函数，以及事件的捕获和冒泡机制</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2020-11-14</span>
+          <li>
+            <span><time>2020/11/14</time></span>
             <a href="/blog/17.html/">有关 js 函数，方法的一些补充总结</a>
-          </div>
+          </li>
           
-          <div class="posts-item">
-            <span class="date">2020-11-12</span>
+          <li>
+            <span><time>2020/11/12</time></span>
             <a href="/blog/15.html/">面向对象编程</a>
-          </div>
+          </li>
           
-        </div>
+        </ul>
         
       </div>
 
     </div>
-  </section>
-  <footer class="footer">
-  <p>© 2020 - 2025 Powered by
-    <a href="https://github.com/ezyshu" target="_blank">Github</a>
-    / <a href="/index.xml" target="_blank">RSS</a>
-  </p>
+  </main>
+  <footer class="container no-print">
+  <div class="u-footer">
+    © 2020 - 2025 Powered by <a href="https://github.com/ezyshu/" target="_blank"><img class="icon-social" src="/images/github.svg" alt="Github"></a>
+    <a href="/index.xml" target="_blank" title="RSS Feed"><img class="icon-social" src="/images/feed.svg" alt="Feed"></a>
+  </div>
   <img src="https://profile-counter.glitch.me/zishu_me/count.svg" alt="count">
 </footer>
 
-<script src="/js/main.js"></script>
+
 </body>
 
 </html>

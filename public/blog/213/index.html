@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Hugo 0.146.5">
+	<title>hugo 的一些模板语法 - Manis</title>
+
+	<meta name="description" content="分享一下 hugo 的语法模板，如何获取总文章数和总字数，效果可以参考我的首页。
+{{ $articleCount := len .Site.RegularPages }}
+{{ $totalWordCount := 0 }}
+{{ range .Site.Pages }}
+{{ $totalWordCount = add $totalWordCount .WordCount }}
+{{ end }}
+&lt;p&gt;已经写了 {{ $articleCount }} 篇文章，共 {{ $totalWordCount }} 字。&lt;/p&gt;
+在首页过滤某个分类。
+{{ $pages := .Site.RegularPages }}
+{{ $paginator := .Paginate ($pages) }}
+{{ $count := 0 }}
+
+{{ range $paginator.Pages }}
+{{ $title := .Title }}
+{{ $summary := .Summary }}
+
+{{ if and (not (in .Params.categories &#34;weekly&#34;)) (lt $count 7) }}
+{{ $count = add $count 1 }}
+
+&lt;article class=&#34;post-entry&#34;&gt;
+  &lt;header class=&#34;entry-header&#34;&gt;
+    &lt;h2 class=&#34;entry-hint-parent&#34;&gt;{{ .Title }}&lt;/h2&gt;
+  &lt;/header&gt;
+  &lt;div class=&#34;entry-content&#34;&gt;
+    &lt;p&gt;{{ .Summary }}&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;footer class=&#34;entry-footer&#34;&gt;
+    &lt;time datetime=&#34;{{ .Date.Format &#34; 2006-01-02 15:04:05 MST&#34; }}&#34;&gt;{{ .Date.Format &#34;2006-01-02&#34;}}&lt;/time&gt;
+    &lt;span class=&#34;category&#34;&gt;
+      {{ range $key, $value := .Params.categories -}}
+      {{- if $key }}, {{ end }}
+      {{ . }}
+      {{- end }}
+    &lt;/span&gt;
+  &lt;/footer&gt;
+  &lt;a class=&#34;entry-link&#34; href=&#34;{{ .RelPermalink }}&#34;&gt;&lt;/a&gt;
+&lt;/article&gt;
+{{ end }}
+
+{{ end }}
+">
+
+
+	
+	
+	
+
+
+
+
+<link rel="stylesheet" href="/css/ui.css">
+
+	
+	
+
+	<script defer src="/js/dark-mode.js"></script>
+	<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+	<link  rel="stylesheet" href="/css/dropdown.css">
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3973436778637330"
+	crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+	
+				
+	
+</head>
+
+<body>
+<header class="container no-print">
+	<div class="u-header">
+		<nav class="bar">
+	<ul><li>
+			<a href="/">
+				<img class="icon-text" src="/img/prev.svg"/>
+			</a>
+		</li><li><img class="icon-text" id="dark-mode-toggle" src="/img/moon-regular.svg" alt="Toggle Dark Mode"></a></li><li><a href="/about">About</a></li><li><a href="/post/">Post</a></li>
+
+
+
+
+
+	</ul>
+</nav>
+
+	</div>
+</header>
+<main class="container">
+
+<article>
+	<header><hgroup id="brand">
+	<h1>hugo 的一些模板语法</h1>
+	<h5>
+		
+		<time datetime="2023-11-15 00:00:00 &#43;0000 UTC">Nov 15, 2023 00:00</time>
+		<span class="no-print">
+			|
+				
+				<a href="/tags/hugo">hugo</a>
+				<span>
+	</h5>
+	
+</hgroup>
+<hr class="sep" />
+</header>
+	<p>分享一下 hugo 的语法模板，如何获取总文章数和总字数，效果可以参考我的首页。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ $articleCount := len .Site.RegularPages }}
+</span></span><span class="line"><span class="cl">{{ $totalWordCount := 0 }}
+</span></span><span class="line"><span class="cl">{{ range .Site.Pages }}
+</span></span><span class="line"><span class="cl">{{ $totalWordCount = add $totalWordCount .WordCount }}
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>已经写了 {{ $articleCount }} 篇文章，共 {{ $totalWordCount }} 字。<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>在首页过滤某个分类。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ $pages := .Site.RegularPages }}
+</span></span><span class="line"><span class="cl">{{ $paginator := .Paginate ($pages) }}
+</span></span><span class="line"><span class="cl">{{ $count := 0 }}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{{ range $paginator.Pages }}
+</span></span><span class="line"><span class="cl">{{ $title := .Title }}
+</span></span><span class="line"><span class="cl">{{ $summary := .Summary }}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{{ if and (not (in .Params.categories &#34;weekly&#34;)) (lt $count 7) }}
+</span></span><span class="line"><span class="cl">{{ $count = add $count 1 }}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">article</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;post-entry&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">header</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;entry-header&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;entry-hint-parent&#34;</span><span class="p">&gt;</span>{{ .Title }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;entry-content&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{ .Summary }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">footer</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;entry-footer&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">time</span> <span class="na">datetime</span><span class="o">=</span><span class="s">&#34;{{ .Date.Format &#34;</span> <span class="na">2006-01-02</span> <span class="na">15:04:05</span> <span class="na">MST</span><span class="err">&#34;</span> <span class="err">}}&#34;</span><span class="p">&gt;</span>{{ .Date.Format &#34;2006-01-02&#34;}}<span class="p">&lt;/</span><span class="nt">time</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;category&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      {{ range $key, $value := .Params.categories -}}
+</span></span><span class="line"><span class="cl">      {{- if $key }}, {{ end }}
+</span></span><span class="line"><span class="cl">      {{ . }}
+</span></span><span class="line"><span class="cl">      {{- end }}
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;entry-link&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ .RelPermalink }}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></div>
+</article>
+<nav class="no-print post-nav">
+
+	<a class="prev-post" href="//localhost:1313/blog/212/">
+		<img class="icon-text" src="/img/prev.svg"/>python 通过 json 生成小文件</a>
+
+
+	<a class="next-post" href="//localhost:1313/blog/weekly-27/">奇趣周刊 - 第 27 期<img class="icon-text" src="/img/next.svg"/>
+	</a>
+
+</nav>
+
+
+<section id="related">
+  <h4>See Also</h4>
+  <ul>
+    
+  	<li><a href="/blog/183/">如何让 hugo 支持渲染 html 代码？</a></li>
+  	
+  </ul>
+</section>
+
+
+
+	
+
+<script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="url"
+        label=""
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+	
+
+			<hr class="sep" />
+		</main>
+		<footer class="container no-print">
+			<div class="u-footer">
+				
+<a href="mailto:mail@yurizal-san.com"><img class="icon-social" src="/img/email.svg" alt="Email Me!"/></a>
+
+
+<a href="https://github.com/yursan9/"><img class="icon-social" src="/img/github.svg" alt="Github"/></a>
+
+
+
+<a href="https://twitter.com/yuri_boya"><img class="icon-social" src="/img/twitter.svg" alt="Twitter"/></a>
+
+
+
+
+
+				<p>
+					
+					Theme used: <a href="https://github.com/yursan9/manis-hugo-theme">Manis</a><br>
+					
+					
+					&copy; 2019 Yurizal Susanto
+					
+					
+					| <a href="/about/license">License</a>
+					
+				</p>
+				
+				<a href="#brand">
+					<img class="icon-text" src="/img/toup.svg" alt="To Up"/>
+					<span>Back to Up</span>
+				</a>
+				
+			</div>
+		</footer>
+		
+	</body>
+</html>
+

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Hugo 0.146.5">
+	<title>js 中 [ ]&#43;{ } 和 { }&#43;[ ] 的区别 - Manis</title>
+
+	<meta name="description" content="
+[ ]&#43;{ }：一个数组加一个对象。
+加法会进行隐式类型转换，规则是调用其 valueOf() 或 toString() 以取得一个非对象的值 (primitive value)。
+如果两个值中的任何一个是字符串，则进行字符串串接，否则进行数字加法。[ ] 和 { } 的 valueOf() 都返回对象自身，所以都会调用 toString()，最后的结果是字符串串接。
+[ ].toString() 返回空字符串，({ }).toString() 返回 &ldquo;[object Object]&quot;，最后的结果就是 &ldquo;[object Object]&quot;。
+{ }&#43;[ ]：看上去应该和上面一样。
+但是{ }除了表示一个对象之外，也可以表示一个空的 bock。在 [ ] &#43; { }中，[ ]被解析为数组，因此后续的 &#43; 被解析为加法运算符，而{ }就解析为对象。
+但在{ } &#43; [ ]中，{ }被解析为空的 bock，随后的 &#43; 被解析为正号运算符。即实际上成了：{∥empty block}&#43;[ ]，即对一个空数组执行正号运算，实际上就是把数组转型为数字。首先调用.valueOf()，返回数组自身，不是 primitive value，因此继续调用 [ ].toString()，返回空字符串。空字符串转型为数字，返回 0，即最后的结果。">
+
+
+	
+	
+	
+
+
+
+
+<link rel="stylesheet" href="/css/ui.css">
+
+	
+	
+
+	<script defer src="/js/dark-mode.js"></script>
+	<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+	<link  rel="stylesheet" href="/css/dropdown.css">
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3973436778637330"
+	crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+	
+				
+	
+</head>
+
+<body>
+<header class="container no-print">
+	<div class="u-header">
+		<nav class="bar">
+	<ul><li>
+			<a href="/">
+				<img class="icon-text" src="/img/prev.svg"/>
+			</a>
+		</li><li><img class="icon-text" id="dark-mode-toggle" src="/img/moon-regular.svg" alt="Toggle Dark Mode"></a></li><li><a href="/about">About</a></li><li><a href="/post/">Post</a></li>
+
+
+
+
+
+	</ul>
+</nav>
+
+	</div>
+</header>
+<main class="container">
+
+<article>
+	<header><hgroup id="brand">
+	<h1>js 中 [ ]&#43;{ } 和 { }&#43;[ ] 的区别</h1>
+	<h5>
+		
+		<time datetime="2022-11-15 00:00:00 &#43;0000 UTC">Nov 15, 2022 00:00</time>
+		<span class="no-print">
+			|
+				
+				<a href="/tags/js">js</a>
+				<span>
+	</h5>
+	
+</hgroup>
+<hr class="sep" />
+</header>
+	<p><img src="https://imgurl.zishu.me/images/old/20221115/1668517551012.iwayac5c194.webp" alt=""></p>
+<p><code>[ ]+{ }</code>：一个数组加一个对象。</p>
+<p>加法会进行隐式类型转换，规则是调用其 valueOf() 或 toString() 以取得一个非对象的值 (primitive value)。</p>
+<p>如果两个值中的任何一个是字符串，则进行字符串串接，否则进行数字加法。[ ] 和 { } 的 valueOf() 都返回对象自身，所以都会调用 toString()，最后的结果是字符串串接。</p>
+<p>[ ].toString() 返回空字符串，({ }).toString() 返回 &ldquo;[object Object]&quot;，最后的结果就是 &ldquo;[object Object]&quot;。</p>
+<p><code>{ }+[ ]</code>：看上去应该和上面一样。</p>
+<p>但是{ }除了表示一个对象之外，也可以表示一个空的 bock。在 [ ] + { }中，[ ]被解析为数组，因此后续的 + 被解析为加法运算符，而{ }就解析为对象。</p>
+<p>但在{ } + [ ]中，{ }被解析为空的 bock，随后的 + 被解析为正号运算符。即实际上成了：{∥empty block}+[ ]，即对一个空数组执行正号运算，实际上就是把数组转型为数字。首先调用.valueOf()，返回数组自身，不是 primitive value，因此继续调用 [ ].toString()，返回空字符串。空字符串转型为数字，返回 0，即最后的结果。</p>
+
+</article>
+<nav class="no-print post-nav">
+
+	<a class="prev-post" href="//localhost:1313/blog/174/">
+		<img class="icon-text" src="/img/prev.svg"/>11 月 8 日月全食全程录像</a>
+
+
+	<a class="next-post" href="//localhost:1313/blog/176/">未若柳絮因风起<img class="icon-text" src="/img/next.svg"/>
+	</a>
+
+</nav>
+
+
+<section id="related">
+  <h4>See Also</h4>
+  <ul>
+    
+  	<li><a href="/blog/171/">localStorage 的相关运用</a></li>
+  	
+  	<li><a href="/blog/168/">将数组中多个对象的同名属性值取出合并成新数组</a></li>
+  	
+  	<li><a href="/blog/145/">人民币小写转大写</a></li>
+  	
+  </ul>
+</section>
+
+
+
+	
+
+<script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="url"
+        label=""
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+	
+
+			<hr class="sep" />
+		</main>
+		<footer class="container no-print">
+			<div class="u-footer">
+				
+<a href="mailto:mail@yurizal-san.com"><img class="icon-social" src="/img/email.svg" alt="Email Me!"/></a>
+
+
+<a href="https://github.com/yursan9/"><img class="icon-social" src="/img/github.svg" alt="Github"/></a>
+
+
+
+<a href="https://twitter.com/yuri_boya"><img class="icon-social" src="/img/twitter.svg" alt="Twitter"/></a>
+
+
+
+
+
+				<p>
+					
+					Theme used: <a href="https://github.com/yursan9/manis-hugo-theme">Manis</a><br>
+					
+					
+					&copy; 2019 Yurizal Susanto
+					
+					
+					| <a href="/about/license">License</a>
+					
+				</p>
+				
+				<a href="#brand">
+					<img class="icon-text" src="/img/toup.svg" alt="To Up"/>
+					<span>Back to Up</span>
+				</a>
+				
+			</div>
+		</footer>
+		
+	</body>
+</html>
+

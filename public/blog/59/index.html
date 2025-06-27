@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Hugo 0.146.5">
+	<title>ajax 拼接模版字符串的几种方法 - Manis</title>
+
+	<meta name="description" content="
+起因是因为 IE10 不兼容 es6，所以引发了一系列的问题。
+一
+使用ajax拼接字符串有很多方法，最简单的莫过于使用 es6 的语法中的关键符号，
+str &#43;= 
+`&lt;li class=&#34;wrap-item&#34;&gt;
+    &lt;div class=&#34;pic-wrap&#34;&gt;
+        &lt;div class=&#34;pic&#34;&gt;
+            &lt;div class=&#34;pic-son&#34;&gt;
+                &lt;a href=&#34; ` &#43; item.link &#43; `&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34; ` &#43; item.pic&#43; `&#34; alt=&#34;缩略图&#34;&gt;&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&#34;pic-main&#34;&gt;
+            &lt;div class=&#34;pic-title&#34;&gt;
+                &lt;span&gt;编号：&lt;/span&gt;
+                &lt;span&gt; ` &#43; item.title &#43; ` &lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;pic-guide&#34;&gt; `
+                &#43; item.guide &#43;
+            ` &lt;/div&gt;
+            &lt;div class=&#34;pic-link&#34; id=&#34;picLink&#34;&gt;
+                &lt;a href=&#34; ` &#43; item.link &#43; ` &#34; target=&#34;_blank&#34;&gt;预览&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/li&gt; 
+`
+可以很快的把模版字符串写好，但是正因为它是es6的新特性，因此对于低版本的浏览器兼容性不太好，报错无效字符。">
+
+
+	
+	
+	
+
+
+
+
+<link rel="stylesheet" href="/css/ui.css">
+
+	
+	
+
+	<script defer src="/js/dark-mode.js"></script>
+	<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+	<link  rel="stylesheet" href="/css/dropdown.css">
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3973436778637330"
+	crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+	
+				
+	
+</head>
+
+<body>
+<header class="container no-print">
+	<div class="u-header">
+		<nav class="bar">
+	<ul><li>
+			<a href="/">
+				<img class="icon-text" src="/img/prev.svg"/>
+			</a>
+		</li><li><img class="icon-text" id="dark-mode-toggle" src="/img/moon-regular.svg" alt="Toggle Dark Mode"></a></li><li><a href="/about">About</a></li><li><a href="/post/">Post</a></li>
+
+
+
+
+
+	</ul>
+</nav>
+
+	</div>
+</header>
+<main class="container">
+
+<article>
+	<header><hgroup id="brand">
+	<h1>ajax 拼接模版字符串的几种方法</h1>
+	<h5>
+		
+		<time datetime="2021-03-22 00:00:00 &#43;0000 UTC">Mar 22, 2021 00:00</time>
+		<span class="no-print">
+			|
+				
+				<a href="/tags/ajax">ajax</a>
+				<span>
+	</h5>
+	
+</hgroup>
+<hr class="sep" />
+</header>
+	<blockquote>
+<p>起因是因为 IE10 不兼容 es6，所以引发了一系列的问题。</p></blockquote>
+<h3 id="一">一</h3>
+<p>使用<code>ajax</code>拼接字符串有很多方法，最简单的莫过于使用 es6 的语法中的关键符号，</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">str</span> <span class="o">+=</span> 
+</span></span><span class="line"><span class="cl"><span class="sb">`&lt;li class=&#34;wrap-item&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">    &lt;div class=&#34;pic-wrap&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">        &lt;div class=&#34;pic&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">            &lt;div class=&#34;pic-son&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">                &lt;a href=&#34; `</span> <span class="o">+</span> <span class="nx">item</span><span class="p">.</span><span class="nx">link</span> <span class="o">+</span> <span class="sb">`&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34; `</span> <span class="o">+</span> <span class="nx">item</span><span class="p">.</span><span class="nx">pic</span><span class="o">+</span> <span class="sb">`&#34; alt=&#34;缩略图&#34;&gt;&lt;/a&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">            &lt;/div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">        &lt;/div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">
+</span></span></span><span class="line"><span class="cl"><span class="sb">        &lt;div class=&#34;pic-main&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">            &lt;div class=&#34;pic-title&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">                &lt;span&gt;编号：&lt;/span&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">                &lt;span&gt; `</span> <span class="o">+</span> <span class="nx">item</span><span class="p">.</span><span class="nx">title</span> <span class="o">+</span> <span class="sb">` &lt;/span&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">            &lt;/div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">            &lt;div class=&#34;pic-guide&#34;&gt; `</span>
+</span></span><span class="line"><span class="cl">                <span class="o">+</span> <span class="nx">item</span><span class="p">.</span><span class="nx">guide</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">            <span class="sb">` &lt;/div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">            &lt;div class=&#34;pic-link&#34; id=&#34;picLink&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">                &lt;a href=&#34; `</span> <span class="o">+</span> <span class="nx">item</span><span class="p">.</span><span class="nx">link</span> <span class="o">+</span> <span class="sb">` &#34; target=&#34;_blank&#34;&gt;预览&lt;/a&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">            &lt;/div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">        &lt;/div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">    &lt;/div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">&lt;/li&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="sb">`</span>
+</span></span></code></pre></div><p>可以很快的把模版字符串写好，但是正因为它是<code>es6</code>的新特性，因此对于低版本的浏览器兼容性不太好，报错无效字符。</p>
+<p><img src="https://imgurl.zishu.me/images/old/2021/03/22/a34160c39ebcebc8eb81f6dc9aea3f21.png" alt=""></p>
+<h3 id="二">二</h3>
+<p>因此还有一种较为麻烦的写法<code>&quot; '' &quot;</code> ，使用单引号和双引号将标签和字符串连接起来。因为太过繁琐，所以需要特别仔细的查看，一不小心漏个符号，就会导致网页报错。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">p</span> <span class="o">=</span> <span class="s2">&#34;&lt;li class=&#39;wrap-item&#39;&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">+</span><span class="s2">&#34;&lt;div class=&#39;pic-wrap&#39;&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">+</span><span class="s2">&#34;&lt;div class=&#39;pic&#39;&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span><span class="s2">&#34;&lt;div class=&#39;pic-son-wrap&#39;&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">+</span><span class="s2">&#34;&lt;div class=&#39;pic-son&#39;&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">+</span><span class="s2">&#34;&lt;a href=&#39;&#34;</span><span class="o">+</span><span class="nx">item</span><span class="p">.</span><span class="nx">link</span><span class="o">+</span><span class="s2">&#34;&#39;&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">                        <span class="o">+</span><span class="s2">&#34;&lt;img src=&#39;&#34;</span><span class="o">+</span><span class="nx">item</span><span class="p">.</span><span class="nx">pic</span><span class="o">+</span><span class="s2">&#34;&#39; alt=&#39;缩略图&#39;&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">+</span><span class="s2">&#34;&lt;/a&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">+</span><span class="s2">&#34;&lt;/div&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span><span class="s2">&#34;&lt;/div&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span><span class="s2">&#34;&lt;div class=&#39;pic-main&#39;&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">+</span><span class="s2">&#34;&lt;div class=&#39;pic-title&#39;&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">+</span><span class="s2">&#34;&lt;span&gt;&#34;</span><span class="o">+</span><span class="s2">&#34;编号：&#34;</span><span class="o">+</span><span class="s2">&#34;&lt;/span&gt;&#34;</span><span class="o">+</span><span class="s2">&#34;&lt;span&gt;&#34;</span><span class="o">+</span><span class="nx">item</span><span class="p">.</span><span class="nx">title</span><span class="o">+</span><span class="s2">&#34;&lt;/span&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">+</span><span class="s2">&#34;&lt;/div&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">+</span><span class="s2">&#34;&lt;div class=&#39;pic-guide&#39;&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">+</span><span class="nx">item</span><span class="p">.</span><span class="nx">guide</span>
+</span></span><span class="line"><span class="cl">                <span class="o">+</span><span class="s2">&#34;&lt;/div&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">+</span><span class="s2">&#34;&lt;div class=&#39;pic-link&#39; id=&#39;picLink&#39;&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">+</span><span class="s2">&#34;&lt;a href=&#39;&#34;</span><span class="o">+</span><span class="nx">item</span><span class="p">.</span><span class="nx">link</span><span class="o">+</span><span class="s2">&#34;&#39;&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">                        <span class="o">+</span><span class="s2">&#34;预览&#34;</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">+</span><span class="s2">&#34;&lt;/a&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">+</span><span class="s2">&#34;&lt;/div&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">+</span><span class="s2">&#34;&lt;/div&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">+</span><span class="s2">&#34;&lt;/div&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">+</span><span class="s2">&#34;&lt;/div&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">+</span><span class="s2">&#34;&lt;/li&gt;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">str</span> <span class="o">+=</span> <span class="nx">p</span><span class="p">;</span>
+</span></span></code></pre></div><p>在不同的情况下使用不同的方法，多掌握几种方法总是不亏的，能适用与各种开发环境。</p>
+
+</article>
+<nav class="no-print post-nav">
+
+	<a class="prev-post" href="//localhost:1313/blog/57/">
+		<img class="icon-text" src="/img/prev.svg"/>用 ajax 请求获取数据</a>
+
+
+	<a class="next-post" href="//localhost:1313/blog/58/">ajax 和 js 事件的执行顺序<img class="icon-text" src="/img/next.svg"/>
+	</a>
+
+</nav>
+
+
+<section id="related">
+  <h4>See Also</h4>
+  <ul>
+    
+  	<li><a href="/blog/57/">用 ajax 请求获取数据</a></li>
+  	
+  </ul>
+</section>
+
+
+
+	
+
+<script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="url"
+        label=""
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+	
+
+			<hr class="sep" />
+		</main>
+		<footer class="container no-print">
+			<div class="u-footer">
+				
+<a href="mailto:mail@yurizal-san.com"><img class="icon-social" src="/img/email.svg" alt="Email Me!"/></a>
+
+
+<a href="https://github.com/yursan9/"><img class="icon-social" src="/img/github.svg" alt="Github"/></a>
+
+
+
+<a href="https://twitter.com/yuri_boya"><img class="icon-social" src="/img/twitter.svg" alt="Twitter"/></a>
+
+
+
+
+
+				<p>
+					
+					Theme used: <a href="https://github.com/yursan9/manis-hugo-theme">Manis</a><br>
+					
+					
+					&copy; 2019 Yurizal Susanto
+					
+					
+					| <a href="/about/license">License</a>
+					
+				</p>
+				
+				<a href="#brand">
+					<img class="icon-text" src="/img/toup.svg" alt="To Up"/>
+					<span>Back to Up</span>
+				</a>
+				
+			</div>
+		</footer>
+		
+	</body>
+</html>
+

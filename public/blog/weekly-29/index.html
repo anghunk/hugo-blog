@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Hugo 0.146.5">
+	<title>奇趣周刊 - 第 29 期 - Manis</title>
+
+	<meta name="description" content="
+奇趣周刊，分享有趣的软件，程序，动态新闻等。 周刊列表 | rss 订阅
+
+1. 量子纠缠动画 &#43; 跨窗口交互
+跨页面实现交互，非常神奇的技术。
+Entangled #fxhash pic.twitter.com/SrD0oAQpUJ&mdash; 𝕭𝖏ø𝖗𝖓 𝕾𝖙𝖆𝖆𝖑 (@_nonfigurativ_) November 22, 2023 
+作者只是发了一个演示的推文，代码没有开源。
+另一位开发者做了简单版本，跨窗口 3D 场景，除了量子纠缠特效外，已经还原如何跨窗口交互，通过实时获取 localStorage，定位坐标，然后结合 Three.js 库。非常有意思的一个项目，可以学习一下前端思路和代码。
+https://github.com/bgstaal/multipleWindow3dScene
+2.视频去水印
+https://github.com/YaoFANGUK/video-subtitle-remover
+基于 AI 的图片/视频硬字幕去除、水印去除，无损分辨率生成去字幕、去水印后的图片/视频文件。无需申请第三方 API，本地实现。
+3.screenshot-to-code
+https://github.com/abi/screenshot-to-code
+将截图转换成 html 和 css 代码，css 使用的是 Tailwind 编写，值得尝试的工具。
+需要带上你自己的 OpenAI 密钥，并且必须能够访问 GPT-4 Vision，门槛还是稍微有点高的，有能力的小伙伴强烈建议尝试一下！
+4.中文播客榜
+https://xyzrank.com/
+由 https://www.xiaoyuzhoufm.com/episode/62d58b0664f141ad8150151f 出品，收录了很多中文播客，通过更新时间，播放量，订阅量等数据排序，可以挑选自己感兴趣的播客。
+
+5.ajax-interceptor
+https://github.com/YGYOOO/ajax-interceptor
+一个可以修改页面中任意 Ajax 的请求或返回值的 Chrome 插件，可用于调试/排查页面上的问题，或在开发时 mock 数据。（当然你也可以用其它一些工具如 Charles 修改网络请求的返回值，但操作繁琐，该插件方便很多，且不会对 Chrome 之外造成影响）
+
+6.ACG 助手
+https://acghelper.com/
+第三方哔哩哔哩弹幕网辅助扩展，拥有视频区和直播区的人性化功能，对于喜欢刷 b 站视频的人来说是一个不可多得好工具。">
+
+
+	
+	
+	
+
+
+
+
+<link rel="stylesheet" href="/css/ui.css">
+
+	
+	
+
+	<script defer src="/js/dark-mode.js"></script>
+	<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+	<link  rel="stylesheet" href="/css/dropdown.css">
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3973436778637330"
+	crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+	
+				
+	
+</head>
+
+<body>
+<header class="container no-print">
+	<div class="u-header">
+		<nav class="bar">
+	<ul><li>
+			<a href="/">
+				<img class="icon-text" src="/img/prev.svg"/>
+			</a>
+		</li><li><img class="icon-text" id="dark-mode-toggle" src="/img/moon-regular.svg" alt="Toggle Dark Mode"></a></li><li><a href="/about">About</a></li><li><a href="/post/">Post</a></li>
+
+
+
+
+
+	</ul>
+</nav>
+
+	</div>
+</header>
+<main class="container">
+
+<article>
+	<header><hgroup id="brand">
+	<h1>奇趣周刊 - 第 29 期</h1>
+	<h5>
+		
+		<time datetime="2023-11-30 00:00:00 &#43;0000 UTC">Nov 30, 2023 00:00</time>
+		<span class="no-print">
+			|
+				
+				<a href="/tags/weekly">weekly</a>
+				<span>
+	</h5>
+	
+</hgroup>
+<hr class="sep" />
+</header>
+	<blockquote>
+<p>奇趣周刊，分享有趣的软件，程序，动态新闻等。 <a href="/categories/weekly/">周刊列表</a> | <a href="/categories/weekly/index.xml">rss 订阅</a></p></blockquote>
+<p><img src="https://imgurl.zishu.me/2023/1700924521161.webp" alt=""></p>
+<h3 id="1-量子纠缠动画--跨窗口交互">1. 量子纠缠动画 + 跨窗口交互</h3>
+<p>跨页面实现交互，非常神奇的技术。</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Entangled <a href="https://twitter.com/hashtag/fxhash?src=hash&amp;ref_src=twsrc%5Etfw">#fxhash</a> <a href="https://t.co/SrD0oAQpUJ">pic.twitter.com/SrD0oAQpUJ</a></p>&mdash; 𝕭𝖏ø𝖗𝖓 𝕾𝖙𝖆𝖆𝖑 (@_nonfigurativ_) <a href="https://twitter.com/_nonfigurativ_/status/1727322594570027343?ref_src=twsrc%5Etfw">November 22, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>作者只是发了一个演示的推文，代码没有开源。<br>
+另一位开发者做了简单版本，跨窗口 3D 场景，除了量子纠缠特效外，已经还原如何跨窗口交互，通过实时获取 localStorage，定位坐标，然后结合 Three.js 库。非常有意思的一个项目，可以学习一下前端思路和代码。</p>
+<p><a href="https://github.com/bgstaal/multipleWindow3dScene">https://github.com/bgstaal/multipleWindow3dScene</a></p>
+<h3 id="2视频去水印">2.视频去水印</h3>
+<p><a href="https://github.com/YaoFANGUK/video-subtitle-remover">https://github.com/YaoFANGUK/video-subtitle-remover</a></p>
+<p>基于 AI 的图片/视频硬字幕去除、水印去除，无损分辨率生成去字幕、去水印后的图片/视频文件。无需申请第三方 API，本地实现。</p>
+<h3 id="3screenshot-to-code">3.screenshot-to-code</h3>
+<p><a href="https://github.com/abi/screenshot-to-code">https://github.com/abi/screenshot-to-code</a></p>
+<p>将截图转换成 html 和 css 代码，css 使用的是 Tailwind 编写，值得尝试的工具。<br>
+需要带上你自己的 OpenAI 密钥，并且必须能够访问 GPT-4 Vision，门槛还是稍微有点高的，有能力的小伙伴强烈建议尝试一下！</p>
+<h3 id="4中文播客榜">4.中文播客榜</h3>
+<p><a href="https://xyzrank.com/">https://xyzrank.com/</a></p>
+<p>由 <a href="%E6%9E%AB%E8%A8%80%E6%9E%AB%E8%AF%AD">https://www.xiaoyuzhoufm.com/episode/62d58b0664f141ad8150151f</a> 出品，收录了很多中文播客，通过更新时间，播放量，订阅量等数据排序，可以挑选自己感兴趣的播客。</p>
+<p><img src="https://imgurl.zishu.me/2023/1701056187862.webp" alt=""></p>
+<h3 id="5ajax-interceptor">5.ajax-interceptor</h3>
+<p><a href="https://github.com/YGYOOO/ajax-interceptor">https://github.com/YGYOOO/ajax-interceptor</a></p>
+<p>一个可以修改页面中任意 Ajax 的请求或返回值的 Chrome 插件，可用于调试/排查页面上的问题，或在开发时 mock 数据。（当然你也可以用其它一些工具如 Charles 修改网络请求的返回值，但操作繁琐，该插件方便很多，且不会对 Chrome 之外造成影响）</p>
+<p><img src="https://imgurl.zishu.me/2023/1701135584935.webp" alt=""></p>
+<h3 id="6acg-助手">6.ACG 助手</h3>
+<p><a href="https://acghelper.com/">https://acghelper.com/</a></p>
+<p>第三方哔哩哔哩弹幕网辅助扩展，拥有视频区和直播区的人性化功能，对于喜欢刷 b 站视频的人来说是一个不可多得好工具。</p>
+<p><img src="https://imgurl.zishu.me/2023/1701135745740.webp" alt=""></p>
+<h3 id="7艺术照片生成">7.艺术照片生成</h3>
+<p><a href="https://art.aiphotoshoot.com/">https://art.aiphotoshoot.com/</a></p>
+<p>人工智能生成的艺术，个人感觉效果还是很不错的。</p>
+<p><img src="https://imgurl.zishu.me/2023/1701301347920.webp" alt=""></p>
+<h3 id="8sam-altman-重新回归-openai-担任-ceo">8.Sam Altman 重新回归 OpenAI 担任 CEO</h3>
+<p><a href="https://openai.com/blog/sam-altman-returns-as-ceo-openai-has-a-new-initial-board">https://openai.com/blog/sam-altman-returns-as-ceo-openai-has-a-new-initial-board</a></p>
+<p>又迎来了新的转变，Sam Altman 重新回归 OpenAI 担任首席执行官，解散原有的董事会，新的初始董事会将由 Bret Taylor（主席）、Larry Summers 和 Adam D&rsquo;Angelo 组成。</p>
+
+</article>
+<nav class="no-print post-nav">
+
+	<a class="prev-post" href="//localhost:1313/blog/weekly-28/">
+		<img class="icon-text" src="/img/prev.svg"/>奇趣周刊 - 第 28 期</a>
+
+
+	<a class="next-post" href="//localhost:1313/blog/weekly-30/">奇趣周刊 - 第 30 期<img class="icon-text" src="/img/next.svg"/>
+	</a>
+
+</nav>
+
+
+<section id="related">
+  <h4>See Also</h4>
+  <ul>
+    
+  	<li><a href="/blog/weekly-28/">奇趣周刊 - 第 28 期</a></li>
+  	
+  	<li><a href="/blog/weekly-27/">奇趣周刊 - 第 27 期</a></li>
+  	
+  	<li><a href="/blog/weekly-26/">奇趣周刊 - 第 26 期</a></li>
+  	
+  </ul>
+</section>
+
+
+
+	
+
+<script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="url"
+        label=""
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+	
+
+			<hr class="sep" />
+		</main>
+		<footer class="container no-print">
+			<div class="u-footer">
+				
+<a href="mailto:mail@yurizal-san.com"><img class="icon-social" src="/img/email.svg" alt="Email Me!"/></a>
+
+
+<a href="https://github.com/yursan9/"><img class="icon-social" src="/img/github.svg" alt="Github"/></a>
+
+
+
+<a href="https://twitter.com/yuri_boya"><img class="icon-social" src="/img/twitter.svg" alt="Twitter"/></a>
+
+
+
+
+
+				<p>
+					
+					Theme used: <a href="https://github.com/yursan9/manis-hugo-theme">Manis</a><br>
+					
+					
+					&copy; 2019 Yurizal Susanto
+					
+					
+					| <a href="/about/license">License</a>
+					
+				</p>
+				
+				<a href="#brand">
+					<img class="icon-text" src="/img/toup.svg" alt="To Up"/>
+					<span>Back to Up</span>
+				</a>
+				
+			</div>
+		</footer>
+		
+	</body>
+</html>
+

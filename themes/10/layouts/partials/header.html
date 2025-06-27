@@ -1,0 +1,16 @@
+<header class="container no-print">
+  <div class="u-header">
+    <nav class="bar">
+      <ul>
+        <li><img class="icon-text" id="dark-mode-toggle" src="/img/moon.svg" alt="Toggle Dark Mode"></li>
+
+        {{ range .Site.Params.socials }}
+        <li><a href="{{ .link }}">{{ .name }}</a></li>
+        {{ end }}
+
+        <li><a href="/index.xml" target="_blank">订阅</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>

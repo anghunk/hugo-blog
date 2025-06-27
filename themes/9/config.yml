@@ -1,10 +1,12 @@
 baseURL: https://zishu.me/
 languageCode: en-us
 title: 子舒的博客
-theme: 2 #  writing / yuguo / 1 / 2
-paginate: 9 # 首页文章显示个数
-summaryLength: 20 # 首页文章摘要字数
+theme: 9 # 8
+pagination:
+  pagerSize: 7 # 首页文章显示个数
+summaryLength: 999999 # 首页文章摘要字数
 hasCJKLanguage: true
+rssLimit: 10 # 限制 rss 输出的数量
 
 markup:
   highlight:
@@ -29,19 +31,41 @@ permalinks:
 params:
   title: 子舒的博客
   description: 一个热爱生活的前端开发工程师。
-  logo:  https://imgurl.zishu.me/author.webp # 博主头像
-  author: 子舒 # 博主昵称
+  logo:  https://imgurl.zishu.me/author.png # 博主头像
+  author:
+    name: "子舒"
+    email: "anghunk@gmail.com"
   favicon:  https://imgurl.zishu.me/favicon.ico # 网站 favicon 图标
   buildDate: 2020-06-14 # 建站日期
   
   socials: # 导航
-    - name: 标签
-      link: /tags/
+    - name: 首页
+      link: /
     - name: 博客
       link: /blog/
-    - name: 周刊
-      link: /categories/weekly/
+    - name: 标签
+      link: /tags/
     - name: 留言
       link: /message/
+    - name: 关于
+      link: /about/
+    # - name: 友链
+    #   link: /links/
     - name: 搜索
-      link: /search
+      link: /search/
+    # - name: 订阅
+    #   link: /index.xml
+
+  # 极客终端主题配置
+  geek:
+    enableMatrixBackground: true # 启用 Matrix 风格背景
+    terminalPrefix: "zishu@terminal" # 终端前缀
+    typingSpeed: 50 # 打字效果速度
+    primaryColor: "#33ff33" # 主要文字颜色
+    secondaryColor: "#00cc00" # 次要文字颜色
+    backgroundColor: "#0c0c0c" # 背景颜色
+
+sitemap:
+  changefreq: monthly
+  filename: sitemap.xml
+  priority: 0.5
