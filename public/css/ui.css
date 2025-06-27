@@ -411,7 +411,7 @@ template {
 .container {
   position: relative;
   width: 100%;
-  max-width: 80rem;
+  max-width: 75rem;
   margin: 0 auto;
   padding: 0 2rem;
   box-sizing: border-box;
@@ -494,32 +494,6 @@ h6 {
   letter-spacing: 0;
 }
 
-/* Larger than phablet */
-@media (min-width: 55rem) {
-  h1 {
-    font-size: 3.6rem;
-  }
-
-  h2 {
-    font-size: 3.0rem;
-  }
-
-  h3 {
-    font-size: 2.8rem;
-  }
-
-  h4 {
-    font-size: 2.4rem;
-  }
-
-  h5 {
-    font-size: 2.0rem;
-  }
-
-  h6 {
-    font-size: 1.7rem;
-  }
-}
 
 p {
   margin-top: 0;
@@ -1186,4 +1160,22 @@ there.
 
 .aboutme p {
   margin: 0 0 10px;
+}
+
+.giscus-frame {
+  background: #fff;
+}
+
+figure {
+  margin: 0;
+  text-align: center;
+}
+
+figcaption {
+  color: #666;
+  margin-top: 10px;
+}
+
+.post-content img {
+  box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 30%);
 }

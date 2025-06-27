@@ -11,7 +11,7 @@ body {
 }
 
 a {
-  color: #3273dc;
+  color: #0000ff;
 }
 
 li {
@@ -27,15 +27,15 @@ table {
 .headnav {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: 2px solid #e5e7eb;
   margin-bottom: 12px;
 
   .logo {
-    font-weight: 500;
+    font-weight: 700;
     text-decoration: none;
-    font-size: 2em;
-    color: #374151;
+    font-size: 18px;
   }
 
   ul {
@@ -44,49 +44,49 @@ table {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-left: -5px;
+    justify-content: center;
 
     a {
       text-decoration: none;
       padding: 0 5px;
-      margin-right: 5px;
+      margin: 0 5px;
     }
   }
 }
 
-.indextitle {
-  font-size: 19px;
-  font-weight: 600;
-  border-top: 2px solid #e5e7eb;
-  padding-top: 20px;
-}
-
-.aside-list {
+.container {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  align-items: flex-start;
+  justify-content: space-between;
 
-  a {
-    margin-right: 15px;
-    text-decoration: none;
+  .aside-list {
+    width: 110px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 50px;
 
-    &:hover {
-      text-decoration: underline;
-    }
+    a {
+      text-decoration: none;
 
-    &.active {
-      font-weight: bold;
-      text-decoration: underline;
+      &.active {
+        font-weight: bold;
+        text-decoration: underline;
+      }
     }
   }
-}
 
-.posts-year {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-weight: 500;
-  font-size: 1.6em;
+  .posts-year {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  .posts {
+    flex: 1;
+    padding-left: 10px;
+  }
+
 }
 
 .posts-list {
@@ -140,10 +140,39 @@ table {
   }
 }
 
+.comments {
+  padding: 40px 0;
+}
+
 .footer {
   border-top: 2px solid #e5e7eb;
   margin-top: 30px;
   font-size: 15px;
+}
+
+@media(max-width:768px) {
+  .headnav {
+    flex-direction: column;
+    padding: 20px 0;
+  }
+
+  .container .aside-list {
+    position: static;
+    width: 100%;
+    flex-direction: row;
+
+    a {
+      margin-right: 20px;
+    }
+  }
+
+  .container .posts {
+    padding-left: 0;
+  }
+
+  .headnav .logo {
+    font-size: 26px;
+  }
 }
 
 .tags-list {
@@ -160,5 +189,6 @@ table {
 }
 
 .indexpost {
-  padding-top: 10px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e5e7eb;
 }

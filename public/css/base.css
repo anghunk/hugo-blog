@@ -468,7 +468,7 @@ video {
 .post-content p,
 .post-content figure,
 .post-content ul {
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
 }
 
 .post-content ol,
@@ -636,15 +636,14 @@ video {
   margin: 1rem auto;
 }
 
-.post-content figure {
+.post-content figure.align-center {
   text-align: center;
-  margin: 0;
 }
 
 .post-content figure > figcaption {
-  color: #666;
-  font-size: 15px;
-  font-weight: 300;
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 700;
   margin: 8px 0 16px;
 }
 
