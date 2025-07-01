@@ -902,25 +902,21 @@ there.
 /* Keyword */
 .chroma .k {
   color: #fb660a;
-  font-weight: bold
 }
 
 /* KeywordConstant */
 .chroma .kc {
   color: #fb660a;
-  font-weight: bold
 }
 
 /* KeywordDeclaration */
 .chroma .kd {
   color: #fb660a;
-  font-weight: bold
 }
 
 /* KeywordNamespace */
 .chroma .kn {
   color: #fb660a;
-  font-weight: bold
 }
 
 /* KeywordPseudo */
@@ -931,19 +927,16 @@ there.
 /* KeywordReserved */
 .chroma .kr {
   color: #fb660a;
-  font-weight: bold
 }
 
 /* KeywordType */
 .chroma .kt {
   color: #cdcaa9;
-  font-weight: bold
 }
 
 /* NameAttribute */
 .chroma .na {
   color: #ff0086;
-  font-weight: bold
 }
 
 /* NameConstant */
@@ -954,13 +947,11 @@ there.
 /* NameFunction */
 .chroma .nf {
   color: #ff0086;
-  font-weight: bold
 }
 
 /* NameTag */
 .chroma .nt {
   color: #fb660a;
-  font-weight: bold
 }
 
 /* NameVariable */
@@ -1041,43 +1032,36 @@ there.
 /* LiteralNumber */
 .chroma .m {
   color: #0086f7;
-  font-weight: bold
 }
 
 /* LiteralNumberBin */
 .chroma .mb {
   color: #0086f7;
-  font-weight: bold
 }
 
 /* LiteralNumberFloat */
 .chroma .mf {
   color: #0086f7;
-  font-weight: bold
 }
 
 /* LiteralNumberHex */
 .chroma .mh {
   color: #0086f7;
-  font-weight: bold
 }
 
 /* LiteralNumberInteger */
 .chroma .mi {
   color: #0086f7;
-  font-weight: bold
 }
 
 /* LiteralNumberIntegerLong */
 .chroma .il {
   color: #0086f7;
-  font-weight: bold
 }
 
 /* LiteralNumberOct */
 .chroma .mo {
   color: #0086f7;
-  font-weight: bold
 }
 
 /* Comment */
@@ -1113,20 +1097,18 @@ there.
 /* CommentPreproc */
 .chroma .cp {
   color: #ff0007;
-  font-weight: bold;
   font-style: italic
 }
 
 /* CommentPreprocFile */
 .chroma .cpf {
   color: #ff0007;
-  font-weight: bold;
   font-style: italic
 }
 
 /* GenericHeading */
 .chroma .gh {
-  font-weight: bold
+  /* font-weight: bold */
 }
 
 /* GenericOutput */
@@ -1137,7 +1119,7 @@ there.
 
 /* GenericSubheading */
 .chroma .gu {
-  font-weight: bold
+  /* font-weight: bold */
 }
 
 /* TextWhitespace */
