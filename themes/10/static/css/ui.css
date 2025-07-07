@@ -630,6 +630,8 @@ pre>code {
   /* 不自动换行 */
   overflow-x: auto;
   /* 添加水平滚动 */
+
+  max-height: 500px;
 }
 
 /* #Tables
