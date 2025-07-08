@@ -64,6 +64,7 @@ title: 关于
 **Obsidian Plugin**
 - [AI Tags Generator](https://github.com/ezyshu/obsidian-ai-tags) - 使用 AI 技术为笔记文件智能生成标签，帮助你更好地组织和管理知识库。
 - [Obsidian Home](https://github.com/ezyshu/obsidian-home) - 为 Obsidian 添加一个美观实用的首页功能，便于快速访问和搜索笔记。
+- [Minder](https://github.com/ezyshu/obsidian-Minder) - 快速记录灵感、想法和小笔记的插件，支持标签整理和搜索。
 
 ## 3. 版权声明
 
