@@ -41,7 +41,7 @@ params:
   socials: # 导航
     - name: 首页
       link: /
-    - name: 博客
+    - name: 文章
       link: /blog/
     - name: 标签
       link: /tags/
@@ -49,21 +49,11 @@ params:
       link: /message/
     - name: 关于
       link: /about/
-    # - name: 友链
-    #   link: /links/
-    - name: 搜索
-      link: /search/
-    # - name: 订阅
-    #   link: /index.xml
+    - name: 项目
+      link: /projects/
+    - name: 友链
+      link: /links/
 
-  # 极客终端主题配置
-  geek:
-    enableMatrixBackground: true # 启用 Matrix 风格背景
-    terminalPrefix: "zishu@terminal" # 终端前缀
-    typingSpeed: 50 # 打字效果速度
-    primaryColor: "#33ff33" # 主要文字颜色
-    secondaryColor: "#00cc00" # 次要文字颜色
-    backgroundColor: "#0c0c0c" # 背景颜色
 
 sitemap:
   changefreq: monthly
