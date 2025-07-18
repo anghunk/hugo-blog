@@ -128,3 +128,56 @@
   background-color: #d6e4ff;
   transform: translateY(-2px);
 }
+
+/* 完成度状态样式 */
+.completion-container {
+  margin-bottom: 30px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.completion-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #666;
+}
+
+.completion-grid {
+  display: grid;
+  grid-template-columns: repeat(30, 1fr);
+  gap: 5px;
+}
+
+.status-box {
+  aspect-ratio: 1;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.status-box.completed {
+  background-color: #4caf50;
+  box-shadow: 0 2px 5px rgba(76, 175, 80, 0.3);
+}
+
+/* 当鼠标悬停在已完成的格子上时的效果 */
+.status-box.completed:hover {
+  transform: scale(1.1);
+  background-color: #43a047;
+}
+
+/* 为未完成的格子添加一个微妙的悬停效果 */
+.status-box:not(.completed):hover {
+  background-color: #e0e0e0;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .completion-grid {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}

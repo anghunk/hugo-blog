@@ -19,9 +19,9 @@
     </article>
 
     <link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/projects.css" | relURL }}">
-    <div id="projects-container">
-      <!-- 项目数据将在这里渲染 -->
-    </div>
+
+    <div id="completion-status"></div>
+    <div id="projects-container"></div>
 
     <script>
       $.ajax({
@@ -40,8 +40,31 @@
 
       function renderProjects(projects) {
         const container = document.getElementById('projects-container');
+        const completionStatus = document.getElementById('completion-status');
         let html = '';
 
+        // 渲染进度格子
+        let completionHtml = '';
+        const totalBoxes = 100;
+        const completedBoxes = projects.length;
+
+        for (let i = 0; i < totalBoxes; i++) {
+          // 如果当前格子索引小于已完成的项目数，则添加completed类
+          completionHtml += `<div class="status-box ${i < completedBoxes ? 'completed' : ''}"></div>`;
+        }
+
+        completionStatus.innerHTML = `
+    <div class="completion-container">
+      <div class="completion-header">
+        <span>项目完成度：${completedBoxes}/${totalBoxes}</span>
+      </div>
+      <div class="completion-grid">
+        ${completionHtml}
+      </div>
+    </div>
+  `;
+
+        // 渲染项目卡片
         projects.forEach(project => {
           // 处理标签
           let tagsHtml = '';
@@ -69,6 +92,7 @@
 
         container.innerHTML = html || '<div class="empty-state">暂无项目数据</div>';
       }
+
 
     </script>
 

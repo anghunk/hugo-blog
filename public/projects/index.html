@@ -104,9 +104,9 @@
     </article>
 
     <link rel="stylesheet" href="/css/projects.css">
-    <div id="projects-container">
-      
-    </div>
+
+    <div id="completion-status"></div>
+    <div id="projects-container"></div>
 
     <script>
       $.ajax({
@@ -125,8 +125,31 @@
 
       function renderProjects(projects) {
         const container = document.getElementById('projects-container');
+        const completionStatus = document.getElementById('completion-status');
         let html = '';
 
+        
+        let completionHtml = '';
+        const totalBoxes = 100;
+        const completedBoxes = projects.length;
+
+        for (let i = 0; i < totalBoxes; i++) {
+          
+          completionHtml += `<div class="status-box ${i < completedBoxes ? 'completed' : ''}"></div>`;
+        }
+
+        completionStatus.innerHTML = `
+    <div class="completion-container">
+      <div class="completion-header">
+        <span>项目完成度：${completedBoxes}/${totalBoxes}</span>
+      </div>
+      <div class="completion-grid">
+        ${completionHtml}
+      </div>
+    </div>
+  `;
+
+        
         projects.forEach(project => {
           
           let tagsHtml = '';
@@ -154,6 +177,7 @@
 
         container.innerHTML = html || '<div class="empty-state">暂无项目数据</div>';
       }
+
 
     </script>
 
