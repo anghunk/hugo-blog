@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+
+<body>
+  {{ partial "header.html" . }}
+  <main class="container">
+
+    <header>
+      <hgroup id="brand">
+        <h1>{{ .Title }}</h1>
+      </hgroup>
+      <hr class="sep">
+    </header>
+
+    <article class="post-content">
+      {{ .Site.Params.postHeaderContent | safeHTML }}
+      {{ .Content }}
+    </article>
+
+    <link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/projects.css" | relURL }}">
+    <div id="projects-container">
+      <!-- 项目数据将在这里渲染 -->
+    </div>
+
+    <script>
+      $.ajax({
+        type: 'get',
+        url: '/projects.json',
+        success: function (data) {
+          console.log(data);
+          renderProjects(data);
+        },
+        error: function (error) {
+          console.log(error);
+          document.getElementById('projects-container').innerHTML = '<div class="error-message">加载项目失败</div>';
+        },
+        async: true,
+      });
+
+      function renderProjects(projects) {
+        const container = document.getElementById('projects-container');
+        let html = '';
+
+        projects.forEach(project => {
+          // 处理标签
+          let tagsHtml = '';
+          if (project.tags && project.tags.length > 0) {
+            tagsHtml = '<div class="card-tags">';
+            project.tags.forEach(tag => {
+              tagsHtml += `<span class="tag">${tag}</span>`;
+            });
+            tagsHtml += '</div>';
+          }
+
+          html += `
+      <div class="card">
+        <a href="${project.url || '#'}" class="card-image">
+          <img src="${project.image || 'https://imgurl.zishu.me/2025/07/1752828174580.webp'}" alt="${project.name}">
+        </a>
+        <div class="card-content">
+          <h2 class="card-title"><a href="${project.url || '#'}">${project.name || '未命名项目'}</a></h2>
+          <p class="card-description">${project.description}</p>
+          ${tagsHtml}
+        </div>
+      </div>
+    `;
+        });
+
+        container.innerHTML = html || '<div class="empty-state">暂无项目数据</div>';
+      }
+
+    </script>
+
+  </main>
+  {{ partial "footer.html" . }}
+
+</body>
+
+</html>

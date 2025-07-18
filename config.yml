@@ -52,7 +52,7 @@ params:
     - name: 项目
       link: /projects/
     - name: 友链
-      link: /links/
+      link: /friends/
 
 
 sitemap:

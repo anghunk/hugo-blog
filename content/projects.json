@@ -1,0 +1,44 @@
+[
+  {
+    "name": "LinuxDo Scripts",
+    "description": "LinuxDo Scripts 是一个功能丰富的浏览器扩展，旨在提升 LinuxDo 论坛的使用体验。它集成了多项实用功能，从基础的界面优化到高级的 AI 辅助功能，让您的论坛浏览和互动体验更加流畅和高效。",
+    "url": "https://github.com/ezyshu/linuxdo-scripts",
+    "image": "https://imgurl.zishu.me/2025/07/1752828284261.webp",
+    "tags": ["浏览器扩展"]
+  },
+  {
+    "name": "CAPTCHA-automatic-recognition",
+    "description": "AI 自动识别网页验证码的油猴插件，支持各大主流厂商，限制视觉模型。",
+    "url": "https://github.com/ezyshu/UserScript/tree/main/CAPTCHA-automatic-recognition",
+    "image": "https://imgurl.zishu.me/2025/07/1752828396532.webp",
+    "tags": ["油猴脚本"]
+  },
+  {
+    "name": "极简 ToDo",
+    "description": "uTools 插件，一个简洁、高效的待办事项管理工具，帮助你轻松组织和完成任务。",
+    "url": "https://github.com/ezyshu/utools-todo",
+    "image": "https://imgurl.zishu.me/2025/07/1752828471483.webp",
+    "tags": ["uTools"]
+  },
+  {
+    "name": "Obsidian: AI Tags Generator",
+    "description": "使用 AI 模型为笔记文件智能生成标签，帮助你更好地组织和管理知识库。",
+    "url": "https://github.com/ezyshu/obsidian-ai-tags",
+    "image": "https://imgurl.zishu.me/2025/07/1752828584877.webp",
+    "tags": ["Obsidian"]
+  },
+  {
+    "name": "Obsidian: Home",
+    "description": "为 Obsidian 添加一个美观实用的首页功能，便于快速访问和搜索笔记。",
+    "url": "https://github.com/ezyshu/obsidian-home",
+    "image": "https://imgurl.zishu.me/2025/07/1752828596479.webp",
+    "tags": ["Obsidian"]
+  },
+  {
+    "name": "Obsidian: Minder",
+    "description": "快速记录灵感、想法和小笔记的插件，支持标签整理和搜索。",
+    "url": "https://github.com/ezyshu/obsidian-Minder",
+    "image": "https://imgurl.zishu.me/2025/07/1752828609447.webp",
+    "tags": ["Obsidian"]
+  }
+]
