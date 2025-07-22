@@ -59,7 +59,7 @@ React 文档
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/ui.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <script defer src="/js/dark-mode.js"></script>
 <link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
@@ -99,7 +99,7 @@ React 文档
 </header>
   <main class="container">
 
-    <section>
+    <header>
       <hgroup id="brand">
         <h1>为什么不可变性在 React 中那么重要？</h1>
 
@@ -109,18 +109,18 @@ React 文档
 
           
           <span class="no-print">|
-            
-            <a href="/%20tags/%E7%BC%96%E7%A8%8B">#编程</a>
-            
-            <a href="/%20tags/react">#react</a>
-            
+          
+          <a href="/tags/%E7%BC%96%E7%A8%8B">#编程</a>
+          
+          <a href="/tags/react">#react</a>
+          
           </span>
           
 
           
           
           <span class="no-print">|
-            <a href="/%20categories/%E6%8A%80%E6%9C%AF">技术</a>
+            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
           </span>
           
           
@@ -129,10 +129,12 @@ React 文档
 
       </hgroup>
       <hr class="sep">
+    </header>
+    
 
-      
-      <div class="toc">
-        <nav id="TableOfContents">
+    
+    <div class="toc">
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#直接修改数据">直接修改数据</a></li>
     <li><a href="#新数据替换旧数据">新数据替换旧数据</a></li>
@@ -141,12 +143,12 @@ React 文档
     <li><a href="#确定在-react-中何时重新渲染">确定在 React 中何时重新渲染</a></li>
   </ul>
 </nav>
-      </div>
-      
+    </div>
+    
 
-      <article class="post-content">
-        
-        <p>根据官网文档来解释，为什么不可变性的概念在 React 中非常重要的原因，一般来说，有两种改变数据的方式。第一种方式是直接修改变量的值，第二种方式是使用新的一份数据替换旧数据</p>
+    <article class="post-content">
+      
+      <p>根据官网文档来解释，为什么不可变性的概念在 React 中非常重要的原因，一般来说，有两种改变数据的方式。第一种方式是直接修改变量的值，第二种方式是使用新的一份数据替换旧数据</p>
 <blockquote>
 <p><a href="https://react.docschina.org/tutorial/tutorial.html#why-immutability-is-important">React 文档</a></p></blockquote>
 <p>一般来说，有两种改变数据的方式。第一种方式是直接修改变量的值，第二种方式是使用新的一份数据替换旧数据</p>
@@ -170,12 +172,10 @@ React 文档
 <h2 id="确定在-react-中何时重新渲染">确定在 React 中何时重新渲染</h2>
 <p>不可变性最主要的优势在于它可以帮助我们在 React 中创建 pure components。我们可以很轻松的确定不可变数据是否发生了改变，从而确定何时对组件进行重新渲染</p>
 
-      </article>
-    </section>
+    </article>
 
     
-    <section>
-      
+    <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -195,7 +195,7 @@ React 文档
         
       };
 
-      (function () {
+      (function() {
         var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
         d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
@@ -206,82 +206,75 @@ React 文档
   <div class="giscus"></div>
   <div id="tcomment"></div>
 </div>
-<script src="https://giscus.app/client.js" data-repo="ezyshu/hugo-blog" data-repo-id="R_kgDOJkJvtw"
-  data-category="Announcements" data-category-id="DIC_kwDOJkJvt84CX9d6" data-mapping="pathname" data-strict="0"
-  data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="light" data-lang="zh-CN"
-  data-loading="lazy" crossorigin="anonymous" async>
-  </script>
+<script 
+  src="https://giscus.app/client.js" 
+  data-repo="ezyshu/hugo-blog" 
+  data-repo-id="R_kgDOJkJvtw"
+  data-category="Announcements" 
+  data-category-id="DIC_kwDOJkJvt84CX9d6" 
+  data-mapping="pathname" 
+  data-strict="0"
+  data-reactions-enabled="1" 
+  data-emit-metadata="1" 
+  data-input-position="top" 
+  data-theme="light"
+  data-lang="zh-CN" 
+  data-loading="lazy" 
+  crossorigin="anonymous" 
+  async>
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.min.js"></script>
 <script>
-  twikoo.init({
-    envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
-    el: '#tcomment',
-    lang: 'zh-CN',
-  })
+twikoo.init({
+  envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
+  el: '#tcomment',
+  lang: 'zh-CN', 
+})
 </script>
 
 <script>
-  document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
-    if (index === 0) {
-      document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
-      document.querySelectorAll('.comments > div')[0].classList.add('active');
-    }
-
-    tab.addEventListener('click', function () {
-      document.querySelectorAll('.comment-tabs li').forEach(sibling => {
-        sibling.classList.remove('active');
-      });
-      this.classList.add('active');
-
-      document.querySelectorAll('.comments > div').forEach(content => {
-        content.classList.remove('active');
-      });
-      document.querySelectorAll('.comments > div')[index].classList.add('active');
+document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+  if (index === 0) {
+    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+    document.querySelectorAll('.comments > div')[0].classList.add('active');
+  }
+  
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+      sibling.classList.remove('active');
     });
+    this.classList.add('active');
+    
+    document.querySelectorAll('.comments > div').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.querySelectorAll('.comments > div')[index].classList.add('active');
   });
+});
 </script>
 
 <style>
   .comment-tabs {
     display: flex;
-    padding: 0;
+    margin-top: 3em;
   }
-
   .comment-tabs li {
-    list-style: none;
-    text-decoration: none;
-    margin: 0;
-    margin-right: 15px;
+    margin-right: 40px;
     cursor: pointer;
-
-    background: transparent;
-    border: solid 1px rgb(218, 220, 224);
-    border-radius: 4px;
-    color: rgb(26, 115, 232);
-    cursor: pointer;
-    font-size: 15px;
-    height: 2.5em;
-    outline: none;
-    padding: calc(0.5em - 1px) 1em;
   }
-
-  .comment-tabs li:hover,
   .comment-tabs li.active {
-    background: rgba(66, 133, 244, 0.04);
+    text-decoration: underline;
   }
-
-  .comments>div.active {
+  .comments > div.active {
     display: block;
   }
-
-  .comments>div {
+  .comments > div {
     display: none;
   }
 </style>
-    </section>
     
-
+    
   </main>
   <footer class="container no-print">
   <div class="u-footer">

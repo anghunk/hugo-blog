@@ -63,7 +63,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/ui.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <script defer src="/js/dark-mode.js"></script>
 <link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
@@ -103,7 +103,7 @@
 </header>
   <main class="container">
 
-    <section>
+    <header>
       <hgroup id="brand">
         <h1>小张厨房日记（二）</h1>
 
@@ -113,16 +113,16 @@
 
           
           <span class="no-print">|
-            
-            <a href="/%20tags/%E5%8E%A8%E6%88%BF">#厨房</a>
-            
+          
+          <a href="/tags/%E5%8E%A8%E6%88%BF">#厨房</a>
+          
           </span>
           
 
           
           
           <span class="no-print">|
-            <a href="/%20categories/%E9%9A%8F%E7%AC%94">随笔</a>
+            <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a>
           </span>
           
           
@@ -131,16 +131,18 @@
 
       </hgroup>
       <hr class="sep">
+    </header>
+    
 
-      
-      <div class="toc">
-        <nav id="TableOfContents"></nav>
-      </div>
-      
+    
+    <div class="toc">
+      <nav id="TableOfContents"></nav>
+    </div>
+    
 
-      <article class="post-content">
-        
-        <p>自从上次更新厨房日记之后，好像过了两个月多，实际上我一直在进阶我的厨艺，为什么没有更新我的厨房日记呢？因为实际在做的过程中我发现，每种菜的组合太多了，没必要组合一次就写一篇攻略，那样就有些做无用功了，没有太大的意义。</p>
+    <article class="post-content">
+      
+      <p>自从上次更新厨房日记之后，好像过了两个月多，实际上我一直在进阶我的厨艺，为什么没有更新我的厨房日记呢？因为实际在做的过程中我发现，每种菜的组合太多了，没必要组合一次就写一篇攻略，那样就有些做无用功了，没有太大的意义。</p>
 <p>思来想去，我决定了，不再更新做菜的步骤攻略，我想这些攻略网上一抓一大把。把内容着重放在做菜中遇到的一些问题，细节，这样不但可以让我记忆的深刻，还能分享出更多有意思的东西让小伙伴们开心。</p>
 <p>今天做了一道菜，红烧茄子，我在茄子的时候发现皮挺硬的，就在想要不要去皮（不要笑我，因为之前没做过茄子）。想了一会没想出个所以然，直接百度一番，“烧茄子要不要去皮？”，第一条搜索结果是这样说的，</p>
 <blockquote>
@@ -152,12 +154,10 @@
 <p>又增加了一个小技巧。</p>
 <p>结束语：当你在心情不好的时候，或者有心事，可以做一些让你分散注意力的事情，就比如说做菜，不仅可以享受食物，享受生活，内心还可以获得成就感，我感觉这是一举两得的事情。</p>
 
-      </article>
-    </section>
+    </article>
 
     
-    <section>
-      
+    <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -177,7 +177,7 @@
         
       };
 
-      (function () {
+      (function() {
         var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
         d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
@@ -188,82 +188,75 @@
   <div class="giscus"></div>
   <div id="tcomment"></div>
 </div>
-<script src="https://giscus.app/client.js" data-repo="ezyshu/hugo-blog" data-repo-id="R_kgDOJkJvtw"
-  data-category="Announcements" data-category-id="DIC_kwDOJkJvt84CX9d6" data-mapping="pathname" data-strict="0"
-  data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="light" data-lang="zh-CN"
-  data-loading="lazy" crossorigin="anonymous" async>
-  </script>
+<script 
+  src="https://giscus.app/client.js" 
+  data-repo="ezyshu/hugo-blog" 
+  data-repo-id="R_kgDOJkJvtw"
+  data-category="Announcements" 
+  data-category-id="DIC_kwDOJkJvt84CX9d6" 
+  data-mapping="pathname" 
+  data-strict="0"
+  data-reactions-enabled="1" 
+  data-emit-metadata="1" 
+  data-input-position="top" 
+  data-theme="light"
+  data-lang="zh-CN" 
+  data-loading="lazy" 
+  crossorigin="anonymous" 
+  async>
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.min.js"></script>
 <script>
-  twikoo.init({
-    envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
-    el: '#tcomment',
-    lang: 'zh-CN',
-  })
+twikoo.init({
+  envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
+  el: '#tcomment',
+  lang: 'zh-CN', 
+})
 </script>
 
 <script>
-  document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
-    if (index === 0) {
-      document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
-      document.querySelectorAll('.comments > div')[0].classList.add('active');
-    }
-
-    tab.addEventListener('click', function () {
-      document.querySelectorAll('.comment-tabs li').forEach(sibling => {
-        sibling.classList.remove('active');
-      });
-      this.classList.add('active');
-
-      document.querySelectorAll('.comments > div').forEach(content => {
-        content.classList.remove('active');
-      });
-      document.querySelectorAll('.comments > div')[index].classList.add('active');
+document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+  if (index === 0) {
+    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+    document.querySelectorAll('.comments > div')[0].classList.add('active');
+  }
+  
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+      sibling.classList.remove('active');
     });
+    this.classList.add('active');
+    
+    document.querySelectorAll('.comments > div').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.querySelectorAll('.comments > div')[index].classList.add('active');
   });
+});
 </script>
 
 <style>
   .comment-tabs {
     display: flex;
-    padding: 0;
+    margin-top: 3em;
   }
-
   .comment-tabs li {
-    list-style: none;
-    text-decoration: none;
-    margin: 0;
-    margin-right: 15px;
+    margin-right: 40px;
     cursor: pointer;
-
-    background: transparent;
-    border: solid 1px rgb(218, 220, 224);
-    border-radius: 4px;
-    color: rgb(26, 115, 232);
-    cursor: pointer;
-    font-size: 15px;
-    height: 2.5em;
-    outline: none;
-    padding: calc(0.5em - 1px) 1em;
   }
-
-  .comment-tabs li:hover,
   .comment-tabs li.active {
-    background: rgba(66, 133, 244, 0.04);
+    text-decoration: underline;
   }
-
-  .comments>div.active {
+  .comments > div.active {
     display: block;
   }
-
-  .comments>div {
+  .comments > div {
     display: none;
   }
 </style>
-    </section>
     
-
+    
   </main>
   <footer class="container no-print">
   <div class="u-footer">

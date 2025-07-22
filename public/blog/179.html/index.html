@@ -99,7 +99,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/ui.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <script defer src="/js/dark-mode.js"></script>
 <link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
@@ -139,7 +139,7 @@
 </header>
   <main class="container">
 
-    <section>
+    <header>
       <hgroup id="brand">
         <h1>一周阳人日记</h1>
 
@@ -149,18 +149,18 @@
 
           
           <span class="no-print">|
-            
-            <a href="/%20tags/%E6%97%A5%E8%AE%B0">#日记</a>
-            
-            <a href="/%20tags/%E6%96%B0%E5%86%A0">#新冠</a>
-            
+          
+          <a href="/tags/%E6%97%A5%E8%AE%B0">#日记</a>
+          
+          <a href="/tags/%E6%96%B0%E5%86%A0">#新冠</a>
+          
           </span>
           
 
           
           
           <span class="no-print">|
-            <a href="/%20categories/%E9%9A%8F%E7%AC%94">随笔</a>
+            <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a>
           </span>
           
           
@@ -169,16 +169,18 @@
 
       </hgroup>
       <hr class="sep">
+    </header>
+    
 
-      
-      <div class="toc">
-        <nav id="TableOfContents"></nav>
-      </div>
-      
+    
+    <div class="toc">
+      <nav id="TableOfContents"></nav>
+    </div>
+    
 
-      <article class="post-content">
-        
-        <p>不出所料，每天往返于公司，地铁，住的地方，我阳了。
+    <article class="post-content">
+      
+      <p>不出所料，每天往返于公司，地铁，住的地方，我阳了。
 很难受，客观记录一下我的症状吧。</p>
 <p><strong>第一天：2022/12/19</strong></p>
 <p>持续发烧 38℃左右，没有吃药，硬抗过去。</p>
@@ -221,12 +223,10 @@
 <hr>
 <p>接下来的几天基本都在咳嗽中度过，病情也差不多结束。感概良多，希望诸位保重好自己的身体。</p>
 
-      </article>
-    </section>
+    </article>
 
     
-    <section>
-      
+    <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -246,7 +246,7 @@
         
       };
 
-      (function () {
+      (function() {
         var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
         d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
@@ -257,82 +257,75 @@
   <div class="giscus"></div>
   <div id="tcomment"></div>
 </div>
-<script src="https://giscus.app/client.js" data-repo="ezyshu/hugo-blog" data-repo-id="R_kgDOJkJvtw"
-  data-category="Announcements" data-category-id="DIC_kwDOJkJvt84CX9d6" data-mapping="pathname" data-strict="0"
-  data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="light" data-lang="zh-CN"
-  data-loading="lazy" crossorigin="anonymous" async>
-  </script>
+<script 
+  src="https://giscus.app/client.js" 
+  data-repo="ezyshu/hugo-blog" 
+  data-repo-id="R_kgDOJkJvtw"
+  data-category="Announcements" 
+  data-category-id="DIC_kwDOJkJvt84CX9d6" 
+  data-mapping="pathname" 
+  data-strict="0"
+  data-reactions-enabled="1" 
+  data-emit-metadata="1" 
+  data-input-position="top" 
+  data-theme="light"
+  data-lang="zh-CN" 
+  data-loading="lazy" 
+  crossorigin="anonymous" 
+  async>
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.min.js"></script>
 <script>
-  twikoo.init({
-    envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
-    el: '#tcomment',
-    lang: 'zh-CN',
-  })
+twikoo.init({
+  envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
+  el: '#tcomment',
+  lang: 'zh-CN', 
+})
 </script>
 
 <script>
-  document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
-    if (index === 0) {
-      document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
-      document.querySelectorAll('.comments > div')[0].classList.add('active');
-    }
-
-    tab.addEventListener('click', function () {
-      document.querySelectorAll('.comment-tabs li').forEach(sibling => {
-        sibling.classList.remove('active');
-      });
-      this.classList.add('active');
-
-      document.querySelectorAll('.comments > div').forEach(content => {
-        content.classList.remove('active');
-      });
-      document.querySelectorAll('.comments > div')[index].classList.add('active');
+document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+  if (index === 0) {
+    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+    document.querySelectorAll('.comments > div')[0].classList.add('active');
+  }
+  
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+      sibling.classList.remove('active');
     });
+    this.classList.add('active');
+    
+    document.querySelectorAll('.comments > div').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.querySelectorAll('.comments > div')[index].classList.add('active');
   });
+});
 </script>
 
 <style>
   .comment-tabs {
     display: flex;
-    padding: 0;
+    margin-top: 3em;
   }
-
   .comment-tabs li {
-    list-style: none;
-    text-decoration: none;
-    margin: 0;
-    margin-right: 15px;
+    margin-right: 40px;
     cursor: pointer;
-
-    background: transparent;
-    border: solid 1px rgb(218, 220, 224);
-    border-radius: 4px;
-    color: rgb(26, 115, 232);
-    cursor: pointer;
-    font-size: 15px;
-    height: 2.5em;
-    outline: none;
-    padding: calc(0.5em - 1px) 1em;
   }
-
-  .comment-tabs li:hover,
   .comment-tabs li.active {
-    background: rgba(66, 133, 244, 0.04);
+    text-decoration: underline;
   }
-
-  .comments>div.active {
+  .comments > div.active {
     display: block;
   }
-
-  .comments>div {
+  .comments > div {
     display: none;
   }
 </style>
-    </section>
     
-
+    
   </main>
   <footer class="container no-print">
   <div class="u-footer">

@@ -67,7 +67,7 @@ https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapeb
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/ui.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <script defer src="/js/dark-mode.js"></script>
 <link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
@@ -107,7 +107,7 @@ https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapeb
 </header>
   <main class="container">
 
-    <section>
+    <header>
       <hgroup id="brand">
         <h1>Bitwarden / Vaultwarden 密码管理工具</h1>
 
@@ -117,20 +117,20 @@ https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapeb
 
           
           <span class="no-print">|
-            
-            <a href="/%20tags/%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86">#密码管理</a>
-            
-            <a href="/%20tags/bitwarden">#Bitwarden</a>
-            
-            <a href="/%20tags/vaultwarden">#Vaultwarden</a>
-            
+          
+          <a href="/tags/%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86">#密码管理</a>
+          
+          <a href="/tags/bitwarden">#Bitwarden</a>
+          
+          <a href="/tags/vaultwarden">#Vaultwarden</a>
+          
           </span>
           
 
           
           
           <span class="no-print">|
-            <a href="/%20categories/%E6%8A%80%E6%9C%AF">技术</a>
+            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
           </span>
           
           
@@ -139,10 +139,12 @@ https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapeb
 
       </hgroup>
       <hr class="sep">
+    </header>
+    
 
-      
-      <div class="toc">
-        <nav id="TableOfContents">
+    
+    <div class="toc">
+      <nav id="TableOfContents">
   <ul>
     <li>
       <ul>
@@ -154,12 +156,12 @@ https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapeb
     </li>
   </ul>
 </nav>
-      </div>
-      
+    </div>
+    
 
-      <article class="post-content">
-        
-        <h3 id="1介绍">1.介绍</h3>
+    <article class="post-content">
+      
+      <h3 id="1介绍">1.介绍</h3>
 <p>Bitwarden 是一款自由且开源的密码管理服务，用户可在加密的保管库中存储敏感信息。Bitwarden 平台提供有多种客户端应用程序，包括网页用户界面、桌面应用，浏览器扩展、移动应用以及命令行界面。Bitwarden 提供云端托管服务，并支持自行部署解决方案。</p>
 <p>在调研一些市面常用的密码管理工具之后，我选择了 Bitwarden。然后使用自托管的方式部署在服务器上，定时备份数据库，导出密码，安全性也有保证。</p>
 <p><a href="https://bitwarden.com/">https://bitwarden.com/</a></p>
@@ -222,12 +224,10 @@ https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapeb
 <p><a href="https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb">https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb</a></p>
 <p>之后我只需要记住一个主密码，其他网站密码全部采用加密方式生成，方便与安全并存。</p>
 
-      </article>
-    </section>
+    </article>
 
     
-    <section>
-      
+    <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -247,7 +247,7 @@ https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapeb
         
       };
 
-      (function () {
+      (function() {
         var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
         d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
@@ -258,82 +258,75 @@ https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapeb
   <div class="giscus"></div>
   <div id="tcomment"></div>
 </div>
-<script src="https://giscus.app/client.js" data-repo="ezyshu/hugo-blog" data-repo-id="R_kgDOJkJvtw"
-  data-category="Announcements" data-category-id="DIC_kwDOJkJvt84CX9d6" data-mapping="pathname" data-strict="0"
-  data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="light" data-lang="zh-CN"
-  data-loading="lazy" crossorigin="anonymous" async>
-  </script>
+<script 
+  src="https://giscus.app/client.js" 
+  data-repo="ezyshu/hugo-blog" 
+  data-repo-id="R_kgDOJkJvtw"
+  data-category="Announcements" 
+  data-category-id="DIC_kwDOJkJvt84CX9d6" 
+  data-mapping="pathname" 
+  data-strict="0"
+  data-reactions-enabled="1" 
+  data-emit-metadata="1" 
+  data-input-position="top" 
+  data-theme="light"
+  data-lang="zh-CN" 
+  data-loading="lazy" 
+  crossorigin="anonymous" 
+  async>
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.min.js"></script>
 <script>
-  twikoo.init({
-    envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
-    el: '#tcomment',
-    lang: 'zh-CN',
-  })
+twikoo.init({
+  envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
+  el: '#tcomment',
+  lang: 'zh-CN', 
+})
 </script>
 
 <script>
-  document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
-    if (index === 0) {
-      document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
-      document.querySelectorAll('.comments > div')[0].classList.add('active');
-    }
-
-    tab.addEventListener('click', function () {
-      document.querySelectorAll('.comment-tabs li').forEach(sibling => {
-        sibling.classList.remove('active');
-      });
-      this.classList.add('active');
-
-      document.querySelectorAll('.comments > div').forEach(content => {
-        content.classList.remove('active');
-      });
-      document.querySelectorAll('.comments > div')[index].classList.add('active');
+document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+  if (index === 0) {
+    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+    document.querySelectorAll('.comments > div')[0].classList.add('active');
+  }
+  
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+      sibling.classList.remove('active');
     });
+    this.classList.add('active');
+    
+    document.querySelectorAll('.comments > div').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.querySelectorAll('.comments > div')[index].classList.add('active');
   });
+});
 </script>
 
 <style>
   .comment-tabs {
     display: flex;
-    padding: 0;
+    margin-top: 3em;
   }
-
   .comment-tabs li {
-    list-style: none;
-    text-decoration: none;
-    margin: 0;
-    margin-right: 15px;
+    margin-right: 40px;
     cursor: pointer;
-
-    background: transparent;
-    border: solid 1px rgb(218, 220, 224);
-    border-radius: 4px;
-    color: rgb(26, 115, 232);
-    cursor: pointer;
-    font-size: 15px;
-    height: 2.5em;
-    outline: none;
-    padding: calc(0.5em - 1px) 1em;
   }
-
-  .comment-tabs li:hover,
   .comment-tabs li.active {
-    background: rgba(66, 133, 244, 0.04);
+    text-decoration: underline;
   }
-
-  .comments>div.active {
+  .comments > div.active {
     display: block;
   }
-
-  .comments>div {
+  .comments > div {
     display: none;
   }
 </style>
-    </section>
     
-
+    
   </main>
   <footer class="container no-print">
   <div class="u-footer">

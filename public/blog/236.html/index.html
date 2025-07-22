@@ -67,7 +67,7 @@ name: Sync to Cloudflare R2 on: schedule: - cron: &#39;0 16 * * *&#39; # 每天�
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/ui.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <script defer src="/js/dark-mode.js"></script>
 <link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
@@ -107,7 +107,7 @@ name: Sync to Cloudflare R2 on: schedule: - cron: &#39;0 16 * * *&#39; # 每天�
 </header>
   <main class="container">
 
-    <section>
+    <header>
       <hgroup id="brand">
         <h1>Github 仓库同步到 Cloudflare R2</h1>
 
@@ -117,18 +117,18 @@ name: Sync to Cloudflare R2 on: schedule: - cron: &#39;0 16 * * *&#39; # 每天�
 
           
           <span class="no-print">|
-            
-            <a href="/%20tags/github">#GitHub</a>
-            
-            <a href="/%20tags/cloudflare">#Cloudflare</a>
-            
+          
+          <a href="/tags/github">#GitHub</a>
+          
+          <a href="/tags/cloudflare">#Cloudflare</a>
+          
           </span>
           
 
           
           
           <span class="no-print">|
-            <a href="/%20categories/%E6%8A%80%E6%9C%AF">技术</a>
+            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
           </span>
           
           
@@ -137,21 +137,23 @@ name: Sync to Cloudflare R2 on: schedule: - cron: &#39;0 16 * * *&#39; # 每天�
 
       </hgroup>
       <hr class="sep">
+    </header>
+    
 
-      
-      <div class="toc">
-        <nav id="TableOfContents">
+    
+    <div class="toc">
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#1-建立-cloudflare-r2-存储桶">1. 建立 Cloudflare R2 存储桶</a></li>
     <li><a href="#2-github-仓库设置">2. GitHub 仓库设置</a></li>
   </ul>
 </nav>
-      </div>
-      
+    </div>
+    
 
-      <article class="post-content">
-        
-        <p>我在 GitHub 搭建了一个图床，用于小量存储博客图片，为了稳定安全考虑，决定备份到 Cloudflare R2 存储桶一份，R2 默认有每月免费的 10G 存储、100 万次 A 类操作、1000 万次 B 类操作，备份完全足够了。</p>
+    <article class="post-content">
+      
+      <p>我在 GitHub 搭建了一个图床，用于小量存储博客图片，为了稳定安全考虑，决定备份到 Cloudflare R2 存储桶一份，R2 默认有每月免费的 10G 存储、100 万次 A 类操作、1000 万次 B 类操作，备份完全足够了。</p>
 <p>说到备份肯定是越自动化越好，手动上传是不可能的，因此我决定利用 GitHub Actions 执行自动任务。</p>
 <p>话不多说，开始操作。</p>
 <h2 id="1-建立-cloudflare-r2-存储桶">1. 建立 Cloudflare R2 存储桶</h2>
@@ -225,12 +227,10 @@ name: Sync to Cloudflare R2 on: schedule: - cron: &#39;0 16 * * *&#39; # 每天�
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">CLOUDFLARE_ACCOUNT_ID</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.CLOUDFLARE_ACCOUNT_ID }}</span><span class="w">
 </span></span></span></code></pre></div><p>由于使用了 <code>aws s3 sync</code> 命令，它会进行增量同步，这意味着它只会上传有变化的文件，而不会每次都重新上传整个仓库，避免消耗无用的 Cloudflare R2 流量。</p>
 
-      </article>
-    </section>
+    </article>
 
     
-    <section>
-      
+    <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -250,7 +250,7 @@ name: Sync to Cloudflare R2 on: schedule: - cron: &#39;0 16 * * *&#39; # 每天�
         
       };
 
-      (function () {
+      (function() {
         var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
         d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
@@ -261,82 +261,75 @@ name: Sync to Cloudflare R2 on: schedule: - cron: &#39;0 16 * * *&#39; # 每天�
   <div class="giscus"></div>
   <div id="tcomment"></div>
 </div>
-<script src="https://giscus.app/client.js" data-repo="ezyshu/hugo-blog" data-repo-id="R_kgDOJkJvtw"
-  data-category="Announcements" data-category-id="DIC_kwDOJkJvt84CX9d6" data-mapping="pathname" data-strict="0"
-  data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="light" data-lang="zh-CN"
-  data-loading="lazy" crossorigin="anonymous" async>
-  </script>
+<script 
+  src="https://giscus.app/client.js" 
+  data-repo="ezyshu/hugo-blog" 
+  data-repo-id="R_kgDOJkJvtw"
+  data-category="Announcements" 
+  data-category-id="DIC_kwDOJkJvt84CX9d6" 
+  data-mapping="pathname" 
+  data-strict="0"
+  data-reactions-enabled="1" 
+  data-emit-metadata="1" 
+  data-input-position="top" 
+  data-theme="light"
+  data-lang="zh-CN" 
+  data-loading="lazy" 
+  crossorigin="anonymous" 
+  async>
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.min.js"></script>
 <script>
-  twikoo.init({
-    envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
-    el: '#tcomment',
-    lang: 'zh-CN',
-  })
+twikoo.init({
+  envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
+  el: '#tcomment',
+  lang: 'zh-CN', 
+})
 </script>
 
 <script>
-  document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
-    if (index === 0) {
-      document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
-      document.querySelectorAll('.comments > div')[0].classList.add('active');
-    }
-
-    tab.addEventListener('click', function () {
-      document.querySelectorAll('.comment-tabs li').forEach(sibling => {
-        sibling.classList.remove('active');
-      });
-      this.classList.add('active');
-
-      document.querySelectorAll('.comments > div').forEach(content => {
-        content.classList.remove('active');
-      });
-      document.querySelectorAll('.comments > div')[index].classList.add('active');
+document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+  if (index === 0) {
+    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+    document.querySelectorAll('.comments > div')[0].classList.add('active');
+  }
+  
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+      sibling.classList.remove('active');
     });
+    this.classList.add('active');
+    
+    document.querySelectorAll('.comments > div').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.querySelectorAll('.comments > div')[index].classList.add('active');
   });
+});
 </script>
 
 <style>
   .comment-tabs {
     display: flex;
-    padding: 0;
+    margin-top: 3em;
   }
-
   .comment-tabs li {
-    list-style: none;
-    text-decoration: none;
-    margin: 0;
-    margin-right: 15px;
+    margin-right: 40px;
     cursor: pointer;
-
-    background: transparent;
-    border: solid 1px rgb(218, 220, 224);
-    border-radius: 4px;
-    color: rgb(26, 115, 232);
-    cursor: pointer;
-    font-size: 15px;
-    height: 2.5em;
-    outline: none;
-    padding: calc(0.5em - 1px) 1em;
   }
-
-  .comment-tabs li:hover,
   .comment-tabs li.active {
-    background: rgba(66, 133, 244, 0.04);
+    text-decoration: underline;
   }
-
-  .comments>div.active {
+  .comments > div.active {
     display: block;
   }
-
-  .comments>div {
+  .comments > div {
     display: none;
   }
 </style>
-    </section>
     
-
+    
   </main>
   <footer class="container no-print">
   <div class="u-footer">

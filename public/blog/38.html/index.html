@@ -75,7 +75,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/ui.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <script defer src="/js/dark-mode.js"></script>
 <link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
@@ -115,7 +115,7 @@
 </header>
   <main class="container">
 
-    <section>
+    <header>
       <hgroup id="brand">
         <h1>2020 年度总结</h1>
 
@@ -125,16 +125,16 @@
 
           
           <span class="no-print">|
-            
-            <a href="/%20tags/%E6%80%BB%E7%BB%93">#总结</a>
-            
+          
+          <a href="/tags/%E6%80%BB%E7%BB%93">#总结</a>
+          
           </span>
           
 
           
           
           <span class="no-print">|
-            <a href="/%20categories/%E9%9A%8F%E7%AC%94">随笔</a>
+            <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a>
           </span>
           
           
@@ -143,16 +143,18 @@
 
       </hgroup>
       <hr class="sep">
+    </header>
+    
 
-      
-      <div class="toc">
-        <nav id="TableOfContents"></nav>
-      </div>
-      
+    
+    <div class="toc">
+      <nav id="TableOfContents"></nav>
+    </div>
+    
 
-      <article class="post-content">
-        
-        <p>年度总结这个东西很有意思（我觉得），可以静下心来好好回顾一下这一年做了些什么事情，希望我能养成这个好习惯，多总结。</p>
+    <article class="post-content">
+      
+      <p>年度总结这个东西很有意思（我觉得），可以静下心来好好回顾一下这一年做了些什么事情，希望我能养成这个好习惯，多总结。</p>
 <p>这个博客是我在年中搭建起来了，到现在也将近半年了，没怎么做过 seo 优化，也没怎么想过推广，就简简单单的写一些自己的东西。更大的原因是我的文笔太拙劣，不敢让人发现，哈哈哈。</p>
 <p>大学四年过的还算充实，学到了自己感兴趣的东西，培养的业余兴趣爱好，旅游爬山等，但有名的大山目前只爬了嵩山（河南境内），因为在郑州读的大学。更远的山也没怎么去过，我给自己定个计划，在两年内爬一次泰山，因为工作太忙咯，不敢说短期内一定有时间。想体会一下&quot;会当凌绝顶，一览众山小&quot;的感觉。</p>
 <p>但是吧，我的大学结束的有些虎头蛇尾的感觉，因为疫情的原因，学校禁止进入，一直到毕业前夕才允许分批次返校，很多同学都没有看到就草草结束大学生活。所以心心念念的毕业照也没有了，本来和朋友商量好一起拍一组有意思的毕业照，真的是今年最大的遗憾了。</p>
@@ -168,12 +170,10 @@
 <p>抽出空闲的时间简单的写了一下总结，就好像跟看电影一样，又回顾了一遍剧情，又得到了不一样的感受。</p>
 <p>你好，自己，明年见。</p>
 
-      </article>
-    </section>
+    </article>
 
     
-    <section>
-      
+    <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -193,7 +193,7 @@
         
       };
 
-      (function () {
+      (function() {
         var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
         d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
@@ -204,82 +204,75 @@
   <div class="giscus"></div>
   <div id="tcomment"></div>
 </div>
-<script src="https://giscus.app/client.js" data-repo="ezyshu/hugo-blog" data-repo-id="R_kgDOJkJvtw"
-  data-category="Announcements" data-category-id="DIC_kwDOJkJvt84CX9d6" data-mapping="pathname" data-strict="0"
-  data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="light" data-lang="zh-CN"
-  data-loading="lazy" crossorigin="anonymous" async>
-  </script>
+<script 
+  src="https://giscus.app/client.js" 
+  data-repo="ezyshu/hugo-blog" 
+  data-repo-id="R_kgDOJkJvtw"
+  data-category="Announcements" 
+  data-category-id="DIC_kwDOJkJvt84CX9d6" 
+  data-mapping="pathname" 
+  data-strict="0"
+  data-reactions-enabled="1" 
+  data-emit-metadata="1" 
+  data-input-position="top" 
+  data-theme="light"
+  data-lang="zh-CN" 
+  data-loading="lazy" 
+  crossorigin="anonymous" 
+  async>
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.min.js"></script>
 <script>
-  twikoo.init({
-    envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
-    el: '#tcomment',
-    lang: 'zh-CN',
-  })
+twikoo.init({
+  envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
+  el: '#tcomment',
+  lang: 'zh-CN', 
+})
 </script>
 
 <script>
-  document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
-    if (index === 0) {
-      document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
-      document.querySelectorAll('.comments > div')[0].classList.add('active');
-    }
-
-    tab.addEventListener('click', function () {
-      document.querySelectorAll('.comment-tabs li').forEach(sibling => {
-        sibling.classList.remove('active');
-      });
-      this.classList.add('active');
-
-      document.querySelectorAll('.comments > div').forEach(content => {
-        content.classList.remove('active');
-      });
-      document.querySelectorAll('.comments > div')[index].classList.add('active');
+document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+  if (index === 0) {
+    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+    document.querySelectorAll('.comments > div')[0].classList.add('active');
+  }
+  
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+      sibling.classList.remove('active');
     });
+    this.classList.add('active');
+    
+    document.querySelectorAll('.comments > div').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.querySelectorAll('.comments > div')[index].classList.add('active');
   });
+});
 </script>
 
 <style>
   .comment-tabs {
     display: flex;
-    padding: 0;
+    margin-top: 3em;
   }
-
   .comment-tabs li {
-    list-style: none;
-    text-decoration: none;
-    margin: 0;
-    margin-right: 15px;
+    margin-right: 40px;
     cursor: pointer;
-
-    background: transparent;
-    border: solid 1px rgb(218, 220, 224);
-    border-radius: 4px;
-    color: rgb(26, 115, 232);
-    cursor: pointer;
-    font-size: 15px;
-    height: 2.5em;
-    outline: none;
-    padding: calc(0.5em - 1px) 1em;
   }
-
-  .comment-tabs li:hover,
   .comment-tabs li.active {
-    background: rgba(66, 133, 244, 0.04);
+    text-decoration: underline;
   }
-
-  .comments>div.active {
+  .comments > div.active {
     display: block;
   }
-
-  .comments>div {
+  .comments > div {
     display: none;
   }
 </style>
-    </section>
     
-
+    
   </main>
   <footer class="container no-print">
   <div class="u-footer">

@@ -95,7 +95,7 @@ GitHub: https://github.com/ezyshu/UserScript/tree/main/CAPTCHA-automatic-recogni
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/ui.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <script defer src="/js/dark-mode.js"></script>
 <link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
@@ -135,7 +135,7 @@ GitHub: https://github.com/ezyshu/UserScript/tree/main/CAPTCHA-automatic-recogni
 </header>
   <main class="container">
 
-    <section>
+    <header>
       <hgroup id="brand">
         <h1>AI 驱动的验证码自动识别之旅：从困扰到解放</h1>
 
@@ -145,18 +145,18 @@ GitHub: https://github.com/ezyshu/UserScript/tree/main/CAPTCHA-automatic-recogni
 
           
           <span class="no-print">|
-            
-            <a href="/%20tags/ai">#AI</a>
-            
-            <a href="/%20tags/%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC">#油猴脚本</a>
-            
+          
+          <a href="/tags/ai">#AI</a>
+          
+          <a href="/tags/%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC">#油猴脚本</a>
+          
           </span>
           
 
           
           
           <span class="no-print">|
-            <a href="/%20categories/%E6%8A%80%E6%9C%AF">技术</a>
+            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
           </span>
           
           
@@ -165,10 +165,12 @@ GitHub: https://github.com/ezyshu/UserScript/tree/main/CAPTCHA-automatic-recogni
 
       </hgroup>
       <hr class="sep">
+    </header>
+    
 
-      
-      <div class="toc">
-        <nav id="TableOfContents">
+    
+    <div class="toc">
+      <nav id="TableOfContents">
   <ul>
     <li>
       <ul>
@@ -180,12 +182,12 @@ GitHub: https://github.com/ezyshu/UserScript/tree/main/CAPTCHA-automatic-recogni
     </li>
   </ul>
 </nav>
-      </div>
-      
+    </div>
+    
 
-      <article class="post-content">
-        
-        <p>在当今互联网世界，验证码作为人机验证的重要工具无处不在。然而，频繁输入验证码对用户体验造成了不小的困扰。今天，我想分享一个名为 &ldquo;CAPTCHA-automatic-recognition&rdquo; 的开源项目，它巧妙地运用 AI 技术，实现了网页验证码的自动识别与填充。</p>
+    <article class="post-content">
+      
+      <p>在当今互联网世界，验证码作为人机验证的重要工具无处不在。然而，频繁输入验证码对用户体验造成了不小的困扰。今天，我想分享一个名为 &ldquo;CAPTCHA-automatic-recognition&rdquo; 的开源项目，它巧妙地运用 AI 技术，实现了网页验证码的自动识别与填充。</p>
 <h3 id="1-解决日常痛点">1. 解决日常痛点</h3>
 <p>作为一名经常需要在不同网站注册和登录的开发者，我深受验证码困扰。有时仅仅是查询一个信息，就需要输入验证码；有时验证码字符扭曲到难以辨认，需要多次尝试才能通过。</p>
 <p>这些小小的摩擦积累起来，浪费了大量时间。我想：既然现代 AI 视觉模型已经如此强大，为什么不利用它们来自动识别验证码，节省我们的时间和精力呢？</p>
@@ -306,12 +308,10 @@ GitHub: https://github.com/ezyshu/UserScript/tree/main/CAPTCHA-automatic-recogni
 </ul>
 <p>如果你觉得这个功能不错，欢迎点个 star 支持一下～</p>
 
-      </article>
-    </section>
+    </article>
 
     
-    <section>
-      
+    <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -331,7 +331,7 @@ GitHub: https://github.com/ezyshu/UserScript/tree/main/CAPTCHA-automatic-recogni
         
       };
 
-      (function () {
+      (function() {
         var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
         d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
@@ -342,82 +342,75 @@ GitHub: https://github.com/ezyshu/UserScript/tree/main/CAPTCHA-automatic-recogni
   <div class="giscus"></div>
   <div id="tcomment"></div>
 </div>
-<script src="https://giscus.app/client.js" data-repo="ezyshu/hugo-blog" data-repo-id="R_kgDOJkJvtw"
-  data-category="Announcements" data-category-id="DIC_kwDOJkJvt84CX9d6" data-mapping="pathname" data-strict="0"
-  data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="light" data-lang="zh-CN"
-  data-loading="lazy" crossorigin="anonymous" async>
-  </script>
+<script 
+  src="https://giscus.app/client.js" 
+  data-repo="ezyshu/hugo-blog" 
+  data-repo-id="R_kgDOJkJvtw"
+  data-category="Announcements" 
+  data-category-id="DIC_kwDOJkJvt84CX9d6" 
+  data-mapping="pathname" 
+  data-strict="0"
+  data-reactions-enabled="1" 
+  data-emit-metadata="1" 
+  data-input-position="top" 
+  data-theme="light"
+  data-lang="zh-CN" 
+  data-loading="lazy" 
+  crossorigin="anonymous" 
+  async>
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.min.js"></script>
 <script>
-  twikoo.init({
-    envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
-    el: '#tcomment',
-    lang: 'zh-CN',
-  })
+twikoo.init({
+  envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
+  el: '#tcomment',
+  lang: 'zh-CN', 
+})
 </script>
 
 <script>
-  document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
-    if (index === 0) {
-      document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
-      document.querySelectorAll('.comments > div')[0].classList.add('active');
-    }
-
-    tab.addEventListener('click', function () {
-      document.querySelectorAll('.comment-tabs li').forEach(sibling => {
-        sibling.classList.remove('active');
-      });
-      this.classList.add('active');
-
-      document.querySelectorAll('.comments > div').forEach(content => {
-        content.classList.remove('active');
-      });
-      document.querySelectorAll('.comments > div')[index].classList.add('active');
+document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+  if (index === 0) {
+    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+    document.querySelectorAll('.comments > div')[0].classList.add('active');
+  }
+  
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+      sibling.classList.remove('active');
     });
+    this.classList.add('active');
+    
+    document.querySelectorAll('.comments > div').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.querySelectorAll('.comments > div')[index].classList.add('active');
   });
+});
 </script>
 
 <style>
   .comment-tabs {
     display: flex;
-    padding: 0;
+    margin-top: 3em;
   }
-
   .comment-tabs li {
-    list-style: none;
-    text-decoration: none;
-    margin: 0;
-    margin-right: 15px;
+    margin-right: 40px;
     cursor: pointer;
-
-    background: transparent;
-    border: solid 1px rgb(218, 220, 224);
-    border-radius: 4px;
-    color: rgb(26, 115, 232);
-    cursor: pointer;
-    font-size: 15px;
-    height: 2.5em;
-    outline: none;
-    padding: calc(0.5em - 1px) 1em;
   }
-
-  .comment-tabs li:hover,
   .comment-tabs li.active {
-    background: rgba(66, 133, 244, 0.04);
+    text-decoration: underline;
   }
-
-  .comments>div.active {
+  .comments > div.active {
     display: block;
   }
-
-  .comments>div {
+  .comments > div {
     display: none;
   }
 </style>
-    </section>
     
-
+    
   </main>
   <footer class="container no-print">
   <div class="u-footer">
