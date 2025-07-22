@@ -89,7 +89,7 @@ animation 属性 animation 属性有下面几个值：
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
-<link rel="stylesheet" href="/css/ui.css">
+<link rel="stylesheet" href="/css/style.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <script defer src="/js/dark-mode.js"></script>
 <link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
@@ -129,7 +129,7 @@ animation 属性 animation 属性有下面几个值：
 </header>
   <main class="container">
 
-    <header>
+    <section>
       <hgroup id="brand">
         <h1>怎么让 css3 里面的动画属性看起来更流畅？</h1>
 
@@ -139,16 +139,16 @@ animation 属性 animation 属性有下面几个值：
 
           
           <span class="no-print">|
-          
-          <a href="/tags/css">#css</a>
-          
+            
+            <a href="/%20tags/css">#css</a>
+            
           </span>
           
 
           
           
           <span class="no-print">|
-            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+            <a href="/%20categories/%E6%8A%80%E6%9C%AF">技术</a>
           </span>
           
           
@@ -157,12 +157,10 @@ animation 属性 animation 属性有下面几个值：
 
       </hgroup>
       <hr class="sep">
-    </header>
-    
 
-    
-    <div class="toc">
-      <nav id="TableOfContents">
+      
+      <div class="toc">
+        <nav id="TableOfContents">
   <ul>
     <li>
       <ul>
@@ -173,12 +171,12 @@ animation 属性 animation 属性有下面几个值：
     </li>
   </ul>
 </nav>
-    </div>
-    
-
-    <article class="post-content">
+      </div>
       
-      <p>ps：先说点题外话，因为工作的原因很久没更新博客了，最近也是告一段落，处理一了一些事情之后可以安心坐下来，把我的博客重新整理一下。</p>
+
+      <article class="post-content">
+        
+        <p>ps：先说点题外话，因为工作的原因很久没更新博客了，最近也是告一段落，处理一了一些事情之后可以安心坐下来，把我的博客重新整理一下。</p>
 <p>今天要讲的是 css3 的一个新属性 <code>animation</code>，也算是一个回顾吧，我只是将平时如何使用，以及一些技巧分享出来。如果想学习更基础的内容，可以点击链接：<a href="https://www.runoob.com/css3/css3-animations.html">https://www.runoob.com/css3/css3-animations.html</a>，网上类似的教程还是蛮多的。</p>
 <p>这篇文章并不细讲动画的基础属性，而是稍微扩展一个话题：<strong>怎么让 css3 里面的动画属性看起来更流畅？</strong></p>
 <p>当然在讲之前还是要简单介绍一下 animation 基本属性。</p>
@@ -292,10 +290,12 @@ animation 属性 animation 属性有下面几个值：
 <p>虽说这都是一些基础的东西，但是我觉得体验感上去了，网站的回头率才会更高。打一个比方，去某个商城网站购物，整个页面看起来很舒服，特效细节很流畅，是不是就增加了购物的欲望。虽然这么说很浅薄，但是真的会有一些心里作用。</p>
 <p>如何用好动画特效，是一门学问，将 css 玩出花样来，可不是那么简单的。</p>
 
-    </article>
+      </article>
+    </section>
 
     
-    <hr class="sep">
+    <section>
+      
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -315,7 +315,7 @@ animation 属性 animation 属性有下面几个值：
         
       };
 
-      (function() {
+      (function () {
         var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
         d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
@@ -326,75 +326,82 @@ animation 属性 animation 属性有下面几个值：
   <div class="giscus"></div>
   <div id="tcomment"></div>
 </div>
-<script 
-  src="https://giscus.app/client.js" 
-  data-repo="ezyshu/hugo-blog" 
-  data-repo-id="R_kgDOJkJvtw"
-  data-category="Announcements" 
-  data-category-id="DIC_kwDOJkJvt84CX9d6" 
-  data-mapping="pathname" 
-  data-strict="0"
-  data-reactions-enabled="1" 
-  data-emit-metadata="1" 
-  data-input-position="top" 
-  data-theme="light"
-  data-lang="zh-CN" 
-  data-loading="lazy" 
-  crossorigin="anonymous" 
-  async>
-</script>
+<script src="https://giscus.app/client.js" data-repo="ezyshu/hugo-blog" data-repo-id="R_kgDOJkJvtw"
+  data-category="Announcements" data-category-id="DIC_kwDOJkJvt84CX9d6" data-mapping="pathname" data-strict="0"
+  data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="light" data-lang="zh-CN"
+  data-loading="lazy" crossorigin="anonymous" async>
+  </script>
 
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.min.js"></script>
 <script>
-twikoo.init({
-  envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
-  el: '#tcomment',
-  lang: 'zh-CN', 
-})
+  twikoo.init({
+    envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
+    el: '#tcomment',
+    lang: 'zh-CN',
+  })
 </script>
 
 <script>
-document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
-  if (index === 0) {
-    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
-    document.querySelectorAll('.comments > div')[0].classList.add('active');
-  }
-  
-  tab.addEventListener('click', function() {
-    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
-      sibling.classList.remove('active');
+  document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+    if (index === 0) {
+      document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+      document.querySelectorAll('.comments > div')[0].classList.add('active');
+    }
+
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+        sibling.classList.remove('active');
+      });
+      this.classList.add('active');
+
+      document.querySelectorAll('.comments > div').forEach(content => {
+        content.classList.remove('active');
+      });
+      document.querySelectorAll('.comments > div')[index].classList.add('active');
     });
-    this.classList.add('active');
-    
-    document.querySelectorAll('.comments > div').forEach(content => {
-      content.classList.remove('active');
-    });
-    document.querySelectorAll('.comments > div')[index].classList.add('active');
   });
-});
 </script>
 
 <style>
   .comment-tabs {
     display: flex;
-    margin-top: 3em;
+    padding: 0;
   }
+
   .comment-tabs li {
-    margin-right: 40px;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    margin-right: 15px;
     cursor: pointer;
+
+    background: transparent;
+    border: solid 1px rgb(218, 220, 224);
+    border-radius: 4px;
+    color: rgb(26, 115, 232);
+    cursor: pointer;
+    font-size: 15px;
+    height: 2.5em;
+    outline: none;
+    padding: calc(0.5em - 1px) 1em;
   }
+
+  .comment-tabs li:hover,
   .comment-tabs li.active {
-    text-decoration: underline;
+    background: rgba(66, 133, 244, 0.04);
   }
-  .comments > div.active {
+
+  .comments>div.active {
     display: block;
   }
-  .comments > div {
+
+  .comments>div {
     display: none;
   }
 </style>
+    </section>
     
-    
+
   </main>
   <footer class="container no-print">
   <div class="u-footer">

@@ -69,7 +69,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
-<link rel="stylesheet" href="/css/ui.css">
+<link rel="stylesheet" href="/css/style.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <script defer src="/js/dark-mode.js"></script>
 <link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
@@ -109,7 +109,7 @@
 </header>
   <main class="container">
 
-    <header>
+    <section>
       <hgroup id="brand">
         <h1>马家坞看日出</h1>
 
@@ -119,18 +119,18 @@
 
           
           <span class="no-print">|
-          
-          <a href="/tags/%E6%97%A5%E5%87%BA">#日出</a>
-          
-          <a href="/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D">#随手拍</a>
-          
+            
+            <a href="/%20tags/%E6%97%A5%E5%87%BA">#日出</a>
+            
+            <a href="/%20tags/%E9%9A%8F%E6%89%8B%E6%8B%8D">#随手拍</a>
+            
           </span>
           
 
           
           
           <span class="no-print">|
-            <a href="/categories/%E9%9A%8F%E7%AC%94">随笔</a>
+            <a href="/%20categories/%E9%9A%8F%E7%AC%94">随笔</a>
           </span>
           
           
@@ -139,18 +139,16 @@
 
       </hgroup>
       <hr class="sep">
-    </header>
-    
 
-    
-    <div class="toc">
-      <nav id="TableOfContents"></nav>
-    </div>
-    
-
-    <article class="post-content">
       
-      <p>多图警告，加载缓慢。</p>
+      <div class="toc">
+        <nav id="TableOfContents"></nav>
+      </div>
+      
+
+      <article class="post-content">
+        
+        <p>多图警告，加载缓慢。</p>
 <p>（查看时建议点击图片查看全图~）</p>
 <p>台风过去后据说日出特别好看，刚好赶到周日，我在凌晨 2 点定了个闹钟，驾车前往马家坞观景平台，停车还挺方便的，路边可以免费停车。</p>
 <p>路程半个小时，又花了半个小时爬山，途中遇到很多同行的人，背着大包小包，摄像机。</p>
@@ -220,10 +218,12 @@
   <figcaption></figcaption>
 </figure></p>
 
-    </article>
+      </article>
+    </section>
 
     
-    <hr class="sep">
+    <section>
+      
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -243,7 +243,7 @@
         
       };
 
-      (function() {
+      (function () {
         var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
         d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
@@ -254,75 +254,82 @@
   <div class="giscus"></div>
   <div id="tcomment"></div>
 </div>
-<script 
-  src="https://giscus.app/client.js" 
-  data-repo="ezyshu/hugo-blog" 
-  data-repo-id="R_kgDOJkJvtw"
-  data-category="Announcements" 
-  data-category-id="DIC_kwDOJkJvt84CX9d6" 
-  data-mapping="pathname" 
-  data-strict="0"
-  data-reactions-enabled="1" 
-  data-emit-metadata="1" 
-  data-input-position="top" 
-  data-theme="light"
-  data-lang="zh-CN" 
-  data-loading="lazy" 
-  crossorigin="anonymous" 
-  async>
-</script>
+<script src="https://giscus.app/client.js" data-repo="ezyshu/hugo-blog" data-repo-id="R_kgDOJkJvtw"
+  data-category="Announcements" data-category-id="DIC_kwDOJkJvt84CX9d6" data-mapping="pathname" data-strict="0"
+  data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="light" data-lang="zh-CN"
+  data-loading="lazy" crossorigin="anonymous" async>
+  </script>
 
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.min.js"></script>
 <script>
-twikoo.init({
-  envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
-  el: '#tcomment',
-  lang: 'zh-CN', 
-})
+  twikoo.init({
+    envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
+    el: '#tcomment',
+    lang: 'zh-CN',
+  })
 </script>
 
 <script>
-document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
-  if (index === 0) {
-    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
-    document.querySelectorAll('.comments > div')[0].classList.add('active');
-  }
-  
-  tab.addEventListener('click', function() {
-    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
-      sibling.classList.remove('active');
+  document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+    if (index === 0) {
+      document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+      document.querySelectorAll('.comments > div')[0].classList.add('active');
+    }
+
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+        sibling.classList.remove('active');
+      });
+      this.classList.add('active');
+
+      document.querySelectorAll('.comments > div').forEach(content => {
+        content.classList.remove('active');
+      });
+      document.querySelectorAll('.comments > div')[index].classList.add('active');
     });
-    this.classList.add('active');
-    
-    document.querySelectorAll('.comments > div').forEach(content => {
-      content.classList.remove('active');
-    });
-    document.querySelectorAll('.comments > div')[index].classList.add('active');
   });
-});
 </script>
 
 <style>
   .comment-tabs {
     display: flex;
-    margin-top: 3em;
+    padding: 0;
   }
+
   .comment-tabs li {
-    margin-right: 40px;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    margin-right: 15px;
     cursor: pointer;
+
+    background: transparent;
+    border: solid 1px rgb(218, 220, 224);
+    border-radius: 4px;
+    color: rgb(26, 115, 232);
+    cursor: pointer;
+    font-size: 15px;
+    height: 2.5em;
+    outline: none;
+    padding: calc(0.5em - 1px) 1em;
   }
+
+  .comment-tabs li:hover,
   .comment-tabs li.active {
-    text-decoration: underline;
+    background: rgba(66, 133, 244, 0.04);
   }
-  .comments > div.active {
+
+  .comments>div.active {
     display: block;
   }
-  .comments > div {
+
+  .comments>div {
     display: none;
   }
 </style>
+    </section>
     
-    
+
   </main>
   <footer class="container no-print">
   <div class="u-footer">

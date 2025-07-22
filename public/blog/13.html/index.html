@@ -193,7 +193,7 @@ math.max.apply(null, [1,2,3]); // 3 math.max.call(null, [1,2,3]); // 3 两者的
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
-<link rel="stylesheet" href="/css/ui.css">
+<link rel="stylesheet" href="/css/style.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <script defer src="/js/dark-mode.js"></script>
 <link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
@@ -233,7 +233,7 @@ math.max.apply(null, [1,2,3]); // 3 math.max.call(null, [1,2,3]); // 3 两者的
 </header>
   <main class="container">
 
-    <header>
+    <section>
       <hgroup id="brand">
         <h1>javascript——函数、变量和方法</h1>
 
@@ -243,16 +243,16 @@ math.max.apply(null, [1,2,3]); // 3 math.max.call(null, [1,2,3]); // 3 两者的
 
           
           <span class="no-print">|
-          
-          <a href="/tags/%E7%AC%94%E8%AE%B0">#笔记</a>
-          
+            
+            <a href="/%20tags/%E7%AC%94%E8%AE%B0">#笔记</a>
+            
           </span>
           
 
           
           
           <span class="no-print">|
-            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+            <a href="/%20categories/%E6%8A%80%E6%9C%AF">技术</a>
           </span>
           
           
@@ -261,12 +261,10 @@ math.max.apply(null, [1,2,3]); // 3 math.max.call(null, [1,2,3]); // 3 两者的
 
       </hgroup>
       <hr class="sep">
-    </header>
-    
 
-    
-    <div class="toc">
-      <nav id="TableOfContents">
+      
+      <div class="toc">
+        <nav id="TableOfContents">
   <ul>
     <li><a href="#一函数的定义和调用">一、函数的定义和调用</a>
       <ul>
@@ -300,12 +298,12 @@ math.max.apply(null, [1,2,3]); // 3 math.max.call(null, [1,2,3]); // 3 两者的
     </li>
   </ul>
 </nav>
-    </div>
-    
-
-    <article class="post-content">
+      </div>
       
-      <p>当代码出现有规律的重复之后，可以利用函数，定义变量，调用方法，不用去重复的改动代码，只需要进行函数的修改。基本上所有的高级语言都支持函数，javascript 也不例外，它可以像变量一样被使用，方便且强大，因此本文对 js 函数进行系统的学习，并在学习过程中做了详细的笔记以及样例。</p>
+
+      <article class="post-content">
+        
+        <p>当代码出现有规律的重复之后，可以利用函数，定义变量，调用方法，不用去重复的改动代码，只需要进行函数的修改。基本上所有的高级语言都支持函数，javascript 也不例外，它可以像变量一样被使用，方便且强大，因此本文对 js 函数进行系统的学习，并在学习过程中做了详细的笔记以及样例。</p>
 <h2 id="一函数的定义和调用">一、函数的定义和调用</h2>
 <h3 id="1定义函数">1.定义函数</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">abs</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
@@ -701,10 +699,12 @@ abs(10)，根据函数定义，将 10 代入进去即可，返回的结果是 x 
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">math</span><span class="p">.</span><span class="nx">max</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]);</span>   <span class="c1">// 3
 </span></span></span></code></pre></div><p>两者的结果是一样的，调用普通函数时，把<code>this</code>绑定为<code>null</code></p>
 
-    </article>
+      </article>
+    </section>
 
     
-    <hr class="sep">
+    <section>
+      
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -724,7 +724,7 @@ abs(10)，根据函数定义，将 10 代入进去即可，返回的结果是 x 
         
       };
 
-      (function() {
+      (function () {
         var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
         d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
@@ -735,75 +735,82 @@ abs(10)，根据函数定义，将 10 代入进去即可，返回的结果是 x 
   <div class="giscus"></div>
   <div id="tcomment"></div>
 </div>
-<script 
-  src="https://giscus.app/client.js" 
-  data-repo="ezyshu/hugo-blog" 
-  data-repo-id="R_kgDOJkJvtw"
-  data-category="Announcements" 
-  data-category-id="DIC_kwDOJkJvt84CX9d6" 
-  data-mapping="pathname" 
-  data-strict="0"
-  data-reactions-enabled="1" 
-  data-emit-metadata="1" 
-  data-input-position="top" 
-  data-theme="light"
-  data-lang="zh-CN" 
-  data-loading="lazy" 
-  crossorigin="anonymous" 
-  async>
-</script>
+<script src="https://giscus.app/client.js" data-repo="ezyshu/hugo-blog" data-repo-id="R_kgDOJkJvtw"
+  data-category="Announcements" data-category-id="DIC_kwDOJkJvt84CX9d6" data-mapping="pathname" data-strict="0"
+  data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="light" data-lang="zh-CN"
+  data-loading="lazy" crossorigin="anonymous" async>
+  </script>
 
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.min.js"></script>
 <script>
-twikoo.init({
-  envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
-  el: '#tcomment',
-  lang: 'zh-CN', 
-})
+  twikoo.init({
+    envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
+    el: '#tcomment',
+    lang: 'zh-CN',
+  })
 </script>
 
 <script>
-document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
-  if (index === 0) {
-    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
-    document.querySelectorAll('.comments > div')[0].classList.add('active');
-  }
-  
-  tab.addEventListener('click', function() {
-    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
-      sibling.classList.remove('active');
+  document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+    if (index === 0) {
+      document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+      document.querySelectorAll('.comments > div')[0].classList.add('active');
+    }
+
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+        sibling.classList.remove('active');
+      });
+      this.classList.add('active');
+
+      document.querySelectorAll('.comments > div').forEach(content => {
+        content.classList.remove('active');
+      });
+      document.querySelectorAll('.comments > div')[index].classList.add('active');
     });
-    this.classList.add('active');
-    
-    document.querySelectorAll('.comments > div').forEach(content => {
-      content.classList.remove('active');
-    });
-    document.querySelectorAll('.comments > div')[index].classList.add('active');
   });
-});
 </script>
 
 <style>
   .comment-tabs {
     display: flex;
-    margin-top: 3em;
+    padding: 0;
   }
+
   .comment-tabs li {
-    margin-right: 40px;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    margin-right: 15px;
     cursor: pointer;
+
+    background: transparent;
+    border: solid 1px rgb(218, 220, 224);
+    border-radius: 4px;
+    color: rgb(26, 115, 232);
+    cursor: pointer;
+    font-size: 15px;
+    height: 2.5em;
+    outline: none;
+    padding: calc(0.5em - 1px) 1em;
   }
+
+  .comment-tabs li:hover,
   .comment-tabs li.active {
-    text-decoration: underline;
+    background: rgba(66, 133, 244, 0.04);
   }
-  .comments > div.active {
+
+  .comments>div.active {
     display: block;
   }
-  .comments > div {
+
+  .comments>div {
     display: none;
   }
 </style>
+    </section>
     
-    
+
   </main>
   <footer class="container no-print">
   <div class="u-footer">

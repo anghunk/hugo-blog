@@ -67,7 +67,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
-<link rel="stylesheet" href="/css/ui.css">
+<link rel="stylesheet" href="/css/style.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <script defer src="/js/dark-mode.js"></script>
 <link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
@@ -107,7 +107,7 @@
 </header>
   <main class="container">
 
-    <header>
+    <section>
       <hgroup id="brand">
         <h1>小张厨房日记（更新中...）</h1>
 
@@ -117,16 +117,16 @@
 
           
           <span class="no-print">|
-          
-          <a href="/tags/%E5%8E%A8%E6%88%BF">#厨房</a>
-          
+            
+            <a href="/%20tags/%E5%8E%A8%E6%88%BF">#厨房</a>
+            
           </span>
           
 
           
           
           <span class="no-print">|
-            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+            <a href="/%20categories/%E6%8A%80%E6%9C%AF">技术</a>
           </span>
           
           
@@ -135,12 +135,10 @@
 
       </hgroup>
       <hr class="sep">
-    </header>
-    
 
-    
-    <div class="toc">
-      <nav id="TableOfContents">
+      
+      <div class="toc">
+        <nav id="TableOfContents">
   <ul>
     <li>
       <ul>
@@ -150,12 +148,12 @@
     </li>
   </ul>
 </nav>
-    </div>
-    
-
-    <article class="post-content">
+      </div>
       
-      <p>厨房日记，记录我的&rsquo;高光&rsquo;时刻</p>
+
+      <article class="post-content">
+        
+        <p>厨房日记，记录我的&rsquo;高光&rsquo;时刻</p>
 <p>今日菜谱</p>
 <h3 id="莴笋炒肉">莴笋炒肉</h3>
 <p>准备食材：两根莴笋，一块猪肉，两只青椒</p>
@@ -205,10 +203,12 @@
 <p>这是一道耗时比较长的菜，可以慢慢做，大致是这些流程，具体的可根据实际情况调整，比如加入的配菜不同</p>
 <hr>
 
-    </article>
+      </article>
+    </section>
 
     
-    <hr class="sep">
+    <section>
+      
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -228,7 +228,7 @@
         
       };
 
-      (function() {
+      (function () {
         var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
         d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
@@ -239,75 +239,82 @@
   <div class="giscus"></div>
   <div id="tcomment"></div>
 </div>
-<script 
-  src="https://giscus.app/client.js" 
-  data-repo="ezyshu/hugo-blog" 
-  data-repo-id="R_kgDOJkJvtw"
-  data-category="Announcements" 
-  data-category-id="DIC_kwDOJkJvt84CX9d6" 
-  data-mapping="pathname" 
-  data-strict="0"
-  data-reactions-enabled="1" 
-  data-emit-metadata="1" 
-  data-input-position="top" 
-  data-theme="light"
-  data-lang="zh-CN" 
-  data-loading="lazy" 
-  crossorigin="anonymous" 
-  async>
-</script>
+<script src="https://giscus.app/client.js" data-repo="ezyshu/hugo-blog" data-repo-id="R_kgDOJkJvtw"
+  data-category="Announcements" data-category-id="DIC_kwDOJkJvt84CX9d6" data-mapping="pathname" data-strict="0"
+  data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="light" data-lang="zh-CN"
+  data-loading="lazy" crossorigin="anonymous" async>
+  </script>
 
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.min.js"></script>
 <script>
-twikoo.init({
-  envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
-  el: '#tcomment',
-  lang: 'zh-CN', 
-})
+  twikoo.init({
+    envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
+    el: '#tcomment',
+    lang: 'zh-CN',
+  })
 </script>
 
 <script>
-document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
-  if (index === 0) {
-    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
-    document.querySelectorAll('.comments > div')[0].classList.add('active');
-  }
-  
-  tab.addEventListener('click', function() {
-    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
-      sibling.classList.remove('active');
+  document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+    if (index === 0) {
+      document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+      document.querySelectorAll('.comments > div')[0].classList.add('active');
+    }
+
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+        sibling.classList.remove('active');
+      });
+      this.classList.add('active');
+
+      document.querySelectorAll('.comments > div').forEach(content => {
+        content.classList.remove('active');
+      });
+      document.querySelectorAll('.comments > div')[index].classList.add('active');
     });
-    this.classList.add('active');
-    
-    document.querySelectorAll('.comments > div').forEach(content => {
-      content.classList.remove('active');
-    });
-    document.querySelectorAll('.comments > div')[index].classList.add('active');
   });
-});
 </script>
 
 <style>
   .comment-tabs {
     display: flex;
-    margin-top: 3em;
+    padding: 0;
   }
+
   .comment-tabs li {
-    margin-right: 40px;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    margin-right: 15px;
     cursor: pointer;
+
+    background: transparent;
+    border: solid 1px rgb(218, 220, 224);
+    border-radius: 4px;
+    color: rgb(26, 115, 232);
+    cursor: pointer;
+    font-size: 15px;
+    height: 2.5em;
+    outline: none;
+    padding: calc(0.5em - 1px) 1em;
   }
+
+  .comment-tabs li:hover,
   .comment-tabs li.active {
-    text-decoration: underline;
+    background: rgba(66, 133, 244, 0.04);
   }
-  .comments > div.active {
+
+  .comments>div.active {
     display: block;
   }
-  .comments > div {
+
+  .comments>div {
     display: none;
   }
 </style>
+    </section>
     
-    
+
   </main>
   <footer class="container no-print">
   <div class="u-footer">

@@ -83,7 +83,7 @@ Cloud Document Converter 是一个 Chrome 扩展，支持下载、复制飞书�
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
-<link rel="stylesheet" href="/css/ui.css">
+<link rel="stylesheet" href="/css/style.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <script defer src="/js/dark-mode.js"></script>
 <link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
@@ -123,7 +123,7 @@ Cloud Document Converter 是一个 Chrome 扩展，支持下载、复制飞书�
 </header>
   <main class="container">
 
-    <header>
+    <section>
       <hgroup id="brand">
         <h1>奇趣周刊 - 第 73 期</h1>
 
@@ -133,16 +133,16 @@ Cloud Document Converter 是一个 Chrome 扩展，支持下载、复制飞书�
 
           
           <span class="no-print">|
-          
-          <a href="/tags/weekly">#weekly</a>
-          
+            
+            <a href="/%20tags/weekly">#weekly</a>
+            
           </span>
           
 
           
           
           <span class="no-print">|
-            <a href="/categories/weekly">weekly</a>
+            <a href="/%20categories/weekly">weekly</a>
           </span>
           
           
@@ -151,12 +151,10 @@ Cloud Document Converter 是一个 Chrome 扩展，支持下载、复制飞书�
 
       </hgroup>
       <hr class="sep">
-    </header>
-    
 
-    
-    <div class="toc">
-      <nav id="TableOfContents">
+      
+      <div class="toc">
+        <nav id="TableOfContents">
   <ul>
     <li>
       <ul>
@@ -172,12 +170,12 @@ Cloud Document Converter 是一个 Chrome 扩展，支持下载、复制飞书�
     </li>
   </ul>
 </nav>
-    </div>
-    
-
-    <article class="post-content">
+      </div>
       
-      <blockquote>
+
+      <article class="post-content">
+        
+        <blockquote>
 <p>奇趣周刊，分享有趣的软件，程序，动态新闻等。 <a href="/categories/weekly/">周刊列表</a> | <a href="/categories/weekly/index.xml">rss 订阅</a></p></blockquote>
 <p>2024 年 10 月 22 日，多名俄罗斯籍 Linux 内核代码贡献者被社区除名，并表示是由于某些合规性要求，Linus Torvalds 随后公开支持此行动，并表示不会恢复。</p>
 <p>很显然这是一件明显带有政治倾向的行动，虽然说技术无国界，但技术者有国界，望未来众多社区贡献者好好思考此次事件。</p>
@@ -246,10 +244,12 @@ Cloud Document Converter 是一个 Chrome 扩展，支持下载、复制飞书�
 <p><a href="https://t.me/jike_collection/10287">https://t.me/jike_collection/10287</a></p>
 <p>来自即可精选的新闻。</p>
 
-    </article>
+      </article>
+    </section>
 
     
-    <hr class="sep">
+    <section>
+      
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -269,7 +269,7 @@ Cloud Document Converter 是一个 Chrome 扩展，支持下载、复制飞书�
         
       };
 
-      (function() {
+      (function () {
         var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
         d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
@@ -280,75 +280,82 @@ Cloud Document Converter 是一个 Chrome 扩展，支持下载、复制飞书�
   <div class="giscus"></div>
   <div id="tcomment"></div>
 </div>
-<script 
-  src="https://giscus.app/client.js" 
-  data-repo="ezyshu/hugo-blog" 
-  data-repo-id="R_kgDOJkJvtw"
-  data-category="Announcements" 
-  data-category-id="DIC_kwDOJkJvt84CX9d6" 
-  data-mapping="pathname" 
-  data-strict="0"
-  data-reactions-enabled="1" 
-  data-emit-metadata="1" 
-  data-input-position="top" 
-  data-theme="light"
-  data-lang="zh-CN" 
-  data-loading="lazy" 
-  crossorigin="anonymous" 
-  async>
-</script>
+<script src="https://giscus.app/client.js" data-repo="ezyshu/hugo-blog" data-repo-id="R_kgDOJkJvtw"
+  data-category="Announcements" data-category-id="DIC_kwDOJkJvt84CX9d6" data-mapping="pathname" data-strict="0"
+  data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="light" data-lang="zh-CN"
+  data-loading="lazy" crossorigin="anonymous" async>
+  </script>
 
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.min.js"></script>
 <script>
-twikoo.init({
-  envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
-  el: '#tcomment',
-  lang: 'zh-CN', 
-})
+  twikoo.init({
+    envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
+    el: '#tcomment',
+    lang: 'zh-CN',
+  })
 </script>
 
 <script>
-document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
-  if (index === 0) {
-    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
-    document.querySelectorAll('.comments > div')[0].classList.add('active');
-  }
-  
-  tab.addEventListener('click', function() {
-    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
-      sibling.classList.remove('active');
+  document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+    if (index === 0) {
+      document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+      document.querySelectorAll('.comments > div')[0].classList.add('active');
+    }
+
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+        sibling.classList.remove('active');
+      });
+      this.classList.add('active');
+
+      document.querySelectorAll('.comments > div').forEach(content => {
+        content.classList.remove('active');
+      });
+      document.querySelectorAll('.comments > div')[index].classList.add('active');
     });
-    this.classList.add('active');
-    
-    document.querySelectorAll('.comments > div').forEach(content => {
-      content.classList.remove('active');
-    });
-    document.querySelectorAll('.comments > div')[index].classList.add('active');
   });
-});
 </script>
 
 <style>
   .comment-tabs {
     display: flex;
-    margin-top: 3em;
+    padding: 0;
   }
+
   .comment-tabs li {
-    margin-right: 40px;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    margin-right: 15px;
     cursor: pointer;
+
+    background: transparent;
+    border: solid 1px rgb(218, 220, 224);
+    border-radius: 4px;
+    color: rgb(26, 115, 232);
+    cursor: pointer;
+    font-size: 15px;
+    height: 2.5em;
+    outline: none;
+    padding: calc(0.5em - 1px) 1em;
   }
+
+  .comment-tabs li:hover,
   .comment-tabs li.active {
-    text-decoration: underline;
+    background: rgba(66, 133, 244, 0.04);
   }
-  .comments > div.active {
+
+  .comments>div.active {
     display: block;
   }
-  .comments > div {
+
+  .comments>div {
     display: none;
   }
 </style>
+    </section>
     
-    
+
   </main>
   <footer class="container no-print">
   <div class="u-footer">

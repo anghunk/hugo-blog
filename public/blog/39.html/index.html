@@ -99,7 +99,7 @@ ReactDOM.render(&lt;input value=&#34;hi&#34; /&gt;, mountNode); setTimeout(funct
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
-<link rel="stylesheet" href="/css/ui.css">
+<link rel="stylesheet" href="/css/style.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <script defer src="/js/dark-mode.js"></script>
 <link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
@@ -139,7 +139,7 @@ ReactDOM.render(&lt;input value=&#34;hi&#34; /&gt;, mountNode); setTimeout(funct
 </header>
   <main class="container">
 
-    <header>
+    <section>
       <hgroup id="brand">
         <h1>React 学习笔记（三）</h1>
 
@@ -149,18 +149,18 @@ ReactDOM.render(&lt;input value=&#34;hi&#34; /&gt;, mountNode); setTimeout(funct
 
           
           <span class="no-print">|
-          
-          <a href="/tags/%E7%AC%94%E8%AE%B0">#笔记</a>
-          
-          <a href="/tags/react">#react</a>
-          
+            
+            <a href="/%20tags/%E7%AC%94%E8%AE%B0">#笔记</a>
+            
+            <a href="/%20tags/react">#react</a>
+            
           </span>
           
 
           
           
           <span class="no-print">|
-            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+            <a href="/%20categories/%E6%8A%80%E6%9C%AF">技术</a>
           </span>
           
           
@@ -169,12 +169,10 @@ ReactDOM.render(&lt;input value=&#34;hi&#34; /&gt;, mountNode); setTimeout(funct
 
       </hgroup>
       <hr class="sep">
-    </header>
-    
 
-    
-    <div class="toc">
-      <nav id="TableOfContents">
+      
+      <div class="toc">
+        <nav id="TableOfContents">
   <ul>
     <li><a href="#一表单">一、表单</a>
       <ul>
@@ -190,12 +188,12 @@ ReactDOM.render(&lt;input value=&#34;hi&#34; /&gt;, mountNode); setTimeout(funct
     </li>
   </ul>
 </nav>
-    </div>
-    
-
-    <article class="post-content">
+      </div>
       
-      <p>来源于：<a href="https://react.docschina.org/docs/forms.html">https://react.docschina.org/docs/forms.html</a></p>
+
+      <article class="post-content">
+        
+        <p>来源于：<a href="https://react.docschina.org/docs/forms.html">https://react.docschina.org/docs/forms.html</a></p>
 <h2 id="一表单">一、表单</h2>
 <p>在 React 中，html 表单元素的工作方式和其他的 DOM 元素不太一样，因为表单内部通常会保持一些内部的 <code>state</code>，比如下面这个纯 html 表单只接受一个名称：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
@@ -405,10 +403,12 @@ ReactDOM.render(&lt;input value=&#34;hi&#34; /&gt;, mountNode); setTimeout(funct
 <h3 id="成熟的解决方案">成熟的解决方案</h3>
 <p>如果你想寻找包含验证、追踪访问字段以及处理表单提交的完整解决方案，使用 Formik 是不错的选择。然而，它也是建立在受控组件和管理 state 的基础之上 —— 所以不要忽视学习它们。</p>
 
-    </article>
+      </article>
+    </section>
 
     
-    <hr class="sep">
+    <section>
+      
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -428,7 +428,7 @@ ReactDOM.render(&lt;input value=&#34;hi&#34; /&gt;, mountNode); setTimeout(funct
         
       };
 
-      (function() {
+      (function () {
         var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
         d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
@@ -439,75 +439,82 @@ ReactDOM.render(&lt;input value=&#34;hi&#34; /&gt;, mountNode); setTimeout(funct
   <div class="giscus"></div>
   <div id="tcomment"></div>
 </div>
-<script 
-  src="https://giscus.app/client.js" 
-  data-repo="ezyshu/hugo-blog" 
-  data-repo-id="R_kgDOJkJvtw"
-  data-category="Announcements" 
-  data-category-id="DIC_kwDOJkJvt84CX9d6" 
-  data-mapping="pathname" 
-  data-strict="0"
-  data-reactions-enabled="1" 
-  data-emit-metadata="1" 
-  data-input-position="top" 
-  data-theme="light"
-  data-lang="zh-CN" 
-  data-loading="lazy" 
-  crossorigin="anonymous" 
-  async>
-</script>
+<script src="https://giscus.app/client.js" data-repo="ezyshu/hugo-blog" data-repo-id="R_kgDOJkJvtw"
+  data-category="Announcements" data-category-id="DIC_kwDOJkJvt84CX9d6" data-mapping="pathname" data-strict="0"
+  data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="light" data-lang="zh-CN"
+  data-loading="lazy" crossorigin="anonymous" async>
+  </script>
 
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.min.js"></script>
 <script>
-twikoo.init({
-  envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
-  el: '#tcomment',
-  lang: 'zh-CN', 
-})
+  twikoo.init({
+    envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
+    el: '#tcomment',
+    lang: 'zh-CN',
+  })
 </script>
 
 <script>
-document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
-  if (index === 0) {
-    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
-    document.querySelectorAll('.comments > div')[0].classList.add('active');
-  }
-  
-  tab.addEventListener('click', function() {
-    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
-      sibling.classList.remove('active');
+  document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+    if (index === 0) {
+      document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+      document.querySelectorAll('.comments > div')[0].classList.add('active');
+    }
+
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+        sibling.classList.remove('active');
+      });
+      this.classList.add('active');
+
+      document.querySelectorAll('.comments > div').forEach(content => {
+        content.classList.remove('active');
+      });
+      document.querySelectorAll('.comments > div')[index].classList.add('active');
     });
-    this.classList.add('active');
-    
-    document.querySelectorAll('.comments > div').forEach(content => {
-      content.classList.remove('active');
-    });
-    document.querySelectorAll('.comments > div')[index].classList.add('active');
   });
-});
 </script>
 
 <style>
   .comment-tabs {
     display: flex;
-    margin-top: 3em;
+    padding: 0;
   }
+
   .comment-tabs li {
-    margin-right: 40px;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    margin-right: 15px;
     cursor: pointer;
+
+    background: transparent;
+    border: solid 1px rgb(218, 220, 224);
+    border-radius: 4px;
+    color: rgb(26, 115, 232);
+    cursor: pointer;
+    font-size: 15px;
+    height: 2.5em;
+    outline: none;
+    padding: calc(0.5em - 1px) 1em;
   }
+
+  .comment-tabs li:hover,
   .comment-tabs li.active {
-    text-decoration: underline;
+    background: rgba(66, 133, 244, 0.04);
   }
-  .comments > div.active {
+
+  .comments>div.active {
     display: block;
   }
-  .comments > div {
+
+  .comments>div {
     display: none;
   }
 </style>
+    </section>
     
-    
+
   </main>
   <footer class="container no-print">
   <div class="u-footer">

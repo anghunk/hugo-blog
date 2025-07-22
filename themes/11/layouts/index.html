@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+
+{{ $articleCount := len .Site.RegularPages }}
+{{ $totalWordCount := 0 }}
+{{ range .Site.Pages }}
+{{ $totalWordCount = add $totalWordCount .WordCount }}
+{{ end }}
+
+<body>
+  {{ partial "header.html" . }}
+
+  <main class="container">
+    <article>
+      <section class="aboutme">
+        <h1>zishu</h1>
+        <p>这是我的个人博客，已经运行了 <span id="days"></span> 天，写了 {{ $articleCount }} 篇文章，共 {{ $totalWordCount }} 字。</p>
+        {{ .Site.Params.postHeaderContent | safeHTML }}
+        {{ .Content }}
+      </section>
+      <!-- <hr class="sep"> -->
+      <section>
+        <h4>最新的文章</h4>
+        <ul class="no-bullet">
+          {{ $pages := .Site.RegularPages }}
+          {{ $paginator := .Paginate ($pages) }}
+          {{ $count := 0 }}
+
+          {{ range $paginator.Pages }}
+          {{ $title := .Title }}
+          {{ $summary := .Summary }}
+
+          <li>
+            <span><time>{{ .Date.Format "2006/01/02"}}</time></span>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </li>
+
+          {{ end }}
+        </ul>
+      </section>
+    </article>
+    <!-- <hr class="sep"> -->
+
+  </main>
+  {{ partial "footer.html" . }}
+
+  <script>
+    const time = "{{ .Site.Params.buildDate }}";
+    var now = new Date();
+    var end = new Date(time);
+    var diff = Math.abs(now - end);
+    var days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    document.getElementById('days').innerHTML = days;
+  </script>
+</body>
+
+</html>
