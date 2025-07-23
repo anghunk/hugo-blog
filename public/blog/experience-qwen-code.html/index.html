@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8" />
+<meta name="generator" content="Hugo 0.146.5">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="toTop" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="map[email:anghunk@gmail.com name:子舒]" />
+<meta property="og:url" content="https://zishu.me/blog/experience-qwen-code.html/" />
+<link rel="canonical" href="https://zishu.me/blog/experience-qwen-code.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
+<link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
+<link rel="shortcut" href="https://imgurl.zishu.me/favicon.ico" /><link rel="alternate" type="application/atom+xml" href="https://zishu.me/index.xml" title="子舒的博客">
+<script type="application/ld+json">
+{
+"@context" : "http://schema.org",
+"@type" : "BlogPosting",
+"mainEntityOfPage": {
+"@type": "WebPage",
+"@id": "https:\/\/zishu.me\/"
+},
+"articleSection" : "blog",
+"name" : "简单体验一下 Qwen Code",
+"headline" : "简单体验一下 Qwen Code",
+"description" : "在 AI 编程工具领域，Claude Code 的发布 (2025\/05\/22) 掀起了一股 AI 驱动命令行界面的新浪潮，紧随其后，Gemini CLI 也应运而生。然而，我个人在使用这些工具时，体验并不算十分流畅。高昂的价格和不稳定的网络连接限制了我对它们进行深度探索。因此，我在使用的 AI 编程工具依旧是 Cursor。\n时隔两个月，Qwen 团队在 7 月 22 日推出了 Qwen3-Coder 模型及配套的 Qwen Code 工具。由于我之前对 Qwen 系列模型的体验还比较良好，因此对这款新工具我充满期待，并第一时间进行了下载和试用。\n官方仓库：https:\/\/github.com\/QwenLM\/qwen-code\n下载与安装：\n首先，请确保本地 Node.js 版本不低于 20。可以通过 npm 全局安装或直接下载仓库，我更推荐使用 npm 进行安装，操作方便。\nnpm install -g @qwen-code\/qwen-code 安装完成后，只需在终端输入 qwen 命令即可启动。如果没有配置环境变量，默认会进入初始设置页面。\n在初始化过程中，可以选择不同的主题。由于第一时间我没有截图，这一步就直接略过了。\n回车后，会进入到一个配置界面。\n需要手动输入 API URL、模型名称以及 Key 信息，挺麻烦的，因此 Qwen Code 支持在项目文件夹下创建 .env 文件来保存这些配置，这样下次启动时便无需重复输入。\nQwen Code 兼容 OAI 格式的 API，需要设置 OPENAI_API_KEY、OPENAI_BASE_URL 和 OPENAI_MODEL 这三个环境变量。请注意，URL 必须以 \/v1 结尾，否则会导致配置错误。\n配置信息示例如下：\nOPENAI_API_KEY=\u0026#34;your_api_key_here\u0026#34; OPENAI_BASE_URL=\u0026#34;your_api_base_url_here\u0026#34; OPENAI_MODEL=\u0026#34;your_api_model_here\u0026#34; 完成配置并按回车后，就可以开始与 Qwen Code 进行交互了。在此次体验中，我使用了第三方中转的 gemini-2.5-flash-lite 模型。\nQwen Code 的响应速度相当快，并且支持直接修改本地文件。\nCLI 模式的好处就是无需下载第三方客户端，直接通过命令行就可以修改项目代码，不过这一点可能需要大家多多体会。\n",
+"inLanguage" : "en-US",
+"author" : "map[email:anghunk@gmail.com name:子舒]",
+"creator" : "map[email:anghunk@gmail.com name:子舒]",
+"publisher": "map[email:anghunk@gmail.com name:子舒]",
+"accountablePerson" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightHolder" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightYear" : "2025",
+"datePublished": "2025-07-23 00:00:00 \u002b0000 UTC",
+"dateModified" : "2025-07-23 00:00:00 \u002b0000 UTC",
+"url" : "https:\/\/zishu.me\/blog\/experience-qwen-code.html\/",
+"keywords" : [ "AI","Qwen Code", ]
+}
+</script><title>简单体验一下 Qwen Code - 子舒的博客</title>
+<meta property="og:title" content="简单体验一下 Qwen Code" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="在 AI 编程工具领域，Claude Code 的发布 (2025/05/22) 掀起了一股 AI 驱动命令行界面的新浪潮，紧随其后，Gemini CLI 也应运而生。然而，我个人在使用这些工具时，体验并不算十分流畅。高昂的价格和不稳定的网络连接限制了我对它们进行深度探索。因此，我在使用的 AI 编程工具依旧是 Cursor。
+时隔两个月，Qwen 团队在 7 月 22 日推出了 Qwen3-Coder 模型及配套的 Qwen Code 工具。由于我之前对 Qwen 系列模型的体验还比较良好，因此对这款新工具我充满期待，并第一时间进行了下载和试用。
+官方仓库：https://github.com/QwenLM/qwen-code
+下载与安装：
+首先，请确保本地 Node.js 版本不低于 20。可以通过 npm 全局安装或直接下载仓库，我更推荐使用 npm 进行安装，操作方便。
+npm install -g @qwen-code/qwen-code 安装完成后，只需在终端输入 qwen 命令即可启动。如果没有配置环境变量，默认会进入初始设置页面。
+在初始化过程中，可以选择不同的主题。由于第一时间我没有截图，这一步就直接略过了。
+回车后，会进入到一个配置界面。
+需要手动输入 API URL、模型名称以及 Key 信息，挺麻烦的，因此 Qwen Code 支持在项目文件夹下创建 .env 文件来保存这些配置，这样下次启动时便无需重复输入。
+Qwen Code 兼容 OAI 格式的 API，需要设置 OPENAI_API_KEY、OPENAI_BASE_URL 和 OPENAI_MODEL 这三个环境变量。请注意，URL 必须以 /v1 结尾，否则会导致配置错误。
+配置信息示例如下：
+OPENAI_API_KEY=&#34;your_api_key_here&#34; OPENAI_BASE_URL=&#34;your_api_base_url_here&#34; OPENAI_MODEL=&#34;your_api_model_here&#34; 完成配置并按回车后，就可以开始与 Qwen Code 进行交互了。在此次体验中，我使用了第三方中转的 gemini-2.5-flash-lite 模型。
+Qwen Code 的响应速度相当快，并且支持直接修改本地文件。
+CLI 模式的好处就是无需下载第三方客户端，直接通过命令行就可以修改项目代码，不过这一点可能需要大家多多体会。
+" />
+<meta name="description" content="在 AI 编程工具领域，Claude Code 的发布 (2025/05/22) 掀起了一股 AI 驱动命令行界面的新浪潮，紧随其后，Gemini CLI 也应运而生。然而，我个人在使用这些工具时，体验并不算十分流畅。高昂的价格和不稳定的网络连接限制了我对它们进行深度探索。因此，我在使用的 AI 编程工具依旧是 Cursor。
+时隔两个月，Qwen 团队在 7 月 22 日推出了 Qwen3-Coder 模型及配套的 Qwen Code 工具。由于我之前对 Qwen 系列模型的体验还比较良好，因此对这款新工具我充满期待，并第一时间进行了下载和试用。
+官方仓库：https://github.com/QwenLM/qwen-code
+下载与安装：
+首先，请确保本地 Node.js 版本不低于 20。可以通过 npm 全局安装或直接下载仓库，我更推荐使用 npm 进行安装，操作方便。
+npm install -g @qwen-code/qwen-code 安装完成后，只需在终端输入 qwen 命令即可启动。如果没有配置环境变量，默认会进入初始设置页面。
+在初始化过程中，可以选择不同的主题。由于第一时间我没有截图，这一步就直接略过了。
+回车后，会进入到一个配置界面。
+需要手动输入 API URL、模型名称以及 Key 信息，挺麻烦的，因此 Qwen Code 支持在项目文件夹下创建 .env 文件来保存这些配置，这样下次启动时便无需重复输入。
+Qwen Code 兼容 OAI 格式的 API，需要设置 OPENAI_API_KEY、OPENAI_BASE_URL 和 OPENAI_MODEL 这三个环境变量。请注意，URL 必须以 /v1 结尾，否则会导致配置错误。
+配置信息示例如下：
+OPENAI_API_KEY=&#34;your_api_key_here&#34; OPENAI_BASE_URL=&#34;your_api_base_url_here&#34; OPENAI_MODEL=&#34;your_api_model_here&#34; 完成配置并按回车后，就可以开始与 Qwen Code 进行交互了。在此次体验中，我使用了第三方中转的 gemini-2.5-flash-lite 模型。
+Qwen Code 的响应速度相当快，并且支持直接修改本地文件。
+CLI 模式的好处就是无需下载第三方客户端，直接通过命令行就可以修改项目代码，不过这一点可能需要大家多多体会。
+" />
+<meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
+
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+<link rel="stylesheet" href="/css/ui.css">
+<script src="/js/jquery-3.6.1.js"></script>
+<script defer src="/js/dark-mode.js"></script>
+<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+<link rel="stylesheet" href="/css/dropdown.css">
+<link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
+</head>
+
+<body>
+  <header class="container no-print">
+  <div class="u-header">
+    <nav class="bar">
+      <ul>
+        <li><img class="icon-text" id="dark-mode-toggle" src="/images/moon.svg" alt="Toggle Dark Mode"></li>
+
+        
+        <li><a href="/">首页</a></li>
+        
+        <li><a href="/blog/">文章</a></li>
+        
+        <li><a href="/tags/">标签</a></li>
+        
+        <li><a href="/message/">留言</a></li>
+        
+        <li><a href="/about/">关于</a></li>
+        
+        <li><a href="/projects/">项目</a></li>
+        
+        <li><a href="/friends/">友链</a></li>
+        
+        
+        <li><a href="/search/">🔍</a></li>
+        <li><a href="/index.xml" target="_blank">RSS</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+  <main class="container">
+
+    <header>
+      <hgroup id="brand">
+        <h1>简单体验一下 Qwen Code</h1>
+
+        
+        <h5>
+          <time>2025/07/23</time>
+
+          
+          <span class="no-print">|
+          
+          <a href="/tags/ai">#AI</a>
+          
+          <a href="/tags/qwen-code">#Qwen Code</a>
+          
+          </span>
+          
+
+          
+          
+          <span class="no-print">|
+            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+          </span>
+          
+          
+        </h5>
+        
+
+      </hgroup>
+      <hr class="sep">
+    </header>
+    
+
+    
+    <div class="toc">
+      <nav id="TableOfContents"></nav>
+    </div>
+    
+
+    <article class="post-content">
+      
+      <p>在 AI 编程工具领域，Claude Code 的发布 (2025/05/22) 掀起了一股 AI 驱动命令行界面的新浪潮，紧随其后，Gemini CLI 也应运而生。然而，我个人在使用这些工具时，体验并不算十分流畅。高昂的价格和不稳定的网络连接限制了我对它们进行深度探索。因此，我在使用的 AI 编程工具依旧是 Cursor。</p>
+<p>时隔两个月，Qwen 团队在 7 月 22 日推出了 Qwen3-Coder 模型及配套的 Qwen Code 工具。由于我之前对 Qwen 系列模型的体验还比较良好，因此对这款新工具我充满期待，并第一时间进行了下载和试用。</p>
+<p>官方仓库：<a href="https://github.com/QwenLM/qwen-code">https://github.com/QwenLM/qwen-code</a></p>
+<p><strong>下载与安装：</strong></p>
+<p>首先，请确保本地 Node.js 版本不低于 20。可以通过 npm 全局安装或直接下载仓库，我更推荐使用 npm 进行安装，操作方便。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npm install -g @qwen-code/qwen-code
+</span></span></code></pre></div><p>安装完成后，只需在终端输入 <code>qwen</code> 命令即可启动。如果没有配置环境变量，默认会进入初始设置页面。</p>
+<p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2025/07/1753259446391.webp"
+    alt=""class="lazy"
+	>
+  <figcaption></figcaption>
+</figure></p>
+<p>在初始化过程中，可以选择不同的主题。由于第一时间我没有截图，这一步就直接略过了。</p>
+<p>回车后，会进入到一个配置界面。</p>
+<p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2025/07/1753259460819.webp"
+    alt=""class="lazy"
+	>
+  <figcaption></figcaption>
+</figure></p>
+<p>需要手动输入 API URL、模型名称以及 Key 信息，挺麻烦的，因此 Qwen Code 支持在项目文件夹下创建 <code>.env</code> 文件来保存这些配置，这样下次启动时便无需重复输入。</p>
+<p>Qwen Code 兼容 OAI 格式的 API，需要设置 <code>OPENAI_API_KEY</code>、<code>OPENAI_BASE_URL</code> 和 <code>OPENAI_MODEL</code> 这三个环境变量。请注意，URL 必须以 <code>/v1</code> 结尾，否则会导致配置错误。</p>
+<p>配置信息示例如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">OPENAI_API_KEY</span><span class="o">=</span><span class="s2">&#34;your_api_key_here&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">OPENAI_BASE_URL</span><span class="o">=</span><span class="s2">&#34;your_api_base_url_here&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">OPENAI_MODEL</span><span class="o">=</span><span class="s2">&#34;your_api_model_here&#34;</span>
+</span></span></code></pre></div><p>完成配置并按回车后，就可以开始与 Qwen Code 进行交互了。在此次体验中，我使用了第三方中转的 <code>gemini-2.5-flash-lite</code> 模型。</p>
+<p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2025/07/1753259863760.webp"
+    alt=""class="lazy"
+	>
+  <figcaption></figcaption>
+</figure></p>
+<p>Qwen Code 的响应速度相当快，并且支持直接修改本地文件。</p>
+<p>CLI 模式的好处就是无需下载第三方客户端，直接通过命令行就可以修改项目代码，不过这一点可能需要大家多多体会。</p>
+
+    </article>
+
+    
+    <hr class="sep">
+<ul class="comment-tabs">
+  
+  <li>LinuxDo</li>
+  
+  <li>Giscus</li>
+  <li>Twikoo</li>
+</ul>
+<div class="comments">
+  
+  <div>
+    <div id='discourse-comments'></div>
+    <meta name='discourse-username' content='anghunk'>
+    <script type="text/javascript">
+      DiscourseEmbed = {
+        discourseUrl: 'https://linux.do/',
+        discourseEmbedUrl: 'https://zishu.me\/blog\/experience-qwen-code.html\/',
+        
+      };
+
+      (function() {
+        var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+        d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+      })();
+    </script>
+  </div>
+  
+  <div class="giscus"></div>
+  <div id="tcomment"></div>
+</div>
+<script 
+  src="https://giscus.app/client.js" 
+  data-repo="ezyshu/hugo-blog" 
+  data-repo-id="R_kgDOJkJvtw"
+  data-category="Announcements" 
+  data-category-id="DIC_kwDOJkJvt84CX9d6" 
+  data-mapping="pathname" 
+  data-strict="0"
+  data-reactions-enabled="1" 
+  data-emit-metadata="1" 
+  data-input-position="top" 
+  data-theme="light"
+  data-lang="zh-CN" 
+  data-loading="lazy" 
+  crossorigin="anonymous" 
+  async>
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.min.js"></script>
+<script>
+twikoo.init({
+  envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
+  el: '#tcomment',
+  lang: 'zh-CN', 
+})
+</script>
+
+<script>
+document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+  if (index === 0) {
+    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+    document.querySelectorAll('.comments > div')[0].classList.add('active');
+  }
+  
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+      sibling.classList.remove('active');
+    });
+    this.classList.add('active');
+    
+    document.querySelectorAll('.comments > div').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.querySelectorAll('.comments > div')[index].classList.add('active');
+  });
+});
+</script>
+
+<style>
+  .comment-tabs {
+    display: flex;
+    margin-top: 3em;
+  }
+  .comment-tabs li {
+    margin-right: 40px;
+    cursor: pointer;
+  }
+  .comment-tabs li.active {
+    text-decoration: underline;
+  }
+  .comments > div.active {
+    display: block;
+  }
+  .comments > div {
+    display: none;
+  }
+</style>
+    
+    
+  </main>
+  <footer class="container no-print">
+  <div class="u-footer">
+    <p>
+      <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color: inherit;">CC BY-NC-SA
+        4.0</a>
+      © 2020 - 2025 Powered by 子舒
+    </p>
+    <div class="footflex">
+      <p>Ad Astra Per Aspera.</p>
+      <p>
+        <a href="https://github.com/ezyshu/" target="_blank"><img class="icon-social"
+            src="https://unpkg.com/simple-icons@v15/icons/github.svg" alt=""></a>
+        <a href="/index.xml" target="_blank" title="RSS Feed"><img class="icon-social"
+            src="https://unpkg.com/simple-icons@v15/icons/RSS.svg" alt=""></a>
+      </p>
+    </div>
+  </div>
+  <img src="https://profile-counter.glitch.me/zishu_me/count.svg" alt="count" style="display:none;">
+
+</footer>
+
+
+</body>
+
+</html>

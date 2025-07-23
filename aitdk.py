@@ -83,8 +83,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="从 Markdown 文件生成 SEO 内容")
     parser.add_argument("file_name", help="Markdown 文件名称 (位于 content/blog/目录下)")
     parser.add_argument("--api_key", default=os.getenv("OPENAI_API_KEY"), help="OpenAI API 密钥")
-    parser.add_argument("--api_url", default=os.getenv("OPENAI_API_URL"), help="OpenAI API URL")
-    parser.add_argument("--model", default=os.getenv("OPENAI_API_MODEL"), help="OpenAI 模型名称")
+    parser.add_argument("--api_url", default=os.getenv("OPENAI_BASE_URL"), help="OpenAI API URL")
+    parser.add_argument("--model", default=os.getenv("OPENAI_MODEL"), help="OpenAI 模型名称")
     parser.add_argument("--debug", action="store_true", help="开启调试模式，显示 API 响应")
     
     args = parser.parse_args()
