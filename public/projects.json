@@ -1,5 +1,14 @@
 [
   {
+    "name": "AquaBuddy - 喝水小助手 🐳",
+    "description": "AquaBuddy 是一个可爱风格的浏览器扩展，帮助您记录每日饮水情况。通过简单直观的界面，让您轻松养成健康的饮水习惯。",
+    "url": "https://github.com/ezyshu/AquaBuddy",
+    "image": "https://imgurl.zishu.me/2025/07/1753240354331.webp",
+    "tags": [
+      "浏览器扩展"
+    ]
+  },
+  {
     "name": "LinuxDo Scripts",
     "description": "LinuxDo Scripts 是一个功能丰富的浏览器扩展，旨在提升 LinuxDo 论坛的使用体验。它集成了多项实用功能，从基础的界面优化到高级的 AI 辅助功能，让您的论坛浏览和互动体验更加流畅和高效。",
     "url": "https://github.com/ezyshu/linuxdo-scripts",
@@ -59,7 +68,8 @@
     "url": "https://github.com/ezyshu/flarealbum",
     "image": "https://imgurl.zishu.me/2025/07/1753151746527.webp",
     "tags": [
-      "图床","CloudFlare R2"
+      "图床",
+      "CloudFlare R2"
     ]
   }
 ]
