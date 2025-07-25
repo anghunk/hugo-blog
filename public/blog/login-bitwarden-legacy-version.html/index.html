@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8" />
+<meta name="generator" content="Hugo 0.146.5">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="toTop" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="map[email:anghunk@gmail.com name:子舒]" />
+<meta property="og:url" content="https://zishu.me/blog/login-bitwarden-legacy-version.html/" />
+<link rel="canonical" href="https://zishu.me/blog/login-bitwarden-legacy-version.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
+<link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
+<link rel="shortcut" href="https://imgurl.zishu.me/favicon.ico" /><link rel="alternate" type="application/atom+xml" href="https://zishu.me/index.xml" title="子舒的博客">
+<script type="application/ld+json">
+{
+"@context" : "http://schema.org",
+"@type" : "BlogPosting",
+"mainEntityOfPage": {
+"@type": "WebPage",
+"@id": "https:\/\/zishu.me\/"
+},
+"articleSection" : "blog",
+"name" : "如何登录旧版本 Bitwarden 密码管理器",
+"headline" : "如何登录旧版本 Bitwarden 密码管理器",
+"description" : "Bitwarden 是一款非常知名的密码管理器，其功能我就不赘述了，我来讲讲如何登录旧版本的 Bitwarden 密码管理器。\n旧版官方安装包：https:\/\/github.com\/bitwarden\/clients\/releases\/tag\/browser-v2024.11.2\n肯定也有不少小伙伴喜欢旧版的 UI，因此就没有使用最新的版本，我用的是 v2024.11.2，也是官方更新 UI 前最后一个稳定版本，喜欢旧版的推荐用这个。\n1.前景原因 但是在这个过程中，我发现了一个问题，那就是一旦退出登录旧版后，就再也登陆不上。\n因为新版 Bitwarden 引入了一个输入二次密码的功能。也就是填写完主密码后，会给邮箱发一份邮件验证，填写验证后才可以登录。\n而旧版是不存在二次刺马这个功能的，因此正常输入主密码后接口会直接报错，从而导致无法登录。\n我昨天就遇到了这个问题，研究了几个小时，还真让我找到一个办法，亲测非常简单好用，分享给大家。\n核心就是获取新版的登录 cookie，手动插入到旧版中，就可以获取登录权限了。\n话不多说，直接上教学。\n首先下载一个新版 Bitwarden，这样扩展中就存在两个 Bitwarden 了。\n2.复制 session 数据 正常登录新版 Bitwarden，然后在扩展中右键进入检查，点击 console，输入一条指令。\n\/\/ 读取 chrome.storage.session 数据 chrome.storage.session.get(null, data =\u0026gt; console.log(JSON.stringify(data))); 这样你就可以获取到扩展的 session 数据，复制一下，替换到下面的数据，然后复制整段代码，打开旧版 Bitwarden，然后在扩展中右键进入检查，点击 console，粘贴即可。\nconst sessionData = { key1: \u0026#34;value1\u0026#34;, key2: \u0026#34;value2\u0026#34; }; \/\/ 替换为你的数据 \/\/ 存入 chrome.storage.session chrome.storage.session.set(sessionData, () =\u0026gt; { console.log(\u0026#34;Session 数据导入成功！\u0026#34;); }); 3.复制 local 数据 同理，local 数据也是一样的流程，在新版 Bitwarden 获取 local；\n\/\/ 读取 chrome.storage.local 数据 chrome.storage.local.get(null, data =\u0026gt; console.log(JSON.stringify(data))); 到旧版粘贴数据进去；\nconst localData = { key1: \u0026#34;value1\u0026#34;, key2: \u0026#34;value2\u0026#34; }; \/\/ 替换为你的数据 \/\/ 存入 chrome.storage.local chrome.storage.local.set(localData, () =\u0026gt; { console.log(\u0026#34;local 数据导入成功！\u0026#34;); }); 4.重启扩展 大功告成，在旧版 Bitwarden 扩展右键刷新一下，这时候你会发现一个问题，那就是扩展图标为什么是灰色不可用状态，不用着急，回到浏览器扩展页面，点击 刷新 重启扩展即可。\n又可以流畅使用 Bitwarden 了！\n顺便吐槽一句，新版 Bitwarden 真是一团 shit.\n",
+"inLanguage" : "en-US",
+"author" : "map[email:anghunk@gmail.com name:子舒]",
+"creator" : "map[email:anghunk@gmail.com name:子舒]",
+"publisher": "map[email:anghunk@gmail.com name:子舒]",
+"accountablePerson" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightHolder" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightYear" : "2025",
+"datePublished": "2025-07-25 00:00:00 \u002b0000 UTC",
+"dateModified" : "2025-07-25 00:00:00 \u002b0000 UTC",
+"url" : "https:\/\/zishu.me\/blog\/login-bitwarden-legacy-version.html\/",
+"keywords" : [ "Bitwarden", ]
+}
+</script><title>如何登录旧版本 Bitwarden 密码管理器 - 子舒的博客</title>
+<meta property="og:title" content="如何登录旧版本 Bitwarden 密码管理器" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Bitwarden 是一款非常知名的密码管理器，其功能我就不赘述了，我来讲讲如何登录旧版本的 Bitwarden 密码管理器。
+旧版官方安装包：https://github.com/bitwarden/clients/releases/tag/browser-v2024.11.2
+肯定也有不少小伙伴喜欢旧版的 UI，因此就没有使用最新的版本，我用的是 v2024.11.2，也是官方更新 UI 前最后一个稳定版本，喜欢旧版的推荐用这个。
+1.前景原因 但是在这个过程中，我发现了一个问题，那就是一旦退出登录旧版后，就再也登陆不上。
+因为新版 Bitwarden 引入了一个输入二次密码的功能。也就是填写完主密码后，会给邮箱发一份邮件验证，填写验证后才可以登录。
+而旧版是不存在二次刺马这个功能的，因此正常输入主密码后接口会直接报错，从而导致无法登录。
+我昨天就遇到了这个问题，研究了几个小时，还真让我找到一个办法，亲测非常简单好用，分享给大家。
+核心就是获取新版的登录 cookie，手动插入到旧版中，就可以获取登录权限了。
+话不多说，直接上教学。
+首先下载一个新版 Bitwarden，这样扩展中就存在两个 Bitwarden 了。
+2.复制 session 数据 正常登录新版 Bitwarden，然后在扩展中右键进入检查，点击 console，输入一条指令。
+// 读取 chrome.storage.session 数据 chrome.storage.session.get(null, data =&gt; console.log(JSON.stringify(data))); 这样你就可以获取到扩展的 session 数据，复制一下，替换到下面的数据，然后复制整段代码，打开旧版 Bitwarden，然后在扩展中右键进入检查，点击 console，粘贴即可。
+const sessionData = { key1: &#34;value1&#34;, key2: &#34;value2&#34; }; // 替换为你的数据 // 存入 chrome.storage.session chrome.storage.session.set(sessionData, () =&gt; { console.log(&#34;Session 数据导入成功！&#34;); }); 3.复制 local 数据 同理，local 数据也是一样的流程，在新版 Bitwarden 获取 local；
+// 读取 chrome.storage.local 数据 chrome.storage.local.get(null, data =&gt; console.log(JSON.stringify(data))); 到旧版粘贴数据进去；
+const localData = { key1: &#34;value1&#34;, key2: &#34;value2&#34; }; // 替换为你的数据 // 存入 chrome.storage.local chrome.storage.local.set(localData, () =&gt; { console.log(&#34;local 数据导入成功！&#34;); }); 4.重启扩展 大功告成，在旧版 Bitwarden 扩展右键刷新一下，这时候你会发现一个问题，那就是扩展图标为什么是灰色不可用状态，不用着急，回到浏览器扩展页面，点击 刷新 重启扩展即可。
+又可以流畅使用 Bitwarden 了！
+顺便吐槽一句，新版 Bitwarden 真是一团 shit.
+" />
+<meta name="description" content="Bitwarden 是一款非常知名的密码管理器，其功能我就不赘述了，我来讲讲如何登录旧版本的 Bitwarden 密码管理器。
+旧版官方安装包：https://github.com/bitwarden/clients/releases/tag/browser-v2024.11.2
+肯定也有不少小伙伴喜欢旧版的 UI，因此就没有使用最新的版本，我用的是 v2024.11.2，也是官方更新 UI 前最后一个稳定版本，喜欢旧版的推荐用这个。
+1.前景原因 但是在这个过程中，我发现了一个问题，那就是一旦退出登录旧版后，就再也登陆不上。
+因为新版 Bitwarden 引入了一个输入二次密码的功能。也就是填写完主密码后，会给邮箱发一份邮件验证，填写验证后才可以登录。
+而旧版是不存在二次刺马这个功能的，因此正常输入主密码后接口会直接报错，从而导致无法登录。
+我昨天就遇到了这个问题，研究了几个小时，还真让我找到一个办法，亲测非常简单好用，分享给大家。
+核心就是获取新版的登录 cookie，手动插入到旧版中，就可以获取登录权限了。
+话不多说，直接上教学。
+首先下载一个新版 Bitwarden，这样扩展中就存在两个 Bitwarden 了。
+2.复制 session 数据 正常登录新版 Bitwarden，然后在扩展中右键进入检查，点击 console，输入一条指令。
+// 读取 chrome.storage.session 数据 chrome.storage.session.get(null, data =&gt; console.log(JSON.stringify(data))); 这样你就可以获取到扩展的 session 数据，复制一下，替换到下面的数据，然后复制整段代码，打开旧版 Bitwarden，然后在扩展中右键进入检查，点击 console，粘贴即可。
+const sessionData = { key1: &#34;value1&#34;, key2: &#34;value2&#34; }; // 替换为你的数据 // 存入 chrome.storage.session chrome.storage.session.set(sessionData, () =&gt; { console.log(&#34;Session 数据导入成功！&#34;); }); 3.复制 local 数据 同理，local 数据也是一样的流程，在新版 Bitwarden 获取 local；
+// 读取 chrome.storage.local 数据 chrome.storage.local.get(null, data =&gt; console.log(JSON.stringify(data))); 到旧版粘贴数据进去；
+const localData = { key1: &#34;value1&#34;, key2: &#34;value2&#34; }; // 替换为你的数据 // 存入 chrome.storage.local chrome.storage.local.set(localData, () =&gt; { console.log(&#34;local 数据导入成功！&#34;); }); 4.重启扩展 大功告成，在旧版 Bitwarden 扩展右键刷新一下，这时候你会发现一个问题，那就是扩展图标为什么是灰色不可用状态，不用着急，回到浏览器扩展页面，点击 刷新 重启扩展即可。
+又可以流畅使用 Bitwarden 了！
+顺便吐槽一句，新版 Bitwarden 真是一团 shit.
+" />
+<meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
+
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+<link rel="stylesheet" href="/css/ui.css">
+<script src="/js/jquery-3.6.1.js"></script>
+<script defer src="/js/dark-mode.js"></script>
+<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
+<link rel="stylesheet" href="/css/dropdown.css">
+<link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
+</head>
+
+<body>
+  <header class="container no-print">
+  <div class="u-header">
+    <nav class="bar">
+      <ul>
+        <li><img class="icon-text" id="dark-mode-toggle" src="/images/moon.svg" alt="Toggle Dark Mode"></li>
+
+        
+        <li><a href="/">首页</a></li>
+        
+        <li><a href="/blog/">文章</a></li>
+        
+        <li><a href="/tags/">标签</a></li>
+        
+        <li><a href="/message/">留言</a></li>
+        
+        <li><a href="/about/">关于</a></li>
+        
+        <li><a href="/projects/">项目</a></li>
+        
+        <li><a href="/friends/">友链</a></li>
+        
+        
+        <li><a href="/search/">🔍</a></li>
+        <li><a href="/index.xml" target="_blank">RSS</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+  <main class="container">
+
+    <header>
+      <hgroup id="brand">
+        <h1>如何登录旧版本 Bitwarden 密码管理器</h1>
+
+        
+        <h5>
+          <time>2025/07/25</time>
+
+          
+          <span class="no-print">|
+          
+          <a href="/tags/bitwarden">#Bitwarden</a>
+          
+          </span>
+          
+
+          
+          
+          <span class="no-print">|
+            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+          </span>
+          
+          
+        </h5>
+        
+
+      </hgroup>
+      <hr class="sep">
+    </header>
+    
+
+    
+    <div class="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1前景原因">1.前景原因</a></li>
+        <li><a href="#2复制-session-数据">2.复制 session 数据</a></li>
+        <li><a href="#3复制-local-数据">3.复制 local 数据</a></li>
+        <li><a href="#4重启扩展">4.重启扩展</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <article class="post-content">
+      
+      <p>Bitwarden 是一款非常知名的密码管理器，其功能我就不赘述了，我来讲讲如何登录旧版本的 Bitwarden 密码管理器。</p>
+<p>旧版官方安装包：<a href="https://github.com/bitwarden/clients/releases/tag/browser-v2024.11.2">https://github.com/bitwarden/clients/releases/tag/browser-v2024.11.2</a></p>
+<p>肯定也有不少小伙伴喜欢旧版的 UI，因此就没有使用最新的版本，我用的是 <code>v2024.11.2</code>，也是官方更新 UI 前最后一个稳定版本，喜欢旧版的推荐用这个。</p>
+<h3 id="1前景原因">1.前景原因</h3>
+<p>但是在这个过程中，我发现了一个问题，那就是一旦退出登录旧版后，就再也登陆不上。</p>
+<p>因为新版 Bitwarden 引入了一个输入二次密码的功能。也就是填写完主密码后，会给邮箱发一份邮件验证，填写验证后才可以登录。</p>
+<p>而旧版是不存在二次刺马这个功能的，因此正常输入主密码后接口会直接报错，从而导致无法登录。</p>
+<p>我昨天就遇到了这个问题，研究了几个小时，还真让我找到一个办法，亲测非常简单好用，分享给大家。</p>
+<p>核心就是获取新版的登录 cookie，手动插入到旧版中，就可以获取登录权限了。</p>
+<hr>
+<p>话不多说，直接上教学。</p>
+<p>首先下载一个新版 Bitwarden，这样扩展中就存在两个 Bitwarden 了。</p>
+<p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2025/07/1753405287321.webp"
+    alt=""class="lazy"
+	>
+  <figcaption></figcaption>
+</figure></p>
+<h3 id="2复制-session-数据">2.复制 session 数据</h3>
+<p>正常登录新版 Bitwarden，然后在扩展中右键进入检查，点击 <code>console</code>，输入一条指令。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 读取 chrome.storage.session 数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">chrome</span><span class="p">.</span><span class="nx">storage</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">)));</span>
+</span></span></code></pre></div><p>这样你就可以获取到扩展的 <code>session</code> 数据，复制一下，替换到下面的数据，然后复制整段代码，打开旧版 Bitwarden，然后在扩展中右键进入检查，点击 <code>console</code>，粘贴即可。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">sessionData</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">key1</span><span class="o">:</span> <span class="s2">&#34;value1&#34;</span><span class="p">,</span> <span class="nx">key2</span><span class="o">:</span> <span class="s2">&#34;value2&#34;</span> <span class="p">};</span> <span class="c1">// 替换为你的数据
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 存入 chrome.storage.session
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">chrome</span><span class="p">.</span><span class="nx">storage</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">sessionData</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Session 数据导入成功！&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><h3 id="3复制-local-数据">3.复制 local 数据</h3>
+<p>同理，local 数据也是一样的流程，在新版 Bitwarden 获取 local；</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 读取 chrome.storage.local 数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">chrome</span><span class="p">.</span><span class="nx">storage</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">)));</span>
+</span></span></code></pre></div><p>到旧版粘贴数据进去；</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">localData</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">key1</span><span class="o">:</span> <span class="s2">&#34;value1&#34;</span><span class="p">,</span> <span class="nx">key2</span><span class="o">:</span> <span class="s2">&#34;value2&#34;</span> <span class="p">};</span> <span class="c1">// 替换为你的数据
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 存入 chrome.storage.local
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">chrome</span><span class="p">.</span><span class="nx">storage</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">localData</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;local 数据导入成功！&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><h3 id="4重启扩展">4.重启扩展</h3>
+<p>大功告成，在旧版 Bitwarden 扩展右键刷新一下，这时候你会发现一个问题，那就是扩展图标为什么是灰色不可用状态，不用着急，回到浏览器扩展页面，点击 <code>刷新</code> 重启扩展即可。</p>
+<p>又可以流畅使用 Bitwarden 了！</p>
+<p>顺便吐槽一句，新版 Bitwarden 真是一团 shit.</p>
+
+    </article>
+
+    
+    <hr class="sep">
+<ul class="comment-tabs">
+  
+  <li>LinuxDo</li>
+  
+  <li>Giscus</li>
+  <li>Twikoo</li>
+</ul>
+<div class="comments">
+  
+  <div>
+    <div id='discourse-comments'></div>
+    <meta name='discourse-username' content='anghunk'>
+    <script type="text/javascript">
+      DiscourseEmbed = {
+        discourseUrl: 'https://linux.do/',
+        discourseEmbedUrl: 'https://zishu.me\/blog\/login-bitwarden-legacy-version.html\/',
+        
+      };
+
+      (function() {
+        var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+        d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+      })();
+    </script>
+  </div>
+  
+  <div class="giscus"></div>
+  <div id="tcomment"></div>
+</div>
+<script 
+  src="https://giscus.app/client.js" 
+  data-repo="ezyshu/hugo-blog" 
+  data-repo-id="R_kgDOJkJvtw"
+  data-category="Announcements" 
+  data-category-id="DIC_kwDOJkJvt84CX9d6" 
+  data-mapping="pathname" 
+  data-strict="0"
+  data-reactions-enabled="1" 
+  data-emit-metadata="1" 
+  data-input-position="top" 
+  data-theme="light"
+  data-lang="zh-CN" 
+  data-loading="lazy" 
+  crossorigin="anonymous" 
+  async>
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.min.js"></script>
+<script>
+twikoo.init({
+  envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
+  el: '#tcomment',
+  lang: 'zh-CN', 
+})
+</script>
+
+<script>
+document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+  if (index === 0) {
+    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+    document.querySelectorAll('.comments > div')[0].classList.add('active');
+  }
+  
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+      sibling.classList.remove('active');
+    });
+    this.classList.add('active');
+    
+    document.querySelectorAll('.comments > div').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.querySelectorAll('.comments > div')[index].classList.add('active');
+  });
+});
+</script>
+
+<style>
+  .comment-tabs {
+    display: flex;
+    margin-top: 3em;
+  }
+  .comment-tabs li {
+    margin-right: 40px;
+    cursor: pointer;
+  }
+  .comment-tabs li.active {
+    text-decoration: underline;
+  }
+  .comments > div.active {
+    display: block;
+  }
+  .comments > div {
+    display: none;
+  }
+</style>
+    
+    
+  </main>
+  <footer class="container no-print">
+  <div class="u-footer">
+    <p>
+      <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color: inherit;">CC BY-NC-SA
+        4.0</a>
+      © 2020 - 2025 Powered by 子舒
+    </p>
+    <div class="footflex">
+      <p>Ad Astra Per Aspera.</p>
+      <p>
+        <a href="https://github.com/ezyshu/" target="_blank"><img class="icon-social"
+            src="https://unpkg.com/simple-icons@v15/icons/github.svg" alt=""></a>
+        <a href="/index.xml" target="_blank" title="RSS Feed"><img class="icon-social"
+            src="https://unpkg.com/simple-icons@v15/icons/RSS.svg" alt=""></a>
+      </p>
+    </div>
+  </div>
+  <img src="https://profile-counter.glitch.me/zishu_me/count.svg" alt="count" style="display:none;">
+
+</footer>
+
+
+</body>
+
+</html>
