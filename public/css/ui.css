@@ -461,7 +461,6 @@ h6 {
   margin-bottom: 1rem;
   font-weight: 500;
   color: #222;
-  font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
 }
 
 h1 {
@@ -579,6 +578,7 @@ ul.no-bullet {
   ul.no-bullet {
     list-style: none;
     margin-left: 0;
+    padding: 0;
   }
 }
 
