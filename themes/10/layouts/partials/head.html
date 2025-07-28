@@ -33,9 +33,10 @@
 {{- else -}}
 <meta property="og:image" content="{{ .Site.Params.favicon }}" />
 {{ end }}
-<link href="https://fonts.googleapis.com" rel="preconnect">
+<!-- <link href="https://fonts.googleapis.com" rel="preconnect">
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono"> -->
+<link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "tsanger-jinkai/style.css" | relURL }}">
 <link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/ui.css" | relURL }}">
 <script src="/js/jquery-3.6.1.js"></script>
 <script defer src="/js/dark-mode.js"></script>
