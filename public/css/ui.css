@@ -788,6 +788,16 @@ ol {
   margin-bottom: 10px;
 }
 
+.u-footer svg {
+  color: #666;
+  margin-left: 10px;
+  transition: all 0.1s linear;
+}
+
+.u-footer svg:hover {
+  color: #333;
+}
+
 .footflex {
   display: flex;
   align-items: center;
