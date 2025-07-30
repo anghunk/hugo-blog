@@ -8,6 +8,16 @@ tags:
   - Bitwarden
 ---
 
+**2025/07/30 更新：**
+
+发现 Bitwarden 可以关闭二次验证，可以通过以下方式，进入 https://vault.bitwarden.com/#/settings/account 我的账户页面。
+
+在登录旧版扩展前，先点击底部 `停用新设备登陆保护`，登录之后再打开这个选项，提高安全性。
+
+![危险操作](https://imgurl.zishu.me/2025/07/1753853607383.webp)
+
+---
+
 Bitwarden 是一款非常知名的密码管理器，其功能我就不赘述了，我来讲讲如何登录旧版本的 Bitwarden 密码管理器。
 
 旧版官方安装包：[https://github.com/bitwarden/clients/releases/tag/browser-v2024.11.2](https://github.com/bitwarden/clients/releases/tag/browser-v2024.11.2)

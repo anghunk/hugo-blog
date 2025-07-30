@@ -22,7 +22,7 @@
 "articleSection" : "blog",
 "name" : "如何登录旧版本 Bitwarden 密码管理器",
 "headline" : "如何登录旧版本 Bitwarden 密码管理器",
-"description" : "Bitwarden 是一款非常知名的密码管理器，其功能我就不赘述了，我来讲讲如何登录旧版本的 Bitwarden 密码管理器。\n旧版官方安装包：https:\/\/github.com\/bitwarden\/clients\/releases\/tag\/browser-v2024.11.2\n肯定也有不少小伙伴喜欢旧版的 UI，因此就没有使用最新的版本，我用的是 v2024.11.2，也是官方更新 UI 前最后一个稳定版本，喜欢旧版的推荐用这个。\n1.前景原因 但是在这个过程中，我发现了一个问题，那就是一旦退出登录旧版后，就再也登陆不上。\n因为新版 Bitwarden 引入了一个输入二次密码的功能。也就是填写完主密码后，会给邮箱发一份邮件验证，填写验证后才可以登录。\n而旧版是不存在二次密码这个功能的，因此正常输入主密码后接口会直接报错，从而导致无法登录。\n我昨天就遇到了这个问题，研究了几个小时，还真让我找到一个办法，亲测非常简单好用，分享给大家。\n核心就是获取新版的登录 cookie，手动插入到旧版中，就可以获取登录权限了。\n话不多说，直接上教学。\n首先下载一个新版 Bitwarden，这样扩展中就存在两个 Bitwarden 了。\n2.复制 session 数据 正常登录新版 Bitwarden，然后在扩展中右键进入检查，点击 console，输入一条指令。\n\/\/ 读取 chrome.storage.session 数据 chrome.storage.session.get(null, data =\u0026gt; console.log(JSON.stringify(data))); 这样你就可以获取到扩展的 session 数据，复制一下，替换到下面的数据，然后复制整段代码，打开旧版 Bitwarden，然后在扩展中右键进入检查，点击 console，粘贴即可。\nconst sessionData = { key1: \u0026#34;value1\u0026#34;, key2: \u0026#34;value2\u0026#34; }; \/\/ 替换为你的数据 \/\/ 存入 chrome.storage.session chrome.storage.session.set(sessionData, () =\u0026gt; { console.log(\u0026#34;Session 数据导入成功！\u0026#34;); }); 3.复制 local 数据 同理，local 数据也是一样的流程，在新版 Bitwarden 获取 local；\n\/\/ 读取 chrome.storage.local 数据 chrome.storage.local.get(null, data =\u0026gt; console.log(JSON.stringify(data))); 到旧版粘贴数据进去；\nconst localData = { key1: \u0026#34;value1\u0026#34;, key2: \u0026#34;value2\u0026#34; }; \/\/ 替换为你的数据 \/\/ 存入 chrome.storage.local chrome.storage.local.set(localData, () =\u0026gt; { console.log(\u0026#34;local 数据导入成功！\u0026#34;); }); 4.重启扩展 大功告成，在旧版 Bitwarden 扩展右键刷新一下，这时候你会发现一个问题，那就是扩展图标为什么是灰色不可用状态，不用着急，回到浏览器扩展页面，点击 刷新 重启扩展即可。\n又可以流畅使用 Bitwarden 了！\n顺便吐槽一句，新版 Bitwarden 真是一团 shit.\n",
+"description" : "2025\/07\/30 更新：\n发现 Bitwarden 可以关闭二次验证，可以通过以下方式，进入 https:\/\/vault.bitwarden.com\/#\/settings\/account 我的账户页面。\n在登录旧版扩展前，先点击底部 停用新设备登陆保护，登录之后再打开这个选项，提高安全性。\n危险操作\rBitwarden 是一款非常知名的密码管理器，其功能我就不赘述了，我来讲讲如何登录旧版本的 Bitwarden 密码管理器。\n旧版官方安装包：https:\/\/github.com\/bitwarden\/clients\/releases\/tag\/browser-v2024.11.2\n肯定也有不少小伙伴喜欢旧版的 UI，因此就没有使用最新的版本，我用的是 v2024.11.2，也是官方更新 UI 前最后一个稳定版本，喜欢旧版的推荐用这个。\n1.前景原因 但是在这个过程中，我发现了一个问题，那就是一旦退出登录旧版后，就再也登陆不上。\n因为新版 Bitwarden 引入了一个输入二次密码的功能。也就是填写完主密码后，会给邮箱发一份邮件验证，填写验证后才可以登录。\n而旧版是不存在二次密码这个功能的，因此正常输入主密码后接口会直接报错，从而导致无法登录。\n我昨天就遇到了这个问题，研究了几个小时，还真让我找到一个办法，亲测非常简单好用，分享给大家。\n核心就是获取新版的登录 cookie，手动插入到旧版中，就可以获取登录权限了。\n话不多说，直接上教学。\n首先下载一个新版 Bitwarden，这样扩展中就存在两个 Bitwarden 了。\n2.复制 session 数据 正常登录新版 Bitwarden，然后在扩展中右键进入检查，点击 console，输入一条指令。\n\/\/ 读取 chrome.storage.session 数据 chrome.storage.session.get(null, data =\u0026gt; console.log(JSON.stringify(data))); 这样你就可以获取到扩展的 session 数据，复制一下，替换到下面的数据，然后复制整段代码，打开旧版 Bitwarden，然后在扩展中右键进入检查，点击 console，粘贴即可。\nconst sessionData = { key1: \u0026#34;value1\u0026#34;, key2: \u0026#34;value2\u0026#34; }; \/\/ 替换为你的数据 \/\/ 存入 chrome.storage.session chrome.storage.session.set(sessionData, () =\u0026gt; { console.log(\u0026#34;Session 数据导入成功！\u0026#34;); }); 3.复制 local 数据 同理，local 数据也是一样的流程，在新版 Bitwarden 获取 local；\n\/\/ 读取 chrome.storage.local 数据 chrome.storage.local.get(null, data =\u0026gt; console.log(JSON.stringify(data))); 到旧版粘贴数据进去；\nconst localData = { key1: \u0026#34;value1\u0026#34;, key2: \u0026#34;value2\u0026#34; }; \/\/ 替换为你的数据 \/\/ 存入 chrome.storage.local chrome.storage.local.set(localData, () =\u0026gt; { console.log(\u0026#34;local 数据导入成功！\u0026#34;); }); 4.重启扩展 大功告成，在旧版 Bitwarden 扩展右键刷新一下，这时候你会发现一个问题，那就是扩展图标为什么是灰色不可用状态，不用着急，回到浏览器扩展页面，点击 刷新 重启扩展即可。\n又可以流畅使用 Bitwarden 了！\n顺便吐槽一句，新版 Bitwarden 真是一团 shit.\n",
 "inLanguage" : "en-US",
 "author" : "map[email:anghunk@gmail.com name:子舒]",
 "creator" : "map[email:anghunk@gmail.com name:子舒]",
@@ -38,7 +38,10 @@
 </script><title>如何登录旧版本 Bitwarden 密码管理器 - 子舒的博客</title>
 <meta property="og:title" content="如何登录旧版本 Bitwarden 密码管理器" />
 <meta property="og:type" content="article" />
-<meta property="og:description" content="Bitwarden 是一款非常知名的密码管理器，其功能我就不赘述了，我来讲讲如何登录旧版本的 Bitwarden 密码管理器。
+<meta property="og:description" content="2025/07/30 更新：
+发现 Bitwarden 可以关闭二次验证，可以通过以下方式，进入 https://vault.bitwarden.com/#/settings/account 我的账户页面。
+在登录旧版扩展前，先点击底部 停用新设备登陆保护，登录之后再打开这个选项，提高安全性。
+危险操作Bitwarden 是一款非常知名的密码管理器，其功能我就不赘述了，我来讲讲如何登录旧版本的 Bitwarden 密码管理器。
 旧版官方安装包：https://github.com/bitwarden/clients/releases/tag/browser-v2024.11.2
 肯定也有不少小伙伴喜欢旧版的 UI，因此就没有使用最新的版本，我用的是 v2024.11.2，也是官方更新 UI 前最后一个稳定版本，喜欢旧版的推荐用这个。
 1.前景原因 但是在这个过程中，我发现了一个问题，那就是一旦退出登录旧版后，就再也登陆不上。
@@ -56,7 +59,10 @@ const localData = { key1: &#34;value1&#34;, key2: &#34;value2&#34; }; // 替换�
 又可以流畅使用 Bitwarden 了！
 顺便吐槽一句，新版 Bitwarden 真是一团 shit.
 " />
-<meta name="description" content="Bitwarden 是一款非常知名的密码管理器，其功能我就不赘述了，我来讲讲如何登录旧版本的 Bitwarden 密码管理器。
+<meta name="description" content="2025/07/30 更新：
+发现 Bitwarden 可以关闭二次验证，可以通过以下方式，进入 https://vault.bitwarden.com/#/settings/account 我的账户页面。
+在登录旧版扩展前，先点击底部 停用新设备登陆保护，登录之后再打开这个选项，提高安全性。
+危险操作Bitwarden 是一款非常知名的密码管理器，其功能我就不赘述了，我来讲讲如何登录旧版本的 Bitwarden 密码管理器。
 旧版官方安装包：https://github.com/bitwarden/clients/releases/tag/browser-v2024.11.2
 肯定也有不少小伙伴喜欢旧版的 UI，因此就没有使用最新的版本，我用的是 v2024.11.2，也是官方更新 UI 前最后一个稳定版本，喜欢旧版的推荐用这个。
 1.前景原因 但是在这个过程中，我发现了一个问题，那就是一旦退出登录旧版后，就再也登陆不上。
@@ -168,7 +174,19 @@ const localData = { key1: &#34;value1&#34;, key2: &#34;value2&#34; }; // 替换�
 
     <article class="post-content">
       
-      <p>Bitwarden 是一款非常知名的密码管理器，其功能我就不赘述了，我来讲讲如何登录旧版本的 Bitwarden 密码管理器。</p>
+      <p><strong>2025/07/30 更新：</strong></p>
+<p>发现 Bitwarden 可以关闭二次验证，可以通过以下方式，进入 <a href="https://vault.bitwarden.com/#/settings/account">https://vault.bitwarden.com/#/settings/account</a> 我的账户页面。</p>
+<p>在登录旧版扩展前，先点击底部 <code>停用新设备登陆保护</code>，登录之后再打开这个选项，提高安全性。</p>
+<p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2025/07/1753853607383.webp"
+    alt="危险操作"class="lazy"
+	>
+  <figcaption>危险操作</figcaption>
+</figure></p>
+<hr>
+<p>Bitwarden 是一款非常知名的密码管理器，其功能我就不赘述了，我来讲讲如何登录旧版本的 Bitwarden 密码管理器。</p>
 <p>旧版官方安装包：<a href="https://github.com/bitwarden/clients/releases/tag/browser-v2024.11.2">https://github.com/bitwarden/clients/releases/tag/browser-v2024.11.2</a></p>
 <p>肯定也有不少小伙伴喜欢旧版的 UI，因此就没有使用最新的版本，我用的是 <code>v2024.11.2</code>，也是官方更新 UI 前最后一个稳定版本，喜欢旧版的推荐用这个。</p>
 <h3 id="1前景原因">1.前景原因</h3>
