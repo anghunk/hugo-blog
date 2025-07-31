@@ -4,11 +4,11 @@
 [Online access](https://zishu.me)
 
 <p align="center">
-<img src="https://img.shields.io/github/last-commit/ezyshu/hugo-blog">
-<img src="https://img.shields.io/github/commit-activity/t/ezyshu/hugo-blog">
-<img src="https://img.shields.io/github/forks/ezyshu/hugo-blog?style=flat">
-<img src="https://img.shields.io/github/stars/ezyshu/hugo-blog?style=flat">
-<img src="https://img.shields.io/github/license/ezyshu/hugo-blog">
+<img src="https://img.shields.io/github/last-commit/anghunk/hugo-blog">
+<img src="https://img.shields.io/github/commit-activity/t/anghunk/hugo-blog">
+<img src="https://img.shields.io/github/forks/anghunk/hugo-blog?style=flat">
+<img src="https://img.shields.io/github/stars/anghunk/hugo-blog?style=flat">
+<img src="https://img.shields.io/github/license/anghunk/hugo-blog">
 </p>
 
 ---
@@ -51,7 +51,7 @@ Clone the code to your local machine, clear the articles in the `/content/` dire
 
 ```shell
 # Download the project source code
-git clone https://github.com/ezyshu/hugo-blog.git
+git clone https://github.com/anghunk/hugo-blog.git
 # Run locally
 hugo serve
 # Package build

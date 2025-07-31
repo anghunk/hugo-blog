@@ -116,4 +116,4 @@ request.onsuccess = (event) => {
 最终我把该脚本发布到 Greasyfork，可供大家直接使用，代码也已开源。
 
 - 安装：[https://greasyfork.org/scripts/516358](https://greasyfork.org/scripts/516358)
-- Github：[https://github.com/ezyshu/UserScript](https://github.com/ezyshu/UserScript)
+- Github：[https://github.com/anghunk/UserScript](https://github.com/anghunk/UserScript)
