@@ -3,12 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://zishu.me/blog/</loc>
-    <lastmod>2025-08-03T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://zishu.me/categories/</loc>
-    <lastmod>2025-08-03T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://zishu.me/blog/daming-mountain-qianniugang-camping-notes.html/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://zishu.me/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://zishu.me/categories/%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://zishu.me/tags/%E9%9C%B2%E8%90%A5/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -17,17 +37,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://zishu.me/</loc>
-    <lastmod>2025-08-03T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://zishu.me/tags/%E6%97%85%E6%B8%B8/</loc>
-    <lastmod>2025-08-03T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://zishu.me/categories/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2025-08-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -343,11 +353,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://zishu.me/blog/242.html/</loc>
-    <lastmod>2024-10-20T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://zishu.me/tags/%E9%9C%B2%E8%90%A5/</loc>
     <lastmod>2024-10-20T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
