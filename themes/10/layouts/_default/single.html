@@ -11,7 +11,7 @@
         <h1>{{ .Title }}</h1>
 
         {{ if in .Site.Params.mainSections .Type }}
-        <h5>
+        <h5 style="font-size:12px;color:rgba(0,0,0,.5);">
           <time>{{ .Date.Format "2006/01/02"}}</time>
 
           {{ with .Params.tags }}

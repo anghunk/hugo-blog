@@ -44,8 +44,6 @@
 &lt;template&gt; &lt;div class=&#34;posts&#34;&gt; &lt;div v-for=&#34;item in list&#34; :key=&#34;item.cid&#34; &gt; {{ item.title }} &lt;/div&gt; &lt;/div&gt; &lt;/template&gt; &lt;script&gt; import Axios from &#39;axios&#39;; export default { name: &#39;index&#39;, data () { return { list: [] } }, methods: { getData () { var api = &#39;https://zburu.com/api/posts.php&#39;; Axios.get(api).then((response) =&gt; { this.list = response.data; console.log(response.data) }).catch((error) =&gt; { console.log(error); }) } }, mounted () { this.getData(); }, } &lt;/script&gt; &lt;style&gt; &lt;/style&gt; " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/anghunk/cdn-oss/fonts/tsanger-jinkai/style.css">
 <link rel="stylesheet" href="/css/ui.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <script defer src="/js/dark-mode.js"></script>
@@ -91,7 +89,7 @@
         <h1>笔记:vue 中使用 axios 调用数据并渲染</h1>
 
         
-        <h5>
+        <h5 style="font-size:12px;color:rgba(0,0,0,.5);">
           <time>2022/07/12</time>
 
           

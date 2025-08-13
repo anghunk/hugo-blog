@@ -102,8 +102,6 @@ var key = Symbol(&#34;key&#34;); var key2 = Symbol(&#34;key&#34;); key == key2 /
 function fakeAjax(url) { return new Promise(function (resolve, reject) { // setTimeouts are for effect, typically we would handle XHR if (!url) { return setTimeout(reject, 1000); } return setTimeout(resolve, 1000); }); } // no url, promise rejected fakeAjax().then(function () { console.log(&#39;success&#39;); },function () { console.log(&#39;fail&#39;); }); " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/anghunk/cdn-oss/fonts/tsanger-jinkai/style.css">
 <link rel="stylesheet" href="/css/ui.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <script defer src="/js/dark-mode.js"></script>
@@ -149,7 +147,7 @@ function fakeAjax(url) { return new Promise(function (resolve, reject) { // setT
         <h1>ES5 和 ES6 的区别？</h1>
 
         
-        <h5>
+        <h5 style="font-size:12px;color:rgba(0,0,0,.5);">
           <time>2021/01/20</time>
 
           
