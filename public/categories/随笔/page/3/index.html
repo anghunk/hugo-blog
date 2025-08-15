@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随笔 - 子舒的博客</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="子舒">
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="/css/wins98.css">
+    <link rel="stylesheet" href="/css/wins98-ui.css">
+    
+    
+    <link rel="icon" href="https://imgurl.zishu.me/favicon.ico">
+    
+    <script type="application/ld+json">
+{
+"@context" : "http://schema.org",
+"@type" : "BlogPosting",
+"mainEntityOfPage": {
+"@type": "WebPage",
+"@id": "http:\/\/localhost:1313\/"
+},
+"articleSection" : "categories",
+"name" : "随笔",
+"headline" : "随笔",
+"description" : "",
+"inLanguage" : "en-US",
+"author" : "map[email:anghunk@gmail.com name:子舒]",
+"creator" : "map[email:anghunk@gmail.com name:子舒]",
+"publisher": "map[email:anghunk@gmail.com name:子舒]",
+"accountablePerson" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightHolder" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightYear" : "2025",
+"datePublished": "2025-08-11 00:00:00 \u002b0000 UTC",
+"dateModified" : "2025-08-11 00:00:00 \u002b0000 UTC",
+"url" : "http:\/\/localhost:1313\/categories\/%E9%9A%8F%E7%AC%94\/",
+"keywords" : [  ]
+}
+</script>
+</head>
+<body class="wins98-theme">
+    
+    <div class="desktop-background">
+        
+        <div class="taskbar">
+            <div class="start-button" onclick="toggleStartMenu()">
+                <img src="/images/start-button.png" alt="Start" class="start-icon">
+                <span>开始</span>
+            </div>
+            <div class="taskbar-programs">
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/daming-mountain-qianniugang-camping-notes.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>大明山牵牛岗露营游记</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/nanjing-travel-aug-3.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>南京游八月三日</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/login-bitwarden-legacy-version.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>如何登录旧版本 Bitwarden 密码管理器</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/262.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>AI 驱动的验证码自动识别之旅：从困扰到解放</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/261.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>Obsidian:移动端同步笔记</span>
+                </div>
+                
+            </div>
+            <div class="clock">
+                <span id="current-time"></span>
+            </div>
+        </div>
+        
+        
+        <div class="start-menu" id="startMenu">
+            <div class="start-menu-header">
+                <img src="/images/start-button.png" alt="Start" class="start-icon">
+                <span>开始菜单</span>
+            </div>
+            <div class="start-menu-items">
+                <div class="menu-item" onclick="window.location.href='/'">
+                    <img src="/images/home-icon.png" alt="Home">
+                    <span>首页</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/blog/'">
+                    <img src="/images/blog-icon.png" alt="Blog">
+                    <span>博客文章</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/about/'">
+                    <img src="/images/about-icon.png" alt="About">
+                    <span>关于我</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/projects/'">
+                    <img src="/images/project-icon.png" alt="Projects">
+                    <span>项目展示</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/friends/'">
+                    <img src="/images/friends-icon.png" alt="Friends">
+                    <span>友情链接</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/message/'">
+                    <img src="/images/message-icon.png" alt="Message">
+                    <span>留言板</span>
+                </div>
+            </div>
+        </div>
+        
+        
+        <main class="main-content">
+            
+<div class="wins98-window list-window">
+    <div class="window-titlebar">
+        <div class="window-title">
+            <img src="/images/blog-icon.png" alt="Blog" class="window-icon">
+            <span>随笔</span>
+        </div>
+        <div class="window-controls">
+            <div class="minimize-btn" onclick="minimizeWindow(this)">_</div>
+            <div class="maximize-btn" onclick="maximizeWindow(this)">□</div>
+            <div class="close-btn" onclick="closeWindow(this)">×</div>
+        </div>
+    </div>
+    
+    <div class="window-content">
+        <div class="list-header">
+            <h1 class="list-title">随笔</h1>
+            
+        </div>
+        
+        <div class="posts-list">
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/232.html/">马家坞看日出</a>
+                    </h3>
+                    <span class="post-date">2024/07/28</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>多图警告，加载缓慢。</p>
+<p>（查看时建议点击图片查看全图~）</p>
+<p>台风过去后据说日出特别好看，刚好赶到周日，我在凌晨 2 点定了个闹钟，驾车前往马家坞观景平台，停车还挺方便的，路边可以免费停车。</p>
+<p>路程半个小时，又花了半个小时爬山，途中遇到很多同行的人，背着大包小包，摄像机。</p>
+<p>大概在凌晨 3 点钟到达。</p>
+<p>解锁了新的生活方式，不要被时间和距离束缚了灵魂。</p>
+<hr>
+<p>杭州夜景。</p>
+<p>     
+<figure>
+  <img …</figure></p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E6%97%A5%E5%87%BA" class="tag-link">日出</a>
+                        
+                        <a href="/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D" class="tag-link">随手拍</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">238 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/232.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/231.html/">杭州国家版本馆文润阁</a>
+                    </h3>
+                    <span class="post-date">2024/07/20</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>多图警告，加载缓慢。</p>
+<p>（查看时建议点击图片查看全图~）</p>
+<h3 id="场馆">场馆</h3>
+<p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2024/07/1721475405497.webp"
+    alt=""class="lazy"
+	>
+  <figcaption></figcaption>
+</figure></p>
+<p>     
+<figure>
+  <img …</figure></p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E5%8D%9A%E7%89%A9%E9%A6%86" class="tag-link">博物馆</a>
+                        
+                        <a href="/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D" class="tag-link">随手拍</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">65 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/231.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/230.html/">西溪湿地随手拍</a>
+                    </h3>
+                    <span class="post-date">2024/07/14</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27568.436010137124!2d120.0467503777646!3d30.264028288052753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x344b7b4c5dc99a29%3A0x564316de0ce6dd8d!2z5Lit5Zu95p2t5bee5biC6KW_5rqq5Zu95a625rm_5Zyw5YWs5Zut!5e0!3m2!1szh-CN!2shk!4v1720962332059!5m2!1szh-CN!2shk" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<p>设备太差劲了，高倍变焦拍摄荷花高糊，有些不堪入目就放在最后了。</p>
+<p>（查看时建议点击图片查看全图~）</p>
+<p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2024/07/1720962023228.webp"
+    alt=""class="lazy"
+	>
+  <figcaption></figcaption>
+</figure></p>
+<p>     
+<figure>
+  <img …</figure></p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D" class="tag-link">随手拍</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">47 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/230.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/229.html/">随手拍无题</a>
+                    </h3>
+                    <span class="post-date">2024/06/08</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2024/05/1717855075533.jpg"
+    alt=""class="lazy"
+	>
+  <figcaption></figcaption>
+</figure></p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E8%88%AA%E6%8B%8D" class="tag-link">航拍</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">0 字</span>
+                        <span class="read-time">0 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/229.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/228.html/">无人机航拍青山湖</a>
+                    </h3>
+                    <span class="post-date">2024/05/26</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>上周五研究了好久买了一台大疆 mini4k，非常适合新手，想体验一下在天上俯拍的视角。</p>
+<p>今天跟朋友驾车来到青山湖，拍摄了水上森林的视角。</p>
+<p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2024/05/1716713416023.jpg"
+    alt=""class="lazy"
+	>
+  <figcaption></figcaption>
+</figure></p>
+<p>     
+<figure>
+  <img …</figure></p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E8%88%AA%E6%8B%8D" class="tag-link">航拍</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">84 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/228.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/227.html/">黄公望隐居地</a>
+                    </h3>
+                    <span class="post-date">2024/05/01</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>坐标：富阳 - 黄公望隐居地，也是富春山居图的实景地点。</p>
+<p>从市区开车过去一个小时左右，路上的风景也非常棒，吹着风。</p>
+<p>如果有无人机设备的话，从这个角度俯拍，实现的效果将会非常好。</p>
+<p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2024/04/1714569463737.jpg"
+    alt=""class="lazy"
+	>
+  <figcaption></figcaption>
+</figure></p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D" class="tag-link">随手拍</a>
+                        
+                        <a href="/tags/%E6%97%85%E6%B8%B8" class="tag-link">旅游</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">84 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/227.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/225.html/">青龙湾游湖</a>
+                    </h3>
+                    <span class="post-date">2024/04/14</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>坐标安徽宁国。</p>
+<p>这两天公司出去团建了，到了一些风景秀美的地方，有山有水，烟雾缭绕，颇有意境。</p>
+<p>图一是皖南川藏线起点，在酒店的附近，两者相距很近。</p>
+<p>早上起来，湿气很重，雾气弥漫。</p>
+<p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2024/04/1713097071969.jpg"
+    alt=""class="lazy"
+	>
+  <figcaption></figcaption>
+</figure></p>
+<p>图 …</p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D" class="tag-link">随手拍</a>
+                        
+                        <a href="/tags/%E6%97%85%E6%B8%B8" class="tag-link">旅游</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">107 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/225.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/224.html/">严州古城</a>
+                    </h3>
+                    <span class="post-date">2024/04/05</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>假期出行，前往距离杭州 160km 的严州古城，比较小众的景点，但是人并不少。</p>
+<p>体验还是不错的，推荐前往。</p>
+<p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2024/04/1712409843872.webp"
+    alt=""class="lazy"
+	>
+  <figcaption></figcaption>
+</figure></p>
+<p>     
+<figure>
+  <img …</figure></p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D" class="tag-link">随手拍</a>
+                        
+                        <a href="/tags/%E6%97%85%E6%B8%B8" class="tag-link">旅游</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">46 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/224.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/222.html/">樱花飞舞的初春</a>
+                    </h3>
+                    <span class="post-date">2024/03/26</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>樱花飞舞的初春，半空中落英缤纷，蓝紫色桔梗似将画面停顿。</p>
+<p>正是满城花开时。</p>
+<p>     
+<figure>
+  <img 
+		src="https://imgurl.zishu.me/2024/03/1711446202384.jpg"
+    alt=""class="lazy"
+	>
+  <figcaption></figcaption>
+</figure></p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D" class="tag-link">随手拍</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">36 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/222.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+        <div class="pagination-section">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="page">
+  
+  <a href="/categories/%E9%9A%8F%E7%AC%94/page/2/" class="prev">上一页</a>
+  
+
+  
+  <a href="/categories/%E9%9A%8F%E7%AC%94/page/4/" class="next">下一页</a>
+  
+
+
+</div>
+
+
+
+        </div>
+        
+    </div>
+</div>
+
+        </main>
+    </div>
+    
+    
+    <script src="/js/wins98.js"></script>
+    
+</body>
+</html>

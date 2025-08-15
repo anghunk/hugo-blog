@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js - 子舒的博客</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="子舒">
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="/css/wins98.css">
+    <link rel="stylesheet" href="/css/wins98-ui.css">
+    
+    
+    <link rel="icon" href="https://imgurl.zishu.me/favicon.ico">
+    
+    <script type="application/ld+json">
+{
+"@context" : "http://schema.org",
+"@type" : "BlogPosting",
+"mainEntityOfPage": {
+"@type": "WebPage",
+"@id": "http:\/\/localhost:1313\/"
+},
+"articleSection" : "tags",
+"name" : "Js",
+"headline" : "Js",
+"description" : "",
+"inLanguage" : "en-US",
+"author" : "map[email:anghunk@gmail.com name:子舒]",
+"creator" : "map[email:anghunk@gmail.com name:子舒]",
+"publisher": "map[email:anghunk@gmail.com name:子舒]",
+"accountablePerson" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightHolder" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightYear" : "2024",
+"datePublished": "2024-03-01 00:00:00 \u002b0000 UTC",
+"dateModified" : "2024-03-01 00:00:00 \u002b0000 UTC",
+"url" : "http:\/\/localhost:1313\/tags\/js\/",
+"keywords" : [  ]
+}
+</script>
+</head>
+<body class="wins98-theme">
+    
+    <div class="desktop-background">
+        
+        <div class="taskbar">
+            <div class="start-button" onclick="toggleStartMenu()">
+                <img src="/images/start-button.png" alt="Start" class="start-icon">
+                <span>开始</span>
+            </div>
+            <div class="taskbar-programs">
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/daming-mountain-qianniugang-camping-notes.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>大明山牵牛岗露营游记</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/nanjing-travel-aug-3.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>南京游八月三日</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/login-bitwarden-legacy-version.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>如何登录旧版本 Bitwarden 密码管理器</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/262.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>AI 驱动的验证码自动识别之旅：从困扰到解放</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/261.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>Obsidian:移动端同步笔记</span>
+                </div>
+                
+            </div>
+            <div class="clock">
+                <span id="current-time"></span>
+            </div>
+        </div>
+        
+        
+        <div class="start-menu" id="startMenu">
+            <div class="start-menu-header">
+                <img src="/images/start-button.png" alt="Start" class="start-icon">
+                <span>开始菜单</span>
+            </div>
+            <div class="start-menu-items">
+                <div class="menu-item" onclick="window.location.href='/'">
+                    <img src="/images/home-icon.png" alt="Home">
+                    <span>首页</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/blog/'">
+                    <img src="/images/blog-icon.png" alt="Blog">
+                    <span>博客文章</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/about/'">
+                    <img src="/images/about-icon.png" alt="About">
+                    <span>关于我</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/projects/'">
+                    <img src="/images/project-icon.png" alt="Projects">
+                    <span>项目展示</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/friends/'">
+                    <img src="/images/friends-icon.png" alt="Friends">
+                    <span>友情链接</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/message/'">
+                    <img src="/images/message-icon.png" alt="Message">
+                    <span>留言板</span>
+                </div>
+            </div>
+        </div>
+        
+        
+        <main class="main-content">
+            
+<div class="wins98-window list-window">
+    <div class="window-titlebar">
+        <div class="window-title">
+            <img src="/images/blog-icon.png" alt="Blog" class="window-icon">
+            <span>Js</span>
+        </div>
+        <div class="window-controls">
+            <div class="minimize-btn" onclick="minimizeWindow(this)">_</div>
+            <div class="maximize-btn" onclick="maximizeWindow(this)">□</div>
+            <div class="close-btn" onclick="closeWindow(this)">×</div>
+        </div>
+    </div>
+    
+    <div class="window-content">
+        <div class="list-header">
+            <h1 class="list-title">Js</h1>
+            
+        </div>
+        
+        <div class="posts-list">
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/47.html/">webpack 的核心概念和构建流程</a>
+                    </h3>
+                    <span class="post-date">2021/01/18</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <h2 id="1webpack-的核心概念">1.webpack 的核心概念</h2>
+<ol>
+<li><strong>entry（入口）</strong>：一个可执行模块或者库的入口。定义了打包后的入口文件。</li>
+<li><strong>output（出口）</strong>：指示 webpack 如何去输出，以及在哪里输出。
+path: 打包文件存放的绝对路径
+publicPath: 网站运行时的访问路径
+filename: 打包后的文件名</li>
+<li><strong>module（模块）</strong>：在 webpack 里，一切皆模块，一个模块对应一个文件。webpack 会从 …</li></ol>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                        <a href="/tags/webpack" class="tag-link">webpack</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">3228 字</span>
+                        <span class="read-time">7 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/47.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/36.html/">javascript 进阶问题</a>
+                    </h3>
+                    <span class="post-date">2020/12/19</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>Github: <a href="https://github.com/lydiahallie/javascript-questions">https://github.com/lydiahallie/javascript-questions</a></p>
+<p>相当不错的一个 Github 仓库，<code>javascript questions</code> ，作者每周都会发布一些有关 javascript 的题目，虽然不难但是考察细节，刷了一会，其实一些很简单的问题，结果因为细节思考不到位直接出错。</p>
+<blockquote>
+<p>引用作者的话：我在我的 Instagram 上每天都会 …</p></blockquote>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">168 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/36.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/22.html/">在 js 中运算不能随便把 value 属性定义成变量</a>
+                    </h3>
+                    <span class="post-date">2020/11/18</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>在写一个小 demo 的时候，无意中发现定义变量的时候直接写入 value，会导致获取不到数据，或者获取的不是我们想要的内容，在 js 中运算不能随便把 value 属性定义成变量</p>
+<p>先看一段代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="err">&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;a&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>*<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">= …</span></span></span></span></span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">387 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/22.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/21.html/">事件监听函数，以及事件的捕获和冒泡机制</a>
+                    </h3>
+                    <span class="post-date">2020/11/17</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>事件一般是用于浏览器和用户操作之间的交互，当用户执行某些特殊的操作时，浏览器给予反应，触发绑定的事件，<code>事件流</code>，事件发生时会在元素节点和根节点之间按照约定的顺序传播，事件经过的所有节点都会受到事件的影响，这个传播过程被称为 DOM 事件流</p>
+<h2 id="函数事件">函数事件</h2>
+<p>事件一般是用于浏览器和用户操作之间的交互，当用户执行某些特殊的操作时，浏览器给予反应，触发绑定的事件</p>
+<p><code>事件流</code>，事件发生时会在元素节点和根节点之间按照约定 …</p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E7%AC%94%E8%AE%B0" class="tag-link">笔记</a>
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">3346 字</span>
+                        <span class="read-time">7 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/21.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/17.html/">有关 js 函数，方法的一些补充总结</a>
+                    </h3>
+                    <span class="post-date">2020/11/14</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>数据类型，构造函数，原型和原型链的一些讲解补充</p>
+<h2 id="一数据类型">一、数据类型</h2>
+<h3 id="15-个基本类型">1.5 个基本类型</h3>
+<p>string
+number
+boolean
+undefined   未定义
+null    值为空
+symbol  表示一个符号，符号类型是唯一的并且是不可修改的</p>
+<p>最常见的还是前三种，字符串，数字，布尔值</p>
+<h3 id="2常见的引用类型">2.常见的引用类型</h3>
+<p>引用类型是一种数据结构，用于将数据和功能组织在一起</p>
+<p>对象－Object, 数组－Array, …</p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E7%AC%94%E8%AE%B0" class="tag-link">笔记</a>
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">2092 字</span>
+                        <span class="read-time">5 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/17.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/15.html/">面向对象编程</a>
+                    </h3>
+                    <span class="post-date">2020/11/12</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>面向对象把构成问题的 transaction 分解成各个对象，而建立对象的目的也不是为了完成一个个步骤，而是为了描述某个事物在解决整个问题的过程中所发生的行为，意在写出通用代码，加强代码重用，屏蔽差异性。</p>
+<h2 id="一什么是面向对象编程">一、什么是面向对象编程</h2>
+<p>js 是<code>基于原型</code>的，基于<code>面向对象编程</code></p>
+<p>面向对象就是把数据和对数据的操作方法放在一起，作为一个整体——对象。对同类对象抽象出其共性，形成类</p>
+<h3 id="1面向过程程序设计">1.面向过程程序设计</h3>
+<p>将一个项 …</p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E7%BC%96%E7%A8%8B" class="tag-link">编程</a>
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">4589 字</span>
+                        <span class="read-time">10 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/15.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+        <div class="pagination-section">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="pagination">
+  
+  <li >
+    <a href="/tags/js/">1</a>
+  </li>
+  
+  <li >
+    <a href="/tags/js/page/2/">2</a>
+  </li>
+  
+  <li  class="active" >
+    <a href="/tags/js/page/3/">3</a>
+  </li>
+  
+</nav>
+
+
+
+
+
+        </div>
+        
+    </div>
+</div>
+
+        </main>
+    </div>
+    
+    
+    <script src="/js/wins98.js"></script>
+    
+</body>
+</html>

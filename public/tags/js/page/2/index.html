@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js - 子舒的博客</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="子舒">
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="/css/wins98.css">
+    <link rel="stylesheet" href="/css/wins98-ui.css">
+    
+    
+    <link rel="icon" href="https://imgurl.zishu.me/favicon.ico">
+    
+    <script type="application/ld+json">
+{
+"@context" : "http://schema.org",
+"@type" : "BlogPosting",
+"mainEntityOfPage": {
+"@type": "WebPage",
+"@id": "http:\/\/localhost:1313\/"
+},
+"articleSection" : "tags",
+"name" : "Js",
+"headline" : "Js",
+"description" : "",
+"inLanguage" : "en-US",
+"author" : "map[email:anghunk@gmail.com name:子舒]",
+"creator" : "map[email:anghunk@gmail.com name:子舒]",
+"publisher": "map[email:anghunk@gmail.com name:子舒]",
+"accountablePerson" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightHolder" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightYear" : "2024",
+"datePublished": "2024-03-01 00:00:00 \u002b0000 UTC",
+"dateModified" : "2024-03-01 00:00:00 \u002b0000 UTC",
+"url" : "http:\/\/localhost:1313\/tags\/js\/",
+"keywords" : [  ]
+}
+</script>
+</head>
+<body class="wins98-theme">
+    
+    <div class="desktop-background">
+        
+        <div class="taskbar">
+            <div class="start-button" onclick="toggleStartMenu()">
+                <img src="/images/start-button.png" alt="Start" class="start-icon">
+                <span>开始</span>
+            </div>
+            <div class="taskbar-programs">
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/daming-mountain-qianniugang-camping-notes.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>大明山牵牛岗露营游记</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/nanjing-travel-aug-3.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>南京游八月三日</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/login-bitwarden-legacy-version.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>如何登录旧版本 Bitwarden 密码管理器</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/262.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>AI 驱动的验证码自动识别之旅：从困扰到解放</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/261.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>Obsidian:移动端同步笔记</span>
+                </div>
+                
+            </div>
+            <div class="clock">
+                <span id="current-time"></span>
+            </div>
+        </div>
+        
+        
+        <div class="start-menu" id="startMenu">
+            <div class="start-menu-header">
+                <img src="/images/start-button.png" alt="Start" class="start-icon">
+                <span>开始菜单</span>
+            </div>
+            <div class="start-menu-items">
+                <div class="menu-item" onclick="window.location.href='/'">
+                    <img src="/images/home-icon.png" alt="Home">
+                    <span>首页</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/blog/'">
+                    <img src="/images/blog-icon.png" alt="Blog">
+                    <span>博客文章</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/about/'">
+                    <img src="/images/about-icon.png" alt="About">
+                    <span>关于我</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/projects/'">
+                    <img src="/images/project-icon.png" alt="Projects">
+                    <span>项目展示</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/friends/'">
+                    <img src="/images/friends-icon.png" alt="Friends">
+                    <span>友情链接</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/message/'">
+                    <img src="/images/message-icon.png" alt="Message">
+                    <span>留言板</span>
+                </div>
+            </div>
+        </div>
+        
+        
+        <main class="main-content">
+            
+<div class="wins98-window list-window">
+    <div class="window-titlebar">
+        <div class="window-title">
+            <img src="/images/blog-icon.png" alt="Blog" class="window-icon">
+            <span>Js</span>
+        </div>
+        <div class="window-controls">
+            <div class="minimize-btn" onclick="minimizeWindow(this)">_</div>
+            <div class="maximize-btn" onclick="maximizeWindow(this)">□</div>
+            <div class="close-btn" onclick="closeWindow(this)">×</div>
+        </div>
+    </div>
+    
+    <div class="window-content">
+        <div class="list-header">
+            <h1 class="list-title">Js</h1>
+            
+        </div>
+        
+        <div class="posts-list">
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/145.html/">人民币小写转大写</a>
+                    </h3>
+                    <span class="post-date">2022/06/24</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>一个有趣的 demo</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="k">this</span><span class="p">.</span><span class="nx">smalltoBIG</span><span class="p">(</span><span class="mf">43533534.78</span><span class="p">);</span> <span class="c1">//肆仟叁佰伍拾叁万叁仟伍佰叁拾肆元柒角捌分
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	
+</span></span><span class="line"><span class="cl"><span class="nx">smalltoBIG</span> <span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">fraction</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;角&#39;</span><span class="p">,</span> <span class="s1">&#39;分&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">digit</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;零&#39;</span><span class="p">,</span> <span class="s1">&#39;壹&#39;</span><span class="p">,</span> <span class="s1">&#39;贰&#39;</span><span class="p">,</span> <span class="s1">&#39;叁&#39;</span><span class="p">,</span> <span class="s1">&#39; …</span></span></span></span></span></span></span></span></span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">555 字</span>
+                        <span class="read-time">2 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/145.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/120.html/">浏览器收藏夹一键填写博客评论信息</a>
+                    </h3>
+                    <span class="post-date">2022/04/26</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>先点击收藏一个页面，然后右键它，选择修改，在网址输入框复制下面的 js 代码，就可以一键填入了。</p>
+<p>将其中的昵称，邮箱，网址修改成自己的信息。</p>
+<p>目前支持绝大多数主流博客平台和系统，如果发现没有起作用，可以在下面代码里面修改增加一下 input 的属性。</p>
+<p>如果你不会修改的话，可以在评论区留言没有起作用的网站，我可以更新代码。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">javascript</span><span class="o">:</span><span class="k">void</span> <span class="kd">function</span><span class="p">(){</span><span class="kd">var</span> <span class="nx">lauthor …</span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E5%8D%9A%E5%AE%A2" class="tag-link">博客</a>
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">281 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/120.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/82.html/">揭秘箭头函数</a>
+                    </h3>
+                    <span class="post-date">2021/11/05</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <blockquote>
+<p>英文地址：https://javascript.plainenglish.io/demystifying-javascript-arrow-functions-7b2a0908a2b3<br>
+通过掘金翻译计划活动进行翻译</p></blockquote>
+<p>     
+<figure>
+  <img …</figure></p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                        <a href="/tags/%E7%BF%BB%E8%AF%91" class="tag-link">翻译</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">1093 字</span>
+                        <span class="read-time">3 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/82.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/81.html/">js 奇怪的知识--console.table</a>
+                    </h3>
+                    <span class="post-date">2021/11/04</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>这个属性对我来说还真有些陌生，无意中发现的，查询过 MDN 之后听得挺有意思的，就记录一下。</p>
+<p>根据字面意思就是“将数据以表格的形式显示”。这个方法需要一个必须参数 data，data 必须是一个数组或者是一个对象；还可以使用一个可选参数 columns。</p>
+<p>表格的第一列是 index。如果数据 data 是一个数组，那么这一列的单元格的值就是数组的索引。如果数据是一个对象，那么它们的值就是各对象的属 …</p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">740 字</span>
+                        <span class="read-time">2 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/81.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/80.html/">通过 getTimezoneOffset() 方法判断当前时区是否为夏令时</a>
+                    </h3>
+                    <span class="post-date">2021/10/22</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p><code>getTimezoneOffset() 方法</code> 方法返回 UTC 时间和本地时间之间的时差，以分钟为单位。</p>
+<blockquote>
+<p>世界协调时间 (UTC) 是世界时间标准设定的时间，UTC 时间与 GMT 时间（格林威治时间）相同。</p></blockquote>
+<p>测一下我所在时区和标准时区的时间差</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">myDate</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getTimezoneOffset</span><span class="p">(); …</span></span></span></span></span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">271 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/80.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/78.html/">使用 js 随机生成背景颜色</a>
+                    </h3>
+                    <span class="post-date">2021/09/29</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>先写一个简单的 html 页面出来</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">/* ... */</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>html<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>css<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>js<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>通过 <code>Math.random()</code> 属性可以随机生成一个数字，然后通过转化 …</p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">522 字</span>
+                        <span class="read-time">2 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/78.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/60.html/">实时监听页面的变化</a>
+                    </h3>
+                    <span class="post-date">2021/03/26</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>问题产生于需求，因为项目需要适配 pc 和移动端多套布局，所以某些元素在特定的宽度下会产生错位的现象。</p>
+<p>如果是在 css 中，可以很好的判断，使用媒体查询可以实时检测页面的宽度，从而给予标签不同的属性。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">max-width</span><span class="p">:</span><span class="nd">768px</span><span class="o">)</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>在 js 下可以使用下面这种方法</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">, …</span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">182 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/60.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/57.html/">用 ajax 请求获取数据</a>
+                    </h3>
+                    <span class="post-date">2021/03/19</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>通过 jquery 进行 ajax 请求数据是一种较为简便的方式，我简单写了一个本地的<code>data.json</code>文件，然后用<code>get</code>请求数据，下面是部分代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// ajax 请求获取数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">picShow</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">url</span><span class="o">:</span><span class="s1">&#39;./js/data.json&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">type</span><span class="o">: …</span></span></span></span></span></span></span></span></span></span></span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                        <a href="/tags/ajax" class="tag-link">ajax</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">262 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/57.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/48.html/">ES5 和 ES6 的区别？</a>
+                    </h3>
+                    <span class="post-date">2021/01/20</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <h2 id="一javascript-由三部分组成">一、javascript 由三部分组成</h2>
+<h3 id="1ecmascript核心">1.ECMAScript（核心）</h3>
+<p>它规定了语言的组成部分：法语，类型，语句，关键字，操作符等等。</p>
+<h3 id="2dom文档对象模型">2.DOM（文档对象模型）</h3>
+<p>DOM 把整个页面映射为一个多层节点结果，开发人员可借助 DOM 提供的 API，轻松地删除、添加、替换或修改任何节点。</p>
+<h3 id="3bom浏览器对象模型">3.BOM（浏览器对象模型）</h3>
+<p>支持可以访问和操作浏览器窗口的浏览器对象模型，开发人员可以控制浏览器显示的页面以外 …</p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                        <a href="/tags/es6" class="tag-link">ES6</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">1930 字</span>
+                        <span class="read-time">4 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/48.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+        <div class="pagination-section">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="pagination">
+  
+  <li >
+    <a href="/tags/js/">1</a>
+  </li>
+  
+  <li  class="active" >
+    <a href="/tags/js/page/2/">2</a>
+  </li>
+  
+  <li >
+    <a href="/tags/js/page/3/">3</a>
+  </li>
+  
+</nav>
+
+
+
+
+
+        </div>
+        
+    </div>
+</div>
+
+        </main>
+    </div>
+    
+    
+    <script src="/js/wins98.js"></script>
+    
+</body>
+</html>

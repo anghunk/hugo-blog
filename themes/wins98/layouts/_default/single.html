@@ -1,0 +1,71 @@
+{{ define "main" }}
+<div class="wins98-window article-window">
+    <div class="window-titlebar">
+        <div class="window-title">
+            <img src="{{ "images/document-icon.svg" | relURL }}" alt="Document" class="window-icon">
+            <span>{{ .Title }}</span>
+        </div>
+        <div class="window-controls">
+            <div class="minimize-btn" onclick="minimizeWindow(this)">_</div>
+            <div class="maximize-btn" onclick="maximizeWindow(this)">□</div>
+            <div class="close-btn" onclick="closeWindow(this)">×</div>
+        </div>
+    </div>
+    
+    <div class="window-content">
+        <article class="article-content">
+            <header class="article-header">
+                <h1 class="article-title">{{ .Title }}</h1>
+                <div class="article-meta">
+                    <span class="meta-item">
+                        <img src="{{ "images/calendar-icon.png" | relURL }}" alt="Date" class="meta-icon">
+                        {{ .Date.Format "2006 年 01 月 02 日" }}
+                    </span>
+                    {{ if .Params.author }}
+                    <span class="meta-item">
+                        <img src="{{ "images/user-icon.png" | relURL }}" alt="Author" class="meta-icon">
+                        {{ .Params.author }}
+                    </span>
+                    {{ end }}
+                    {{ if .Params.tags }}
+                    <span class="meta-item">
+                        <img src="{{ "images/tag-icon.png" | relURL }}" alt="Tags" class="meta-icon">
+                        {{ range .Params.tags }}
+                        <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="tag-link">{{ . }}</a>
+                        {{ end }}
+                    </span>
+                    {{ end }}
+                </div>
+            </header>
+            
+            <div class="article-body">
+                {{ .Content }}
+            </div>
+            
+            <footer class="article-footer">
+                <div class="article-navigation">
+                    {{ with .PrevInSection }}
+                    <a href="{{ .RelPermalink }}" class="nav-link prev-link">
+                        <img src="{{ "images/arrow-left.png" | relURL }}" alt="Previous" class="nav-icon">
+                        <span>上一篇：{{ .Title }}</span>
+                    </a>
+                    {{ end }}
+                    {{ with .NextInSection }}
+                    <a href="{{ .RelPermalink }}" class="nav-link next-link">
+                        <span>下一篇：{{ .Title }}</span>
+                        <img src="{{ "images/arrow-right.png" | relURL }}" alt="Next" class="nav-icon">
+                    </a>
+                    {{ end }}
+                </div>
+                
+                {{ if .Site.Params.enableComments }}
+                <div class="comments-section">
+                    <h3 class="section-title">评论</h3>
+                    {{ partial "comment.html" . }}
+                </div>
+                {{ end }}
+            </footer>
+        </article>
+    </div>
+</div>
+{{ end }}

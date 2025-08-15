@@ -1,0 +1,533 @@
+/* Windows 98 UI 组件样式 */
+
+/* 输入框样式 */
+.wins98-input {
+    background: var(--wins98-highlight);
+    border: 2px solid var(--wins98-shadow);
+    border-right: 2px solid var(--wins98-highlight);
+    border-bottom: 2px solid var(--wins98-highlight);
+    padding: 6px 8px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--wins98-text);
+    outline: none;
+}
+
+.wins98-input:focus {
+    border-color: var(--wins98-titlebar-bg);
+}
+
+/* 文本区域样式 */
+.wins98-textarea {
+    background: var(--wins98-highlight);
+    border: 2px solid var(--wins98-shadow);
+    border-right: 2px solid var(--wins98-highlight);
+    border-bottom: 2px solid var(--wins98-highlight);
+    padding: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--wins98-text);
+    outline: none;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.wins98-textarea:focus {
+    border-color: var(--wins98-titlebar-bg);
+}
+
+/* 选择框样式 */
+.wins98-select {
+    background: var(--wins98-highlight);
+    border: 2px solid var(--wins98-shadow);
+    border-right: 2px solid var(--wins98-highlight);
+    border-bottom: 2px solid var(--wins98-highlight);
+    padding: 4px 8px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--wins98-text);
+    outline: none;
+    cursor: pointer;
+}
+
+.wins98-select:focus {
+    border-color: var(--wins98-titlebar-bg);
+}
+
+/* 复选框样式 */
+.wins98-checkbox {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--wins98-highlight);
+    border: 2px solid var(--wins98-shadow);
+    border-right: 2px solid var(--wins98-highlight);
+    border-bottom: 2px solid var(--wins98-highlight);
+    cursor: pointer;
+    position: relative;
+}
+
+.wins98-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    top: -2px;
+    left: 1px;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--wins98-text);
+}
+
+.wins98-checkbox:focus {
+    border-color: var(--wins98-titlebar-bg);
+}
+
+/* 单选按钮样式 */
+.wins98-radio {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--wins98-highlight);
+    border: 2px solid var(--wins98-shadow);
+    border-right: 2px solid var(--wins98-highlight);
+    border-bottom: 2px solid var(--wins98-highlight);
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+.wins98-radio:checked::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 6px;
+    height: 6px;
+    background: var(--wins98-text);
+    border-radius: 50%;
+}
+
+.wins98-radio:focus {
+    border-color: var(--wins98-titlebar-bg);
+}
+
+/* 表单样式 */
+.wins98-form {
+    background: var(--wins98-window-bg);
+    border: 2px solid var(--wins98-highlight);
+    border-right: 2px solid var(--wins98-shadow);
+    border-bottom: 2px solid var(--wins98-shadow);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: var(--wins98-text);
+}
+
+.form-input {
+    width: 100%;
+}
+
+.form-textarea {
+    width: 100%;
+}
+
+.form-select {
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* 表格样式 */
+.wins98-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    background: var(--wins98-highlight);
+    border: 2px solid var(--wins98-shadow);
+}
+
+.wins98-table th {
+    background: var(--wins98-titlebar-bg);
+    color: var(--wins98-titlebar-text);
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: bold;
+    border: 1px solid var(--wins98-border);
+}
+
+.wins98-table td {
+    padding: 8px 12px;
+    border: 1px solid var(--wins98-border);
+}
+
+.wins98-table tr:nth-child(even) {
+    background: var(--wins98-window-bg);
+}
+
+.wins98-table tr:hover {
+    background: var(--wins98-titlebar-bg);
+    color: var(--wins98-titlebar-text);
+}
+
+/* 警告框样式 */
+.wins98-alert {
+    background: var(--wins98-window-bg);
+    border: 2px solid var(--wins98-highlight);
+    border-right: 2px solid var(--wins98-shadow);
+    border-bottom: 2px solid var(--wins98-shadow);
+    padding: 16px;
+    margin: 16px 0;
+    position: relative;
+}
+
+.wins98-alert.info {
+    border-left: 4px solid var(--wins98-titlebar-bg);
+}
+
+.wins98-alert.success {
+    border-left: 4px solid #008000;
+}
+
+.wins98-alert.warning {
+    border-left: 4px solid #ff8000;
+}
+
+.wins98-alert.error {
+    border-left: 4px solid #ff0000;
+}
+
+.alert-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--wins98-titlebar-bg);
+}
+
+.alert-message {
+    line-height: 1.5;
+}
+
+/* 模态框样式 */
+.wins98-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.wins98-modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--wins98-window-bg);
+    border: 2px solid var(--wins98-highlight);
+    border-right: 2px solid var(--wins98-shadow);
+    border-bottom: 2px solid var(--wins98-shadow);
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    background: var(--wins98-titlebar-bg);
+    color: var(--wins98-titlebar-text);
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-weight: bold;
+}
+
+.modal-close {
+    background: var(--wins98-button-bg);
+    border: 2px solid var(--wins98-button-border);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modal-close:hover {
+    border-color: var(--wins98-button-pressed);
+}
+
+.modal-body {
+    padding: 16px;
+}
+
+.modal-footer {
+    padding: 16px;
+    border-top: 1px solid var(--wins98-border);
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+/* 工具提示样式 */
+.wins98-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.wins98-tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background: var(--wins98-window-bg);
+    color: var(--wins98-text);
+    text-align: center;
+    border: 2px solid var(--wins98-shadow);
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.wins98-tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* 进度条样式 */
+.wins98-progress {
+    width: 100%;
+    height: 20px;
+    background: var(--wins98-highlight);
+    border: 2px solid var(--wins98-shadow);
+    border-right: 2px solid var(--wins98-highlight);
+    border-bottom: 2px solid var(--wins98-highlight);
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--wins98-titlebar-bg);
+    transition: width 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--wins98-titlebar-text);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* 标签页样式 */
+.wins98-tabs {
+    border-bottom: 2px solid var(--wins98-border);
+    margin-bottom: 16px;
+}
+
+.tab-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tab-item {
+    background: var(--wins98-button-bg);
+    border: 2px solid var(--wins98-button-border);
+    border-bottom: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-right: 2px;
+    transition: all 0.1s ease;
+}
+
+.tab-item.active {
+    background: var(--wins98-highlight);
+    border-bottom: 2px solid var(--wins98-highlight);
+    margin-bottom: -2px;
+}
+
+.tab-item:hover:not(.active) {
+    border-color: var(--wins98-button-pressed);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* 面包屑导航样式 */
+.wins98-breadcrumb {
+    background: var(--wins98-window-bg);
+    border: 2px solid var(--wins98-highlight);
+    border-right: 2px solid var(--wins98-shadow);
+    border-bottom: 2px solid var(--wins98-shadow);
+    padding: 8px 16px;
+    margin-bottom: 16px;
+}
+
+.breadcrumb-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 8px;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-item:not(:last-child)::after {
+    content: '>';
+    margin-left: 8px;
+    color: var(--wins98-border);
+}
+
+.breadcrumb-link {
+    color: var(--wins98-link);
+    text-decoration: none;
+}
+
+.breadcrumb-link:hover {
+    color: var(--wins98-link-hover);
+}
+
+.breadcrumb-current {
+    color: var(--wins98-text);
+    font-weight: bold;
+}
+
+/* 搜索框样式 */
+.wins98-search {
+    position: relative;
+    max-width: 400px;
+}
+
+.search-input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.search-button {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    background: var(--wins98-button-bg);
+    border: 2px solid var(--wins98-button-border);
+    width: 36px;
+    height: calc(100% - 4px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button:hover {
+    border-color: var(--wins98-button-pressed);
+}
+
+/* 加载动画样式 */
+.wins98-loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--wins98-border);
+    border-radius: 50%;
+    border-top-color: var(--wins98-titlebar-bg);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 通知样式 */
+.wins98-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--wins98-window-bg);
+    border: 2px solid var(--wins98-highlight);
+    border-right: 2px solid var(--wins98-shadow);
+    border-bottom: 2px solid var(--wins98-shadow);
+    padding: 16px;
+    max-width: 300px;
+    z-index: 3000;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.notification-title {
+    font-weight: bold;
+    color: var(--wins98-titlebar-bg);
+}
+
+.notification-close {
+    background: var(--wins98-button-bg);
+    border: 2px solid var(--wins98-button-border);
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.notification-close:hover {
+    border-color: var(--wins98-button-pressed);
+}
+
+.notification-message {
+    line-height: 1.4;
+}

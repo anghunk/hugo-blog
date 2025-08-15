@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React - 子舒的博客</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="子舒">
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="/css/wins98.css">
+    <link rel="stylesheet" href="/css/wins98-ui.css">
+    
+    
+    <link rel="icon" href="https://imgurl.zishu.me/favicon.ico">
+    
+    <script type="application/ld+json">
+{
+"@context" : "http://schema.org",
+"@type" : "BlogPosting",
+"mainEntityOfPage": {
+"@type": "WebPage",
+"@id": "http:\/\/localhost:1313\/"
+},
+"articleSection" : "tags",
+"name" : "React",
+"headline" : "React",
+"description" : "",
+"inLanguage" : "en-US",
+"author" : "map[email:anghunk@gmail.com name:子舒]",
+"creator" : "map[email:anghunk@gmail.com name:子舒]",
+"publisher": "map[email:anghunk@gmail.com name:子舒]",
+"accountablePerson" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightHolder" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightYear" : "2021",
+"datePublished": "2021-01-07 00:00:00 \u002b0000 UTC",
+"dateModified" : "2021-01-07 00:00:00 \u002b0000 UTC",
+"url" : "http:\/\/localhost:1313\/tags\/react\/",
+"keywords" : [  ]
+}
+</script>
+</head>
+<body class="wins98-theme">
+    
+    <div class="desktop-background">
+        
+        <div class="taskbar">
+            <div class="start-button" onclick="toggleStartMenu()">
+                <img src="/images/start-button.png" alt="Start" class="start-icon">
+                <span>开始</span>
+            </div>
+            <div class="taskbar-programs">
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/daming-mountain-qianniugang-camping-notes.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>大明山牵牛岗露营游记</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/nanjing-travel-aug-3.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>南京游八月三日</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/login-bitwarden-legacy-version.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>如何登录旧版本 Bitwarden 密码管理器</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/262.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>AI 驱动的验证码自动识别之旅：从困扰到解放</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/261.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>Obsidian:移动端同步笔记</span>
+                </div>
+                
+            </div>
+            <div class="clock">
+                <span id="current-time"></span>
+            </div>
+        </div>
+        
+        
+        <div class="start-menu" id="startMenu">
+            <div class="start-menu-header">
+                <img src="/images/start-button.png" alt="Start" class="start-icon">
+                <span>开始菜单</span>
+            </div>
+            <div class="start-menu-items">
+                <div class="menu-item" onclick="window.location.href='/'">
+                    <img src="/images/home-icon.png" alt="Home">
+                    <span>首页</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/blog/'">
+                    <img src="/images/blog-icon.png" alt="Blog">
+                    <span>博客文章</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/about/'">
+                    <img src="/images/about-icon.png" alt="About">
+                    <span>关于我</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/projects/'">
+                    <img src="/images/project-icon.png" alt="Projects">
+                    <span>项目展示</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/friends/'">
+                    <img src="/images/friends-icon.png" alt="Friends">
+                    <span>友情链接</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/message/'">
+                    <img src="/images/message-icon.png" alt="Message">
+                    <span>留言板</span>
+                </div>
+            </div>
+        </div>
+        
+        
+        <main class="main-content">
+            
+<div class="wins98-window list-window">
+    <div class="window-titlebar">
+        <div class="window-title">
+            <img src="/images/blog-icon.png" alt="Blog" class="window-icon">
+            <span>React</span>
+        </div>
+        <div class="window-controls">
+            <div class="minimize-btn" onclick="minimizeWindow(this)">_</div>
+            <div class="maximize-btn" onclick="maximizeWindow(this)">□</div>
+            <div class="close-btn" onclick="closeWindow(this)">×</div>
+        </div>
+    </div>
+    
+    <div class="window-content">
+        <div class="list-header">
+            <h1 class="list-title">React</h1>
+            
+        </div>
+        
+        <div class="posts-list">
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/31.html/">关于 react 的一份学习计划</a>
+                    </h3>
+                    <span class="post-date">2020/11/27</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>有关 react 框架的学习计划，除了之前推荐的 react 开源作者写的学习建议，我还参考了阮一峰的 react 实例教程，写的通俗易懂，又难易并进，可以很快的掌握 react 的核心要点</p>
+<p>之前说了，为了公司的项目决定学习 react 框架，看了一份 react.js 开源作者的一份学习计划，<a href="../20201119-react-learning-path">react 学习路径－－怎么学习 react？</a>个人感觉还是不错，但是需要看的文档比较多且官方文档没有那么 …</p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/react" class="tag-link">react</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">592 字</span>
+                        <span class="read-time">2 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/31.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/23.html/">react 学习路径－－怎么学习 react？</a>
+                    </h3>
+                    <span class="post-date">2020/11/19</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>转载于：<a href="https://github.com/petehunt/react-howto">https://github.com/petehunt/react-howto</a>，react 开源作者对于 react 框架的一个学习路径的建议，个人感觉还是相当不错的学习路线</p>
+<hr>
+<h1 id="如何学习-react">如何学习 React?</h1>
+<p>如果你是一个 React (或者前端) 新手，出于以下的原因，你可能会对这个生态圈感到困惑：</p>
+<ul>
+<li>React 的目标群体历来是喜欢尝试新事物的开发者和前端专家。</li>
+<li>Facebook 开源的内容是 …</li></ul>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/react" class="tag-link">react</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">2756 字</span>
+                        <span class="read-time">6 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/23.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+        <div class="pagination-section">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="pagination">
+  
+  <li >
+    <a href="/tags/react/">1</a>
+  </li>
+  
+  <li  class="active" >
+    <a href="/tags/react/page/2/">2</a>
+  </li>
+  
+</nav>
+
+
+
+
+
+        </div>
+        
+    </div>
+</div>
+
+        </main>
+    </div>
+    
+    
+    <script src="/js/wins98.js"></script>
+    
+</body>
+</html>

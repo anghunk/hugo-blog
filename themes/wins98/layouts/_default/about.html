@@ -1,0 +1,34 @@
+{{ define "main" }}
+<div class="wins98-window about-window">
+    <div class="window-titlebar">
+        <div class="window-title">
+            <img src="{{ "images/about-icon.png" | relURL }}" alt="About" class="window-icon">
+            <span>关于我</span>
+        </div>
+        <div class="window-controls">
+            <div class="minimize-btn" onclick="minimizeWindow(this)">_</div>
+            <div class="maximize-btn" onclick="maximizeWindow(this)">□</div>
+            <div class="close-btn" onclick="closeWindow(this)">×</div>
+        </div>
+    </div>
+    
+    <div class="window-content">
+        <div class="about-content">
+            {{ .Content }}
+        </div>
+        
+        {{ if .Site.Params.author }}
+        <div class="author-info wins98-card">
+            <h3>作者信息</h3>
+            <div class="author-details">
+                <p><strong>姓名:</strong> {{ .Site.Params.author.name }}</p>
+                <p><strong>邮箱:</strong> {{ .Site.Params.author.email }}</p>
+                {{ if .Site.Params.buildDate }}
+                <p><strong>建站时间:</strong> {{ .Site.Params.buildDate }}</p>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

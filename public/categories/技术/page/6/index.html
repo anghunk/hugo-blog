@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术 - 子舒的博客</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="子舒">
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="/css/wins98.css">
+    <link rel="stylesheet" href="/css/wins98-ui.css">
+    
+    
+    <link rel="icon" href="https://imgurl.zishu.me/favicon.ico">
+    
+    <script type="application/ld+json">
+{
+"@context" : "http://schema.org",
+"@type" : "BlogPosting",
+"mainEntityOfPage": {
+"@type": "WebPage",
+"@id": "http:\/\/localhost:1313\/"
+},
+"articleSection" : "categories",
+"name" : "技术",
+"headline" : "技术",
+"description" : "",
+"inLanguage" : "en-US",
+"author" : "map[email:anghunk@gmail.com name:子舒]",
+"creator" : "map[email:anghunk@gmail.com name:子舒]",
+"publisher": "map[email:anghunk@gmail.com name:子舒]",
+"accountablePerson" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightHolder" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightYear" : "2025",
+"datePublished": "2025-07-25 00:00:00 \u002b0000 UTC",
+"dateModified" : "2025-07-25 00:00:00 \u002b0000 UTC",
+"url" : "http:\/\/localhost:1313\/categories\/%E6%8A%80%E6%9C%AF\/",
+"keywords" : [  ]
+}
+</script>
+</head>
+<body class="wins98-theme">
+    
+    <div class="desktop-background">
+        
+        <div class="taskbar">
+            <div class="start-button" onclick="toggleStartMenu()">
+                <img src="/images/start-button.png" alt="Start" class="start-icon">
+                <span>开始</span>
+            </div>
+            <div class="taskbar-programs">
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/daming-mountain-qianniugang-camping-notes.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>大明山牵牛岗露营游记</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/nanjing-travel-aug-3.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>南京游八月三日</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/login-bitwarden-legacy-version.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>如何登录旧版本 Bitwarden 密码管理器</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/262.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>AI 驱动的验证码自动识别之旅：从困扰到解放</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/261.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>Obsidian:移动端同步笔记</span>
+                </div>
+                
+            </div>
+            <div class="clock">
+                <span id="current-time"></span>
+            </div>
+        </div>
+        
+        
+        <div class="start-menu" id="startMenu">
+            <div class="start-menu-header">
+                <img src="/images/start-button.png" alt="Start" class="start-icon">
+                <span>开始菜单</span>
+            </div>
+            <div class="start-menu-items">
+                <div class="menu-item" onclick="window.location.href='/'">
+                    <img src="/images/home-icon.png" alt="Home">
+                    <span>首页</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/blog/'">
+                    <img src="/images/blog-icon.png" alt="Blog">
+                    <span>博客文章</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/about/'">
+                    <img src="/images/about-icon.png" alt="About">
+                    <span>关于我</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/projects/'">
+                    <img src="/images/project-icon.png" alt="Projects">
+                    <span>项目展示</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/friends/'">
+                    <img src="/images/friends-icon.png" alt="Friends">
+                    <span>友情链接</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/message/'">
+                    <img src="/images/message-icon.png" alt="Message">
+                    <span>留言板</span>
+                </div>
+            </div>
+        </div>
+        
+        
+        <main class="main-content">
+            
+<div class="wins98-window list-window">
+    <div class="window-titlebar">
+        <div class="window-title">
+            <img src="/images/blog-icon.png" alt="Blog" class="window-icon">
+            <span>技术</span>
+        </div>
+        <div class="window-controls">
+            <div class="minimize-btn" onclick="minimizeWindow(this)">_</div>
+            <div class="maximize-btn" onclick="maximizeWindow(this)">□</div>
+            <div class="close-btn" onclick="closeWindow(this)">×</div>
+        </div>
+    </div>
+    
+    <div class="window-content">
+        <div class="list-header">
+            <h1 class="list-title">技术</h1>
+            
+        </div>
+        
+        <div class="posts-list">
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/152.html/">出错了，面板运行时发生错误！</a>
+                    </h3>
+                    <span class="post-date">2022/07/18</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 删除之前无法使用的面板环境</span>
+</span></span><span class="line"><span class="cl">rm -rf /www/server/panel/pyenv
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#重新获取新的面板环境和更新包</span>
+</span></span><span class="line"><span class="cl">curl http://download.bt.cn/install/update_panel.sh<span class="p">|</span>bash
+</span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E5%AE%9D%E5%A1%94" class="tag-link">宝塔</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">34 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/152.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/151.html/">笔记:vue 中使用 axios 调用数据并渲染</a>
+                    </h3>
+                    <span class="post-date">2022/07/12</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>示例如下。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;posts&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">div</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">v</span><span class="o">-</span><span class="k">for</span><span class="o">=</span><span class="s2">&#34;item in list&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">:</span><span class="nx">key</span><span class="o">=</span><span class="s2">&#34;item.cid&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{{</span> <span class="nx">item</span><span class="p">.</span><span class="nx">title</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="err">/div&gt; …</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E7%AC%94%E8%AE%B0" class="tag-link">笔记</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">71 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/151.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/146.html/">Obsidian:如何使用坚果云进行多端同步？</a>
+                    </h3>
+                    <span class="post-date">2022/06/27</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>接上篇文章 <a href="/blog/121.html">《关于我选择笔记系统这件小事》</a> ，Obsidian 的个人体验很棒，我也打算长久使用作为个人知识库。</p>
+<p>但是它有一个弊端，就是本地离线化导致同步是个问题，官方的同步服务很贵，给我劝退了，因此我寻求了其他的同步备份方案，就是今天我要分享的坚果云 + Obsidian。</p>
+<h3 id="注册账号">注册账号</h3>
+<p>在<a href="https://www.jianguoyun.com/">坚果云官网</a>注册一个账号，选择个人用户，创建账号之后登陆。</p>
+<p>点击创建  &gt; 个人同步文件夹，以后就同步这个 …</p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E7%AC%94%E8%AE%B0" class="tag-link">笔记</a>
+                        
+                        <a href="/tags/obsidian" class="tag-link">Obsidian</a>
+                        
+                        <a href="/tags/%E5%9D%9A%E6%9E%9C%E4%BA%91" class="tag-link">坚果云</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">540 字</span>
+                        <span class="read-time">2 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/146.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/145.html/">人民币小写转大写</a>
+                    </h3>
+                    <span class="post-date">2022/06/24</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>一个有趣的 demo</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="k">this</span><span class="p">.</span><span class="nx">smalltoBIG</span><span class="p">(</span><span class="mf">43533534.78</span><span class="p">);</span> <span class="c1">//肆仟叁佰伍拾叁万叁仟伍佰叁拾肆元柒角捌分
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	
+</span></span><span class="line"><span class="cl"><span class="nx">smalltoBIG</span> <span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">fraction</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;角&#39;</span><span class="p">,</span> <span class="s1">&#39;分&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">digit</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;零&#39;</span><span class="p">,</span> <span class="s1">&#39;壹&#39;</span><span class="p">,</span> <span class="s1">&#39;贰&#39;</span><span class="p">,</span> <span class="s1">&#39;叁&#39;</span><span class="p">,</span> <span class="s1">&#39; …</span></span></span></span></span></span></span></span></span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">555 字</span>
+                        <span class="read-time">2 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/145.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/143.html/">掘金抽奖脚本</a>
+                    </h3>
+                    <span class="post-date">2022/06/22</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>分享一个掘金抽奖的油猴脚本，可以一键签到，抽奖，梭哈。</p>
+<p>攒多一点矿石，体验买彩票的感觉。</p>
+<summary>油猴脚本代码<details>
+```js
+// ==UserScript==
+// @name         掘金抽奖
+// @namespace    http://tampermonkey.net/
+// @version      1.2.5
+// @description  掘金抽奖 签到 免费抽奖 5 连抽 10 …</details></summary>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E6%8E%98%E9%87%91" class="tag-link">掘金</a>
+                        
+                        <a href="/tags/%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC" class="tag-link">油猴脚本</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">1541 字</span>
+                        <span class="read-time">4 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/143.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/132.html/">typecho 评论回复艾特评论人</a>
+                    </h3>
+                    <span class="post-date">2022/06/07</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>typecho 在评论时默认是没有 <code>@</code>  评论人的功能，可以用代码加一下。</p>
+<p>在 <code>functions.php</code> 中：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 评论回复时 @ 评论人
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">get_comment_at</span><span class="p">(</span><span class="nv">$coid</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$db</span>   <span class="o">=</span> <span class="nx">Typecho_Db</span><span class="o">::</span><span class="na">get</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$prow</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">fetchRow</span><span class="p">(</span><span class="nv">$db</span><span class="o">-&gt;</span><span class="na">select</span><span class="p">( …</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E5%8D%9A%E5%AE%A2" class="tag-link">博客</a>
+                        
+                        <a href="/tags/typecho" class="tag-link">typecho</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">434 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/132.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/130.html/">宝塔自动备份网站到邮箱教程</a>
+                    </h3>
+                    <span class="post-date">2022/05/25</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <h3 id="前言">前言</h3>
+<p>网站经常备份好处就是遇到问题以后可以迅速的恢复，不那么被动，防止信息丢失，操作性很大。虽然搭建一个网站非常容易，但为了应对网络上各种各样的意外情况，避免自己的网站付诸东流，做好网站备份是非常有必要的。</p>
+<p>现在邮箱接收都支持附件文件，将网站文件和数据库文件备份到我们自己的邮箱也是一种很好地备份方式，也防止备份文件丢失。</p>
+<p>邮箱接收附件文件大小，取决于使用的邮箱服务。一般来说个人博客网站源文件，数据 …</p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E5%AE%9D%E5%A1%94" class="tag-link">宝塔</a>
+                        
+                        <a href="/tags/%E5%A4%87%E4%BB%BD" class="tag-link">备份</a>
+                        
+                        <a href="/tags/%E9%82%AE%E7%AE%B1" class="tag-link">邮箱</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">1504 字</span>
+                        <span class="read-time">4 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/130.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/106.html/">一个优雅的字体压缩解决方案 fonttools</a>
+                    </h3>
+                    <span class="post-date">2022/05/24</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>分享一个 python 的库 &mdash;fonttools，针对字体文件进行处理非常方便。</p>
+<h3 id="下载">下载</h3>
+<p>需要先在电脑上下载 python 环境，这个就不多说了。</p>
+<p>然后在本地命令行输入：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pip install fonttools
+</span></span></code></pre></div><h3 id="字体库">字体库</h3>
+<ol>
+<li>本地新建一个文件夹，取名为 <code>fonts</code> ，随意即可。将自己需要压缩整理的字体放在文件夹中，如 <code>OPPOSans.ttf</code> 。 …</li></ol>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E5%AD%97%E4%BD%93" class="tag-link">字体</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">370 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/106.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/128.html/">分享一款自用的 v2ex 主题样式</a>
+                    </h3>
+                    <span class="post-date">2022/05/12</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>起因是因为觉得 v2ex 网站主题略有拥挤，阅读体验不好，而正好网站支持自定义 css，所以就在参考其他人的基础上，修改了一套比较美观的样式。</p>
+<p>本来是自用的，但是看到有人发帖分享主题，我也索性将它分享出来了。</p>
+<p>v2ex 帖子：<a href="https://www.v2ex.com/t/851735">https://www.v2ex.com/t/851735</a></p>
+<p>Github 仓库：<a href="https://github.com/anghunk/v2ex_theme">https://github.com/anghunk/v2ex_theme</a></p>
+<p>不想看文档可以直接 …</p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/css" class="tag-link">css</a>
+                        
+                        <a href="/tags/v2ex" class="tag-link">v2ex</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">215 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/128.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+        <div class="pagination-section">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="page">
+  
+  <a href="/categories/%E6%8A%80%E6%9C%AF/page/5/" class="prev">上一页</a>
+  
+
+  
+  <a href="/categories/%E6%8A%80%E6%9C%AF/page/7/" class="next">下一页</a>
+  
+
+
+</div>
+
+
+
+        </div>
+        
+    </div>
+</div>
+
+        </main>
+    </div>
+    
+    
+    <script src="/js/wins98.js"></script>
+    
+</body>
+</html>

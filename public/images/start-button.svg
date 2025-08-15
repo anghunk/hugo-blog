@@ -1,0 +1,25 @@
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <!-- 开始按钮主体 - 浅灰色背景 -->
+  <rect x="1" y="1" width="14" height="14" fill="#c0c0c0" stroke="#000000" stroke-width="1"/>
+  
+  <!-- 开始按钮高亮边框 - 白色高光 -->
+  <rect x="1" y="1" width="14" height="1" fill="#ffffff"/>
+  <rect x="1" y="1" width="1" height="14" fill="#ffffff"/>
+  
+  <!-- 开始按钮阴影边框 - 深灰色阴影 -->
+  <rect x="15" y="2" width="1" height="13" fill="#808080"/>
+  <rect x="2" y="15" width="13" height="1" fill="#808080"/>
+  
+  <!-- Windows标志 - 四个小方块 -->
+  <!-- 左上角方块 -->
+  <rect x="3" y="3" width="2" height="2" fill="#000080"/>
+  <!-- 右上角方块 -->
+  <rect x="11" y="3" width="2" height="2" fill="#000080"/>
+  <!-- 左下角方块 -->
+  <rect x="3" y="11" width="2" height="2" fill="#000080"/>
+  <!-- 右下角方块 -->
+  <rect x="11" y="11" width="2" height="2" fill="#000080"/>
+  
+  <!-- 中间装饰线 -->
+  <rect x="7" y="7" width="2" height="2" fill="#000080"/>
+</svg>

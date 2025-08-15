@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}">
+    <meta name="keywords" content="{{ if .Params.keywords }}{{ delimit .Params.keywords ", " }}{{ else }}{{ .Site.Params.keywords }}{{ end }}">
+    <meta name="author" content="{{ .Site.Params.author.name }}">
+    
+    <!-- Windows 98 风格字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    
+    <!-- 主题样式 -->
+    <link rel="stylesheet" href="{{ "css/wins98.css" | relURL }}">
+    <link rel="stylesheet" href="{{ "css/wins98-ui.css" | relURL }}">
+    
+    <!-- 图标 -->
+    <link rel="icon" href="{{ .Site.Params.favicon | default "images/favicon.ico" | relURL }}">
+    
+    {{ partial "seo.html" . }}
+</head>
+<body class="wins98-theme">
+    <!-- Windows 98 桌面背景 -->
+    <div class="desktop-background">
+        <!-- 任务栏 -->
+        <div class="taskbar">
+            <div class="start-button" onclick="toggleStartMenu()">
+                <img src="{{ "images/start-button.svg" | relURL }}" alt="Start" class="start-icon">
+                <span>开始</span>
+            </div>
+            <div class="taskbar-programs">
+                {{ range .Site.RegularPages | first 5 }}
+                <div class="taskbar-item" onclick="window.open('{{ .RelPermalink }}')">
+                    <img src="{{ "images/document-icon.svg" | relURL }}" alt="Document" class="taskbar-icon">
+                    <span>{{ .Title }}</span>
+                </div>
+                {{ end }}
+            </div>
+            <div class="clock">
+                <span id="current-time"></span>
+            </div>
+        </div>
+        
+        <!-- 开始菜单 -->
+        <div class="start-menu" id="startMenu">
+            <div class="start-menu-header">
+                <img src="{{ "images/start-button.svg" | relURL }}" alt="Start" class="start-icon">
+                <span>开始菜单</span>
+            </div>
+            <div class="start-menu-items">
+                <div class="menu-item" onclick="window.location.href='/'">
+                    <img src="{{ "images/home-icon.png" | relURL }}" alt="Home">
+                    <span>首页</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/blog/'">
+                    <img src="{{ "images/blog-icon.png" | relURL }}" alt="Blog">
+                    <span>博客文章</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/about/'">
+                    <img src="{{ "images/about-icon.png" | relURL }}" alt="About">
+                    <span>关于我</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/projects/'">
+                    <img src="{{ "images/project-icon.png" | relURL }}" alt="Projects">
+                    <span>项目展示</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/friends/'">
+                    <img src="{{ "images/friends-icon.png" | relURL }}" alt="Friends">
+                    <span>友情链接</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/message/'">
+                    <img src="{{ "images/message-icon.png" | relURL }}" alt="Message">
+                    <span>留言板</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 主内容区域 -->
+        <main class="main-content">
+            {{ block "main" . }}{{ end }}
+        </main>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="{{ "js/wins98.js" | relURL }}"></script>
+    {{ block "scripts" . }}{{ end }}
+</body>
+</html>

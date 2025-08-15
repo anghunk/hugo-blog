@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术 - 子舒的博客</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="子舒">
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="/css/wins98.css">
+    <link rel="stylesheet" href="/css/wins98-ui.css">
+    
+    
+    <link rel="icon" href="https://imgurl.zishu.me/favicon.ico">
+    
+    <script type="application/ld+json">
+{
+"@context" : "http://schema.org",
+"@type" : "BlogPosting",
+"mainEntityOfPage": {
+"@type": "WebPage",
+"@id": "http:\/\/localhost:1313\/"
+},
+"articleSection" : "categories",
+"name" : "技术",
+"headline" : "技术",
+"description" : "",
+"inLanguage" : "en-US",
+"author" : "map[email:anghunk@gmail.com name:子舒]",
+"creator" : "map[email:anghunk@gmail.com name:子舒]",
+"publisher": "map[email:anghunk@gmail.com name:子舒]",
+"accountablePerson" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightHolder" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightYear" : "2025",
+"datePublished": "2025-07-25 00:00:00 \u002b0000 UTC",
+"dateModified" : "2025-07-25 00:00:00 \u002b0000 UTC",
+"url" : "http:\/\/localhost:1313\/categories\/%E6%8A%80%E6%9C%AF\/",
+"keywords" : [  ]
+}
+</script>
+</head>
+<body class="wins98-theme">
+    
+    <div class="desktop-background">
+        
+        <div class="taskbar">
+            <div class="start-button" onclick="toggleStartMenu()">
+                <img src="/images/start-button.png" alt="Start" class="start-icon">
+                <span>开始</span>
+            </div>
+            <div class="taskbar-programs">
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/daming-mountain-qianniugang-camping-notes.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>大明山牵牛岗露营游记</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/nanjing-travel-aug-3.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>南京游八月三日</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/login-bitwarden-legacy-version.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>如何登录旧版本 Bitwarden 密码管理器</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/262.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>AI 驱动的验证码自动识别之旅：从困扰到解放</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/261.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>Obsidian:移动端同步笔记</span>
+                </div>
+                
+            </div>
+            <div class="clock">
+                <span id="current-time"></span>
+            </div>
+        </div>
+        
+        
+        <div class="start-menu" id="startMenu">
+            <div class="start-menu-header">
+                <img src="/images/start-button.png" alt="Start" class="start-icon">
+                <span>开始菜单</span>
+            </div>
+            <div class="start-menu-items">
+                <div class="menu-item" onclick="window.location.href='/'">
+                    <img src="/images/home-icon.png" alt="Home">
+                    <span>首页</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/blog/'">
+                    <img src="/images/blog-icon.png" alt="Blog">
+                    <span>博客文章</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/about/'">
+                    <img src="/images/about-icon.png" alt="About">
+                    <span>关于我</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/projects/'">
+                    <img src="/images/project-icon.png" alt="Projects">
+                    <span>项目展示</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/friends/'">
+                    <img src="/images/friends-icon.png" alt="Friends">
+                    <span>友情链接</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/message/'">
+                    <img src="/images/message-icon.png" alt="Message">
+                    <span>留言板</span>
+                </div>
+            </div>
+        </div>
+        
+        
+        <main class="main-content">
+            
+<div class="wins98-window list-window">
+    <div class="window-titlebar">
+        <div class="window-title">
+            <img src="/images/blog-icon.png" alt="Blog" class="window-icon">
+            <span>技术</span>
+        </div>
+        <div class="window-controls">
+            <div class="minimize-btn" onclick="minimizeWindow(this)">_</div>
+            <div class="maximize-btn" onclick="maximizeWindow(this)">□</div>
+            <div class="close-btn" onclick="closeWindow(this)">×</div>
+        </div>
+    </div>
+    
+    <div class="window-content">
+        <div class="list-header">
+            <h1 class="list-title">技术</h1>
+            
+        </div>
+        
+        <div class="posts-list">
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/30.html/">webpack 安装配置指令</a>
+                    </h3>
+                    <span class="post-date">2020/11/26</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>进行重新加载编译。实际就是将浏览器不认识的语法编译成浏览器认识的语法。比如 less 编译成 css，ES6 语法 转成 ES5 等等。</p>
+<p>减少 io 请求，通常我们在请求后，会返回一个 html 到浏览器。这时，我们如果打开控制台，就会发现在 html 页面通过 script,link 等标签引用的静态资源，浏览器会再次发出请求去获取这些资源。但是 webpack 的打包，将所有的静态资源都合并好 …</p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E5%B7%A5%E5%85%B7" class="tag-link">工具</a>
+                        
+                        <a href="/tags/webpack" class="tag-link">webpack</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">1247 字</span>
+                        <span class="read-time">3 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/30.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/29.html/">vue 学习笔记 (3)－－computed, watch，calss, style</a>
+                    </h3>
+                    <span class="post-date">2020/11/25</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <h2 id="一计算属性-computed">一、计算属性 computed</h2>
+<h3 id="1例子">1.例子</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;app&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>{{message}}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>{{revermessage}}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">vm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">el</span><span class="o">: …</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/vue" class="tag-link">vue</a>
+                        
+                        <a href="/tags/%E7%AC%94%E8%AE%B0" class="tag-link">笔记</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">1578 字</span>
+                        <span class="read-time">4 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/29.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/28.html/">vue 学习笔记 (2)－－vue 实例和模板语法</a>
+                    </h3>
+                    <span class="post-date">2020/11/24</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <h2 id="一vue-实例">一、vue 实例</h2>
+<h3 id="1创建-vue-实例">1.创建 vue 实例</h3>
+<p>一个 vue 实例应该通过<code>new Vue</code>来创建根实例，所有的 vue 组件其实都是 vue 实例</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">vm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></div><p>当一个实例被创建时，<code>data</code>对象中的 property 都被加入到 vue 的响应式系统中，当值发生改变时，试图也会改变</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span> <span class="mi">1</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">vm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({ …</span></span></span></span></span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/vue" class="tag-link">vue</a>
+                        
+                        <a href="/tags/%E7%AC%94%E8%AE%B0" class="tag-link">笔记</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">2336 字</span>
+                        <span class="read-time">5 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/28.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/27.html/">vue 学习笔记 (1)－－什么是 vue?</a>
+                    </h3>
+                    <span class="post-date">2020/11/23</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <h2 id="一什么是-vue">一、什么是 vue?</h2>
+<p>练习时使用，最新版本</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>生产时使用，明确版本号的版本，避免造成不可预见的问题</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">= …</span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/vue" class="tag-link">vue</a>
+                        
+                        <a href="/tags/%E7%AC%94%E8%AE%B0" class="tag-link">笔记</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">2504 字</span>
+                        <span class="read-time">5 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/27.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/25.html/">对象，类和接口之间的关系</a>
+                    </h3>
+                    <span class="post-date">2020/11/21</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>类是对的类型，类是具有相同属性和方法的一组集合，一个类可以对应多个对象，对象通过他们公开的方法来定义他们与外界的交互行为，而方法就形成了与外界交互的接口</p>
+<h2 id="类对象和接口">类，对象和接口</h2>
+<h3 id="1类和对象">1.类和对象</h3>
+<p>区别：</p>
+<ol>
+<li>对象是类的一个实例。就比如一个人，他有具体的属性，身高，体重，姓名等状态，跑步，跳舞等行为</li>
+<li>类是抽象的概念，代表一类事物的模版。对一类对象的行为和状态进行描述，抽离出其共性，形成类</li>
+</ol>
+<p>关系：</p>
+<ol>
+<li>类就是对事物 …</li></ol>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E7%BC%96%E7%A8%8B" class="tag-link">编程</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">631 字</span>
+                        <span class="read-time">2 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/25.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/24.html/">vue 使用 cli 脚手架构建项目工程</a>
+                    </h3>
+                    <span class="post-date">2020/11/20</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>vue 使用 cli 脚手架构建项目工程，执行的命令以及遇到的相关的问题</p>
+<h3 id="1下载安装-node">1.下载安装 node</h3>
+<p>测试一下是否成功安装，</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ node -v
+</span></span><span class="line"><span class="cl">// 返回下载的版本号
+</span></span></code></pre></div><h3 id="2安装-webpack-环境">2.安装 webpack 环境</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ npm install webpack -g
+</span></span><span class="line"><span class="cl">// 如果失败，可能是因为用户没有权限
+</span></span><span class="line"><span class="cl">// 使用下面这种，管理员权限
+</span></span><span class="line"><span class="cl">$ sudo npm install webpack -g
+</span></span></code></pre></div><p>如果返回版本号代表成 …</p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/vue" class="tag-link">vue</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">922 字</span>
+                        <span class="read-time">2 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/24.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/23.html/">react 学习路径－－怎么学习 react？</a>
+                    </h3>
+                    <span class="post-date">2020/11/19</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>转载于：<a href="https://github.com/petehunt/react-howto">https://github.com/petehunt/react-howto</a>，react 开源作者对于 react 框架的一个学习路径的建议，个人感觉还是相当不错的学习路线</p>
+<hr>
+<h1 id="如何学习-react">如何学习 React?</h1>
+<p>如果你是一个 React (或者前端) 新手，出于以下的原因，你可能会对这个生态圈感到困惑：</p>
+<ul>
+<li>React 的目标群体历来是喜欢尝试新事物的开发者和前端专家。</li>
+<li>Facebook 开源的内容是 …</li></ul>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/react" class="tag-link">react</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">2756 字</span>
+                        <span class="read-time">6 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/23.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/22.html/">在 js 中运算不能随便把 value 属性定义成变量</a>
+                    </h3>
+                    <span class="post-date">2020/11/18</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>在写一个小 demo 的时候，无意中发现定义变量的时候直接写入 value，会导致获取不到数据，或者获取的不是我们想要的内容，在 js 中运算不能随便把 value 属性定义成变量</p>
+<p>先看一段代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="err">&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;a&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>*<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">= …</span></span></span></span></span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">387 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/22.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/21.html/">事件监听函数，以及事件的捕获和冒泡机制</a>
+                    </h3>
+                    <span class="post-date">2020/11/17</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>事件一般是用于浏览器和用户操作之间的交互，当用户执行某些特殊的操作时，浏览器给予反应，触发绑定的事件，<code>事件流</code>，事件发生时会在元素节点和根节点之间按照约定的顺序传播，事件经过的所有节点都会受到事件的影响，这个传播过程被称为 DOM 事件流</p>
+<h2 id="函数事件">函数事件</h2>
+<p>事件一般是用于浏览器和用户操作之间的交互，当用户执行某些特殊的操作时，浏览器给予反应，触发绑定的事件</p>
+<p><code>事件流</code>，事件发生时会在元素节点和根节点之间按照约定 …</p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E7%AC%94%E8%AE%B0" class="tag-link">笔记</a>
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">3346 字</span>
+                        <span class="read-time">7 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/21.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+        <div class="pagination-section">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="page">
+  
+  <a href="/categories/%E6%8A%80%E6%9C%AF/page/12/" class="prev">上一页</a>
+  
+
+  
+  <a href="/categories/%E6%8A%80%E6%9C%AF/page/14/" class="next">下一页</a>
+  
+
+
+</div>
+
+
+
+        </div>
+        
+    </div>
+</div>
+
+        </main>
+    </div>
+    
+    
+    <script src="/js/wins98.js"></script>
+    
+</body>
+</html>

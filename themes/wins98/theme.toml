@@ -1,0 +1,28 @@
+name = "Windows 98"
+license = "Apache-2.0"
+licenselink = "https://github.com/anghunk/hugo-blog/blob/main/LICENSE"
+description = "A Windows 98 style theme for Hugo blogs"
+homepage = "https://github.com/anghunk/hugo-blog"
+tags = ["windows98", "retro", "classic", "blog", "responsive"]
+features = ["blog", "responsive", "windows98-style"]
+min_version = "0.80.0"
+
+[author]
+  name = "子舒"
+  homepage = "https://zishu.me"
+
+[original]
+  name = "Windows 98"
+  homepage = "https://en.wikipedia.org/wiki/Windows_98"
+  repo = "https://github.com/anghunk/hugo-blog"
+
+# 如果您的主题支持多语言，请取消注释以下行
+# [languages]
+#   [languages.en]
+#     weight = 1
+#     title = "Windows 98 Theme"
+#     languageName = "English"
+#   [languages.zh-cn]
+#     weight = 2
+#     title = "Windows 98 主题"
+#     languageName = "简体中文"

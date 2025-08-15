@@ -1,0 +1,58 @@
+{{ define "main" }}
+<div class="wins98-window projects-window">
+    <div class="window-titlebar">
+        <div class="window-title">
+            <img src="{{ "images/project-icon.png" | relURL }}" alt="Projects" class="window-icon">
+            <span>项目展示</span>
+        </div>
+        <div class="window-controls">
+            <div class="minimize-btn" onclick="minimizeWindow(this)">_</div>
+            <div class="maximize-btn" onclick="maximizeWindow(this)">□</div>
+            <div class="close-btn" onclick="closeWindow(this)">×</div>
+        </div>
+    </div>
+    
+    <div class="window-content">
+        <div class="projects-header">
+            <h1>我的项目</h1>
+            <p>这里展示了我开发的一些项目</p>
+        </div>
+        
+        <div class="projects-grid">
+            {{ range .Site.Data.projects }}
+            <div class="project-card wins98-card">
+                <div class="project-header">
+                    <h3 class="project-title">{{ .name }}</h3>
+                    {{ if .status }}
+                    <span class="project-status {{ .status }}">{{ .status }}</span>
+                    {{ end }}
+                </div>
+                
+                {{ if .description }}
+                <div class="project-description">
+                    {{ .description }}
+                </div>
+                {{ end }}
+                
+                {{ if .technologies }}
+                <div class="project-technologies">
+                    <strong>技术栈:</strong>
+                    {{ range .technologies }}
+                    <span class="tech-tag">{{ . }}</span>
+                    {{ end }}
+                </div>
+                {{ end }}
+                
+                {{ if .links }}
+                <div class="project-links">
+                    {{ range .links }}
+                    <a href="{{ .url }}" class="wins98-button" target="_blank">{{ .name }}</a>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+{{ end }}

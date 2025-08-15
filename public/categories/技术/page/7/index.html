@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术 - 子舒的博客</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="子舒">
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="/css/wins98.css">
+    <link rel="stylesheet" href="/css/wins98-ui.css">
+    
+    
+    <link rel="icon" href="https://imgurl.zishu.me/favicon.ico">
+    
+    <script type="application/ld+json">
+{
+"@context" : "http://schema.org",
+"@type" : "BlogPosting",
+"mainEntityOfPage": {
+"@type": "WebPage",
+"@id": "http:\/\/localhost:1313\/"
+},
+"articleSection" : "categories",
+"name" : "技术",
+"headline" : "技术",
+"description" : "",
+"inLanguage" : "en-US",
+"author" : "map[email:anghunk@gmail.com name:子舒]",
+"creator" : "map[email:anghunk@gmail.com name:子舒]",
+"publisher": "map[email:anghunk@gmail.com name:子舒]",
+"accountablePerson" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightHolder" : "map[email:anghunk@gmail.com name:子舒]",
+"copyrightYear" : "2025",
+"datePublished": "2025-07-25 00:00:00 \u002b0000 UTC",
+"dateModified" : "2025-07-25 00:00:00 \u002b0000 UTC",
+"url" : "http:\/\/localhost:1313\/categories\/%E6%8A%80%E6%9C%AF\/",
+"keywords" : [  ]
+}
+</script>
+</head>
+<body class="wins98-theme">
+    
+    <div class="desktop-background">
+        
+        <div class="taskbar">
+            <div class="start-button" onclick="toggleStartMenu()">
+                <img src="/images/start-button.png" alt="Start" class="start-icon">
+                <span>开始</span>
+            </div>
+            <div class="taskbar-programs">
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/daming-mountain-qianniugang-camping-notes.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>大明山牵牛岗露营游记</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/nanjing-travel-aug-3.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>南京游八月三日</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/login-bitwarden-legacy-version.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>如何登录旧版本 Bitwarden 密码管理器</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/262.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>AI 驱动的验证码自动识别之旅：从困扰到解放</span>
+                </div>
+                
+                <div class="taskbar-item" onclick="window.open('\/blog\/261.html\/', '_blank')">
+                    <img src="/images/document-icon.png" alt="Document" class="taskbar-icon">
+                    <span>Obsidian:移动端同步笔记</span>
+                </div>
+                
+            </div>
+            <div class="clock">
+                <span id="current-time"></span>
+            </div>
+        </div>
+        
+        
+        <div class="start-menu" id="startMenu">
+            <div class="start-menu-header">
+                <img src="/images/start-button.png" alt="Start" class="start-icon">
+                <span>开始菜单</span>
+            </div>
+            <div class="start-menu-items">
+                <div class="menu-item" onclick="window.location.href='/'">
+                    <img src="/images/home-icon.png" alt="Home">
+                    <span>首页</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/blog/'">
+                    <img src="/images/blog-icon.png" alt="Blog">
+                    <span>博客文章</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/about/'">
+                    <img src="/images/about-icon.png" alt="About">
+                    <span>关于我</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/projects/'">
+                    <img src="/images/project-icon.png" alt="Projects">
+                    <span>项目展示</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/friends/'">
+                    <img src="/images/friends-icon.png" alt="Friends">
+                    <span>友情链接</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='/message/'">
+                    <img src="/images/message-icon.png" alt="Message">
+                    <span>留言板</span>
+                </div>
+            </div>
+        </div>
+        
+        
+        <main class="main-content">
+            
+<div class="wins98-window list-window">
+    <div class="window-titlebar">
+        <div class="window-title">
+            <img src="/images/blog-icon.png" alt="Blog" class="window-icon">
+            <span>技术</span>
+        </div>
+        <div class="window-controls">
+            <div class="minimize-btn" onclick="minimizeWindow(this)">_</div>
+            <div class="maximize-btn" onclick="maximizeWindow(this)">□</div>
+            <div class="close-btn" onclick="closeWindow(this)">×</div>
+        </div>
+    </div>
+    
+    <div class="window-content">
+        <div class="list-header">
+            <h1 class="list-title">技术</h1>
+            
+        </div>
+        
+        <div class="posts-list">
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/124.html/">docker 部署思源笔记</a>
+                    </h3>
+                    <span class="post-date">2022/05/05</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <blockquote>
+<p>文章废弃</p></blockquote>
+<h3 id="部署">部署</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run --name siyuan -itd -p 6806:6806 -v /opt/my_siyuan_path:/opt/siyuan --restart always b3log/siyuan
+</span></span></code></pre></div><h3 id="备份">备份</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo su
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看容器列表</span>
+</span></span><span class="line"><span class="cl">docker ps -a
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 制作备份</span>
+</span></span><span class="line"><span class="cl">docker commit -p 7409ce6aae7b …</span></span></span></span></span></span></span></span></span></span></span></span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E6%80%9D%E6%BA%90%E7%AC%94%E8%AE%B0" class="tag-link">思源笔记</a>
+                        
+                        <a href="/tags/docker" class="tag-link">docker</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">117 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/124.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/120.html/">浏览器收藏夹一键填写博客评论信息</a>
+                    </h3>
+                    <span class="post-date">2022/04/26</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>先点击收藏一个页面，然后右键它，选择修改，在网址输入框复制下面的 js 代码，就可以一键填入了。</p>
+<p>将其中的昵称，邮箱，网址修改成自己的信息。</p>
+<p>目前支持绝大多数主流博客平台和系统，如果发现没有起作用，可以在下面代码里面修改增加一下 input 的属性。</p>
+<p>如果你不会修改的话，可以在评论区留言没有起作用的网站，我可以更新代码。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">javascript</span><span class="o">:</span><span class="k">void</span> <span class="kd">function</span><span class="p">(){</span><span class="kd">var</span> <span class="nx">lauthor …</span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E5%8D%9A%E5%AE%A2" class="tag-link">博客</a>
+                        
+                        <a href="/tags/js" class="tag-link">js</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">281 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/120.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/116.html/">在宝塔中使用青龙面板代挂京豆</a>
+                    </h3>
+                    <span class="post-date">2022/04/15</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>如题所述，想要在闲置的服务器中跑一些服务，青龙面板代挂京豆现存很多开源的脚本，安全性已经经过很多人验证，可以放心使用。</p>
+<p>因此我也安排了一个脚本，成功部署之后，就写这篇不算教程的笔记来记录一下整个过程。</p>
+<p>Github: <a href="https://github.com/6dylan6/jdpro">https://github.com/6dylan6/jdpro</a>
+作者会更新一些部署的指令，如果安装不成功可以对照文档中的指令。</p>
+<h3 id="拉取镜像">拉取镜像</h3>
+<p>我是在宝塔中运行服务的，也是非常简单方便。 …</p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E5%AE%9D%E5%A1%94" class="tag-link">宝塔</a>
+                        
+                        <a href="/tags/%E8%84%9A%E6%9C%AC" class="tag-link">脚本</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">883 字</span>
+                        <span class="read-time">2 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/116.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/112.html/">在 nuxt 中实现图片放大预览功能</a>
+                    </h3>
+                    <span class="post-date">2022/04/01</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p><code>v-viewer</code> 基于 vue 的一个插件，可以实现图片放大，缩小，旋转，拖拽，预览等各种功能，效果还是很棒的。这是我在 Github 摸鱼时发现的一个仓库，感觉很有用，就分享一下使用过程。</p>
+<p>Github: <a href="https://github.com/mirari/v-viewer">https://github.com/mirari/v-viewer</a></p>
+<h2 id="1安装">1.安装</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npm install v-viewer
+</span></span></code></pre></div><h2 id="2用法">2.用法</h2>
+<p>在 <code>plugins</code> 中新建 <code>viewer.js</code> 文件。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// …</span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/nuxt" class="tag-link">Nuxt</a>
+                        
+                        <a href="/tags/%E5%9B%BE%E7%89%87" class="tag-link">图片</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">252 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/112.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/111.html/">在 vue 中制作 canvas 波浪图</a>
+                    </h3>
+                    <span class="post-date">2022/03/29</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>新建组件 <code>Canvas.vue</code> 。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// @/components/Canvas.vue
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="nx">div</span> <span class="o">:</span><span class="nx">style</span><span class="o">=</span><span class="s2">&#34;{ height: waveAllHeight + &#39;px&#39;, background: bgColor }&#34;</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;wave&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">canvas</span> <span class="nx">id</span><span class="o">= …</span></span></span></span></span></span></span></span></span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/vue" class="tag-link">vue</a>
+                        
+                        <a href="/tags/canvas" class="tag-link">canvas</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">410 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/111.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/110.html/">增加了站内搜索功能</a>
+                    </h3>
+                    <span class="post-date">2022/03/25</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>如题，我花了一个多小时，参照 nuxt 文档，把搜索功能给加上了，记录一下相关代码。</p>
+<p>可以选择放在 <code>components/&lt;Search /&gt;</code> 里面，然后引入到 head 模板，也可以单独创建一个页面，我选择的是后者。</p>
+<p>新建一个页面模板 <code>/pages/search.vue</code> 。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">HeaderMe</span> <span class="o">/&gt; …</span></span></span></span></span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E5%8D%9A%E5%AE%A2" class="tag-link">博客</a>
+                        
+                        <a href="/tags/%E6%90%9C%E7%B4%A2" class="tag-link">搜索</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">416 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/110.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/107.html/">sql 中时间戳转日期</a>
+                    </h3>
+                    <span class="post-date">2022/03/10</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>需求：我将博客和 typecho 后台结合起来，打算做一个在线说说的功能，在 typecho 中输入内容，然后调用接口，实现在我的博客查看说说功能的功能。是不是有点绕？我也这么觉得，但是折腾一下也挺好的。</p>
+<p>typecho 导出的数据默认是时间戳格式，那我在前端调用的时候就很麻烦，所以选择在 sql 查询时直接转换，created 是表里面的参数。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">// 时间转换语句
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">FROM_UNIXTIME</span><span class="p">( …</span></span></span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/sql" class="tag-link">sql</a>
+                        
+                        <a href="/tags/%E6%97%B6%E9%97%B4%E6%88%B3" class="tag-link">时间戳</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">243 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/107.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/103.html/">【笔记】使用 php 写接口文件调用数据</a>
+                    </h3>
+                    <span class="post-date">2022/02/22</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>如何使用 php 写一个接口，然后将数据以 json 文件格式调用。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">header</span><span class="p">(</span><span class="s1">&#39;Content-Type:application/json; charset=utf-8&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">header</span><span class="p">(</span><span class="s2">&#34;Access-Control-Allow-Origin:*&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$servername</span> <span class="o">=</span> <span class="s2">&#34;localhost&#34;</span><span class="p">; …</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></code></pre></div>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E7%AC%94%E8%AE%B0" class="tag-link">笔记</a>
+                        
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93" class="tag-link">数据库</a>
+                        
+                        <a href="/tags/php" class="tag-link">php</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">296 字</span>
+                        <span class="read-time">1 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/103.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="post-item wins98-card">
+                <div class="post-header">
+                    <h3 class="post-title">
+                        <a href="/blog/102.html/">Nuxt.js 如何部署 Artalk 和遇到的问题</a>
+                    </h3>
+                    <span class="post-date">2022/02/18</span>
+                </div>
+                
+                
+                <div class="post-summary">
+                    <p>花了两天时间，终于把 Artalk 部署好了，一款数据自托管带后端的评论程序，非常适合我。这篇文章就介绍一下我部署的流程，以及我在部署过程中遇到的一些问题，将它记录一下，以便之后研究，顺便对使用 Nuxt.js 搭建博客的伙伴提供一些参考价值。</p>
+<p>Artalk 地址：<a href="https://artalk.js.org/">https://artalk.js.org/</a></p>
+<p>这篇文章我将分为三个部分，后端部署、前端部署、问题研究。</p>
+<h2 id="1后端部署">1.后端部署</h2>
+<p>官方有两个版本， …</p>
+                </div>
+                
+                
+                <div class="post-meta">
+                    
+                    <div class="post-tags">
+                        
+                        <a href="/tags/%E5%8D%9A%E5%AE%A2" class="tag-link">博客</a>
+                        
+                        <a href="/tags/%E8%AF%84%E8%AE%BA" class="tag-link">评论</a>
+                        
+                    </div>
+                    
+                    
+                    <div class="post-stats">
+                        <span class="word-count">1622 字</span>
+                        <span class="read-time">4 分钟</span>
+                    </div>
+                </div>
+                
+                <div class="post-footer">
+                    <a href="/blog/102.html/" class="wins98-button">阅读全文</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+        <div class="pagination-section">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="page">
+  
+  <a href="/categories/%E6%8A%80%E6%9C%AF/page/6/" class="prev">上一页</a>
+  
+
+  
+  <a href="/categories/%E6%8A%80%E6%9C%AF/page/8/" class="next">下一页</a>
+  
+
+
+</div>
+
+
+
+        </div>
+        
+    </div>
+</div>
+
+        </main>
+    </div>
+    
+    
+    <script src="/js/wins98.js"></script>
+    
+</body>
+</html>

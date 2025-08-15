@@ -1,0 +1,183 @@
+#projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  display: flex;
+  width: 100%;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.card-title a {
+  color: #333;
+  text-decoration: none;
+}
+
+.card-title a:hover {
+  text-decoration: underline;
+}
+
+.card-description {
+  color: #666;
+  font-size: 15px;
+  margin: 0;
+}
+
+.card-action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #6e8efb, #4a6cf7);
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(74, 108, 247, 0.3);
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #4a6cf7, #2758f5);
+  box-shadow: 0 6px 15px rgba(74, 108, 247, 0.4);
+  transform: translateY(-2px);
+}
+
+.error-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 30px;
+  background: #fff1f0;
+  color: #f56c6c;
+  border-radius: 8px;
+  font-size: 1.1rem;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 50px;
+  color: #909399;
+  font-size: 1.1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 13px;
+  border-radius: 20px;
+  background-color: #f0f5ff;
+  color: #4a6cf7;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background-color: #d6e4ff;
+  transform: translateY(-2px);
+}
+
+/* 完成度状态样式 */
+.completion-container {
+  margin-bottom: 30px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.completion-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #666;
+}
+
+.completion-grid {
+  display: grid;
+  grid-template-columns: repeat(30, 1fr);
+  gap: 5px;
+}
+
+.status-box {
+  aspect-ratio: 1;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.status-box.completed {
+  background-color: #4caf50;
+  box-shadow: 0 2px 5px rgba(76, 175, 80, 0.3);
+}
+
+/* 当鼠标悬停在已完成的格子上时的效果 */
+.status-box.completed:hover {
+  transform: scale(1.1);
+  background-color: #43a047;
+}
+
+/* 为未完成的格子添加一个微妙的悬停效果 */
+.status-box:not(.completed):hover {
+  background-color: #e0e0e0;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .completion-grid {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}

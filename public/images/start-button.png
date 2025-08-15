@@ -1,0 +1,43 @@
+# 开始按钮图标文件
+
+这是一个占位符文件，实际应该是一个PNG图标。
+
+## 图标说明
+
+- **文件名**: start-button.png
+- **尺寸**: 16x16 像素
+- **用途**: 在任务栏和开始菜单中显示开始按钮图标
+- **风格**: Windows 98 经典风格
+
+## 替代方案
+
+我们已经创建了SVG版本的图标文件 `start-button.svg`，您可以使用它来替代PNG文件。
+
+## 使用方法
+
+在模板中，您可以这样引用：
+
+```html
+<!-- 使用PNG图标 -->
+<img src="{{ "images/start-button.png" | relURL }}" alt="Start" class="start-icon">
+
+<!-- 或者使用SVG图标 -->
+<img src="{{ "images/start-button.svg" | relURL }}" alt="Start" class="start-icon">
+```
+
+## 图标设计特点
+
+- 浅灰色按钮主体 (#c0c0c0)
+- 白色高光边框（左上角）
+- 深灰色阴影边框（右下角）
+- Windows标志（四个深蓝色小方块）
+- 中间装饰方块
+- 经典的Windows 98 3D按钮效果
+
+## 设计理念
+
+这个图标完美还原了Windows 98开始按钮的经典设计：
+- 3D立体效果通过高光和阴影实现
+- Windows标志的四个方块代表Windows系统的标志性设计
+- 颜色搭配完全符合Windows 98的调色板
+- 像素完美的设计，在小尺寸下依然清晰

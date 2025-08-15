@@ -1,0 +1,97 @@
+<hr class="sep">
+<ul class="comment-tabs">
+  {{ if in .Site.Params.mainSections .Type }}
+  <li>LinuxDo</li>
+  {{ end }}
+  <li>Giscus</li>
+  <li>Twikoo</li>
+</ul>
+<div class="comments">
+  {{ if in .Site.Params.mainSections .Type }}
+  <div>
+    <div id='discourse-comments'></div>
+    <meta name='discourse-username' content='anghunk'>
+    <script type="text/javascript">
+      DiscourseEmbed = {
+        discourseUrl: 'https://linux.do/',
+        discourseEmbedUrl: 'https://zishu.me{{ .RelPermalink }}',
+        // className: 'CLASS_NAME',
+      };
+
+      (function() {
+        var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+        d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+      })();
+    </script>
+  </div>
+  {{ end }}
+  <div class="giscus"></div>
+  <div id="tcomment"></div>
+</div>
+<script src="https://giscus.app/client.js"
+  data-repo="anghunk/hugo-blog"
+  data-repo-id="R_kgDOJkJvtw"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOJkJvt84CX9d6"
+  data-mapping="pathname"
+  data-strict="1"
+  data-reactions-enabled="1"
+  data-emit-metadata="1"
+  data-input-position="top"
+  data-theme="light"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async>
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.min.js"></script>
+<script>
+twikoo.init({
+  envId: 'https://twikoo.zishu.me/.netlify/functions/twikoo',
+  el: '#tcomment',
+  lang: 'zh-CN', 
+})
+</script>
+
+<script>
+document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
+  if (index === 0) {
+    document.querySelectorAll('.comment-tabs li')[0].classList.add('active');
+    document.querySelectorAll('.comments > div')[0].classList.add('active');
+  }
+  
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.comment-tabs li').forEach(sibling => {
+      sibling.classList.remove('active');
+    });
+    this.classList.add('active');
+    
+    document.querySelectorAll('.comments > div').forEach(content => {
+      content.classList.remove('active');
+    });
+    document.querySelectorAll('.comments > div')[index].classList.add('active');
+  });
+});
+</script>
+
+<style>
+  .comment-tabs {
+    display: flex;
+    margin-top: 3em;
+  }
+  .comment-tabs li {
+    margin-right: 40px;
+    cursor: pointer;
+  }
+  .comment-tabs li.active {
+    text-decoration: underline;
+  }
+  .comments > div.active {
+    display: block;
+  }
+  .comments > div {
+    display: none;
+  }
+</style>
