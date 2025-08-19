@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:anghunk@gmail.com name:子舒]" />
+<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
 <meta property="og:url" content="https://zishu.me/blog/100.html/" />
 <link rel="canonical" href="https://zishu.me/blog/100.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "如何使用谷歌插件为网站注入代码",
 "description" : "在浏览网站时，受限于网站的缺陷，我们通常都会写一些脚本和插件来进行扩展，常规方法有油猴和谷歌插件两种，油猴也是一种插件，使用起来很方便，今天要讲的是如何通过谷歌插件进行注入。\n按照结构生成下面几个文件：\n|chrome-plugin |---manifest.json |---script.js |---favicon.ico 在 manifest.json 中写入代码，这是一个入口文件，声明了插件的基本信息。\ndefault_icon 是插件的图标 matches 是使用的网站，在该域名下的网站才会生效。注意后面要加上 \/* js 是引入的文件 \/\/ manifest.json { \u0026#34;name\u0026#34;: \u0026#34;Welcome\u0026#34;, \u0026#34;manifest_version\u0026#34;: 2, \u0026#34;version\u0026#34;: \u0026#34;1.0\u0026#34;, \u0026#34;description\u0026#34;: \u0026#34;扩展插件\u0026#34;, \u0026#34;browser_action\u0026#34;: { \u0026#34;default_icon\u0026#34;: \u0026#34;favicon.ico\u0026#34; }, \u0026#34;content_scripts\u0026#34;: [ { \u0026#34;matches\u0026#34;: [\u0026#34;https:\/\/github.com\/*\u0026#34;], \u0026#34;js\u0026#34;: [\u0026#34;script.js\u0026#34;] } ] } 然后在 script.js 中随便插入一段代码即可。\n\/\/ script.js console.log(\u0026#39;hello, world!\u0026#39;) 这样一个基本的插件就构成了，下一步就是上传。但是如果在打包生成 crx 文件后，上传 crx 文件会报错，显示危险，因为没有上架到谷歌扩展。所以我们不用打包，直接加载本地文件。\n然后选择写好的文件夹\n点击确定上传即可，这样一个插件上传的步骤就完成了。我们可以学习相关技术，写上一些自己需要的功能，这也是 Chrome 浏览器这么受欢迎的原因之一，集成了大量的插件。\n如果你想上传到商店出售或者免费分享，都是需要注册开发者账号的。缴纳 5 美元费用之后就可以上传了，审核过后就可以在商店列表看到你的插件。\n",
 "inLanguage" : "en-US",
-"author" : "map[email:anghunk@gmail.com name:子舒]",
-"creator" : "map[email:anghunk@gmail.com name:子舒]",
-"publisher": "map[email:anghunk@gmail.com name:子舒]",
-"accountablePerson" : "map[email:anghunk@gmail.com name:子舒]",
-"copyrightHolder" : "map[email:anghunk@gmail.com name:子舒]",
+"author" : "map[email:hi@zishu.me name:anghunk]",
+"creator" : "map[email:hi@zishu.me name:anghunk]",
+"publisher": "map[email:hi@zishu.me name:anghunk]",
+"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
+"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
 "copyrightYear" : "2022",
 "datePublished": "2022-01-26 00:00:00 \u002b0000 UTC",
 "dateModified" : "2022-01-26 00:00:00 \u002b0000 UTC",
@@ -58,88 +58,129 @@ default_icon 是插件的图标 matches 是使用的网站，在该域名下的�
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="/css/ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
+
+ <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
+ 
+
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
+<link rel="stylesheet" href="/css/tocbot.css">
 <script src="/js/jquery-3.6.1.js"></script>
-<script defer src="/js/dark-mode.js"></script>
-<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
-<link rel="stylesheet" href="/css/dropdown.css">
+
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
-  <header class="container no-print">
-  <div class="u-header">
-    <nav class="bar">
-      <ul>
-        <li><img class="icon-text" id="dark-mode-toggle" src="/images/moon.svg" alt="Toggle Dark Mode"></li>
+  <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+        width="112" height="112" alt="avatar"></a>
+    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
+  </header>
+  <nav class="flex-column flex-grow-1 w-100 ps-0">
+    <ul class="nav">
 
-        
-        <li><a href="/">首页</a></li>
-        
-        <li><a href="/blog/">文章</a></li>
-        
-        <li><a href="/tags/">标签</a></li>
-        
-        <li><a href="/message/">留言</a></li>
-        
-        <li><a href="/about/">关于</a></li>
-        
-        <li><a href="/projects/">项目</a></li>
-        
-        <li><a href="/friends/">友链</a></li>
-        
-        
-        <li><a href="/search/">🔍</a></li>
-        <li><a href="/index.xml" target="_blank">RSS</a></li>
-      </ul>
-    </nav>
+      
+      <li class="nav-item">
+        <a href="/" class="nav-link">
+          <i class="fa-fw fas fa-house"></i>
+          <span>首页</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/blog/" class="nav-link">
+          <i class="fa-fw fas fa-stream"></i>
+          <span>文章</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/tags/" class="nav-link">
+          <i class="fa-fw fas fa-tags"></i>
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/message/" class="nav-link">
+          <i class="fa-fw fas fa-message"></i>
+          <span>留言</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/about/" class="nav-link">
+          <i class="fa-fw fas fa-info-circle"></i>
+          <span>关于</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/projects/" class="nav-link">
+          <i class="fa-fw fas fa-tasks"></i>
+          <span>项目</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/friends/" class="nav-link">
+          <i class="fa-fw fas fa-link"></i>
+          <span>友链</span>
+        </a>
+      </li>
+      
 
+    </ul>
+  </nav>
+  <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100"><button type="button"
+      class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
+      <i class="fas fa-adjust"></i>
+    </button>
+    <span class="icon-border"></span>
+    <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
+        class="fab fa-github"></i></a>
+    <a href="mailto:anghunk@gmail.com" aria-label="email" target="_blank" rel="noopener noreferrer"><i
+        class="fas fa-envelope"></i>
+    </a>
+    <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
+  </div>
+</aside>
+
+  <div id="main-wrapper" class="d-flex justify-content-center">
+    <div class="container d-flex flex-column px-xxl-5">
+      <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
+  <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
+
+    <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
+      <i class="fas fa-bars fa-fw"></i>
+    </button>
+    <div id="topbar-title">子舒的博客</div>
+    <button type="button" class="btn btn-link"></button>
   </div>
 </header>
-  <main class="container">
+      <div class="row flex-grow-1">
 
-    <header>
-      <hgroup id="brand">
-        <h1>如何使用谷歌插件为网站注入代码</h1>
+        <main class="col-12 col-lg-11 col-xl-9 px-md-4">
+          <article class="px-1">
 
-        
-        <h5 style="font-size:12px;color:rgba(0,0,0,.5);">
-          <time>2022/01/26</time>
+            <header>
+              <h1 data-toc-skip="">如何使用谷歌插件为网站注入代码</h1>
+              
+              
+              <div class="post-meta text-muted">
+                <span>Posted<time>Jan 1, 2022</time></span>
+                <div class="d-flex justify-content-between"><span>By
+                    <em><a href="https://github.com/anghunk">子舒</a></em></span>
+                </div>
+              </div>
+              
+            </header>
 
-          
-          <span class="no-print">|
-          
-          <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8">#浏览器</a>
-          
-          <a href="/tags/%E8%B0%B7%E6%AD%8C%E6%8F%92%E4%BB%B6">#谷歌插件</a>
-          
-          </span>
-          
-
-          
-          
-          <span class="no-print">|
-            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-          </span>
-          
-          
-        </h5>
-        
-
-      </hgroup>
-      <hr class="sep">
-    </header>
-    
-
-    
-    <div class="toc">
-      <nav id="TableOfContents"></nav>
-    </div>
-    
-
-    <article class="post-content">
-      
-      <p>在浏览网站时，受限于网站的缺陷，我们通常都会写一些脚本和插件来进行扩展，常规方法有油猴和谷歌插件两种，油猴也是一种插件，使用起来很方便，今天要讲的是如何通过谷歌插件进行注入。</p>
+            <div class="content">
+              
+              <p>在浏览网站时，受限于网站的缺陷，我们通常都会写一些脚本和插件来进行扩展，常规方法有油猴和谷歌插件两种，油猴也是一种插件，使用起来很方便，今天要讲的是如何通过谷歌插件进行注入。</p>
 <p>按照结构生成下面几个文件：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="p">|</span>chrome-plugin
 </span></span><span class="line"><span class="cl"><span class="p">|</span>---manifest.json
@@ -177,7 +218,7 @@ default_icon 是插件的图标 matches 是使用的网站，在该域名下的�
 		src="https://imgurl.zishu.me/images/old/2022/01/26/dcd25af801e900a58a07b9b9a06c162d.png"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p>然后选择写好的文件夹</p>
 <p>     
@@ -186,15 +227,101 @@ default_icon 是插件的图标 matches 是使用的网站，在该域名下的�
 		src="https://imgurl.zishu.me/images/old/2022/01/26/e433070c769840d226fae27052fc275c.png"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p>点击确定上传即可，这样一个插件上传的步骤就完成了。我们可以学习相关技术，写上一些自己需要的功能，这也是 Chrome 浏览器这么受欢迎的原因之一，集成了大量的插件。</p>
 <p>如果你想上传到商店出售或者免费分享，都是需要注册开发者账号的。缴纳 5 美元费用之后就可以上传了，审核过后就可以在商店列表看到你的插件。</p>
 
-    </article>
 
-    
-    <hr class="sep">
+              <div class="post-tail-wrapper text-muted">
+                <div class="post-meta mb-3">
+                  
+              
+                  
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="post-category">
+                    
+                    
+                      <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                    
+                  </span>
+                  
+
+                  <div class="post-tags">
+                    <i class="fa fa-tags fa-fw me-1"></i>
+                    
+                    <span class="post-tags">
+                      
+                        <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8" class="post-tag no-text-decoration">浏览器</a>
+                      
+                        <a href="/tags/%E8%B0%B7%E6%AD%8C%E6%8F%92%E4%BB%B6" class="post-tag no-text-decoration">谷歌插件</a>
+                      
+                    </span>
+                  
+                  </div>
+
+                  
+
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                </div>
+              </div>
+
+            
+            
+            
+
+
+
+
+
+
+
+<div class="row">
+  <div id="tail-wrapper">
+    <aside id="related-posts">
+      <h3 class="mb-4" id="related-label">Further Reading</h3>
+      <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+
+        
+        
+        
+        <article class="col"><a href="/blog/98.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Jan 1, 2022</time>
+              <h4 class="pt-0 my-2">《夜幕》</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        <article class="col"><a href="/blog/97.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Jan 1, 2022</time>
+              <h4 class="pt-0 my-2">读一读柏拉图的《理想国》</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        <article class="col"><a href="/blog/96.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Jan 1, 2022</time>
+              <h4 class="pt-0 my-2">Nuxt 项目中如何引入百度统计？</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        
+      </nav>
+    </aside>
+  </div>
+</div>
+            
+
+            
+            
+            <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -291,52 +418,1021 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-    
-    
-  </main>
-  <hr class="sep">
-<footer class="container no-print">
-  <div class="u-footer">
-    <p>
-      本博客使用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:inherit;">CC BY-NC-SA 4.0</a> 协议开源
-    </p>
-    <p>© 2020 - 2025 Powered by 子舒</p>
-    <div class="footflex">
-      <p>Ad Astra Per Aspera.</p>
-      <p>
-        <a title="Email" href="mailto:hi@zishu.me"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></a>
-        <a title="Github" href="https://github.com/anghunk" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
-        <a title="RSS Feed" href="/index.xml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rss-icon lucide-rss"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
-      </p>
-    </div>
-  </div>
+            
+
+          </article>
+
+          <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
+flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
+  <p>
+    <time>© 2020 - 2025 Powered by </time>
+    <a href="https://github.com/anghunk">子舒</a>.
+    <span>Some rights reserved.</span>
+  </p>
+  <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
 </footer>
 
-<a herf="javascript:void(0)" class="gotop"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-from-dot-icon lucide-arrow-up-from-dot"><path d="m5 9 7-7 7 7"/><path d="M12 16V2"/><circle cx="12" cy="21" r="1"/></svg></a>
+<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
 <style>
-.gotop {
-  position: fixed;
-  right: 20px;
-  bottom: 50px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #c6c3c3;
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.1s linear;
-  border: 1px solid #ccc;
-}
+  .gotop {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #c6c3c3;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    border: 1px solid #ccc;
+  }
 
-.gotop:hover {
-  background: #ccc;
-}
+  .gotop:hover {
+    background: #ccc;
+  }
 </style>
 <script src="/js/main.js"></script>
-</body>
+        </main>
 
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
+  <div class="access">
+    <section id="access-lastmod">
+      <h2 class="panel-heading">Recently Updated</h2>
+      <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
+        
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/daming-mountain-qianniugang-camping-notes.html/">大明山牵牛岗露营游记</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/nanjing-travel-aug-3.html/">南京游八月三日</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/login-bitwarden-legacy-version.html/">如何登录旧版本 Bitwarden 密码管理器</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/262.html/">AI 驱动的验证码自动识别之旅：从困扰到解放</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/261.html/">Obsidian:移动端同步笔记</a></li>
+        
+      </ul>
+    </section>
+    <section>
+      <h2 class="panel-heading">Trending Tags</h2>
+      <div class="d-flex flex-wrap mt-3 mb-1 me-3">
+        
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/weekly/">Weekly</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D/">随手拍</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/js/">Js</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/vue/">Vue</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/react/">React</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E6%97%85%E6%B8%B8/">旅游</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%83%B3%E5%BD%95/">随想录</a>
+        
+      </div>
+    </section>
+
+
+    
+
+    
+  </div>
+
+  
+  <div class="toc-border-cover z-3"></div>
+  <section id="toc-wrapper" class="position-sticky">
+    <h2 class="panel-heading ps-3 pb-2 mb-0">Contents</h2>
+    <nav id="TableOfContents"></nav>
+  </section>
+  
+
+</aside>
+
+      </div>
+    </div>
+  </div>
+
+</body>
 </html>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:anghunk@gmail.com name:子舒]" />
+<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
 <meta property="og:url" content="https://zishu.me/blog/39.html/" />
 <link rel="canonical" href="https://zishu.me/blog/39.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "React 学习笔记（三）",
 "description" : "来源于：https:\/\/react.docschina.org\/docs\/forms.html\n一、表单 在 React 中，html 表单元素的工作方式和其他的 DOM 元素不太一样，因为表单内部通常会保持一些内部的 state，比如下面这个纯 html 表单只接受一个名称：\n\u0026lt;form\u0026gt; \u0026lt;label\u0026gt; 名字： \u0026lt;input type=\u0026#34;text\u0026#34; name=\u0026#34;name\u0026#34; \/\u0026gt; \u0026lt;\/label\u0026gt; \u0026lt;input type=\u0026#34;submit\u0026#34; value=\u0026#34;提交\u0026#34; \/\u0026gt; \u0026lt;\/form\u0026gt; 这个表单具有默认的 html 表单行为，即在用户提交表单之后自动刷新页面。如果你在 React 中执行相同的代码，它仍然有效。\n但大多数情况下，使用 JavaScript 函数可以很方便的处理表单的提交，同时还可以访问用户填写的表单数据。实现这种效果的标准方式是使用“受控组件”。\n受控组件 在 html 中，表单元素比如\u0026lt;input\u0026gt;，\u0026lt;textarea\u0026gt;，\u0026lt;select\u0026gt;，这些表单元素通常自己维护 state，并根据用户输入进行更新。而在 React 中，可变状态（mutable state）通常保存在组件的 state 属性中，并且只能通过使用 setState() 来更新。\n我们可以把两者结合起来，使 React 的 state 成为“唯一数据源”。渲染表单的 React 组件还控制着用户输入过程中表单发生的操作。被 React 以这种方式控制取值的表单输入元素就叫做“受控组件”。\n例如，如果我们想让前一个示例在提交时打印出名称，我们可以将表单写为受控组件：\nclass NameForm extends React.Component { constructor(props) { super(props); this.state = {value: \u0026#39;\u0026#39;}; this.handleChange = this.handleChange.bind(this); this.handleSubmit = this.handleSubmit.bind(this); } handleChange(event) { this.setState({value: event.target.value}); } handleSubmit(event) { alert(\u0026#39;提交的名字：\u0026#39; \u002b this.state.value); event.preventDefault(); } render() { return ( \u0026lt;form onSubmit={this.handleSubmit}\u0026gt; \u0026lt;label\u0026gt; 名字: \u0026lt;input type=\u0026#34;text\u0026#34; value={this.state.value} onChange={this.handleChange} \/\u0026gt; \u0026lt;\/label\u0026gt; \u0026lt;input type=\u0026#34;submit\u0026#34; value=\u0026#34;提交\u0026#34; \/\u0026gt; \u0026lt;\/form\u0026gt; ); } } 由于在表单元素上设置了 value 属性，因此显示的值将始终为 this.state.value，这使得 React 的 state 成为唯一数据源。由于 handlechange 在每次按键时都会执行并更新 React 的 state，因此显示的值将随着用户输入而更新。\n对于受控组件来说，输入的值始终由 React 的 state 驱动。你也可以将 value 传递给其他 UI 元素，或者通过其他事件处理函数重置，但这意味着你需要编写更多的代码。\ntextarea 标签 在 html 中，\u0026lt;textarea\u0026gt; 元素通过其子元素定义其文本：\n\u0026lt;textarea\u0026gt; 测试！ \u0026lt;\/textarea\u0026gt; 而在 React 中，\u0026lt;textarea\u0026gt; 使用 value 属性代替。这样，可以使得使用 \u0026lt;textarea\u0026gt; 的表单和使用单行 input 的表单非常类似：\nclass EssayForm extends React.Component { constructor(props) { super(props); this.state = { value: \u0026#39;请撰写一篇关于你喜欢的 DOM 元素的文章。\u0026#39; }; this.handleChange = this.handleChange.bind(this); this.handleSubmit = this.handleSubmit.bind(this); } handleChange(event) { this.setState({value: event.target.value}); } handleSubmit(event) { alert(\u0026#39;提交的文章：\u0026#39; \u002b this.state.value); event.preventDefault(); } render() { return ( \u0026lt;form onSubmit={this.handleSubmit}\u0026gt; \u0026lt;label\u0026gt; 文章: \u0026lt;textarea value={this.state.value} onChange={this.handleChange} \/\u0026gt; \u0026lt;\/label\u0026gt; \u0026lt;input type=\u0026#34;submit\u0026#34; value=\u0026#34;提交\u0026#34; \/\u0026gt; \u0026lt;\/form\u0026gt; ); } } 请注意，this.state.value 初始化于构造函数中，因此文本区域默认有初值。\nselect 标签 在 HTML 中，\u0026lt;select\u0026gt; 创建下拉列表标签。例如，如下 html 创建了水果相关的下拉列表：\n\u0026lt;select\u0026gt; \u0026lt;option value=\u0026#34;grapefruit\u0026#34;\u0026gt;葡萄柚\u0026lt;\/option\u0026gt; \u0026lt;option value=\u0026#34;lime\u0026#34;\u0026gt;酸橙\u0026lt;\/option\u0026gt; \u0026lt;option selected value=\u0026#34;coconut\u0026#34;\u0026gt;椰子\u0026lt;\/option\u0026gt; \u0026lt;option value=\u0026#34;mango\u0026#34;\u0026gt;芒果\u0026lt;\/option\u0026gt; \u0026lt;\/select\u0026gt; 请注意，由于 selected 属性的缘故，椰子选项默认被选中。React 并不会使用 selected 属性，而是在根 select 标签上使用 value 属性。这在受控组件中更便捷，因为您只需要在根标签中更新它。例如：\nclass FlavorForm extends React.Component { constructor(props) { super(props); this.state = {value: \u0026#39;coconut\u0026#39;}; this.handleChange = this.handleChange.bind(this); this.handleSubmit = this.handleSubmit.bind(this); } handleChange(event) { this.setState({value: event.target.value}); } handleSubmit(event) { alert(\u0026#39;你喜欢的风味是：\u0026#39; \u002b this.state.value); event.preventDefault(); } render() { return ( \u0026lt;form onSubmit={this.handleSubmit}\u0026gt; \u0026lt;label\u0026gt; 选择你喜欢的风味： \u0026lt;select value={this.state.value} onChange={this.handleChange}\u0026gt; \u0026lt;option value=\u0026#34;grapefruit\u0026#34;\u0026gt;葡萄柚\u0026lt;\/option\u0026gt; \u0026lt;option value=\u0026#34;lime\u0026#34;\u0026gt;酸橙\u0026lt;\/option\u0026gt; \u0026lt;option value=\u0026#34;coconut\u0026#34;\u0026gt;椰子\u0026lt;\/option\u0026gt; \u0026lt;option value=\u0026#34;mango\u0026#34;\u0026gt;芒果\u0026lt;\/option\u0026gt; \u0026lt;\/select\u0026gt; \u0026lt;\/label\u0026gt; \u0026lt;input type=\u0026#34;submit\u0026#34; value=\u0026#34;提交\u0026#34; \/\u0026gt; \u0026lt;\/form\u0026gt; ); } } 总的来说，这使得 \u0026lt;input type=\u0026quot;text\u0026quot;\u0026gt;, \u0026lt;textarea\u0026gt; 和 \u0026lt;select\u0026gt; 之类的标签都非常相似—它们都接受一个 value 属性，你可以使用它来实现受控组件。\n注意：你可以将数组传递到 value 属性中，以支持在 select 标签中选择多个选项：\n\u0026lt;select multiple={true} value={[\u0026#39;B\u0026#39;, \u0026#39;C\u0026#39;]}\u0026gt; 文件 input 标签 在 HTML 中，\u0026lt;input type=\u0026quot;file\u0026quot;\u0026gt; 允许用户从存储设备中选择一个或多个文件，将其上传到服务器，或通过使用 JavaScript 的 File API 进行控制。\n\u0026lt;input type=\u0026#34;file\u0026#34; \/\u0026gt; 因为它的 value 只读，所以它是 React 中的一个非受控组件。\n处理多个输入 当需要处理多个 input 元素时，我们可以给每个元素添加 name 属性，并让处理函数根据 event.target.name 的值选择要执行的操作。\nclass Reservation extends React.Component { constructor(props) { super(props); this.state = { isGoing: true, numberOfGuests: 2 }; this.handleInputChange = this.handleInputChange.bind(this); } handleInputChange(event) { const target = event.target; const value = target.name === \u0026#39;isGoing\u0026#39; ? target.checked : target.value; const name = target.name; this.setState({ [name]: value }); } render() { return ( \u0026lt;form\u0026gt; \u0026lt;label\u0026gt; 参与: \u0026lt;input name=\u0026#34;isGoing\u0026#34; type=\u0026#34;checkbox\u0026#34; checked={this.state.isGoing} onChange={this.handleInputChange} \/\u0026gt; \u0026lt;\/label\u0026gt; \u0026lt;br \/\u0026gt; \u0026lt;label\u0026gt; 来宾人数： \u0026lt;input name=\u0026#34;numberOfGuests\u0026#34; type=\u0026#34;number\u0026#34; value={this.state.numberOfGuests} onChange={this.handleInputChange} \/\u0026gt; \u0026lt;\/label\u0026gt; \u0026lt;\/form\u0026gt; ); } } 这里使用了 ES6 计算属性名称的语法更新给定输入名称对应的 state 值：\n例如：\nthis.setState({ [name]: value }); 等同于 es5：\nvar partialState = {}; partialState[name] = value; this.setState(partialState); 另外，由于 setState() 自动将部分 state 合并到当前 state, 只需调用它更改部分 state 即可。\n受控输入空值 在受控组件上指定 value 的 prop 会阻止用户更改输入。如果你指定了 value，但输入仍可编辑，则可能是你意外地将 value 设置为 undefined 或 null。\n下面的代码演示了这一点。（输入最初被锁定，但在短时间延迟后变为可编辑。）\nReactDOM.render(\u0026lt;input value=\u0026#34;hi\u0026#34; \/\u0026gt;, mountNode); setTimeout(function() { ReactDOM.render(\u0026lt;input value={null} \/\u0026gt;, mountNode); }, 1000); 受控组件的替代品 有时使用受控组件会很麻烦，因为你需要为数据变化的每种方式都编写事件处理函数，并通过一个 React 组件传递所有的输入 state。当你将之前的代码库转换为 React 或将 React 应用程序与非 React 库集成时，这可能会令人厌烦。在这些情况下，你可能希望使用非受控组件，这是实现输入表单的另一种方式。\n成熟的解决方案 如果你想寻找包含验证、追踪访问字段以及处理表单提交的完整解决方案，使用 Formik 是不错的选择。然而，它也是建立在受控组件和管理 state 的基础之上 —— 所以不要忽视学习它们。\n",
 "inLanguage" : "en-US",
-"author" : "map[email:anghunk@gmail.com name:子舒]",
-"creator" : "map[email:anghunk@gmail.com name:子舒]",
-"publisher": "map[email:anghunk@gmail.com name:子舒]",
-"accountablePerson" : "map[email:anghunk@gmail.com name:子舒]",
-"copyrightHolder" : "map[email:anghunk@gmail.com name:子舒]",
+"author" : "map[email:hi@zishu.me name:anghunk]",
+"creator" : "map[email:hi@zishu.me name:anghunk]",
+"publisher": "map[email:hi@zishu.me name:anghunk]",
+"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
+"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
 "copyrightYear" : "2020",
 "datePublished": "2020-12-29 00:00:00 \u002b0000 UTC",
 "dateModified" : "2020-12-29 00:00:00 \u002b0000 UTC",
@@ -96,103 +96,129 @@ ReactDOM.render(&lt;input value=&#34;hi&#34; /&gt;, mountNode); setTimeout(funct
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="/css/ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
+
+ <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
+ 
+
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
+<link rel="stylesheet" href="/css/tocbot.css">
 <script src="/js/jquery-3.6.1.js"></script>
-<script defer src="/js/dark-mode.js"></script>
-<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
-<link rel="stylesheet" href="/css/dropdown.css">
+
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
-  <header class="container no-print">
-  <div class="u-header">
-    <nav class="bar">
-      <ul>
-        <li><img class="icon-text" id="dark-mode-toggle" src="/images/moon.svg" alt="Toggle Dark Mode"></li>
+  <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+        width="112" height="112" alt="avatar"></a>
+    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
+  </header>
+  <nav class="flex-column flex-grow-1 w-100 ps-0">
+    <ul class="nav">
 
-        
-        <li><a href="/">首页</a></li>
-        
-        <li><a href="/blog/">文章</a></li>
-        
-        <li><a href="/tags/">标签</a></li>
-        
-        <li><a href="/message/">留言</a></li>
-        
-        <li><a href="/about/">关于</a></li>
-        
-        <li><a href="/projects/">项目</a></li>
-        
-        <li><a href="/friends/">友链</a></li>
-        
-        
-        <li><a href="/search/">🔍</a></li>
-        <li><a href="/index.xml" target="_blank">RSS</a></li>
-      </ul>
-    </nav>
+      
+      <li class="nav-item">
+        <a href="/" class="nav-link">
+          <i class="fa-fw fas fa-house"></i>
+          <span>首页</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/blog/" class="nav-link">
+          <i class="fa-fw fas fa-stream"></i>
+          <span>文章</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/tags/" class="nav-link">
+          <i class="fa-fw fas fa-tags"></i>
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/message/" class="nav-link">
+          <i class="fa-fw fas fa-message"></i>
+          <span>留言</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/about/" class="nav-link">
+          <i class="fa-fw fas fa-info-circle"></i>
+          <span>关于</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/projects/" class="nav-link">
+          <i class="fa-fw fas fa-tasks"></i>
+          <span>项目</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/friends/" class="nav-link">
+          <i class="fa-fw fas fa-link"></i>
+          <span>友链</span>
+        </a>
+      </li>
+      
 
+    </ul>
+  </nav>
+  <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100"><button type="button"
+      class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
+      <i class="fas fa-adjust"></i>
+    </button>
+    <span class="icon-border"></span>
+    <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
+        class="fab fa-github"></i></a>
+    <a href="mailto:anghunk@gmail.com" aria-label="email" target="_blank" rel="noopener noreferrer"><i
+        class="fas fa-envelope"></i>
+    </a>
+    <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
+  </div>
+</aside>
+
+  <div id="main-wrapper" class="d-flex justify-content-center">
+    <div class="container d-flex flex-column px-xxl-5">
+      <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
+  <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
+
+    <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
+      <i class="fas fa-bars fa-fw"></i>
+    </button>
+    <div id="topbar-title">子舒的博客</div>
+    <button type="button" class="btn btn-link"></button>
   </div>
 </header>
-  <main class="container">
+      <div class="row flex-grow-1">
 
-    <header>
-      <hgroup id="brand">
-        <h1>React 学习笔记（三）</h1>
+        <main class="col-12 col-lg-11 col-xl-9 px-md-4">
+          <article class="px-1">
 
-        
-        <h5 style="font-size:12px;color:rgba(0,0,0,.5);">
-          <time>2020/12/29</time>
+            <header>
+              <h1 data-toc-skip="">React 学习笔记（三）</h1>
+              
+              
+              <div class="post-meta text-muted">
+                <span>Posted<time>Dec 12, 2020</time></span>
+                <div class="d-flex justify-content-between"><span>By
+                    <em><a href="https://github.com/anghunk">子舒</a></em></span>
+                </div>
+              </div>
+              
+            </header>
 
-          
-          <span class="no-print">|
-          
-          <a href="/tags/%E7%AC%94%E8%AE%B0">#笔记</a>
-          
-          <a href="/tags/react">#react</a>
-          
-          </span>
-          
-
-          
-          
-          <span class="no-print">|
-            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-          </span>
-          
-          
-        </h5>
-        
-
-      </hgroup>
-      <hr class="sep">
-    </header>
-    
-
-    
-    <div class="toc">
-      <nav id="TableOfContents">
-  <ul>
-    <li><a href="#一表单">一、表单</a>
-      <ul>
-        <li><a href="#受控组件">受控组件</a></li>
-        <li><a href="#textarea-标签">textarea 标签</a></li>
-        <li><a href="#select-标签">select 标签</a></li>
-        <li><a href="#文件-input-标签">文件 input 标签</a></li>
-        <li><a href="#处理多个输入">处理多个输入</a></li>
-        <li><a href="#受控输入空值">受控输入空值</a></li>
-        <li><a href="#受控组件的替代品">受控组件的替代品</a></li>
-        <li><a href="#成熟的解决方案">成熟的解决方案</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-    </div>
-    
-
-    <article class="post-content">
-      
-      <p>来源于：<a href="https://react.docschina.org/docs/forms.html">https://react.docschina.org/docs/forms.html</a></p>
+            <div class="content">
+              
+              <p>来源于：<a href="https://react.docschina.org/docs/forms.html">https://react.docschina.org/docs/forms.html</a></p>
 <h2 id="一表单">一、表单</h2>
 <p>在 React 中，html 表单元素的工作方式和其他的 DOM 元素不太一样，因为表单内部通常会保持一些内部的 <code>state</code>，比如下面这个纯 html 表单只接受一个名称：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
@@ -402,10 +428,96 @@ ReactDOM.render(&lt;input value=&#34;hi&#34; /&gt;, mountNode); setTimeout(funct
 <h3 id="成熟的解决方案">成熟的解决方案</h3>
 <p>如果你想寻找包含验证、追踪访问字段以及处理表单提交的完整解决方案，使用 Formik 是不错的选择。然而，它也是建立在受控组件和管理 state 的基础之上 —— 所以不要忽视学习它们。</p>
 
-    </article>
 
-    
-    <hr class="sep">
+              <div class="post-tail-wrapper text-muted">
+                <div class="post-meta mb-3">
+                  
+              
+                  
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="post-category">
+                    
+                    
+                      <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                    
+                  </span>
+                  
+
+                  <div class="post-tags">
+                    <i class="fa fa-tags fa-fw me-1"></i>
+                    
+                    <span class="post-tags">
+                      
+                        <a href="/tags/%E7%AC%94%E8%AE%B0" class="post-tag no-text-decoration">笔记</a>
+                      
+                        <a href="/tags/react" class="post-tag no-text-decoration">react</a>
+                      
+                    </span>
+                  
+                  </div>
+
+                  
+
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                </div>
+              </div>
+
+            
+            
+            
+
+
+
+
+
+
+
+<div class="row">
+  <div id="tail-wrapper">
+    <aside id="related-posts">
+      <h3 class="mb-4" id="related-label">Further Reading</h3>
+      <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+
+        
+        
+        
+        <article class="col"><a href="/blog/38.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Dec 12, 2020</time>
+              <h4 class="pt-0 my-2">2020 年度总结</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        <article class="col"><a href="/blog/37.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Dec 12, 2020</time>
+              <h4 class="pt-0 my-2">React －－万物皆可组件</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        <article class="col"><a href="/blog/36.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Dec 12, 2020</time>
+              <h4 class="pt-0 my-2">javascript 进阶问题</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        
+      </nav>
+    </aside>
+  </div>
+</div>
+            
+
+            
+            
+            <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -502,52 +614,1036 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-    
-    
-  </main>
-  <hr class="sep">
-<footer class="container no-print">
-  <div class="u-footer">
-    <p>
-      本博客使用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:inherit;">CC BY-NC-SA 4.0</a> 协议开源
-    </p>
-    <p>© 2020 - 2025 Powered by 子舒</p>
-    <div class="footflex">
-      <p>Ad Astra Per Aspera.</p>
-      <p>
-        <a title="Email" href="mailto:hi@zishu.me"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></a>
-        <a title="Github" href="https://github.com/anghunk" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
-        <a title="RSS Feed" href="/index.xml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rss-icon lucide-rss"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
-      </p>
-    </div>
-  </div>
+            
+
+          </article>
+
+          <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
+flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
+  <p>
+    <time>© 2020 - 2025 Powered by </time>
+    <a href="https://github.com/anghunk">子舒</a>.
+    <span>Some rights reserved.</span>
+  </p>
+  <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
 </footer>
 
-<a herf="javascript:void(0)" class="gotop"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-from-dot-icon lucide-arrow-up-from-dot"><path d="m5 9 7-7 7 7"/><path d="M12 16V2"/><circle cx="12" cy="21" r="1"/></svg></a>
+<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
 <style>
-.gotop {
-  position: fixed;
-  right: 20px;
-  bottom: 50px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #c6c3c3;
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.1s linear;
-  border: 1px solid #ccc;
-}
+  .gotop {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #c6c3c3;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    border: 1px solid #ccc;
+  }
 
-.gotop:hover {
-  background: #ccc;
-}
+  .gotop:hover {
+    background: #ccc;
+  }
 </style>
 <script src="/js/main.js"></script>
-</body>
+        </main>
 
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
+  <div class="access">
+    <section id="access-lastmod">
+      <h2 class="panel-heading">Recently Updated</h2>
+      <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
+        
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/daming-mountain-qianniugang-camping-notes.html/">大明山牵牛岗露营游记</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/nanjing-travel-aug-3.html/">南京游八月三日</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/login-bitwarden-legacy-version.html/">如何登录旧版本 Bitwarden 密码管理器</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/262.html/">AI 驱动的验证码自动识别之旅：从困扰到解放</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/261.html/">Obsidian:移动端同步笔记</a></li>
+        
+      </ul>
+    </section>
+    <section>
+      <h2 class="panel-heading">Trending Tags</h2>
+      <div class="d-flex flex-wrap mt-3 mb-1 me-3">
+        
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/weekly/">Weekly</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D/">随手拍</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/js/">Js</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/vue/">Vue</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/react/">React</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E6%97%85%E6%B8%B8/">旅游</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%83%B3%E5%BD%95/">随想录</a>
+        
+      </div>
+    </section>
+
+
+    
+
+    
+  </div>
+
+  
+  <div class="toc-border-cover z-3"></div>
+  <section id="toc-wrapper" class="position-sticky">
+    <h2 class="panel-heading ps-3 pb-2 mb-0">Contents</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一表单">一、表单</a>
+      <ul>
+        <li><a href="#受控组件">受控组件</a></li>
+        <li><a href="#textarea-标签">textarea 标签</a></li>
+        <li><a href="#select-标签">select 标签</a></li>
+        <li><a href="#文件-input-标签">文件 input 标签</a></li>
+        <li><a href="#处理多个输入">处理多个输入</a></li>
+        <li><a href="#受控输入空值">受控输入空值</a></li>
+        <li><a href="#受控组件的替代品">受控组件的替代品</a></li>
+        <li><a href="#成熟的解决方案">成熟的解决方案</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </section>
+  
+
+</aside>
+
+      </div>
+    </div>
+  </div>
+
+</body>
 </html>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:anghunk@gmail.com name:子舒]" />
+<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
 <meta property="og:url" content="https://zishu.me/blog/48.html/" />
 <link rel="canonical" href="https://zishu.me/blog/48.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "ES5 和 ES6 的区别？",
 "description" : "一、javascript 由三部分组成 1.ECMAScript（核心） 它规定了语言的组成部分：法语，类型，语句，关键字，操作符等等。\n2.DOM（文档对象模型） DOM 把整个页面映射为一个多层节点结果，开发人员可借助 DOM 提供的 API，轻松地删除、添加、替换或修改任何节点。\n3.BOM（浏览器对象模型） 支持可以访问和操作浏览器窗口的浏览器对象模型，开发人员可以控制浏览器显示的页面以外的部分。\n二、什么是 ES5？ 作为 ECMAScript 第五个版本（第四版因为过于复杂废弃了），浏览器支持情况可看第一副图，增加特性如下。\n1.strict 模式 严格模式，限制一些用法，\u0026lsquo;use strict\u0026rsquo;;\n2.Array 增加方法 增加了 every、some、forEach、filter、indexOf、lastIndexOf、isArray、map、reduce、reduceRight 方法\nPS：还有其他方法 Function.prototype.bind、String.prototype.trim、Date.now\n3.Object 方法 Object.getPrototypeOf Object.create Object.getOwnPropertyNames Object.defineProperty Object.getOwnPropertyDescriptor Object.defineProperties Object.keys Object.preventExtensions \/ Object.isExtensible Object.seal \/ Object.isSealed Object.freeze \/ Object.isFrozen PS：只讲有什么，不讲是什么。\n2.什么是 ES6? ECMAScript6 在保证向下兼容的前提下，提供大量新特性，目前浏览器兼容情况如下：\nES6 特性如下：\n块级作用域 关键字 let, 常量 const\n对象字面量的属性赋值简写（property value shorthand）\nvar obj = { \/\/ __proto__ __proto__: theProtoObj, \/\/ Shorthand for ‘handler: handler’ handler, \/\/ Method definitions toString() { \/\/ Super calls return \u0026#34;d \u0026#34; \u002b super.toString(); }, \/\/ Computed (dynamic) property names [ \u0026#39;prop_\u0026#39; \u002b (() =\u0026gt; 42)() ]: 42 }; 赋值解构 let singer = { first: \u0026#34;Bob\u0026#34;, last: \u0026#34;Dylan\u0026#34; }; let { first: f, last: l } = singer; \/\/ 相当于 f = \u0026#34;Bob\u0026#34;, l = \u0026#34;Dylan\u0026#34; let [all, year, month, day] = \/^(\\d\\d\\d\\d)-(\\d\\d)-(\\d\\d)$\/.exec(\u0026#34;2015-10-25\u0026#34;); let [x, y] = [1, 2, 3]; \/\/ x = 1, y = 2 函数参数 - 默认值、参数打包、数组展开（Default、Rest、Spread） \/\/Default function findArtist(name=\u0026#39;lu\u0026#39;, age=\u0026#39;26\u0026#39;) { ... } \/\/Rest function f(x, ...y) { \/\/ y is an Array return x * y.length; } f(3, \u0026#34;hello\u0026#34;, true) == 6 \/\/Spread function f(x, y, z) { return x \u002b y \u002b z; } \/\/ Pass each elem of array as argument f(...[1,2,3]) == 6 箭头函数 Arrow functions (1) 简化了代码形式，默认 return 表达式结果。\n(2) 自动绑定语义 this，即定义函数时的 this。如上面例子中，forEach 的匿名函数参数中用到的 this。\n6.字符串模板 Template strings\nvar name = \u0026#34;Bob\u0026#34;, time = \u0026#34;today\u0026#34;; \u0060Hello ${name}, how are you ${time}?\u0060 \/\/ return \u0026#34;Hello Bob, how are you today?\u0026#34; Iterators（迭代器）\u002b for..of 迭代器有个 next 方法，调用会返回：\n(1) 返回迭代对象的一个元素：{ done: false, value: elem }\n(2) 如果已到迭代对象的末端：{ done: true, value: retVal }\nfor (var n of [\u0026#39;a\u0026#39;,\u0026#39;b\u0026#39;,\u0026#39;c\u0026#39;]) { console.log(n); } \/\/ 打印a、b、c 生成器（Generators）\nClass\nClass，有 constructor、extends、super，但本质上是语法糖（对语言的功能并没有影响，但是更方便程序员使用）。\nclass Artist { constructor(name) { this.name = name; } perform() { return this.name \u002b \u0026#34; performs \u0026#34;; } } class Singer extends Artist { constructor(name, song) { super.constructor(name); this.song = song; } perform() { return super.perform() \u002b \u0026#34;[\u0026#34; \u002b this.song \u002b \u0026#34;]\u0026#34;; } } let james = new Singer(\u0026#34;Etta James\u0026#34;, \u0026#34;At last\u0026#34;); james instanceof Artist; \/\/ true james instanceof Singer; \/\/ true james.perform(); \/\/ \u0026#34;Etta James performs [At last]\u0026#34; Modules ES6 的内置模块功能借鉴了 CommonJS 和 AMD 各自的优点：\n(1) 具有 CommonJS 的精简语法、唯一导出出口 (single exports) 和循环依赖 (cyclic dependencies) 的特点。\n(2) 类似 AMD，支持异步加载和可配置的模块加载。\n\/\/ lib\/math.js export function sum(x, y) { return x \u002b y; } export var pi = 3.141593; \/\/ app.js import * as math from \u0026#34;lib\/math\u0026#34;; alert(\u0026#34;2π = \u0026#34; \u002b math.sum(math.pi, math.pi)); \/\/ otherApp.js import {sum, pi} from \u0026#34;lib\/math\u0026#34;; alert(\u0026#34;2π = \u0026#34; \u002b sum(pi, pi)); Module Loaders: \/\/ Dynamic loading – ‘System’ is default loader System.import(\u0026#39;lib\/math\u0026#39;).then(function(m) { alert(\u0026#34;2π = \u0026#34; \u002b m.sum(m.pi, m.pi)); }); \/\/ Directly manipulate module cache System.get(\u0026#39;jquery\u0026#39;); System.set(\u0026#39;jquery\u0026#39;, Module({$: $})); \/\/ WARNING: not yet finalized Map \u002b Set \u002b WeakMap \u002b WeakSet 四种集合类型，WeakMap、WeakSet 作为属性键的对象如果没有别的变量在引用它们，则会被回收释放掉。\n\/\/ Sets var s = new Set(); s.add(\u0026#34;hello\u0026#34;).add(\u0026#34;goodbye\u0026#34;).add(\u0026#34;hello\u0026#34;); s.size === 2; s.has(\u0026#34;hello\u0026#34;) === true; \/\/ Maps var m = new Map(); m.set(\u0026#34;hello\u0026#34;, 42); m.set(s, 34); m.get(s) == 34; \/\/WeakMap var wm = new WeakMap(); wm.set(s, { extra: 42 }); wm.size === undefined \/\/ Weak Sets var ws = new WeakSet(); ws.add({ data: 42 });\/\/Because the added object has no other references, it will not be held in the set Math \u002b Number \u002b String \u002b Array \u002b Object APIs 一些新的 API\nNumber.EPSILON Number.isInteger(Infinity) \/\/ false Number.isNaN(\u0026#34;NaN\u0026#34;) \/\/ false Math.acosh(3) \/\/ 1.762747174039086 Math.hypot(3, 4) \/\/ 5 Math.imul(Math.pow(2, 32) - 1, Math.pow(2, 32) - 2) \/\/ 2 \u0026#34;abcde\u0026#34;.includes(\u0026#34;cd\u0026#34;) \/\/ true \u0026#34;abc\u0026#34;.repeat(3) \/\/ \u0026#34;abcabcabc\u0026#34; Array.from(document.querySelectorAll(\u0026#39;*\u0026#39;)) \/\/ Returns a real Array Array.of(1, 2, 3) \/\/ Similar to new Array(...), but without special one-arg behavior [0, 0, 0].fill(7, 1) \/\/ [0,7,7] [1, 2, 3].find(x =\u0026gt; x == 3) \/\/ 3 [1, 2, 3].findIndex(x =\u0026gt; x == 2) \/\/ 1 [1, 2, 3, 4, 5].copyWithin(3, 0) \/\/ [1, 2, 3, 1, 2] [\u0026#34;a\u0026#34;, \u0026#34;b\u0026#34;, \u0026#34;c\u0026#34;].entries() \/\/ iterator [0, \u0026#34;a\u0026#34;], [1,\u0026#34;b\u0026#34;], [2,\u0026#34;c\u0026#34;] [\u0026#34;a\u0026#34;, \u0026#34;b\u0026#34;, \u0026#34;c\u0026#34;].keys() \/\/ iterator 0, 1, 2 [\u0026#34;a\u0026#34;, \u0026#34;b\u0026#34;, \u0026#34;c\u0026#34;].values() \/\/ iterator \u0026#34;a\u0026#34;, \u0026#34;b\u0026#34;, \u0026#34;c\u0026#34; Object.assign(Point, { origin: new Point(0,0) }) Proxies 使用代理（Proxy）监听对象的操作，然后可以做一些相应事情。\nvar target = {}; var handler = { get: function (receiver, name) { return \u0060Hello, ${name}!\u0060; } }; var p = new Proxy(target, handler); p.world === \u0026#39;Hello, world!\u0026#39;; 可监听的操作：get、set、has、deleteProperty、apply、construct、getOwnPropertyDescriptor、defineProperty、getPrototypeOf、setPrototypeOf、enumerate、ownKeys、preventExtensions、isExtensible。\nSymbols Symbol 是一种基本类型。Symbol 通过调用 symbol 函数产生，它接收一个可选的名字参数，该函数返回的 symbol 是唯一的。\nvar key = Symbol(\u0026#34;key\u0026#34;); var key2 = Symbol(\u0026#34;key\u0026#34;); key == key2 \/\/false Promises Promises 是处理异步操作的对象，使用了 Promise 对象之后可以用一种链式调用的方式来组织代码，让代码更加直观（类似 jQuery 的 deferred 对象）。\nfunction fakeAjax(url) { return new Promise(function (resolve, reject) { \/\/ setTimeouts are for effect, typically we would handle XHR if (!url) { return setTimeout(reject, 1000); } return setTimeout(resolve, 1000); }); } \/\/ no url, promise rejected fakeAjax().then(function () { console.log(\u0026#39;success\u0026#39;); },function () { console.log(\u0026#39;fail\u0026#39;); }); ",
 "inLanguage" : "en-US",
-"author" : "map[email:anghunk@gmail.com name:子舒]",
-"creator" : "map[email:anghunk@gmail.com name:子舒]",
-"publisher": "map[email:anghunk@gmail.com name:子舒]",
-"accountablePerson" : "map[email:anghunk@gmail.com name:子舒]",
-"copyrightHolder" : "map[email:anghunk@gmail.com name:子舒]",
+"author" : "map[email:hi@zishu.me name:anghunk]",
+"creator" : "map[email:hi@zishu.me name:anghunk]",
+"publisher": "map[email:hi@zishu.me name:anghunk]",
+"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
+"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
 "copyrightYear" : "2021",
 "datePublished": "2021-01-20 00:00:00 \u002b0000 UTC",
 "dateModified" : "2021-01-20 00:00:00 \u002b0000 UTC",
@@ -102,106 +102,129 @@ var key = Symbol(&#34;key&#34;); var key2 = Symbol(&#34;key&#34;); key == key2 /
 function fakeAjax(url) { return new Promise(function (resolve, reject) { // setTimeouts are for effect, typically we would handle XHR if (!url) { return setTimeout(reject, 1000); } return setTimeout(resolve, 1000); }); } // no url, promise rejected fakeAjax().then(function () { console.log(&#39;success&#39;); },function () { console.log(&#39;fail&#39;); }); " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="/css/ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
+
+ <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
+ 
+
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
+<link rel="stylesheet" href="/css/tocbot.css">
 <script src="/js/jquery-3.6.1.js"></script>
-<script defer src="/js/dark-mode.js"></script>
-<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
-<link rel="stylesheet" href="/css/dropdown.css">
+
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
-  <header class="container no-print">
-  <div class="u-header">
-    <nav class="bar">
-      <ul>
-        <li><img class="icon-text" id="dark-mode-toggle" src="/images/moon.svg" alt="Toggle Dark Mode"></li>
+  <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+        width="112" height="112" alt="avatar"></a>
+    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
+  </header>
+  <nav class="flex-column flex-grow-1 w-100 ps-0">
+    <ul class="nav">
 
-        
-        <li><a href="/">首页</a></li>
-        
-        <li><a href="/blog/">文章</a></li>
-        
-        <li><a href="/tags/">标签</a></li>
-        
-        <li><a href="/message/">留言</a></li>
-        
-        <li><a href="/about/">关于</a></li>
-        
-        <li><a href="/projects/">项目</a></li>
-        
-        <li><a href="/friends/">友链</a></li>
-        
-        
-        <li><a href="/search/">🔍</a></li>
-        <li><a href="/index.xml" target="_blank">RSS</a></li>
-      </ul>
-    </nav>
+      
+      <li class="nav-item">
+        <a href="/" class="nav-link">
+          <i class="fa-fw fas fa-house"></i>
+          <span>首页</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/blog/" class="nav-link">
+          <i class="fa-fw fas fa-stream"></i>
+          <span>文章</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/tags/" class="nav-link">
+          <i class="fa-fw fas fa-tags"></i>
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/message/" class="nav-link">
+          <i class="fa-fw fas fa-message"></i>
+          <span>留言</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/about/" class="nav-link">
+          <i class="fa-fw fas fa-info-circle"></i>
+          <span>关于</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/projects/" class="nav-link">
+          <i class="fa-fw fas fa-tasks"></i>
+          <span>项目</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/friends/" class="nav-link">
+          <i class="fa-fw fas fa-link"></i>
+          <span>友链</span>
+        </a>
+      </li>
+      
 
+    </ul>
+  </nav>
+  <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100"><button type="button"
+      class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
+      <i class="fas fa-adjust"></i>
+    </button>
+    <span class="icon-border"></span>
+    <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
+        class="fab fa-github"></i></a>
+    <a href="mailto:anghunk@gmail.com" aria-label="email" target="_blank" rel="noopener noreferrer"><i
+        class="fas fa-envelope"></i>
+    </a>
+    <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
+  </div>
+</aside>
+
+  <div id="main-wrapper" class="d-flex justify-content-center">
+    <div class="container d-flex flex-column px-xxl-5">
+      <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
+  <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
+
+    <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
+      <i class="fas fa-bars fa-fw"></i>
+    </button>
+    <div id="topbar-title">子舒的博客</div>
+    <button type="button" class="btn btn-link"></button>
   </div>
 </header>
-  <main class="container">
+      <div class="row flex-grow-1">
 
-    <header>
-      <hgroup id="brand">
-        <h1>ES5 和 ES6 的区别？</h1>
+        <main class="col-12 col-lg-11 col-xl-9 px-md-4">
+          <article class="px-1">
 
-        
-        <h5 style="font-size:12px;color:rgba(0,0,0,.5);">
-          <time>2021/01/20</time>
+            <header>
+              <h1 data-toc-skip="">ES5 和 ES6 的区别？</h1>
+              
+              
+              <div class="post-meta text-muted">
+                <span>Posted<time>Jan 1, 2021</time></span>
+                <div class="d-flex justify-content-between"><span>By
+                    <em><a href="https://github.com/anghunk">子舒</a></em></span>
+                </div>
+              </div>
+              
+            </header>
 
-          
-          <span class="no-print">|
-          
-          <a href="/tags/js">#js</a>
-          
-          <a href="/tags/es6">#ES6</a>
-          
-          </span>
-          
-
-          
-          
-          <span class="no-print">|
-            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-          </span>
-          
-          
-        </h5>
-        
-
-      </hgroup>
-      <hr class="sep">
-    </header>
-    
-
-    
-    <div class="toc">
-      <nav id="TableOfContents">
-  <ul>
-    <li><a href="#一javascript-由三部分组成">一、javascript 由三部分组成</a>
-      <ul>
-        <li><a href="#1ecmascript核心">1.ECMAScript（核心）</a></li>
-        <li><a href="#2dom文档对象模型">2.DOM（文档对象模型）</a></li>
-        <li><a href="#3bom浏览器对象模型">3.BOM（浏览器对象模型）</a></li>
-      </ul>
-    </li>
-    <li><a href="#二什么是-es5">二、什么是 ES5？</a>
-      <ul>
-        <li><a href="#1strict-模式">1.strict 模式</a></li>
-        <li><a href="#2array-增加方法">2.Array 增加方法</a></li>
-        <li><a href="#3object-方法">3.Object 方法</a></li>
-        <li><a href="#2什么是-es6">2.什么是 ES6?</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-    </div>
-    
-
-    <article class="post-content">
-      
-      <h2 id="一javascript-由三部分组成">一、javascript 由三部分组成</h2>
+            <div class="content">
+              
+              <h2 id="一javascript-由三部分组成">一、javascript 由三部分组成</h2>
 <h3 id="1ecmascript核心">1.ECMAScript（核心）</h3>
 <p>它规定了语言的组成部分：法语，类型，语句，关键字，操作符等等。</p>
 <h3 id="2dom文档对象模型">2.DOM（文档对象模型）</h3>
@@ -458,10 +481,96 @@ function fakeAjax(url) { return new Promise(function (resolve, reject) { // setT
 </span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;fail&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">});</span>
 </span></span></code></pre></div>
-    </article>
 
-    
-    <hr class="sep">
+              <div class="post-tail-wrapper text-muted">
+                <div class="post-meta mb-3">
+                  
+              
+                  
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="post-category">
+                    
+                    
+                      <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                    
+                  </span>
+                  
+
+                  <div class="post-tags">
+                    <i class="fa fa-tags fa-fw me-1"></i>
+                    
+                    <span class="post-tags">
+                      
+                        <a href="/tags/js" class="post-tag no-text-decoration">js</a>
+                      
+                        <a href="/tags/es6" class="post-tag no-text-decoration">ES6</a>
+                      
+                    </span>
+                  
+                  </div>
+
+                  
+
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                </div>
+              </div>
+
+            
+            
+            
+
+
+
+
+
+
+
+<div class="row">
+  <div id="tail-wrapper">
+    <aside id="related-posts">
+      <h3 class="mb-4" id="related-label">Further Reading</h3>
+      <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+
+        
+        
+        
+        <article class="col"><a href="/blog/47.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Jan 1, 2021</time>
+              <h4 class="pt-0 my-2">webpack 的核心概念和构建流程</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        <article class="col"><a href="/blog/46.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Jan 1, 2021</time>
+              <h4 class="pt-0 my-2">小张厨房日记（二）</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        <article class="col"><a href="/blog/45.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Jan 1, 2021</time>
+              <h4 class="pt-0 my-2">许嵩的歌又一次被抄袭！</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        
+      </nav>
+    </aside>
+  </div>
+</div>
+            
+
+            
+            
+            <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -558,52 +667,1039 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-    
-    
-  </main>
-  <hr class="sep">
-<footer class="container no-print">
-  <div class="u-footer">
-    <p>
-      本博客使用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:inherit;">CC BY-NC-SA 4.0</a> 协议开源
-    </p>
-    <p>© 2020 - 2025 Powered by 子舒</p>
-    <div class="footflex">
-      <p>Ad Astra Per Aspera.</p>
-      <p>
-        <a title="Email" href="mailto:hi@zishu.me"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></a>
-        <a title="Github" href="https://github.com/anghunk" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
-        <a title="RSS Feed" href="/index.xml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rss-icon lucide-rss"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
-      </p>
-    </div>
-  </div>
+            
+
+          </article>
+
+          <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
+flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
+  <p>
+    <time>© 2020 - 2025 Powered by </time>
+    <a href="https://github.com/anghunk">子舒</a>.
+    <span>Some rights reserved.</span>
+  </p>
+  <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
 </footer>
 
-<a herf="javascript:void(0)" class="gotop"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-from-dot-icon lucide-arrow-up-from-dot"><path d="m5 9 7-7 7 7"/><path d="M12 16V2"/><circle cx="12" cy="21" r="1"/></svg></a>
+<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
 <style>
-.gotop {
-  position: fixed;
-  right: 20px;
-  bottom: 50px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #c6c3c3;
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.1s linear;
-  border: 1px solid #ccc;
-}
+  .gotop {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #c6c3c3;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    border: 1px solid #ccc;
+  }
 
-.gotop:hover {
-  background: #ccc;
-}
+  .gotop:hover {
+    background: #ccc;
+  }
 </style>
 <script src="/js/main.js"></script>
-</body>
+        </main>
 
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
+  <div class="access">
+    <section id="access-lastmod">
+      <h2 class="panel-heading">Recently Updated</h2>
+      <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
+        
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/daming-mountain-qianniugang-camping-notes.html/">大明山牵牛岗露营游记</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/nanjing-travel-aug-3.html/">南京游八月三日</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/login-bitwarden-legacy-version.html/">如何登录旧版本 Bitwarden 密码管理器</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/262.html/">AI 驱动的验证码自动识别之旅：从困扰到解放</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/261.html/">Obsidian:移动端同步笔记</a></li>
+        
+      </ul>
+    </section>
+    <section>
+      <h2 class="panel-heading">Trending Tags</h2>
+      <div class="d-flex flex-wrap mt-3 mb-1 me-3">
+        
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/weekly/">Weekly</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D/">随手拍</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/js/">Js</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/vue/">Vue</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/react/">React</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E6%97%85%E6%B8%B8/">旅游</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%83%B3%E5%BD%95/">随想录</a>
+        
+      </div>
+    </section>
+
+
+    
+
+    
+  </div>
+
+  
+  <div class="toc-border-cover z-3"></div>
+  <section id="toc-wrapper" class="position-sticky">
+    <h2 class="panel-heading ps-3 pb-2 mb-0">Contents</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一javascript-由三部分组成">一、javascript 由三部分组成</a>
+      <ul>
+        <li><a href="#1ecmascript核心">1.ECMAScript（核心）</a></li>
+        <li><a href="#2dom文档对象模型">2.DOM（文档对象模型）</a></li>
+        <li><a href="#3bom浏览器对象模型">3.BOM（浏览器对象模型）</a></li>
+      </ul>
+    </li>
+    <li><a href="#二什么是-es5">二、什么是 ES5？</a>
+      <ul>
+        <li><a href="#1strict-模式">1.strict 模式</a></li>
+        <li><a href="#2array-增加方法">2.Array 增加方法</a></li>
+        <li><a href="#3object-方法">3.Object 方法</a></li>
+        <li><a href="#2什么是-es6">2.什么是 ES6?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </section>
+  
+
+</aside>
+
+      </div>
+    </div>
+  </div>
+
+</body>
 </html>

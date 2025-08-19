@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:anghunk@gmail.com name:子舒]" />
+<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
 <meta property="og:url" content="https://zishu.me/blog/23.html/" />
 <link rel="canonical" href="https://zishu.me/blog/23.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "react 学习路径－－怎么学习 react？",
 "description" : "转载于：https:\/\/github.com\/petehunt\/react-howto，react 开源作者对于 react 框架的一个学习路径的建议，个人感觉还是相当不错的学习路线\n如何学习 React? 如果你是一个 React (或者前端) 新手，出于以下的原因，你可能会对这个生态圈感到困惑：\nReact 的目标群体历来是喜欢尝试新事物的开发者和前端专家。 Facebook 开源的内容是应用在他们的实际应用中，因此他们没有关注那些比 Facebook 小的工程需求。 现有的 React 指引水平参差不齐。 在本文中，我会假设你已有使用 HTML, CSS 和 JavaScript 开发网页的基础。\n为什么要听我的？ 关于 React, 现在已经有大量的相互冲突的建议了，为什么要听我的？\n因为我是在 Facebook 构建并开源 React 的最初成员之一。现在我离开了 Facebook 并加入了一家初创公司，所以我也不会站在 Facebook 的立场上来表态。\n如何踏入 React 生态圈 所有的软件都是建立在某个技术栈之上的，你需要对整个技术栈有足够深入的理解，才能建造你的应用。为什么 React 生态圈的工具似乎总让人感觉压力山大呢，因为它总是以错误的顺序被解释：\n你应该按照以下的顺序进行学习，而不是跳着学或者同时学习:\nReact npm JavaScript“打包工具” ES6 Routing Flux 你不需要把这些都学完才去使用 React. 只需要在你遇到问题需要解决的时候，才进入下一步的学习。\n另外，在 React 社区中，有一些前沿主题是经常被提及到的，以下的这些主题很有意思，但也很难弄懂，所以它们远没有上面的主题流行，大多数应用也不需要用到这些。\n内联样式 服务器端渲染 Immutable.js Relay, Falcor 等 学习 React 本身 有一种常见的误解是：你需要花费大量时间在配置工具上，然后才开始学习 React. 在官方文档里，你可以找到 copy-paste HTML template. 只需要保存为 .html 文件，你就可以马上开始学习了。这个步骤不需要任何工具，你也无需额外学习工具使用，直到你能熟练掌握 React 基础。\n我依然觉得，学习 React 最简单的方法是通过官方教程 the official tutorial.\n学习 npm npm 是 Node.js 包管理工具，也是前端工程师和设计师分享 JavaScript 代码最流行的方式。它包含了名为 CommonJS 的模块系统，让你可以安装 JavaScript 写的命令行工具。作为背景知识，可以阅读 这篇文章 了解 CommonJS 对于浏览器的重要性，阅读 CommonJS Spec Wiki 了解关于 CommonJS API 的更多内容\n在 React 生态圈中，大部分可重用的组件、库和工具遵循 CommonJS 模块规范，可通过 npm 来安装。\n学习 JavaScript 打包工具 出于若干技术原因，CommonJS 模块 (也就是 npm 里的所有内容) 不能直接用到浏览器。你需要一个 JavaScript“打包工具 (bundler)”来把这些模块打包成 .js 文件，使你可以在网页中通过 \u0026lt;script\u0026gt; 标签引入它们。\nJavaScript 打包工具包括 webpack 和 browserify. 它们都是好的选择，但我个人更喜欢 webpack , 因为它有许多功能简化大型应用开发。鉴于 webpack 文档可能令人感到困惑，我也写了两篇文章：plug-and-play template for getting started 和针对更复杂用例的 how-to guide for webpack.\n要记住的一点：CommonJS 使用了 require() 函数来引入模块，因此许多人对此感到疑惑，并认为需要导入 require.js 到工程里。出于若干技术原因，我建议你避免使用 require.js. 它在 React 生态圈并不流行。\n学习 ES6 在 JSX (你会在 React tutorial 中学习到) 以外，你可能会注意到 React 例子中一些有趣的语法。这被称为 ECMAScript6, 是 JavaScript 的最新版本。由于 ES6 很新，你可能还没学习到，浏览器也可能尚未兼容，但别担心，通过合适的配置，你的打包工具会为你自动转换成兼容代码。\n如果你只想要使用 React 来把事情做完，你可以跳过 ES6 的学习， 或者留到以后再学习。\n你可能会看到一些讨论说更适合用 ES6 的 class 来创建 React 组件。这并不是真的，大多数人 (包括 Facebook) 用的还是 React.createClass().\n学习路由 (routing) “单页面应用”是时下的技术热点。当网页加载完成，用户点击链接或者按钮的时候，JavaScript 会更新页面和改变地址栏，但网页不会刷新。地址栏的管理就是通过 路由 (router) 来完成的。\n目前 React 生态圈最受欢迎的路由解决方案是 react-router. 如果你正在创建一个单页面应用，有什么理由不去使用它呢？\n如果你创建的并非单页面应用，请不要使用路由。 无论如何，大部分项目都是从大型应用中的小组件开始的。\n学习内联样式 在 React 出现之前，很多人通过像 SASS 这样的预处理器来重用复杂的 CSS 样式表。鉴于 React 使开发可重用组件变得容易，你的样式表可以变得没那么复杂了。社区中许多人 (包括我) 正尝试完全抛弃样式表。\n由于一些原因，其实这是个相当疯狂的主意。这让媒体查询 (media quries) 更加困难了，而且这种技术可能有性能上的局限性。当你开始用 React 的时候，只要用你平常使用的方法去写就好了。\n一旦你找到了用 React 开发的感觉，你就可以关注那些可作为替代的技术了。其中一种流行技术是 BEM. 我建议你逐渐停用 CSS 预处理器，因为 React 给了你一种更强大的方式去重用样式 (通过重用组件), 并且 JavaScript 打包工具可以为你生成更高效的样式表 (我曾经在 OSCON 上发表过关于这个的演讲). 说了这么多，总之 React 就像其他 JavaScript 库一样，可以和 CSS 预处理器很好地配合工作。\n另一种可选项是 CSS 模块, 更具体地说，是 react-css-modules. 虽然有了这些 CSS 模块，你还是写 CSS (或者是 SASS\/LESS\/Stylus), 但你可以像处理 React 中的内联样式那样管理和组织 CSS 文件。你也不需要担心用到 BEM 那样的方法学去管理类名，因为模块系统在底层已经帮你处理好了。\n学习服务器端渲染 服务器端渲染经常被称为 \u0026ldquo;通用应用\u0026rdquo; 或 \u0026ldquo;同构应用\u0026rdquo;. 这意味着你可以用 React 组件在服务器端渲染出静态 HTML. 这样做可以提高初始化加载的性能，因为用户不用等到 JS 下载完才看到初始界面，并且 React 可以重用服务器端渲染出的 HTML, 无需客户端重新生成。\n如果你发现首屏渲染速度过慢，或者想提高网站在搜索引擎的排行，你就需要服务器端渲染了。尽管 Google 现在也会索引客户端渲染的内容，但截至 2016 年 1 月，这样做仍被证实会对排行有负面影响，这可能是由于客户端渲染的性能问题所造成的。\n服务器端渲染还需要许多工具的辅助，因为显然 React 组件不是在考虑服务器端渲染的情况下写出来的，你应该先构建你的应用，之后再关心服务器端渲染的问题。不用担心，你不需要重写所有组件去支持它。\n学习 Flux 你可能听过 Flux, 不过关于 Flux 有大量的错误资讯。\n许多人一坐下来刚开始构建应用，就认为需要用 Flux 来定义他们的数据模型。这样采用 Flux 是不对的，Flux 应该在大量组件被建立完成以后才被引入。\nReact 组件之间存在层级关系。在很多时候，你的数据模型也跟随这种层级。这种情况下，Flux 不会给你很大帮助。但有些时候，你的数据模型没有层次，当你的 React 组件开始接受没有关联的 props 的时候，或者当小部分组件开始变得复杂的时候，你才可能需要看看 Flux.\n你会知道什么时候需要用 Flux. 如果你不确定是否需要用它，你就不需要它。\n如果你决定使用 Flux, 现在最流行的、文档最全的 Flux 库是 Redux. 当然也有许多其他选择，你或者会有兴趣尝试使用它们，但我的建议是只需要用最流行的 Redux 就足够了。\n学习 Immutable.js Immutable.js 提供了一系列的数据结构，以帮助解决构造 React 应用时的某些性能问题。这是一个很棒的库，你可能会在应用发展的过程里大量用到它，但直到你在意识到性能问题以前，它是完全不必要的。\n学习 Relay, Falcor 等 这些技术可以帮你减少 AJAX 请求数，它们仍然是非常前沿的，所以如果你没有遇到过多 AJAX 请求的问题，就不需要用到 Relay 或者 Falcor.\n",
 "inLanguage" : "en-US",
-"author" : "map[email:anghunk@gmail.com name:子舒]",
-"creator" : "map[email:anghunk@gmail.com name:子舒]",
-"publisher": "map[email:anghunk@gmail.com name:子舒]",
-"accountablePerson" : "map[email:anghunk@gmail.com name:子舒]",
-"copyrightHolder" : "map[email:anghunk@gmail.com name:子舒]",
+"author" : "map[email:hi@zishu.me name:anghunk]",
+"creator" : "map[email:hi@zishu.me name:anghunk]",
+"publisher": "map[email:hi@zishu.me name:anghunk]",
+"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
+"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
 "copyrightYear" : "2020",
 "datePublished": "2020-11-19 00:00:00 \u002b0000 UTC",
 "dateModified" : "2020-11-19 00:00:00 \u002b0000 UTC",
@@ -114,101 +114,129 @@ React 组件之间存在层级关系。在很多时候，你的数据模型也�
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="/css/ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
+
+ <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
+ 
+
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
+<link rel="stylesheet" href="/css/tocbot.css">
 <script src="/js/jquery-3.6.1.js"></script>
-<script defer src="/js/dark-mode.js"></script>
-<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
-<link rel="stylesheet" href="/css/dropdown.css">
+
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
-  <header class="container no-print">
-  <div class="u-header">
-    <nav class="bar">
-      <ul>
-        <li><img class="icon-text" id="dark-mode-toggle" src="/images/moon.svg" alt="Toggle Dark Mode"></li>
+  <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+        width="112" height="112" alt="avatar"></a>
+    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
+  </header>
+  <nav class="flex-column flex-grow-1 w-100 ps-0">
+    <ul class="nav">
 
-        
-        <li><a href="/">首页</a></li>
-        
-        <li><a href="/blog/">文章</a></li>
-        
-        <li><a href="/tags/">标签</a></li>
-        
-        <li><a href="/message/">留言</a></li>
-        
-        <li><a href="/about/">关于</a></li>
-        
-        <li><a href="/projects/">项目</a></li>
-        
-        <li><a href="/friends/">友链</a></li>
-        
-        
-        <li><a href="/search/">🔍</a></li>
-        <li><a href="/index.xml" target="_blank">RSS</a></li>
-      </ul>
-    </nav>
+      
+      <li class="nav-item">
+        <a href="/" class="nav-link">
+          <i class="fa-fw fas fa-house"></i>
+          <span>首页</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/blog/" class="nav-link">
+          <i class="fa-fw fas fa-stream"></i>
+          <span>文章</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/tags/" class="nav-link">
+          <i class="fa-fw fas fa-tags"></i>
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/message/" class="nav-link">
+          <i class="fa-fw fas fa-message"></i>
+          <span>留言</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/about/" class="nav-link">
+          <i class="fa-fw fas fa-info-circle"></i>
+          <span>关于</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/projects/" class="nav-link">
+          <i class="fa-fw fas fa-tasks"></i>
+          <span>项目</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/friends/" class="nav-link">
+          <i class="fa-fw fas fa-link"></i>
+          <span>友链</span>
+        </a>
+      </li>
+      
 
+    </ul>
+  </nav>
+  <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100"><button type="button"
+      class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
+      <i class="fas fa-adjust"></i>
+    </button>
+    <span class="icon-border"></span>
+    <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
+        class="fab fa-github"></i></a>
+    <a href="mailto:anghunk@gmail.com" aria-label="email" target="_blank" rel="noopener noreferrer"><i
+        class="fas fa-envelope"></i>
+    </a>
+    <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
+  </div>
+</aside>
+
+  <div id="main-wrapper" class="d-flex justify-content-center">
+    <div class="container d-flex flex-column px-xxl-5">
+      <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
+  <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
+
+    <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
+      <i class="fas fa-bars fa-fw"></i>
+    </button>
+    <div id="topbar-title">子舒的博客</div>
+    <button type="button" class="btn btn-link"></button>
   </div>
 </header>
-  <main class="container">
+      <div class="row flex-grow-1">
 
-    <header>
-      <hgroup id="brand">
-        <h1>react 学习路径－－怎么学习 react？</h1>
+        <main class="col-12 col-lg-11 col-xl-9 px-md-4">
+          <article class="px-1">
 
-        
-        <h5 style="font-size:12px;color:rgba(0,0,0,.5);">
-          <time>2020/11/19</time>
+            <header>
+              <h1 data-toc-skip="">react 学习路径－－怎么学习 react？</h1>
+              
+              
+              <div class="post-meta text-muted">
+                <span>Posted<time>Nov 11, 2020</time></span>
+                <div class="d-flex justify-content-between"><span>By
+                    <em><a href="https://github.com/anghunk">子舒</a></em></span>
+                </div>
+              </div>
+              
+            </header>
 
-          
-          <span class="no-print">|
-          
-          <a href="/tags/react">#react</a>
-          
-          </span>
-          
-
-          
-          
-          <span class="no-print">|
-            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-          </span>
-          
-          
-        </h5>
-        
-
-      </hgroup>
-      <hr class="sep">
-    </header>
-    
-
-    
-    <div class="toc">
-      <nav id="TableOfContents">
-  <ul>
-    <li><a href="#为什么要听我的">为什么要听我的？</a></li>
-    <li><a href="#如何踏入-react-生态圈">如何踏入 React 生态圈</a></li>
-    <li><a href="#学习-react-本身">学习 React 本身</a></li>
-    <li><a href="#学习-npm">学习 <code>npm</code></a></li>
-    <li><a href="#学习-javascript-打包工具">学习 JavaScript 打包工具</a></li>
-    <li><a href="#学习-es6">学习 ES6</a></li>
-    <li><a href="#学习路由-routing">学习路由 (routing)</a></li>
-    <li><a href="#学习内联样式">学习内联样式</a></li>
-    <li><a href="#学习服务器端渲染">学习服务器端渲染</a></li>
-    <li><a href="#学习-flux">学习 Flux</a></li>
-    <li><a href="#学习-immutablejs">学习 Immutable.js</a></li>
-    <li><a href="#学习-relay-falcor-等">学习 Relay, Falcor 等</a></li>
-  </ul>
-</nav>
-    </div>
-    
-
-    <article class="post-content">
-      
-      <p>转载于：<a href="https://github.com/petehunt/react-howto">https://github.com/petehunt/react-howto</a>，react 开源作者对于 react 框架的一个学习路径的建议，个人感觉还是相当不错的学习路线</p>
+            <div class="content">
+              
+              <p>转载于：<a href="https://github.com/petehunt/react-howto">https://github.com/petehunt/react-howto</a>，react 开源作者对于 react 框架的一个学习路径的建议，个人感觉还是相当不错的学习路线</p>
 <hr>
 <h1 id="如何学习-react">如何学习 React?</h1>
 <p>如果你是一个 React (或者前端) 新手，出于以下的原因，你可能会对这个生态圈感到困惑：</p>
@@ -278,10 +306,94 @@ React 组件之间存在层级关系。在很多时候，你的数据模型也�
 <h2 id="学习-relay-falcor-等">学习 Relay, Falcor 等</h2>
 <p>这些技术可以帮你减少 AJAX 请求数，它们仍然是非常前沿的，所以如果你没有遇到过多 AJAX 请求的问题，就不需要用到 Relay 或者 Falcor.</p>
 
-    </article>
 
-    
-    <hr class="sep">
+              <div class="post-tail-wrapper text-muted">
+                <div class="post-meta mb-3">
+                  
+              
+                  
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="post-category">
+                    
+                    
+                      <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                    
+                  </span>
+                  
+
+                  <div class="post-tags">
+                    <i class="fa fa-tags fa-fw me-1"></i>
+                    
+                    <span class="post-tags">
+                      
+                        <a href="/tags/react" class="post-tag no-text-decoration">react</a>
+                      
+                    </span>
+                  
+                  </div>
+
+                  
+
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                </div>
+              </div>
+
+            
+            
+            
+
+
+
+
+
+
+
+<div class="row">
+  <div id="tail-wrapper">
+    <aside id="related-posts">
+      <h3 class="mb-4" id="related-label">Further Reading</h3>
+      <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+
+        
+        
+        
+        <article class="col"><a href="/blog/22.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Nov 11, 2020</time>
+              <h4 class="pt-0 my-2">在 js 中运算不能随便把 value 属性定义成变量</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        <article class="col"><a href="/blog/21.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Nov 11, 2020</time>
+              <h4 class="pt-0 my-2">事件监听函数，以及事件的捕获和冒泡机制</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        <article class="col"><a href="/blog/19.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Nov 11, 2020</time>
+              <h4 class="pt-0 my-2">getElementBy 系列和 querySelector 系列的区别</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        
+      </nav>
+    </aside>
+  </div>
+</div>
+            
+
+            
+            
+            <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -378,52 +490,1036 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-    
-    
-  </main>
-  <hr class="sep">
-<footer class="container no-print">
-  <div class="u-footer">
-    <p>
-      本博客使用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:inherit;">CC BY-NC-SA 4.0</a> 协议开源
-    </p>
-    <p>© 2020 - 2025 Powered by 子舒</p>
-    <div class="footflex">
-      <p>Ad Astra Per Aspera.</p>
-      <p>
-        <a title="Email" href="mailto:hi@zishu.me"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></a>
-        <a title="Github" href="https://github.com/anghunk" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
-        <a title="RSS Feed" href="/index.xml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rss-icon lucide-rss"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
-      </p>
-    </div>
-  </div>
+            
+
+          </article>
+
+          <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
+flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
+  <p>
+    <time>© 2020 - 2025 Powered by </time>
+    <a href="https://github.com/anghunk">子舒</a>.
+    <span>Some rights reserved.</span>
+  </p>
+  <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
 </footer>
 
-<a herf="javascript:void(0)" class="gotop"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-from-dot-icon lucide-arrow-up-from-dot"><path d="m5 9 7-7 7 7"/><path d="M12 16V2"/><circle cx="12" cy="21" r="1"/></svg></a>
+<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
 <style>
-.gotop {
-  position: fixed;
-  right: 20px;
-  bottom: 50px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #c6c3c3;
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.1s linear;
-  border: 1px solid #ccc;
-}
+  .gotop {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #c6c3c3;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    border: 1px solid #ccc;
+  }
 
-.gotop:hover {
-  background: #ccc;
-}
+  .gotop:hover {
+    background: #ccc;
+  }
 </style>
 <script src="/js/main.js"></script>
-</body>
+        </main>
 
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
+  <div class="access">
+    <section id="access-lastmod">
+      <h2 class="panel-heading">Recently Updated</h2>
+      <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
+        
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/daming-mountain-qianniugang-camping-notes.html/">大明山牵牛岗露营游记</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/nanjing-travel-aug-3.html/">南京游八月三日</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/login-bitwarden-legacy-version.html/">如何登录旧版本 Bitwarden 密码管理器</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/262.html/">AI 驱动的验证码自动识别之旅：从困扰到解放</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/261.html/">Obsidian:移动端同步笔记</a></li>
+        
+      </ul>
+    </section>
+    <section>
+      <h2 class="panel-heading">Trending Tags</h2>
+      <div class="d-flex flex-wrap mt-3 mb-1 me-3">
+        
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/weekly/">Weekly</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D/">随手拍</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/js/">Js</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/vue/">Vue</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/react/">React</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E6%97%85%E6%B8%B8/">旅游</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%83%B3%E5%BD%95/">随想录</a>
+        
+      </div>
+    </section>
+
+
+    
+
+    
+  </div>
+
+  
+  <div class="toc-border-cover z-3"></div>
+  <section id="toc-wrapper" class="position-sticky">
+    <h2 class="panel-heading ps-3 pb-2 mb-0">Contents</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#为什么要听我的">为什么要听我的？</a></li>
+    <li><a href="#如何踏入-react-生态圈">如何踏入 React 生态圈</a></li>
+    <li><a href="#学习-react-本身">学习 React 本身</a></li>
+    <li><a href="#学习-npm">学习 <code>npm</code></a></li>
+    <li><a href="#学习-javascript-打包工具">学习 JavaScript 打包工具</a></li>
+    <li><a href="#学习-es6">学习 ES6</a></li>
+    <li><a href="#学习路由-routing">学习路由 (routing)</a></li>
+    <li><a href="#学习内联样式">学习内联样式</a></li>
+    <li><a href="#学习服务器端渲染">学习服务器端渲染</a></li>
+    <li><a href="#学习-flux">学习 Flux</a></li>
+    <li><a href="#学习-immutablejs">学习 Immutable.js</a></li>
+    <li><a href="#学习-relay-falcor-等">学习 Relay, Falcor 等</a></li>
+  </ul>
+</nav>
+  </section>
+  
+
+</aside>
+
+      </div>
+    </div>
+  </div>
+
+</body>
 </html>

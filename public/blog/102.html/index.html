@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:anghunk@gmail.com name:子舒]" />
+<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
 <meta property="og:url" content="https://zishu.me/blog/102.html/" />
 <link rel="canonical" href="https://zishu.me/blog/102.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "Nuxt.js 如何部署 Artalk 和遇到的问题",
 "description" : "花了两天时间，终于把 Artalk 部署好了，一款数据自托管带后端的评论程序，非常适合我。这篇文章就介绍一下我部署的流程，以及我在部署过程中遇到的一些问题，将它记录一下，以便之后研究，顺便对使用 Nuxt.js 搭建博客的伙伴提供一些参考价值。\nArtalk 地址：https:\/\/artalk.js.org\/\n这篇文章我将分为三个部分，后端部署、前端部署、问题研究。\n1.后端部署 官方有两个版本，注意分辨，php 和 go，对应的是不同的仓库，目前官方文档写的默认都是 go 语言开发的。\nArtalkGo 仓库：https:\/\/github.com\/ArtalkJS\/ArtalkGo\n我使用的也是 go 版本，功能和优化都比较好。\ndocker 构建 \u002b 宝塔 我的服务器是 Ubuntu 20.04，其他版本类似，没有很大不同。\n首先，使用 ssh 连接服务器。\nsudo su # 启用sudo模式 cd \/www\/wwwroot\/ # 进入站点目录 mkdir ArtalkGo cd ArtalkGo # 为 ArtalkGo 创建一个目录 curl -L https:\/\/raw.githubusercontent.com\/ArtalkJS\/ArtalkGo\/master\/artalk-go.example.yml \u0026gt; conf.yml # 下载配置文件模版 到这里之后，官方说的是用 vim conf.yml 进入配置文件，修改参数然后配置。我不是很建议，因为用着并不是那么顺手（因为我菜），我建议直接到达 \/www\/wwwroot\/ArtalkGo 目录下修改 conf.yml 文件，文本模式操作起来更顺手。\n里面的配置基本都是站点名称，管理员，邮箱等设置，没什么大问题。除此之外，端口等参数都不用碰，不然会报错。\n配置完文件之后直接保存就行了。\n在宝塔插件里面下载 Docker 管理器，点击镜像管理。\n然后在镜像名称输入 artalk\/artalk-go 点击获取镜像即可，大概两分钟就下载结束了。\n然后回到 ssh 连接，新建 docker 容器。\ndocker run -d \\ --name artalk-go \\ -p 0.0.0.0:8080:23366 \\ -v $(pwd)\/conf.yml:\/conf.yml \\ -v $(pwd)\/data:\/data \\ artalk\/artalk-go 将上面的命令行在命令行，直接回车就行了。\n这个时候需要去你的服务器厂商那里放行端口 8080 ，如果之前放行过不用管，没有放行的话需要去设置一下。\n然后在浏览器输入 http:\/\/ip地址:8080 。\n如果出现现在这个页面，说明你部署成功了，如果打不开或者是其他情况，请检查是否成功执行上面的步骤。\n如果之后修改配置文件了，一定要注意在修改之后执行命令，需要重启服务才能生效。\ndocker restart artalk-go 反向代理 这个如果使用宝塔太简单，就不细说了。\nhttps:\/\/artalk.js.org\/guide\/backend\/reverse-proxy.html#%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF\n文档已经说得很详细，如果出现操作失败的情况可以在下面评论。\n2.前端部署 博客使用 vue \u002b nuxt 开发。\n我使用的是通过 cdn 引入的，npm 我目前发现和我博客有些冲突，暂时不使用该方式。\n先在 \/components 目录下新建一个组件名为 Comments.vue\n\u0026lt;!-- Comments.vue --\u0026gt; \u0026lt;template\u0026gt; \u0026lt;div class=\u0026#34;wrapper\u0026#34;\u0026gt; \u0026lt;link href=\u0026#34;https:\/\/cdn.jsdelivr.net\/npm\/artalk@2.1.4\/dist\/Artalk.css\u0026#34; rel=\u0026#34;stylesheet\u0026#34;\u0026gt; \u0026lt;script src=\u0026#34;https:\/\/cdn.jsdelivr.net\/npm\/artalk@2.1.4\/dist\/Artalk.js\u0026#34;\u0026gt;\u0026lt;\/script\u0026gt; \u0026lt;div id=\u0026#34;Comments\u0026#34;\u0026gt;\u0026lt;\/div\u0026gt; \u0026lt;\/div\u0026gt; \u0026lt;\/template\u0026gt; \u0026lt;script\u0026gt; export default { name: \u0026#39;Comments\u0026#39;, } \u0026lt;\/script\u0026gt; \u0026lt;style lang=\u0026#34;scss\u0026#34; scoped\u0026gt; \u0026lt;!-- css代码 --\u0026gt; \u0026lt;\/style\u0026gt; 配置代码我单独放在 \/static\/main.js ，然后在 nuxt.config.js 引入。\n\/\/ nuxt.config.js head: { title: \u0026#39;子舒的博客 | imhan.cn\u0026#39;, meta: [ \/\/ ... ] script: [ { src: \u0026#39;\/js\/main.js\u0026#39; }, ] }, 在 main.js 中配置 Artick。\nnew Artalk({ el: \u0026#34;#Comments\u0026#34;, server: \u0026#39;https:\/\/域名\/api\u0026#39;, site: \u0026#34;子舒的博客\u0026#34;, placeholder: \u0026#39;说点什么...\u0026#39;, gravatar: { mirror: \u0026#39;https:\/\/sdn.geekzu.org\/avatar\/\u0026#39;, default: \u0026#39;mp\u0026#39;, }, pagination: { pageSize: 15, \/\/ 每页评论数 readMore: true, \/\/ 加载更多 or 分页条 autoLoad: true, \/\/ 自动加载 (加载更多) }, heightLimit: { content: 200, \/\/ 评论内容限高 children: 300, \/\/ 子评论区域限高 }, versionCheck: true, \/\/ 前端版本检测 }); 还有一个方案就是将文件放在服务器或者 github，将它引入，不过有些舍本逐末了，不是很建议。\n3.问题研究 1. 关于评论路径问题\n提交评论之后会在管理后台生成一个列表，表示哪个路径产生了评论，\n如果想把某个页面评论转到其他页面，可以直接修改页面的 url，点击KEY变更。\nArtalk 的路径判断很严格，包括 https:\/\/example.com\/1 和 https:\/\/example.com\/1\/ 的评论就属于两个页面。\n问过作者，觉得他的说法很有道理\nqwqcode: https:\/\/example.com\/1 和 https:\/\/example.com\/1\/ 本来就不属于相同路径，后者等价于 https:\/\/example.com\/1\/index.html (和 web 服务器配置有关)\n所以我直接在我博客里把路径然后默认加一个 \/ 符号，不管打开哪个页面都会跳转到带有 \/ 的 url，也是非常简单粗暴的解决了这个问题。\npath: \u0060\/posts\/${key.replace(\u0026#39;.md\u0026#39;, \u0026#39;\u0026#39;).replace(\u0026#39;.\/\u0026#39;, \u0026#39;\u0026#39;)}\/\u0060 2. localhost:3000 和域名\n由此引发的另一个问题就是我在本地构建 localhost:3000 是不会显示域名后的评论，这个问题也不是大问题，我研究过 Artalk 文档，因为他是一个后端，可以多个前端使用，如果仅仅判断二级目录会造成一个很大的问题。\nhttps:\/\/a.com\/1 和 https:\/\/b.com\/1 这两个页面使用了同一套评论数据，所以为了避免这个情况，在判断路径时直接加上域名，这样的话，域名下的评论自然不会同步到 localhost:3000 。\n这对我开发博客来说没有什么影响，所以就不打算解决了。\n这是我目前遇到的问题，我会在后续的使用中持续更新本文，以作留存。\n",
 "inLanguage" : "en-US",
-"author" : "map[email:anghunk@gmail.com name:子舒]",
-"creator" : "map[email:anghunk@gmail.com name:子舒]",
-"publisher": "map[email:anghunk@gmail.com name:子舒]",
-"accountablePerson" : "map[email:anghunk@gmail.com name:子舒]",
-"copyrightHolder" : "map[email:anghunk@gmail.com name:子舒]",
+"author" : "map[email:hi@zishu.me name:anghunk]",
+"creator" : "map[email:hi@zishu.me name:anghunk]",
+"publisher": "map[email:hi@zishu.me name:anghunk]",
+"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
+"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
 "copyrightYear" : "2022",
 "datePublished": "2022-02-18 00:00:00 \u002b0000 UTC",
 "dateModified" : "2022-02-18 00:00:00 \u002b0000 UTC",
@@ -122,99 +122,129 @@ https://a.com/1 和 https://b.com/1 这两个页面使用了同一套评论数�
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="/css/ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
+
+ <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
+ 
+
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
+<link rel="stylesheet" href="/css/tocbot.css">
 <script src="/js/jquery-3.6.1.js"></script>
-<script defer src="/js/dark-mode.js"></script>
-<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
-<link rel="stylesheet" href="/css/dropdown.css">
+
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
-  <header class="container no-print">
-  <div class="u-header">
-    <nav class="bar">
-      <ul>
-        <li><img class="icon-text" id="dark-mode-toggle" src="/images/moon.svg" alt="Toggle Dark Mode"></li>
+  <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+        width="112" height="112" alt="avatar"></a>
+    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
+  </header>
+  <nav class="flex-column flex-grow-1 w-100 ps-0">
+    <ul class="nav">
 
-        
-        <li><a href="/">首页</a></li>
-        
-        <li><a href="/blog/">文章</a></li>
-        
-        <li><a href="/tags/">标签</a></li>
-        
-        <li><a href="/message/">留言</a></li>
-        
-        <li><a href="/about/">关于</a></li>
-        
-        <li><a href="/projects/">项目</a></li>
-        
-        <li><a href="/friends/">友链</a></li>
-        
-        
-        <li><a href="/search/">🔍</a></li>
-        <li><a href="/index.xml" target="_blank">RSS</a></li>
-      </ul>
-    </nav>
+      
+      <li class="nav-item">
+        <a href="/" class="nav-link">
+          <i class="fa-fw fas fa-house"></i>
+          <span>首页</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/blog/" class="nav-link">
+          <i class="fa-fw fas fa-stream"></i>
+          <span>文章</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/tags/" class="nav-link">
+          <i class="fa-fw fas fa-tags"></i>
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/message/" class="nav-link">
+          <i class="fa-fw fas fa-message"></i>
+          <span>留言</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/about/" class="nav-link">
+          <i class="fa-fw fas fa-info-circle"></i>
+          <span>关于</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/projects/" class="nav-link">
+          <i class="fa-fw fas fa-tasks"></i>
+          <span>项目</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/friends/" class="nav-link">
+          <i class="fa-fw fas fa-link"></i>
+          <span>友链</span>
+        </a>
+      </li>
+      
 
+    </ul>
+  </nav>
+  <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100"><button type="button"
+      class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
+      <i class="fas fa-adjust"></i>
+    </button>
+    <span class="icon-border"></span>
+    <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
+        class="fab fa-github"></i></a>
+    <a href="mailto:anghunk@gmail.com" aria-label="email" target="_blank" rel="noopener noreferrer"><i
+        class="fas fa-envelope"></i>
+    </a>
+    <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
+  </div>
+</aside>
+
+  <div id="main-wrapper" class="d-flex justify-content-center">
+    <div class="container d-flex flex-column px-xxl-5">
+      <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
+  <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
+
+    <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
+      <i class="fas fa-bars fa-fw"></i>
+    </button>
+    <div id="topbar-title">子舒的博客</div>
+    <button type="button" class="btn btn-link"></button>
   </div>
 </header>
-  <main class="container">
+      <div class="row flex-grow-1">
 
-    <header>
-      <hgroup id="brand">
-        <h1>Nuxt.js 如何部署 Artalk 和遇到的问题</h1>
+        <main class="col-12 col-lg-11 col-xl-9 px-md-4">
+          <article class="px-1">
 
-        
-        <h5 style="font-size:12px;color:rgba(0,0,0,.5);">
-          <time>2022/02/18</time>
+            <header>
+              <h1 data-toc-skip="">Nuxt.js 如何部署 Artalk 和遇到的问题</h1>
+              
+              
+              <div class="post-meta text-muted">
+                <span>Posted<time>Feb 2, 2022</time></span>
+                <div class="d-flex justify-content-between"><span>By
+                    <em><a href="https://github.com/anghunk">子舒</a></em></span>
+                </div>
+              </div>
+              
+            </header>
 
-          
-          <span class="no-print">|
-          
-          <a href="/tags/%E5%8D%9A%E5%AE%A2">#博客</a>
-          
-          <a href="/tags/%E8%AF%84%E8%AE%BA">#评论</a>
-          
-          </span>
-          
-
-          
-          
-          <span class="no-print">|
-            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-          </span>
-          
-          
-        </h5>
-        
-
-      </hgroup>
-      <hr class="sep">
-    </header>
-    
-
-    
-    <div class="toc">
-      <nav id="TableOfContents">
-  <ul>
-    <li><a href="#1后端部署">1.后端部署</a>
-      <ul>
-        <li><a href="#docker-构建--宝塔">docker 构建 + 宝塔</a></li>
-        <li><a href="#反向代理">反向代理</a></li>
-      </ul>
-    </li>
-    <li><a href="#2前端部署">2.前端部署</a></li>
-    <li><a href="#3问题研究">3.问题研究</a></li>
-  </ul>
-</nav>
-    </div>
-    
-
-    <article class="post-content">
-      
-      <p>花了两天时间，终于把 Artalk 部署好了，一款数据自托管带后端的评论程序，非常适合我。这篇文章就介绍一下我部署的流程，以及我在部署过程中遇到的一些问题，将它记录一下，以便之后研究，顺便对使用 Nuxt.js 搭建博客的伙伴提供一些参考价值。</p>
+            <div class="content">
+              
+              <p>花了两天时间，终于把 Artalk 部署好了，一款数据自托管带后端的评论程序，非常适合我。这篇文章就介绍一下我部署的流程，以及我在部署过程中遇到的一些问题，将它记录一下，以便之后研究，顺便对使用 Nuxt.js 搭建博客的伙伴提供一些参考价值。</p>
 <p>Artalk 地址：<a href="https://artalk.js.org/">https://artalk.js.org/</a></p>
 <p>这篇文章我将分为三个部分，后端部署、前端部署、问题研究。</p>
 <h2 id="1后端部署">1.后端部署</h2>
@@ -245,7 +275,7 @@ https://a.com/1 和 https://b.com/1 这两个页面使用了同一套评论数�
 		src="https://imgurl.zishu.me/images/old/2022/02/18/1861474b101c0fb69d42e7f922a52fea.png"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p>里面的配置基本都是站点名称，管理员，邮箱等设置，没什么大问题。除此之外，端口等参数都不用碰，不然会报错。</p>
 <p>配置完文件之后直接保存就行了。</p>
@@ -257,7 +287,7 @@ https://a.com/1 和 https://b.com/1 这两个页面使用了同一套评论数�
 		src="https://imgurl.zishu.me/images/old/2022/02/18/d2d1227986b852267f027bd6f815b7e9.png"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p>然后在镜像名称输入 <code>artalk/artalk-go</code> 点击获取镜像即可，大概两分钟就下载结束了。</p>
 <p>然后回到 ssh 连接，新建 docker 容器。</p>
@@ -277,7 +307,7 @@ https://a.com/1 和 https://b.com/1 这两个页面使用了同一套评论数�
 		src="https://imgurl.zishu.me/images/old/2022/02/18/571d246b4aa2e9574a2a543364a965d2.png"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <hr>
 <p>如果之后修改配置文件了，一定要注意在修改之后执行命令，需要重启服务才能生效。</p>
@@ -357,7 +387,7 @@ https://a.com/1 和 https://b.com/1 这两个页面使用了同一套评论数�
 		src="https://imgurl.zishu.me/images/old/2022/02/18/5bb72fd1a3427c31aaaf91c8637435c8.png"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p>如果想把某个页面评论转到其他页面，可以直接修改页面的 url，<code>点击KEY变更</code>。</p>
 <p>Artalk 的路径判断很严格，包括 <code>https://example.com/1</code> 和 <code>https://example.com/1/</code> 的评论就属于两个页面。</p>
@@ -374,10 +404,96 @@ https://a.com/1 和 https://b.com/1 这两个页面使用了同一套评论数�
 <hr>
 <p>这是我目前遇到的问题，我会在后续的使用中持续更新本文，以作留存。</p>
 
-    </article>
 
-    
-    <hr class="sep">
+              <div class="post-tail-wrapper text-muted">
+                <div class="post-meta mb-3">
+                  
+              
+                  
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="post-category">
+                    
+                    
+                      <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                    
+                  </span>
+                  
+
+                  <div class="post-tags">
+                    <i class="fa fa-tags fa-fw me-1"></i>
+                    
+                    <span class="post-tags">
+                      
+                        <a href="/tags/%E5%8D%9A%E5%AE%A2" class="post-tag no-text-decoration">博客</a>
+                      
+                        <a href="/tags/%E8%AF%84%E8%AE%BA" class="post-tag no-text-decoration">评论</a>
+                      
+                    </span>
+                  
+                  </div>
+
+                  
+
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                </div>
+              </div>
+
+            
+            
+            
+
+
+
+
+
+
+
+<div class="row">
+  <div id="tail-wrapper">
+    <aside id="related-posts">
+      <h3 class="mb-4" id="related-label">Further Reading</h3>
+      <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+
+        
+        
+        
+        <article class="col"><a href="/blog/99.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Jan 1, 2022</time>
+              <h4 class="pt-0 my-2">2022 新春快乐</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        <article class="col"><a href="/blog/100.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Jan 1, 2022</time>
+              <h4 class="pt-0 my-2">如何使用谷歌插件为网站注入代码</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        <article class="col"><a href="/blog/98.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Jan 1, 2022</time>
+              <h4 class="pt-0 my-2">《夜幕》</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        
+      </nav>
+    </aside>
+  </div>
+</div>
+            
+
+            
+            
+            <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -474,52 +590,1032 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-    
-    
-  </main>
-  <hr class="sep">
-<footer class="container no-print">
-  <div class="u-footer">
-    <p>
-      本博客使用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:inherit;">CC BY-NC-SA 4.0</a> 协议开源
-    </p>
-    <p>© 2020 - 2025 Powered by 子舒</p>
-    <div class="footflex">
-      <p>Ad Astra Per Aspera.</p>
-      <p>
-        <a title="Email" href="mailto:hi@zishu.me"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></a>
-        <a title="Github" href="https://github.com/anghunk" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
-        <a title="RSS Feed" href="/index.xml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rss-icon lucide-rss"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
-      </p>
-    </div>
-  </div>
+            
+
+          </article>
+
+          <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
+flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
+  <p>
+    <time>© 2020 - 2025 Powered by </time>
+    <a href="https://github.com/anghunk">子舒</a>.
+    <span>Some rights reserved.</span>
+  </p>
+  <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
 </footer>
 
-<a herf="javascript:void(0)" class="gotop"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-from-dot-icon lucide-arrow-up-from-dot"><path d="m5 9 7-7 7 7"/><path d="M12 16V2"/><circle cx="12" cy="21" r="1"/></svg></a>
+<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
 <style>
-.gotop {
-  position: fixed;
-  right: 20px;
-  bottom: 50px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #c6c3c3;
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.1s linear;
-  border: 1px solid #ccc;
-}
+  .gotop {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #c6c3c3;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    border: 1px solid #ccc;
+  }
 
-.gotop:hover {
-  background: #ccc;
-}
+  .gotop:hover {
+    background: #ccc;
+  }
 </style>
 <script src="/js/main.js"></script>
-</body>
+        </main>
 
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
+  <div class="access">
+    <section id="access-lastmod">
+      <h2 class="panel-heading">Recently Updated</h2>
+      <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
+        
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/daming-mountain-qianniugang-camping-notes.html/">大明山牵牛岗露营游记</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/nanjing-travel-aug-3.html/">南京游八月三日</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/login-bitwarden-legacy-version.html/">如何登录旧版本 Bitwarden 密码管理器</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/262.html/">AI 驱动的验证码自动识别之旅：从困扰到解放</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/261.html/">Obsidian:移动端同步笔记</a></li>
+        
+      </ul>
+    </section>
+    <section>
+      <h2 class="panel-heading">Trending Tags</h2>
+      <div class="d-flex flex-wrap mt-3 mb-1 me-3">
+        
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/weekly/">Weekly</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D/">随手拍</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/js/">Js</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/vue/">Vue</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/react/">React</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E6%97%85%E6%B8%B8/">旅游</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%83%B3%E5%BD%95/">随想录</a>
+        
+      </div>
+    </section>
+
+
+    
+
+    
+  </div>
+
+  
+  <div class="toc-border-cover z-3"></div>
+  <section id="toc-wrapper" class="position-sticky">
+    <h2 class="panel-heading ps-3 pb-2 mb-0">Contents</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1后端部署">1.后端部署</a>
+      <ul>
+        <li><a href="#docker-构建--宝塔">docker 构建 + 宝塔</a></li>
+        <li><a href="#反向代理">反向代理</a></li>
+      </ul>
+    </li>
+    <li><a href="#2前端部署">2.前端部署</a></li>
+    <li><a href="#3问题研究">3.问题研究</a></li>
+  </ul>
+</nav>
+  </section>
+  
+
+</aside>
+
+      </div>
+    </div>
+  </div>
+
+</body>
 </html>

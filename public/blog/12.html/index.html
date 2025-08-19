@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:anghunk@gmail.com name:子舒]" />
+<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
 <meta property="og:url" content="https://zishu.me/blog/12.html/" />
 <link rel="canonical" href="https://zishu.me/blog/12.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "HTML 事件属性--DOM",
 "description" : "研究 html 的对象，事件和方法，从 js 的角度来思考，这个标签的属性是通过什么方法，触发什么事件来实现的\n键盘鼠标事件\n页面窗口事件\n表单事件\n一、window 事件属性 针对 window 对象触发的事件，在\u0026lt;body\u0026gt;中执行\n1.onbeforeprint／onafterprint 在浏览器打印之间\/后触发\n\u0026lt;body onbeforeprint = print()\u0026gt; \u0026lt;script\u0026gt; function print() { alert(\u0026#34;打印之间！\u0026#34;) } \u0026lt;\/script\u0026gt; 打印前和打印后的事件方法类似，一个是在打印前触发事件，一个是在打印这个事件结束之后触发onafterprint这个事件\n2.onbeforeunload\/unload 离开页面之间触发的事件／之后触发的事件\n打开 f12，然后刷新，或者关闭浏览器，可以在浏览器触发事件\n\u0026lt;script\u0026gt; window.onbeforeunload = function(){ return \u0026#34;提示\u0026#34; \/\/返回的内容不会显示， \/\/在刷新的时候触发，或者关闭浏览器，浏览会直接提示是否重新加载，不能直接返回return } \u0026lt;\/script\u0026gt; 3.onerror 当图片出错是可以触发该事件，支持该事件的标签只有 \u0026lt;img\u0026gt;,\u0026lt;object\u0026gt;,\u0026lt;style\u0026gt;\n\u0026lt;img src=\u0026#34;1.gif\u0026#34; onerror = \u0026#34;myfun()\u0026#34;\u0026gt; \u0026lt;script\u0026gt; function myfun() { alert(\u0026#34;图片出错\u0026#34;) } \u0026lt;\/script\u0026gt; 1.gif 不存在，因此触发了一个 myfun() 事件，弹出窗口\n4.onhashchange 当文档改变时发生的脚本\n5.onload 页面加载完成之后触发\n6.onmessage 在消息被触发时运行 ???\n7.onoffline 当浏览器离线时触发\n\u0026lt;body onoffline=\u0026#34;myfun()\u0026#34;\u0026gt; 8.ononline 当浏览器在线工作时触发\n\u0026lt;body ononline=\u0026#34;myfun()\u0026#34;\u0026gt; ononline和onoffline在网络断线或者连线时触发，可以控制电脑网络查看效果\n9.onpagehide 当用户从网页离开时触发，也可以理解成当窗口隐藏时运行的脚本\n刷新页面可以触发事件\n10.onpageshow 打开一个新页面或者刷新的时候触发\n相当于onload，加载页面时触发，但是在不同浏览器触发的有所不同\n第一次加载页面时，onpageshow在ie浏览器中不触发，其他情况都触发\n11.onresize 当浏览器窗口被改变大小时触发事件\n\u0026lt;body onresize=\u0026#34;myfun()\u0026#34;\u0026gt; \u0026lt;script\u0026gt; function myfun() { alert(\u0026#39;浏览器窗口改变了\u0026#39;) } \u0026lt;\/script\u0026gt; \u0026lt;\/body\u0026gt; 12.onunload 页面被下载时触发，就是刷新或者关闭页面时触发\nwindow.onunload = function() { return \u0026#39;确定关闭吗？\u0026#39; } 13.onpopstate 当浏览器窗口记录改变时运行的脚本，\n14.onredo 当文档执行撤销时触发的事件\n二、form 事件属性 由 html 表单内触发的事件，通常使用在 form 元素中\n1.onblur 失去焦点时运行的脚本\n\u0026lt;input name=\u0026#34;int\u0026#34; id=\u0026#34;int\u0026#34; onblur=\u0026#34;myfun()\u0026#34;\u0026gt; \u0026lt;script\u0026gt; function myfun() { var int = document.getElementById(\u0026#39;int\u0026#39;).value; document.getElementById(\u0026#39;int\u0026#39;).value = int.toUpperCase(); } \u0026lt;\/script\u0026gt; 给 input 绑定一个 onblur=myfun() 的事件，当 input 失去焦点的时候产生什么样的效果\n2.onfocus 元素获得焦点时触发事件，和 onblur 相反\n3.onchange 当元素值被改变的时候触发事件\n\u0026lt;input type=\u0026#34;text\u0026#34; id=\u0026#34;int\u0026#34; name=\u0026#34;int\u0026#34; onchange=\u0026#34;myfun()\u0026#34;\u0026gt; \u0026lt;script\u0026gt; function myfun() { alert(\u0026#39;我的元素被改变啦！\u0026#39;) } \u0026lt;\/script\u0026gt; 这个事件的意思就是，当我对 input 内容进行操作改变后，浏览器会弹出一个 alert\n4.oncontextmenu 当用户右键操作时触发该事件\n可以绑定在任意元素中触发，可以一直触发，不用刷新\n\u0026lt;div oncontextmenu=\u0026#34;myfun()\u0026#34;\u0026gt;这是一个文本框！\u0026lt;\/div\u0026gt; \u0026lt;script\u0026gt; function myfun() { alert(\u0026#39;oncontentmenu事件触发\u0026#39;) } \u0026lt;\/script\u0026gt; 5.onformchange 当表单获得输入时可以触发事件\n触发发不了脚本\n6.onforminput 当表单获得用户输入时触发的事件，无法触发\n浏览器不支持\n6.oninput 当元素获得用户输入时触发的事件 当输入框输入或者删除时都会触发 oninput\n\u0026lt;input type=\u0026#34;text\u0026#34; oninput=\u0026#34;myfun()\u0026#34;\u0026gt; \u0026lt;script\u0026gt; function myfun() { alert(\u0026#39;oninput触发了\u0026#39;) } \u0026lt;\/script\u0026gt; onchange和oninput有相似的地方，都是改变文本内容时触发事件\n但是onchange是在 input 失去焦点时才触发，oninput是立刻触发\n7.oninvalid oninvalid事件要搭配required属性来使用\nrequired如果使用该属性，代表必填字段，oninvalid是当元素无效时触发的事件\n\u0026lt;form\u0026gt; \u0026lt;input type=\u0026#34;text\u0026#34; oninvalid=\u0026#34;myfun()\u0026#34; required\u0026gt; \u0026lt;input type=\u0026#34;submit\u0026#34;\u0026gt; \u0026lt;\/form\u0026gt; \u0026lt;script\u0026gt; function myfun() { alert(\u0026#39;填写为空\u0026#39;) } \u0026lt;\/script\u0026gt; 8.onreset 表单中重置按钮被点击时触发\n\u0026lt;form onreset=\u0026#34;myfun()\u0026#34;\u0026gt; \u0026lt;input type=\u0026#34;text\u0026#34;\u0026gt; \u0026lt;input type=\u0026#34;reset\u0026#34; value=\u0026#34;reset\u0026#34;\u0026gt; \u0026lt;\/form\u0026gt; \u0026lt;script\u0026gt; function myfun(){ alert(\u0026#39;重置成功\u0026#39;) } \u0026lt;\/script\u0026gt; 9.onselect 文本被选中时触发\n\u0026lt;input onselect=\u0026#34;myfun()\u0026#34; value=\u0026#34;选中我\u0026#34;\u0026gt; \u0026lt;script\u0026gt; function myfun() { alert(\u0026#39;onselect被触发 \u0026#39;) } \u0026lt;\/script\u0026gt; 10.onsubmit 当表单被提交时触发\n要把事件绑定到 form 标签里面\n\u0026lt;form onsubmit=\u0026#34;myfun()\u0026#34;\u0026gt; \u0026lt;!-- 注意：事件要绑定到form标签上面 --\u0026gt; \u0026lt;input type=\u0026#34;text\u0026#34; name=\u0026#34;name\u0026#34;\u0026gt; \u0026lt;input type=\u0026#34;submit\u0026#34; value=\u0026#34;submit\u0026#34;\u0026gt; \u0026lt;\/form\u0026gt; \u0026lt;script\u0026gt; function myfun() { alert(\u0026#39;提交了\u0026#39;) } \u0026lt;\/script\u0026gt; 注意：提交了之后会自动刷新页面，document 和 console 的触发内容会立刻刷新，一闪而过，只有 alert 能停留在页面上，等待点击确定\n三、key 键盘事件 1.onkeydown 按下任意键时触发，包括系统按钮，箭头和功能键\n2.onkeypress 按下任意字母数字键时触发，但系统按钮，箭头和功能无法识别\n3.onkeyup 松开任何之前按下的键盘时触发\n四、mouse 鼠标事件 利用鼠标触发的事件\n1.onclick 鼠标点击元素触发的事件\n\u0026lt;p onclick=\u0026#34;myfun()\u0026#34;\u0026gt;点击我\u0026lt;\/p\u0026gt; \u0026lt;script\u0026gt; function myfun() { alert(\u0026#39;点击成功\u0026#39;) } \u0026lt;\/script\u0026gt; 2.ondblclick 鼠标双击时触发的事件\n\u0026lt;div ondblclick=\u0026#34;myfun()\u0026#34;\u0026gt;测试文本！\u0026lt;\/div\u0026gt; \u0026lt;script\u0026gt; function myfun() { alert(\u0026#39;双击测试成功！\u0026#39;) } \u0026lt;\/script\u0026gt; 3.拖动事件 ondrag\/ 元素被拖动时触发的事件\nondragstart\/在拖动操作开端运行的脚本\nondrop\/ 当元素正在被拖动时触发的事件\nondragend\/在拖动操作末端运行的脚本\nondragenter\/当元素元素已被拖动到有效拖放区域时运行的脚本\nondragleave\/当元素离开有效拖放目标时运行的脚本\nondragover\/当元素在有效拖放目标上正在被拖动时运行的脚本\n4.onmousedown\/onmouseup 当元素按下鼠标时触发的事件\/鼠标释放时触发的事件\n一个是按下去的瞬间就触发 一个是当鼠标被松开的时候触发 onmouseup效果和onclick一样，因为click也是点击过后触发\n这两个事件加起来相当于一个click事件，但是并不能用这两个事件来做点击事件的效果\n5.onmousemove 当鼠标移动到元素上时触发\n相当于 css 里面的 :hover，但是作为事件拥有更灵活多变的用法\n6.onmouseout 当鼠标离开元素时触发\n7.onmouseover 当鼠标进入元素时触发\nonmouseover和onmousemove都是鼠标进入元素触发\n区别：\n1.\nover在进入元素时触发，但在元素内部移动时不触发 move是进入元素时和在元素里面移动时都触发\n2.\nover优先触发，然后才触发move\n8.onmousewheel 当鼠标滚动被滚动时触发的事件\n\u0026lt;style\u0026gt; div { height: 1000px; } \u0026lt;\/style\u0026gt; \u0026lt;body\u0026gt; \u0026lt;div onmousewheel=\u0026#34;myfun()\u0026#34;\u0026gt;测试\u0026lt;\/div\u0026gt; \u0026lt;script\u0026gt; function myfun() { alert(\u0026#39;onmousewheel\u0026#39;) } \u0026lt;\/script\u0026gt; \u0026lt;\/body\u0026gt; 每次滚动时都可以触发，可以绑定到 body 上\n9.onscroll 当元素滚动条被滚动时触发的事件\n\u0026lt;div onscroll=\u0026#34;myfun()\u0026#34;\u0026gt;In my younger and more vulnerable years my father gave me some advice that I\u0026#39;ve been turning over in my mind ever since.\u0026lt;\/div\u0026gt; \u0026lt;p\u0026gt;滑动了\u0026lt;span id=\u0026#34;ci\u0026#34;\u0026gt;\u0026lt;\/span\u0026gt;次\u0026lt;\/p\u0026gt; \u0026lt;script\u0026gt; x = 0 function myfun() { document.getElementById(\u0026#39;ci\u0026#39;).innerHTML = x \u002b= 1 } \u0026lt;\/script\u0026gt; 这个案例－－－滑动滚动计数\n区别：\n1.wheel在滚轮滑动的时候有效，鼠标拖拽的时候无效\n2.onscroll不管在滑动还是拖动的时候，均生效\n",
 "inLanguage" : "en-US",
-"author" : "map[email:anghunk@gmail.com name:子舒]",
-"creator" : "map[email:anghunk@gmail.com name:子舒]",
-"publisher": "map[email:anghunk@gmail.com name:子舒]",
-"accountablePerson" : "map[email:anghunk@gmail.com name:子舒]",
-"copyrightHolder" : "map[email:anghunk@gmail.com name:子舒]",
+"author" : "map[email:hi@zishu.me name:anghunk]",
+"creator" : "map[email:hi@zishu.me name:anghunk]",
+"publisher": "map[email:hi@zishu.me name:anghunk]",
+"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
+"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
 "copyrightYear" : "2020",
 "datePublished": "2020-10-29 00:00:00 \u002b0000 UTC",
 "dateModified" : "2020-10-29 00:00:00 \u002b0000 UTC",
@@ -204,139 +204,129 @@ over优先触发，然后才触发move
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="/css/ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
+
+ <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
+ 
+
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
+<link rel="stylesheet" href="/css/tocbot.css">
 <script src="/js/jquery-3.6.1.js"></script>
-<script defer src="/js/dark-mode.js"></script>
-<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
-<link rel="stylesheet" href="/css/dropdown.css">
+
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
-  <header class="container no-print">
-  <div class="u-header">
-    <nav class="bar">
-      <ul>
-        <li><img class="icon-text" id="dark-mode-toggle" src="/images/moon.svg" alt="Toggle Dark Mode"></li>
+  <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+        width="112" height="112" alt="avatar"></a>
+    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
+  </header>
+  <nav class="flex-column flex-grow-1 w-100 ps-0">
+    <ul class="nav">
 
-        
-        <li><a href="/">首页</a></li>
-        
-        <li><a href="/blog/">文章</a></li>
-        
-        <li><a href="/tags/">标签</a></li>
-        
-        <li><a href="/message/">留言</a></li>
-        
-        <li><a href="/about/">关于</a></li>
-        
-        <li><a href="/projects/">项目</a></li>
-        
-        <li><a href="/friends/">友链</a></li>
-        
-        
-        <li><a href="/search/">🔍</a></li>
-        <li><a href="/index.xml" target="_blank">RSS</a></li>
-      </ul>
-    </nav>
+      
+      <li class="nav-item">
+        <a href="/" class="nav-link">
+          <i class="fa-fw fas fa-house"></i>
+          <span>首页</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/blog/" class="nav-link">
+          <i class="fa-fw fas fa-stream"></i>
+          <span>文章</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/tags/" class="nav-link">
+          <i class="fa-fw fas fa-tags"></i>
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/message/" class="nav-link">
+          <i class="fa-fw fas fa-message"></i>
+          <span>留言</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/about/" class="nav-link">
+          <i class="fa-fw fas fa-info-circle"></i>
+          <span>关于</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/projects/" class="nav-link">
+          <i class="fa-fw fas fa-tasks"></i>
+          <span>项目</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/friends/" class="nav-link">
+          <i class="fa-fw fas fa-link"></i>
+          <span>友链</span>
+        </a>
+      </li>
+      
 
+    </ul>
+  </nav>
+  <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100"><button type="button"
+      class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
+      <i class="fas fa-adjust"></i>
+    </button>
+    <span class="icon-border"></span>
+    <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
+        class="fab fa-github"></i></a>
+    <a href="mailto:anghunk@gmail.com" aria-label="email" target="_blank" rel="noopener noreferrer"><i
+        class="fas fa-envelope"></i>
+    </a>
+    <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
+  </div>
+</aside>
+
+  <div id="main-wrapper" class="d-flex justify-content-center">
+    <div class="container d-flex flex-column px-xxl-5">
+      <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
+  <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
+
+    <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
+      <i class="fas fa-bars fa-fw"></i>
+    </button>
+    <div id="topbar-title">子舒的博客</div>
+    <button type="button" class="btn btn-link"></button>
   </div>
 </header>
-  <main class="container">
+      <div class="row flex-grow-1">
 
-    <header>
-      <hgroup id="brand">
-        <h1>HTML 事件属性--DOM</h1>
+        <main class="col-12 col-lg-11 col-xl-9 px-md-4">
+          <article class="px-1">
 
-        
-        <h5 style="font-size:12px;color:rgba(0,0,0,.5);">
-          <time>2020/10/29</time>
+            <header>
+              <h1 data-toc-skip="">HTML 事件属性--DOM</h1>
+              
+              
+              <div class="post-meta text-muted">
+                <span>Posted<time>Oct 10, 2020</time></span>
+                <div class="d-flex justify-content-between"><span>By
+                    <em><a href="https://github.com/anghunk">子舒</a></em></span>
+                </div>
+              </div>
+              
+            </header>
 
-          
-          <span class="no-print">|
-          
-          <a href="/tags/%E7%AC%94%E8%AE%B0">#笔记</a>
-          
-          </span>
-          
-
-          
-          
-          <span class="no-print">|
-            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-          </span>
-          
-          
-        </h5>
-        
-
-      </hgroup>
-      <hr class="sep">
-    </header>
-    
-
-    
-    <div class="toc">
-      <nav id="TableOfContents">
-  <ul>
-    <li><a href="#一window-事件属性">一、window 事件属性</a>
-      <ul>
-        <li><a href="#1onbeforeprintonafterprint">1.onbeforeprint／onafterprint</a></li>
-        <li><a href="#2onbeforeunloadunload">2.onbeforeunload/unload</a></li>
-        <li><a href="#3onerror">3.onerror</a></li>
-        <li><a href="#4onhashchange">4.onhashchange</a></li>
-        <li><a href="#5onload">5.onload</a></li>
-        <li><a href="#6onmessage">6.onmessage</a></li>
-        <li><a href="#7onoffline">7.onoffline</a></li>
-        <li><a href="#8ononline">8.ononline</a></li>
-        <li><a href="#9onpagehide">9.onpagehide</a></li>
-        <li><a href="#10onpageshow">10.onpageshow</a></li>
-        <li><a href="#11onresize">11.onresize</a></li>
-        <li><a href="#12onunload">12.onunload</a></li>
-        <li><a href="#13onpopstate">13.onpopstate</a></li>
-        <li><a href="#14onredo">14.onredo</a></li>
-      </ul>
-    </li>
-    <li><a href="#二form-事件属性">二、form 事件属性</a>
-      <ul>
-        <li><a href="#1onblur">1.onblur</a></li>
-        <li><a href="#2onfocus">2.onfocus</a></li>
-        <li><a href="#3onchange">3.onchange</a></li>
-        <li><a href="#4oncontextmenu">4.oncontextmenu</a></li>
-        <li><a href="#5onformchange">5.onformchange</a></li>
-        <li><a href="#6onforminput">6.onforminput</a></li>
-        <li><a href="#6oninput">6.oninput</a></li>
-        <li><a href="#7oninvalid">7.oninvalid</a></li>
-        <li><a href="#8onreset">8.onreset</a></li>
-        <li><a href="#9onselect">9.onselect</a></li>
-        <li><a href="#10onsubmit">10.onsubmit</a></li>
-        <li><a href="#三key-键盘事件">三、key 键盘事件</a></li>
-        <li><a href="#1onkeydown">1.onkeydown</a></li>
-        <li><a href="#2onkeypress">2.onkeypress</a></li>
-        <li><a href="#3onkeyup">3.onkeyup</a></li>
-      </ul>
-    </li>
-    <li><a href="#四mouse-鼠标事件">四、mouse 鼠标事件</a>
-      <ul>
-        <li><a href="#1onclick">1.onclick</a></li>
-        <li><a href="#2ondblclick">2.ondblclick</a></li>
-        <li><a href="#3拖动事件">3.拖动事件</a></li>
-        <li><a href="#4onmousedownonmouseup">4.onmousedown/onmouseup</a></li>
-        <li><a href="#5onmousemove">5.onmousemove</a></li>
-        <li><a href="#6onmouseout">6.onmouseout</a></li>
-        <li><a href="#7onmouseover">7.onmouseover</a></li>
-        <li><a href="#8onmousewheel">8.onmousewheel</a></li>
-        <li><a href="#9onscroll">9.onscroll</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-    </div>
-    
-
-    <article class="post-content">
-      
-      <p>研究 html 的<code>对象，事件和方法</code>，从 js 的角度来思考，这个标签的属性是通过什么方法，触发什么事件来实现的</p>
+            <div class="content">
+              
+              <p>研究 html 的<code>对象，事件和方法</code>，从 js 的角度来思考，这个标签的属性是通过什么方法，触发什么事件来实现的</p>
 <ol>
 <li>
 <p>键盘鼠标事件</p>
@@ -610,10 +600,94 @@ over优先触发，然后才触发move
 1.<code>wheel</code>在滚轮滑动的时候有效，鼠标拖拽的时候无效<br>
 2.<code>onscroll</code>不管在滑动还是拖动的时候，均生效</p></blockquote>
 
-    </article>
 
-    
-    <hr class="sep">
+              <div class="post-tail-wrapper text-muted">
+                <div class="post-meta mb-3">
+                  
+              
+                  
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="post-category">
+                    
+                    
+                      <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                    
+                  </span>
+                  
+
+                  <div class="post-tags">
+                    <i class="fa fa-tags fa-fw me-1"></i>
+                    
+                    <span class="post-tags">
+                      
+                        <a href="/tags/%E7%AC%94%E8%AE%B0" class="post-tag no-text-decoration">笔记</a>
+                      
+                    </span>
+                  
+                  </div>
+
+                  
+
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                </div>
+              </div>
+
+            
+            
+            
+
+
+
+
+
+
+
+<div class="row">
+  <div id="tail-wrapper">
+    <aside id="related-posts">
+      <h3 class="mb-4" id="related-label">Further Reading</h3>
+      <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+
+        
+        
+        
+        <article class="col"><a href="/blog/11.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Oct 10, 2020</time>
+              <h4 class="pt-0 my-2">js 基本语法</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        <article class="col"><a href="/blog/10.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Sep 9, 2020</time>
+              <h4 class="pt-0 my-2">对全栈的一些思考</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        <article class="col"><a href="/blog/8.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Sep 9, 2020</time>
+              <h4 class="pt-0 my-2">Chrome 浏览器中对 autoplay 的一些处理技巧</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        
+      </nav>
+    </aside>
+  </div>
+</div>
+            
+
+            
+            
+            <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -710,52 +784,1074 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-    
-    
-  </main>
-  <hr class="sep">
-<footer class="container no-print">
-  <div class="u-footer">
-    <p>
-      本博客使用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:inherit;">CC BY-NC-SA 4.0</a> 协议开源
-    </p>
-    <p>© 2020 - 2025 Powered by 子舒</p>
-    <div class="footflex">
-      <p>Ad Astra Per Aspera.</p>
-      <p>
-        <a title="Email" href="mailto:hi@zishu.me"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></a>
-        <a title="Github" href="https://github.com/anghunk" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
-        <a title="RSS Feed" href="/index.xml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rss-icon lucide-rss"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
-      </p>
-    </div>
-  </div>
+            
+
+          </article>
+
+          <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
+flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
+  <p>
+    <time>© 2020 - 2025 Powered by </time>
+    <a href="https://github.com/anghunk">子舒</a>.
+    <span>Some rights reserved.</span>
+  </p>
+  <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
 </footer>
 
-<a herf="javascript:void(0)" class="gotop"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-from-dot-icon lucide-arrow-up-from-dot"><path d="m5 9 7-7 7 7"/><path d="M12 16V2"/><circle cx="12" cy="21" r="1"/></svg></a>
+<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
 <style>
-.gotop {
-  position: fixed;
-  right: 20px;
-  bottom: 50px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #c6c3c3;
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.1s linear;
-  border: 1px solid #ccc;
-}
+  .gotop {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #c6c3c3;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    border: 1px solid #ccc;
+  }
 
-.gotop:hover {
-  background: #ccc;
-}
+  .gotop:hover {
+    background: #ccc;
+  }
 </style>
 <script src="/js/main.js"></script>
-</body>
+        </main>
 
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
+  <div class="access">
+    <section id="access-lastmod">
+      <h2 class="panel-heading">Recently Updated</h2>
+      <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
+        
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/daming-mountain-qianniugang-camping-notes.html/">大明山牵牛岗露营游记</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/nanjing-travel-aug-3.html/">南京游八月三日</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/login-bitwarden-legacy-version.html/">如何登录旧版本 Bitwarden 密码管理器</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/262.html/">AI 驱动的验证码自动识别之旅：从困扰到解放</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/261.html/">Obsidian:移动端同步笔记</a></li>
+        
+      </ul>
+    </section>
+    <section>
+      <h2 class="panel-heading">Trending Tags</h2>
+      <div class="d-flex flex-wrap mt-3 mb-1 me-3">
+        
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/weekly/">Weekly</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D/">随手拍</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/js/">Js</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/vue/">Vue</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/react/">React</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E6%97%85%E6%B8%B8/">旅游</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%83%B3%E5%BD%95/">随想录</a>
+        
+      </div>
+    </section>
+
+
+    
+
+    
+  </div>
+
+  
+  <div class="toc-border-cover z-3"></div>
+  <section id="toc-wrapper" class="position-sticky">
+    <h2 class="panel-heading ps-3 pb-2 mb-0">Contents</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一window-事件属性">一、window 事件属性</a>
+      <ul>
+        <li><a href="#1onbeforeprintonafterprint">1.onbeforeprint／onafterprint</a></li>
+        <li><a href="#2onbeforeunloadunload">2.onbeforeunload/unload</a></li>
+        <li><a href="#3onerror">3.onerror</a></li>
+        <li><a href="#4onhashchange">4.onhashchange</a></li>
+        <li><a href="#5onload">5.onload</a></li>
+        <li><a href="#6onmessage">6.onmessage</a></li>
+        <li><a href="#7onoffline">7.onoffline</a></li>
+        <li><a href="#8ononline">8.ononline</a></li>
+        <li><a href="#9onpagehide">9.onpagehide</a></li>
+        <li><a href="#10onpageshow">10.onpageshow</a></li>
+        <li><a href="#11onresize">11.onresize</a></li>
+        <li><a href="#12onunload">12.onunload</a></li>
+        <li><a href="#13onpopstate">13.onpopstate</a></li>
+        <li><a href="#14onredo">14.onredo</a></li>
+      </ul>
+    </li>
+    <li><a href="#二form-事件属性">二、form 事件属性</a>
+      <ul>
+        <li><a href="#1onblur">1.onblur</a></li>
+        <li><a href="#2onfocus">2.onfocus</a></li>
+        <li><a href="#3onchange">3.onchange</a></li>
+        <li><a href="#4oncontextmenu">4.oncontextmenu</a></li>
+        <li><a href="#5onformchange">5.onformchange</a></li>
+        <li><a href="#6onforminput">6.onforminput</a></li>
+        <li><a href="#6oninput">6.oninput</a></li>
+        <li><a href="#7oninvalid">7.oninvalid</a></li>
+        <li><a href="#8onreset">8.onreset</a></li>
+        <li><a href="#9onselect">9.onselect</a></li>
+        <li><a href="#10onsubmit">10.onsubmit</a></li>
+        <li><a href="#三key-键盘事件">三、key 键盘事件</a></li>
+        <li><a href="#1onkeydown">1.onkeydown</a></li>
+        <li><a href="#2onkeypress">2.onkeypress</a></li>
+        <li><a href="#3onkeyup">3.onkeyup</a></li>
+      </ul>
+    </li>
+    <li><a href="#四mouse-鼠标事件">四、mouse 鼠标事件</a>
+      <ul>
+        <li><a href="#1onclick">1.onclick</a></li>
+        <li><a href="#2ondblclick">2.ondblclick</a></li>
+        <li><a href="#3拖动事件">3.拖动事件</a></li>
+        <li><a href="#4onmousedownonmouseup">4.onmousedown/onmouseup</a></li>
+        <li><a href="#5onmousemove">5.onmousemove</a></li>
+        <li><a href="#6onmouseout">6.onmouseout</a></li>
+        <li><a href="#7onmouseover">7.onmouseover</a></li>
+        <li><a href="#8onmousewheel">8.onmousewheel</a></li>
+        <li><a href="#9onscroll">9.onscroll</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </section>
+  
+
+</aside>
+
+      </div>
+    </div>
+  </div>
+
+</body>
 </html>

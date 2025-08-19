@@ -1,0 +1,35 @@
+<!-- layouts/partials/related-posts.html -->
+
+{{/*
+1. .Site.RegularPages.Related .: 获取与当前页面 (.) 相关的常规页面
+2. | first 5: 从结果中取前 5 个
+3. 结果存储在 $related 变量中
+*/}}
+{{ $related := .Site.RegularPages.Related . | first 3 }}
+
+
+
+
+<div class="row">
+  <div id="tail-wrapper">
+    <aside id="related-posts">
+      <h3 class="mb-4" id="related-label">Further Reading</h3>
+      <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+
+        {{/* with 语句确保只有在找到相关文章时才渲染这部分内容 */}}
+        {{ with $related }}
+        {{ range . }}
+        <article class="col"><a href="{{ .RelPermalink }}" class="post-preview card h-100">
+            <div class="card-body"><time>{{ .Date.Format "Jan 1, 2006"}}</time>
+              <h4 class="pt-0 my-2">{{ .Title }}</h4>
+              <div class="text-muted">
+                <!-- <p></p> -->
+              </div>
+            </div>
+          </a></article>
+        {{ end }}
+        {{ end }}
+      </nav>
+    </aside>
+  </div>
+</div>

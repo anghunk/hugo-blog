@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:anghunk@gmail.com name:子舒]" />
+<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
 <meta property="og:url" content="https://zishu.me/blog/27.html/" />
 <link rel="canonical" href="https://zishu.me/blog/27.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "vue 学习笔记 (1)－－什么是 vue?",
 "description" : "一、什么是 vue? 练习时使用，最新版本\n\u0026lt;script src=\u0026#34;https:\/\/cdn.jsdelivr.net\/npm\/vue\/dist\/vue.js\u0026#34;\u0026gt;\u0026lt;\/script\u0026gt; 生产时使用，明确版本号的版本，避免造成不可预见的问题\n\u0026lt;script src=\u0026#34;https:\/\/cdn.jsdelivr.net\/npm\/vue@2.6.12\u0026#34;\u0026gt;\u0026lt;\/script\u0026gt; hello world\n\u0026lt;div id=\u0026#34;app\u0026#34;\u0026gt; {{message}} \u0026lt;\/div\u0026gt; \u0026lt;script\u0026gt; var app = new Vue({ el: \u0026#34;#app\u0026#34;, data: { message: \u0026#39;hello,world\u0026#39; } }) \u0026lt;\/script\u0026gt; 1.v-指令 v-bind－－绑定属性 \u0026lt;div id=\u0026#34;app-2\u0026#34;\u0026gt; \u0026lt;span v-bind:title=\u0026#34;message\u0026#34;\u0026gt; 鼠标悬停几秒钟查看此处动态绑定的提示信息！ \u0026lt;\/span\u0026gt; \u0026lt;\/div\u0026gt; \u0026lt;script\u0026gt; var app = new Vue({ el: \u0026#39;#app\u0026#39;, data: { message: \u0026#39;页面加载于 \u0026#39; \u002b new Date().toLocaleString() } }) \u0026lt;\/script\u0026gt; v-bind是 vue 特有的提供的属性，他会在 dom 上应用一个响应式的操作\n打开 console，输入app.message = \u0026quot;hello\u0026quot;，页面会改变内容只显示hello\n又或者输入app.message = false，内容会直接不显示\nvue 官网例子：\n\u0026lt;!-- 绑定一个 attribute --\u0026gt; \u0026lt;img v-bind:src=\u0026#34;imageSrc\u0026#34;\u0026gt; \u0026lt;!-- 动态 attribute 名 (2.6.0\u002b) --\u0026gt; \u0026lt;button v-bind:[key]=\u0026#34;value\u0026#34;\u0026gt;\u0026lt;\/button\u0026gt; \u0026lt;!-- 缩写 --\u0026gt; \u0026lt;img :src=\u0026#34;imageSrc\u0026#34;\u0026gt; \u0026lt;!-- 动态 attribute 名缩写 (2.6.0\u002b) --\u0026gt; \u0026lt;button :[key]=\u0026#34;value\u0026#34;\u0026gt;\u0026lt;\/button\u0026gt; \u0026lt;!-- 内联字符串拼接 --\u0026gt; \u0026lt;img :src=\u0026#34;\u0026#39;\/path\/to\/images\/\u0026#39; \u002b fileName\u0026#34;\u0026gt; \u0026lt;!-- class 绑定 --\u0026gt; \u0026lt;div :class=\u0026#34;{ red: isRed }\u0026#34;\u0026gt;\u0026lt;\/div\u0026gt; \u0026lt;div :class=\u0026#34;[classA, classB]\u0026#34;\u0026gt;\u0026lt;\/div\u0026gt; \u0026lt;div :class=\u0026#34;[classA, { classB: isB, classC: isC }]\u0026#34;\u0026gt; \u0026lt;!-- style 绑定 --\u0026gt; \u0026lt;div :style=\u0026#34;{ fontSize: size \u002b \u0026#39;px\u0026#39; }\u0026#34;\u0026gt;\u0026lt;\/div\u0026gt; \u0026lt;div :style=\u0026#34;[styleObjectA, styleObjectB]\u0026#34;\u0026gt;\u0026lt;\/div\u0026gt; \u0026lt;!-- 绑定一个全是 attribute 的对象 --\u0026gt; \u0026lt;div v-bind=\u0026#34;{ id: someProp, \u0026#39;other-attr\u0026#39;: otherProp }\u0026#34;\u0026gt;\u0026lt;\/div\u0026gt; \u0026lt;!-- 通过 prop 修饰符绑定 DOM attribute --\u0026gt; \u0026lt;div v-bind:text-content.prop=\u0026#34;text\u0026#34;\u0026gt;\u0026lt;\/div\u0026gt; \u0026lt;!-- prop 绑定。“prop”必须在 my-component 中声明。--\u0026gt; \u0026lt;my-component :prop=\u0026#34;someThing\u0026#34;\u0026gt;\u0026lt;\/my-component\u0026gt; \u0026lt;!-- 通过 $props 将父组件的 props 一起传给子组件 --\u0026gt; \u0026lt;child-component v-bind=\u0026#34;$props\u0026#34;\u0026gt;\u0026lt;\/child-component\u0026gt; \u0026lt;!-- XLink --\u0026gt; \u0026lt;svg\u0026gt;\u0026lt;a :xlink:special=\u0026#34;foo\u0026#34;\u0026gt;\u0026lt;\/a\u0026gt;\u0026lt;\/svg\u0026gt; v-if－－控制元素的显示隐藏 刚才写了，通过app.message = false，可以让message代表的内容处于隐藏状态，但是控制的只能是通过v-for引入的内容，无法直接让元素隐藏\n其实，vue 中还有一个专门控制元素显示隐藏的指令－－v-if\n\u0026lt;div id=\u0026#34;app\u0026#34;\u0026gt; \u0026lt;span v-if=\u0026#34;show\u0026#34;\u0026gt; {{message}} \u0026lt;\/span\u0026gt; \u0026lt;\/div\u0026gt; \u0026lt;script\u0026gt; var app = new Vue({ el: \u0026#34;#app\u0026#34;, data: { message: \u0026#39;hello,world\u0026#39;, show: true } }) \u0026lt;\/script\u0026gt; 给元素绑定一个指令v-if = \u0026quot;show\u0026quot;，然后在 data 中控制show的布尔值，true 显示，false 隐藏\n同时还有这个功能的指令v-show，根据表达式之真假值，切换元素的display CSS property，也是通过绑定的布尔值来显示隐藏\n但是v-if和v-show有些区别\n(1) v-if 是控制元素是否渲染最终控制元素的显示隐藏，适用于切换频率低的情况 (2) v-show 不管显示隐藏都渲染，然后通过布尔值绑定display: none属性，适用于切换频率高的情况\n注意：v-show不支持\u0026lt;tempalte\u0026gt;元素，也不支持v-else\n搭配用法\nv-else和v-else-if\n可以通过使用v-else达到v-if的效果，必须和v-if搭配使用，比如：\n\u0026lt;div v-if=\u0026#34;1\u0026gt;2\u0026#34;\u0026gt; hello \u0026lt;\/div\u0026gt; \u0026lt;div v-else\u0026gt; hi \u0026lt;\/div\u0026gt; 如果v-if不成立，执行v-else，也就是显示 v-else 里面的内容\n是不是有点 javascript 里面if函数的感觉了\nv-else-if用法大致一样，必须和v-if和v-else搭配使用\nv-for－－遍历数组并显示到页面上 v-for算是 vue 的核心指令之一了把，主要是渲染一个项目列表的\n\u0026lt;div id=\u0026#34;app\u0026#34;\u0026gt; \u0026lt;div v-for=\u0026#34;item in list\u0026#34;\u0026gt;{{item.message}}\u0026lt;\/div\u0026gt; \u0026lt;\/div\u0026gt; \u0026lt;script\u0026gt; var app = new Vue({ el: \u0026#34;#app\u0026#34;, data: { list: [ {message: \u0026#39;html\u0026#39;}, {message: \u0026#39;css\u0026#39;} ] } }) \u0026lt;\/script\u0026gt; 可以直接把列表数据循环输出\n并且在控制台中通过push()还能添加新的列表项\napp.list.push({message: \u0026#34;js\u0026#34;}) vue 对数据操作，就是这么神奇\n不推荐v-for和v-if同时使用，因为v-for拥有更高的优先级\nv-on－－绑定事件监听器 即绑定事件，通过v-on给 div 绑定了一个点击事件，注意，在reverseMessage方法中，我们更新了应用的状态，但是吗诶呀触碰到 dom，直接通过 vue 来进行处理，编写代码时只需要关注逻辑层即可\nv-on:click=\u0026quot;messagenone\u0026quot;，然后在methods里面写上事件方法\n\u0026lt;div id=\u0026#34;app\u0026#34;\u0026gt; \u0026lt;div v-on:click=\u0026#34;messagenone\u0026#34; id=\u0026#34;demo\u0026#34;\u0026gt;{{message}}\u0026lt;\/div\u0026gt; \u0026lt;\/div\u0026gt; \u0026lt;script\u0026gt; var app = new Vue({ el: \u0026#34;#app\u0026#34;, data: { message: \u0026#39;hello,wolrd\u0026#39; }, methods: { messagenone: function() { var demo = document.getElementById(\u0026#39;demo\u0026#39;); demo.innerHTML = \u0026#39;\u0026#39; } } }) \u0026lt;\/script\u0026gt; v-model－－数据的双向绑定 vue 还提供了v-model指令，它能轻松实现表单输入和应用状态之间的双向绑定\n可使用场景：标签 input, select, textarea 和 components\n\u0026lt;div id=\u0026#34;app\u0026#34;\u0026gt; \u0026lt;div\u0026gt;{{message}}\u0026lt;\/div\u0026gt; \u0026lt;input type=\u0026#34;text\u0026#34; v-model=\u0026#34;message\u0026#34;\u0026gt; \u0026lt;\/div\u0026gt; \u0026lt;script\u0026gt; var app = new Vue({ el: \u0026#34;#app\u0026#34;, data: { message: \u0026#39;hello,wolrd\u0026#39; } }) \u0026lt;\/script\u0026gt; v-text 更新元素的内容 \u0026lt;div id=\u0026#34;app\u0026#34;\u0026gt; \u0026lt;div v-text=\u0026#34;message\u0026#34;\u0026gt;\u0026lt;\/div\u0026gt; \u0026lt;div\u0026gt;{{message}}\u0026lt;\/div\u0026gt; \u0026lt;\/div\u0026gt; \u0026lt;script\u0026gt; var vm = new Vue({ el: \u0026#39;#app\u0026#39;, data: { message: \u0026#39;hello,wolrd\u0026#39; } }) \u0026lt;\/script\u0026gt; 上面的 div 和下面的 div 内容跟随一致变化\nv-html－－更新元素的 innerHTML 不建议使用，在网站上动态渲染 html 是非常危险的，容易导致XXS 攻击，不能用在用户提交的内容上，如果必须使用 v-html，可以考虑通过使用组件来代替\nv-pre 跳过绑定的元素和他的子元素的编译，直接显示原始内容\n跳过没有指令的节点不进行编译，直接显示内容，会加快页面的响应\nv-cloak 在编译没有编译完成之前，模板处于的状态\n\u0026lt;style\u0026gt;v-cloak] { display: none; }\u0026lt;\/style\u0026gt; \u0026lt;div v-cloak\u0026gt; {{message}} \u0026lt;\/div\u0026gt; \u0026lt;script\u0026gt; var vm = new Vue({ el: \u0026#39;#app\u0026#39;, data: { message: \u0026#39;hello,wolrd\u0026#39; } }) \u0026lt;\/script\u0026gt; 上述代码表示的含义是，如果网络不好，{{message}}模板代表的hello,world还没有编译成功，此时{{message}}处于隐藏状态，当编译完成，页面直接显示hello,world\nv-once－－一次性渲染 绑定该指令的元素及其子元素只会进行一次渲染，之后页面的第二次渲染会将其视为静态资源并跳过，可以用来优化性能\n\u0026lt;div id=\u0026#34;app\u0026#34;\u0026gt; \u0026lt;span v-once\u0026gt;{{message}}\u0026lt;\/span\u0026gt; \u0026lt;\/div\u0026gt; \u0026lt;script\u0026gt; var vm = new Vue({ el: \u0026#39;#app\u0026#39;, data: { message: \u0026#39;hello,wolrd\u0026#39;, } }) \u0026lt;\/script\u0026gt; 使用场景：表单提交。可防止用户在请求未及时响应时，多次提交~\n2.组件化构建应用 组件化也是 vue 的核心机制之一，它允许我们使用小型，可复用的组件来构建大型应用\n在 vue 里，一个组件本质上是一个拥有预定义选项的一个 vue 实例。在 vue 中注册组件很简单\n\/\/ 定义名为 todo-item 的新组件 Vue.component(\u0026#39;todo-item\u0026#39;, { template: \u0026#39;\u0026lt;li\u0026gt;这是个待办项\u0026lt;\/li\u0026gt;\u0026#39; }) var app = new Vue(...) 现在可以用它构建另一个组件模板\n\u0026lt;ol\u0026gt; \u0026lt;!-- 创建一个 todo-item 组件的实例 --\u0026gt; \u0026lt;todo-item\u0026gt;\u0026lt;\/todo-item\u0026gt; \u0026lt;\/ol\u0026gt; 但是这样会为每个待办项渲染同样的文本，这看起来并不炫酷。我们应该能从父作用域将数据传到子组件才对。让我们来修改一下组件的定义，使之能够接受一个props\nVue.component(\u0026#39;todo-item\u0026#39;, { \/\/ todo-item 组件现在接受一个 \/\/ \u0026#34;props\u0026#34;，类似于一个自定义 attribute。 \/\/ 这个 props 名为 todo。 props: [\u0026#39;todo\u0026#39;], template: \u0026#39;\u0026lt;li\u0026gt;{{ todo.text }}\u0026lt;\/li\u0026gt;\u0026#39; }) 现在，我们可以使用v-bind指令将待办项传到循环输出的每个组件中\n现在我们为每个 todo-item 提供 todo 对象 todo 对象是变量，即其内容可以是动态的，我们也需要为每个组件提供一个key\n\u0026lt;div id=\u0026#34;app-7\u0026#34;\u0026gt; \u0026lt;ol\u0026gt; \u0026lt;todo-item v-for=\u0026#34;item in groceryList\u0026#34; v-bind:todo=\u0026#34;item\u0026#34; v-bind:key=\u0026#34;item.id\u0026#34; \u0026gt;\u0026lt;\/todo-item\u0026gt; \u0026lt;\/ol\u0026gt; \u0026lt;\/div\u0026gt; Vue.component(\u0026#39;todo-item\u0026#39;, { props: [\u0026#39;todo\u0026#39;], template: \u0026#39;\u0026lt;li\u0026gt;{{ todo.text }}\u0026lt;\/li\u0026gt;\u0026#39; }) var app7 = new Vue({ el: \u0026#39;#app-7\u0026#39;, data: { groceryList: [ { id: 0, text: \u0026#39;蔬菜\u0026#39; }, { id: 1, text: \u0026#39;奶酪\u0026#39; }, { id: 2, text: \u0026#39;随便其它什么人吃的东西\u0026#39; } ] } }) 尽管这只是一个刻意设计的例子，但是我们已经设法将应用分割成了两个更小的单元。子单元通过prop接口与父单元进行了良好的解耦。我们现在可以进一步改进 组件，提供更为复杂的模板和逻辑，而不会影响到父单元\n在一个大型应用中，有必要将整个应用程序划分为组件，以使开发更易管理\n\u0026lt;div id=\u0026#34;app\u0026#34;\u0026gt; \u0026lt;app-nav\u0026gt;\u0026lt;\/app-nav\u0026gt; \u0026lt;app-view\u0026gt; \u0026lt;app-sidebar\u0026gt;\u0026lt;\/app-sidebar\u0026gt; \u0026lt;app-content\u0026gt;\u0026lt;\/app-content\u0026gt; \u0026lt;\/app-view\u0026gt; \u0026lt;\/div\u0026gt; ",
 "inLanguage" : "en-US",
-"author" : "map[email:anghunk@gmail.com name:子舒]",
-"creator" : "map[email:anghunk@gmail.com name:子舒]",
-"publisher": "map[email:anghunk@gmail.com name:子舒]",
-"accountablePerson" : "map[email:anghunk@gmail.com name:子舒]",
-"copyrightHolder" : "map[email:anghunk@gmail.com name:子舒]",
+"author" : "map[email:hi@zishu.me name:anghunk]",
+"creator" : "map[email:hi@zishu.me name:anghunk]",
+"publisher": "map[email:hi@zishu.me name:anghunk]",
+"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
+"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
 "copyrightYear" : "2020",
 "datePublished": "2020-11-23 00:00:00 \u002b0000 UTC",
 "dateModified" : "2020-11-23 00:00:00 \u002b0000 UTC",
@@ -132,97 +132,129 @@ Vue.component(&#39;todo-item&#39;, { // todo-item 组件现在接受一个 // &#
 &lt;div id=&#34;app&#34;&gt; &lt;app-nav&gt;&lt;/app-nav&gt; &lt;app-view&gt; &lt;app-sidebar&gt;&lt;/app-sidebar&gt; &lt;app-content&gt;&lt;/app-content&gt; &lt;/app-view&gt; &lt;/div&gt; " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="/css/ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
+
+ <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
+ 
+
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
+<link rel="stylesheet" href="/css/tocbot.css">
 <script src="/js/jquery-3.6.1.js"></script>
-<script defer src="/js/dark-mode.js"></script>
-<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
-<link rel="stylesheet" href="/css/dropdown.css">
+
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
-  <header class="container no-print">
-  <div class="u-header">
-    <nav class="bar">
-      <ul>
-        <li><img class="icon-text" id="dark-mode-toggle" src="/images/moon.svg" alt="Toggle Dark Mode"></li>
+  <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+        width="112" height="112" alt="avatar"></a>
+    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
+  </header>
+  <nav class="flex-column flex-grow-1 w-100 ps-0">
+    <ul class="nav">
 
-        
-        <li><a href="/">首页</a></li>
-        
-        <li><a href="/blog/">文章</a></li>
-        
-        <li><a href="/tags/">标签</a></li>
-        
-        <li><a href="/message/">留言</a></li>
-        
-        <li><a href="/about/">关于</a></li>
-        
-        <li><a href="/projects/">项目</a></li>
-        
-        <li><a href="/friends/">友链</a></li>
-        
-        
-        <li><a href="/search/">🔍</a></li>
-        <li><a href="/index.xml" target="_blank">RSS</a></li>
-      </ul>
-    </nav>
+      
+      <li class="nav-item">
+        <a href="/" class="nav-link">
+          <i class="fa-fw fas fa-house"></i>
+          <span>首页</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/blog/" class="nav-link">
+          <i class="fa-fw fas fa-stream"></i>
+          <span>文章</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/tags/" class="nav-link">
+          <i class="fa-fw fas fa-tags"></i>
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/message/" class="nav-link">
+          <i class="fa-fw fas fa-message"></i>
+          <span>留言</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/about/" class="nav-link">
+          <i class="fa-fw fas fa-info-circle"></i>
+          <span>关于</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/projects/" class="nav-link">
+          <i class="fa-fw fas fa-tasks"></i>
+          <span>项目</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/friends/" class="nav-link">
+          <i class="fa-fw fas fa-link"></i>
+          <span>友链</span>
+        </a>
+      </li>
+      
 
+    </ul>
+  </nav>
+  <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100"><button type="button"
+      class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
+      <i class="fas fa-adjust"></i>
+    </button>
+    <span class="icon-border"></span>
+    <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
+        class="fab fa-github"></i></a>
+    <a href="mailto:anghunk@gmail.com" aria-label="email" target="_blank" rel="noopener noreferrer"><i
+        class="fas fa-envelope"></i>
+    </a>
+    <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
+  </div>
+</aside>
+
+  <div id="main-wrapper" class="d-flex justify-content-center">
+    <div class="container d-flex flex-column px-xxl-5">
+      <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
+  <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
+
+    <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
+      <i class="fas fa-bars fa-fw"></i>
+    </button>
+    <div id="topbar-title">子舒的博客</div>
+    <button type="button" class="btn btn-link"></button>
   </div>
 </header>
-  <main class="container">
+      <div class="row flex-grow-1">
 
-    <header>
-      <hgroup id="brand">
-        <h1>vue 学习笔记 (1)－－什么是 vue?</h1>
+        <main class="col-12 col-lg-11 col-xl-9 px-md-4">
+          <article class="px-1">
 
-        
-        <h5 style="font-size:12px;color:rgba(0,0,0,.5);">
-          <time>2020/11/23</time>
+            <header>
+              <h1 data-toc-skip="">vue 学习笔记 (1)－－什么是 vue?</h1>
+              
+              
+              <div class="post-meta text-muted">
+                <span>Posted<time>Nov 11, 2020</time></span>
+                <div class="d-flex justify-content-between"><span>By
+                    <em><a href="https://github.com/anghunk">子舒</a></em></span>
+                </div>
+              </div>
+              
+            </header>
 
-          
-          <span class="no-print">|
-          
-          <a href="/tags/vue">#vue</a>
-          
-          <a href="/tags/%E7%AC%94%E8%AE%B0">#笔记</a>
-          
-          </span>
-          
-
-          
-          
-          <span class="no-print">|
-            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-          </span>
-          
-          
-        </h5>
-        
-
-      </hgroup>
-      <hr class="sep">
-    </header>
-    
-
-    
-    <div class="toc">
-      <nav id="TableOfContents">
-  <ul>
-    <li><a href="#一什么是-vue">一、什么是 vue?</a>
-      <ul>
-        <li><a href="#1v-指令">1.v-指令</a></li>
-        <li><a href="#2组件化构建应用">2.组件化构建应用</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-    </div>
-    
-
-    <article class="post-content">
-      
-      <h2 id="一什么是-vue">一、什么是 vue?</h2>
+            <div class="content">
+              
+              <h2 id="一什么是-vue">一、什么是 vue?</h2>
 <p>练习时使用，最新版本</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></div><p>生产时使用，明确版本号的版本，避免造成不可预见的问题</p>
@@ -484,7 +516,7 @@ Vue.component(&#39;todo-item&#39;, { // todo-item 组件现在接受一个 // &#
 		src="https://i.loli.net/2020/11/28/UDzxwoIJLq9u6nG.png"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p>在 vue 里，一个组件本质上是一个拥有预定义选项的一个 vue 实例。在 vue 中注册组件很简单</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 定义名为 todo-item 的新组件
@@ -542,10 +574,96 @@ Vue.component(&#39;todo-item&#39;, { // todo-item 组件现在接受一个 // &#
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">app-view</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span></code></pre></div>
-    </article>
 
-    
-    <hr class="sep">
+              <div class="post-tail-wrapper text-muted">
+                <div class="post-meta mb-3">
+                  
+              
+                  
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="post-category">
+                    
+                    
+                      <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                    
+                  </span>
+                  
+
+                  <div class="post-tags">
+                    <i class="fa fa-tags fa-fw me-1"></i>
+                    
+                    <span class="post-tags">
+                      
+                        <a href="/tags/vue" class="post-tag no-text-decoration">vue</a>
+                      
+                        <a href="/tags/%E7%AC%94%E8%AE%B0" class="post-tag no-text-decoration">笔记</a>
+                      
+                    </span>
+                  
+                  </div>
+
+                  
+
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                </div>
+              </div>
+
+            
+            
+            
+
+
+
+
+
+
+
+<div class="row">
+  <div id="tail-wrapper">
+    <aside id="related-posts">
+      <h3 class="mb-4" id="related-label">Further Reading</h3>
+      <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+
+        
+        
+        
+        <article class="col"><a href="/blog/25.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Nov 11, 2020</time>
+              <h4 class="pt-0 my-2">对象，类和接口之间的关系</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        <article class="col"><a href="/blog/24.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Nov 11, 2020</time>
+              <h4 class="pt-0 my-2">vue 使用 cli 脚手架构建项目工程</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        <article class="col"><a href="/blog/23.html/" class="post-preview card h-100">
+            <div class="card-body"><time>Nov 11, 2020</time>
+              <h4 class="pt-0 my-2">react 学习路径－－怎么学习 react？</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        
+      </nav>
+    </aside>
+  </div>
+</div>
+            
+
+            
+            
+            <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -642,52 +760,1030 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-    
-    
-  </main>
-  <hr class="sep">
-<footer class="container no-print">
-  <div class="u-footer">
-    <p>
-      本博客使用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:inherit;">CC BY-NC-SA 4.0</a> 协议开源
-    </p>
-    <p>© 2020 - 2025 Powered by 子舒</p>
-    <div class="footflex">
-      <p>Ad Astra Per Aspera.</p>
-      <p>
-        <a title="Email" href="mailto:hi@zishu.me"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></a>
-        <a title="Github" href="https://github.com/anghunk" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
-        <a title="RSS Feed" href="/index.xml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rss-icon lucide-rss"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
-      </p>
-    </div>
-  </div>
+            
+
+          </article>
+
+          <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
+flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
+  <p>
+    <time>© 2020 - 2025 Powered by </time>
+    <a href="https://github.com/anghunk">子舒</a>.
+    <span>Some rights reserved.</span>
+  </p>
+  <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
 </footer>
 
-<a herf="javascript:void(0)" class="gotop"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-from-dot-icon lucide-arrow-up-from-dot"><path d="m5 9 7-7 7 7"/><path d="M12 16V2"/><circle cx="12" cy="21" r="1"/></svg></a>
+<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
 <style>
-.gotop {
-  position: fixed;
-  right: 20px;
-  bottom: 50px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #c6c3c3;
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.1s linear;
-  border: 1px solid #ccc;
-}
+  .gotop {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #c6c3c3;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    border: 1px solid #ccc;
+  }
 
-.gotop:hover {
-  background: #ccc;
-}
+  .gotop:hover {
+    background: #ccc;
+  }
 </style>
 <script src="/js/main.js"></script>
-</body>
+        </main>
 
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
+  <div class="access">
+    <section id="access-lastmod">
+      <h2 class="panel-heading">Recently Updated</h2>
+      <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
+        
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/daming-mountain-qianniugang-camping-notes.html/">大明山牵牛岗露营游记</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/nanjing-travel-aug-3.html/">南京游八月三日</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/login-bitwarden-legacy-version.html/">如何登录旧版本 Bitwarden 密码管理器</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/262.html/">AI 驱动的验证码自动识别之旅：从困扰到解放</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/261.html/">Obsidian:移动端同步笔记</a></li>
+        
+      </ul>
+    </section>
+    <section>
+      <h2 class="panel-heading">Trending Tags</h2>
+      <div class="d-flex flex-wrap mt-3 mb-1 me-3">
+        
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/weekly/">Weekly</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D/">随手拍</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/js/">Js</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/vue/">Vue</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/react/">React</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E6%97%85%E6%B8%B8/">旅游</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%83%B3%E5%BD%95/">随想录</a>
+        
+      </div>
+    </section>
+
+
+    
+
+    
+  </div>
+
+  
+  <div class="toc-border-cover z-3"></div>
+  <section id="toc-wrapper" class="position-sticky">
+    <h2 class="panel-heading ps-3 pb-2 mb-0">Contents</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一什么是-vue">一、什么是 vue?</a>
+      <ul>
+        <li><a href="#1v-指令">1.v-指令</a></li>
+        <li><a href="#2组件化构建应用">2.组件化构建应用</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </section>
+  
+
+</aside>
+
+      </div>
+    </div>
+  </div>
+
+</body>
 </html>

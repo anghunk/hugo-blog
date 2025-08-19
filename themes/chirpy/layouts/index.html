@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+
+<body>
+  {{ partial "header.html" . }}
+
+  <div id="main-wrapper" class="d-flex justify-content-center">
+    <div class="container d-flex flex-column px-xxl-5">
+      {{ partial "content_top.html" . }}
+      <div class="row flex-grow-1">
+        <main class="col-12 col-lg-11 col-xl-9 px-md-4">
+          <div id="post-list" class="flex-grow-1 px-xl-1">
+
+            {{ $pages := .Site.RegularPages }}
+            {{ $paginator := .Paginate ($pages) }}
+            {{ $count := 0 }}
+
+            {{ range $paginator.Pages }}
+            {{ $title := .Title }}
+            {{ $summary := .Summary }}
+
+            <article class="card-wrapper card">
+              <a href="{{ .RelPermalink }}" class="post-preview row g-0 flex-md-row-reverse">
+                <div class="col-md-12">
+                  <div class="card-body d-flex flex-column">
+                    <h1 class="card-title my-2 mt-md-0">{{ .Title }}</h1>
+                    <div class="card-text content mt-0 mb-3">
+                      <!-- <p>{{.Summary}}</p> -->
+                    </div>
+                    <div class="post-meta flex-grow-1 d-flex align-items-end">
+                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
+                        <time>{{ .Date.Format "Jan 1, 2006"}}</time><i class="far fa-folder-open fa-fw me-1"></i>
+
+                          <!-- 分类 -->
+                        {{ if .Params.categories }}
+                          <span class="categories">
+                            {{ range $i, $cat := .Params.categories }}
+                              {{ if $i }}, {{ end }}
+                              {{ $cat }}
+                            {{ end }}
+                          </span>
+                        {{ end }}
+
+                        <!-- 标签 -->
+                        {{ if .Params.tags }}
+                        {{ range .Params.tags }}
+                        , {{ . }}
+                        {{ end }}
+                        {{ end }}
+
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            {{ end }}
+
+            {{ partial "footer.html" . }}
+          </div>
+        </main>
+        
+        {{ partial "panel.html" . }}
+      </div>
+      
+    </div>
+  </div>
+
+  <script>
+    const time = "{{ .Site.Params.buildDate }}";
+    var now = new Date();
+    var end = new Date(time);
+    var diff = Math.abs(now - end);
+    var days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    document.getElementById('days').innerHTML = days;
+  </script>
+</body>
+
+</html>

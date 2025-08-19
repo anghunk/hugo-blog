@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:anghunk@gmail.com name:子舒]" />
+<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
 <meta property="og:url" content="https://zishu.me/blog/130.html/" />
 <link rel="canonical" href="https://zishu.me/blog/130.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "宝塔自动备份网站到邮箱教程",
 "description" : "前言 网站经常备份好处就是遇到问题以后可以迅速的恢复，不那么被动，防止信息丢失，操作性很大。虽然搭建一个网站非常容易，但为了应对网络上各种各样的意外情况，避免自己的网站付诸东流，做好网站备份是非常有必要的。\n现在邮箱接收都支持附件文件，将网站文件和数据库文件备份到我们自己的邮箱也是一种很好地备份方式，也防止备份文件丢失。\n邮箱接收附件文件大小，取决于使用的邮箱服务。一般来说个人博客网站源文件，数据库文件不大，常见邮箱服务都是可以使用的。\n下面开始教程，宝塔安装教程可去宝塔官网查看安装教程。\n系统环境：CentOS 7.9.2009 x86_64（其他系统可参考方式，命令安装自行解决）\n宝塔面板：7.9.0\n安装 mailx 浏览器登录进入宝塔面板，左侧-》终端。首次使用宝塔终端，需要登录服务器，填写 root 用户密码后登录。\n在终端中输入以下 mailx 安装命令，回车安装。\nyum install -y mailx 编辑配置文件 安装完成后，编辑邮箱服务的相关配置文件。 在终端输入以下命令，然后回车进入编辑文件界面。\nvim \/etc\/mail.rc 使用键盘上下键，找到大约 69 行位置，按‘i’键输入，添加以下配置。\nset from=发件人@qq.com #发送邮件后显示的邮件发送方 需要修改 set smtp=smtps:\/\/smtp.qq.com:465 #SMTP服务器的网址及端口 需要修改 set smtp-auth-user=发件人@qq.com #发送邮箱 需要修改 set smtp-auth-password=邮箱密码\/SMTP授权码 #设置的邮箱密码，SMTP授权密码 需要修改 set smtp-auth=login #动作、登录 无需修改 set ssl-verify=ignore #ssl验证忽略 无需修改 set nss-config-dir=\/etc\/pki\/nssdb #证书存放目录 无需修改 请将配置按要求修改为自己所使用的邮箱服务配置。服务器需要开启 465 端口。\n配置修改完成后，按 Esc 键，输入:wq回车保存退出编辑界面。\n测试发送邮件 在终端输入发送测试邮件命令，需要修改收件人邮箱，回车执行。\necho \u0026#34;这是一封测试邮件\u0026#34; | mail -s \u0026#34;邮件主题\u0026#34; 收件人@qq.com 查看邮箱是否收到测试邮件。\n如果发现终端报以下错误（但没有影响收件），没有错误请跳过。\nError in certificate: Peer\u0027s certificate issuer has been marked as not trusted by the.\nCtrl\u002bC结束命令后，修改邮箱服务配置文件，将set ssl-verify=ignore修改为set ssl-verify=strict后保存退出（编辑方法同上）。\n修改完成后在终端输入以下命令。\n获取邮件服务器证书\necho -n \u0026#34; \u0026#34; | openssl s_client -connect smtp.qq.com:465 | sed -ne \u0026#39;\/-BEGIN CERTIFICATE-\/,\/-END CERTIFIICATE-\/p\u0026#39; \u0026gt; \/etc\/pki\/nssdb\/qq.crt 把证书添加到受信任表\ncertutil -A -n \u0026#39;yeah\u0026#39; -t \u0026#34;P,P,P\u0026#34; -d \/etc\/pki\/nssdb -i \/etc\/pki\/nssdb\/qq.crt 注：如果是 163 或者其他邮箱服务器请将smtp.qq.com改为smtp.163.com，qq.crt改为163.crt 以此类推。\n命令执行完成后，重新执行发送测试邮件命令，不在报错。\n宝塔定时任务 左侧-》计划任务\n首先按自己需求（计划任务执行时间，保留文件数量等）添加网站和数据库源文件备份任务。\n然后添加shell脚本任务，在脚本内容中添加以下脚本命令，修改收件人为自己的邮箱。\n#!\/bin\/bash cd \/www\/backup\/site for file in $(ls *) do str=\u0026#34;${str} -a ${file}\u0026#34; done echo \u0026#34;主人，今天的网站备份又到了哦，请注意查收！\u0026#34; | mail -s \u0026#34;网站备份\u0026#34; $str 2502393029@qq.com 执行时间可按需求，晚于网站，数据库备份任务执行时间。\n数据库备份和网站备份一样需要再添加一次计划任务，将cd \/www\/backup\/site 修改为cd \/www\/backup\/database数据库备份文件所在目录即可，参考改一下邮件主题，和内容信息。\n计划任务添加完成后，可先执行网站，数据库源文件备份任务，再执行网站，数据库邮箱shell脚本备份任务，然后前往邮箱查看文件是否收到，文件过大，邮件会有延迟。\n注：如果有报错或收不到邮件情况，请仔细检查命令，配置文件是否有误，或者查看脚本执行日志进行排查。\n转载自梦繁星博客：https:\/\/blog.emoao.com\/13.html\n如果问题请在评论区留言。\n",
 "inLanguage" : "en-US",
-"author" : "map[email:anghunk@gmail.com name:子舒]",
-"creator" : "map[email:anghunk@gmail.com name:子舒]",
-"publisher": "map[email:anghunk@gmail.com name:子舒]",
-"accountablePerson" : "map[email:anghunk@gmail.com name:子舒]",
-"copyrightHolder" : "map[email:anghunk@gmail.com name:子舒]",
+"author" : "map[email:hi@zishu.me name:anghunk]",
+"creator" : "map[email:hi@zishu.me name:anghunk]",
+"publisher": "map[email:hi@zishu.me name:anghunk]",
+"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
+"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
 "copyrightYear" : "2022",
 "datePublished": "2022-05-25 00:00:00 \u002b0000 UTC",
 "dateModified" : "2022-05-25 00:00:00 \u002b0000 UTC",
@@ -104,102 +104,129 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="/css/ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
+
+ <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
+ 
+
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
+<link rel="stylesheet" href="/css/tocbot.css">
 <script src="/js/jquery-3.6.1.js"></script>
-<script defer src="/js/dark-mode.js"></script>
-<link disabled id="dark-mode-theme" rel="stylesheet" href="/css/dark.css">
-<link rel="stylesheet" href="/css/dropdown.css">
+
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
-  <header class="container no-print">
-  <div class="u-header">
-    <nav class="bar">
-      <ul>
-        <li><img class="icon-text" id="dark-mode-toggle" src="/images/moon.svg" alt="Toggle Dark Mode"></li>
+  <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+        width="112" height="112" alt="avatar"></a>
+    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
+  </header>
+  <nav class="flex-column flex-grow-1 w-100 ps-0">
+    <ul class="nav">
 
-        
-        <li><a href="/">首页</a></li>
-        
-        <li><a href="/blog/">文章</a></li>
-        
-        <li><a href="/tags/">标签</a></li>
-        
-        <li><a href="/message/">留言</a></li>
-        
-        <li><a href="/about/">关于</a></li>
-        
-        <li><a href="/projects/">项目</a></li>
-        
-        <li><a href="/friends/">友链</a></li>
-        
-        
-        <li><a href="/search/">🔍</a></li>
-        <li><a href="/index.xml" target="_blank">RSS</a></li>
-      </ul>
-    </nav>
+      
+      <li class="nav-item">
+        <a href="/" class="nav-link">
+          <i class="fa-fw fas fa-house"></i>
+          <span>首页</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/blog/" class="nav-link">
+          <i class="fa-fw fas fa-stream"></i>
+          <span>文章</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/tags/" class="nav-link">
+          <i class="fa-fw fas fa-tags"></i>
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/message/" class="nav-link">
+          <i class="fa-fw fas fa-message"></i>
+          <span>留言</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/about/" class="nav-link">
+          <i class="fa-fw fas fa-info-circle"></i>
+          <span>关于</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/projects/" class="nav-link">
+          <i class="fa-fw fas fa-tasks"></i>
+          <span>项目</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="/friends/" class="nav-link">
+          <i class="fa-fw fas fa-link"></i>
+          <span>友链</span>
+        </a>
+      </li>
+      
 
+    </ul>
+  </nav>
+  <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100"><button type="button"
+      class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
+      <i class="fas fa-adjust"></i>
+    </button>
+    <span class="icon-border"></span>
+    <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
+        class="fab fa-github"></i></a>
+    <a href="mailto:anghunk@gmail.com" aria-label="email" target="_blank" rel="noopener noreferrer"><i
+        class="fas fa-envelope"></i>
+    </a>
+    <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
+  </div>
+</aside>
+
+  <div id="main-wrapper" class="d-flex justify-content-center">
+    <div class="container d-flex flex-column px-xxl-5">
+      <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
+  <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
+
+    <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
+      <i class="fas fa-bars fa-fw"></i>
+    </button>
+    <div id="topbar-title">子舒的博客</div>
+    <button type="button" class="btn btn-link"></button>
   </div>
 </header>
-  <main class="container">
+      <div class="row flex-grow-1">
 
-    <header>
-      <hgroup id="brand">
-        <h1>宝塔自动备份网站到邮箱教程</h1>
+        <main class="col-12 col-lg-11 col-xl-9 px-md-4">
+          <article class="px-1">
 
-        
-        <h5 style="font-size:12px;color:rgba(0,0,0,.5);">
-          <time>2022/05/25</time>
+            <header>
+              <h1 data-toc-skip="">宝塔自动备份网站到邮箱教程</h1>
+              
+              
+              <div class="post-meta text-muted">
+                <span>Posted<time>May 5, 2022</time></span>
+                <div class="d-flex justify-content-between"><span>By
+                    <em><a href="https://github.com/anghunk">子舒</a></em></span>
+                </div>
+              </div>
+              
+            </header>
 
-          
-          <span class="no-print">|
-          
-          <a href="/tags/%E5%AE%9D%E5%A1%94">#宝塔</a>
-          
-          <a href="/tags/%E5%A4%87%E4%BB%BD">#备份</a>
-          
-          <a href="/tags/%E9%82%AE%E7%AE%B1">#邮箱</a>
-          
-          </span>
-          
-
-          
-          
-          <span class="no-print">|
-            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
-          </span>
-          
-          
-        </h5>
-        
-
-      </hgroup>
-      <hr class="sep">
-    </header>
-    
-
-    
-    <div class="toc">
-      <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#前言">前言</a></li>
-        <li><a href="#安装-mailx">安装 mailx</a></li>
-        <li><a href="#编辑配置文件">编辑配置文件</a></li>
-        <li><a href="#测试发送邮件">测试发送邮件</a></li>
-        <li><a href="#宝塔定时任务">宝塔定时任务</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-    </div>
-    
-
-    <article class="post-content">
-      
-      <h3 id="前言">前言</h3>
+            <div class="content">
+              
+              <h3 id="前言">前言</h3>
 <p>网站经常备份好处就是遇到问题以后可以迅速的恢复，不那么被动，防止信息丢失，操作性很大。虽然搭建一个网站非常容易，但为了应对网络上各种各样的意外情况，避免自己的网站付诸东流，做好网站备份是非常有必要的。</p>
 <p>现在邮箱接收都支持附件文件，将网站文件和数据库文件备份到我们自己的邮箱也是一种很好地备份方式，也防止备份文件丢失。</p>
 <p>邮箱接收附件文件大小，取决于使用的邮箱服务。一般来说个人博客网站源文件，数据库文件不大，常见邮箱服务都是可以使用的。</p>
@@ -214,7 +241,7 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
 		src="https://img.emoao.com/post-img/2022-05-13/53c6eca1cfb4eef40e63c916a59fa44b.webp"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p>在终端中输入以下 mailx 安装命令，回车安装。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum install -y mailx
@@ -224,7 +251,7 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
 		src="https://img.emoao.com/post-img/2022-05-13/30bec003dc2046e71c18494c305b21cc.webp"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <h3 id="编辑配置文件">编辑配置文件</h3>
 <p>安装完成后，编辑邮箱服务的相关配置文件。
@@ -236,7 +263,7 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
 		src="https://img.emoao.com/post-img/2022-05-13/56989b03520d4abd7823fe5283d2b519.webp"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p>使用键盘上下键，找到大约 69 行位置，按‘i’键输入，添加以下配置。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">set</span> <span class="nv">from</span><span class="o">=</span>发件人@qq.com <span class="c1">#发送邮件后显示的邮件发送方 需要修改</span>
@@ -253,7 +280,7 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
 		src="https://img.emoao.com/post-img/2022-05-13/e7c11a400bb3d30c2a81293f732d84fe.webp"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p>     
 <figure>
@@ -261,7 +288,7 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
 		src="https://img.emoao.com/post-img/2022-05-13/acde4506e7a574d1baf6588f7f5b178d.webp"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p>配置修改完成后，按 Esc 键，输入<code>:wq</code>回车保存退出编辑界面。</p>
 <h3 id="测试发送邮件">测试发送邮件</h3>
@@ -273,7 +300,7 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
 		src="https://img.emoao.com/post-img/2022-05-13/e5192c7240feebf85e2f8dc5e4858e5e.webp"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p>查看邮箱是否收到测试邮件。</p>
 <p>     
@@ -282,7 +309,7 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
 		src="https://img.emoao.com/post-img/2022-05-13/47dcafa9c8b6307406aec0f12712872b.webp"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p>如果发现终端报以下错误（但没有影响收件），没有错误请跳过。</p>
 <p><code>Error in certificate: Peer's certificate issuer has been marked as not trusted by the.</code></p>
@@ -292,7 +319,7 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
 		src="https://img.emoao.com/post-img/2022-05-13/8db1d9c84d292df3841c535ef8ad724b.webp"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p><code>Ctrl+C</code>结束命令后，修改邮箱服务配置文件，将<code>set ssl-verify=ignore</code>修改为<code>set ssl-verify=strict</code>后保存退出（编辑方法同上）。</p>
 <p>     
@@ -301,7 +328,7 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
 		src="https://img.emoao.com/post-img/2022-05-13/c12d5ffecf4e6e48061bdc495d7570ff.webp"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p>修改完成后在终端输入以下命令。</p>
 <p>获取邮件服务器证书</p>
@@ -316,7 +343,7 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
 		src="https://img.emoao.com/post-img/2022-05-13/3252062ac53690690f832dd73d0863aa.webp"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <h3 id="宝塔定时任务">宝塔定时任务</h3>
 <p>左侧-》<strong>计划任务</strong></p>
@@ -327,7 +354,7 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
 		src="https://img.emoao.com/post-img/2022-05-13/4968cb73cd43ee6ece060bb011feef8d.webp"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p><strong>然后添加</strong><code>shell</code>脚本任务，在脚本内容中添加以下脚本命令，修改收件人为自己的邮箱。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
@@ -343,7 +370,7 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
 		src="https://img.emoao.com/post-img/2022-05-13/89e2ce5cfc848ae5688021f650415776.webp"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p>执行时间可按需求，晚于网站，数据库备份任务执行时间。</p>
 <p>数据库备份和网站备份一样需要再添加一次计划任务，将<code>cd /www/backup/site </code>修改为<code>cd /www/backup/database</code>数据库备份文件所在目录即可，参考改一下邮件主题，和内容信息。</p>
@@ -354,7 +381,7 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
 		src="https://img.emoao.com/post-img/2022-05-13/deb9c05584f5bc00013188daa3e758b0.webp"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p>     
 <figure>
@@ -362,17 +389,105 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
 		src="https://img.emoao.com/post-img/2022-05-13/1564dc76c2f6b94299a153d25d9d15d9.webp"
     alt=""class="lazy"
 	>
-  <figcaption></figcaption>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 <p><strong>注：如果有报错或收不到邮件情况，请仔细检查命令，配置文件是否有误，或者查看脚本执行日志进行排查。</strong></p>
 <blockquote>
 <p>转载自梦繁星博客：https://blog.emoao.com/13.html</p></blockquote>
 <p>如果问题请在评论区留言。</p>
 
-    </article>
 
-    
-    <hr class="sep">
+              <div class="post-tail-wrapper text-muted">
+                <div class="post-meta mb-3">
+                  
+              
+                  
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="post-category">
+                    
+                    
+                      <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                    
+                  </span>
+                  
+
+                  <div class="post-tags">
+                    <i class="fa fa-tags fa-fw me-1"></i>
+                    
+                    <span class="post-tags">
+                      
+                        <a href="/tags/%E5%AE%9D%E5%A1%94" class="post-tag no-text-decoration">宝塔</a>
+                      
+                        <a href="/tags/%E5%A4%87%E4%BB%BD" class="post-tag no-text-decoration">备份</a>
+                      
+                        <a href="/tags/%E9%82%AE%E7%AE%B1" class="post-tag no-text-decoration">邮箱</a>
+                      
+                    </span>
+                  
+                  </div>
+
+                  
+
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                </div>
+              </div>
+
+            
+            
+            
+
+
+
+
+
+
+
+<div class="row">
+  <div id="tail-wrapper">
+    <aside id="related-posts">
+      <h3 class="mb-4" id="related-label">Further Reading</h3>
+      <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+
+        
+        
+        
+        <article class="col"><a href="/blog/106.html/" class="post-preview card h-100">
+            <div class="card-body"><time>May 5, 2022</time>
+              <h4 class="pt-0 my-2">一个优雅的字体压缩解决方案 fonttools</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        <article class="col"><a href="/blog/127.html/" class="post-preview card h-100">
+            <div class="card-body"><time>May 5, 2022</time>
+              <h4 class="pt-0 my-2">随想录 (4)</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        <article class="col"><a href="/blog/128.html/" class="post-preview card h-100">
+            <div class="card-body"><time>May 5, 2022</time>
+              <h4 class="pt-0 my-2">分享一款自用的 v2ex 主题样式</h4>
+              <div class="text-muted">
+                
+              </div>
+            </div>
+          </a></article>
+        
+        
+      </nav>
+    </aside>
+  </div>
+</div>
+            
+
+            
+            
+            <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -469,52 +584,1033 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-    
-    
-  </main>
-  <hr class="sep">
-<footer class="container no-print">
-  <div class="u-footer">
-    <p>
-      本博客使用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:inherit;">CC BY-NC-SA 4.0</a> 协议开源
-    </p>
-    <p>© 2020 - 2025 Powered by 子舒</p>
-    <div class="footflex">
-      <p>Ad Astra Per Aspera.</p>
-      <p>
-        <a title="Email" href="mailto:hi@zishu.me"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></a>
-        <a title="Github" href="https://github.com/anghunk" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
-        <a title="RSS Feed" href="/index.xml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rss-icon lucide-rss"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
-      </p>
-    </div>
-  </div>
+            
+
+          </article>
+
+          <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
+flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
+  <p>
+    <time>© 2020 - 2025 Powered by </time>
+    <a href="https://github.com/anghunk">子舒</a>.
+    <span>Some rights reserved.</span>
+  </p>
+  <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
 </footer>
 
-<a herf="javascript:void(0)" class="gotop"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-from-dot-icon lucide-arrow-up-from-dot"><path d="m5 9 7-7 7 7"/><path d="M12 16V2"/><circle cx="12" cy="21" r="1"/></svg></a>
+<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
 <style>
-.gotop {
-  position: fixed;
-  right: 20px;
-  bottom: 50px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #c6c3c3;
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.1s linear;
-  border: 1px solid #ccc;
-}
+  .gotop {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #c6c3c3;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    border: 1px solid #ccc;
+  }
 
-.gotop:hover {
-  background: #ccc;
-}
+  .gotop:hover {
+    background: #ccc;
+  }
 </style>
 <script src="/js/main.js"></script>
-</body>
+        </main>
 
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
+  <div class="access">
+    <section id="access-lastmod">
+      <h2 class="panel-heading">Recently Updated</h2>
+      <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
+        
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/daming-mountain-qianniugang-camping-notes.html/">大明山牵牛岗露营游记</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/nanjing-travel-aug-3.html/">南京游八月三日</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/login-bitwarden-legacy-version.html/">如何登录旧版本 Bitwarden 密码管理器</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/262.html/">AI 驱动的验证码自动识别之旅：从困扰到解放</a></li>
+        
+        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/261.html/">Obsidian:移动端同步笔记</a></li>
+        
+      </ul>
+    </section>
+    <section>
+      <h2 class="panel-heading">Trending Tags</h2>
+      <div class="d-flex flex-wrap mt-3 mb-1 me-3">
+        
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/weekly/">Weekly</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D/">随手拍</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/js/">Js</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/vue/">Vue</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/react/">React</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E6%97%85%E6%B8%B8/">旅游</a>
+        
+        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%83%B3%E5%BD%95/">随想录</a>
+        
+      </div>
+    </section>
+
+
+    
+
+    
+  </div>
+
+  
+  <div class="toc-border-cover z-3"></div>
+  <section id="toc-wrapper" class="position-sticky">
+    <h2 class="panel-heading ps-3 pb-2 mb-0">Contents</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#安装-mailx">安装 mailx</a></li>
+        <li><a href="#编辑配置文件">编辑配置文件</a></li>
+        <li><a href="#测试发送邮件">测试发送邮件</a></li>
+        <li><a href="#宝塔定时任务">宝塔定时任务</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </section>
+  
+
+</aside>
+
+      </div>
+    </div>
+  </div>
+
+</body>
 </html>

@@ -1,7 +1,7 @@
 baseURL: https://zishu.me/
 languageCode: en-us
 title: 子舒的博客
-theme: 10 # 10
+theme: chirpy # 10
 pagination:
   pagerSize: 9 # 首页文章显示个数
 summaryLength: 999999 # 首页文章摘要字数
@@ -11,6 +11,7 @@ rssLimit: 10 # 限制 rss 输出的数量
 markup:
   highlight:
     noClasses: false
+    style: catppuccin-frappe
   goldmark:
     renderer:
       unsafe: true
@@ -30,30 +31,55 @@ permalinks:
 
 params:
   title: 子舒的博客
-  description: 一个热爱生活的前端开发工程师。
+  description: 一个热爱生活的前端开发工程师
   logo:  https://imgurl.zishu.me/author.png # 博主头像
   author:
-    name: "子舒"
-    email: "anghunk@gmail.com"
+    name: "anghunk"
+    email: "hi@zishu.me"
   favicon:  https://imgurl.zishu.me/favicon.ico # 网站 favicon 图标
   buildDate: 2020-06-14 # 建站日期
   
   socials: # 导航
     - name: 首页
       link: /
+      icon: fa-house
     - name: 文章
       link: /blog/
+      icon: fa-stream
     - name: 标签
       link: /tags/
+      icon: fa-tags
     - name: 留言
       link: /message/
+      icon: fa-message
     - name: 关于
       link: /about/
+      icon: fa-info-circle
     - name: 项目
       link: /projects/
+      icon: fa-tasks
     - name: 友链
       link: /friends/
+      icon: fa-link
 
+related:
+  # 相关性阈值，0-100。分数越低，匹配条件越宽松。
+  threshold: 0
+  # 是否包含较新的文章
+  includeNewer: false
+  # 是否将关键词转为小写以进行匹配
+  toLower: false
+  # 定义用于计算相关性的索引
+  indices:
+    name: "tags"
+    # 权重越高，这个索引在计算相关性时越重要
+    weight: 100
+  indices:
+    name: "categories"
+    weight: 80
+  indices:
+    name: "date"
+    weight: 10
 
 sitemap:
   changefreq: monthly
