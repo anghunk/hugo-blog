@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
+<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/203.html/" />
 <link rel="canonical" href="https://zishu.me/blog/203.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "Bitwarden \/ Vaultwarden 密码管理工具",
 "description" : "1.介绍 Bitwarden 是一款自由且开源的密码管理服务，用户可在加密的保管库中存储敏感信息。Bitwarden 平台提供有多种客户端应用程序，包括网页用户界面、桌面应用，浏览器扩展、移动应用以及命令行界面。Bitwarden 提供云端托管服务，并支持自行部署解决方案。\n在调研一些市面常用的密码管理工具之后，我选择了 Bitwarden。然后使用自托管的方式部署在服务器上，定时备份数据库，导出密码，安全性也有保证。\nhttps:\/\/bitwarden.com\/\n而 Vaultwarden 是一个使用 Rust 编写的非官方 Bitwarden 服务器实现，提供了不错的 web 管理界面，并与 Bitwarden 兼容。\n2.部署 先在服务器执行指令。\ndocker run -d --name bitwardenrs \\ --restart unless-stopped \\ -e WEBSOCKET_ENABLED=true \\ -v \/data\/password\/data\/:\/data\/ \\ -p 6666:80 \\ -p 3012:3012 \\ vaultwarden\/server:latest 部署完成后打开网站，登陆注册之后，删除容器。\n需要配置禁止注册的功能，因为我只想自己使用。如果不禁止注册，可以忽略下面这两步。\ndocker stop bitwardenrs #停止容器 docker rm -f bitwardenrs #删除容器 docker run -d --name bitwardenrs \\ --restart unless-stopped \\ -e SIGNUPS_ALLOWED=false \\ -e WEBSOCKET_ENABLED=true \\ -v \/data\/password\/data\/:\/data\/ \\ -p 6666:80 \\ -p 3012:3012 \\ vaultwarden\/server:latest 3.docker-compose.yml 通过 ChatGPT 我将这段代码转化成了docker-compose.yml 文件，可以更方便的部署安装。\nversion: \u0026#39;3\u0026#39; services: bitwardenrs: image: vaultwarden\/server:latest container_name: bitwardenrs restart: unless-stopped environment: - SIGNUPS_ALLOWED=false - WEBSOCKET_ENABLED=true volumes: - \/data\/password\/data\/:\/data\/ ports: - \u0026#34;6666:80\u0026#34; - \u0026#34;3012:3012\u0026#34; 4.Chrome 扩展 通过反向代理可以使用域名登陆 web 端，并且使用了 Chrome 扩展方式，在登陆网站可以自动保存密码。\nhttps:\/\/chrome.google.com\/webstore\/detail\/bitwarden-free-password-m\/nngceckbapebfimnlniiiahkandclblb\n之后我只需要记住一个主密码，其他网站密码全部采用加密方式生成，方便与安全并存。\n",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:anghunk]",
-"creator" : "map[email:hi@zishu.me name:anghunk]",
-"publisher": "map[email:hi@zishu.me name:anghunk]",
-"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
-"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
+"author" : "map[email:hi@zishu.me name:子舒]",
+"creator" : "map[email:hi@zishu.me name:子舒]",
+"publisher": "map[email:hi@zishu.me name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
 "copyrightYear" : "2023",
 "datePublished": "2023-07-27 00:00:00 \u002b0000 UTC",
 "dateModified" : "2023-07-27 00:00:00 \u002b0000 UTC",
@@ -64,24 +64,18 @@ https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapeb
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
-
- <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
- 
-
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
-<link rel="stylesheet" href="/css/tocbot.css">
+<link rel="stylesheet" href="/css/fontawesome.css">
+<link rel="stylesheet" href="/css/main.css">
 <script src="/js/jquery-3.6.1.js"></script>
-
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
         width="112" height="112" alt="avatar"></a>
-    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <a class="site-title d-block" href="/chirpy-starter/">子舒</a>
     <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
   </header>
   <nav class="flex-column flex-grow-1 w-100 ps-0">
@@ -158,7 +152,10 @@ https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapeb
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
-
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+      <span> <a href="/">Home</a> </span>
+      <span>Bitwarden / Vaultwarden 密码管理工具</span>
+    </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
     </button>
@@ -176,7 +173,7 @@ https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapeb
               
               
               <div class="post-meta text-muted">
-                <span>Posted<time>Jul 7, 2023</time></span>
+                <span>发布于 <time>Jul 7, 2023</time></span>
                 <div class="d-flex justify-content-between"><span>By
                     <em><a href="https://github.com/anghunk">子舒</a></em></span>
                 </div>
@@ -252,6 +249,8 @@ https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapeb
 
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
+
+                  
                   
               
                   
@@ -280,17 +279,19 @@ https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapeb
                   </div>
 
                   
+                  
 
-                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                  
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2">
+                    <div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div>
+                  </div>
+
                 </div>
               </div>
 
-            
-            
-            
-
-
-
+              
+              
+              
 
 
 
@@ -304,43 +305,49 @@ https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapeb
         
         
         
-        <article class="col"><a href="/blog/202.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/202.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jul 7, 2023</time>
               <h4 class="pt-0 my-2">昨夜梦有感</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/201.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/201.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jul 7, 2023</time>
               <h4 class="pt-0 my-2">极美的晚霞画卷</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/200.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/200.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jun 6, 2023</time>
               <h4 class="pt-0 my-2">aos 事件触发失败</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
         
       </nav>
     </aside>
   </div>
 </div>
-            
+              
 
-            
-            
-            <hr class="sep">
+              
+              
+              <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -437,7 +444,9 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-            
+              
+
+            </div>
 
           </article>
 

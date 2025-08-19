@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
+<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/49.html/" />
 <link rel="canonical" href="https://zishu.me/blog/49.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "掘金个人主页头像旋转效果",
 "description" : "在浏览掘金社区的时候，发现一个很有意思的小彩蛋，在个人主页将鼠标悬浮在头像上，会不停的加速旋转，我感觉挺有意思，f12 看看这个样式怎么写的，发现用到了 css3 的相关技术。\n下面是具体代码，img 是头像元素，直接写在 hover 中即可。\nimg:hover { transform: rotate(666turn); transition-delay: 1s; transition-property: all; transition-duration: 59s; transition-timing-function: cubic-bezier(.34,0,.84,1); } ps：今天是 2021 年 2 月 4 号，农历腊月二十三，传统的小年，祝朋友们小年愉快。不知不觉，快过年了。\n",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:anghunk]",
-"creator" : "map[email:hi@zishu.me name:anghunk]",
-"publisher": "map[email:hi@zishu.me name:anghunk]",
-"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
-"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
+"author" : "map[email:hi@zishu.me name:子舒]",
+"creator" : "map[email:hi@zishu.me name:子舒]",
+"publisher": "map[email:hi@zishu.me name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
 "copyrightYear" : "2021",
 "datePublished": "2021-02-03 00:00:00 \u002b0000 UTC",
 "dateModified" : "2021-02-03 00:00:00 \u002b0000 UTC",
@@ -48,24 +48,18 @@ img:hover { transform: rotate(666turn); transition-delay: 1s; transition-propert
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
-
- <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
- 
-
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
-<link rel="stylesheet" href="/css/tocbot.css">
+<link rel="stylesheet" href="/css/fontawesome.css">
+<link rel="stylesheet" href="/css/main.css">
 <script src="/js/jquery-3.6.1.js"></script>
-
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
         width="112" height="112" alt="avatar"></a>
-    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <a class="site-title d-block" href="/chirpy-starter/">子舒</a>
     <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
   </header>
   <nav class="flex-column flex-grow-1 w-100 ps-0">
@@ -142,7 +136,10 @@ img:hover { transform: rotate(666turn); transition-delay: 1s; transition-propert
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
-
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+      <span> <a href="/">Home</a> </span>
+      <span>掘金个人主页头像旋转效果</span>
+    </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
     </button>
@@ -160,7 +157,7 @@ img:hover { transform: rotate(666turn); transition-delay: 1s; transition-propert
               
               
               <div class="post-meta text-muted">
-                <span>Posted<time>Feb 2, 2021</time></span>
+                <span>发布于 <time>Feb 2, 2021</time></span>
                 <div class="d-flex justify-content-between"><span>By
                     <em><a href="https://github.com/anghunk">子舒</a></em></span>
                 </div>
@@ -184,6 +181,8 @@ img:hover { transform: rotate(666turn); transition-delay: 1s; transition-propert
 
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
+
+                  
                   
               
                   
@@ -208,17 +207,19 @@ img:hover { transform: rotate(666turn); transition-delay: 1s; transition-propert
                   </div>
 
                   
+                  
 
-                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                  
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2">
+                    <div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div>
+                  </div>
+
                 </div>
               </div>
 
-            
-            
-            
-
-
-
+              
+              
+              
 
 
 
@@ -232,43 +233,49 @@ img:hover { transform: rotate(666turn); transition-delay: 1s; transition-propert
         
         
         
-        <article class="col"><a href="/blog/48.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/48.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jan 1, 2021</time>
               <h4 class="pt-0 my-2">ES5 和 ES6 的区别？</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/47.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/47.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jan 1, 2021</time>
               <h4 class="pt-0 my-2">webpack 的核心概念和构建流程</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/46.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/46.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jan 1, 2021</time>
               <h4 class="pt-0 my-2">小张厨房日记（二）</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
         
       </nav>
     </aside>
   </div>
 </div>
-            
+              
 
-            
-            
-            <hr class="sep">
+              
+              
+              <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -365,7 +372,9 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-            
+              
+
+            </div>
 
           </article>
 

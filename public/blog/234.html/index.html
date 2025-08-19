@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
+<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/234.html/" />
 <link rel="canonical" href="https://zishu.me/blog/234.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "vite 配置相关笔记",
 "description" : "一、配置 route 路由 使用 vite \u002b vue 构建项目默认是没有 route 的，所以需要手动引入。\n1. 基础配置 # 建立一个 vite 项目 npm create vite@latest yarn create vite # 安装 route 依赖 npm install vue-router@4 yarn add vue-router@4 接下来，需要在项目中配置 Vue Router。首先在 src 目录下创建一个 router 目录，并在该目录下创建 index.js，并配置路由。\nsrc\/ ├── router\/ │ └── index.js \/\/ src\/router\/index.js import { createRouter, createWebHistory } from \u0026#39;vue-router\u0026#39;; const routes = [{ path: \u0026#39;\/\u0026#39;, name: \u0026#39;Home\u0026#39;, component: () =\u0026gt; import(\u0026#39;@\/views\/Home.vue\u0026#39;) }, { path: \u0026#39;\/login\u0026#39;, name: \u0026#39;Login\u0026#39;, component: () =\u0026gt; import(\u0026#39;@\/views\/Login.vue\u0026#39;) } ] const router = createRouter({ history: createWebHistory(import.meta.env.BASE_URL), routes }) export default router 在 main.js 声明一下 route 文件。\nimport { createApp } from \u0026#39;vue\u0026#39;; import App from \u0026#39;.\/App.vue\u0026#39;; import router from \u0026#39;.\/router\u0026#39;; const app = createApp(App) app.use(router) app.mount(\u0026#39;#app\u0026#39;) 并且在 App.vue 中要使用 router-view 来显示当前路由对应的组件，所以修改下文件。\n\u0026lt;template\u0026gt; \u0026lt;div id=\u0026#34;app\u0026#34;\u0026gt; \u0026lt;router-view\u0026gt;\u0026lt;\/router-view\u0026gt; \u0026lt;\/div\u0026gt; \u0026lt;\/template\u0026gt; \u0026lt;script\u0026gt; export default { name: \u0026#39;App\u0026#39; } \u0026lt;\/script\u0026gt; 2. 添加多路由 要添加更多的页面或动态路由，可以继续在 routes 数组中添加配置。例如：\n{ path: \u0026#39;\/user\/:id\u0026#39;, name: \u0026#39;User\u0026#39;, component: () =\u0026gt; import(\u0026#39;@\/views\/User.vue\u0026#39;) } 这样，访问 \/user\/1 就会加载 User.vue 组件并显示相应内容。\n二、配置 @ 路径别名 注意，vite 默认是没有配置路径别名 @ 的，所以要手动添加，配置如下：\nimport { defineConfig } from \u0026#39;vite\u0026#39; import vue from \u0026#39;@vitejs\/plugin-vue\u0026#39; import { fileURLToPath, URL } from \u0026#39;node:url\u0026#39; export default defineConfig({ plugins: [vue()], resolve: { alias: { \u0026#39;@\u0026#39;: fileURLToPath(new URL(\u0026#39;.\/src\u0026#39;, import.meta.url)) } } }) 配置完别名后，就可以在项目中使用 @ 来代替 src 目录的路径，从而简化模块引用。\n三、dev 时自动访问本地服务 open: true 表示当你运行 vite 或 vite dev 时，开发服务器将自动在浏览器中打开本地服务器的 URL（例如 http:\/\/localhost:5173）。你也可以指定一个具体的 URL，例如：\n\/\/ vite.config.js export default defineConfig({ server: { open: true, \/\/ 自动打开浏览器并访问本地服务器网址 open: \u0026#39;http:\/\/localhost:5173\u0026#39;, \/\/ 在浏览器中打开指定的路径 }, }); 四、允许本地 ip 访问 local \/\/ vite.config.js export default { server: { host: true, \/\/ 允许使用本地 IP 访问 port: 3000 \/\/ 可以根据需要修改端口 } } vite.config.js 配置集合 \/\/ vite.config.js import { defineConfig } from \u0026#39;vite\u0026#39;; import vue from \u0026#39;@vitejs\/plugin-vue\u0026#39;; import { fileURLToPath, URL } from \u0026#39;node:url\u0026#39;; \/\/ https:\/\/vitejs.dev\/config\/ export default defineConfig({ base: \u0026#39;\/single-template\/\u0026#39;, \/\/ 设置打开目录 plugins: [vue()], resolve: { alias: { \u0026#39;@\u0026#39;: fileURLToPath(new URL(\u0026#39;.\/src\u0026#39;, import.meta.url)) \/\/ 允许使用 @ 别名 } }, server: { host: true, \/\/ 允许本地 ip 访问 open: true, \/\/ 自动打开浏览器并访问本地服务器网址 \/\/ open: \u0026#39;http:\/\/localhost:5173\u0026#39;, \/\/ 在浏览器中打开指定的路径 }, }) ",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:anghunk]",
-"creator" : "map[email:hi@zishu.me name:anghunk]",
-"publisher": "map[email:hi@zishu.me name:anghunk]",
-"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
-"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
+"author" : "map[email:hi@zishu.me name:子舒]",
+"creator" : "map[email:hi@zishu.me name:子舒]",
+"publisher": "map[email:hi@zishu.me name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
 "copyrightYear" : "2024",
 "datePublished": "2024-08-15 00:00:00 \u002b0000 UTC",
 "dateModified" : "2024-08-15 00:00:00 \u002b0000 UTC",
@@ -60,24 +60,18 @@ import { defineConfig } from &#39;vite&#39; import vue from &#39;@vitejs/plugin-
 // vite.config.js export default defineConfig({ server: { open: true, // 自动打开浏览器并访问本地服务器网址 open: &#39;http://localhost:5173&#39;, // 在浏览器中打开指定的路径 }, }); 四、允许本地 ip 访问 local // vite.config.js export default { server: { host: true, // 允许使用本地 IP 访问 port: 3000 // 可以根据需要修改端口 } } vite.config.js 配置集合 // vite.config.js import { defineConfig } from &#39;vite&#39;; import vue from &#39;@vitejs/plugin-vue&#39;; import { fileURLToPath, URL } from &#39;node:url&#39;; // https://vitejs.dev/config/ export default defineConfig({ base: &#39;/single-template/&#39;, // 设置打开目录 plugins: [vue()], resolve: { alias: { &#39;@&#39;: fileURLToPath(new URL(&#39;./src&#39;, import.meta.url)) // 允许使用 @ 别名 } }, server: { host: true, // 允许本地 ip 访问 open: true, // 自动打开浏览器并访问本地服务器网址 // open: &#39;http://localhost:5173&#39;, // 在浏览器中打开指定的路径 }, }) " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
-
- <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
- 
-
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
-<link rel="stylesheet" href="/css/tocbot.css">
+<link rel="stylesheet" href="/css/fontawesome.css">
+<link rel="stylesheet" href="/css/main.css">
 <script src="/js/jquery-3.6.1.js"></script>
-
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
         width="112" height="112" alt="avatar"></a>
-    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <a class="site-title d-block" href="/chirpy-starter/">子舒</a>
     <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
   </header>
   <nav class="flex-column flex-grow-1 w-100 ps-0">
@@ -154,7 +148,10 @@ import { defineConfig } from &#39;vite&#39; import vue from &#39;@vitejs/plugin-
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
-
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+      <span> <a href="/">Home</a> </span>
+      <span>vite 配置相关笔记</span>
+    </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
     </button>
@@ -172,7 +169,7 @@ import { defineConfig } from &#39;vite&#39; import vue from &#39;@vitejs/plugin-
               
               
               <div class="post-meta text-muted">
-                <span>Posted<time>Aug 8, 2024</time></span>
+                <span>发布于 <time>Aug 8, 2024</time></span>
                 <div class="d-flex justify-content-between"><span>By
                     <em><a href="https://github.com/anghunk">子舒</a></em></span>
                 </div>
@@ -302,6 +299,8 @@ import { defineConfig } from &#39;vite&#39; import vue from &#39;@vitejs/plugin-
 
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
+
+                  
                   
               
                   
@@ -330,17 +329,19 @@ import { defineConfig } from &#39;vite&#39; import vue from &#39;@vitejs/plugin-
                   </div>
 
                   
+                  
 
-                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                  
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2">
+                    <div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div>
+                  </div>
+
                 </div>
               </div>
 
-            
-            
-            
-
-
-
+              
+              
+              
 
 
 
@@ -354,43 +355,49 @@ import { defineConfig } from &#39;vite&#39; import vue from &#39;@vitejs/plugin-
         
         
         
-        <article class="col"><a href="/blog/weekly-63.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/weekly-63.html/" class="post-preview card h-100">
             <div class="card-body"><time>Aug 8, 2024</time>
               <h4 class="pt-0 my-2">奇趣周刊 - 第 63 期</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/233.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/233.html/" class="post-preview card h-100">
             <div class="card-body"><time>Aug 8, 2024</time>
               <h4 class="pt-0 my-2">serve00 如何登录？</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/weekly-62.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/weekly-62.html/" class="post-preview card h-100">
             <div class="card-body"><time>Aug 8, 2024</time>
               <h4 class="pt-0 my-2">奇趣周刊 - 第 62 期</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
         
       </nav>
     </aside>
   </div>
 </div>
-            
+              
 
-            
-            
-            <hr class="sep">
+              
+              
+              <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -487,7 +494,9 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-            
+              
+
+            </div>
 
           </article>
 

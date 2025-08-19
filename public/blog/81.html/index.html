@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
+<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/81.html/" />
 <link rel="canonical" href="https://zishu.me/blog/81.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "js 奇怪的知识--console.table",
 "description" : "这个属性对我来说还真有些陌生，无意中发现的，查询过 MDN 之后听得挺有意思的，就记录一下。\n根据字面意思就是“将数据以表格的形式显示”。这个方法需要一个必须参数 data，data 必须是一个数组或者是一个对象；还可以使用一个可选参数 columns。\n表格的第一列是 index。如果数据 data 是一个数组，那么这一列的单元格的值就是数组的索引。如果数据是一个对象，那么它们的值就是各对象的属性名称。注意（在 FireFox 中）console.table 被限制为只显示 1000 行（第一行是被标记的索引）。\n1.直接输出 直接进行尝试，在控制台输出 console.table\nconsole.table([\u0026#34;双十一\u0026#34;, \u0026#34;双十二\u0026#34;, \u0026#34;双十三\u0026#34;]); PS E:\\demo\u0026gt; node 1.js ┌─────────┬──────────┐ │ (index) │ Values │ ├─────────┼──────────┤ │ 1 │ \u0026#39;双十二\u0026#39; │ │ 2 │ \u0026#39;双十三\u0026#39; │ └─────────┴──────────┘ 复制下来怪怪的，直接上个图，就是下面这个样子。\n2.定义对象进行输出 同样也可以定义一个对象然后输出\nfunction Fun(title, date) { this.title = title this.date = date } const one = new Fun(\u0026#34;双十一\u0026#34;, \u0026#34;11.11\u0026#34;) const two = new Fun(\u0026#34;双十二\u0026#34;, \u0026#34;12.12\u0026#34;) const three = new Fun(\u0026#34;双十三\u0026#34;, \u0026#34;你是傻子吗，没有 13 月\u0026#34;) console.table([one, two, three], [\u0026#34;title\u0026#34;, \u0026#34;date\u0026#34;]) 打印出来，就是下面这个样子。\n3.console.table() 的应用场景 前面是在通过在编辑器中使用 node.js 输出数据，看看在浏览器中输出会不会不一样的效果。\n可以看到成功输出数据，并且点击表头时，可以按照不同顺序进行排序，这么一看\u0026hellip;.嗯，还挺有用的（假笑）\n应用场景大概就是可以对打印的数据进行更直观的观看，在某些情况下有利于调试代码，以后看看是否能用得上这种方法。\n",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:anghunk]",
-"creator" : "map[email:hi@zishu.me name:anghunk]",
-"publisher": "map[email:hi@zishu.me name:anghunk]",
-"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
-"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
+"author" : "map[email:hi@zishu.me name:子舒]",
+"creator" : "map[email:hi@zishu.me name:子舒]",
+"publisher": "map[email:hi@zishu.me name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
 "copyrightYear" : "2021",
 "datePublished": "2021-11-04 00:00:00 \u002b0000 UTC",
 "dateModified" : "2021-11-04 00:00:00 \u002b0000 UTC",
@@ -62,24 +62,18 @@ function Fun(title, date) { this.title = title this.date = date } const one = ne
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
-
- <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
- 
-
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
-<link rel="stylesheet" href="/css/tocbot.css">
+<link rel="stylesheet" href="/css/fontawesome.css">
+<link rel="stylesheet" href="/css/main.css">
 <script src="/js/jquery-3.6.1.js"></script>
-
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
         width="112" height="112" alt="avatar"></a>
-    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <a class="site-title d-block" href="/chirpy-starter/">子舒</a>
     <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
   </header>
   <nav class="flex-column flex-grow-1 w-100 ps-0">
@@ -156,7 +150,10 @@ function Fun(title, date) { this.title = title this.date = date } const one = ne
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
-
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+      <span> <a href="/">Home</a> </span>
+      <span>js 奇怪的知识--console.table</span>
+    </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
     </button>
@@ -174,7 +171,7 @@ function Fun(title, date) { this.title = title this.date = date } const one = ne
               
               
               <div class="post-meta text-muted">
-                <span>Posted<time>Nov 11, 2021</time></span>
+                <span>发布于 <time>Nov 11, 2021</time></span>
                 <div class="d-flex justify-content-between"><span>By
                     <em><a href="https://github.com/anghunk">子舒</a></em></span>
                 </div>
@@ -245,6 +242,8 @@ function Fun(title, date) { this.title = title this.date = date } const one = ne
 
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
+
+                  
                   
               
                   
@@ -269,17 +268,19 @@ function Fun(title, date) { this.title = title this.date = date } const one = ne
                   </div>
 
                   
+                  
 
-                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                  
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2">
+                    <div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div>
+                  </div>
+
                 </div>
               </div>
 
-            
-            
-            
-
-
-
+              
+              
+              
 
 
 
@@ -293,43 +294,49 @@ function Fun(title, date) { this.title = title this.date = date } const one = ne
         
         
         
-        <article class="col"><a href="/blog/80.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/80.html/" class="post-preview card h-100">
             <div class="card-body"><time>Oct 10, 2021</time>
               <h4 class="pt-0 my-2">通过 getTimezoneOffset() 方法判断当前时区是否为夏令时</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/79.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/79.html/" class="post-preview card h-100">
             <div class="card-body"><time>Oct 10, 2021</time>
               <h4 class="pt-0 my-2">有关国庆出行的感想</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/78.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/78.html/" class="post-preview card h-100">
             <div class="card-body"><time>Sep 9, 2021</time>
               <h4 class="pt-0 my-2">使用 js 随机生成背景颜色</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
         
       </nav>
     </aside>
   </div>
 </div>
-            
+              
 
-            
-            
-            <hr class="sep">
+              
+              
+              <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -426,7 +433,9 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-            
+              
+
+            </div>
 
           </article>
 

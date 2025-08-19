@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
+<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/261.html/" />
 <link rel="canonical" href="https://zishu.me/blog/261.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "Obsidian:移动端同步笔记",
 "description" : "\r前景提示：Obsidian:如何使用坚果云进行多端同步？\n时隔三年，终于完成了这个系列，Obsidian 多端同步坚果云之移动端同步。这依赖于坚果云的官方插件 \u0026mdash; Nutstore Sync，这个插件支持通过 Webdav 协议将坚果云与 Obsidian 本地笔记进行链接。\nGithub: https:\/\/github.com\/nutstore\/Obsidian-nutstore-sync\n由于该插件还未通过 Obsidian 插件商店审核的原因，需要借助另外一个已上架的插件 \u0026ndash; BRAT，可在官方商店直接搜索下载。\n需要在 PC 端和移动端同时安装以下两个插件才能进行同步，安装流程都是一样的，我暂以移动端为例。\n1. 安装插件 下面是图示流程；\n下载安装完成之后，在 BRAT 的设置页面找到 Add beta plugin 按钮点击它。\n在添加插件窗口中输入 Nutstore Sync 的 GitHub 地址，点击 Add plugin 安装，即可完成安装。\n这一步完成之后，这个插件就已经存在于你的 Obsidian 设置中，下次打开 Obsidian 就可以直接使用了。\n2. 使用插件 PC 端和移动端使用方法都是一致的，我暂以 PC 端为例进行截图说明。\nNutstore Sync 中我建议以账号密码进行登录，这样 webdav 的权限更稳定一些，有尝试过使用单点登录，但是容易掉登录权限。\n设置面板\r账号密码就是你的坚果云密码，注意不是登录密码，需要在坚果云网页设置中进行操作。\nhttps:\/\/www.jianguoyun.com\/\n坚果云密钥获取演示\r3. 配置推荐 可以参考一下我的设置。\n远程目录就是存储数据的地方，PC 端和移动端选择同一目录即可 冲突策略选择推荐即可 开启使用 Git 语法标记冲突（程序员比较习惯） 同步前确认，可以检查一下文件对不对，二次保险 自动同步关掉（推荐），个人用着不太适应，偶尔会出现同步冲突的情况，更喜欢手动操作 同步模式宽松，速度更快 过滤规则：过滤一些不想同步的文件，由于 .Obsidian 很多配置文件，我不想在手机上同步，就过滤掉了。\n",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:anghunk]",
-"creator" : "map[email:hi@zishu.me name:anghunk]",
-"publisher": "map[email:hi@zishu.me name:anghunk]",
-"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
-"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
+"author" : "map[email:hi@zishu.me name:子舒]",
+"creator" : "map[email:hi@zishu.me name:子舒]",
+"publisher": "map[email:hi@zishu.me name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
 "copyrightYear" : "2025",
 "datePublished": "2025-06-11 00:00:00 \u002b0000 UTC",
 "dateModified" : "2025-06-11 00:00:00 \u002b0000 UTC",
@@ -72,24 +72,18 @@ https://www.jianguoyun.com/
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
-
- <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
- 
-
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
-<link rel="stylesheet" href="/css/tocbot.css">
+<link rel="stylesheet" href="/css/fontawesome.css">
+<link rel="stylesheet" href="/css/main.css">
 <script src="/js/jquery-3.6.1.js"></script>
-
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
         width="112" height="112" alt="avatar"></a>
-    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <a class="site-title d-block" href="/chirpy-starter/">子舒</a>
     <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
   </header>
   <nav class="flex-column flex-grow-1 w-100 ps-0">
@@ -166,7 +160,10 @@ https://www.jianguoyun.com/
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
-
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+      <span> <a href="/">Home</a> </span>
+      <span>Obsidian:移动端同步笔记</span>
+    </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
     </button>
@@ -184,7 +181,7 @@ https://www.jianguoyun.com/
               
               
               <div class="post-meta text-muted">
-                <span>Posted<time>Jun 6, 2025</time></span>
+                <span>发布于 <time>Jun 6, 2025</time></span>
                 <div class="d-flex justify-content-between"><span>By
                     <em><a href="https://github.com/anghunk">子舒</a></em></span>
                 </div>
@@ -263,6 +260,8 @@ https://www.jianguoyun.com/
 
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
+
+                  
                   
               
                   
@@ -289,17 +288,19 @@ https://www.jianguoyun.com/
                   </div>
 
                   
+                  
 
-                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                  
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2">
+                    <div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div>
+                  </div>
+
                 </div>
               </div>
 
-            
-            
-            
-
-
-
+              
+              
+              
 
 
 
@@ -313,43 +314,49 @@ https://www.jianguoyun.com/
         
         
         
-        <article class="col"><a href="/blog/260.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/260.html/" class="post-preview card h-100">
             <div class="card-body"><time>May 5, 2025</time>
               <h4 class="pt-0 my-2">端午节包粽子</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/259.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/259.html/" class="post-preview card h-100">
             <div class="card-body"><time>May 5, 2025</time>
               <h4 class="pt-0 my-2">两天一夜象山赶海之旅</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/258.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/258.html/" class="post-preview card h-100">
             <div class="card-body"><time>Apr 4, 2025</time>
               <h4 class="pt-0 my-2">第一个 Github 千星项目</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
         
       </nav>
     </aside>
   </div>
 </div>
-            
+              
 
-            
-            
-            <hr class="sep">
+              
+              
+              <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -446,7 +453,9 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-            
+              
+
+            </div>
 
           </article>
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
+<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/262.html/" />
 <link rel="canonical" href="https://zishu.me/blog/262.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "AI 驱动的验证码自动识别之旅：从困扰到解放",
 "description" : "在当今互联网世界，验证码作为人机验证的重要工具无处不在。然而，频繁输入验证码对用户体验造成了不小的困扰。今天，我想分享一个名为 \u0026ldquo;CAPTCHA-automatic-recognition\u0026rdquo; 的开源项目，它巧妙地运用 AI 技术，实现了网页验证码的自动识别与填充。\n1. 解决日常痛点 作为一名经常需要在不同网站注册和登录的开发者，我深受验证码困扰。有时仅仅是查询一个信息，就需要输入验证码；有时验证码字符扭曲到难以辨认，需要多次尝试才能通过。\n这些小小的摩擦积累起来，浪费了大量时间。我想：既然现代 AI 视觉模型已经如此强大，为什么不利用它们来自动识别验证码，节省我们的时间和精力呢？\n于是，\u0026ldquo;CAPTCHA-automatic-recognition\u0026rdquo; 项目诞生了。\n我选择了以油猴脚本的形式实现这个功能，因为它可以轻松地集成到各种网站上，无需修改网站源码。\nGitHub: https:\/\/github.com\/anghunk\/UserScript\/tree\/main\/CAPTCHA-automatic-recognition Greasyfork: https:\/\/greasyfork.org\/scripts\/540822 CAPTCHA-automatic-recognition\r2. 迭代与优化 最初的版本非常简单，仅支持 OpenAI 和 Google Gemini 格式，识别文字验证码，需要用户需要手动点击识别按钮，后期则升级支持自动填充。\n关键问题是如何准确获取网页中的验证码图片，我简单做了一套图像检测程序，通过选择器找到可能是验证码的图片元素，比如：\ncaptchaSelectors: [ \u0026#39;img[src*=\u0026#34;captcha\u0026#34;]\u0026#39;, \u0026#39;img[src*=\u0026#34;verify\u0026#34;]\u0026#39;, \/\/ ... ], 随着用户的反馈，我加入了对阿里云通义千问的 API 支持，用户可以根据自己的需求和偏好选择不同的 AI 模型。\n并且我加强了对 prompt 的优化，根据网友的建议升级了 prompt，让模型更加准确地识别验证码。\n来源：https:\/\/linux.do\/t\/topic\/756503\/135\nexport const DEFAULT_PROMPT = \u0060# Role: 验证码识别专家 ## Profile - language: 中文 - description: 一个专为高精度识别验证码而设计的AI模型。能够快速、准确地从复杂的图像中提取字符或计算数学表达式的结果，并能有效对抗常见的干扰元素。 - background: 基于海量、多样的验证码图像数据集进行深度训练，精通各种字符扭曲、粘连、遮挡和背景干扰的识别技术，具备强大的泛化能力。 - personality: 精确、高效、客观、直接。只关注任务本身，不产生任何与结果无关的额外信息。 - expertise: 计算机视觉、高级光学字符识别（OCR）、图像预处理与去噪、模式识别、基础算术逻辑。 - target_audience: 需要自动化处理验证码的开发者、自动化测试工程师、数据科学家。 ## Skills 1. 核心识别能力 - 高精度字符识别: 准确识别大小写英文字母、数字，并能精确区分外形相似的字符（如：0和O，1和l，g和9）。 - 数学运算处理: 识别并解析图片中的数学算式（如：3\u002b5*2），并计算出最终的数值结果。 - 强抗干扰能力: 自动过滤和忽略图像中的干扰线、噪点、斑块、背景纹理等非关键信息。 - 字符分割技术: 即使在字符粘连、重叠或间距不等的情况下，也能有效地将其分离以便独立识别。 2. 辅助处理能力 - 图像预处理: 自动对输入图像进行灰度化、二值化、去噪等操作，以提升识别的准确率。 - 快速响应: 以极低的延迟返回识别结果，满足实时性要求。 - 结果格式化: 严格按照指定的格式输出，确保输出的纯净性，便于程序调用。 - 鲁棒性: 对于不同字体、大小、颜色、角度的字符组合均有较高的识别成功率。 ## Rules 1. 基本原则： - 结果唯一: 输出内容必须是且仅是验证码的识别结果。 - 绝对精确: 尽最大努力确保字符识别的大小写和数值计算的准确性。 - 任务聚焦: 仅处理验证码内容，忽略图像中的任何其他元素。 - 保持静默: 除最终结果外，不输出任何提示、标签、解释或说明。 2. 行为准则： - 直接输出结果: 若为字符型验证码，直接返回字符串；若为计算题，直接返回计算后的数字。 - 严格区分大小写: 必须准确识别并返回字符的原始大小写形式（例如\u0026#39;W\u0026#39;和\u0026#39;w\u0026#39;是不同字符）。 - 精准区分易混淆字符: 必须对数字“0”和字母“O”、数字“1”和字母“l”等易混淆字符进行准确区分。 - 自动执行运算: 遇到数学表达式时，必须完成计算并仅返回最终的阿拉伯数字结果。 3. 限制条件： - 禁止任何解释: 不得对识别过程、结果的置信度或遇到的困难进行任何说明。 - 禁止附加文本: 返回的最终结果前后不能有任何空格、引号、标签或“答案是：”等引导性词语。 - 禁止互动: 不得向用户提问或请求更清晰的图片。 - 禁止失败提示: 即使无法完全识别，也应根据已识别内容尽力输出，而不是返回“无法识别”之类的自然语言。 ## Workflows - 目标: 接收一张验证码图片，精准、快速地返回其内容或计算结果。 - 步骤 1: 接收图像并进行分析，判断验证码类型（字符型或数学计算型）。 - 步骤 2: 应用图像预处理技术，对图像进行降噪、增强和二值化，以凸显关键字符，消除干扰线和背景。 - 步骤 3: 对处理后的图像进行字符分割，然后逐一识别。对于数学题，则识别数字和运算符。 - 步骤 4: 整合识别结果。如果是字符，则按顺序拼接成字符串；如果是数学题，则执行运算。 - 步骤 5: 输出最终结果。确保输出内容绝对纯净，符合Rules中的所有规定。 - 预期结果: 一个不包含任何多余信息的字符串（如“aB5fG”）或一个数字（如“28”）。 ## Initialization 作为验证码识别专家，你必须遵守上述Rules，按照Workflows执行任务。 经过测试，可以大大提升对验证码的识别效果，不仅可以识别字母 \u002b 数字的格式，还可以识别计算题型的验证码，包括加减法，乘法，除法等等，这是一个很大的进步。\n有用户反馈不知道模型是否可用，因此我加入了 \u0026ldquo;连通性检测\u0026rdquo; 的功能，可以帮助用户检查模型的可用性。\n在开发的后期，由于人力的因素，虽然内置的验证码识别程序足够满足很多网站使用，但依然有网友反馈识别失败。\n我意识到，这不是一个人可以完善的事情。因此我开发了高级设置功能，允许用户自定义验证码选择器和输入框选择器。这解决了不同网站验证码实现差异导致的兼容性问题。\n高级设置\r并且简单写了一个教程，帮助用户使用这个功能。\n3. 遇到的问题 跨域图片访问问题\n很多网站的验证码图片设置了跨域限制，无法直接获取图像数据。为解决这个问题，我实现了一套图像处理流程，通过 Canvas 间接获取图像数据，然后处理为 base64 格式传输给 AI 模型。\nAI 模型选择与优化\n不同 AI 模型各有优缺点：\nOpenAI 模型精度高，但响应较慢 Gemini 模型（特别是 gemini-2.5-flash-lite）速度快，平衡了性能和准确率 通义千问适合中文环境 经过反复测试，我发现 gemini-2.5-flash-lite 模型在验证码识别任务上表现最佳，因此成为我的首选。\n4. 项目现状与未来规划 目前，这个项目已经在 GitHub 和 Greasyfork 上发布，获得了不少用户的好评。投稿到阮一峰周刊，也收录了该项目。\n来源：https:\/\/github.com\/ruanyf\/weekly\/blob\/master\/docs\/issue-355.md\nCAPTCHA-automatic-recognition 这个项目虽小，功能也比较简单，却体现了 AI 技术如何改善日常生活的小痛点。从最初的想法到如今功能完善的工具，这个过程既有技术上的挑战，也有解决问题带来的成就感。\n如果你也经常被验证码困扰，不妨试试这个工具。它可能不是最复杂的 AI 应用，但一定是最实用的 AI 辅助工具之一。\nGitHub: https:\/\/github.com\/anghunk\/UserScript\/tree\/main\/CAPTCHA-automatic-recognition Greasyfork: https:\/\/greasyfork.org\/scripts\/540822 如果你觉得这个功能不错，欢迎点个 star 支持一下～\n",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:anghunk]",
-"creator" : "map[email:hi@zishu.me name:anghunk]",
-"publisher": "map[email:hi@zishu.me name:anghunk]",
-"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
-"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
+"author" : "map[email:hi@zishu.me name:子舒]",
+"creator" : "map[email:hi@zishu.me name:子舒]",
+"publisher": "map[email:hi@zishu.me name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
 "copyrightYear" : "2025",
 "datePublished": "2025-07-07 00:00:00 \u002b0000 UTC",
 "dateModified" : "2025-07-07 00:00:00 \u002b0000 UTC",
@@ -92,24 +92,18 @@ GitHub: https://github.com/anghunk/UserScript/tree/main/CAPTCHA-automatic-recogn
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
-
- <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
- 
-
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
-<link rel="stylesheet" href="/css/tocbot.css">
+<link rel="stylesheet" href="/css/fontawesome.css">
+<link rel="stylesheet" href="/css/main.css">
 <script src="/js/jquery-3.6.1.js"></script>
-
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
         width="112" height="112" alt="avatar"></a>
-    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <a class="site-title d-block" href="/chirpy-starter/">子舒</a>
     <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
   </header>
   <nav class="flex-column flex-grow-1 w-100 ps-0">
@@ -186,7 +180,10 @@ GitHub: https://github.com/anghunk/UserScript/tree/main/CAPTCHA-automatic-recogn
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
-
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+      <span> <a href="/">Home</a> </span>
+      <span>AI 驱动的验证码自动识别之旅：从困扰到解放</span>
+    </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
     </button>
@@ -204,7 +201,7 @@ GitHub: https://github.com/anghunk/UserScript/tree/main/CAPTCHA-automatic-recogn
               
               
               <div class="post-meta text-muted">
-                <span>Posted<time>Jul 7, 2025</time></span>
+                <span>发布于 <time>Jul 7, 2025</time></span>
                 <div class="d-flex justify-content-between"><span>By
                     <em><a href="https://github.com/anghunk">子舒</a></em></span>
                 </div>
@@ -338,6 +335,8 @@ GitHub: https://github.com/anghunk/UserScript/tree/main/CAPTCHA-automatic-recogn
 
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
+
+                  
                   
               
                   
@@ -364,17 +363,19 @@ GitHub: https://github.com/anghunk/UserScript/tree/main/CAPTCHA-automatic-recogn
                   </div>
 
                   
+                  
 
-                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                  
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2">
+                    <div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div>
+                  </div>
+
                 </div>
               </div>
 
-            
-            
-            
-
-
-
+              
+              
+              
 
 
 
@@ -388,43 +389,49 @@ GitHub: https://github.com/anghunk/UserScript/tree/main/CAPTCHA-automatic-recogn
         
         
         
-        <article class="col"><a href="/blog/261.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/261.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jun 6, 2025</time>
               <h4 class="pt-0 my-2">Obsidian:移动端同步笔记</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/260.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/260.html/" class="post-preview card h-100">
             <div class="card-body"><time>May 5, 2025</time>
               <h4 class="pt-0 my-2">端午节包粽子</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/259.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/259.html/" class="post-preview card h-100">
             <div class="card-body"><time>May 5, 2025</time>
               <h4 class="pt-0 my-2">两天一夜象山赶海之旅</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
         
       </nav>
     </aside>
   </div>
 </div>
-            
+              
 
-            
-            
-            <hr class="sep">
+              
+              
+              <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -521,7 +528,9 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-            
+              
+
+            </div>
 
           </article>
 

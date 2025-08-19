@@ -18,7 +18,7 @@
               <!-- <p class="post-desc fw-light mb-4"></p> -->
               {{ if in .Site.Params.mainSections .Type }}
               <div class="post-meta text-muted">
-                <span>Posted<time>{{ .Date.Format "Jan 1, 2006"}}</time></span>
+                <span>发布于 <time>{{ .Date.Format "Jan 1, 2006"}}</time></span>
                 <div class="d-flex justify-content-between"><span>By
                     <em><a href="https://github.com/anghunk">子舒</a></em></span>
                 </div>
@@ -32,6 +32,8 @@
 
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
+
+                  <!-- if 是详情页 -->
                   {{ if in .Site.Params.mainSections .Type }}
               
                   {{ if .Params.categories }}
@@ -56,20 +58,27 @@
                   </div>
 
                   {{ end }}
+                  <!-- if 是详情页 -->
 
-                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                  <!-- 文章协议 -->
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2">
+                    <div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div>
+                  </div>
+
                 </div>
               </div>
 
-            {{ if in .Site.Params.mainSections .Type }}
-            <!-- 在文章内容之后显示相关文章 -->
-            {{ partial "related-posts.html" . }}
-            {{ end }}
+              {{ if in .Site.Params.mainSections .Type }}
+              <!-- 在文章内容之后显示相关文章 -->
+              {{ partial "related-posts.html" . }}
+              {{ end }}
 
-            <!-- 评论 -->
-            {{ if in .Site.Params.mainSections .Type }}
-            {{ partial "comment.html" . }}
-            {{ end }}
+              <!-- 评论 -->
+              {{ if in .Site.Params.mainSections .Type }}
+              {{ partial "comment.html" . }}
+              {{ end }}
+
+            </div>
 
           </article>
 

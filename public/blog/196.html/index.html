@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
+<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/196.html/" />
 <link rel="canonical" href="https://zishu.me/blog/196.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "关于 HugoFast 这个项目",
 "description" : "项目来源于我的突发奇想，并且基于热爱折腾的心理，利用 GitHub 本身提供的 Api，将博客管理面板化。\n目前仅支持 hugo，其他程序有对应的工具，就不造轮子了。\nGithub: https:\/\/github.com\/anghunk\/HugoFast\n网站：https:\/\/hugofast.netlify.app\/\n用户文档：https:\/\/hugofast-docs.netlify.app\/\n1. 自托管 前往 https:\/\/github.com\/anghunk\/HugoFast fork 本项目，然后下载到本地。\ngit clone https:\/\/github.com\/anghunk\/HugoFast.git ::: warning 这里默认你有一定的代码基础，本地提前安装好了 node 依赖等。 :::\n# 进入项目安装依赖包 cd HugoFast yarn # 使用 \u0060yarn serve\u0060 运行项目 yarn serve # 打包到 dist 文件 yarn build 打包后的文件可以放在的任意空间部署。\n2. 准备工作 (1) 获取 Github Token 前往 https:\/\/github.com\/settings\/tokens\/ 。\n新建一个 token，选择 repo \/ user 这两个权限，名称随意，最后生成 token。\n注意要保存好这个密钥，在新的终端打开网站需要用到这个密钥。\n(2) 操作 hugo 源码仓库 前往你的 hugo 源码仓库，如下图。\n在仓库的 setting\/actions，滑到最下面，打开 actions 的 pr 权限，不然 actions 自动部署会失败。\n(3) 添加 .github\/workflows\/main.yml 点击 actions \u0026gt; set up a workflow yourself 新建一个 actions 工作流。\n注意： git config --global user.email \u0026quot;\u0026quot; 和 git config --global user.name \u0026quot;\u0026quot; 里面要填写你的 GitHub 邮箱以及用户名。\nname: hugo deploy on: push: workflow_dispatch: schedule: # Runs everyday at 8:00 AM - cron: \u0026#34;0 0 * * *\u0026#34; jobs: build: runs-on: ubuntu-latest steps: - name: Checkout uses: actions\/checkout@v2 with: submodules: true fetch-depth: 0 - name: Setup Hugo uses: peaceiris\/actions-hugo@v2 with: hugo-version: \u0026#34;latest\u0026#34; - name: Build Web run: hugo - name: Commit changes run: | git config --global user.email \u0026#34;\u0026#34; git config --global user.name \u0026#34;\u0026#34; git pull git add . git commit -m \u0026#34;my commit\u0026#34; - name: Push changes uses: ad-m\/github-push-action@master with: github_token: ${{ secrets.GITHUB_TOKEN }} branch: main 3. HugoFast 网站 使用官方提供的版本。\n在线管理：https:\/\/hugofast.netlify.app\/\n第一行：获取的 GitHub Token\n第二行：hugo 源码仓库\n填写完成后，会自动获取文章目录，选择后点击确认。\n进入网站就可以正常使用功能了，如修改文章，发布新文章，其他功能还在开发中。\n未完待续\u0026hellip;\n",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:anghunk]",
-"creator" : "map[email:hi@zishu.me name:anghunk]",
-"publisher": "map[email:hi@zishu.me name:anghunk]",
-"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
-"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
+"author" : "map[email:hi@zishu.me name:子舒]",
+"creator" : "map[email:hi@zishu.me name:子舒]",
+"publisher": "map[email:hi@zishu.me name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
 "copyrightYear" : "2023",
 "datePublished": "2023-06-02 00:00:00 \u002b0000 UTC",
 "dateModified" : "2023-06-02 00:00:00 \u002b0000 UTC",
@@ -86,24 +86,18 @@ name: hugo deploy on: push: workflow_dispatch: schedule: # Runs everyday at 8:00
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
-
- <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
- 
-
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
-<link rel="stylesheet" href="/css/tocbot.css">
+<link rel="stylesheet" href="/css/fontawesome.css">
+<link rel="stylesheet" href="/css/main.css">
 <script src="/js/jquery-3.6.1.js"></script>
-
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
         width="112" height="112" alt="avatar"></a>
-    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <a class="site-title d-block" href="/chirpy-starter/">子舒</a>
     <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
   </header>
   <nav class="flex-column flex-grow-1 w-100 ps-0">
@@ -180,7 +174,10 @@ name: hugo deploy on: push: workflow_dispatch: schedule: # Runs everyday at 8:00
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
-
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+      <span> <a href="/">Home</a> </span>
+      <span>关于 HugoFast 这个项目</span>
+    </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
     </button>
@@ -198,7 +195,7 @@ name: hugo deploy on: push: workflow_dispatch: schedule: # Runs everyday at 8:00
               
               
               <div class="post-meta text-muted">
-                <span>Posted<time>Jun 6, 2023</time></span>
+                <span>发布于 <time>Jun 6, 2023</time></span>
                 <div class="d-flex justify-content-between"><span>By
                     <em><a href="https://github.com/anghunk">子舒</a></em></span>
                 </div>
@@ -347,6 +344,8 @@ name: hugo deploy on: push: workflow_dispatch: schedule: # Runs everyday at 8:00
 
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
+
+                  
                   
               
                   
@@ -371,17 +370,19 @@ name: hugo deploy on: push: workflow_dispatch: schedule: # Runs everyday at 8:00
                   </div>
 
                   
+                  
 
-                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                  
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2">
+                    <div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div>
+                  </div>
+
                 </div>
               </div>
 
-            
-            
-            
-
-
-
+              
+              
+              
 
 
 
@@ -395,43 +396,49 @@ name: hugo deploy on: push: workflow_dispatch: schedule: # Runs everyday at 8:00
         
         
         
-        <article class="col"><a href="/blog/weekly-15.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/weekly-15.html/" class="post-preview card h-100">
             <div class="card-body"><time>May 5, 2023</time>
               <h4 class="pt-0 my-2">奇趣周刊 - 第 15 期</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/195.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/195.html/" class="post-preview card h-100">
             <div class="card-body"><time>May 5, 2023</time>
               <h4 class="pt-0 my-2">随想录 (10)</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/weekly-14.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/weekly-14.html/" class="post-preview card h-100">
             <div class="card-body"><time>May 5, 2023</time>
               <h4 class="pt-0 my-2">奇趣周刊 - 第 14 期</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
         
       </nav>
     </aside>
   </div>
 </div>
-            
+              
 
-            
-            
-            <hr class="sep">
+              
+              
+              <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -528,7 +535,9 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-            
+              
+
+            </div>
 
           </article>
 

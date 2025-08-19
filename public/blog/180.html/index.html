@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
+<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/180.html/" />
 <link rel="canonical" href="https://zishu.me/blog/180.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "分享一个页面点击特效",
 "description" : "点击页面时可以弹出随机颜色小心心，目前我的网站就使用了这个特效。\n直接将下面的代码复制到引入的 js 文件中即可，不用进行其他配置。\n!function(e,t,a){function n(){c(\u0026#34;.heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: \u0026#39;\u0026#39;;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}\u0026#34;),o(),r()}function r(){for(var e=0;e\u0026lt;d.length;e\u002b\u002b)d[e].alpha\u0026lt;=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale\u002b=.004,d[e].alpha-=.013,d[e].el.style.cssText=\u0026#34;left:\u0026#34;\u002bd[e].x\u002b\u0026#34;px;top:\u0026#34;\u002bd[e].y\u002b\u0026#34;px;opacity:\u0026#34;\u002bd[e].alpha\u002b\u0026#34;;transform:scale(\u0026#34;\u002bd[e].scale\u002b\u0026#34;,\u0026#34;\u002bd[e].scale\u002b\u0026#34;) rotate(45deg);background:\u0026#34;\u002bd[e].color\u002b\u0026#34;;z-index:99999\u0026#34;);requestAnimationFrame(r)}function o(){var t=\u0026#34;function\u0026#34;==typeof e.onclick\u0026amp;\u0026amp;e.onclick;e.onclick=function(e){t\u0026amp;\u0026amp;t(),i(e)}}function i(e){var a=t.createElement(\u0026#34;div\u0026#34;);a.className=\u0026#34;heart\u0026#34;,d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement(\u0026#34;style\u0026#34;);a.type=\u0026#34;text\/css\u0026#34;;try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName(\u0026#34;head\u0026#34;)[0].appendChild(a)}function s(){return\u0026#34;rgb(\u0026#34;\u002b~~(255*Math.random())\u002b\u0026#34;,\u0026#34;\u002b~~(255*Math.random())\u002b\u0026#34;,\u0026#34;\u002b~~(255*Math.random())\u002b\u0026#34;)\u0026#34;}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3\/60)}}(),n()}(window,document); ",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:anghunk]",
-"creator" : "map[email:hi@zishu.me name:anghunk]",
-"publisher": "map[email:hi@zishu.me name:anghunk]",
-"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
-"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
+"author" : "map[email:hi@zishu.me name:子舒]",
+"creator" : "map[email:hi@zishu.me name:子舒]",
+"publisher": "map[email:hi@zishu.me name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
 "copyrightYear" : "2023",
 "datePublished": "2023-01-06 00:00:00 \u002b0000 UTC",
 "dateModified" : "2023-01-06 00:00:00 \u002b0000 UTC",
@@ -46,24 +46,18 @@
 !function(e,t,a){function n(){c(&#34;.heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: &#39;&#39;;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}&#34;),o(),r()}function r(){for(var e=0;e&lt;d.length;e&#43;&#43;)d[e].alpha&lt;=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale&#43;=.004,d[e].alpha-=.013,d[e].el.style.cssText=&#34;left:&#34;&#43;d[e].x&#43;&#34;px;top:&#34;&#43;d[e].y&#43;&#34;px;opacity:&#34;&#43;d[e].alpha&#43;&#34;;transform:scale(&#34;&#43;d[e].scale&#43;&#34;,&#34;&#43;d[e].scale&#43;&#34;) rotate(45deg);background:&#34;&#43;d[e].color&#43;&#34;;z-index:99999&#34;);requestAnimationFrame(r)}function o(){var t=&#34;function&#34;==typeof e.onclick&amp;&amp;e.onclick;e.onclick=function(e){t&amp;&amp;t(),i(e)}}function i(e){var a=t.createElement(&#34;div&#34;);a.className=&#34;heart&#34;,d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement(&#34;style&#34;);a.type=&#34;text/css&#34;;try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName(&#34;head&#34;)[0].appendChild(a)}function s(){return&#34;rgb(&#34;&#43;~~(255*Math.random())&#43;&#34;,&#34;&#43;~~(255*Math.random())&#43;&#34;,&#34;&#43;~~(255*Math.random())&#43;&#34;)&#34;}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document); " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
-
- <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
- 
-
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
-<link rel="stylesheet" href="/css/tocbot.css">
+<link rel="stylesheet" href="/css/fontawesome.css">
+<link rel="stylesheet" href="/css/main.css">
 <script src="/js/jquery-3.6.1.js"></script>
-
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
         width="112" height="112" alt="avatar"></a>
-    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <a class="site-title d-block" href="/chirpy-starter/">子舒</a>
     <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
   </header>
   <nav class="flex-column flex-grow-1 w-100 ps-0">
@@ -140,7 +134,10 @@
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
-
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+      <span> <a href="/">Home</a> </span>
+      <span>分享一个页面点击特效</span>
+    </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
     </button>
@@ -158,7 +155,7 @@
               
               
               <div class="post-meta text-muted">
-                <span>Posted<time>Jan 1, 2023</time></span>
+                <span>发布于 <time>Jan 1, 2023</time></span>
                 <div class="d-flex justify-content-between"><span>By
                     <em><a href="https://github.com/anghunk">子舒</a></em></span>
                 </div>
@@ -175,6 +172,8 @@
 
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
+
+                  
                   
               
                   
@@ -199,17 +198,19 @@
                   </div>
 
                   
+                  
 
-                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                  
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2">
+                    <div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div>
+                  </div>
+
                 </div>
               </div>
 
-            
-            
-            
-
-
-
+              
+              
+              
 
 
 
@@ -226,11 +227,11 @@
     </aside>
   </div>
 </div>
-            
+              
 
-            
-            
-            <hr class="sep">
+              
+              
+              <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -327,7 +328,9 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-            
+              
+
+            </div>
 
           </article>
 

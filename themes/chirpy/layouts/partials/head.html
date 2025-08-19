@@ -33,15 +33,9 @@
 {{- else -}}
 <meta property="og:image" content="{{ .Site.Params.favicon }}" />
 {{ end }}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
 <link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/bootstrap.css" | relURL }}">
-<!-- <link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/fontawesome.css" | relURL }}"> -->
- <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
- <!-- <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/tocbot@4.32.2/dist/tocbot.min.css> -->
-<!-- <link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/glightbox.css" | relURL }}"> -->
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
-<link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/tocbot.css" | relURL }}">
+<link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/fontawesome.css" | relURL }}">
+<link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/main.css" | relURL }}">
 <script src="/js/jquery-3.6.1.js"></script>
-
 <link href="{{ .Site.Params.staticPrefix }}{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
 </head>

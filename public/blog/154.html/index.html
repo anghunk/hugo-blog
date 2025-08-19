@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
+<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/154.html/" />
 <link rel="canonical" href="https://zishu.me/blog/154.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "Anghunk 主题如何在后台评论列表解析表情？",
 "description" : " 本文专为 Anghunk 主题开发文档而写。 https:\/\/github.com\/anghunk\/Anghunk\n方案是在梦繁星的协助下完成的。\n介绍 Anghunk 评论携带很多精美的表情，但是正常情况下 Typecho 后台是没办法正常解析这些表情的。如下图；\n但是，经过我解析表情之后，就可以变成下面这样，使用主题如果需要这种功能，可以按照我下面的步骤进行改造。\n修改 打开 \/admin\/manage-comments.php 文件，在题头插入：\n\/* * 解析表情 *\/ function getparseBiaoQingComment($content) { $emopath=$_SERVER[\u0026#39;REQUEST_SCHEME\u0026#39;].\u0026#34;:\u0026#34;. DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR . $_SERVER[\u0026#39;HTTP_HOST\u0026#39;]; $emo = false; global $emo; if(!$emo) { $emo = json_decode(file_get_contents(dirname(dirname(dirname(__FILE__))).\u0026#39;\/zburu.com\/usr\/themes\/anghunk\/libs\/OwO.json\u0026#39;), true); } foreach ($emo as $v) { if($v[\u0026#39;type\u0026#39;] == \u0026#39;image\u0026#39;) { foreach ($v[\u0026#39;container\u0026#39;] as $vv) { $emoaa=\u0026#34;::\u0026#34;.$v[\u0026#39;name\u0026#39;].\u0026#34;:\u0026#34;.$vv[\u0026#39;icon\u0026#39;].\u0026#34;::\u0026#34;; $content = str_replace($emoaa, \u0026#39; \u0026lt;img style=\u0026#34;max-height:40px;vertical-align:middle;\u0026#34; src=\u0026#34;\u0026#39;.$emopath.\u0026#39;\/usr\/themes\/anghunk\/libs\/emotion\/\u0026#39;.$v[\u0026#39;name\u0026#39;].\u0026#39;\/\u0026#39;.$vv[\u0026#39;icon\u0026#39;] .\u0026#39;.png\u0026#34; alt=\u0026#34;\u0026#39;.$vv[\u0026#39;text\u0026#39;] .\u0026#39;\u0026#34;\u0026gt; \u0026#39;, $content); } } } return $content; } 注意我放置的位置，必须要要 \u0026lt;?php ... ?\u0026gt; 之间\n**找到 第166行，修改一下，把标签中的代码替换为下方标注的。 **\n\u0026lt;div class=\u0026#34;comment-content\u0026#34;\u0026gt; \u0026lt;!-- 解析输出带表情的评论 --\u0026gt; \u0026lt;?php $con=$comments-\u0026gt;content; echo getparseBiaoQingComment($con); ?\u0026gt; \u0026lt;\/div\u0026gt; 之后回到后台评论列表就可以看到评论成功被解析了，本方法仅适用于 Anghunk 主题。\n",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:anghunk]",
-"creator" : "map[email:hi@zishu.me name:anghunk]",
-"publisher": "map[email:hi@zishu.me name:anghunk]",
-"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
-"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
+"author" : "map[email:hi@zishu.me name:子舒]",
+"creator" : "map[email:hi@zishu.me name:子舒]",
+"publisher": "map[email:hi@zishu.me name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
 "copyrightYear" : "2022",
 "datePublished": "2022-07-30 00:00:00 \u002b0000 UTC",
 "dateModified" : "2022-07-30 00:00:00 \u002b0000 UTC",
@@ -58,24 +58,18 @@
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
-
- <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
- 
-
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
-<link rel="stylesheet" href="/css/tocbot.css">
+<link rel="stylesheet" href="/css/fontawesome.css">
+<link rel="stylesheet" href="/css/main.css">
 <script src="/js/jquery-3.6.1.js"></script>
-
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
         width="112" height="112" alt="avatar"></a>
-    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <a class="site-title d-block" href="/chirpy-starter/">子舒</a>
     <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
   </header>
   <nav class="flex-column flex-grow-1 w-100 ps-0">
@@ -152,7 +146,10 @@
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
-
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+      <span> <a href="/">Home</a> </span>
+      <span>Anghunk 主题如何在后台评论列表解析表情？</span>
+    </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
     </button>
@@ -170,7 +167,7 @@
               
               
               <div class="post-meta text-muted">
-                <span>Posted<time>Jul 7, 2022</time></span>
+                <span>发布于 <time>Jul 7, 2022</time></span>
                 <div class="d-flex justify-content-between"><span>By
                     <em><a href="https://github.com/anghunk">子舒</a></em></span>
                 </div>
@@ -246,6 +243,8 @@
 
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
+
+                  
                   
               
                   
@@ -270,17 +269,19 @@
                   </div>
 
                   
+                  
 
-                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                  
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2">
+                    <div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div>
+                  </div>
+
                 </div>
               </div>
 
-            
-            
-            
-
-
-
+              
+              
+              
 
 
 
@@ -294,43 +295,49 @@
         
         
         
-        <article class="col"><a href="/blog/153.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/153.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jul 7, 2022</time>
               <h4 class="pt-0 my-2">随想录 (7) 随便写的别当真</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/152.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/152.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jul 7, 2022</time>
               <h4 class="pt-0 my-2">出错了，面板运行时发生错误！</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/151.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/151.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jul 7, 2022</time>
               <h4 class="pt-0 my-2">笔记:vue 中使用 axios 调用数据并渲染</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
         
       </nav>
     </aside>
   </div>
 </div>
-            
+              
 
-            
-            
-            <hr class="sep">
+              
+              
+              <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -427,7 +434,9 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-            
+              
+
+            </div>
 
           </article>
 

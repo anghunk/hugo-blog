@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
+<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/42.html/" />
 <link rel="canonical" href="https://zishu.me/blog/42.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "React 脚手架项目打包时的路径问题",
 "description" : "create-react-app 脚手架指令可以生成 React 项目，在项目完成之后执行打包命令 npm run build，文件夹内生成 build文件夹，就是打包后的文件，在浏览器运行 index.html 发现页面空白，打开控制台有报错，css 和 js 文件的引用路径有问题。\n浏览 index.html 代码可以发现：\n\u0026lt;!-- index.html --\u0026gt; \u0026lt;!doctype html\u0026gt; \u0026lt;html lang=\u0026#34;zh\u0026#34;\u0026gt; \u0026lt;head\u0026gt; \u0026lt;meta charset=\u0026#34;utf-8\u0026#34; \/\u0026gt; \u0026lt;meta name=\u0026#34;viewport\u0026#34; content=\u0026#34;width=device-width,initial-scale=1\u0026#34; \/\u0026gt; \u0026lt;meta name=\u0026#34;theme-color\u0026#34; content=\u0026#34;#000000\u0026#34; \/\u0026gt; \u0026lt;meta name=\u0026#34;description\u0026#34; content=\u0026#34;Web site created using create-react-app\u0026#34; \/\u0026gt; \u0026lt;title\u0026gt;React App\u0026lt;\/title\u0026gt; \u0026lt;link href=\u0026#34;\/static\/css\/main.3394d54e.chunk.css\u0026#34; rel=\u0026#34;stylesheet\u0026#34;\u0026gt; \u0026lt;\/head\u0026gt; \u0026lt;body\u0026gt;\u0026lt;noscript\u0026gt;You need to enable JavaScript to run this app.\u0026lt;\/noscript\u0026gt; \u0026lt;div id=\u0026#34;root\u0026#34;\u0026gt;\u0026lt;\/div\u0026gt; \u0026lt;script\u0026gt;!function (e) { function r(r) { for (var n, l, f = r[0], i = r[1], a = r[2], c = 0, s = []; c \u0026lt; f.length; c\u002b\u002b)l = f[c], Object.prototype.hasOwnProperty.call(o, l) \u0026amp;\u0026amp; o[l] \u0026amp;\u0026amp; s.push(o[l][0]), o[l] = 0; for (n in i) Object.prototype.hasOwnProperty.call(i, n) \u0026amp;\u0026amp; (e[n] = i[n]); for (p \u0026amp;\u0026amp; p(r); s.length;)s.shift()(); return u.push.apply(u, a || []), t() } function t() { for (var e, r = 0; r \u0026lt; u.length; r\u002b\u002b) { for (var t = u[r], n = !0, f = 1; f \u0026lt; t.length; f\u002b\u002b) { var i = t[f]; 0 !== o[i] \u0026amp;\u0026amp; (n = !1) } n \u0026amp;\u0026amp; (u.splice(r--, 1), e = l(l.s = t[0])) } return e } var n = {}, o = { 1: 0 }, u = []; function l(r) { if (n[r]) return n[r].exports; var t = n[r] = { i: r, l: !1, exports: {} }; return e[r].call(t.exports, t, t.exports, l), t.l = !0, t.exports } l.m = e, l.c = n, l.d = function (e, r, t) { l.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: t }) }, l.r = function (e) { \u0026#34;undefined\u0026#34; != typeof Symbol \u0026amp;\u0026amp; Symbol.toStringTag \u0026amp;\u0026amp; Object.defineProperty(e, Symbol.toStringTag, { value: \u0026#34;Module\u0026#34; }), Object.defineProperty(e, \u0026#34;__esModule\u0026#34;, { value: !0 }) }, l.t = function (e, r) { if (1 \u0026amp; r \u0026amp;\u0026amp; (e = l(e)), 8 \u0026amp; r) return e; if (4 \u0026amp; r \u0026amp;\u0026amp; \u0026#34;object\u0026#34; == typeof e \u0026amp;\u0026amp; e \u0026amp;\u0026amp; e.__esModule) return e; var t = Object.create(null); if (l.r(t), Object.defineProperty(t, \u0026#34;default\u0026#34;, { enumerable: !0, value: e }), 2 \u0026amp; r \u0026amp;\u0026amp; \u0026#34;string\u0026#34; != typeof e) for (var n in e) l.d(t, n, function (r) { return e[r] }.bind(null, n)); return t }, l.n = function (e) { var r = e \u0026amp;\u0026amp; e.__esModule ? function () { return e.default } : function () { return e }; return l.d(r, \u0026#34;a\u0026#34;, r), r }, l.o = function (e, r) { return Object.prototype.hasOwnProperty.call(e, r) }, l.p = \u0026#34;.\/\u0026#34;; var f = this.webpackJsonpdemo = this.webpackJsonpdemo || [], i = f.push.bind(f); f.push = r, f = f.slice(); for (var a = 0; a \u0026lt; f.length; a\u002b\u002b)r(f[a]); var p = i; t() }([])\u0026lt;\/script\u0026gt; \u0026lt;script src=\u0026#34;\/static\/js\/2.1902eda2.chunk.js\u0026#34;\u0026gt;\u0026lt;\/script\u0026gt; \u0026lt;script src=\u0026#34;\/static\/js\/main.cbf35db7.chunk.js\u0026#34;\u0026gt;\u0026lt;\/script\u0026gt; \u0026lt;\/body\u0026gt; \u0026lt;\/html\u0026gt; 发现 css 和 js 文件都是用绝对路径引用的，这是 webpack 打包一贯拥有的问题，将 \/static 改成 .\/static ，再运行，页面没有问题成功显示。\n但是在写实际项目的时候手动修改相对路径，不但麻烦，而且容易引起其他问题。因此直接在项目的 package.json 配置文件进行修改，添加 \u0026quot;homepage\u0026quot;: \u0026quot;.\u0026quot;\n\/\/ package.json { \u0026#34;name\u0026#34;: \u0026#34;demo\u0026#34;, \u0026#34;version\u0026#34;: \u0026#34;0.1.0\u0026#34;, \u0026#34;private\u0026#34;: true, \u0026#34;homepage\u0026#34;: \u0026#34;.\u0026#34;, \/\/ 添加这一行 \u0026#34;dependencies\u0026#34;: { \u0026#34;@babel\/core\u0026#34;: \u0026#34;7.12.3\u0026#34;, ... 然后再执行 npm run build ，运行打包后的文件，没有任何问题。\n",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:anghunk]",
-"creator" : "map[email:hi@zishu.me name:anghunk]",
-"publisher": "map[email:hi@zishu.me name:anghunk]",
-"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
-"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
+"author" : "map[email:hi@zishu.me name:子舒]",
+"creator" : "map[email:hi@zishu.me name:子舒]",
+"publisher": "map[email:hi@zishu.me name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
 "copyrightYear" : "2021",
 "datePublished": "2021-01-05 00:00:00 \u002b0000 UTC",
 "dateModified" : "2021-01-05 00:00:00 \u002b0000 UTC",
@@ -52,24 +52,18 @@
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
-
- <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
- 
-
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
-<link rel="stylesheet" href="/css/tocbot.css">
+<link rel="stylesheet" href="/css/fontawesome.css">
+<link rel="stylesheet" href="/css/main.css">
 <script src="/js/jquery-3.6.1.js"></script>
-
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
         width="112" height="112" alt="avatar"></a>
-    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <a class="site-title d-block" href="/chirpy-starter/">子舒</a>
     <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
   </header>
   <nav class="flex-column flex-grow-1 w-100 ps-0">
@@ -146,7 +140,10 @@
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
-
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+      <span> <a href="/">Home</a> </span>
+      <span>React 脚手架项目打包时的路径问题</span>
+    </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
     </button>
@@ -164,7 +161,7 @@
               
               
               <div class="post-meta text-muted">
-                <span>Posted<time>Jan 1, 2021</time></span>
+                <span>发布于 <time>Jan 1, 2021</time></span>
                 <div class="d-flex justify-content-between"><span>By
                     <em><a href="https://github.com/anghunk">子舒</a></em></span>
                 </div>
@@ -215,6 +212,8 @@
 
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
+
+                  
                   
               
                   
@@ -239,17 +238,19 @@
                   </div>
 
                   
+                  
 
-                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                  
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2">
+                    <div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div>
+                  </div>
+
                 </div>
               </div>
 
-            
-            
-            
-
-
-
+              
+              
+              
 
 
 
@@ -263,25 +264,27 @@
         
         
         
-        <article class="col"><a href="/blog/41.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/41.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jan 1, 2021</time>
               <h4 class="pt-0 my-2">如何在 React 中引入 less？</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
         
       </nav>
     </aside>
   </div>
 </div>
-            
+              
 
-            
-            
-            <hr class="sep">
+              
+              
+              <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -378,7 +381,9 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-            
+              
+
+            </div>
 
           </article>
 

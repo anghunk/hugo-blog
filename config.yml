@@ -32,10 +32,10 @@ permalinks:
 params:
   title: 子舒的博客
   description: 一个热爱生活的前端开发工程师
-  logo:  https://imgurl.zishu.me/author.png # 博主头像
+  logo:  https://imgurl.zishu.me/author.webp # 博主头像
   author:
-    name: "anghunk"
-    email: "hi@zishu.me"
+    name: 子舒
+    email: hi@zishu.me
   favicon:  https://imgurl.zishu.me/favicon.ico # 网站 favicon 图标
   buildDate: 2020-06-14 # 建站日期
   
@@ -63,17 +63,12 @@ params:
       icon: fa-link
 
 related:
-  # 相关性阈值，0-100。分数越低，匹配条件越宽松。
-  threshold: 0
-  # 是否包含较新的文章
-  includeNewer: false
-  # 是否将关键词转为小写以进行匹配
-  toLower: false
-  # 定义用于计算相关性的索引
-  indices:
+  threshold: 0 # 相关性阈值，0-100。分数越低，匹配条件越宽松。
+  includeNewer: false # 是否包含较新的文章
+  toLower: false # 是否将关键词转为小写以进行匹配
+  indices: # 定义用于计算相关性的索引
     name: "tags"
-    # 权重越高，这个索引在计算相关性时越重要
-    weight: 100
+    weight: 100 # 权重越高，这个索引在计算相关性时越重要
   indices:
     name: "categories"
     weight: 80

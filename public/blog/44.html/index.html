@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
+<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/44.html/" />
 <link rel="canonical" href="https://zishu.me/blog/44.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "基于 React 的富文本编辑器－－Braft Editor",
 "description" : "最近发了很多关于 React 的文章，记录遇到的新技术点，以及在写代码过程中遇到的问题，希望可以帮助到和我遇到同样问题的同学。\n今天分享的是一款基于 React 的富文本编辑器－－Braft Editor。\nBraft Editor 官网：https:\/\/braft.margox.cn Github 仓库地址：https:\/\/github.com\/margox\/braft-editor\n这款插件非常方便，只需要下载然后引入即可直接使用，页面整体风格清新，符合绝大多数人的审美观，支持图片，音视频的插入。\n按照官方的说法，假如你对它的功能还不够满意，不够使用，完全可以扩展它，自己写一个插件来强化他。\n经过我的测试，功能绝对强大，可以满足市面上绝大多数的需求。接下来就说一下如何使用这款插件。\n1.安装 在项目中直接通过 npm 或者 yarn 下载插件：\n# 使用 npm 安装 npm install braft-editor --save # 使用 yarn 安装 yarn add braft-editor 2.使用 新建一个组件 EditorDemo.js，在里面写入下列代码：\n\/\/ EditorDemo.js import React from \u0026#39;react\u0026#39;; import BraftEditor from \u0026#39;braft-editor\u0026#39;; import \u0026#39;braft-editor\/dist\/index.css\u0026#39;; export default class PageDemo extends React.Component { state = { editorState: BraftEditor.createEditorState(null) } render () { return ( \u0026lt;BraftEditor value={this.state.editorState} onChange={this.handleChange}\/\u0026gt; ) } handleChange = (editorState) =\u0026gt; { this.setState({ editorState }) } } 然后引入到 index.js 中去。\n3.运行 写完组件之后，npm start 运行看看效果\n相当不错，页面很简洁，如果觉得样式不喜欢，完全可以自己重新定制风格，非常方便。\n4.文档 如果想使用更多功能、方法，进入 Braft Editor 官方文档吧，还有更多关于它的讲解！\n属性、方法、示例，一应俱全。\n",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:anghunk]",
-"creator" : "map[email:hi@zishu.me name:anghunk]",
-"publisher": "map[email:hi@zishu.me name:anghunk]",
-"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
-"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
+"author" : "map[email:hi@zishu.me name:子舒]",
+"creator" : "map[email:hi@zishu.me name:子舒]",
+"publisher": "map[email:hi@zishu.me name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
 "copyrightYear" : "2021",
 "datePublished": "2021-01-07 00:00:00 \u002b0000 UTC",
 "dateModified" : "2021-01-07 00:00:00 \u002b0000 UTC",
@@ -68,24 +68,18 @@ Braft Editor 官网：https://braft.margox.cn Github 仓库地址：https://gith
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
-
- <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
- 
-
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
-<link rel="stylesheet" href="/css/tocbot.css">
+<link rel="stylesheet" href="/css/fontawesome.css">
+<link rel="stylesheet" href="/css/main.css">
 <script src="/js/jquery-3.6.1.js"></script>
-
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
         width="112" height="112" alt="avatar"></a>
-    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <a class="site-title d-block" href="/chirpy-starter/">子舒</a>
     <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
   </header>
   <nav class="flex-column flex-grow-1 w-100 ps-0">
@@ -162,7 +156,10 @@ Braft Editor 官网：https://braft.margox.cn Github 仓库地址：https://gith
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
-
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+      <span> <a href="/">Home</a> </span>
+      <span>基于 React 的富文本编辑器－－Braft Editor</span>
+    </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
     </button>
@@ -180,7 +177,7 @@ Braft Editor 官网：https://braft.margox.cn Github 仓库地址：https://gith
               
               
               <div class="post-meta text-muted">
-                <span>Posted<time>Jan 1, 2021</time></span>
+                <span>发布于 <time>Jan 1, 2021</time></span>
                 <div class="d-flex justify-content-between"><span>By
                     <em><a href="https://github.com/anghunk">子舒</a></em></span>
                 </div>
@@ -241,6 +238,8 @@ Github 仓库地址：<a href="https://github.com/margox/braft-editor">https://g
 
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
+
+                  
                   
               
                   
@@ -267,17 +266,19 @@ Github 仓库地址：<a href="https://github.com/margox/braft-editor">https://g
                   </div>
 
                   
+                  
 
-                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                  
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2">
+                    <div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div>
+                  </div>
+
                 </div>
               </div>
 
-            
-            
-            
-
-
-
+              
+              
+              
 
 
 
@@ -291,43 +292,49 @@ Github 仓库地址：<a href="https://github.com/margox/braft-editor">https://g
         
         
         
-        <article class="col"><a href="/blog/43.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/43.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jan 1, 2021</time>
               <h4 class="pt-0 my-2">使用 React 与 Vue 创建同一款 App，差别究竟有多大？</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/42.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/42.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jan 1, 2021</time>
               <h4 class="pt-0 my-2">React 脚手架项目打包时的路径问题</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/41.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/41.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jan 1, 2021</time>
               <h4 class="pt-0 my-2">如何在 React 中引入 less？</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
         
       </nav>
     </aside>
   </div>
 </div>
-            
+              
 
-            
-            
-            <hr class="sep">
+              
+              
+              <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -424,7 +431,9 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-            
+              
+
+            </div>
 
           </article>
 

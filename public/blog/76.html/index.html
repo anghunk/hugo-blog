@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
+<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/76.html/" />
 <link rel="canonical" href="https://zishu.me/blog/76.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "使用 jq 做一个数字递增效果",
 "description" : "数字递增，顾名思义就是数字不断增加，数字递增的效果就是要一定时间内，让数字有一个增加的特效，一般用于强调某个内容。\n用 jquery 也很好处理，大概就是下面这些。\ndata-to 属性代表最后想要递增到的数值 data-speed 代表数值想要递增的过程时间 class=\u0026quot;num-ber\u0026quot; 和 id=\u0026quot;count-number\u0026quot; 按照这个填入。\n\u0026lt;p\u0026gt; \u0026lt;span class=\u0026#34;num-ber\u0026#34; id=\u0026#34;count-number\u0026#34; data-to=\u0026#34;40\u0026#34; data-speed=\u0026#34;1000\u0026#34;\u0026gt;\u0026lt;\/span\u0026gt;\u002b \u0026lt;\/p\u0026gt; 引入 jquery 之后再添加下面的 js 代码。\n$.fn.countTo = function (a) { a = a || {}; return $(this).each(function () { var c = $.extend({}, $.fn.countTo.defaults, { from: $(this).data(\u0026#34;from\u0026#34;), to: $(this).data(\u0026#34;to\u0026#34;), speed: $(this).data(\u0026#34;speed\u0026#34;), refreshInterval: $(this).data(\u0026#34;refresh-interval\u0026#34;), decimals: $(this).data(\u0026#34;decimals\u0026#34;) }, a); var h = Math.ceil(c.speed \/ c.refreshInterval), i = (c.to - c.from) \/ h; var j = this, f = $(this), e = 0, g = c.from, d = f.data(\u0026#34;countTo\u0026#34;) || {}; f.data(\u0026#34;countTo\u0026#34;, d); if (d.interval) { clearInterval(d.interval) } d.interval = setInterval(k, c.refreshInterval); b(g); function k() { g \u002b= i; e\u002b\u002b; b(g); if (typeof (c.onUpdate) == \u0026#34;function\u0026#34;) { c.onUpdate.call(j, g) } if (e \u0026gt;= h) { f.removeData(\u0026#34;countTo\u0026#34;); clearInterval(d.interval); g = c.to; if (typeof (c.onComplete) == \u0026#34;function\u0026#34;) { c.onComplete.call(j, g) } } } function b(m) { var l = c.formatter.call(j, m, c); f.html(l) } }) }; $.fn.countTo.defaults = { from: 0, to: 0, speed: 1000, refreshInterval: 100, decimals: 0, formatter: formatter, onUpdate: \u0026#34;null, onComplete: null }; function formatter(b, a) { return b.toFixed(0) } $(\u0026#34;#count-number\u0026#34;).data(\u0026#34;countToOptions\u0026#34;, { formatter: function (b, a) { return b.toFixed(0).replace(\/\\B(?=(?:\\d{3})\u002b(?!\\d))\/g, \u0026#34;,\u0026#34;) } }); $(\u0026#34;.num-ber\u0026#34;).each(count); function count(a) { var b = $(this); a = $.extend({}, a || {}, b.data(\u0026#34;countToOptions\u0026#34;) || {}); b.countTo(a) }; ",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:anghunk]",
-"creator" : "map[email:hi@zishu.me name:anghunk]",
-"publisher": "map[email:hi@zishu.me name:anghunk]",
-"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
-"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
+"author" : "map[email:hi@zishu.me name:子舒]",
+"creator" : "map[email:hi@zishu.me name:子舒]",
+"publisher": "map[email:hi@zishu.me name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
 "copyrightYear" : "2021",
 "datePublished": "2021-09-14 00:00:00 \u002b0000 UTC",
 "dateModified" : "2021-09-14 00:00:00 \u002b0000 UTC",
@@ -50,24 +50,18 @@ data-to 属性代表最后想要递增到的数值 data-speed 代表数值想要
 $.fn.countTo = function (a) { a = a || {}; return $(this).each(function () { var c = $.extend({}, $.fn.countTo.defaults, { from: $(this).data(&#34;from&#34;), to: $(this).data(&#34;to&#34;), speed: $(this).data(&#34;speed&#34;), refreshInterval: $(this).data(&#34;refresh-interval&#34;), decimals: $(this).data(&#34;decimals&#34;) }, a); var h = Math.ceil(c.speed / c.refreshInterval), i = (c.to - c.from) / h; var j = this, f = $(this), e = 0, g = c.from, d = f.data(&#34;countTo&#34;) || {}; f.data(&#34;countTo&#34;, d); if (d.interval) { clearInterval(d.interval) } d.interval = setInterval(k, c.refreshInterval); b(g); function k() { g &#43;= i; e&#43;&#43;; b(g); if (typeof (c.onUpdate) == &#34;function&#34;) { c.onUpdate.call(j, g) } if (e &gt;= h) { f.removeData(&#34;countTo&#34;); clearInterval(d.interval); g = c.to; if (typeof (c.onComplete) == &#34;function&#34;) { c.onComplete.call(j, g) } } } function b(m) { var l = c.formatter.call(j, m, c); f.html(l) } }) }; $.fn.countTo.defaults = { from: 0, to: 0, speed: 1000, refreshInterval: 100, decimals: 0, formatter: formatter, onUpdate: &#34;null, onComplete: null }; function formatter(b, a) { return b.toFixed(0) } $(&#34;#count-number&#34;).data(&#34;countToOptions&#34;, { formatter: function (b, a) { return b.toFixed(0).replace(/\B(?=(?:\d{3})&#43;(?!\d))/g, &#34;,&#34;) } }); $(&#34;.num-ber&#34;).each(count); function count(a) { var b = $(this); a = $.extend({}, a || {}, b.data(&#34;countToOptions&#34;) || {}); b.countTo(a) }; " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
-
- <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
- 
-
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
-<link rel="stylesheet" href="/css/tocbot.css">
+<link rel="stylesheet" href="/css/fontawesome.css">
+<link rel="stylesheet" href="/css/main.css">
 <script src="/js/jquery-3.6.1.js"></script>
-
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
         width="112" height="112" alt="avatar"></a>
-    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <a class="site-title d-block" href="/chirpy-starter/">子舒</a>
     <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
   </header>
   <nav class="flex-column flex-grow-1 w-100 ps-0">
@@ -144,7 +138,10 @@ $.fn.countTo = function (a) { a = a || {}; return $(this).each(function () { var
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
-
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+      <span> <a href="/">Home</a> </span>
+      <span>使用 jq 做一个数字递增效果</span>
+    </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
     </button>
@@ -162,7 +159,7 @@ $.fn.countTo = function (a) { a = a || {}; return $(this).each(function () { var
               
               
               <div class="post-meta text-muted">
-                <span>Posted<time>Sep 9, 2021</time></span>
+                <span>发布于 <time>Sep 9, 2021</time></span>
                 <div class="d-flex justify-content-between"><span>By
                     <em><a href="https://github.com/anghunk">子舒</a></em></span>
                 </div>
@@ -263,6 +260,8 @@ $.fn.countTo = function (a) { a = a || {}; return $(this).each(function () { var
 
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
+
+                  
                   
               
                   
@@ -287,17 +286,19 @@ $.fn.countTo = function (a) { a = a || {}; return $(this).each(function () { var
                   </div>
 
                   
+                  
 
-                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                  
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2">
+                    <div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div>
+                  </div>
+
                 </div>
               </div>
 
-            
-            
-            
-
-
-
+              
+              
+              
 
 
 
@@ -311,43 +312,49 @@ $.fn.countTo = function (a) { a = a || {}; return $(this).each(function () { var
         
         
         
-        <article class="col"><a href="/blog/75.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/75.html/" class="post-preview card h-100">
             <div class="card-body"><time>Aug 8, 2021</time>
               <h4 class="pt-0 my-2">npm install 报错和取消本地代理的问题</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/74.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/74.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jul 7, 2021</time>
               <h4 class="pt-0 my-2">关于我为什么要写博客？</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/73.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/73.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jul 7, 2021</time>
               <h4 class="pt-0 my-2">将数据库中的图片信息导出并调用</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
         
       </nav>
     </aside>
   </div>
 </div>
-            
+              
 
-            
-            
-            <hr class="sep">
+              
+              
+              <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -444,7 +451,9 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-            
+              
+
+            </div>
 
           </article>
 

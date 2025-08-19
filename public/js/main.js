@@ -37,3 +37,21 @@ function MobNav() {
   })
 }
 MobNav();
+
+if ($('#TableOfContents ul').length == 0) {
+  $('#toc-wrapper').hide();
+}
+
+$('#mode-toggle').click(function () {
+  var currentMode = $('html').attr('data-mode') || 'light';
+  var newMode = currentMode === 'dark' ? 'light' : 'dark';
+
+  $('html').attr('data-mode', newMode);
+  localStorage.setItem('theme-mode', newMode);
+});
+
+// 页面加载时恢复主题
+$(document).ready(function () {
+  var savedMode = localStorage.getItem('theme-mode') || 'light';
+  $('html').attr('data-mode', savedMode);
+});

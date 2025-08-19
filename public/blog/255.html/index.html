@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
+<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/255.html/" />
 <link rel="canonical" href="https://zishu.me/blog/255.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "Cherry Studio 接入高德地图 MCP 示例",
 "description" : "本教程使用环境 Cherry Studio 1.1.17.\n最近 Cherry Studio 也接入了 MCP 服务器，闲着无聊准备尝试一番，就拿最简单的高德地图来做演示，刚好最近高德也支持了 MCP 服务。\n需要申请高德开发者账号，这个就不赘述了。在高德开发者控制台找到 应用管理\u0026gt;我的应用，点击创建新应用，类型名称随便填一下，绑定服务要选择 Web服务，然后不要限制 IP，最后会生成一个 key。\n配置 Cherry Studio 的 MCP 服务器 拿到高德地图的 key 后，在 Cherry Studio 的 MCP 服务器设置填入，有两种方法。\n方法一：直接导入配置（推荐） 在右上角 编辑 MCP 配置 中直接将下面的配置复制进去，改一下 AMAP_MAPS_API_KEY\n{ \u0026#34;mcpServers\u0026#34;: { \u0026#34;@amap\/amap-maps\u0026#34;: { \u0026#34;name\u0026#34;: \u0026#34;@amap\/amap-maps\u0026#34;, \u0026#34;isActive\u0026#34;: true, \u0026#34;command\u0026#34;: \u0026#34;npx\u0026#34;, \u0026#34;args\u0026#34;: [ \u0026#34;-y\u0026#34;, \u0026#34;@amap\/amap-maps-mcp-server\u0026#34; ], \u0026#34;env\u0026#34;: { \u0026#34;AMAP_MAPS_API_KEY\u0026#34;: \u0026#34;xxxxxxxxxxx\u0026#34; } } } } 方法二：手动填写配置 在 Cherry Studio 中打开 MCP 服务器设置界面，按以下参数填写：\n名称：@amap\/amap-maps 命令：npx 参数：-y @amap\/amap-maps-mcp-server 环境变量：添加 AMAP_MAPS_API_KEY 并填入您的 Key。 保存配置后，系统会自动加载高德地图的 MCP 服务。\n会在下方显示高德地图支持的工具，就是 AI 模型可以调用的工具。\n启用 AI 模型的函数调用功能 使用方法也很简单，需要 AI 模型支持函数调用，以火山引擎作为示例，我使用了 DeepSeek-R1 模型，默认是没有函数调用的（会显示那个小扳手），需要在设置中手动开启\n这样在聊天框下方会出现一个 MCP 的标志，勾选后可以直接跟模型进行对话，可以输出天气地点等信息，如果再搭配你的 prompt，可以直接规划公交地铁线路等。\n测试 MCP 对话效果\r### 🧑‍💻 User 规划一下这周清明节在杭州出去玩的攻略。 --- ### 🤖 Assistant 根据杭州清明节期间的天气情况，我为您规划一份兼顾自然风光与文化体验的 3 日游攻略，天气友好且行程灵活： --- **🌿 清明小长假 3 日游行程推荐（4 月 3 日 -5 日）** *注：4 月 2 日周二为工作日，建议提前抵达杭州做准备* --- **Day1（4 月 3 日·晴转多云｜7-19℃）** **主题：西湖经典文化线** ☀️ 上午 7:30 乘摇橹船游「乌龟潭路线」 （郭庄码头→茅家埠→曲院风荷，避开人潮享樱花碧水） 9:30 步行至「岳王庙」拜谒民族英雄 🌤️ 下午 13:00「中国茶叶博物馆（双峰馆）」 （亲手体验龙井茶炒制，观千亩茶田） 15:30「茅家埠黛色参天」古风摄影 （黛色牌坊 \u002b 睡莲初绽，汉服出片胜地） 🌙 夜晚 19:00「西湖音乐喷泉」灯光秀 （提前占位，夜赏湖滨灯光璀璨） --- **Day2（4 月 4 日·多云｜12-26℃）** **主题：春日野趣轻徒步** 🌸 上午 8:00「九溪烟树」溯溪徒步 （穿越迷雾森林，十八涧水映杜鹃） 11:00「龙井村」茶农家访 （品明前龙井，尝茶香土鸡汤） 🌿 下午 14:00「云栖竹径」洗肺之旅 （千年古树 \u002b 竹林秘境，电影《卧虎藏龙》取景地） 16:30「梅家坞」茶园骑行 （租电动车漫游茶山，俯瞰层叠青绿） 🍵 傍晚 18:30「茶人村」晚餐 （百年老宅尝桂花藕韵、茶香虾） --- **Day3（4 月 5 日·小雨转晴｜13-25℃）** **主题：运河文艺漫游** 🌧️ 上午（微雨意境） 9:00「桥西历史街区」 （逛刀剪\/伞\/扇博物馆，体验非遗手作） 11:00「小河直街」咖啡探店 （推荐河下咖啡·《人间草木》主题书咖） ☀️ 下午（放晴后） 14:00「拱宸桥」乘漕舫船 （水路穿越古今，听评弹吴侬软语） 16:00「富义仓艺术中心」看展 （旧粮仓改造的先锋艺术空间） 🎑 夜晚 19:30「胜利河美食街」夜宵 （推荐老头油爆虾、脆皮大肠） --- **⚠️ 出行贴士** 1️⃣ 穿衣：洋葱式穿搭（薄毛衣 \u002b 防风外套），备晴雨伞 2️⃣ 交通：西湖景区周末单双号限行，推荐地铁 \u002b 共享单车 3️⃣ 预约：岳王庙\/茶叶博物馆等需提前 1 天在「掌上西湖」预约 4️⃣ 备选：若遇大雨可调整为「浙江省博」\u002b「南宋官窑博物馆」室内游 清明时节的杭州既有烟雨江南的朦胧美，又有春和景明的清朗，建议随身带本《杭州记事》手账，在各景点盖限定章留念哦~ 🌸 ",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:anghunk]",
-"creator" : "map[email:hi@zishu.me name:anghunk]",
-"publisher": "map[email:hi@zishu.me name:anghunk]",
-"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
-"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
+"author" : "map[email:hi@zishu.me name:子舒]",
+"creator" : "map[email:hi@zishu.me name:子舒]",
+"publisher": "map[email:hi@zishu.me name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
 "copyrightYear" : "2025",
 "datePublished": "2025-04-02 00:00:00 \u002b0000 UTC",
 "dateModified" : "2025-04-02 00:00:00 \u002b0000 UTC",
@@ -62,24 +62,18 @@
 测试 MCP 对话效果### 🧑‍💻 User 规划一下这周清明节在杭州出去玩的攻略。 --- ### 🤖 Assistant 根据杭州清明节期间的天气情况，我为您规划一份兼顾自然风光与文化体验的 3 日游攻略，天气友好且行程灵活： --- **🌿 清明小长假 3 日游行程推荐（4 月 3 日 -5 日）** *注：4 月 2 日周二为工作日，建议提前抵达杭州做准备* --- **Day1（4 月 3 日·晴转多云｜7-19℃）** **主题：西湖经典文化线** ☀️ 上午 7:30 乘摇橹船游「乌龟潭路线」 （郭庄码头→茅家埠→曲院风荷，避开人潮享樱花碧水） 9:30 步行至「岳王庙」拜谒民族英雄 🌤️ 下午 13:00「中国茶叶博物馆（双峰馆）」 （亲手体验龙井茶炒制，观千亩茶田） 15:30「茅家埠黛色参天」古风摄影 （黛色牌坊 &#43; 睡莲初绽，汉服出片胜地） 🌙 夜晚 19:00「西湖音乐喷泉」灯光秀 （提前占位，夜赏湖滨灯光璀璨） --- **Day2（4 月 4 日·多云｜12-26℃）** **主题：春日野趣轻徒步** 🌸 上午 8:00「九溪烟树」溯溪徒步 （穿越迷雾森林，十八涧水映杜鹃） 11:00「龙井村」茶农家访 （品明前龙井，尝茶香土鸡汤） 🌿 下午 14:00「云栖竹径」洗肺之旅 （千年古树 &#43; 竹林秘境，电影《卧虎藏龙》取景地） 16:30「梅家坞」茶园骑行 （租电动车漫游茶山，俯瞰层叠青绿） 🍵 傍晚 18:30「茶人村」晚餐 （百年老宅尝桂花藕韵、茶香虾） --- **Day3（4 月 5 日·小雨转晴｜13-25℃）** **主题：运河文艺漫游** 🌧️ 上午（微雨意境） 9:00「桥西历史街区」 （逛刀剪/伞/扇博物馆，体验非遗手作） 11:00「小河直街」咖啡探店 （推荐河下咖啡·《人间草木》主题书咖） ☀️ 下午（放晴后） 14:00「拱宸桥」乘漕舫船 （水路穿越古今，听评弹吴侬软语） 16:00「富义仓艺术中心」看展 （旧粮仓改造的先锋艺术空间） 🎑 夜晚 19:30「胜利河美食街」夜宵 （推荐老头油爆虾、脆皮大肠） --- **⚠️ 出行贴士** 1️⃣ 穿衣：洋葱式穿搭（薄毛衣 &#43; 防风外套），备晴雨伞 2️⃣ 交通：西湖景区周末单双号限行，推荐地铁 &#43; 共享单车 3️⃣ 预约：岳王庙/茶叶博物馆等需提前 1 天在「掌上西湖」预约 4️⃣ 备选：若遇大雨可调整为「浙江省博」&#43;「南宋官窑博物馆」室内游 清明时节的杭州既有烟雨江南的朦胧美，又有春和景明的清朗，建议随身带本《杭州记事》手账，在各景点盖限定章留念哦~ 🌸 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
-
- <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
- 
-
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
-<link rel="stylesheet" href="/css/tocbot.css">
+<link rel="stylesheet" href="/css/fontawesome.css">
+<link rel="stylesheet" href="/css/main.css">
 <script src="/js/jquery-3.6.1.js"></script>
-
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
         width="112" height="112" alt="avatar"></a>
-    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <a class="site-title d-block" href="/chirpy-starter/">子舒</a>
     <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
   </header>
   <nav class="flex-column flex-grow-1 w-100 ps-0">
@@ -156,7 +150,10 @@
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
-
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+      <span> <a href="/">Home</a> </span>
+      <span>Cherry Studio 接入高德地图 MCP 示例</span>
+    </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
     </button>
@@ -174,7 +171,7 @@
               
               
               <div class="post-meta text-muted">
-                <span>Posted<time>Apr 4, 2025</time></span>
+                <span>发布于 <time>Apr 4, 2025</time></span>
                 <div class="d-flex justify-content-between"><span>By
                     <em><a href="https://github.com/anghunk">子舒</a></em></span>
                 </div>
@@ -353,6 +350,8 @@
 
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
+
+                  
                   
               
                   
@@ -381,17 +380,19 @@
                   </div>
 
                   
+                  
 
-                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                  
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2">
+                    <div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div>
+                  </div>
+
                 </div>
               </div>
 
-            
-            
-            
-
-
-
+              
+              
+              
 
 
 
@@ -405,43 +406,49 @@
         
         
         
-        <article class="col"><a href="/blog/254.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/254.html/" class="post-preview card h-100">
             <div class="card-body"><time>Mar 3, 2025</time>
               <h4 class="pt-0 my-2">去年的樱花再次盛开</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/253.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/253.html/" class="post-preview card h-100">
             <div class="card-body"><time>Mar 3, 2025</time>
               <h4 class="pt-0 my-2">通过 AI 实现自动生成 SEO TDK</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/252.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/252.html/" class="post-preview card h-100">
             <div class="card-body"><time>Feb 2, 2025</time>
               <h4 class="pt-0 my-2">径山寺看雪：杭州周边雪景游记</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
         
       </nav>
     </aside>
   </div>
 </div>
-            
+              
 
-            
-            
-            <hr class="sep">
+              
+              
+              <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -538,7 +545,9 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-            
+              
+
+            </div>
 
           </article>
 

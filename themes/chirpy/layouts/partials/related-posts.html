@@ -7,9 +7,6 @@
 */}}
 {{ $related := .Site.RegularPages.Related . | first 3 }}
 
-
-
-
 <div class="row">
   <div id="tail-wrapper">
     <aside id="related-posts">
@@ -19,14 +16,16 @@
         {{/* with 语句确保只有在找到相关文章时才渲染这部分内容 */}}
         {{ with $related }}
         {{ range . }}
-        <article class="col"><a href="{{ .RelPermalink }}" class="post-preview card h-100">
+        <article class="col">
+          <a href="{{ .RelPermalink }}" class="post-preview card h-100">
             <div class="card-body"><time>{{ .Date.Format "Jan 1, 2006"}}</time>
               <h4 class="pt-0 my-2">{{ .Title }}</h4>
               <div class="text-muted">
                 <!-- <p></p> -->
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         {{ end }}
         {{ end }}
       </nav>

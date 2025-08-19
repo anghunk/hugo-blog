@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:anghunk]" />
+<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/146.html/" />
 <link rel="canonical" href="https://zishu.me/blog/146.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "Obsidian:如何使用坚果云进行多端同步？",
 "description" : "接上篇文章 《关于我选择笔记系统这件小事》 ，Obsidian 的个人体验很棒，我也打算长久使用作为个人知识库。\n但是它有一个弊端，就是本地离线化导致同步是个问题，官方的同步服务很贵，给我劝退了，因此我寻求了其他的同步备份方案，就是今天我要分享的坚果云 \u002b Obsidian。\n注册账号 在坚果云官网注册一个账号，选择个人用户，创建账号之后登陆。\n点击创建 \u0026gt; 个人同步文件夹，以后就同步这个文件夹内的内容了。这个我在里面新建了一个 test 文件夹。\npc 端同步 接下来需要将电脑本地的文件和坚果云的文件夹相连接，只要你在本地修改了文件，自动同步到坚果云。\n点击页面左侧的下载客户端。\n下载完成之后登陆，你就可以看到里面有一个 test 文件夹，是刚才在网页官网创建的。然后在右边三个点里面选择同步到本地。\n浏览你的文件夹，找到一个地方存放 test 文件夹，点击确定，坚果云就会自动同步你在本地文件。但是这个时候 test 文件夹是空的，需要将 Obsidian 文件全部移动进去就行了。然后在 Obsidian 客户端重新打开 test 库。\n在另一台电脑，进行上面同样的操作，将坚果云的同步文件夹映射到本地，就会自动下载云端的文件。之后，不管你在哪台电脑修改 Obsidian 笔记，都会同步到拥有坚果云客户端的其他电脑。\n这是 pc 端同步的方案，之后我会继续分享如何将 pc 同步到手机端。\nObsidian:移动端同步笔记\n",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:anghunk]",
-"creator" : "map[email:hi@zishu.me name:anghunk]",
-"publisher": "map[email:hi@zishu.me name:anghunk]",
-"accountablePerson" : "map[email:hi@zishu.me name:anghunk]",
-"copyrightHolder" : "map[email:hi@zishu.me name:anghunk]",
+"author" : "map[email:hi@zishu.me name:子舒]",
+"creator" : "map[email:hi@zishu.me name:子舒]",
+"publisher": "map[email:hi@zishu.me name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
 "copyrightYear" : "2022",
 "datePublished": "2022-06-27 00:00:00 \u002b0000 UTC",
 "dateModified" : "2022-06-27 00:00:00 \u002b0000 UTC",
@@ -64,24 +64,18 @@ Obsidian:移动端同步笔记
 " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
-
- <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css>
- 
-
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css>
-<link rel="stylesheet" href="/css/tocbot.css">
+<link rel="stylesheet" href="/css/fontawesome.css">
+<link rel="stylesheet" href="/css/main.css">
 <script src="/js/jquery-3.6.1.js"></script>
-
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.png"
+  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
         width="112" height="112" alt="avatar"></a>
-    <a class="site-title d-block" href="/chirpy-starter/">anghunk</a>
+    <a class="site-title d-block" href="/chirpy-starter/">子舒</a>
     <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
   </header>
   <nav class="flex-column flex-grow-1 w-100 ps-0">
@@ -158,7 +152,10 @@ Obsidian:移动端同步笔记
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
-
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+      <span> <a href="/">Home</a> </span>
+      <span>Obsidian:如何使用坚果云进行多端同步？</span>
+    </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
     </button>
@@ -176,7 +173,7 @@ Obsidian:移动端同步笔记
               
               
               <div class="post-meta text-muted">
-                <span>Posted<time>Jun 6, 2022</time></span>
+                <span>发布于 <time>Jun 6, 2022</time></span>
                 <div class="d-flex justify-content-between"><span>By
                     <em><a href="https://github.com/anghunk">子舒</a></em></span>
                 </div>
@@ -236,6 +233,8 @@ Obsidian:移动端同步笔记
 
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
+
+                  
                   
               
                   
@@ -264,17 +263,19 @@ Obsidian:移动端同步笔记
                   </div>
 
                   
+                  
 
-                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div></div></div>
+                  
+                  <div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2">
+                    <div class="license-wrapper">This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div>
+                  </div>
+
                 </div>
               </div>
 
-            
-            
-            
-
-
-
+              
+              
+              
 
 
 
@@ -288,43 +289,49 @@ Obsidian:移动端同步笔记
         
         
         
-        <article class="col"><a href="/blog/145.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/145.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jun 6, 2022</time>
               <h4 class="pt-0 my-2">人民币小写转大写</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/143.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/143.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jun 6, 2022</time>
               <h4 class="pt-0 my-2">掘金抽奖脚本</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
-        <article class="col"><a href="/blog/142.html/" class="post-preview card h-100">
+        <article class="col">
+          <a href="/blog/142.html/" class="post-preview card h-100">
             <div class="card-body"><time>Jun 6, 2022</time>
               <h4 class="pt-0 my-2">usb 接口的三面性</h4>
               <div class="text-muted">
                 
               </div>
             </div>
-          </a></article>
+          </a>
+        </article>
         
         
       </nav>
     </aside>
   </div>
 </div>
-            
+              
 
-            
-            
-            <hr class="sep">
+              
+              
+              <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -421,7 +428,9 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-            
+              
+
+            </div>
 
           </article>
 
