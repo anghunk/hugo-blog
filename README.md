@@ -13,3 +13,4 @@
 
 复刻基于 [jekyll-theme-chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) 的 hugo 主题，还原度 95% 以上。
 
+![](https://github.com/user-attachments/assets/b6b286af-4c3f-47bf-bdc8-640dab8bba84)
