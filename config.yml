@@ -36,9 +36,10 @@ params:
   author:
     name: 子舒
     email: hi@zishu.me
+    github: anghunk
   favicon:  https://imgurl.zishu.me/favicon.ico # 网站 favicon 图标
   buildDate: 2020-06-14 # 建站日期
-  
+
   socials: # 导航
     - name: 首页
       link: /

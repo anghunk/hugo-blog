@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
+<meta name="author" content="map[email:hi@zishu.me github:anghunk name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/145.html/" />
 <link rel="canonical" href="https://zishu.me/blog/145.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "人民币小写转大写",
 "description" : "一个有趣的 demo\nthis.smalltoBIG(43533534.78); \/\/肆仟叁佰伍拾叁万叁仟伍佰叁拾肆元柒角捌分 smalltoBIG (n) { var fraction = [\u0026#39;角\u0026#39;, \u0026#39;分\u0026#39;]; var digit = [\u0026#39;零\u0026#39;, \u0026#39;壹\u0026#39;, \u0026#39;贰\u0026#39;, \u0026#39;叁\u0026#39;, \u0026#39;肆\u0026#39;, \u0026#39;伍\u0026#39;, \u0026#39;陆\u0026#39;, \u0026#39;柒\u0026#39;, \u0026#39;捌\u0026#39;, \u0026#39;玖\u0026#39;]; var unit = [ [\u0026#39;元\u0026#39;, \u0026#39;万\u0026#39;, \u0026#39;亿\u0026#39;],[\u0026#39;\u0026#39;, \u0026#39;拾\u0026#39;, \u0026#39;佰\u0026#39;, \u0026#39;仟\u0026#39;] ]; var head = n \u0026lt; 0 ? \u0026#39;欠\u0026#39; : \u0026#39;\u0026#39;; n = Math.abs(n); var s = \u0026#39;\u0026#39;; for (var i = 0; i \u0026lt; fraction.length; i\u002b\u002b) { s \u002b= (digit[Math.floor(n * 10 * Math.pow(10, i)) % 10] \u002b fraction[i]).replace(\/零.\/, \u0026#39;\u0026#39;); } s = s || \u0026#39;整\u0026#39;; n = Math.floor(n); for (var i = 0; i \u0026lt; unit[0].length \u0026amp;\u0026amp; n \u0026gt; 0; i\u002b\u002b) { var p = \u0026#39;\u0026#39;; for (var j = 0; j \u0026lt; unit[1].length \u0026amp;\u0026amp; n \u0026gt; 0; j\u002b\u002b) { p = digit[n % 10] \u002b unit[1][j] \u002b p; n = Math.floor(n \/ 10); } s = p.replace(\/(零.)*零$\/, \u0026#39;\u0026#39;).replace(\/^$\/, \u0026#39;零\u0026#39;) \u002b unit[0][i] \u002b s; } return head \u002b s.replace(\/(零.)*零元\/, \u0026#39;元\u0026#39;).replace(\/(零.)\u002b\/g, \u0026#39;零\u0026#39;).replace(\/^整$\/, \u0026#39;零元整\u0026#39;); }, ",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:子舒]",
-"creator" : "map[email:hi@zishu.me name:子舒]",
-"publisher": "map[email:hi@zishu.me name:子舒]",
-"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
-"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
+"author" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"creator" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"publisher": "map[email:hi@zishu.me github:anghunk name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me github:anghunk name:子舒]",
 "copyrightYear" : "2022",
 "datePublished": "2022-06-24 00:00:00 \u002b0000 UTC",
 "dateModified" : "2022-06-24 00:00:00 \u002b0000 UTC",
@@ -50,7 +50,6 @@ this.smalltoBIG(43533534.78); //肆仟叁佰伍拾叁万叁仟伍佰叁拾肆元
 <script src="/js/jquery-3.6.1.js"></script>
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
-
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
@@ -121,20 +120,31 @@ this.smalltoBIG(43533534.78); //肆仟叁佰伍拾叁万叁仟伍佰叁拾肆元
     <span class="icon-border"></span>
     <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
         class="fab fa-github"></i></a>
-    <a href="mailto:anghunk@gmail.com" aria-label="email" target="_blank" rel="noopener noreferrer"><i
+    <a href="mailto:hi@zishu.me" aria-label="email" target="_blank" rel="noopener noreferrer"><i
         class="fas fa-envelope"></i>
     </a>
     <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
   </div>
 </aside>
-
   <div id="main-wrapper" class="d-flex justify-content-center">
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
     <nav id="breadcrumb" aria-label="Breadcrumb">
       <span> <a href="/">Home</a> </span>
+
+      
+      
+      <span>
+        
+        
+          <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+        
+      </span>
+      
+      
       <span>人民币小写转大写</span>
+      
     </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
@@ -144,10 +154,8 @@ this.smalltoBIG(43533534.78); //肆仟叁佰伍拾叁万叁仟伍佰叁拾肆元
   </div>
 </header>
       <div class="row flex-grow-1">
-
         <main class="col-12 col-lg-11 col-xl-9 px-md-4">
           <article class="px-1">
-
             <header>
               <h1 data-toc-skip="">人民币小写转大写</h1>
               
@@ -160,7 +168,6 @@ this.smalltoBIG(43533534.78); //肆仟叁佰伍拾叁万叁仟伍佰叁拾肆元
               </div>
               
             </header>
-
             <div class="content">
               
               <p>一个有趣的 demo</p>
@@ -194,13 +201,10 @@ this.smalltoBIG(43533534.78); //肆仟叁佰伍拾叁万叁仟伍佰叁拾肆元
 </span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">head</span> <span class="o">+</span> <span class="nx">s</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(零.)*零元/</span><span class="p">,</span> <span class="s1">&#39;元&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(零.)+/g</span><span class="p">,</span> <span class="s1">&#39;零&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^整$/</span><span class="p">,</span> <span class="s1">&#39;零元整&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">},</span>
 </span></span></code></pre></div>
-
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
-
                   
                   
-              
                   
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="post-category">
@@ -210,7 +214,6 @@ this.smalltoBIG(43533534.78); //肆仟叁佰伍拾叁万叁仟伍佰叁拾肆元
                     
                   </span>
                   
-
                   <div class="post-tags">
                     <i class="fa fa-tags fa-fw me-1"></i>
                     
@@ -221,7 +224,6 @@ this.smalltoBIG(43533534.78); //肆仟叁佰伍拾叁万叁仟伍佰叁拾肆元
                     </span>
                   
                   </div>
-
                   
                   
 
@@ -391,9 +393,7 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
               
 
             </div>
-
           </article>
-
           <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
 flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
   <p>
@@ -403,34 +403,7 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
   </p>
   <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
 </footer>
-
-<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
-<style>
-  .gotop {
-    position: fixed;
-    right: 20px;
-    bottom: 50px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #c6c3c3;
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.1s linear;
-    border: 1px solid #ccc;
-  }
-
-  .gotop:hover {
-    background: #ccc;
-  }
-</style>
-<script src="/js/main.js"></script>
         </main>
-
         
 
 
@@ -1386,7 +1359,6 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
       </div>
     </section>
 
-
     
 
     
@@ -1402,9 +1374,82 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
 
 </aside>
 
+
       </div>
     </div>
   </div>
 
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  const contentSelector = '.content'; 
+  const tocSelector = '#TableOfContents'; 
+
+  const headings = Array.from(document.querySelectorAll(`${contentSelector} h2, ${contentSelector} h3`));
+  const tocLinks = document.querySelectorAll(`${tocSelector} a`);
+  
+  if (headings.length === 0 || tocLinks.length === 0) {
+    return;
+  }
+
+  
+  const tocLinkMap = new Map();
+  tocLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href) {
+      tocLinkMap.set(href.substring(1), link);
+    }
+  });
+
+  let currentActiveLink = null; 
+
+  const observer = new IntersectionObserver(entries => {
+    
+    const visibleHeadings = entries
+      .filter(entry => entry.isIntersecting)
+      .map(entry => entry.target);
+
+    
+    if (visibleHeadings.length === 0) {
+      return;
+    }
+
+    
+    visibleHeadings.sort((a, b) => a.offsetTop - b.offsetTop);
+
+    
+    const topVisibleHeading = visibleHeadings[0];
+    const id = topVisibleHeading.getAttribute('id');
+    const newActiveLink = tocLinkMap.get(id);
+
+    
+    if (newActiveLink && newActiveLink !== currentActiveLink) {
+      
+      if (currentActiveLink) {
+        currentActiveLink.classList.remove('active');
+      }
+      
+      newActiveLink.classList.add('active');
+      
+      currentActiveLink = newActiveLink;
+    }
+  }, {
+    
+    
+    
+    rootMargin: '0px 0px -70% 0px',
+    threshold: 0.1 
+  });
+
+  headings.forEach(heading => observer.observe(heading));
+});
+</script>
+
+
+
+<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
+<script src="/js/main.js"></script>
 </body>
 </html>

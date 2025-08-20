@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
+<meta name="author" content="map[email:hi@zishu.me github:anghunk name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/172.html/" />
 <link rel="canonical" href="https://zishu.me/blog/172.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "安装一个基于 Github 的静态图床程序",
 "description" : " demo: https:\/\/img.zburu.com\/\n今天分享一下如何使用 Github 作为图床，首先就要推荐这个工具 picx。\nGithub 仓库：https:\/\/github.com\/XPoet\/picx\n本文的图片全部使用该工具上传，然后通过 Staticaly 进行 cdn 加速（这个在上传的时候自动生成链接。）\n可以设置自动压缩、转码成 webp 格式。\n基于 GitHub API 开发的具有 CDN 加速功能的图床管理工具。无需下载与安装，网页端在线使用！免费！稳定！便捷！极速！\n看了一下源码，vue 写的，全部都是纯静态化加上本地存储，所以说没有后端。\n也就是说我们也可以部署在自己域名下，不使用开发者提供的域名，虽然这么做没什么区别，但还是折腾一下吧。\n我会在最后提供一个打包好的链接（直接打包源码，不做任何修改），下载后自行上传到域名空间下即可使用。\n说明文档：https:\/\/picx-docs.xpoet.cn\/tutorial\/get-start.html\n这是官方说明，试用了一下，效果很棒。图床如何使用文档中标注的很清晰，我就不赘述了，本文只介绍如何编译打包，面向群友。\n过程很简单，需要提前准备好 node 环境。\n1.下载源码 直接去 https:\/\/github.com\/XPoet\/picx，然后 Download Zip。\n2.执行命令 下载后解压来到这个页面，然后在空白处鼠标右键，打开终端。\n如果你已经有 node 环境了，直接执行下面命令就可以，如果没有，先去安装一下 node 环境，这里就假设环境安装好了。（https:\/\/nodejs.org\/zh-cn\/）。\n下面这两种方式都可以，没有区别。\n# 安装依赖 # 这个过程因为网速问题可能比较慢 npm install #or yarn 依赖安装之后，就开始构建。\n# 构建 npm run build # or yarn build 构建完成之后就会生成一个 dist 文件夹，这就是打包好后的文件，里面有一个 index.html 和其他静态资源。\n3.我应该上传到哪里？ 这个时候只需要将他们上传到你想要访问的域名目录下即可。\n比如我使用的是 hugo 博客程序，先在 content 下新建一个文件夹，命名为 img，（你可以起任何名字，注意不要和其他文件名冲突即可。） 然后把 dist 文件夹下的所有文件全部复制到 \/content\/img\/ 文件夹下。\n这样在执行 hugo 命令后会打包到 public 文件夹下，然后直接访问 https:\/\/zburu.com\/img 就可以打宝图床。\n或者你自己上传到任何你想放的空间下都可以，没有限制~~\n图床如何使用对着文档琢磨即可，上面写的很详细。\nhttps:\/\/picx-docs.xpoet.cn\/tutorial\/get-start.html\n4.其他问题 如果后面开发者更新图床版本，可以从第一步重新操作，下载、构建、上传。 如果有其他问题，请在评论区留言~~\n",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:子舒]",
-"creator" : "map[email:hi@zishu.me name:子舒]",
-"publisher": "map[email:hi@zishu.me name:子舒]",
-"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
-"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
+"author" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"creator" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"publisher": "map[email:hi@zishu.me github:anghunk name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me github:anghunk name:子舒]",
 "copyrightYear" : "2022",
 "datePublished": "2022-10-22 00:00:00 \u002b0000 UTC",
 "dateModified" : "2022-10-22 00:00:00 \u002b0000 UTC",
@@ -98,7 +98,6 @@ https://picx-docs.xpoet.cn/tutorial/get-start.html
 <script src="/js/jquery-3.6.1.js"></script>
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
-
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
@@ -169,20 +168,31 @@ https://picx-docs.xpoet.cn/tutorial/get-start.html
     <span class="icon-border"></span>
     <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
         class="fab fa-github"></i></a>
-    <a href="mailto:anghunk@gmail.com" aria-label="email" target="_blank" rel="noopener noreferrer"><i
+    <a href="mailto:hi@zishu.me" aria-label="email" target="_blank" rel="noopener noreferrer"><i
         class="fas fa-envelope"></i>
     </a>
     <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
   </div>
 </aside>
-
   <div id="main-wrapper" class="d-flex justify-content-center">
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
     <nav id="breadcrumb" aria-label="Breadcrumb">
       <span> <a href="/">Home</a> </span>
+
+      
+      
+      <span>
+        
+        
+          <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+        
+      </span>
+      
+      
       <span>安装一个基于 Github 的静态图床程序</span>
+      
     </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
@@ -192,10 +202,8 @@ https://picx-docs.xpoet.cn/tutorial/get-start.html
   </div>
 </header>
       <div class="row flex-grow-1">
-
         <main class="col-12 col-lg-11 col-xl-9 px-md-4">
           <article class="px-1">
-
             <header>
               <h1 data-toc-skip="">安装一个基于 Github 的静态图床程序</h1>
               
@@ -208,7 +216,6 @@ https://picx-docs.xpoet.cn/tutorial/get-start.html
               </div>
               
             </header>
-
             <div class="content">
               
               <blockquote>
@@ -299,13 +306,10 @@ https://picx-docs.xpoet.cn/tutorial/get-start.html
 </ol>
 <p>如果有其他问题，请在评论区留言~~</p>
 
-
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
-
                   
                   
-              
                   
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="post-category">
@@ -315,7 +319,6 @@ https://picx-docs.xpoet.cn/tutorial/get-start.html
                     
                   </span>
                   
-
                   <div class="post-tags">
                     <i class="fa fa-tags fa-fw me-1"></i>
                     
@@ -328,7 +331,6 @@ https://picx-docs.xpoet.cn/tutorial/get-start.html
                     </span>
                   
                   </div>
-
                   
                   
 
@@ -498,9 +500,7 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
               
 
             </div>
-
           </article>
-
           <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
 flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
   <p>
@@ -510,34 +510,7 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
   </p>
   <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
 </footer>
-
-<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
-<style>
-  .gotop {
-    position: fixed;
-    right: 20px;
-    bottom: 50px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #c6c3c3;
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.1s linear;
-    border: 1px solid #ccc;
-  }
-
-  .gotop:hover {
-    background: #ccc;
-  }
-</style>
-<script src="/js/main.js"></script>
         </main>
-
         
 
 
@@ -1493,7 +1466,6 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
       </div>
     </section>
 
-
     
 
     
@@ -1520,9 +1492,82 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
 
 </aside>
 
+
       </div>
     </div>
   </div>
 
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  const contentSelector = '.content'; 
+  const tocSelector = '#TableOfContents'; 
+
+  const headings = Array.from(document.querySelectorAll(`${contentSelector} h2, ${contentSelector} h3`));
+  const tocLinks = document.querySelectorAll(`${tocSelector} a`);
+  
+  if (headings.length === 0 || tocLinks.length === 0) {
+    return;
+  }
+
+  
+  const tocLinkMap = new Map();
+  tocLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href) {
+      tocLinkMap.set(href.substring(1), link);
+    }
+  });
+
+  let currentActiveLink = null; 
+
+  const observer = new IntersectionObserver(entries => {
+    
+    const visibleHeadings = entries
+      .filter(entry => entry.isIntersecting)
+      .map(entry => entry.target);
+
+    
+    if (visibleHeadings.length === 0) {
+      return;
+    }
+
+    
+    visibleHeadings.sort((a, b) => a.offsetTop - b.offsetTop);
+
+    
+    const topVisibleHeading = visibleHeadings[0];
+    const id = topVisibleHeading.getAttribute('id');
+    const newActiveLink = tocLinkMap.get(id);
+
+    
+    if (newActiveLink && newActiveLink !== currentActiveLink) {
+      
+      if (currentActiveLink) {
+        currentActiveLink.classList.remove('active');
+      }
+      
+      newActiveLink.classList.add('active');
+      
+      currentActiveLink = newActiveLink;
+    }
+  }, {
+    
+    
+    
+    rootMargin: '0px 0px -70% 0px',
+    threshold: 0.1 
+  });
+
+  headings.forEach(heading => observer.observe(heading));
+});
+</script>
+
+
+
+<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
+<script src="/js/main.js"></script>
 </body>
 </html>

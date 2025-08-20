@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
+<meta name="author" content="map[email:hi@zishu.me github:anghunk name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/102.html/" />
 <link rel="canonical" href="https://zishu.me/blog/102.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "Nuxt.js 如何部署 Artalk 和遇到的问题",
 "description" : "花了两天时间，终于把 Artalk 部署好了，一款数据自托管带后端的评论程序，非常适合我。这篇文章就介绍一下我部署的流程，以及我在部署过程中遇到的一些问题，将它记录一下，以便之后研究，顺便对使用 Nuxt.js 搭建博客的伙伴提供一些参考价值。\nArtalk 地址：https:\/\/artalk.js.org\/\n这篇文章我将分为三个部分，后端部署、前端部署、问题研究。\n1.后端部署 官方有两个版本，注意分辨，php 和 go，对应的是不同的仓库，目前官方文档写的默认都是 go 语言开发的。\nArtalkGo 仓库：https:\/\/github.com\/ArtalkJS\/ArtalkGo\n我使用的也是 go 版本，功能和优化都比较好。\ndocker 构建 \u002b 宝塔 我的服务器是 Ubuntu 20.04，其他版本类似，没有很大不同。\n首先，使用 ssh 连接服务器。\nsudo su # 启用sudo模式 cd \/www\/wwwroot\/ # 进入站点目录 mkdir ArtalkGo cd ArtalkGo # 为 ArtalkGo 创建一个目录 curl -L https:\/\/raw.githubusercontent.com\/ArtalkJS\/ArtalkGo\/master\/artalk-go.example.yml \u0026gt; conf.yml # 下载配置文件模版 到这里之后，官方说的是用 vim conf.yml 进入配置文件，修改参数然后配置。我不是很建议，因为用着并不是那么顺手（因为我菜），我建议直接到达 \/www\/wwwroot\/ArtalkGo 目录下修改 conf.yml 文件，文本模式操作起来更顺手。\n里面的配置基本都是站点名称，管理员，邮箱等设置，没什么大问题。除此之外，端口等参数都不用碰，不然会报错。\n配置完文件之后直接保存就行了。\n在宝塔插件里面下载 Docker 管理器，点击镜像管理。\n然后在镜像名称输入 artalk\/artalk-go 点击获取镜像即可，大概两分钟就下载结束了。\n然后回到 ssh 连接，新建 docker 容器。\ndocker run -d \\ --name artalk-go \\ -p 0.0.0.0:8080:23366 \\ -v $(pwd)\/conf.yml:\/conf.yml \\ -v $(pwd)\/data:\/data \\ artalk\/artalk-go 将上面的命令行在命令行，直接回车就行了。\n这个时候需要去你的服务器厂商那里放行端口 8080 ，如果之前放行过不用管，没有放行的话需要去设置一下。\n然后在浏览器输入 http:\/\/ip地址:8080 。\n如果出现现在这个页面，说明你部署成功了，如果打不开或者是其他情况，请检查是否成功执行上面的步骤。\n如果之后修改配置文件了，一定要注意在修改之后执行命令，需要重启服务才能生效。\ndocker restart artalk-go 反向代理 这个如果使用宝塔太简单，就不细说了。\nhttps:\/\/artalk.js.org\/guide\/backend\/reverse-proxy.html#%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF\n文档已经说得很详细，如果出现操作失败的情况可以在下面评论。\n2.前端部署 博客使用 vue \u002b nuxt 开发。\n我使用的是通过 cdn 引入的，npm 我目前发现和我博客有些冲突，暂时不使用该方式。\n先在 \/components 目录下新建一个组件名为 Comments.vue\n\u0026lt;!-- Comments.vue --\u0026gt; \u0026lt;template\u0026gt; \u0026lt;div class=\u0026#34;wrapper\u0026#34;\u0026gt; \u0026lt;link href=\u0026#34;https:\/\/cdn.jsdelivr.net\/npm\/artalk@2.1.4\/dist\/Artalk.css\u0026#34; rel=\u0026#34;stylesheet\u0026#34;\u0026gt; \u0026lt;script src=\u0026#34;https:\/\/cdn.jsdelivr.net\/npm\/artalk@2.1.4\/dist\/Artalk.js\u0026#34;\u0026gt;\u0026lt;\/script\u0026gt; \u0026lt;div id=\u0026#34;Comments\u0026#34;\u0026gt;\u0026lt;\/div\u0026gt; \u0026lt;\/div\u0026gt; \u0026lt;\/template\u0026gt; \u0026lt;script\u0026gt; export default { name: \u0026#39;Comments\u0026#39;, } \u0026lt;\/script\u0026gt; \u0026lt;style lang=\u0026#34;scss\u0026#34; scoped\u0026gt; \u0026lt;!-- css代码 --\u0026gt; \u0026lt;\/style\u0026gt; 配置代码我单独放在 \/static\/main.js ，然后在 nuxt.config.js 引入。\n\/\/ nuxt.config.js head: { title: \u0026#39;子舒的博客 | imhan.cn\u0026#39;, meta: [ \/\/ ... ] script: [ { src: \u0026#39;\/js\/main.js\u0026#39; }, ] }, 在 main.js 中配置 Artick。\nnew Artalk({ el: \u0026#34;#Comments\u0026#34;, server: \u0026#39;https:\/\/域名\/api\u0026#39;, site: \u0026#34;子舒的博客\u0026#34;, placeholder: \u0026#39;说点什么...\u0026#39;, gravatar: { mirror: \u0026#39;https:\/\/sdn.geekzu.org\/avatar\/\u0026#39;, default: \u0026#39;mp\u0026#39;, }, pagination: { pageSize: 15, \/\/ 每页评论数 readMore: true, \/\/ 加载更多 or 分页条 autoLoad: true, \/\/ 自动加载 (加载更多) }, heightLimit: { content: 200, \/\/ 评论内容限高 children: 300, \/\/ 子评论区域限高 }, versionCheck: true, \/\/ 前端版本检测 }); 还有一个方案就是将文件放在服务器或者 github，将它引入，不过有些舍本逐末了，不是很建议。\n3.问题研究 1. 关于评论路径问题\n提交评论之后会在管理后台生成一个列表，表示哪个路径产生了评论，\n如果想把某个页面评论转到其他页面，可以直接修改页面的 url，点击KEY变更。\nArtalk 的路径判断很严格，包括 https:\/\/example.com\/1 和 https:\/\/example.com\/1\/ 的评论就属于两个页面。\n问过作者，觉得他的说法很有道理\nqwqcode: https:\/\/example.com\/1 和 https:\/\/example.com\/1\/ 本来就不属于相同路径，后者等价于 https:\/\/example.com\/1\/index.html (和 web 服务器配置有关)\n所以我直接在我博客里把路径然后默认加一个 \/ 符号，不管打开哪个页面都会跳转到带有 \/ 的 url，也是非常简单粗暴的解决了这个问题。\npath: \u0060\/posts\/${key.replace(\u0026#39;.md\u0026#39;, \u0026#39;\u0026#39;).replace(\u0026#39;.\/\u0026#39;, \u0026#39;\u0026#39;)}\/\u0060 2. localhost:3000 和域名\n由此引发的另一个问题就是我在本地构建 localhost:3000 是不会显示域名后的评论，这个问题也不是大问题，我研究过 Artalk 文档，因为他是一个后端，可以多个前端使用，如果仅仅判断二级目录会造成一个很大的问题。\nhttps:\/\/a.com\/1 和 https:\/\/b.com\/1 这两个页面使用了同一套评论数据，所以为了避免这个情况，在判断路径时直接加上域名，这样的话，域名下的评论自然不会同步到 localhost:3000 。\n这对我开发博客来说没有什么影响，所以就不打算解决了。\n这是我目前遇到的问题，我会在后续的使用中持续更新本文，以作留存。\n",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:子舒]",
-"creator" : "map[email:hi@zishu.me name:子舒]",
-"publisher": "map[email:hi@zishu.me name:子舒]",
-"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
-"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
+"author" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"creator" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"publisher": "map[email:hi@zishu.me github:anghunk name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me github:anghunk name:子舒]",
 "copyrightYear" : "2022",
 "datePublished": "2022-02-18 00:00:00 \u002b0000 UTC",
 "dateModified" : "2022-02-18 00:00:00 \u002b0000 UTC",
@@ -128,7 +128,6 @@ https://a.com/1 和 https://b.com/1 这两个页面使用了同一套评论数�
 <script src="/js/jquery-3.6.1.js"></script>
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
-
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
@@ -199,20 +198,31 @@ https://a.com/1 和 https://b.com/1 这两个页面使用了同一套评论数�
     <span class="icon-border"></span>
     <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
         class="fab fa-github"></i></a>
-    <a href="mailto:anghunk@gmail.com" aria-label="email" target="_blank" rel="noopener noreferrer"><i
+    <a href="mailto:hi@zishu.me" aria-label="email" target="_blank" rel="noopener noreferrer"><i
         class="fas fa-envelope"></i>
     </a>
     <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
   </div>
 </aside>
-
   <div id="main-wrapper" class="d-flex justify-content-center">
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
     <nav id="breadcrumb" aria-label="Breadcrumb">
       <span> <a href="/">Home</a> </span>
+
+      
+      
+      <span>
+        
+        
+          <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+        
+      </span>
+      
+      
       <span>Nuxt.js 如何部署 Artalk 和遇到的问题</span>
+      
     </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
@@ -222,10 +232,8 @@ https://a.com/1 和 https://b.com/1 这两个页面使用了同一套评论数�
   </div>
 </header>
       <div class="row flex-grow-1">
-
         <main class="col-12 col-lg-11 col-xl-9 px-md-4">
           <article class="px-1">
-
             <header>
               <h1 data-toc-skip="">Nuxt.js 如何部署 Artalk 和遇到的问题</h1>
               
@@ -238,7 +246,6 @@ https://a.com/1 和 https://b.com/1 这两个页面使用了同一套评论数�
               </div>
               
             </header>
-
             <div class="content">
               
               <p>花了两天时间，终于把 Artalk 部署好了，一款数据自托管带后端的评论程序，非常适合我。这篇文章就介绍一下我部署的流程，以及我在部署过程中遇到的一些问题，将它记录一下，以便之后研究，顺便对使用 Nuxt.js 搭建博客的伙伴提供一些参考价值。</p>
@@ -401,13 +408,10 @@ https://a.com/1 和 https://b.com/1 这两个页面使用了同一套评论数�
 <hr>
 <p>这是我目前遇到的问题，我会在后续的使用中持续更新本文，以作留存。</p>
 
-
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
-
                   
                   
-              
                   
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="post-category">
@@ -417,7 +421,6 @@ https://a.com/1 和 https://b.com/1 这两个页面使用了同一套评论数�
                     
                   </span>
                   
-
                   <div class="post-tags">
                     <i class="fa fa-tags fa-fw me-1"></i>
                     
@@ -430,7 +433,6 @@ https://a.com/1 和 https://b.com/1 这两个页面使用了同一套评论数�
                     </span>
                   
                   </div>
-
                   
                   
 
@@ -600,9 +602,7 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
               
 
             </div>
-
           </article>
-
           <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
 flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
   <p>
@@ -612,34 +612,7 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
   </p>
   <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
 </footer>
-
-<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
-<style>
-  .gotop {
-    position: fixed;
-    right: 20px;
-    bottom: 50px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #c6c3c3;
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.1s linear;
-    border: 1px solid #ccc;
-  }
-
-  .gotop:hover {
-    background: #ccc;
-  }
-</style>
-<script src="/js/main.js"></script>
         </main>
-
         
 
 
@@ -1595,7 +1568,6 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
       </div>
     </section>
 
-
     
 
     
@@ -1622,9 +1594,82 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
 
 </aside>
 
+
       </div>
     </div>
   </div>
 
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  const contentSelector = '.content'; 
+  const tocSelector = '#TableOfContents'; 
+
+  const headings = Array.from(document.querySelectorAll(`${contentSelector} h2, ${contentSelector} h3`));
+  const tocLinks = document.querySelectorAll(`${tocSelector} a`);
+  
+  if (headings.length === 0 || tocLinks.length === 0) {
+    return;
+  }
+
+  
+  const tocLinkMap = new Map();
+  tocLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href) {
+      tocLinkMap.set(href.substring(1), link);
+    }
+  });
+
+  let currentActiveLink = null; 
+
+  const observer = new IntersectionObserver(entries => {
+    
+    const visibleHeadings = entries
+      .filter(entry => entry.isIntersecting)
+      .map(entry => entry.target);
+
+    
+    if (visibleHeadings.length === 0) {
+      return;
+    }
+
+    
+    visibleHeadings.sort((a, b) => a.offsetTop - b.offsetTop);
+
+    
+    const topVisibleHeading = visibleHeadings[0];
+    const id = topVisibleHeading.getAttribute('id');
+    const newActiveLink = tocLinkMap.get(id);
+
+    
+    if (newActiveLink && newActiveLink !== currentActiveLink) {
+      
+      if (currentActiveLink) {
+        currentActiveLink.classList.remove('active');
+      }
+      
+      newActiveLink.classList.add('active');
+      
+      currentActiveLink = newActiveLink;
+    }
+  }, {
+    
+    
+    
+    rootMargin: '0px 0px -70% 0px',
+    threshold: 0.1 
+  });
+
+  headings.forEach(heading => observer.observe(heading));
+});
+</script>
+
+
+
+<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
+<script src="/js/main.js"></script>
 </body>
 </html>

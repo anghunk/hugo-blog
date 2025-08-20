@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
+<meta name="author" content="map[email:hi@zishu.me github:anghunk name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/171.html/" />
 <link rel="canonical" href="https://zishu.me/blog/171.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "localStorage 的相关运用",
 "description" : "localStorage 是浏览器自带的一个属性，只读的 localStorage 属性允许你访问一个 Document 源（origin）的对象 Storage；存储的数据将保存在浏览器会话中。localStorage 类似 sessionStorage，但其区别在于：存储在 localStorage 的数据可以长期保留；而当页面会话结束——也就是说，当页面被关闭时，存储在 sessionStorage 的数据会被清除。\n应注意，无论数据存储在 localStorage 还是 sessionStorage，它们都特定于页面的协议。\n另外，localStorage 中的键值对总是以字符串的形式存储。 (需要注意，和 js 对象相比，键值对总是以字符串的形式存储意味着数值类型会自动转化为字符串类型).\nlocalStorage 的使用也非常简单，分为存入和读取，可以将其绑定在事件方法中。\n\/\/ 存入 const arr= 100; localStorage.setItem(\u0026#34;key\u0026#34;, JSON.stringify(arr)); \/\/ 读取 const arr = JSON.parse(localStorage.getItem(\u0026#34;key\u0026#34;)); 这里 \u0026quot;key\u0026quot; 指的是存到浏览器中的参数名，arr 则是参数值。\nlocalStorage.setItem(\u0026quot;key\u0026quot;, JSON.stringify(arr)); 这个方法就是将数组 arr 存到了浏览器的 localStorage 中，它的参数名叫 key const arr = JSON.parse(localStorage.getItem(\u0026quot;key\u0026quot;)); 就是读取浏览器中参数名为 key 的参数值。 比如静态保存某个设置参数，可以将其写入数组中，然后通过 localStorage 存储，原本刷新就会显示默认设置，现在可以在每次刷新的适合读取存入的参数。\n在一些场景下非常好用，比如开发一个油猴脚本等等。\n清除 localStorage，分为清除所以的存储值和清除某个特定的 key。\n\/\/ 清除本地存储中的所有值 localStorage.clear(); \/\/ 本地存储中删除特定项 localStorage.removeItem(key); ",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:子舒]",
-"creator" : "map[email:hi@zishu.me name:子舒]",
-"publisher": "map[email:hi@zishu.me name:子舒]",
-"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
-"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
+"author" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"creator" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"publisher": "map[email:hi@zishu.me github:anghunk name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me github:anghunk name:子舒]",
 "copyrightYear" : "2022",
 "datePublished": "2022-10-20 00:00:00 \u002b0000 UTC",
 "dateModified" : "2022-10-20 00:00:00 \u002b0000 UTC",
@@ -64,7 +64,6 @@ localStorage.setItem(&quot;key&quot;, JSON.stringify(arr)); 这个方法就是�
 <script src="/js/jquery-3.6.1.js"></script>
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
-
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
@@ -135,20 +134,31 @@ localStorage.setItem(&quot;key&quot;, JSON.stringify(arr)); 这个方法就是�
     <span class="icon-border"></span>
     <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
         class="fab fa-github"></i></a>
-    <a href="mailto:anghunk@gmail.com" aria-label="email" target="_blank" rel="noopener noreferrer"><i
+    <a href="mailto:hi@zishu.me" aria-label="email" target="_blank" rel="noopener noreferrer"><i
         class="fas fa-envelope"></i>
     </a>
     <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
   </div>
 </aside>
-
   <div id="main-wrapper" class="d-flex justify-content-center">
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
     <nav id="breadcrumb" aria-label="Breadcrumb">
       <span> <a href="/">Home</a> </span>
+
+      
+      
+      <span>
+        
+        
+          <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+        
+      </span>
+      
+      
       <span>localStorage 的相关运用</span>
+      
     </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
@@ -158,10 +168,8 @@ localStorage.setItem(&quot;key&quot;, JSON.stringify(arr)); 这个方法就是�
   </div>
 </header>
       <div class="row flex-grow-1">
-
         <main class="col-12 col-lg-11 col-xl-9 px-md-4">
           <article class="px-1">
-
             <header>
               <h1 data-toc-skip="">localStorage 的相关运用</h1>
               
@@ -174,7 +182,6 @@ localStorage.setItem(&quot;key&quot;, JSON.stringify(arr)); 这个方法就是�
               </div>
               
             </header>
-
             <div class="content">
               
               <p>localStorage 是浏览器自带的一个属性，只读的 localStorage 属性允许你访问一个 Document 源（origin）的对象 Storage；存储的数据将保存在浏览器会话中。localStorage 类似 sessionStorage，但其区别在于：存储在 localStorage 的数据可以长期保留；而当页面会话结束——也就是说，当页面被关闭时，存储在 sessionStorage 的数据会被清除。</p>
@@ -209,13 +216,10 @@ localStorage.setItem(&quot;key&quot;, JSON.stringify(arr)); 这个方法就是�
 </span></span><span class="line"><span class="cl"><span class="c1">// 本地存储中删除特定项
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
 </span></span></code></pre></div>
-
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
-
                   
                   
-              
                   
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="post-category">
@@ -225,7 +229,6 @@ localStorage.setItem(&quot;key&quot;, JSON.stringify(arr)); 这个方法就是�
                     
                   </span>
                   
-
                   <div class="post-tags">
                     <i class="fa fa-tags fa-fw me-1"></i>
                     
@@ -236,7 +239,6 @@ localStorage.setItem(&quot;key&quot;, JSON.stringify(arr)); 这个方法就是�
                     </span>
                   
                   </div>
-
                   
                   
 
@@ -406,9 +408,7 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
               
 
             </div>
-
           </article>
-
           <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
 flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
   <p>
@@ -418,34 +418,7 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
   </p>
   <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
 </footer>
-
-<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
-<style>
-  .gotop {
-    position: fixed;
-    right: 20px;
-    bottom: 50px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #c6c3c3;
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.1s linear;
-    border: 1px solid #ccc;
-  }
-
-  .gotop:hover {
-    background: #ccc;
-  }
-</style>
-<script src="/js/main.js"></script>
         </main>
-
         
 
 
@@ -1401,7 +1374,6 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
       </div>
     </section>
 
-
     
 
     
@@ -1417,9 +1389,82 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
 
 </aside>
 
+
       </div>
     </div>
   </div>
 
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  const contentSelector = '.content'; 
+  const tocSelector = '#TableOfContents'; 
+
+  const headings = Array.from(document.querySelectorAll(`${contentSelector} h2, ${contentSelector} h3`));
+  const tocLinks = document.querySelectorAll(`${tocSelector} a`);
+  
+  if (headings.length === 0 || tocLinks.length === 0) {
+    return;
+  }
+
+  
+  const tocLinkMap = new Map();
+  tocLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href) {
+      tocLinkMap.set(href.substring(1), link);
+    }
+  });
+
+  let currentActiveLink = null; 
+
+  const observer = new IntersectionObserver(entries => {
+    
+    const visibleHeadings = entries
+      .filter(entry => entry.isIntersecting)
+      .map(entry => entry.target);
+
+    
+    if (visibleHeadings.length === 0) {
+      return;
+    }
+
+    
+    visibleHeadings.sort((a, b) => a.offsetTop - b.offsetTop);
+
+    
+    const topVisibleHeading = visibleHeadings[0];
+    const id = topVisibleHeading.getAttribute('id');
+    const newActiveLink = tocLinkMap.get(id);
+
+    
+    if (newActiveLink && newActiveLink !== currentActiveLink) {
+      
+      if (currentActiveLink) {
+        currentActiveLink.classList.remove('active');
+      }
+      
+      newActiveLink.classList.add('active');
+      
+      currentActiveLink = newActiveLink;
+    }
+  }, {
+    
+    
+    
+    rootMargin: '0px 0px -70% 0px',
+    threshold: 0.1 
+  });
+
+  headings.forEach(heading => observer.observe(heading));
+});
+</script>
+
+
+
+<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
+<script src="/js/main.js"></script>
 </body>
 </html>

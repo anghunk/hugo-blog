@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
+<meta name="author" content="map[email:hi@zishu.me github:anghunk name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/24.html/" />
 <link rel="canonical" href="https://zishu.me/blog/24.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "vue 使用 cli 脚手架构建项目工程",
 "description" : "vue 使用 cli 脚手架构建项目工程，执行的命令以及遇到的相关的问题\n1.下载安装 node 测试一下是否成功安装，\n$ node -v \/\/ 返回下载的版本号 2.安装 webpack 环境 $ npm install webpack -g \/\/ 如果失败，可能是因为用户没有权限 \/\/ 使用下面这种，管理员权限 $ sudo npm install webpack -g 如果返回版本号代表成功，如果没有，则需要输入下面的命令\n$ npm install webpack webpack-cli -g webpack 4.X 开始，需要安装 webpack-cli 依赖\n3.全局安装 vue-cli $ npm install --global vue-cli \/\/ 如果失败，使用sudo $ sudo npm install --global vue-cli 安装完成之后，输入\n$ vue -V 如果返会版本号，说明安装成功\n4.构建项目 前面那些命令执行完之后，就可以构建 ci 项目了，找到我们想要放置项目的文件夹，进入终端，cd 到这个文件夹\n输入命令：\n$ vue init webpack vuedemo \/\/ 名字自己根据要求起,vuedemo Project name (vuedomo)： \u0026mdash;\u0026ndash;项目名称，直接回车，按照括号中默认名字（注意这里的名字不能有大写字母，如果有会报错 Sorry, name can no longer contain capital letters） Project description (A Vue.js project)： \u0026mdash;-项目描述，也可直接点击回车，使用默认名字 Author ()： \u0026mdash;-作者，输入你的大名 Runtime \u002b Compiler: recommended for most users 运行加编译，既然已经说了推荐，就选它了 Runtime-only: about 6KB lighter min\u002bgzip, but templates (or any Vue-specificHTML) are ONLY allowed in .vue files - render functions are required elsewhere 仅运行时，已经有推荐了就选择第一个了 Install vue-router? (Y\/n) 是否安装 vue-router，这是官方的路由，大多数情况下都使用，这里就输入“y”后回车即可。 Use ESLint to lint your code? (Y\/n) 是否使用 ESLint 管理代码，ESLint 是个代码风格管理工具，是用来统一代码风格的，一般项目中都会使用。 接下来也是选择题 Pick an ESLint preset (Use arrow keys) 选择一个 ESLint 预设，编写 vue 项目时的代码风格，直接 y 回车 Setup unit tests with Karma \u002b Mocha? (Y\/n) 是否安装单元测试，我选择安装 y 回车 Setup e2e tests with Nightwatch(Y\/n)? 是否安装 e2e 测试，我选择安装 y 回车 然后就是缓慢的构建过程，等到构建完成，cd 进入构建的项目\n$ cd vuedemo 然后安装需要的依赖\n$ npm install 5.运行项目 运行命令，看看是否能够成功运行项目\n$ npm run dev 根据提示，浏览器输入http:\/\/localhost:8080\n如果端口打不开，肯能是因为被占用了，需要修改配置文件，config \u0026gt; index.js\n查看项目工程目录\n6.其他 一些其他相关的指令\n$ npm run build \/\/ 项目完成之后打包 打包完成之后，会在根目录下生成一个 dist 文件夹，需要修改配置文件的路径，可以在本地查看\n项目上线发布，直接上传 dist 到服务器即可\n",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:子舒]",
-"creator" : "map[email:hi@zishu.me name:子舒]",
-"publisher": "map[email:hi@zishu.me name:子舒]",
-"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
-"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
+"author" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"creator" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"publisher": "map[email:hi@zishu.me github:anghunk name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me github:anghunk name:子舒]",
 "copyrightYear" : "2020",
 "datePublished": "2020-11-20 00:00:00 \u002b0000 UTC",
 "dateModified" : "2020-11-20 00:00:00 \u002b0000 UTC",
@@ -82,7 +82,6 @@ $ npm run build // 项目完成之后打包 打包完成之后，会在根目录
 <script src="/js/jquery-3.6.1.js"></script>
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
-
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
@@ -153,20 +152,31 @@ $ npm run build // 项目完成之后打包 打包完成之后，会在根目录
     <span class="icon-border"></span>
     <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
         class="fab fa-github"></i></a>
-    <a href="mailto:anghunk@gmail.com" aria-label="email" target="_blank" rel="noopener noreferrer"><i
+    <a href="mailto:hi@zishu.me" aria-label="email" target="_blank" rel="noopener noreferrer"><i
         class="fas fa-envelope"></i>
     </a>
     <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
   </div>
 </aside>
-
   <div id="main-wrapper" class="d-flex justify-content-center">
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
     <nav id="breadcrumb" aria-label="Breadcrumb">
       <span> <a href="/">Home</a> </span>
+
+      
+      
+      <span>
+        
+        
+          <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+        
+      </span>
+      
+      
       <span>vue 使用 cli 脚手架构建项目工程</span>
+      
     </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
@@ -176,10 +186,8 @@ $ npm run build // 项目完成之后打包 打包完成之后，会在根目录
   </div>
 </header>
       <div class="row flex-grow-1">
-
         <main class="col-12 col-lg-11 col-xl-9 px-md-4">
           <article class="px-1">
-
             <header>
               <h1 data-toc-skip="">vue 使用 cli 脚手架构建项目工程</h1>
               
@@ -192,7 +200,6 @@ $ npm run build // 项目完成之后打包 打包完成之后，会在根目录
               </div>
               
             </header>
-
             <div class="content">
               
               <p>vue 使用 cli 脚手架构建项目工程，执行的命令以及遇到的相关的问题</p>
@@ -259,13 +266,10 @@ Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specificHTML
 </span></span></code></pre></div><p>打包完成之后，会在根目录下生成一个 dist 文件夹，需要修改配置文件的路径，可以在本地查看</p>
 <p>项目上线发布，直接上传 dist 到服务器即可</p>
 
-
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
-
                   
                   
-              
                   
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="post-category">
@@ -275,7 +279,6 @@ Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specificHTML
                     
                   </span>
                   
-
                   <div class="post-tags">
                     <i class="fa fa-tags fa-fw me-1"></i>
                     
@@ -286,7 +289,6 @@ Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specificHTML
                     </span>
                   
                   </div>
-
                   
                   
 
@@ -456,9 +458,7 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
               
 
             </div>
-
           </article>
-
           <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
 flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
   <p>
@@ -468,34 +468,7 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
   </p>
   <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
 </footer>
-
-<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
-<style>
-  .gotop {
-    position: fixed;
-    right: 20px;
-    bottom: 50px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #c6c3c3;
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.1s linear;
-    border: 1px solid #ccc;
-  }
-
-  .gotop:hover {
-    background: #ccc;
-  }
-</style>
-<script src="/js/main.js"></script>
         </main>
-
         
 
 
@@ -1451,7 +1424,6 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
       </div>
     </section>
 
-
     
 
     
@@ -1480,9 +1452,82 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
 
 </aside>
 
+
       </div>
     </div>
   </div>
 
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  const contentSelector = '.content'; 
+  const tocSelector = '#TableOfContents'; 
+
+  const headings = Array.from(document.querySelectorAll(`${contentSelector} h2, ${contentSelector} h3`));
+  const tocLinks = document.querySelectorAll(`${tocSelector} a`);
+  
+  if (headings.length === 0 || tocLinks.length === 0) {
+    return;
+  }
+
+  
+  const tocLinkMap = new Map();
+  tocLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href) {
+      tocLinkMap.set(href.substring(1), link);
+    }
+  });
+
+  let currentActiveLink = null; 
+
+  const observer = new IntersectionObserver(entries => {
+    
+    const visibleHeadings = entries
+      .filter(entry => entry.isIntersecting)
+      .map(entry => entry.target);
+
+    
+    if (visibleHeadings.length === 0) {
+      return;
+    }
+
+    
+    visibleHeadings.sort((a, b) => a.offsetTop - b.offsetTop);
+
+    
+    const topVisibleHeading = visibleHeadings[0];
+    const id = topVisibleHeading.getAttribute('id');
+    const newActiveLink = tocLinkMap.get(id);
+
+    
+    if (newActiveLink && newActiveLink !== currentActiveLink) {
+      
+      if (currentActiveLink) {
+        currentActiveLink.classList.remove('active');
+      }
+      
+      newActiveLink.classList.add('active');
+      
+      currentActiveLink = newActiveLink;
+    }
+  }, {
+    
+    
+    
+    rootMargin: '0px 0px -70% 0px',
+    threshold: 0.1 
+  });
+
+  headings.forEach(heading => observer.observe(heading));
+});
+</script>
+
+
+
+<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
+<script src="/js/main.js"></script>
 </body>
 </html>

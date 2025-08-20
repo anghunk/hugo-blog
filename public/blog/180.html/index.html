@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
+<meta name="author" content="map[email:hi@zishu.me github:anghunk name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/180.html/" />
 <link rel="canonical" href="https://zishu.me/blog/180.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "分享一个页面点击特效",
 "description" : "点击页面时可以弹出随机颜色小心心，目前我的网站就使用了这个特效。\n直接将下面的代码复制到引入的 js 文件中即可，不用进行其他配置。\n!function(e,t,a){function n(){c(\u0026#34;.heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: \u0026#39;\u0026#39;;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}\u0026#34;),o(),r()}function r(){for(var e=0;e\u0026lt;d.length;e\u002b\u002b)d[e].alpha\u0026lt;=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale\u002b=.004,d[e].alpha-=.013,d[e].el.style.cssText=\u0026#34;left:\u0026#34;\u002bd[e].x\u002b\u0026#34;px;top:\u0026#34;\u002bd[e].y\u002b\u0026#34;px;opacity:\u0026#34;\u002bd[e].alpha\u002b\u0026#34;;transform:scale(\u0026#34;\u002bd[e].scale\u002b\u0026#34;,\u0026#34;\u002bd[e].scale\u002b\u0026#34;) rotate(45deg);background:\u0026#34;\u002bd[e].color\u002b\u0026#34;;z-index:99999\u0026#34;);requestAnimationFrame(r)}function o(){var t=\u0026#34;function\u0026#34;==typeof e.onclick\u0026amp;\u0026amp;e.onclick;e.onclick=function(e){t\u0026amp;\u0026amp;t(),i(e)}}function i(e){var a=t.createElement(\u0026#34;div\u0026#34;);a.className=\u0026#34;heart\u0026#34;,d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement(\u0026#34;style\u0026#34;);a.type=\u0026#34;text\/css\u0026#34;;try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName(\u0026#34;head\u0026#34;)[0].appendChild(a)}function s(){return\u0026#34;rgb(\u0026#34;\u002b~~(255*Math.random())\u002b\u0026#34;,\u0026#34;\u002b~~(255*Math.random())\u002b\u0026#34;,\u0026#34;\u002b~~(255*Math.random())\u002b\u0026#34;)\u0026#34;}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3\/60)}}(),n()}(window,document); ",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:子舒]",
-"creator" : "map[email:hi@zishu.me name:子舒]",
-"publisher": "map[email:hi@zishu.me name:子舒]",
-"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
-"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
+"author" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"creator" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"publisher": "map[email:hi@zishu.me github:anghunk name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me github:anghunk name:子舒]",
 "copyrightYear" : "2023",
 "datePublished": "2023-01-06 00:00:00 \u002b0000 UTC",
 "dateModified" : "2023-01-06 00:00:00 \u002b0000 UTC",
@@ -52,7 +52,6 @@
 <script src="/js/jquery-3.6.1.js"></script>
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
-
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
@@ -123,20 +122,31 @@
     <span class="icon-border"></span>
     <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
         class="fab fa-github"></i></a>
-    <a href="mailto:anghunk@gmail.com" aria-label="email" target="_blank" rel="noopener noreferrer"><i
+    <a href="mailto:hi@zishu.me" aria-label="email" target="_blank" rel="noopener noreferrer"><i
         class="fas fa-envelope"></i>
     </a>
     <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
   </div>
 </aside>
-
   <div id="main-wrapper" class="d-flex justify-content-center">
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
     <nav id="breadcrumb" aria-label="Breadcrumb">
       <span> <a href="/">Home</a> </span>
+
+      
+      
+      <span>
+        
+        
+          <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+        
+      </span>
+      
+      
       <span>分享一个页面点击特效</span>
+      
     </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
@@ -146,10 +156,8 @@
   </div>
 </header>
       <div class="row flex-grow-1">
-
         <main class="col-12 col-lg-11 col-xl-9 px-md-4">
           <article class="px-1">
-
             <header>
               <h1 data-toc-skip="">分享一个页面点击特效</h1>
               
@@ -162,20 +170,16 @@
               </div>
               
             </header>
-
             <div class="content">
               
               <p>点击页面时可以弹出随机颜色小心心，目前我的网站就使用了这个特效。</p>
 <p>直接将下面的代码复制到引入的 js 文件中即可，不用进行其他配置。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span><span class="nx">t</span><span class="p">,</span><span class="nx">a</span><span class="p">){</span><span class="kd">function</span> <span class="nx">n</span><span class="p">(){</span><span class="nx">c</span><span class="p">(</span><span class="s2">&#34;.heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: &#39;&#39;;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}&#34;</span><span class="p">),</span><span class="nx">o</span><span class="p">(),</span><span class="nx">r</span><span class="p">()}</span><span class="kd">function</span> <span class="nx">r</span><span class="p">(){</span><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">e</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">e</span><span class="o">&lt;</span><span class="nx">d</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">e</span><span class="o">++</span><span class="p">)</span><span class="nx">d</span><span class="p">[</span><span class="nx">e</span><span class="p">].</span><span class="nx">alpha</span><span class="o">&lt;=</span><span class="mi">0</span><span class="o">?</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">d</span><span class="p">[</span><span class="nx">e</span><span class="p">].</span><span class="nx">el</span><span class="p">),</span><span class="nx">d</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">:</span><span class="p">(</span><span class="nx">d</span><span class="p">[</span><span class="nx">e</span><span class="p">].</span><span class="nx">y</span><span class="o">--</span><span class="p">,</span><span class="nx">d</span><span class="p">[</span><span class="nx">e</span><span class="p">].</span><span class="nx">scale</span><span class="o">+=</span><span class="p">.</span><span class="mi">004</span><span class="p">,</span><span class="nx">d</span><span class="p">[</span><span class="nx">e</span><span class="p">].</span><span class="nx">alpha</span><span class="o">-=</span><span class="p">.</span><span class="mi">013</span><span class="p">,</span><span class="nx">d</span><span class="p">[</span><span class="nx">e</span><span class="p">].</span><span class="nx">el</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">cssText</span><span class="o">=</span><span class="s2">&#34;left:&#34;</span><span class="o">+</span><span class="nx">d</span><span class="p">[</span><span class="nx">e</span><span class="p">].</span><span class="nx">x</span><span class="o">+</span><span class="s2">&#34;px;top:&#34;</span><span class="o">+</span><span class="nx">d</span><span class="p">[</span><span class="nx">e</span><span class="p">].</span><span class="nx">y</span><span class="o">+</span><span class="s2">&#34;px;opacity:&#34;</span><span class="o">+</span><span class="nx">d</span><span class="p">[</span><span class="nx">e</span><span class="p">].</span><span class="nx">alpha</span><span class="o">+</span><span class="s2">&#34;;transform:scale(&#34;</span><span class="o">+</span><span class="nx">d</span><span class="p">[</span><span class="nx">e</span><span class="p">].</span><span class="nx">scale</span><span class="o">+</span><span class="s2">&#34;,&#34;</span><span class="o">+</span><span class="nx">d</span><span class="p">[</span><span class="nx">e</span><span class="p">].</span><span class="nx">scale</span><span class="o">+</span><span class="s2">&#34;) rotate(45deg);background:&#34;</span><span class="o">+</span><span class="nx">d</span><span class="p">[</span><span class="nx">e</span><span class="p">].</span><span class="nx">color</span><span class="o">+</span><span class="s2">&#34;;z-index:99999&#34;</span><span class="p">);</span><span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">r</span><span class="p">)}</span><span class="kd">function</span> <span class="nx">o</span><span class="p">(){</span><span class="kd">var</span> <span class="nx">t</span><span class="o">=</span><span class="s2">&#34;function&#34;</span><span class="o">==</span><span class="k">typeof</span> <span class="nx">e</span><span class="p">.</span><span class="nx">onclick</span><span class="o">&amp;&amp;</span><span class="nx">e</span><span class="p">.</span><span class="nx">onclick</span><span class="p">;</span><span class="nx">e</span><span class="p">.</span><span class="nx">onclick</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="nx">t</span><span class="o">&amp;&amp;</span><span class="nx">t</span><span class="p">(),</span><span class="nx">i</span><span class="p">(</span><span class="nx">e</span><span class="p">)}}</span><span class="kd">function</span> <span class="nx">i</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="kd">var</span> <span class="nx">a</span><span class="o">=</span><span class="nx">t</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&#34;div&#34;</span><span class="p">);</span><span class="nx">a</span><span class="p">.</span><span class="nx">className</span><span class="o">=</span><span class="s2">&#34;heart&#34;</span><span class="p">,</span><span class="nx">d</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="nx">el</span><span class="o">:</span><span class="nx">a</span><span class="p">,</span><span class="nx">x</span><span class="o">:</span><span class="nx">e</span><span class="p">.</span><span class="nx">clientX</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="nx">y</span><span class="o">:</span><span class="nx">e</span><span class="p">.</span><span class="nx">clientY</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="nx">scale</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="nx">alpha</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="nx">color</span><span class="o">:</span><span class="nx">s</span><span class="p">()}),</span><span class="nx">t</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">a</span><span class="p">)}</span><span class="kd">function</span> <span class="nx">c</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="kd">var</span> <span class="nx">a</span><span class="o">=</span><span class="nx">t</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&#34;style&#34;</span><span class="p">);</span><span class="nx">a</span><span class="p">.</span><span class="nx">type</span><span class="o">=</span><span class="s2">&#34;text/css&#34;</span><span class="p">;</span><span class="k">try</span><span class="p">{</span><span class="nx">a</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">createTextNode</span><span class="p">(</span><span class="nx">e</span><span class="p">))}</span><span class="k">catch</span><span class="p">(</span><span class="nx">t</span><span class="p">){</span><span class="nx">a</span><span class="p">.</span><span class="nx">styleSheet</span><span class="p">.</span><span class="nx">cssText</span><span class="o">=</span><span class="nx">e</span><span class="p">}</span><span class="nx">t</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;head&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">a</span><span class="p">)}</span><span class="kd">function</span> <span class="nx">s</span><span class="p">(){</span><span class="k">return</span><span class="s2">&#34;rgb(&#34;</span><span class="o">+~~</span><span class="p">(</span><span class="mi">255</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">())</span><span class="o">+</span><span class="s2">&#34;,&#34;</span><span class="o">+~~</span><span class="p">(</span><span class="mi">255</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">())</span><span class="o">+</span><span class="s2">&#34;,&#34;</span><span class="o">+~~</span><span class="p">(</span><span class="mi">255</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">())</span><span class="o">+</span><span class="s2">&#34;)&#34;</span><span class="p">}</span><span class="kd">var</span> <span class="nx">d</span><span class="o">=</span><span class="p">[];</span><span class="nx">e</span><span class="p">.</span><span class="nx">requestAnimationFrame</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="k">return</span> <span class="nx">e</span><span class="p">.</span><span class="nx">requestAnimationFrame</span><span class="o">||</span><span class="nx">e</span><span class="p">.</span><span class="nx">webkitRequestAnimationFrame</span><span class="o">||</span><span class="nx">e</span><span class="p">.</span><span class="nx">mozRequestAnimationFrame</span><span class="o">||</span><span class="nx">e</span><span class="p">.</span><span class="nx">oRequestAnimationFrame</span><span class="o">||</span><span class="nx">e</span><span class="p">.</span><span class="nx">msRequestAnimationFrame</span><span class="o">||</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span><span class="mf">1e3</span><span class="o">/</span><span class="mi">60</span><span class="p">)}}(),</span><span class="nx">n</span><span class="p">()}(</span><span class="nb">window</span><span class="p">,</span><span class="nb">document</span><span class="p">);</span>
 </span></span></code></pre></div>
-
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
-
                   
                   
-              
                   
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="post-category">
@@ -185,7 +189,6 @@
                     
                   </span>
                   
-
                   <div class="post-tags">
                     <i class="fa fa-tags fa-fw me-1"></i>
                     
@@ -196,7 +199,6 @@
                     </span>
                   
                   </div>
-
                   
                   
 
@@ -331,9 +333,7 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
               
 
             </div>
-
           </article>
-
           <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
 flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
   <p>
@@ -343,34 +343,7 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
   </p>
   <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
 </footer>
-
-<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
-<style>
-  .gotop {
-    position: fixed;
-    right: 20px;
-    bottom: 50px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #c6c3c3;
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.1s linear;
-    border: 1px solid #ccc;
-  }
-
-  .gotop:hover {
-    background: #ccc;
-  }
-</style>
-<script src="/js/main.js"></script>
         </main>
-
         
 
 
@@ -1326,7 +1299,6 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
       </div>
     </section>
 
-
     
 
     
@@ -1342,9 +1314,82 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
 
 </aside>
 
+
       </div>
     </div>
   </div>
 
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  const contentSelector = '.content'; 
+  const tocSelector = '#TableOfContents'; 
+
+  const headings = Array.from(document.querySelectorAll(`${contentSelector} h2, ${contentSelector} h3`));
+  const tocLinks = document.querySelectorAll(`${tocSelector} a`);
+  
+  if (headings.length === 0 || tocLinks.length === 0) {
+    return;
+  }
+
+  
+  const tocLinkMap = new Map();
+  tocLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href) {
+      tocLinkMap.set(href.substring(1), link);
+    }
+  });
+
+  let currentActiveLink = null; 
+
+  const observer = new IntersectionObserver(entries => {
+    
+    const visibleHeadings = entries
+      .filter(entry => entry.isIntersecting)
+      .map(entry => entry.target);
+
+    
+    if (visibleHeadings.length === 0) {
+      return;
+    }
+
+    
+    visibleHeadings.sort((a, b) => a.offsetTop - b.offsetTop);
+
+    
+    const topVisibleHeading = visibleHeadings[0];
+    const id = topVisibleHeading.getAttribute('id');
+    const newActiveLink = tocLinkMap.get(id);
+
+    
+    if (newActiveLink && newActiveLink !== currentActiveLink) {
+      
+      if (currentActiveLink) {
+        currentActiveLink.classList.remove('active');
+      }
+      
+      newActiveLink.classList.add('active');
+      
+      currentActiveLink = newActiveLink;
+    }
+  }, {
+    
+    
+    
+    rootMargin: '0px 0px -70% 0px',
+    threshold: 0.1 
+  });
+
+  headings.forEach(heading => observer.observe(heading));
+});
+</script>
+
+
+
+<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
+<script src="/js/main.js"></script>
 </body>
 </html>

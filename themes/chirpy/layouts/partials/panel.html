@@ -34,7 +34,6 @@
       </div>
     </section>
 
-
     {{ if in .Site.Params.mainSections .Type }}
 
     {{ else }}
@@ -48,6 +47,15 @@
         如果你想与我交流，欢迎发送电子邮件至 <a href="mailto:hi@zishu.me">hi@zishu.me</a>，更多 <a href="/about/">关于我</a>。
       </div>
     </section>
+
+<script>
+  const time = "{{ .Site.Params.buildDate }}";
+  var now = new Date();
+  var end = new Date(time);
+  var diff = Math.abs(now - end);
+  var days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+  document.getElementById('days').innerHTML = days;
+</script>
     {{ end }}
   </div>
 
@@ -60,3 +68,4 @@
   {{ end }}
 
 </aside>
+

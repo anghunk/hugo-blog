@@ -2,7 +2,19 @@
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
     <nav id="breadcrumb" aria-label="Breadcrumb">
       <span> <a href="/">Home</a> </span>
+
+      {{ if in .Site.Params.mainSections .Type }}
+      {{ if .Params.categories }}
+      <span>
+        {{/* with 语句可以确保分类存在，并将第一个分类赋值给 . */}}
+        {{ with index .Params.categories 0 }}
+          <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+        {{ end }}
+      </span>
+      {{ end }}
+      {{ end }}
       <span>{{ .Title }}</span>
+      
     </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>

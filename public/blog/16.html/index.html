@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="toTop" content="true">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="map[email:hi@zishu.me name:子舒]" />
+<meta name="author" content="map[email:hi@zishu.me github:anghunk name:子舒]" />
 <meta property="og:url" content="https://zishu.me/blog/16.html/" />
 <link rel="canonical" href="https://zishu.me/blog/16.html/" /><link rel="apple-touch-icon" href="https://imgurl.zishu.me/favicon.ico" />
 <link rel="icon" href="https://imgurl.zishu.me/favicon.ico" />
@@ -24,11 +24,11 @@
 "headline" : "为什么 getTime() 返回 1970 年至今的毫秒？",
 "description" : "今天在写 new Date() 时候，无意中发现了一个很有意思的方法，getTime()，百度了一下，有人说是计算从 1970 年 1 月 1 日至今的毫秒数\n为什么要是 1970 年呢？\nnew Date().getTime(); \/\/ xxxxxxxxxxx 这个起源于 unix 的诞生，因为 Unix 在 1969 年被开发出来，1971 年正式发布，在这之前没有机器会需要来表示 1970-01-01-00:00:00 之前的时间，后面的语言很多就沿用了这一习惯，js 只是也沿用了这种习惯而已。\n当然，这一做法现在看来是很有问题的，例如不方便用它表示更早的时间而且精度有限。\n定义 time 从 1970 年 1 月 1 日开始，忽然想到在 JAVA 里，Oracle 数据库时间也是从 1970 年 1 月 1 日开始计算。\n比如 java 类代码：\nDate date = new Date(0); System.out.println(date); \/\/ 打印出来的结果：Thu Jan 01 08:00:00 CST 1970也 是 1970 年 1 月 1 日，实际上时分秒是 0 点 0 分 0 秒 (这里打印出来是 8 点，稍后会作解释)。\n为什么这个时间会定义在 1970 年 1 月 1 日这个时候呢？\n于是开始了 Google，中文网页根本找不到答案。于是试着搜索英文关键字，在 Sun java 论坛总算找到准确的帖子：\nhttp:\/\/forums.sun.com\/thread.jspa?threadID=595140\u0026amp;start=15\n其中有一个回复：\nI suspect that Java was born and raised on a UNIX system. UNIX considers the epoch (when did time begin) to be midnight, January 1, 1970. 是说 java 起源于 UNIX 系统，而 UNIX 认为 1970 年 1 月 1 日 0 点是时间纪元。\n但这依然没很好的解释\u0026quot;为什么\u0026quot;,出于好奇，继续 Google，总算找到了答案：\nhttp:\/\/en.wikipedia.org\/wiki\/Unix_time\n这里的解释是：\n最初计算机操作系统是 32 位，而时间也是用 32 位表示。\nSystem.out.println(Integer.MAX_VALUE);\n2147483647\nInteger 在 JAVA 内用 32 位表示，因此 32 位能表示的最大值是 2147483647。另外 1 年 365 天的总秒数是 31536000，2147483647\/31536000 = 68.1，也就是说 32 位能表示的最长时间是 68 年，而实际上到 2038 年 01 月 19 日 03 时 14 分 07 秒，便会到达最大时间，过了这个时间点，所有 32 位操作系统时间便会变为 10000000 00000000 00000000 00000000 也就是 1901 年 12 月 13 日 20 时 45 分 52 秒，这样便会出现时间回归的现象，很多软件便会运行异常了。\n到这里，我想问题的答案已经出来了：\n因为用 32 位来表示时间的最大间隔是 68 年，而最早出现的 UNIX 操作系统考虑到计算机产生的年代和应用的时限综合取了 1970 年 1 月 1 日作为 UNIX TIME 的纪元时间 (开始时间)，而 java 自然也遵循了这一约束。\n至于时间回归的现象相信随着 64 为操作系统的产生逐渐得到解决，因为用 64 位操作系统可以表示到 292,277,026,596 年 12 月 4 日 15 时 30 分 08 秒，相信我们的 N 代子孙，哪怕地球毁灭那天都不用愁不够用了，因为这个时间已经是千亿年以后了。\n最后一个问题：\n上面 System.out.println(new Date(0))，打印出来的时间是 8 点而非 0 点，原因是存在系统时间和本地时间的问题，其实系统时间依然是 0 点，只不过我的电脑时区设置为东 8 区，故打印的结果是 8 点。\n",
 "inLanguage" : "en-US",
-"author" : "map[email:hi@zishu.me name:子舒]",
-"creator" : "map[email:hi@zishu.me name:子舒]",
-"publisher": "map[email:hi@zishu.me name:子舒]",
-"accountablePerson" : "map[email:hi@zishu.me name:子舒]",
-"copyrightHolder" : "map[email:hi@zishu.me name:子舒]",
+"author" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"creator" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"publisher": "map[email:hi@zishu.me github:anghunk name:子舒]",
+"accountablePerson" : "map[email:hi@zishu.me github:anghunk name:子舒]",
+"copyrightHolder" : "map[email:hi@zishu.me github:anghunk name:子舒]",
 "copyrightYear" : "2020",
 "datePublished": "2020-11-13 00:00:00 \u002b0000 UTC",
 "dateModified" : "2020-11-13 00:00:00 \u002b0000 UTC",
@@ -96,7 +96,6 @@ Integer 在 JAVA 内用 32 位表示，因此 32 位能表示的最大值是 214
 <script src="/js/jquery-3.6.1.js"></script>
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
-
 <body>
   <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
@@ -167,20 +166,31 @@ Integer 在 JAVA 内用 32 位表示，因此 32 位能表示的最大值是 214
     <span class="icon-border"></span>
     <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
         class="fab fa-github"></i></a>
-    <a href="mailto:anghunk@gmail.com" aria-label="email" target="_blank" rel="noopener noreferrer"><i
+    <a href="mailto:hi@zishu.me" aria-label="email" target="_blank" rel="noopener noreferrer"><i
         class="fas fa-envelope"></i>
     </a>
     <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
   </div>
 </aside>
-
   <div id="main-wrapper" class="d-flex justify-content-center">
     <div class="container d-flex flex-column px-xxl-5">
       <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
     <nav id="breadcrumb" aria-label="Breadcrumb">
       <span> <a href="/">Home</a> </span>
+
+      
+      
+      <span>
+        
+        
+          <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+        
+      </span>
+      
+      
       <span>为什么 getTime() 返回 1970 年至今的毫秒？</span>
+      
     </nav>
     <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
       <i class="fas fa-bars fa-fw"></i>
@@ -190,10 +200,8 @@ Integer 在 JAVA 内用 32 位表示，因此 32 位能表示的最大值是 214
   </div>
 </header>
       <div class="row flex-grow-1">
-
         <main class="col-12 col-lg-11 col-xl-9 px-md-4">
           <article class="px-1">
-
             <header>
               <h1 data-toc-skip="">为什么 getTime() 返回 1970 年至今的毫秒？</h1>
               
@@ -206,7 +214,6 @@ Integer 在 JAVA 内用 32 位表示，因此 32 位能表示的最大值是 214
               </div>
               
             </header>
-
             <div class="content">
               
               <p>今天在写 new Date() 时候，无意中发现了一个很有意思的方法，<code>getTime()</code>，百度了一下，有人说是计算从 1970 年 1 月 1 日至今的毫秒数</p>
@@ -245,13 +252,10 @@ UNIX considers the epoch (when did time begin) to be midnight, January 1, 1970.
 <p>最后一个问题：</p>
 <p>上面 System.out.println(new Date(0))，打印出来的时间是 8 点而非 0 点，原因是存在系统时间和本地时间的问题，其实系统时间依然是 0 点，只不过我的电脑时区设置为东 8 区，故打印的结果是 8 点。</p>
 
-
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
-
                   
                   
-              
                   
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="post-category">
@@ -261,7 +265,6 @@ UNIX considers the epoch (when did time begin) to be midnight, January 1, 1970.
                     
                   </span>
                   
-
                   <div class="post-tags">
                     <i class="fa fa-tags fa-fw me-1"></i>
                     
@@ -272,7 +275,6 @@ UNIX considers the epoch (when did time begin) to be midnight, January 1, 1970.
                     </span>
                   
                   </div>
-
                   
                   
 
@@ -442,9 +444,7 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
               
 
             </div>
-
           </article>
-
           <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
 flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
   <p>
@@ -454,34 +454,7 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
   </p>
   <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
 </footer>
-
-<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
-<style>
-  .gotop {
-    position: fixed;
-    right: 20px;
-    bottom: 50px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #c6c3c3;
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.1s linear;
-    border: 1px solid #ccc;
-  }
-
-  .gotop:hover {
-    background: #ccc;
-  }
-</style>
-<script src="/js/main.js"></script>
         </main>
-
         
 
 
@@ -1437,7 +1410,6 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
       </div>
     </section>
 
-
     
 
     
@@ -1453,9 +1425,82 @@ flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
 
 </aside>
 
+
       </div>
     </div>
   </div>
 
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  const contentSelector = '.content'; 
+  const tocSelector = '#TableOfContents'; 
+
+  const headings = Array.from(document.querySelectorAll(`${contentSelector} h2, ${contentSelector} h3`));
+  const tocLinks = document.querySelectorAll(`${tocSelector} a`);
+  
+  if (headings.length === 0 || tocLinks.length === 0) {
+    return;
+  }
+
+  
+  const tocLinkMap = new Map();
+  tocLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href) {
+      tocLinkMap.set(href.substring(1), link);
+    }
+  });
+
+  let currentActiveLink = null; 
+
+  const observer = new IntersectionObserver(entries => {
+    
+    const visibleHeadings = entries
+      .filter(entry => entry.isIntersecting)
+      .map(entry => entry.target);
+
+    
+    if (visibleHeadings.length === 0) {
+      return;
+    }
+
+    
+    visibleHeadings.sort((a, b) => a.offsetTop - b.offsetTop);
+
+    
+    const topVisibleHeading = visibleHeadings[0];
+    const id = topVisibleHeading.getAttribute('id');
+    const newActiveLink = tocLinkMap.get(id);
+
+    
+    if (newActiveLink && newActiveLink !== currentActiveLink) {
+      
+      if (currentActiveLink) {
+        currentActiveLink.classList.remove('active');
+      }
+      
+      newActiveLink.classList.add('active');
+      
+      currentActiveLink = newActiveLink;
+    }
+  }, {
+    
+    
+    
+    rootMargin: '0px 0px -70% 0px',
+    threshold: 0.1 
+  });
+
+  headings.forEach(heading => observer.observe(heading));
+});
+</script>
+
+
+
+<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
+<script src="/js/main.js"></script>
 </body>
 </html>

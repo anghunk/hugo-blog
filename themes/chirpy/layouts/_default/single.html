@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
 {{ partial "head.html" . }}
-
 <body>
   {{ partial "header.html" . }}
-
   <div id="main-wrapper" class="d-flex justify-content-center">
     <div class="container d-flex flex-column px-xxl-5">
       {{ partial "content_top.html" . }}
       <div class="row flex-grow-1">
-
         <main class="col-12 col-lg-11 col-xl-9 px-md-4">
           <article class="px-1">
-
             <header>
               <h1 data-toc-skip="">{{ .Title }}</h1>
               <!-- <p class="post-desc fw-light mb-4"></p> -->
@@ -25,17 +21,13 @@
               </div>
               {{ end }}
             </header>
-
             <div class="content">
               {{ .Site.Params.postHeaderContent | safeHTML }}
               {{ .Content }}
-
               <div class="post-tail-wrapper text-muted">
                 <div class="post-meta mb-3">
-
                   <!-- if 是详情页 -->
                   {{ if in .Site.Params.mainSections .Type }}
-              
                   {{ if .Params.categories }}
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="post-category">
@@ -45,7 +37,6 @@
                     {{ end }}
                   </span>
                   {{ end }}
-
                   <div class="post-tags">
                     <i class="fa fa-tags fa-fw me-1"></i>
                     {{ if .Params.tags }}
@@ -56,7 +47,6 @@
                     </span>
                   {{ end }}
                   </div>
-
                   {{ end }}
                   <!-- if 是详情页 -->
 
@@ -79,17 +69,84 @@
               {{ end }}
 
             </div>
-
           </article>
-
           {{ partial "footer.html" . }}
         </main>
-
         {{ partial "panel.html" . }}
-
       </div>
     </div>
   </div>
 
+<!-- 最终优化版 -->
+{{ if .IsPage }}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // --- 请根据你的主题修改下面这两个选择器 ---
+  const contentSelector = '.content'; // <--- 修改这里
+  const tocSelector = '#TableOfContents'; // <--- 修改这里
+
+  const headings = Array.from(document.querySelectorAll(`${contentSelector} h2, ${contentSelector} h3`));
+  const tocLinks = document.querySelectorAll(`${tocSelector} a`);
+  
+  if (headings.length === 0 || tocLinks.length === 0) {
+    return;
+  }
+
+  // 创建一个 Map 用于通过标题 ID 快速查找 TOC 链接
+  const tocLinkMap = new Map();
+  tocLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href) {
+      tocLinkMap.set(href.substring(1), link);
+    }
+  });
+
+  let currentActiveLink = null; // 用于记录当前高亮的链接
+
+  const observer = new IntersectionObserver(entries => {
+    // 找到所有当前在视口内的标题
+    const visibleHeadings = entries
+      .filter(entry => entry.isIntersecting)
+      .map(entry => entry.target);
+
+    // 如果没有可见的标题，则不做任何事（保留上一个高亮状态）
+    if (visibleHeadings.length === 0) {
+      return;
+    }
+
+    // 将可见标题按其在页面中的位置排序（从上到下）
+    visibleHeadings.sort((a, b) => a.offsetTop - b.offsetTop);
+
+    // 第一个可见的标题就是我们想要高亮的
+    const topVisibleHeading = visibleHeadings[0];
+    const id = topVisibleHeading.getAttribute('id');
+    const newActiveLink = tocLinkMap.get(id);
+
+    // 🌟 核心逻辑：只有在需要切换高亮链接时才操作 DOM
+    if (newActiveLink && newActiveLink !== currentActiveLink) {
+      // 移除旧的高亮
+      if (currentActiveLink) {
+        currentActiveLink.classList.remove('active');
+      }
+      // 添加新的高亮
+      newActiveLink.classList.add('active');
+      // 更新当前高亮链接的记录
+      currentActiveLink = newActiveLink;
+    }
+  }, {
+    // rootMargin 决定了标题在屏幕的哪个区域被视为“激活”
+    // '0px 0px -75% 0px' 意味着标题需要滚动到屏幕上半部分的前 25% 区域时才会被激活
+    // 这有助于防止页面底部的标题过早地抢占高亮
+    rootMargin: '0px 0px -70% 0px',
+    threshold: 0.1 // 标题至少有 10% 可见时才触发
+  });
+
+  headings.forEach(heading => observer.observe(heading));
+});
+</script>
+{{ end }}
+
+
+{{ partial "scripts.html" . }}
 </body>
 </html>
