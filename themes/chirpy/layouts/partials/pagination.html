@@ -39,8 +39,8 @@
 {{ if and (gt $pag.TotalPages 1) (le $pag.TotalPages $max_links) }}
 <nav class="pagination">
   {{ range $pag.Pagers }}
-  <li {{ if eq . $pag }} class="active" {{end}}>
-    <a href="{{ .URL }}">{{ .PageNumber }}</a>
+  <li class="page-item" {{ if eq . $pag }} class="active" {{end}}>
+    <a href="{{ .URL }}" class="page-link">{{ .PageNumber }}</a>
   </li>
   {{ end }}
 </nav>
@@ -48,17 +48,16 @@
 <!-- page number > $max_links -->
 {{ else if gt $pag.TotalPages $max_links }}
 
-<div class="page">
+<div class="pagination">
   {{ if $pag.HasPrev }}
-  <a href="{{ $pag.Prev.URL }}" class="prev">上一页</a>
+  <div class="page-item"><a href="{{ $pag.Prev.URL }}" class="page-link">上一页</a></div>
   {{ end }}
 
   {{ if $pag.HasNext }}
-  <a href="{{ $pag.Next.URL }}" class="next">下一页</a>
+  <div class="page-item"><a href="{{ $pag.Next.URL }}" class="page-link">下一页</a></div>
   {{ end }}
-
-
 </div>
+
 {{ end }}
 
 {{ end }}
