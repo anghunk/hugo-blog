@@ -3,8 +3,14 @@
   src: url(./sn-pro-latin-400-normal.GlGs0M.woff2);
 }
 
+@font-face {
+  font-family: "Bitter";
+  src: url(./Bitter-Regular.woff2);
+}
+
 body {
   font-family: "sn-pro";
+  /* font-family: "Bitter", serif; */
 }
 
 .toc {
