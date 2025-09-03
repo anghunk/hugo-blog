@@ -1,0 +1,75 @@
+name: Take screenshots
+
+on:
+  push:
+    branches:
+      - main
+
+  schedule:
+    - cron: '7 7 * * 1'  # Every Monday at 7:07am UTC
+
+jobs:
+  take-screenshots:
+    runs-on: macos-latest
+
+    strategy:
+      matrix:
+        include:
+          - url: zishu.me
+            filename_prefix: zishu.me
+
+      # Setting max-parallel ensures that these jobs will run in serial,
+      # not parallel, so we don't have conflicting tasks trying to
+      # push new commits.
+      max-parallel: 1
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+        with:
+          # Check out the latest version of main, which may not be the
+          # commit that triggered this event -- jobs in this workflow will
+          # push new commits and update main, and we want each job to
+          # get the latest code from main.
+          ref: main
+
+          # Make sure we don't download the existing screenshots as part
+          # of this process -- this Action is strictly append-only, so
+          # don't waste limited LFS bandwidth on it.
+          lfs: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright and browser
+        run: |
+          npm install playwright
+          npx playwright install chromium
+
+      - name: Take screenshot
+        run: |
+          today=$(date +"%Y-%m-%d")
+          screenshot_path="screenshots/${{ matrix.filename_prefix }}.$today.png"
+
+          # Make these variables available to subsequent steps
+          # See https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable
+          echo "today=$today" >> "$GITHUB_ENV"
+          echo "screenshot_path=$screenshot_path" >> "$GITHUB_ENV"
+
+          mkdir -p "$(dirname "$screenshot_path")"
+
+          if [[ -f "$screenshot_path" ]]; then exit 0; fi
+
+          npx playwright screenshot \
+            --full-page \
+            --wait-for-timeout 10000 \
+            "${{ matrix.url }}" "$screenshot_path"
+
+      - name: Push changes to GitHub
+        run: |
+          git add "$screenshot_path"
+          git commit -m "Add screenshot for ${{ matrix.url }} for $today" || exit 0
+          git push origin main
