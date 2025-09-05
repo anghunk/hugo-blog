@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>hugo 一键打包并上传 github - JiaoYuan&#39;s blog</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="JiaoYuan&#39;s blog" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">JiaoYuan&#39;s blog</div>
+					<div class="topbar__tagline">思绪来得快去得也快，偶尔会在这里停留</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">hugo 一键打包并上传 github</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2022-10-14T00:00:00Z">October 14, 2022</time></div></div>
+		</header><div class="content post__content clearfix">
+			<p>分享一个 hugo 一键打包并上传 github 的方法，前提是你之前上传过 GitHub 仓库。</p>
+<p>采用 window 支持的 sh 可执行文件，在根目录新建一个 <code>hugo.sh</code> 文件，里面放上一些命令。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># cd public</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>time<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date <span style="color:#e6db74">&#34;+%Y-%m-%d %H:%M:%S&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>echo $time
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;自动执行构建脚本 🎓</span>$time<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>git push
+</span></span><span style="display:flex;"><span>exit
+</span></span></code></pre></div><p>可以在文件夹双击运行 <code>hugo.sh</code>，也可以在终端输入命令。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>.<span style="color:#ae81ff">\h</span>ugo.sh
+</span></span></code></pre></div><p>省去了我输入繁琐的 Git 上传指令，并且自动生成当前系统时间作为 commit。</p>
+<p><strong>其他</strong></p>
+<p>这里我上传的是整体的 hugo 目录，如果你只想上传生成的 <code>/public</code> ，在中间加入 <code>cd public</code>。</p>
+
+		</div>
+	</article>
+</main>
+
+
+
+			</div>
+			
+		</div>
+	</div>
+	
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

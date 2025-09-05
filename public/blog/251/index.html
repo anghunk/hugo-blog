@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Cloudflare 上部署 Twikoo 服务时报错 - JiaoYuan&#39;s blog</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="本篇文章记录了在 Cloudflare 上部署 Twikoo 服务时遇到的编码与捆绑包大小问题，提供了解决方案，帮助其他开发者顺利完成部署。">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="JiaoYuan&#39;s blog" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">JiaoYuan&#39;s blog</div>
+					<div class="topbar__tagline">思绪来得快去得也快，偶尔会在这里停留</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Cloudflare 上部署 Twikoo 服务时报错</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-02-20T00:00:00Z">February 20, 2025</time></div></div>
+		</header><div class="content post__content clearfix">
+			<p>GitHub: <a href="https://github.com/twikoojs/twikoo-cloudflare">https://github.com/twikoojs/twikoo-cloudflare</a></p>
+<p>Twikoo 支持通过 Cloudflare Workers 进行部署服务和数据库，GitHub 仓库地址如上。</p>
+<p>但是部署文档中有一点小坑需要注意一下，官方没有进行标注，我不清楚是只有我遇到这个问题还是怎么样，记录下来以防有其他人遇到这个问题，在搜索引擎可以看到这篇文章而解决。</p>
+<p><img src="https://imgurl.zishu.me/2025/02/1740030986550.webp" alt=""></p>
+<blockquote>
+<p>由于 Cloudflare Workers 的免费套餐对捆绑包大小有严格的 1MiB 限制，因此我们需要手动删除一些包以使捆绑包保持在限制范围内。由于 Cloudflare 工作线程的 Node.js 兼容性问题，这些包无论如何都无法使用。</p></blockquote>
+<p>因为上面那个问题，所以需要把这几个文件清空，（不能删除会报错），但是这个指令存在问题，会把文件格式转为 <code>utf-16</code>，如果不处理它的话就会导致最后部署的时候报错，如下图所示。</p>
+<p><img src="https://imgurl.zishu.me/2025/02/1740031220577.webp" alt=""></p>
+<p>解决方法也很简单，只需要在 vscode 中找到这三个文件。</p>
+<p>把编码格式改为 <code>utf-8</code>，然后清空乱码即可。</p>
+<p><img src="https://imgurl.zishu.me/2025/02/1740031930681.webp" alt=""></p>
+
+		</div>
+	</article>
+</main>
+
+
+
+			</div>
+			
+		</div>
+	</div>
+	
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

@@ -1,0 +1,39 @@
+baseurl = "https://zishu.me"
+title = "子舒的博客"
+languageCode = "en-us"
+pagination = { pagerSize = 10 }
+theme = ["cloud"]
+summaryLength = "9999999"
+
+[permalinks]
+  blog = "/blog/:slug.html/"
+
+[Params]
+  post_meta = ["date"]
+  mainSections = ["blog"]
+
+[Params.topbar]
+  subtitle = "Do something, anything—just give fate's gears a chance to turn."
+
+[Params.sidebar]
+  home = "right"
+  widgets = ["misc", "search", "recent", "archives"]
+
+[Params.widgets]
+  recent_num = 15
+  [[Params.widgets.misc.custom]]
+  title = "about"
+  url = "/about"
+  [[Params.widgets.misc.custom]]
+  title = "message"
+  url = "/message"
+
+[Params.widgets.search]
+  title = "search"
+  placeholder = "search..."
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

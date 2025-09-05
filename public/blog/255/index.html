@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Cherry Studio 接入高德地图 MCP 示例 - JiaoYuan&#39;s blog</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="JiaoYuan&#39;s blog" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">JiaoYuan&#39;s blog</div>
+					<div class="topbar__tagline">思绪来得快去得也快，偶尔会在这里停留</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Cherry Studio 接入高德地图 MCP 示例</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-04-02T00:00:00Z">April 02, 2025</time></div></div>
+		</header><div class="content post__content clearfix">
+			<p>本教程使用环境 Cherry Studio 1.1.17.</p>
+<p>最近 Cherry Studio 也接入了 MCP 服务器，闲着无聊准备尝试一番，就拿最简单的高德地图来做演示，刚好最近高德也支持了 MCP 服务。</p>
+<p>需要申请高德开发者账号，这个就不赘述了。在高德开发者控制台找到 <code>应用管理&gt;我的应用</code>，点击<code>创建新应用</code>，类型名称随便填一下，绑定服务要选择 <code>Web服务</code>，然后不要限制 IP，最后会生成一个 key。</p>
+<h3 id="配置-cherry-studio-的-mcp-服务器">配置 Cherry Studio 的 MCP 服务器</h3>
+<p>拿到高德地图的 key 后，在 Cherry Studio 的 MCP 服务器设置填入，有两种方法。</p>
+<ol>
+<li>方法一：直接导入配置（推荐）</li>
+</ol>
+<p>在右上角 <code>编辑 MCP 配置</code> 中直接将下面的配置复制进去，改一下 <code>AMAP_MAPS_API_KEY</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;mcpServers&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@amap/amap-maps&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;@amap/amap-maps&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;isActive&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;npx&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;-y&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;@amap/amap-maps-mcp-server&#34;</span>
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;env&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;AMAP_MAPS_API_KEY&#34;</span>: <span style="color:#e6db74">&#34;xxxxxxxxxxx&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="2">
+<li>方法二：手动填写配置</li>
+</ol>
+<p>在 Cherry Studio 中打开 MCP 服务器设置界面，按以下参数填写：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>名称：@amap/amap-maps
+</span></span><span style="display:flex;"><span>命令：npx
+</span></span><span style="display:flex;"><span>参数：-y @amap/amap-maps-mcp-server
+</span></span><span style="display:flex;"><span>环境变量：添加 AMAP_MAPS_API_KEY 并填入您的 Key。
+</span></span></code></pre></div><p>保存配置后，系统会自动加载高德地图的 MCP 服务。</p>
+<p><img src="https://imgurl.zishu.me/2025/04/1743571909183.webp" alt=""></p>
+<p>会在下方显示高德地图支持的工具，就是 AI 模型可以调用的工具。</p>
+<p><img src="https://imgurl.zishu.me/2025/04/1743571892735.webp" alt=""></p>
+<h3 id="启用-ai-模型的函数调用功能">启用 AI 模型的函数调用功能</h3>
+<p>使用方法也很简单，需要 AI 模型支持函数调用，以火山引擎作为示例，我使用了 DeepSeek-R1 模型，默认是没有函数调用的（会显示那个小扳手），需要在设置中手动开启</p>
+<p><img src="https://imgurl.zishu.me/2025/04/1743571944482.webp" alt=""></p>
+<p><img src="https://imgurl.zishu.me/2025/04/1743571984748.webp" alt=""></p>
+<p>这样在聊天框下方会出现一个 MCP 的标志，勾选后可以直接跟模型进行对话，可以输出天气地点等信息，如果再搭配你的 prompt，可以直接规划公交地铁线路等。</p>
+<p><img src="https://imgurl.zishu.me/2025/04/1743571957570.webp" alt=""></p>
+<details>
+<summary>测试 MCP 对话效果</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span><span style="color:#75715e">### 🧑‍💻 User
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>规划一下这周清明节在杭州出去玩的攻略。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### 🤖 Assistant
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>根据杭州清明节期间的天气情况，我为您规划一份兼顾自然风光与文化体验的 3 日游攻略，天气友好且行程灵活：
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic">**</span>🌿 清明小长假 3 日游行程推荐（4 月 3 日 -5 日）**  
+</span></span><span style="display:flex;"><span><span style="font-style:italic">*注：4 月 2 日周二为工作日，建议提前抵达杭州做准备*</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**Day1（4 月 3 日·晴转多云｜7-19℃）**</span>  
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**主题：西湖经典文化线**</span>  
+</span></span><span style="display:flex;"><span>☀️ 上午  
+</span></span><span style="display:flex;"><span>7:30 乘摇橹船游「乌龟潭路线」  
+</span></span><span style="display:flex;"><span>（郭庄码头→茅家埠→曲院风荷，避开人潮享樱花碧水）  
+</span></span><span style="display:flex;"><span>9:30 步行至「岳王庙」拜谒民族英雄  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>🌤️ 下午  
+</span></span><span style="display:flex;"><span>13:00「中国茶叶博物馆（双峰馆）」  
+</span></span><span style="display:flex;"><span>（亲手体验龙井茶炒制，观千亩茶田）  
+</span></span><span style="display:flex;"><span>15:30「茅家埠黛色参天」古风摄影  
+</span></span><span style="display:flex;"><span>（黛色牌坊 + 睡莲初绽，汉服出片胜地）  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>🌙 夜晚  
+</span></span><span style="display:flex;"><span>19:00「西湖音乐喷泉」灯光秀  
+</span></span><span style="display:flex;"><span>（提前占位，夜赏湖滨灯光璀璨）  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**Day2（4 月 4 日·多云｜12-26℃）**</span>  
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**主题：春日野趣轻徒步**</span>  
+</span></span><span style="display:flex;"><span>🌸 上午  
+</span></span><span style="display:flex;"><span>8:00「九溪烟树」溯溪徒步  
+</span></span><span style="display:flex;"><span>（穿越迷雾森林，十八涧水映杜鹃）  
+</span></span><span style="display:flex;"><span>11:00「龙井村」茶农家访  
+</span></span><span style="display:flex;"><span>（品明前龙井，尝茶香土鸡汤）  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>🌿 下午  
+</span></span><span style="display:flex;"><span>14:00「云栖竹径」洗肺之旅  
+</span></span><span style="display:flex;"><span>（千年古树 + 竹林秘境，电影《卧虎藏龙》取景地）  
+</span></span><span style="display:flex;"><span>16:30「梅家坞」茶园骑行  
+</span></span><span style="display:flex;"><span>（租电动车漫游茶山，俯瞰层叠青绿）  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>🍵 傍晚  
+</span></span><span style="display:flex;"><span>18:30「茶人村」晚餐  
+</span></span><span style="display:flex;"><span>（百年老宅尝桂花藕韵、茶香虾）  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**Day3（4 月 5 日·小雨转晴｜13-25℃）**</span>  
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">**主题：运河文艺漫游**</span>  
+</span></span><span style="display:flex;"><span>🌧️ 上午（微雨意境）  
+</span></span><span style="display:flex;"><span>9:00「桥西历史街区」  
+</span></span><span style="display:flex;"><span>（逛刀剪/伞/扇博物馆，体验非遗手作）  
+</span></span><span style="display:flex;"><span>11:00「小河直街」咖啡探店  
+</span></span><span style="display:flex;"><span>（推荐河下咖啡·《人间草木》主题书咖）  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>☀️ 下午（放晴后）  
+</span></span><span style="display:flex;"><span>14:00「拱宸桥」乘漕舫船  
+</span></span><span style="display:flex;"><span>（水路穿越古今，听评弹吴侬软语）  
+</span></span><span style="display:flex;"><span>16:00「富义仓艺术中心」看展  
+</span></span><span style="display:flex;"><span>（旧粮仓改造的先锋艺术空间）  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>🎑 夜晚  
+</span></span><span style="display:flex;"><span>19:30「胜利河美食街」夜宵  
+</span></span><span style="display:flex;"><span>（推荐老头油爆虾、脆皮大肠）  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic">**</span>⚠️ 出行贴士**  
+</span></span><span style="display:flex;"><span>1️⃣ 穿衣：洋葱式穿搭（薄毛衣 + 防风外套），备晴雨伞  
+</span></span><span style="display:flex;"><span>2️⃣ 交通：西湖景区周末单双号限行，推荐地铁 + 共享单车  
+</span></span><span style="display:flex;"><span>3️⃣ 预约：岳王庙/茶叶博物馆等需提前 1 天在「掌上西湖」预约  
+</span></span><span style="display:flex;"><span>4️⃣ 备选：若遇大雨可调整为「浙江省博」+「南宋官窑博物馆」室内游  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>清明时节的杭州既有烟雨江南的朦胧美，又有春和景明的清朗，建议随身带本《杭州记事》手账，在各景点盖限定章留念哦~ 🌸
+</span></span></code></pre></div></details>
+
+		</div>
+	</article>
+</main>
+
+
+
+			</div>
+			
+		</div>
+	</div>
+	
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

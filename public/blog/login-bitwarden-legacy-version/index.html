@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>如何登录旧版本 Bitwarden 密码管理器 - JiaoYuan&#39;s blog</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+
+	
+
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	
+	<link rel="dns-prefetch" href="https://api.github.com">
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		
+	<div class="topbar">
+		<a class="topbar__link" href="/" title="JiaoYuan&#39;s blog" rel="sidebar">
+			<div class="topbar__item topbar__text">
+					<div class="topbar__title">JiaoYuan&#39;s blog</div>
+					<div class="topbar__tagline">思绪来得快去得也快，偶尔会在这里停留</div>
+				</div>
+		</a>
+	</div>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">如何登录旧版本 Bitwarden 密码管理器</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<time class="meta__text" datetime="2025-07-25T00:00:00Z">July 25, 2025</time></div></div>
+		</header><div class="content post__content clearfix">
+			<p><strong>2025/07/30 更新：</strong></p>
+<p>发现 Bitwarden 可以关闭二次验证，可以通过以下方式，进入 <a href="https://vault.bitwarden.com/#/settings/account">https://vault.bitwarden.com/#/settings/account</a> 我的账户页面。</p>
+<p>在登录旧版扩展前，先点击底部 <code>停用新设备登陆保护</code>，登录之后再打开这个选项，提高安全性。</p>
+<p><img src="https://imgurl.zishu.me/2025/07/1753853607383.webp" alt="危险操作"></p>
+<hr>
+<p>Bitwarden 是一款非常知名的密码管理器，其功能我就不赘述了，我来讲讲如何登录旧版本的 Bitwarden 密码管理器。</p>
+<p>旧版官方安装包：<a href="https://github.com/bitwarden/clients/releases/tag/browser-v2024.11.2">https://github.com/bitwarden/clients/releases/tag/browser-v2024.11.2</a></p>
+<p>肯定也有不少小伙伴喜欢旧版的 UI，因此就没有使用最新的版本，我用的是 <code>v2024.11.2</code>，也是官方更新 UI 前最后一个稳定版本，喜欢旧版的推荐用这个。</p>
+<h2 id="1前景原因">1.前景原因</h2>
+<p>但是在这个过程中，我发现了一个问题，那就是一旦退出登录旧版后，就再也登陆不上。</p>
+<p>因为新版 Bitwarden 引入了一个输入二次密码的功能。也就是填写完主密码后，会给邮箱发一份邮件验证，填写验证后才可以登录。</p>
+<p>而旧版是不存在二次密码这个功能的，因此正常输入主密码后接口会直接报错，从而导致无法登录。</p>
+<p>我昨天就遇到了这个问题，研究了几个小时，还真让我找到一个办法，亲测非常简单好用，分享给大家。</p>
+<p>核心就是获取新版的登录 cookie，手动插入到旧版中，就可以获取登录权限了。</p>
+<hr>
+<p>话不多说，直接上教学。</p>
+<p>首先下载一个新版 Bitwarden，这样扩展中就存在两个 Bitwarden 了。</p>
+<p><img src="https://imgurl.zishu.me/2025/07/1753405287321.webp" alt=""></p>
+<h2 id="2复制-session-数据">2.复制 session 数据</h2>
+<p>正常登录新版 Bitwarden，然后在扩展中右键进入检查，点击 <code>console</code>，输入一条指令。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// 读取 chrome.storage.session 数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">chrome</span>.<span style="color:#a6e22e">storage</span>.<span style="color:#a6e22e">session</span>.<span style="color:#a6e22e">get</span>(<span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">data</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">data</span>)));
+</span></span></code></pre></div><p>这样你就可以获取到扩展的 <code>session</code> 数据，复制一下，替换到下面的数据，然后复制整段代码，打开旧版 Bitwarden，然后在扩展中右键进入检查，点击 <code>console</code>，粘贴即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sessionData</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">key1</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;value1&#34;</span>, <span style="color:#a6e22e">key2</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;value2&#34;</span> }; <span style="color:#75715e">// 替换为你的数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 存入 chrome.storage.session
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">chrome</span>.<span style="color:#a6e22e">storage</span>.<span style="color:#a6e22e">session</span>.<span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">sessionData</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Session 数据导入成功！&#34;</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><h2 id="3复制-local-数据">3.复制 local 数据</h2>
+<p>同理，local 数据也是一样的流程，在新版 Bitwarden 获取 local；</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// 读取 chrome.storage.local 数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">chrome</span>.<span style="color:#a6e22e">storage</span>.<span style="color:#a6e22e">local</span>.<span style="color:#a6e22e">get</span>(<span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">data</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">data</span>)));
+</span></span></code></pre></div><p>到旧版粘贴数据进去；</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">localData</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">key1</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;value1&#34;</span>, <span style="color:#a6e22e">key2</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;value2&#34;</span> }; <span style="color:#75715e">// 替换为你的数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 存入 chrome.storage.local
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">chrome</span>.<span style="color:#a6e22e">storage</span>.<span style="color:#a6e22e">local</span>.<span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">localData</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;local 数据导入成功！&#34;</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><h2 id="4重启扩展">4.重启扩展</h2>
+<p>大功告成，在旧版 Bitwarden 扩展右键刷新一下，这时候你会发现一个问题，那就是扩展图标为什么是灰色不可用状态，不用着急，回到浏览器扩展页面，点击 <code>刷新</code> 重启扩展即可。</p>
+<p>又可以流畅使用 Bitwarden 了！</p>
+<p>顺便吐槽一句，新版 Bitwarden 真是一团 shit.</p>
+
+		</div>
+	</article>
+</main>
+
+
+
+			</div>
+			
+		</div>
+	</div>
+	
+	<script src="/js/search.js" defer></script>
+	<script src="/js/archives.js" defer></script>
+	<script src="/js/lazyload.js" defer></script>
+	
+	
+</body>
+</html>

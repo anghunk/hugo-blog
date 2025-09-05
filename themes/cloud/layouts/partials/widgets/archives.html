@@ -1,0 +1,24 @@
+<div class="widget-archives widget">
+	<h4 class="widget__title">ARCHIVES</h4>
+	<div class="widget__content" id="archives-container">
+		{{ range (where .Site.RegularPages "Section" "p").GroupByDate "2006" }}
+		<div class="widget__item archive-year">
+			<span class="archive-year-text">{{ .Key }} ({{ len .Pages }})</span>
+			<div class="archive-months">
+				{{ range .Pages.GroupByDate "January" }}
+				<div class="archive-month">
+					<span class="archive-month-text" data-toggle="archive">{{ .Key }} ({{ len .Pages }})</span>
+					<div class="archive-posts">
+						{{ range .Pages }}
+						<div class="archive-post">
+							<a href="{{ .RelPermalink }}" class="archive-post-link">{{ .Title }}</a>
+						</div>
+						{{ end }}
+					</div>
+				</div>
+				{{ end }}
+			</div>
+		</div>
+		{{ end }}
+	</div>
+</div> 

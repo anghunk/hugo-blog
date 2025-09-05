@@ -1,0 +1,19 @@
+<div class="widget">
+  <h4 class="widget__title">SEARCH</h4>
+  <div class="widget__content search-widget-content">
+    <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+    <div id="search-results"></div>
+  </div>
+</div>
+
+<script>
+window.siteSearchData = [
+  {{ range where .Site.RegularPages "Section" "p" }}
+  {
+    "title": {{ .Title | jsonify }},
+    "url": "{{ .Permalink }}",
+    "content": {{ .Plain | jsonify }}
+  },
+  {{ end }}
+];
+</script> 
