@@ -2244,6 +2244,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://zishu.me/shuoshuo/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://zishu.me/projects/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

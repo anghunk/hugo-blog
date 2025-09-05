@@ -56,6 +56,9 @@ params:
     - name: 关于
       link: /about/
       icon: fa-info-circle
+    - name: 说说
+      link: /shuoshuo/
+      icon: fa-comments
     - name: 项目
       link: /projects/
       icon: fa-tasks
