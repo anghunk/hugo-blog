@@ -1,10 +1,12 @@
 @font-face {
   font-family: "sn-pro";
+  font-style: swap;
   src: url(./sn-pro-latin-400-normal.GlGs0M.woff2);
 }
 
 @font-face {
   font-family: "Bitter";
+  font-style: swap;
   src: url(./Bitter-Regular.woff2);
 }
 
