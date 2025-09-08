@@ -55,5 +55,3 @@ $(document).ready(function () {
   var savedMode = localStorage.getItem('theme-mode') || 'light';
   $('html').attr('data-mode', savedMode);
 });
-
-$(document).pjax('a', 'body')
