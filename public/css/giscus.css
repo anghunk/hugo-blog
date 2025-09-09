@@ -102,5 +102,5 @@ main .gsc-loading-image {
 }
 
 .gsc-comment-edited {
-  display: none;
+  display: none !important;
 }
