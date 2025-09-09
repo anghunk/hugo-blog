@@ -100,3 +100,7 @@ main .gsc-loading-image {
 .gsc-comment-box:not(.gsc-comment-box-is-reply) {
   display: none !important;
 }
+
+.gsc-comment-edited {
+  display: none;
+}
