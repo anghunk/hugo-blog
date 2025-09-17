@@ -64,6 +64,7 @@ title 是文章标题，permalink 是文章链接。
 .search { width: 100%; display: flex; align-items: center; height: 36px; } .search #searchTerm { width: 100%; height: 100%; outline: none; border: none; padding: 0 15px; box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1); } #resultsContainer { margin-top: 20px; } #resultsContainer div { margin-bottom: 10px; margin: 0; } #resultsContainer div a { display: block; width: 100%; padding: 6px 10px; transition: all 0.1s linear; border-radius: 4px; } #resultsContainer div a:hover { background: #f3f3f3; } " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
+<link href="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/css/bootstrap.css">
 <link rel="stylesheet" href="/css/fontawesome.css">
 <link rel="stylesheet" href="/css/main.css">
@@ -223,6 +224,7 @@ title 是文章标题，permalink 是文章链接。
   <img 
 		src="https://imgurl.zishu.me/images/old/20230317/image.68g9ngwkar80.webp"
     alt=""loading
+    class="zoomify"
 	>
   <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
@@ -1583,6 +1585,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
+<script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
 <script src="/js/main.js"></script>
 </body>
 </html>

@@ -102,6 +102,7 @@ var key = Symbol(&#34;key&#34;); var key2 = Symbol(&#34;key&#34;); key == key2 /
 function fakeAjax(url) { return new Promise(function (resolve, reject) { // setTimeouts are for effect, typically we would handle XHR if (!url) { return setTimeout(reject, 1000); } return setTimeout(resolve, 1000); }); } // no url, promise rejected fakeAjax().then(function () { console.log(&#39;success&#39;); },function () { console.log(&#39;fail&#39;); }); " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
+<link href="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/css/bootstrap.css">
 <link rel="stylesheet" href="/css/fontawesome.css">
 <link rel="stylesheet" href="/css/main.css">
@@ -1765,6 +1766,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
+<script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
 <script src="/js/main.js"></script>
 </body>
 </html>

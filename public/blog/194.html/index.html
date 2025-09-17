@@ -50,6 +50,7 @@ $(document).ready(function () { $.ajax({ url: &#39;/index.json&#39;, type: &#39;
 经过脚本统计，我已经写了 &lt;span id=&#34;totalNum&#34;&gt;&lt;/span&gt; 篇文章，总共 &lt;span id=&#34;totalWords&#34;&gt;&lt;/span&gt; 个字。 &lt;!-- 经过脚本统计，我已经写了 164 篇文章，总共 97577 个字。 --&gt; " />
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
+<link href="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/css/bootstrap.css">
 <link rel="stylesheet" href="/css/fontawesome.css">
 <link rel="stylesheet" href="/css/main.css">
@@ -222,6 +223,7 @@ $(document).ready(function () { $.ajax({ url: &#39;/index.json&#39;, type: &#39;
   <img 
 		src="https://imgurl.zishu.me/images/old/2023/05/13/645f33d7e3209.webp"
     alt=""loading
+    class="zoomify"
 	>
   <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
@@ -1479,6 +1481,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
+<script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
 <script src="/js/main.js"></script>
 </body>
 </html>

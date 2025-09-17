@@ -55,3 +55,7 @@ $(document).ready(function () {
   var savedMode = localStorage.getItem('theme-mode') || 'light';
   $('html').attr('data-mode', savedMode);
 });
+
+$(function () {
+  $('.zoomify').zoomify();
+});
