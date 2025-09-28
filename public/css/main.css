@@ -5,14 +5,14 @@
 }
 
 @font-face {
-  font-family: "Bitter";
+  font-family: "TX-02";
   font-style: swap;
-  src: url(./Bitter-Regular.woff2);
+  src: url(./TX-02-Regular.woff2);
 }
 
 body {
   font-family: "sn-pro";
-  /* font-family: "Bitter", serif; */
+  font-family: "TX-02", monospace;
 }
 
 .toc {
