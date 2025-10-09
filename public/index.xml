@@ -8,8 +8,15 @@
     <language>en-us</language>
     <managingEditor>hi@zishu.me (子舒)</managingEditor>
     <webMaster>hi@zishu.me (子舒)</webMaster>
-    <lastBuildDate>Mon, 11 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://zishu.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>随手拍 - 山间高速风景</title>
+      <link>https://zishu.me/blog/mountain-highway-scenery-snapshot.html/</link>
+      <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate><author>子舒 (hi@zishu.me)</author>
+      <guid>https://zishu.me/blog/mountain-highway-scenery-snapshot.html/</guid>
+      <description>&lt;p&gt;好久没更新日常了，国庆出去耍了一下&amp;hellip;不过不是旅行办了一些私事，因此也没有拍什么照片。&lt;/p&gt;&#xA;&lt;p&gt;第一次跑全程 3000km 的高速路线，杭州 - 重庆 - 杭州，看到了路上很多不同的风景，穿梭在云端的高速，遇山钻洞，遇水架桥。&lt;/p&gt;&#xA;&lt;p&gt;     &#xD;&#xA;&lt;figure&gt;&#xD;&#xA;  &lt;img &#xD;&#xA;&#x9;&#x9;src=&#34;https://imgurl.zishu.me/2025/10/1759981636595.webp&#34;&#xD;&#xA;    alt=&#34;&#34;loading&#xD;&#xA;    class=&#34;zoomify&#34;&#xD;&#xA;&#x9;&gt;&#xD;&#xA;  &lt;figcaption class=&#34;text-center pt-2 pb-2 text-muted post-meta&#34;&gt;&lt;/figcaption&gt;&#xD;&#xA;&lt;/figure&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;video muted controls&gt;&lt;source src=&#34;https://video-oss.zishu.me/20251009091153228.mp4&#34;&gt;&lt;/video&gt;&lt;/p&gt;&#xA;&lt;p&gt;中秋节后一天看到的月亮，又大又圆，不过手机像素限制了。&lt;/p&gt;&#xA;&lt;p&gt;     &#xD;&#xA;&lt;figure&gt;&#xD;&#xA;  &lt;img &#xD;&#xA;&#x9;&#x9;src=&#34;https://imgurl.zishu.me/2025/10/1759982089638.webp&#34;&#xD;&#xA;    alt=&#34;&#34;loading&#xD;&#xA;    class=&#34;zoomify&#34;&#xD;&#xA;&#x9;&gt;&#xD;&#xA;  &lt;figcaption class=&#34;text-center pt-2 pb-2 text-muted post-meta&#34;&gt;&lt;/figcaption&gt;&#xD;&#xA;&lt;/figure&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>大明山牵牛岗露营游记</title>
       <link>https://zishu.me/blog/daming-mountain-qianniugang-camping-notes.html/</link>
@@ -72,13 +79,6 @@
       <pubDate>Sat, 19 Apr 2025 00:00:00 +0000</pubDate><author>子舒 (hi@zishu.me)</author>
       <guid>https://zishu.me/blog/257.html/</guid>
       <description>&lt;p&gt;这几年最火的事情莫过于 AI，也有可能是幸存者偏差的原因，当然这暂表不提，只谈谈我和 AI 相处的这几年，我是如何利用这个工具，提高我的工作效率，以及在生活，兴趣爱好等层面和谐融入&lt;/p&gt;&#xA;&lt;p&gt;2022 年底 的时候，我初步接触 gpt 3.5，给我带了极大的震撼，我没想到，AI 已经进化到如此的地步，可以智能对话，处理代码逻辑，进行文字撰写工作。以现在的目光看来它很傻，但是在当时那个环境下，给我的工作和学习带来了极大的帮助。&lt;/p&gt;&#xA;&lt;p&gt;现在翻阅和 gpt 的历史聊天记录，可以看出我当时对它还是抱有很大的热枕，可以帮我总结繁杂的 json 数据并重组数据结构。还可以通过一些特殊的 Prompt 让它解锁图片生成，虽然很生成的图像很拙劣，但我玩的很开心。&lt;/p&gt;&#xA;&lt;p&gt;后来随着这个领域发展的突飞猛进，Claude 横空出世，开始在上下文限制上领先 gpt，但是 OpenAI 毕竟占据先发优势，仍然是我主用的模型。可随着时间的推移，Claude 开始崭露头角，在代码领域展现出断层式的领先，尤其是在前端代码生成方面，非常符合我的需求，所以后来我的使用就变成了 Claude 写代码，gpt 日常使用。&lt;/p&gt;&#xA;&lt;p&gt;可以给我生成一些文档，比如开发某个项目，要写开发文档，说明书之类的，程序员最厌恶的两件事情。一是让我写文档，二是别人不写文档。而 AI 恰好可以完美处理这个问题，虽然刚开始比较笨拙，但在我不停的投喂资料下，也是可以逐渐生成可上生产环境的文档，当然了最后还是需要我来 review code。&lt;/p&gt;&#xA;&lt;p&gt;后来谷歌也陆续推出了什么 Bard 模型，现在改名叫 Gemini，质量也是非常不错，不过我用的比较少。通过前面的介绍也大概知道，AI 领域前期一直是国外遥遥领先，虽然我也希望国产 AI 可以崛起。&lt;/p&gt;&#xA;&lt;p&gt;但是在 2024 年年末的时候，DeepSeek 横空出世，在 AI 圈掀起了轩然大波，当时深度求索推出两款模型一个是 &lt;code&gt;deepseek-chat&lt;/code&gt; 也就是现在的 &lt;code&gt;deepseek-v3&lt;/code&gt;，还有一个就是现在的深度思考模式 &lt;code&gt;deepseek-reasoner&lt;/code&gt;。也是带起了大模型引入思考的风潮。&lt;/p&gt;&#xA;&lt;p&gt;记得在还没过年之前，DeepSeek 小火了一段时间，我也是频繁使用，代码质量、文本质量完全可以称得上一线水平，官网速度也很快，应该是因为人流量还未彻底爆发，深度思考模式基本都是秒出。后来代码一经开源，直接引起热潮，官网流量爆炸，至今任伟恢复到巅峰时期，不过这也说明了 deeseek 的全民热潮。&lt;/p&gt;&#xA;&lt;p&gt;后面各家大厂也都部署了 deepseek 全血版，我比较推崇火山方舟和阿里云百炼旗下的 deepseek 模型，质量和速度也都在前列，我 90% 在使用火山方舟的。&lt;/p&gt;&#xA;&lt;p&gt;其实阿里旗下的 QWen 模型也一直发展的风生水起，不过我是个人用习惯了前面说的那些，所以 QWen 也很少用，不过非常推荐大家使用。&lt;/p&gt;&#xA;&lt;p&gt;所以我目前对 AI 模型的使用如下，DeepSeek + GPT 处理日常文字工作，图像生成，以及繁琐的数据重组等，Claude 负责处理逻辑复杂的代码开发，然后掺杂着 Gemini 以及其他新兴模型作为测试。&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;其他文章我可能或多或少使用 AI 进行润色，但这篇文章完全 0 AI 痕迹，算是对这方面的个人总结吧。如名词错误情况或其他错误请指出，完全是有感而发思绪很快，键盘敲个不停。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>无法加载文件，因为在此系统上禁止运行脚本</title>
-      <link>https://zishu.me/blog/256.html/</link>
-      <pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate><author>子舒 (hi@zishu.me)</author>
-      <guid>https://zishu.me/blog/256.html/</guid>
-      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;无法加载文件 D:&lt;span class=&#34;se&#34;&gt;\C&lt;/span&gt;ode&lt;span class=&#34;se&#34;&gt;\x&lt;/span&gt;xx&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;pm.ps1，因为在此系统上禁止运行脚本&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;偶尔会遇到这个问题，修改下电脑的策略就可以了。&lt;/p&gt;&#xA;&lt;p&gt;在管理员终端输入下面的指令：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Set-ExecutionPolicy -ExecutionPolicy RemoteSigned&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
   </channel>
 </rss>
