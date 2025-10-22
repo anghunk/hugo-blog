@@ -1,0 +1,36 @@
+<div class="index-left">
+
+  <div class="nav" id="nav">
+    <div class="avatar-name">
+      <a href="/" class="avatar ">
+        <img src="{{ .Site.Params.Logo }}">
+      </a>
+      <div class="name">
+        <i>{{ .Site.Params.Author.Name }}</i>
+      </div>
+    </div>
+    <div class="contents" id="nav-content">
+      <ul>
+        {{ range .Site.Params.socials }}
+        <li>
+          <a href="{{ .link }}">
+            <i class="fa-fw fas {{ .icon }}"></i>
+            <span>{{ .name }}</span>
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+
+    {{ if in .Site.Params.mainSections .Type }}
+    <div id="toc" class="toc-article">
+      {{ .TableOfContents }}
+    </div>
+    {{ end }}
+
+  </div>
+
+  <div class="index-about-mobile">
+    <i> Do something, anything—just give fate's gears a chance to turn. </i>
+  </div>
+</div>

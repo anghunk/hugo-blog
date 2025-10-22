@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+
+<body>
+  {{ partial "header.html" . }}
+
+  <div class="index-container">
+    {{ partial "left.html" . }}
+
+    <div class="index-middle">
+      <div class="post-container">
+        <div class="post-title">{{ .Title }}</div>
+        
+        {{ if in .Site.Params.mainSections .Type }}
+        <div class="post-meta">
+          <span class="attr">发布于：<span>{{ .Date.Format "2006-01-02"}}</span></span>
+          {{ if .Params.tags }}
+          <span class="attr">标签：
+            {{ range .Params.tags }}
+            <a href="{{ " /tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+            <span>/</span>
+            {{ end }}
+          </span>
+          {{ end }}
+        </div>
+        {{ end }}
+
+        <div class="post-content no-indent">
+          {{ .Site.Params.postHeaderContent | safeHTML }}
+          {{ .Content }}
+        </div>
+
+        <!-- 评论 -->
+        {{ if in .Site.Params.mainSections .Type }}
+        {{ partial "comment.html" . }}
+        {{ end }}
+
+      </div>
+    </div>
+
+  </div>
+
+  {{ partial "footer.html" . }}
+  {{ partial "scripts.html" . }}
+</body>
+
+</html>

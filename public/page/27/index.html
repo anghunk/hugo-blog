@@ -43,565 +43,349 @@
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
 <link href="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.css" rel="stylesheet">
-<link rel="stylesheet" href="/css/bootstrap.css">
 <link rel="stylesheet" href="/css/fontawesome.css">
+<link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/css/main.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
-  <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
-        width="112" height="112" alt="avatar"></a>
-    <a class="site-title d-block" href="/">子舒</a>
-    <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
-  </header>
-  <nav class="flex-column flex-grow-1 w-100 ps-0">
-    <ul class="nav">
+  <div class="site-nav-toggle" id="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
 
-      
-      <li class="nav-item">
-        <a href="/" class="nav-link">
-          <i class="fa-fw fas fa-house"></i>
-          <span>首页</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/blog/" class="nav-link">
-          <i class="fa-fw fas fa-stream"></i>
-          <span>文章</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/tags/" class="nav-link">
-          <i class="fa-fw fas fa-tags"></i>
-          <span>标签</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/message/" class="nav-link">
-          <i class="fa-fw fas fa-message"></i>
-          <span>留言</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/about/" class="nav-link">
-          <i class="fa-fw fas fa-info-circle"></i>
-          <span>关于</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/shuoshuo/" class="nav-link">
-          <i class="fa-fw fas fa-comments"></i>
-          <span>说说</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/projects/" class="nav-link">
-          <i class="fa-fw fas fa-tasks"></i>
-          <span>项目</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/friends/" class="nav-link">
-          <i class="fa-fw fas fa-link"></i>
-          <span>友链</span>
-        </a>
-      </li>
-      
+<div class="index-about">
+  <i> Do something, anything—just give fate's gears a chance to turn. </i>
+</div>
 
-    </ul>
-  </nav>
-  <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100"><button type="button"
-      class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
-      <i class="fas fa-adjust"></i>
-    </button>
-    <span class="icon-border"></span>
-    <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
-        class="fab fa-github"></i></a>
-    <a href="mailto:hi@zishu.me" aria-label="email" target="_blank" rel="noopener noreferrer"><i
-        class="fas fa-envelope"></i>
-    </a>
-    <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
+
+  <div class="index-container">
+    <div class="index-left">
+
+  <div class="nav" id="nav">
+    <div class="avatar-name">
+      <a href="/" class="avatar ">
+        <img src="https://imgurl.zishu.me/author.webp">
+      </a>
+      <div class="name">
+        <i>子舒</i>
+      </div>
+    </div>
+    <div class="contents" id="nav-content">
+      <ul>
+        
+        <li>
+          <a href="/">
+            <i class="fa-fw fas fa-house"></i>
+            <span>首页</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/blog/">
+            <i class="fa-fw fas fa-stream"></i>
+            <span>归档</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/tags/">
+            <i class="fa-fw fas fa-tags"></i>
+            <span>标签</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/message/">
+            <i class="fa-fw fas fa-message"></i>
+            <span>留言</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/about/">
+            <i class="fa-fw fas fa-info-circle"></i>
+            <span>关于</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/shuoshuo/">
+            <i class="fa-fw fas fa-comments"></i>
+            <span>说说</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/projects/">
+            <i class="fa-fw fas fa-tasks"></i>
+            <span>项目</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/friends/">
+            <i class="fa-fw fas fa-link"></i>
+            <span>友链</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/">
+            <i class="fa-fw fas fa-search"></i>
+            <span>搜索</span>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+
+    
+
   </div>
-</aside>
 
-  <div id="main-wrapper" class="d-flex justify-content-center">
-    <div class="container d-flex flex-column px-xxl-5">
-      <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
-  <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
-    <nav id="breadcrumb" aria-label="Breadcrumb">
-      <span> <a href="/">Home</a> </span>
-
-      
-      <span>子舒的博客</span>
-      
-    </nav>
-    <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
-      <i class="fas fa-bars fa-fw"></i>
-    </button>
-    <a href="/"><div id="topbar-title">子舒的博客</div></a>
-    <button type="button" class="btn btn-link"></button>
+  <div class="index-about-mobile">
+    <i> Do something, anything—just give fate's gears a chance to turn. </i>
   </div>
-</header>
-      
-      <div class="row flex-grow-1">
-        <main class="col-12 col-lg-11 col-xl-9 px-md-4">
-          <div id="post-list" class="flex-grow-1 px-xl-1">
+</div>
 
-            
-            
-            
+    <div class="index-middle">
 
-            
-            
-            
+      <div class="post-preview-container">
 
-            <article class="card-wrapper card">
-              <a href="/blog/4.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">关于人际交往的礼节感触</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        因为一件小事有感而发，在人际交往的过程中，我们通常都会关注一些细节，从而影响对一个人印象。这是一个作为人很正常的行为。
-打个比方，两个人聊天，其中一个人不停拿起手机查看，就很给人一种很没有礼貌的印象。 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2021年11月24日</time><i class="far fa-folder-open fa-fw me-1"></i>
+        
+        
+        
 
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              随笔
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , 随笔
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/84.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">网易云摸鱼，测测你的听歌流量</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        格局刚好。
-
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2021年11月18日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              随笔
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , 随笔
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/83.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">这两天的碎碎念</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        这段时间双十一，发现没有了往年那种囤货淘宝的欲望了，翻来翻去不知道买什么，包括那些活动，有好多朋友给我发链接助力我都没怎么弄，可能是生活的打磨让我对它没兴趣了吧~~
-唯一的消费活动就是买了一台服务器， …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2021年11月11日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              随笔
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , 随笔
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/82.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">揭秘箭头函数</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                         英文地址：https://javascript.plainenglish.io/demystifying-javascript-arrow-functions-7b2a0908a2b3
-通过掘金翻译 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2021年11月5日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              技术
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , js
-                        
-                        , 翻译
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/81.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">js 奇怪的知识--console.table</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        这个属性对我来说还真有些陌生，无意中发现的，查询过 MDN 之后听得挺有意思的，就记录一下。
-根据字面意思就是“将数据以表格的形式显示”。这个方法需要一个必须参数 data，data 必须是一个数组或 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2021年11月4日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              技术
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , js
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/80.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">通过 getTimezoneOffset() 方法判断当前时区是否为夏令时</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        getTimezoneOffset() 方法 方法返回 UTC 时间和本地时间之间的时差，以分钟为单位。
-世界协调时间 (UTC) 是世界时间标准设定的时间，UTC 时间与 GMT 时间（格林威治时 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2021年10月22日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              技术
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , js
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/79.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">有关国庆出行的感想</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        好长时间没回老家了，这次本想借着国庆七天回家一趟，顺便处理一些其他的事情。所以我从 9 月 30 日晚，与家人一同驾车回家。
-艰难的回家之路 刚上高速跑得很快，原以为已经错开出行高峰期，结果发现是我想 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2021年10月7日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              随笔
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , 感想
-                        
-                        , 出行
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/78.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">使用 js 随机生成背景颜色</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        先写一个简单的 html 页面出来
-&lt;style&gt; /* ... */ &lt;/style&gt; &lt;ul&gt; &lt;li&gt;html&lt;/li&gt; …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2021年9月29日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              技术
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , js
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/77.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">hugo 如何使用 Cusdis ?</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        Cusdis 是一个界面清爽、注重隐私的轻量级 (~5kb gzip) 评论系统，可以很方便地与 React、Vue 或其他博客系统结合，并且还提供了一个后台来管理所有的评论。
-由于 Cusdis 自 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2021年9月16日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              技术
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , 博客
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-03-23</div>
+          <div class="post-info">
+            <a href="/blog/58.html/">
+              <h3>ajax 和 js 事件的执行顺序</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/ajax" class="tags">ajax</a>
+              
+              
+              <span>/</span>
+            </p>
           </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-03-22</div>
+          <div class="post-info">
+            <a href="/blog/59.html/">
+              <h3>ajax 拼接模版字符串的几种方法</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/ajax" class="tags">ajax</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-03-19</div>
+          <div class="post-info">
+            <a href="/blog/57.html/">
+              <h3>用 ajax 请求获取数据</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/js" class="tags">js</a>
+              
+              <a href="/%20/tags/ajax" class="tags">ajax</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-03-18</div>
+          <div class="post-info">
+            <a href="/blog/56.html/">
+              <h3>IE10 的兼容性处理</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/%E6%B5%8F%E8%A7%88%E5%99%A8" class="tags">浏览器</a>
+              
+              <a href="/%20/tags/ie" class="tags">IE</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-03-17</div>
+          <div class="post-info">
+            <a href="/blog/55.html/">
+              <h3>window.scroll 方法只能存在一次该如何解决？</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/ie" class="tags">IE</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-03-16</div>
+          <div class="post-info">
+            <a href="/blog/54.html/">
+              <h3>IE10 下`,`符号不能留白</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/css" class="tags">css</a>
+              
+              <a href="/%20/tags/ie" class="tags">IE</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-03-14</div>
+          <div class="post-info">
+            <a href="/blog/53.html/">
+              <h3>怎么让 css3 里面的动画属性看起来更流畅？</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/css" class="tags">css</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-02-26</div>
+          <div class="post-info">
+            <a href="/blog/52.html/">
+              <h3>Chrome 浏览器无法显示 12px 以下的字体</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/css" class="tags">css</a>
+              
+              <a href="/%20/tags/%E6%B5%8F%E8%A7%88%E5%99%A8" class="tags">浏览器</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-02-25</div>
+          <div class="post-info">
+            <a href="/blog/51.html/">
+              <h3>使用宝塔面板安装 autoPicCdn 图床工具</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/%E5%B7%A5%E5%85%B7" class="tags">工具</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-02-04</div>
+          <div class="post-info">
+            <a href="/blog/50.html/">
+              <h3>typecho 博客小表情无法显示问题</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/%E5%8D%9A%E5%AE%A2" class="tags">博客</a>
+              
+              <a href="/%20/tags/typecho" class="tags">typecho</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+      </div>
 
-          
+      
 
 
 
@@ -621,1023 +405,38 @@
 
 
 
-<div class="pagination">
+<div class="pager">
   
-  <div class="page-item"><a href="/page/26/" class="page-link">上一页</a></div>
+  <div class="previous"><a href="/page/26/">上一页</a></div>
   
 
   
-  <div class="page-item"><a href="/page/28/" class="page-link">下一页</a></div>
+  <div class="next"><a href="/page/28/">下一页</a></div>
   
 </div>
 
 
 
 
-          <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
-flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
-  <p>
-    <time>© 2020 - 2025 Powered by </time>
-    <a href="https://github.com/anghunk">子舒</a>.
-    <span>Some rights reserved.</span>
-  </p>
-  <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
-</footer>
-        </main>
-        
-        
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
-  <div class="access">
-    <section id="access-lastmod">
-      <h2 class="panel-heading">Recently Updated</h2>
-      <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
-        
-        
-        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/mountain-highway-scenery-snapshot.html/">随手拍 - 山间高速风景</a></li>
-        
-        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/daming-mountain-qianniugang-camping-notes.html/">大明山牵牛岗露营游记</a></li>
-        
-        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/nanjing-travel-aug-3.html/">南京游八月三日</a></li>
-        
-        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/login-bitwarden-legacy-version.html/">如何登录旧版本 Bitwarden 密码管理器</a></li>
-        
-        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/262.html/">AI 驱动的验证码自动识别之旅：从困扰到解放</a></li>
-        
-      </ul>
-    </section>
-    <section>
-      <h2 class="panel-heading">Trending Tags</h2>
-      <div class="d-flex flex-wrap mt-3 mb-1 me-3">
-        
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/weekly/">Weekly</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D/">随手拍</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/js/">Js</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/vue/">Vue</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/react/">React</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E6%97%85%E6%B8%B8/">旅游</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%83%B3%E5%BD%95/">随想录</a>
-        
-      </div>
-    </section>
-
-    
-    <section>
-      <h2 class="panel-heading">About Me</h2>
-      <div class="content mt-2 lh-lg">
-        这是我的个人博客，已经运行了 <span id="days"></span> 天，写了 324 篇文章，共 207541 字。
-        <br>
-        代码是我的工作，文字是我的爱好。
-        <br>
-        如果你想与我交流，欢迎发送电子邮件至 <a href="mailto:hi@zishu.me">hi@zishu.me</a>，更多 <a href="/about/">关于我</a>。
-      </div>
-    </section>
-
-<script>
-  const time = "2020-06-14";
-  var now = new Date();
-  var end = new Date(time);
-  var diff = Math.abs(now - end);
-  var days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-  document.getElementById('days').innerHTML = days;
-</script>
-    
-  </div>
-
-  
-
-</aside>
-
-
-      </div>
-      
     </div>
   </div>
 
-<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
+  <footer class="footer">
+  <ul class="list-inline text-center">
+
+  </ul>
+  <p>
+    <time>© 2020 - 2025 Powered by </time>
+    <a href="https://github.com/anghunk">anghunk(Github)</a>.
+    <span>Some rights reserved.</span>
+  </p>
+  <p>
+    <span>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</span>
+  </p>
+
+</footer>
+  <button id="back-to-top" type="button" class="gotop"><i class="fas fa-angle-up"></i></button>
 <script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
 <script src="/js/main.js"></script>
 </body>

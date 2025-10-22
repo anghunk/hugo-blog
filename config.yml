@@ -1,9 +1,9 @@
 baseURL: https://zishu.me/
 languageCode: en-us
 title: 子舒的博客
-theme: chirpy # chirpy
+theme: AirCloud # chirpy
 pagination:
-  pagerSize: 9 # 首页文章显示个数
+  pagerSize: 10 # 9 首页文章显示个数
 summaryLength: 999999 # 首页文章摘要字数
 hasCJKLanguage: true
 rssLimit: 10 # 限制 rss 输出的数量
@@ -44,7 +44,7 @@ params:
     - name: 首页
       link: /
       icon: fa-house
-    - name: 文章
+    - name: 归档
       link: /blog/
       icon: fa-stream
     - name: 标签
@@ -65,6 +65,9 @@ params:
     - name: 友链
       link: /friends/
       icon: fa-link
+    - name: 搜索
+      link: /search/
+      icon: fa-search
 
 related:
   threshold: 0 # 相关性阈值，0-100。分数越低，匹配条件越宽松。

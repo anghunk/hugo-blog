@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+
+<body>
+  {{ partial "header.html" . }}
+
+  <div class="index-container">
+    {{ partial "left.html" . }}
+
+    <div class="index-middle">
+
+      <div class="post-preview-container">
+
+        {{ $pages := .Site.RegularPages }}
+        {{ $paginator := .Paginate ($pages) }}
+        {{ $count := 0 }}
+
+        {{ range $paginator.Pages }}
+        {{ $title := .Title }}
+        {{ $summary := .Summary }}
+        <div class="post-preview">
+          <div class="post-time">{{ .Date.Format "2006-01-02" }}</div>
+          <div class="post-info">
+            <a href="{{ .RelPermalink }}">
+              <h3>{{ .Title }}</h3>
+            </a>
+            <p>
+              <span>/</span>
+              <!-- 标签 -->
+              {{ if .Params.tags }}
+              {{ range .Params.tags }}
+              <a href="{{ " /tags/" | relLangURL }}{{ . | urlize }}" class="tags">{{ . }}</a>
+              {{ end }}
+              {{ end }}
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+
+      {{ partial "pagination.html" . }}
+
+    </div>
+  </div>
+
+  {{ partial "footer.html" . }}
+  {{ partial "scripts.html" . }}
+</body>
+
+</html>

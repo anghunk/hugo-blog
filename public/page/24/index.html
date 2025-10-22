@@ -43,573 +43,349 @@
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
 <link href="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.css" rel="stylesheet">
-<link rel="stylesheet" href="/css/bootstrap.css">
 <link rel="stylesheet" href="/css/fontawesome.css">
+<link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/css/main.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
-  <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
-        width="112" height="112" alt="avatar"></a>
-    <a class="site-title d-block" href="/">子舒</a>
-    <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
-  </header>
-  <nav class="flex-column flex-grow-1 w-100 ps-0">
-    <ul class="nav">
+  <div class="site-nav-toggle" id="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
 
-      
-      <li class="nav-item">
-        <a href="/" class="nav-link">
-          <i class="fa-fw fas fa-house"></i>
-          <span>首页</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/blog/" class="nav-link">
-          <i class="fa-fw fas fa-stream"></i>
-          <span>文章</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/tags/" class="nav-link">
-          <i class="fa-fw fas fa-tags"></i>
-          <span>标签</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/message/" class="nav-link">
-          <i class="fa-fw fas fa-message"></i>
-          <span>留言</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/about/" class="nav-link">
-          <i class="fa-fw fas fa-info-circle"></i>
-          <span>关于</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/shuoshuo/" class="nav-link">
-          <i class="fa-fw fas fa-comments"></i>
-          <span>说说</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/projects/" class="nav-link">
-          <i class="fa-fw fas fa-tasks"></i>
-          <span>项目</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/friends/" class="nav-link">
-          <i class="fa-fw fas fa-link"></i>
-          <span>友链</span>
-        </a>
-      </li>
-      
+<div class="index-about">
+  <i> Do something, anything—just give fate's gears a chance to turn. </i>
+</div>
 
-    </ul>
-  </nav>
-  <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100"><button type="button"
-      class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
-      <i class="fas fa-adjust"></i>
-    </button>
-    <span class="icon-border"></span>
-    <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
-        class="fab fa-github"></i></a>
-    <a href="mailto:hi@zishu.me" aria-label="email" target="_blank" rel="noopener noreferrer"><i
-        class="fas fa-envelope"></i>
-    </a>
-    <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
+
+  <div class="index-container">
+    <div class="index-left">
+
+  <div class="nav" id="nav">
+    <div class="avatar-name">
+      <a href="/" class="avatar ">
+        <img src="https://imgurl.zishu.me/author.webp">
+      </a>
+      <div class="name">
+        <i>子舒</i>
+      </div>
+    </div>
+    <div class="contents" id="nav-content">
+      <ul>
+        
+        <li>
+          <a href="/">
+            <i class="fa-fw fas fa-house"></i>
+            <span>首页</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/blog/">
+            <i class="fa-fw fas fa-stream"></i>
+            <span>归档</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/tags/">
+            <i class="fa-fw fas fa-tags"></i>
+            <span>标签</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/message/">
+            <i class="fa-fw fas fa-message"></i>
+            <span>留言</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/about/">
+            <i class="fa-fw fas fa-info-circle"></i>
+            <span>关于</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/shuoshuo/">
+            <i class="fa-fw fas fa-comments"></i>
+            <span>说说</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/projects/">
+            <i class="fa-fw fas fa-tasks"></i>
+            <span>项目</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/friends/">
+            <i class="fa-fw fas fa-link"></i>
+            <span>友链</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/">
+            <i class="fa-fw fas fa-search"></i>
+            <span>搜索</span>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+
+    
+
   </div>
-</aside>
 
-  <div id="main-wrapper" class="d-flex justify-content-center">
-    <div class="container d-flex flex-column px-xxl-5">
-      <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
-  <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
-    <nav id="breadcrumb" aria-label="Breadcrumb">
-      <span> <a href="/">Home</a> </span>
-
-      
-      <span>子舒的博客</span>
-      
-    </nav>
-    <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
-      <i class="fas fa-bars fa-fw"></i>
-    </button>
-    <a href="/"><div id="topbar-title">子舒的博客</div></a>
-    <button type="button" class="btn btn-link"></button>
+  <div class="index-about-mobile">
+    <i> Do something, anything—just give fate's gears a chance to turn. </i>
   </div>
-</header>
-      
-      <div class="row flex-grow-1">
-        <main class="col-12 col-lg-11 col-xl-9 px-md-4">
-          <div id="post-list" class="flex-grow-1 px-xl-1">
+</div>
 
-            
-            
-            
+    <div class="index-middle">
 
-            
-            
-            
+      <div class="post-preview-container">
 
-            <article class="card-wrapper card">
-              <a href="/blog/128.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">分享一款自用的 v2ex 主题样式</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        起因是因为觉得 v2ex 网站主题略有拥挤，阅读体验不好，而正好网站支持自定义 css，所以就在参考其他人的基础上，修改了一套比较美观的样式。
-本来是自用的，但是看到有人发帖分享主题，我也索性将它分享 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2022年5月12日</time><i class="far fa-folder-open fa-fw me-1"></i>
+        
+        
+        
 
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              技术
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , css
-                        
-                        , v2ex
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/125.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">随想录 (3)</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        五一假期回老家处理一些事情，收拾东西的时候，从角落里翻出来几张老照片，很有怀念意义。（2022/05/03）
-好事和坏事总是接踵而至，你永远不知道下一秒会发生什么。但是总有解决的办法，不是 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2022年5月6日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              随笔
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , 随想录
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/124.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">docker 部署思源笔记</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                         文章废弃
-部署 docker run --name siyuan -itd -p 6806:6806 -v /opt/my_siyuan_path:/opt/siyuan --restart …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2022年5月5日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              技术
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , 思源笔记
-                        
-                        , docker
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/122.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">随想录 (2)</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        今天醒的很早，原来以为是失眠，结果是早起，这两天发生的有点多，导致情绪都有些低落，精神萎靡。希望风波赶紧过去，太影响生活了。
-（2022/04/25）
-很喜欢雨后的阴天，骑着车，微凉的空气扑面而来，清 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2022年4月29日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              随笔
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , 随想录
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/121.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">关于我选择笔记系统这件小事</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        受年龄增长以及生活影响，人接触到的新事物和知识将会越来越多，大脑就显得有些混乱了，我也不敢保证自己的思维会始终保持一个高强度的在线状态。
-因此决定整理个人知识库，将大脑中的片段和思想整理出来。以笔记和 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2022年4月28日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              随笔
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , 随笔
-                        
-                        , 笔记
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/120.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">浏览器收藏夹一键填写博客评论信息</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        先点击收藏一个页面，然后右键它，选择修改，在网址输入框复制下面的 js 代码，就可以一键填入了。
-将其中的昵称，邮箱，网址修改成自己的信息。
-目前支持绝大多数主流博客平台和系统，如果发现没有起作用，可 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2022年4月26日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              技术
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , 博客
-                        
-                        , js
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/119.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">随想录 (1)</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        正式启动一周碎碎念计划，起因是无意中发现了一个网站，古天乐的博客 。看完之后震撼了，虽然每天都是很简短的一句话，但是一个习惯坚持了 12 年。
-因为我决定仿效他的做法，看看自己是否能坚持足够长的时间。 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2022年4月24日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              随笔
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , 随想录
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/116.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">在宝塔中使用青龙面板代挂京豆</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        如题所述，想要在闲置的服务器中跑一些服务，青龙面板代挂京豆现存很多开源的脚本，安全性已经经过很多人验证，可以放心使用。
-因此我也安排了一个脚本，成功部署之后，就写这篇不算教程的笔记来记录一下整个过程。 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2022年4月15日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              技术
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , 宝塔
-                        
-                        , 脚本
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/113.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">2022 清明出游</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        清明过去两天了，由于出去玩了两天，身体很累等原因，再加上工作忙碌所以没有来得及记录。今天略有闲时间，整理一下随笔。
-爬山&mdash;杭州半山森林公园 相比于西湖等景点，半山已经算是人非常少的呢，因为 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2022年4月7日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              随笔
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , 旅游
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-12-21</div>
+          <div class="post-info">
+            <a href="/blog/92.html/">
+              <h3>typecho 更换 gravatar 头像源</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/typecho" class="tags">typecho</a>
+              
+              <a href="/%20/tags/gravatar" class="tags">gravatar</a>
+              
+              
+              <span>/</span>
+            </p>
           </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-12-20</div>
+          <div class="post-info">
+            <a href="/blog/91.html/">
+              <h3>有关 cdn.jsdelivr.net 证书错误的一些想法</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/%E9%9A%8F%E7%AC%94" class="tags">随笔</a>
+              
+              <a href="/%20/tags/jsdelivr" class="tags">jsdelivr</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-12-17</div>
+          <div class="post-info">
+            <a href="/blog/90.html/">
+              <h3>闲谈 2021</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/%E9%9A%8F%E7%AC%94" class="tags">随笔</a>
+              
+              <a href="/%20/tags/%E6%80%BB%E7%BB%93" class="tags">总结</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-12-07</div>
+          <div class="post-info">
+            <a href="/blog/88.html/">
+              <h3>实现图片灯箱功能</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/%E5%8D%9A%E5%AE%A2" class="tags">博客</a>
+              
+              <a href="/%20/tags/%E6%8F%92%E4%BB%B6" class="tags">插件</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-11-24</div>
+          <div class="post-info">
+            <a href="/blog/4.html/">
+              <h3>关于人际交往的礼节感触</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/%E9%9A%8F%E7%AC%94" class="tags">随笔</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-11-18</div>
+          <div class="post-info">
+            <a href="/blog/84.html/">
+              <h3>网易云摸鱼，测测你的听歌流量</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/%E9%9A%8F%E7%AC%94" class="tags">随笔</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-11-11</div>
+          <div class="post-info">
+            <a href="/blog/83.html/">
+              <h3>这两天的碎碎念</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/%E9%9A%8F%E7%AC%94" class="tags">随笔</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-11-05</div>
+          <div class="post-info">
+            <a href="/blog/82.html/">
+              <h3>揭秘箭头函数</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/js" class="tags">js</a>
+              
+              <a href="/%20/tags/%E7%BF%BB%E8%AF%91" class="tags">翻译</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-11-04</div>
+          <div class="post-info">
+            <a href="/blog/81.html/">
+              <h3>js 奇怪的知识--console.table</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/js" class="tags">js</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2021-10-22</div>
+          <div class="post-info">
+            <a href="/blog/80.html/">
+              <h3>通过 getTimezoneOffset() 方法判断当前时区是否为夏令时</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/js" class="tags">js</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+      </div>
 
-          
+      
 
 
 
@@ -629,1023 +405,38 @@
 
 
 
-<div class="pagination">
+<div class="pager">
   
-  <div class="page-item"><a href="/page/23/" class="page-link">上一页</a></div>
+  <div class="previous"><a href="/page/23/">上一页</a></div>
   
 
   
-  <div class="page-item"><a href="/page/25/" class="page-link">下一页</a></div>
+  <div class="next"><a href="/page/25/">下一页</a></div>
   
 </div>
 
 
 
 
-          <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
-flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
-  <p>
-    <time>© 2020 - 2025 Powered by </time>
-    <a href="https://github.com/anghunk">子舒</a>.
-    <span>Some rights reserved.</span>
-  </p>
-  <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
-</footer>
-        </main>
-        
-        
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
-  <div class="access">
-    <section id="access-lastmod">
-      <h2 class="panel-heading">Recently Updated</h2>
-      <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
-        
-        
-        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/mountain-highway-scenery-snapshot.html/">随手拍 - 山间高速风景</a></li>
-        
-        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/daming-mountain-qianniugang-camping-notes.html/">大明山牵牛岗露营游记</a></li>
-        
-        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/nanjing-travel-aug-3.html/">南京游八月三日</a></li>
-        
-        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/login-bitwarden-legacy-version.html/">如何登录旧版本 Bitwarden 密码管理器</a></li>
-        
-        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/262.html/">AI 驱动的验证码自动识别之旅：从困扰到解放</a></li>
-        
-      </ul>
-    </section>
-    <section>
-      <h2 class="panel-heading">Trending Tags</h2>
-      <div class="d-flex flex-wrap mt-3 mb-1 me-3">
-        
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/weekly/">Weekly</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D/">随手拍</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/js/">Js</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/vue/">Vue</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/react/">React</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E6%97%85%E6%B8%B8/">旅游</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%83%B3%E5%BD%95/">随想录</a>
-        
-      </div>
-    </section>
-
-    
-    <section>
-      <h2 class="panel-heading">About Me</h2>
-      <div class="content mt-2 lh-lg">
-        这是我的个人博客，已经运行了 <span id="days"></span> 天，写了 324 篇文章，共 207541 字。
-        <br>
-        代码是我的工作，文字是我的爱好。
-        <br>
-        如果你想与我交流，欢迎发送电子邮件至 <a href="mailto:hi@zishu.me">hi@zishu.me</a>，更多 <a href="/about/">关于我</a>。
-      </div>
-    </section>
-
-<script>
-  const time = "2020-06-14";
-  var now = new Date();
-  var end = new Date(time);
-  var diff = Math.abs(now - end);
-  var days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-  document.getElementById('days').innerHTML = days;
-</script>
-    
-  </div>
-
-  
-
-</aside>
-
-
-      </div>
-      
     </div>
   </div>
 
-<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
+  <footer class="footer">
+  <ul class="list-inline text-center">
+
+  </ul>
+  <p>
+    <time>© 2020 - 2025 Powered by </time>
+    <a href="https://github.com/anghunk">anghunk(Github)</a>.
+    <span>Some rights reserved.</span>
+  </p>
+  <p>
+    <span>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</span>
+  </p>
+
+</footer>
+  <button id="back-to-top" type="button" class="gotop"><i class="fas fa-angle-up"></i></button>
 <script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
 <script src="/js/main.js"></script>
 </body>

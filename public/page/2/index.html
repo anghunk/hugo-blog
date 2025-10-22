@@ -43,578 +43,351 @@
 <meta property="og:locale" content="en-us" /><meta property="og:image" content="https://imgurl.zishu.me/favicon.ico" />
 
 <link href="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.css" rel="stylesheet">
-<link rel="stylesheet" href="/css/bootstrap.css">
 <link rel="stylesheet" href="/css/fontawesome.css">
+<link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/css/main.css">
 <script src="/js/jquery-3.6.1.js"></script>
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="子舒的博客">
 </head>
 
 <body>
-  <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper"><a href="/" id="avatar" class="rounded-circle"><img src="https://imgurl.zishu.me/author.webp"
-        width="112" height="112" alt="avatar"></a>
-    <a class="site-title d-block" href="/">子舒</a>
-    <p class="site-subtitle fst-italic mb-0">一个热爱生活的前端开发工程师</p>
-  </header>
-  <nav class="flex-column flex-grow-1 w-100 ps-0">
-    <ul class="nav">
+  <div class="site-nav-toggle" id="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
 
-      
-      <li class="nav-item">
-        <a href="/" class="nav-link">
-          <i class="fa-fw fas fa-house"></i>
-          <span>首页</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/blog/" class="nav-link">
-          <i class="fa-fw fas fa-stream"></i>
-          <span>文章</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/tags/" class="nav-link">
-          <i class="fa-fw fas fa-tags"></i>
-          <span>标签</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/message/" class="nav-link">
-          <i class="fa-fw fas fa-message"></i>
-          <span>留言</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/about/" class="nav-link">
-          <i class="fa-fw fas fa-info-circle"></i>
-          <span>关于</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/shuoshuo/" class="nav-link">
-          <i class="fa-fw fas fa-comments"></i>
-          <span>说说</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/projects/" class="nav-link">
-          <i class="fa-fw fas fa-tasks"></i>
-          <span>项目</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
-        <a href="/friends/" class="nav-link">
-          <i class="fa-fw fas fa-link"></i>
-          <span>友链</span>
-        </a>
-      </li>
-      
+<div class="index-about">
+  <i> Do something, anything—just give fate's gears a chance to turn. </i>
+</div>
 
-    </ul>
-  </nav>
-  <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100"><button type="button"
-      class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
-      <i class="fas fa-adjust"></i>
-    </button>
-    <span class="icon-border"></span>
-    <a href="https://github.com/anghunk" aria-label="github" target="_blank" rel="noopener noreferrer"><i
-        class="fab fa-github"></i></a>
-    <a href="mailto:hi@zishu.me" aria-label="email" target="_blank" rel="noopener noreferrer"><i
-        class="fas fa-envelope"></i>
-    </a>
-    <a href="/index.xml" aria-label="rss"><i class="fas fa-rss"></i></a>
+
+  <div class="index-container">
+    <div class="index-left">
+
+  <div class="nav" id="nav">
+    <div class="avatar-name">
+      <a href="/" class="avatar ">
+        <img src="https://imgurl.zishu.me/author.webp">
+      </a>
+      <div class="name">
+        <i>子舒</i>
+      </div>
+    </div>
+    <div class="contents" id="nav-content">
+      <ul>
+        
+        <li>
+          <a href="/">
+            <i class="fa-fw fas fa-house"></i>
+            <span>首页</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/blog/">
+            <i class="fa-fw fas fa-stream"></i>
+            <span>归档</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/tags/">
+            <i class="fa-fw fas fa-tags"></i>
+            <span>标签</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/message/">
+            <i class="fa-fw fas fa-message"></i>
+            <span>留言</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/about/">
+            <i class="fa-fw fas fa-info-circle"></i>
+            <span>关于</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/shuoshuo/">
+            <i class="fa-fw fas fa-comments"></i>
+            <span>说说</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/projects/">
+            <i class="fa-fw fas fa-tasks"></i>
+            <span>项目</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/friends/">
+            <i class="fa-fw fas fa-link"></i>
+            <span>友链</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/">
+            <i class="fa-fw fas fa-search"></i>
+            <span>搜索</span>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+
+    
+
   </div>
-</aside>
 
-  <div id="main-wrapper" class="d-flex justify-content-center">
-    <div class="container d-flex flex-column px-xxl-5">
-      <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
-  <div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100">
-    <nav id="breadcrumb" aria-label="Breadcrumb">
-      <span> <a href="/">Home</a> </span>
-
-      
-      <span>子舒的博客</span>
-      
-    </nav>
-    <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
-      <i class="fas fa-bars fa-fw"></i>
-    </button>
-    <a href="/"><div id="topbar-title">子舒的博客</div></a>
-    <button type="button" class="btn btn-link"></button>
+  <div class="index-about-mobile">
+    <i> Do something, anything—just give fate's gears a chance to turn. </i>
   </div>
-</header>
-      
-      <div class="row flex-grow-1">
-        <main class="col-12 col-lg-11 col-xl-9 px-md-4">
-          <div id="post-list" class="flex-grow-1 px-xl-1">
+</div>
 
-            
-            
-            
+    <div class="index-middle">
 
-            
-            
-            
+      <div class="post-preview-container">
 
-            <article class="card-wrapper card">
-              <a href="/blog/257.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">我和 AI 的这几年</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        这几年最火的事情莫过于 AI，也有可能是幸存者偏差的原因，当然这暂表不提，只谈谈我和 AI 相处的这几年，我是如何利用这个工具，提高我的工作效率，以及在生活，兴趣爱好等层面和谐融入
-2022 年底 的 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2025年4月19日</time><i class="far fa-folder-open fa-fw me-1"></i>
+        
+        
+        
 
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              随笔
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , AI
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/256.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">无法加载文件，因为在此系统上禁止运行脚本</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        无法加载文件 D:\Code\xxx\npm.ps1，因为在此系统上禁止运行脚本 偶尔会遇到这个问题，修改下电脑的策略就可以了。
-在管理员终端输入下面的指令：
-Set-ExecutionPolicy …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2025年4月17日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              技术
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , windows 系统
-                        
-                        , 终端
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/255.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">Cherry Studio 接入高德地图 MCP 示例</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        本教程使用环境 Cherry Studio 1.1.17.
-最近 Cherry Studio 也接入了 MCP 服务器，闲着无聊准备尝试一番，就拿最简单的高德地图来做演示，刚好最近高德也支持了 MCP …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2025年4月2日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              技术
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , Cherry Studio
-                        
-                        , MCP
-                        
-                        , AI
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/254.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">去年的樱花再次盛开</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        樱花飞舞的初春 / 2024-03-26
-同样的地点，同样的时间（就差了 2 天），一直在等着上班路上的这棵樱花树盛开，花的颜色好像更好看了。
-
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2025年3月24日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              随笔
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , 随手拍
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/253.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">通过 AI 实现自动生成 SEO TDK</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        感谢博友的文章，《AI 实践｜零成本生成 SEO 友好的 TDK 落地方案》。
-昨天晚上刷到一篇文章，通过 AI 自动化生成网站 SEO 的 TDK，他这个方法有两点比较繁琐的地方。
-文章内容需要手动 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2025年3月6日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              技术
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , AI
-                        
-                        , SEO
-                        
-                        , TDK
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/252.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">径山寺看雪：杭州周边雪景游记</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        周五无意在小红书上刷到说杭州周边的山头都开始下雪，立刻打开“天文通”APP 查看，确实下雪了。
-立刻喊上女朋友开始规划周六的行程。
-早上 9 点左右出门，到达时 10:30 左右，将车停在了径山集散中 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2025年2月22日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              随笔
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , 看雪
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/251.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">Cloudflare 上部署 Twikoo 服务时报错</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                        GitHub: https://github.com/twikoojs/twikoo-cloudflare
-Twikoo 支持通过 Cloudflare Workers 进行部署服务和数据 …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2025年2月20日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              技术
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , cloudflare
-                        
-                        , twikoo
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/weekly-82.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">奇趣周刊 - 第 82 期</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                         奇趣周刊，分享有趣的软件，程序，动态新闻等。 周刊列表 | rss 订阅
-祝大家新年快乐，大吉大利！在新的一年里，事业节节高升，财源滚滚。
-1. barba.js - …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2025年2月1日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              weekly
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , weekly
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-            
-            
-
-            <article class="card-wrapper card">
-              <a href="/blog/weekly-81.html/" class="post-preview row g-0 flex-md-row-reverse">
-                <div class="col-md-12">
-                  <div class="card-body d-flex flex-column">
-                    <h1 class="card-title my-2 mt-md-0">奇趣周刊 - 第 81 期</h1>
-                    <div class="card-text content mt-0 mb-3">
-                      <p>
-                      
-                      
-                         奇趣周刊，分享有趣的软件，程序，动态新闻等。 周刊列表 | rss 订阅
-1. Monkt - 将文件和网页转换为支持 AI 的 Markdown 或 JSON https://monkt.com/ …
-                      
-                      </p>
-                    </div>
-                    <div class="post-meta flex-grow-1 d-flex align-items-end">
-                      <div class="me-auto"><i class="far fa-calendar fa-fw me-1"></i>
-                        
-                        <time>2025年1月16日</time><i class="far fa-folder-open fa-fw me-1"></i>
-
-                          
-                        
-                          <span class="categories">
-                            
-                              
-                              weekly
-                            
-                          </span>
-                        
-
-                        
-                        
-                        
-                        , weekly
-                        
-                        
-
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            
-
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2025-04-17</div>
+          <div class="post-info">
+            <a href="/blog/256.html/">
+              <h3>无法加载文件，因为在此系统上禁止运行脚本</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/windows-%E7%B3%BB%E7%BB%9F" class="tags">windows 系统</a>
+              
+              <a href="/%20/tags/%E7%BB%88%E7%AB%AF" class="tags">终端</a>
+              
+              
+              <span>/</span>
+            </p>
           </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2025-04-02</div>
+          <div class="post-info">
+            <a href="/blog/255.html/">
+              <h3>Cherry Studio 接入高德地图 MCP 示例</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/cherry-studio" class="tags">Cherry Studio</a>
+              
+              <a href="/%20/tags/mcp" class="tags">MCP</a>
+              
+              <a href="/%20/tags/ai" class="tags">AI</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2025-03-24</div>
+          <div class="post-info">
+            <a href="/blog/254.html/">
+              <h3>去年的樱花再次盛开</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D" class="tags">随手拍</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2025-03-06</div>
+          <div class="post-info">
+            <a href="/blog/253.html/">
+              <h3>通过 AI 实现自动生成 SEO TDK</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/ai" class="tags">AI</a>
+              
+              <a href="/%20/tags/seo" class="tags">SEO</a>
+              
+              <a href="/%20/tags/tdk" class="tags">TDK</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2025-02-22</div>
+          <div class="post-info">
+            <a href="/blog/252.html/">
+              <h3>径山寺看雪：杭州周边雪景游记</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/%E7%9C%8B%E9%9B%AA" class="tags">看雪</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2025-02-20</div>
+          <div class="post-info">
+            <a href="/blog/251.html/">
+              <h3>Cloudflare 上部署 Twikoo 服务时报错</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/cloudflare" class="tags">cloudflare</a>
+              
+              <a href="/%20/tags/twikoo" class="tags">twikoo</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2025-02-01</div>
+          <div class="post-info">
+            <a href="/blog/weekly-82.html/">
+              <h3>奇趣周刊 - 第 82 期</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/weekly" class="tags">weekly</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2025-01-16</div>
+          <div class="post-info">
+            <a href="/blog/weekly-81.html/">
+              <h3>奇趣周刊 - 第 81 期</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/weekly" class="tags">weekly</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2025-01-01</div>
+          <div class="post-info">
+            <a href="/blog/weekly-80.html/">
+              <h3>奇趣周刊 - 第 80 期</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/weekly" class="tags">weekly</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+        
+        
+        <div class="post-preview">
+          <div class="post-time">2024-12-29</div>
+          <div class="post-info">
+            <a href="/blog/250.html/">
+              <h3>上海特种兵一日游 | 亲密旅行与城市探索</h3>
+            </a>
+            <p>
+              <span>/</span>
+              
+              
+              
+              <a href="/%20/tags/%E6%97%85%E6%B8%B8" class="tags">旅游</a>
+              
+              
+              <span>/</span>
+            </p>
+          </div>
+        </div>
+        
+      </div>
 
-          
+      
 
 
 
@@ -634,1023 +407,38 @@ Twikoo 支持通过 Cloudflare Workers 进行部署服务和数据 …
 
 
 
-<div class="pagination">
+<div class="pager">
   
-  <div class="page-item"><a href="/" class="page-link">上一页</a></div>
+  <div class="previous"><a href="/">上一页</a></div>
   
 
   
-  <div class="page-item"><a href="/page/3/" class="page-link">下一页</a></div>
+  <div class="next"><a href="/page/3/">下一页</a></div>
   
 </div>
 
 
 
 
-          <footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
-flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3">
-  <p>
-    <time>© 2020 - 2025 Powered by </time>
-    <a href="https://github.com/anghunk">子舒</a>.
-    <span>Some rights reserved.</span>
-  </p>
-  <p>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</p>
-</footer>
-        </main>
-        
-        
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
-  <div class="access">
-    <section id="access-lastmod">
-      <h2 class="panel-heading">Recently Updated</h2>
-      <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
-        
-        
-        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/mountain-highway-scenery-snapshot.html/">随手拍 - 山间高速风景</a></li>
-        
-        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/daming-mountain-qianniugang-camping-notes.html/">大明山牵牛岗露营游记</a></li>
-        
-        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/nanjing-travel-aug-3.html/">南京游八月三日</a></li>
-        
-        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/login-bitwarden-legacy-version.html/">如何登录旧版本 Bitwarden 密码管理器</a></li>
-        
-        <li class="text-truncate lh-lg"><a href="https://zishu.me/blog/262.html/">AI 驱动的验证码自动识别之旅：从困扰到解放</a></li>
-        
-      </ul>
-    </section>
-    <section>
-      <h2 class="panel-heading">Trending Tags</h2>
-      <div class="d-flex flex-wrap mt-3 mb-1 me-3">
-        
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/weekly/">Weekly</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D/">随手拍</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/js/">Js</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/vue/">Vue</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/react/">React</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E6%97%85%E6%B8%B8/">旅游</a>
-        
-        <a class="post-tag btn btn-outline-primary" href="https://zishu.me/tags/%E9%9A%8F%E6%83%B3%E5%BD%95/">随想录</a>
-        
-      </div>
-    </section>
-
-    
-    <section>
-      <h2 class="panel-heading">About Me</h2>
-      <div class="content mt-2 lh-lg">
-        这是我的个人博客，已经运行了 <span id="days"></span> 天，写了 324 篇文章，共 207541 字。
-        <br>
-        代码是我的工作，文字是我的爱好。
-        <br>
-        如果你想与我交流，欢迎发送电子邮件至 <a href="mailto:hi@zishu.me">hi@zishu.me</a>，更多 <a href="/about/">关于我</a>。
-      </div>
-    </section>
-
-<script>
-  const time = "2020-06-14";
-  var now = new Date();
-  var end = new Date(time);
-  var diff = Math.abs(now - end);
-  var days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-  document.getElementById('days').innerHTML = days;
-</script>
-    
-  </div>
-
-  
-
-</aside>
-
-
-      </div>
-      
     </div>
   </div>
 
-<button id="back-to-top" type="button" class="gotop btn btn-lg btn-box-shadow show"><i class="fas fa-angle-up"></i></button>
+  <footer class="footer">
+  <ul class="list-inline text-center">
+
+  </ul>
+  <p>
+    <time>© 2020 - 2025 Powered by </time>
+    <a href="https://github.com/anghunk">anghunk(Github)</a>.
+    <span>Some rights reserved.</span>
+  </p>
+  <p>
+    <span>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</span>
+  </p>
+
+</footer>
+  <button id="back-to-top" type="button" class="gotop"><i class="fas fa-angle-up"></i></button>
 <script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
 <script src="/js/main.js"></script>
 </body>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+
+<body>
+  {{ partial "header.html" . }}
+
+  <div class="index-container">
+    {{ partial "left.html" . }}
+
+    <div class="index-middle">
+
+      <div class="post-title">{{ .Title }}</div>
+
+      <div class="post-content no-indent">
+        {{ .Site.Params.postHeaderContent | safeHTML }}
+        {{ .Content }}
+      </div>
+
+      <div id="tag_cloud" class="tags">
+        {{ range .Site.Taxonomies.tags }}
+        <a class="tag-triangle" href="{{ .Page.Permalink }}">
+          <i class="tag-i"> {{ .Page.Title }}
+            <!-- <span class="text-muted">({{ .Count }})</span> -->
+          </i>
+        </a>
+        {{ end }}
+      </div>
+
+    </div>
+
+  </div>
+
+  {{ partial "footer.html" . }}
+  {{ partial "scripts.html" . }}
+</body>
+
+</html>

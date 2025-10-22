@@ -1,0 +1,11 @@
+     
+<figure>
+  <img 
+		src="{{ .Destination | safeURL }}"
+    alt="{{ .Text }}"
+    {{- with .Title }} title="{{ . }}"{{ end -}}
+    loading
+    class="zoomify"
+	>
+  <figcaption class="text-center pt-2 pb-2 text-muted post-meta">{{ .Text }}</figcaption>
+</figure>

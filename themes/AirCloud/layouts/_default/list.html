@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+
+<body>
+  {{ partial "header.html" . }}
+
+  <div class="index-container">
+    {{ partial "left.html" . }}
+
+    <div class="index-middle">
+      <div class="archives-container">
+
+        {{ range (where .Data.Pages "Type" "in" site.Params.mainSections).GroupByDate "2006" -}}
+        <div class="one-tag-list">
+          <span class="listing-seperator" id="{{ .Key }}">
+            <span class="tag-text">{{ .Key }}</span>
+          </span>
+          <ul>
+            {{ range .Pages }}
+            <li>
+              <span>{{ .Date.Format "01-02" }}</span>
+              <a href="{{ .RelPermalink }}">
+                <span>{{ .Title }}</span>
+              </a>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+
+  </div>
+
+  {{ partial "footer.html" . }}
+  {{ partial "scripts.html" . }}
+</body>
+
+</html>

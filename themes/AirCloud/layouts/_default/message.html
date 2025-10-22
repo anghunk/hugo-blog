@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+
+<body>
+  {{ partial "header.html" . }}
+
+  <div class="index-container">
+    {{ partial "left.html" . }}
+
+    <div class="index-middle">
+
+      <div class="post-title">{{ .Title }}</div>
+
+      <div class="post-content no-indent">
+        {{ .Site.Params.postHeaderContent | safeHTML }}
+        {{ .Content }}
+      </div>
+
+      {{ partial "comment.html" . }}
+
+    </div>
+
+  </div>
+
+  {{ partial "footer.html" . }}
+  {{ partial "scripts.html" . }}
+</body>
+
+</html>
