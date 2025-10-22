@@ -8,20 +8,20 @@
     <language>en-us</language>
     <managingEditor>hi@zishu.me (子舒)</managingEditor>
     <webMaster>hi@zishu.me (子舒)</webMaster>
-    <lastBuildDate>Thu, 09 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://zishu.me/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>技术</title>
+      <link>https://zishu.me/categories/%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate><author>子舒 (hi@zishu.me)</author>
+      <guid>https://zishu.me/categories/%E6%8A%80%E6%9C%AF/</guid>
+      <description></description>
+    </item>
     <item>
       <title>随笔</title>
       <link>https://zishu.me/categories/%E9%9A%8F%E7%AC%94/</link>
       <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate><author>子舒 (hi@zishu.me)</author>
       <guid>https://zishu.me/categories/%E9%9A%8F%E7%AC%94/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>技术</title>
-      <link>https://zishu.me/categories/%E6%8A%80%E6%9C%AF/</link>
-      <pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate><author>子舒 (hi@zishu.me)</author>
-      <guid>https://zishu.me/categories/%E6%8A%80%E6%9C%AF/</guid>
       <description></description>
     </item>
     <item>
