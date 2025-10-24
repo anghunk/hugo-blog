@@ -3,21 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://zishu.me/blog/</loc>
-    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-10-24T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://zishu.me/categories/</loc>
-    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://zishu.me/tags/git/</loc>
-    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-10-24T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://zishu.me/</loc>
+    <lastmod>2025-10-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://zishu.me/blog/hui-mian-at-community-gate.html/</loc>
+    <lastmod>2025-10-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://zishu.me/categories/%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2025-10-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://zishu.me/tags/%E9%A3%9F%E7%89%A9/</loc>
+    <lastmod>2025-10-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://zishu.me/tags/git/</loc>
     <lastmod>2025-10-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -38,11 +53,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://zishu.me/blog/mountain-highway-scenery-snapshot.html/</loc>
-    <lastmod>2025-10-09T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://zishu.me/categories/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2025-10-09T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
