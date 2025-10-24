@@ -56,7 +56,7 @@ params:
     - name: 关于
       link: /about/
       icon: fa-info-circle
-    - name: 说说
+    - name: 碎碎念
       link: /shuoshuo/
       icon: fa-comments
     - name: 项目
@@ -68,20 +68,6 @@ params:
     - name: 搜索
       link: /search/
       icon: fa-search
-
-related:
-  threshold: 0 # 相关性阈值，0-100。分数越低，匹配条件越宽松。
-  includeNewer: false # 是否包含较新的文章
-  toLower: false # 是否将关键词转为小写以进行匹配
-  indices: # 定义用于计算相关性的索引
-    name: "tags"
-    weight: 100 # 权重越高，这个索引在计算相关性时越重要
-  indices:
-    name: "categories"
-    weight: 80
-  indices:
-    name: "date"
-    weight: 10
 
 sitemap:
   changefreq: monthly

@@ -1615,3 +1615,48 @@ img {
   overflow: inherit;
   visibility: inherit;
 }
+
+#shuoshuo {
+  margin: 40px auto;
+}
+
+#shuoshuo ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#shuoshuo li.comment {
+  background: #fff;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  font-weight: 300;
+}
+
+#shuoshuo li.comment:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+#shuoshuo .meta {
+  background: linear-gradient(90deg, #6a85b6, #bac8e0);
+  padding: 10px 15px;
+  color: #fff;
+}
+
+#shuoshuo .body {
+  padding: 5px 20px;
+  line-height: 1.8;
+  /* color: #333; */
+  font-size: 1em;
+}
+
+#shuoshuo .body img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+}
