@@ -18,11 +18,10 @@ function getGithubIssuesShuoshuo() {
 
           const html = `
       <li class="comment">
+        <div class="body">${mdHtml}</div>
         <div class="meta">
           <span class="date">${new Date(item.created_at).toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' })}</span>
-
         </div>
-        <div class="body">${mdHtml}</div>
       </li>`;
           $list.append(html);
         });
