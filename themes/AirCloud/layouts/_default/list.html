@@ -8,7 +8,7 @@
   <div class="index-container">
     {{ partial "left.html" . }}
 
-    <div class="index-middle">
+    <main class="index-middle">
       <div class="archives-container">
 
         {{ range (where .Data.Pages "Type" "in" site.Params.mainSections).GroupByDate "2006" -}}
@@ -29,7 +29,7 @@
         </div>
         {{ end }}
       </div>
-    </div>
+    </main>
 
   </div>
 
