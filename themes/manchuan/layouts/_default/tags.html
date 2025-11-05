@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+
+<body>
+  {{ partial "header.html" . }}
+
+  <main>
+
+    <h2>{{ .Title }}</h2>
+
+    <div class="post-content content">
+      {{ .Site.Params.postHeaderContent | safeHTML }}
+      {{ .Content }}
+
+      <div id="tag_cloud" class="tags">
+        {{ range .Site.Taxonomies.tags }}
+        <a href="{{ .Page.Permalink }}">
+          {{ .Page.Title }}
+          <sup>({{ .Count }})</sup>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+
+  </main>
+
+
+  {{ partial "footer.html" . }}
+  {{ partial "scripts.html" . }}
+</body>
+
+</html>

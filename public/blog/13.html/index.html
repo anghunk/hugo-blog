@@ -199,103 +199,60 @@ math.max.apply(null, [1,2,3]); // 3 math.max.call(null, [1,2,3]); // 3 两者的
 </head>
 
 <body>
-  <div class="site-nav-toggle" id="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+  <header>
+  <a class="title" href="/">
+    <h1>子舒的博客</h1>
+  </a>
+  <nav>
+    <p>
+      
+      <a href="/">首页</a>
+      
+      <a href="/blog/">归档</a>
+      
+      <a href="/tags/">标签</a>
+      
+      <a href="/message/">留言</a>
+      
+      <a href="/about/">关于</a>
+      
+      <a href="/shuoshuo/">碎碎念</a>
+      
+      <a href="/projects/">项目</a>
+      
+      <a href="/friends/">友链</a>
+      
+      <a href="/search/">搜索</a>
+      
+    </p>
+  </nav>
+</header>
 
-<div class="index-about">
-  <i> Do something, anything—just give fate's gears a chance to turn. </i>
-</div>
+    <main>
+      <p></p>
+      <h1>–</h1>
 
+      <h2>javascript——函数、变量和方法</h2>
 
-  <div class="index-container">
-    <div class="index-left">
+      
+      <p><span class="attr">发布于：<span>2020-11-04</span></span></p>
+      <p>
+        
+        <span class="attr">标签：
+          
+          <a href="/tags/%E7%AC%94%E8%AE%B0" class="tags">笔记</a>
+          
+        </span>
+        
+      </p>
+      <hr>
+      
 
-  <div class="nav" id="nav">
-    <div class="avatar-name">
-      <a href="/" class="avatar" title="子舒">
-        <img src="https://imgurl.zishu.me/author.webp" alt="子舒" />
-      </a>
-      <div class="name">
-        <i>子舒</i>
-      </div>
-    </div>
-    <div class="contents" id="nav-content">
-      <ul>
-        
-        <li>
-          <a href="/">
-            <i class="fa-fw fas fa-house"></i>
-            <span>首页</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/blog/">
-            <i class="fa-fw fas fa-stream"></i>
-            <span>归档</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/tags/">
-            <i class="fa-fw fas fa-tags"></i>
-            <span>标签</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/message/">
-            <i class="fa-fw fas fa-message"></i>
-            <span>留言</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/about/">
-            <i class="fa-fw fas fa-info-circle"></i>
-            <span>关于</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/shuoshuo/">
-            <i class="fa-fw fas fa-comments"></i>
-            <span>碎碎念</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/projects/">
-            <i class="fa-fw fas fa-tasks"></i>
-            <span>项目</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/friends/">
-            <i class="fa-fw fas fa-link"></i>
-            <span>友链</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/search/">
-            <i class="fa-fw fas fa-search"></i>
-            <span>搜索</span>
-          </a>
-        </li>
-        
-      </ul>
-    </div>
+      <div class="post-content content">
 
-    
-    <div id="toc" class="toc-article">
-      <nav id="TableOfContents">
+        
+        <div id="toc" class="toc-article">
+          <nav id="TableOfContents">
   <ul>
     <li><a href="#一函数的定义和调用">一、函数的定义和调用</a>
       <ul>
@@ -329,37 +286,11 @@ math.max.apply(null, [1,2,3]); // 3 math.max.call(null, [1,2,3]); // 3 两者的
     </li>
   </ul>
 </nav>
-    </div>
-    
-
-  </div>
-
-  <div class="index-about-mobile">
-    <i> Do something, anything—just give fate's gears a chance to turn. </i>
-  </div>
-</div>
-
-    <main class="index-middle">
-      <div class="post-container">
-        <div class="post-title">javascript——函数、变量和方法</div>
-        
-        
-        <div class="post-meta">
-          <span class="attr">发布于：<span>2020-11-04</span></span>
-          
-          <span class="attr">标签：
-            
-            <a href="/%20/tags/%E7%AC%94%E8%AE%B0" class="tag">笔记</a>
-            <span>/</span>
-            
-          </span>
-          
         </div>
         
 
-        <div class="post-content no-indent">
-          
-          <p>当代码出现有规律的重复之后，可以利用函数，定义变量，调用方法，不用去重复的改动代码，只需要进行函数的修改。基本上所有的高级语言都支持函数，javascript 也不例外，它可以像变量一样被使用，方便且强大，因此本文对 js 函数进行系统的学习，并在学习过程中做了详细的笔记以及样例。</p>
+        
+        <p>当代码出现有规律的重复之后，可以利用函数，定义变量，调用方法，不用去重复的改动代码，只需要进行函数的修改。基本上所有的高级语言都支持函数，javascript 也不例外，它可以像变量一样被使用，方便且强大，因此本文对 js 函数进行系统的学习，并在学习过程中做了详细的笔记以及样例。</p>
 <h2 id="一函数的定义和调用">一、函数的定义和调用</h2>
 <h3 id="1定义函数">1.定义函数</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">abs</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
@@ -755,11 +686,11 @@ abs(10)，根据函数定义，将 10 代入进去即可，返回的结果是 x 
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">math</span><span class="p">.</span><span class="nx">max</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]);</span>   <span class="c1">// 3
 </span></span></span></code></pre></div><p>两者的结果是一样的，调用普通函数时，把<code>this</code>绑定为<code>null</code></p>
 
-        </div>
+      </div>
 
-        
-        
-        <hr class="sep">
+      
+      
+      <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -856,29 +787,16 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-        
+      
 
-      </div>
     </main>
 
-  </div>
 
-  <footer class="footer">
-  <ul class="list-inline text-center">
-
-  </ul>
-  <p>
-    <time>© 2020 - 2025 Powered by </time>
-    <a href="https://github.com/anghunk">anghunk(Github)</a>.
-    <span>Some rights reserved.</span>
-  </p>
-  <p>
-    <span>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</span>
-  </p>
-
+  <footer>
+  <p id="back-to-top">返回顶部 ↑</p>
+  <span class="intro">© 2020 - 2025 <a href="/" title="子舒">子舒</a> | <a href="https://github.com/anghunk" title="Github" target="_blank">Github</a></span>
 </footer>
-  <button id="back-to-top" type="button" class="gotop"><i class="fas fa-angle-up"></i></button>
-<script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
+  <script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
 <script src="/js/main.js"></script>
 </body>
 

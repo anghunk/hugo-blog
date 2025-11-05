@@ -141,103 +141,62 @@ ES6 引入的class和原有的JavaScript原型继承有什么区别呢？
 </head>
 
 <body>
-  <div class="site-nav-toggle" id="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+  <header>
+  <a class="title" href="/">
+    <h1>子舒的博客</h1>
+  </a>
+  <nav>
+    <p>
+      
+      <a href="/">首页</a>
+      
+      <a href="/blog/">归档</a>
+      
+      <a href="/tags/">标签</a>
+      
+      <a href="/message/">留言</a>
+      
+      <a href="/about/">关于</a>
+      
+      <a href="/shuoshuo/">碎碎念</a>
+      
+      <a href="/projects/">项目</a>
+      
+      <a href="/friends/">友链</a>
+      
+      <a href="/search/">搜索</a>
+      
+    </p>
+  </nav>
+</header>
 
-<div class="index-about">
-  <i> Do something, anything—just give fate's gears a chance to turn. </i>
-</div>
+    <main>
+      <p></p>
+      <h1>–</h1>
 
+      <h2>面向对象编程</h2>
 
-  <div class="index-container">
-    <div class="index-left">
+      
+      <p><span class="attr">发布于：<span>2020-11-12</span></span></p>
+      <p>
+        
+        <span class="attr">标签：
+          
+          <a href="/tags/%E7%BC%96%E7%A8%8B" class="tags">编程</a>
+          
+          <a href="/tags/js" class="tags">js</a>
+          
+        </span>
+        
+      </p>
+      <hr>
+      
 
-  <div class="nav" id="nav">
-    <div class="avatar-name">
-      <a href="/" class="avatar" title="子舒">
-        <img src="https://imgurl.zishu.me/author.webp" alt="子舒" />
-      </a>
-      <div class="name">
-        <i>子舒</i>
-      </div>
-    </div>
-    <div class="contents" id="nav-content">
-      <ul>
-        
-        <li>
-          <a href="/">
-            <i class="fa-fw fas fa-house"></i>
-            <span>首页</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/blog/">
-            <i class="fa-fw fas fa-stream"></i>
-            <span>归档</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/tags/">
-            <i class="fa-fw fas fa-tags"></i>
-            <span>标签</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/message/">
-            <i class="fa-fw fas fa-message"></i>
-            <span>留言</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/about/">
-            <i class="fa-fw fas fa-info-circle"></i>
-            <span>关于</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/shuoshuo/">
-            <i class="fa-fw fas fa-comments"></i>
-            <span>碎碎念</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/projects/">
-            <i class="fa-fw fas fa-tasks"></i>
-            <span>项目</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/friends/">
-            <i class="fa-fw fas fa-link"></i>
-            <span>友链</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/search/">
-            <i class="fa-fw fas fa-search"></i>
-            <span>搜索</span>
-          </a>
-        </li>
-        
-      </ul>
-    </div>
+      <div class="post-content content">
 
-    
-    <div id="toc" class="toc-article">
-      <nav id="TableOfContents">
+        
+        <div id="toc" class="toc-article">
+          <nav id="TableOfContents">
   <ul>
     <li><a href="#一什么是面向对象编程">一、什么是面向对象编程</a>
       <ul>
@@ -264,40 +223,11 @@ ES6 引入的class和原有的JavaScript原型继承有什么区别呢？
     </li>
   </ul>
 </nav>
-    </div>
-    
-
-  </div>
-
-  <div class="index-about-mobile">
-    <i> Do something, anything—just give fate's gears a chance to turn. </i>
-  </div>
-</div>
-
-    <main class="index-middle">
-      <div class="post-container">
-        <div class="post-title">面向对象编程</div>
-        
-        
-        <div class="post-meta">
-          <span class="attr">发布于：<span>2020-11-12</span></span>
-          
-          <span class="attr">标签：
-            
-            <a href="/%20/tags/%E7%BC%96%E7%A8%8B" class="tag">编程</a>
-            <span>/</span>
-            
-            <a href="/%20/tags/js" class="tag">js</a>
-            <span>/</span>
-            
-          </span>
-          
         </div>
         
 
-        <div class="post-content no-indent">
-          
-          <p>面向对象把构成问题的 transaction 分解成各个对象，而建立对象的目的也不是为了完成一个个步骤，而是为了描述某个事物在解决整个问题的过程中所发生的行为，意在写出通用代码，加强代码重用，屏蔽差异性。</p>
+        
+        <p>面向对象把构成问题的 transaction 分解成各个对象，而建立对象的目的也不是为了完成一个个步骤，而是为了描述某个事物在解决整个问题的过程中所发生的行为，意在写出通用代码，加强代码重用，屏蔽差异性。</p>
 <h2 id="一什么是面向对象编程">一、什么是面向对象编程</h2>
 <p>js 是<code>基于原型</code>的，基于<code>面向对象编程</code></p>
 <p>面向对象就是把数据和对数据的操作方法放在一起，作为一个整体——对象。对同类对象抽象出其共性，形成类</p>
@@ -736,11 +666,11 @@ ES6 引入的class和原有的JavaScript原型继承有什么区别呢？
 <p>但是！</p>
 <p>目前并不是所有的浏览器都支持<code>class</code>，所以在选择的时候一定要慎重！</p>
 
-        </div>
+      </div>
 
-        
-        
-        <hr class="sep">
+      
+      
+      <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -837,29 +767,16 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-        
+      
 
-      </div>
     </main>
 
-  </div>
 
-  <footer class="footer">
-  <ul class="list-inline text-center">
-
-  </ul>
-  <p>
-    <time>© 2020 - 2025 Powered by </time>
-    <a href="https://github.com/anghunk">anghunk(Github)</a>.
-    <span>Some rights reserved.</span>
-  </p>
-  <p>
-    <span>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</span>
-  </p>
-
+  <footer>
+  <p id="back-to-top">返回顶部 ↑</p>
+  <span class="intro">© 2020 - 2025 <a href="/" title="子舒">子舒</a> | <a href="https://github.com/anghunk" title="Github" target="_blank">Github</a></span>
 </footer>
-  <button id="back-to-top" type="button" class="gotop"><i class="fas fa-angle-up"></i></button>
-<script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
+  <script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
 <script src="/js/main.js"></script>
 </body>
 

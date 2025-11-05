@@ -113,103 +113,64 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
 </head>
 
 <body>
-  <div class="site-nav-toggle" id="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+  <header>
+  <a class="title" href="/">
+    <h1>子舒的博客</h1>
+  </a>
+  <nav>
+    <p>
+      
+      <a href="/">首页</a>
+      
+      <a href="/blog/">归档</a>
+      
+      <a href="/tags/">标签</a>
+      
+      <a href="/message/">留言</a>
+      
+      <a href="/about/">关于</a>
+      
+      <a href="/shuoshuo/">碎碎念</a>
+      
+      <a href="/projects/">项目</a>
+      
+      <a href="/friends/">友链</a>
+      
+      <a href="/search/">搜索</a>
+      
+    </p>
+  </nav>
+</header>
 
-<div class="index-about">
-  <i> Do something, anything—just give fate's gears a chance to turn. </i>
-</div>
+    <main>
+      <p></p>
+      <h1>–</h1>
 
+      <h2>宝塔自动备份网站到邮箱教程</h2>
 
-  <div class="index-container">
-    <div class="index-left">
+      
+      <p><span class="attr">发布于：<span>2022-05-25</span></span></p>
+      <p>
+        
+        <span class="attr">标签：
+          
+          <a href="/tags/%E5%AE%9D%E5%A1%94" class="tags">宝塔</a>
+          
+          <a href="/tags/%E5%A4%87%E4%BB%BD" class="tags">备份</a>
+          
+          <a href="/tags/%E9%82%AE%E7%AE%B1" class="tags">邮箱</a>
+          
+        </span>
+        
+      </p>
+      <hr>
+      
 
-  <div class="nav" id="nav">
-    <div class="avatar-name">
-      <a href="/" class="avatar" title="子舒">
-        <img src="https://imgurl.zishu.me/author.webp" alt="子舒" />
-      </a>
-      <div class="name">
-        <i>子舒</i>
-      </div>
-    </div>
-    <div class="contents" id="nav-content">
-      <ul>
-        
-        <li>
-          <a href="/">
-            <i class="fa-fw fas fa-house"></i>
-            <span>首页</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/blog/">
-            <i class="fa-fw fas fa-stream"></i>
-            <span>归档</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/tags/">
-            <i class="fa-fw fas fa-tags"></i>
-            <span>标签</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/message/">
-            <i class="fa-fw fas fa-message"></i>
-            <span>留言</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/about/">
-            <i class="fa-fw fas fa-info-circle"></i>
-            <span>关于</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/shuoshuo/">
-            <i class="fa-fw fas fa-comments"></i>
-            <span>碎碎念</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/projects/">
-            <i class="fa-fw fas fa-tasks"></i>
-            <span>项目</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/friends/">
-            <i class="fa-fw fas fa-link"></i>
-            <span>友链</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/search/">
-            <i class="fa-fw fas fa-search"></i>
-            <span>搜索</span>
-          </a>
-        </li>
-        
-      </ul>
-    </div>
+      <div class="post-content content">
 
-    
-    <div id="toc" class="toc-article">
-      <nav id="TableOfContents">
+        
+        <div id="toc" class="toc-article">
+          <nav id="TableOfContents">
   <ul>
     <li>
       <ul>
@@ -222,43 +183,11 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
     </li>
   </ul>
 </nav>
-    </div>
-    
-
-  </div>
-
-  <div class="index-about-mobile">
-    <i> Do something, anything—just give fate's gears a chance to turn. </i>
-  </div>
-</div>
-
-    <main class="index-middle">
-      <div class="post-container">
-        <div class="post-title">宝塔自动备份网站到邮箱教程</div>
-        
-        
-        <div class="post-meta">
-          <span class="attr">发布于：<span>2022-05-25</span></span>
-          
-          <span class="attr">标签：
-            
-            <a href="/%20/tags/%E5%AE%9D%E5%A1%94" class="tag">宝塔</a>
-            <span>/</span>
-            
-            <a href="/%20/tags/%E5%A4%87%E4%BB%BD" class="tag">备份</a>
-            <span>/</span>
-            
-            <a href="/%20/tags/%E9%82%AE%E7%AE%B1" class="tag">邮箱</a>
-            <span>/</span>
-            
-          </span>
-          
         </div>
         
 
-        <div class="post-content no-indent">
-          
-          <h3 id="前言">前言</h3>
+        
+        <h3 id="前言">前言</h3>
 <p>网站经常备份好处就是遇到问题以后可以迅速的恢复，不那么被动，防止信息丢失，操作性很大。虽然搭建一个网站非常容易，但为了应对网络上各种各样的意外情况，避免自己的网站付诸东流，做好网站备份是非常有必要的。</p>
 <p>现在邮箱接收都支持附件文件，将网站文件和数据库文件备份到我们自己的邮箱也是一种很好地备份方式，也防止备份文件丢失。</p>
 <p>邮箱接收附件文件大小，取决于使用的邮箱服务。一般来说个人博客网站源文件，数据库文件不大，常见邮箱服务都是可以使用的。</p>
@@ -442,11 +371,11 @@ certutil -A -n &#39;yeah&#39; -t &#34;P,P,P&#34; -d /etc/pki/nssdb -i /etc/pki/n
 <p>转载自梦繁星博客：https://blog.emoao.com/13.html</p></blockquote>
 <p>如果问题请在评论区留言。</p>
 
-        </div>
+      </div>
 
-        
-        
-        <hr class="sep">
+      
+      
+      <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -543,29 +472,16 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-        
+      
 
-      </div>
     </main>
 
-  </div>
 
-  <footer class="footer">
-  <ul class="list-inline text-center">
-
-  </ul>
-  <p>
-    <time>© 2020 - 2025 Powered by </time>
-    <a href="https://github.com/anghunk">anghunk(Github)</a>.
-    <span>Some rights reserved.</span>
-  </p>
-  <p>
-    <span>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</span>
-  </p>
-
+  <footer>
+  <p id="back-to-top">返回顶部 ↑</p>
+  <span class="intro">© 2020 - 2025 <a href="/" title="子舒">子舒</a> | <a href="https://github.com/anghunk" title="Github" target="_blank">Github</a></span>
 </footer>
-  <button id="back-to-top" type="button" class="gotop"><i class="fas fa-angle-up"></i></button>
-<script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
+  <script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
 <script src="/js/main.js"></script>
 </body>
 

@@ -67,134 +67,65 @@ windows
 </head>
 
 <body>
-  <div class="site-nav-toggle" id="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+  <header>
+  <a class="title" href="/">
+    <h1>子舒的博客</h1>
+  </a>
+  <nav>
+    <p>
+      
+      <a href="/">首页</a>
+      
+      <a href="/blog/">归档</a>
+      
+      <a href="/tags/">标签</a>
+      
+      <a href="/message/">留言</a>
+      
+      <a href="/about/">关于</a>
+      
+      <a href="/shuoshuo/">碎碎念</a>
+      
+      <a href="/projects/">项目</a>
+      
+      <a href="/friends/">友链</a>
+      
+      <a href="/search/">搜索</a>
+      
+    </p>
+  </nav>
+</header>
 
-<div class="index-about">
-  <i> Do something, anything—just give fate's gears a chance to turn. </i>
-</div>
+    <main>
+      <p></p>
+      <h1>–</h1>
 
+      <h2>远程工具 RustDesk 安装流程</h2>
 
-  <div class="index-container">
-    <div class="index-left">
-
-  <div class="nav" id="nav">
-    <div class="avatar-name">
-      <a href="/" class="avatar" title="子舒">
-        <img src="https://imgurl.zishu.me/author.webp" alt="子舒" />
-      </a>
-      <div class="name">
-        <i>子舒</i>
-      </div>
-    </div>
-    <div class="contents" id="nav-content">
-      <ul>
+      
+      <p><span class="attr">发布于：<span>2023-09-02</span></span></p>
+      <p>
         
-        <li>
-          <a href="/">
-            <i class="fa-fw fas fa-house"></i>
-            <span>首页</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/blog/">
-            <i class="fa-fw fas fa-stream"></i>
-            <span>归档</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/tags/">
-            <i class="fa-fw fas fa-tags"></i>
-            <span>标签</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/message/">
-            <i class="fa-fw fas fa-message"></i>
-            <span>留言</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/about/">
-            <i class="fa-fw fas fa-info-circle"></i>
-            <span>关于</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/shuoshuo/">
-            <i class="fa-fw fas fa-comments"></i>
-            <span>碎碎念</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/projects/">
-            <i class="fa-fw fas fa-tasks"></i>
-            <span>项目</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/friends/">
-            <i class="fa-fw fas fa-link"></i>
-            <span>友链</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/search/">
-            <i class="fa-fw fas fa-search"></i>
-            <span>搜索</span>
-          </a>
-        </li>
-        
-      </ul>
-    </div>
-
-    
-    <div id="toc" class="toc-article">
-      <nav id="TableOfContents"></nav>
-    </div>
-    
-
-  </div>
-
-  <div class="index-about-mobile">
-    <i> Do something, anything—just give fate's gears a chance to turn. </i>
-  </div>
-</div>
-
-    <main class="index-middle">
-      <div class="post-container">
-        <div class="post-title">远程工具 RustDesk 安装流程</div>
-        
-        
-        <div class="post-meta">
-          <span class="attr">发布于：<span>2023-09-02</span></span>
+        <span class="attr">标签：
           
-          <span class="attr">标签：
-            
-            <a href="/%20/tags/rustdesk" class="tag">RustDesk</a>
-            <span>/</span>
-            
-          </span>
+          <a href="/tags/rustdesk" class="tags">RustDesk</a>
           
+        </span>
+        
+      </p>
+      <hr>
+      
+
+      <div class="post-content content">
+
+        
+        <div id="toc" class="toc-article">
+          <nav id="TableOfContents"></nav>
         </div>
         
 
-        <div class="post-content no-indent">
-          
-          <p>RustDesk 是一款功能齐全的远程桌面应用，支持 Windows、macOS、Linux、iOS、Android、Web 等多个平台。支持 VP8 / VP9 / AV1 软件编解码器和 H264 / H265 硬件编解码器。完全掌控数据，轻松自建。P2P 连接，端到端加密。在 Windows 上可以非管理员不安装运行，根据需要在本地或远程提升权限。</p>
+        
+        <p>RustDesk 是一款功能齐全的远程桌面应用，支持 Windows、macOS、Linux、iOS、Android、Web 等多个平台。支持 VP8 / VP9 / AV1 软件编解码器和 H264 / H265 硬件编解码器。完全掌控数据，轻松自建。P2P 连接，端到端加密。在 Windows 上可以非管理员不安装运行，根据需要在本地或远程提升权限。</p>
 <p>下面是在 linux 服务器上部署中继服务器的脚本。</p>
 <p><strong>docker 拉取镜像</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker image pull rustdesk/rustdesk-server
@@ -220,11 +151,11 @@ windows
 </figure></p>
 <p>&ldquo;ID 服务器&rdquo; 和 &ldquo;中继服务器&rdquo; 都填写服务器 ip，不需要加端口，但是在服务器防火墙要记得放行端口号。</p>
 
-        </div>
+      </div>
 
-        
-        
-        <hr class="sep">
+      
+      
+      <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -321,29 +252,16 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-        
+      
 
-      </div>
     </main>
 
-  </div>
 
-  <footer class="footer">
-  <ul class="list-inline text-center">
-
-  </ul>
-  <p>
-    <time>© 2020 - 2025 Powered by </time>
-    <a href="https://github.com/anghunk">anghunk(Github)</a>.
-    <span>Some rights reserved.</span>
-  </p>
-  <p>
-    <span>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</span>
-  </p>
-
+  <footer>
+  <p id="back-to-top">返回顶部 ↑</p>
+  <span class="intro">© 2020 - 2025 <a href="/" title="子舒">子舒</a> | <a href="https://github.com/anghunk" title="Github" target="_blank">Github</a></span>
 </footer>
-  <button id="back-to-top" type="button" class="gotop"><i class="fas fa-angle-up"></i></button>
-<script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
+  <script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
 <script src="/js/main.js"></script>
 </body>
 

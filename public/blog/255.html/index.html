@@ -71,103 +71,64 @@
 </head>
 
 <body>
-  <div class="site-nav-toggle" id="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+  <header>
+  <a class="title" href="/">
+    <h1>子舒的博客</h1>
+  </a>
+  <nav>
+    <p>
+      
+      <a href="/">首页</a>
+      
+      <a href="/blog/">归档</a>
+      
+      <a href="/tags/">标签</a>
+      
+      <a href="/message/">留言</a>
+      
+      <a href="/about/">关于</a>
+      
+      <a href="/shuoshuo/">碎碎念</a>
+      
+      <a href="/projects/">项目</a>
+      
+      <a href="/friends/">友链</a>
+      
+      <a href="/search/">搜索</a>
+      
+    </p>
+  </nav>
+</header>
 
-<div class="index-about">
-  <i> Do something, anything—just give fate's gears a chance to turn. </i>
-</div>
+    <main>
+      <p></p>
+      <h1>–</h1>
 
+      <h2>Cherry Studio 接入高德地图 MCP 示例</h2>
 
-  <div class="index-container">
-    <div class="index-left">
+      
+      <p><span class="attr">发布于：<span>2025-04-02</span></span></p>
+      <p>
+        
+        <span class="attr">标签：
+          
+          <a href="/tags/cherry-studio" class="tags">Cherry Studio</a>
+          
+          <a href="/tags/mcp" class="tags">MCP</a>
+          
+          <a href="/tags/ai" class="tags">AI</a>
+          
+        </span>
+        
+      </p>
+      <hr>
+      
 
-  <div class="nav" id="nav">
-    <div class="avatar-name">
-      <a href="/" class="avatar" title="子舒">
-        <img src="https://imgurl.zishu.me/author.webp" alt="子舒" />
-      </a>
-      <div class="name">
-        <i>子舒</i>
-      </div>
-    </div>
-    <div class="contents" id="nav-content">
-      <ul>
-        
-        <li>
-          <a href="/">
-            <i class="fa-fw fas fa-house"></i>
-            <span>首页</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/blog/">
-            <i class="fa-fw fas fa-stream"></i>
-            <span>归档</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/tags/">
-            <i class="fa-fw fas fa-tags"></i>
-            <span>标签</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/message/">
-            <i class="fa-fw fas fa-message"></i>
-            <span>留言</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/about/">
-            <i class="fa-fw fas fa-info-circle"></i>
-            <span>关于</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/shuoshuo/">
-            <i class="fa-fw fas fa-comments"></i>
-            <span>碎碎念</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/projects/">
-            <i class="fa-fw fas fa-tasks"></i>
-            <span>项目</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/friends/">
-            <i class="fa-fw fas fa-link"></i>
-            <span>友链</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/search/">
-            <i class="fa-fw fas fa-search"></i>
-            <span>搜索</span>
-          </a>
-        </li>
-        
-      </ul>
-    </div>
+      <div class="post-content content">
 
-    
-    <div id="toc" class="toc-article">
-      <nav id="TableOfContents">
+        
+        <div id="toc" class="toc-article">
+          <nav id="TableOfContents">
   <ul>
     <li>
       <ul>
@@ -177,43 +138,11 @@
     </li>
   </ul>
 </nav>
-    </div>
-    
-
-  </div>
-
-  <div class="index-about-mobile">
-    <i> Do something, anything—just give fate's gears a chance to turn. </i>
-  </div>
-</div>
-
-    <main class="index-middle">
-      <div class="post-container">
-        <div class="post-title">Cherry Studio 接入高德地图 MCP 示例</div>
-        
-        
-        <div class="post-meta">
-          <span class="attr">发布于：<span>2025-04-02</span></span>
-          
-          <span class="attr">标签：
-            
-            <a href="/%20/tags/cherry-studio" class="tag">Cherry Studio</a>
-            <span>/</span>
-            
-            <a href="/%20/tags/mcp" class="tag">MCP</a>
-            <span>/</span>
-            
-            <a href="/%20/tags/ai" class="tag">AI</a>
-            <span>/</span>
-            
-          </span>
-          
         </div>
         
 
-        <div class="post-content no-indent">
-          
-          <p>本教程使用环境 Cherry Studio 1.1.17.</p>
+        
+        <p>本教程使用环境 Cherry Studio 1.1.17.</p>
 <p>最近 Cherry Studio 也接入了 MCP 服务器，闲着无聊准备尝试一番，就拿最简单的高德地图来做演示，刚好最近高德也支持了 MCP 服务。</p>
 <p>需要申请高德开发者账号，这个就不赘述了。在高德开发者控制台找到 <code>应用管理&gt;我的应用</code>，点击<code>创建新应用</code>，类型名称随便填一下，绑定服务要选择 <code>Web服务</code>，然后不要限制 IP，最后会生成一个 key。</p>
 <h3 id="配置-cherry-studio-的-mcp-服务器">配置 Cherry Studio 的 MCP 服务器</h3>
@@ -384,11 +313,11 @@
 </span></span><span class="line"><span class="cl">清明时节的杭州既有烟雨江南的朦胧美，又有春和景明的清朗，建议随身带本《杭州记事》手账，在各景点盖限定章留念哦~ 🌸
 </span></span></code></pre></div></details>
 
-        </div>
+      </div>
 
-        
-        
-        <hr class="sep">
+      
+      
+      <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -485,29 +414,16 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-        
+      
 
-      </div>
     </main>
 
-  </div>
 
-  <footer class="footer">
-  <ul class="list-inline text-center">
-
-  </ul>
-  <p>
-    <time>© 2020 - 2025 Powered by </time>
-    <a href="https://github.com/anghunk">anghunk(Github)</a>.
-    <span>Some rights reserved.</span>
-  </p>
-  <p>
-    <span>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</span>
-  </p>
-
+  <footer>
+  <p id="back-to-top">返回顶部 ↑</p>
+  <span class="intro">© 2020 - 2025 <a href="/" title="子舒">子舒</a> | <a href="https://github.com/anghunk" title="Github" target="_blank">Github</a></span>
 </footer>
-  <button id="back-to-top" type="button" class="gotop"><i class="fas fa-angle-up"></i></button>
-<script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
+  <script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
 <script src="/js/main.js"></script>
 </body>
 

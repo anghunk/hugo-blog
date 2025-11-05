@@ -69,103 +69,64 @@ import { defineConfig } from &#39;vite&#39; import vue from &#39;@vitejs/plugin-
 </head>
 
 <body>
-  <div class="site-nav-toggle" id="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+  <header>
+  <a class="title" href="/">
+    <h1>子舒的博客</h1>
+  </a>
+  <nav>
+    <p>
+      
+      <a href="/">首页</a>
+      
+      <a href="/blog/">归档</a>
+      
+      <a href="/tags/">标签</a>
+      
+      <a href="/message/">留言</a>
+      
+      <a href="/about/">关于</a>
+      
+      <a href="/shuoshuo/">碎碎念</a>
+      
+      <a href="/projects/">项目</a>
+      
+      <a href="/friends/">友链</a>
+      
+      <a href="/search/">搜索</a>
+      
+    </p>
+  </nav>
+</header>
 
-<div class="index-about">
-  <i> Do something, anything—just give fate's gears a chance to turn. </i>
-</div>
+    <main>
+      <p></p>
+      <h1>–</h1>
 
+      <h2>vite 配置相关笔记</h2>
 
-  <div class="index-container">
-    <div class="index-left">
+      
+      <p><span class="attr">发布于：<span>2024-08-15</span></span></p>
+      <p>
+        
+        <span class="attr">标签：
+          
+          <a href="/tags/%E7%AC%94%E8%AE%B0" class="tags">笔记</a>
+          
+          <a href="/tags/vite" class="tags">vite</a>
+          
+          <a href="/tags/%E8%B7%AF%E7%94%B1" class="tags">路由</a>
+          
+        </span>
+        
+      </p>
+      <hr>
+      
 
-  <div class="nav" id="nav">
-    <div class="avatar-name">
-      <a href="/" class="avatar" title="子舒">
-        <img src="https://imgurl.zishu.me/author.webp" alt="子舒" />
-      </a>
-      <div class="name">
-        <i>子舒</i>
-      </div>
-    </div>
-    <div class="contents" id="nav-content">
-      <ul>
-        
-        <li>
-          <a href="/">
-            <i class="fa-fw fas fa-house"></i>
-            <span>首页</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/blog/">
-            <i class="fa-fw fas fa-stream"></i>
-            <span>归档</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/tags/">
-            <i class="fa-fw fas fa-tags"></i>
-            <span>标签</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/message/">
-            <i class="fa-fw fas fa-message"></i>
-            <span>留言</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/about/">
-            <i class="fa-fw fas fa-info-circle"></i>
-            <span>关于</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/shuoshuo/">
-            <i class="fa-fw fas fa-comments"></i>
-            <span>碎碎念</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/projects/">
-            <i class="fa-fw fas fa-tasks"></i>
-            <span>项目</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/friends/">
-            <i class="fa-fw fas fa-link"></i>
-            <span>友链</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/search/">
-            <i class="fa-fw fas fa-search"></i>
-            <span>搜索</span>
-          </a>
-        </li>
-        
-      </ul>
-    </div>
+      <div class="post-content content">
 
-    
-    <div id="toc" class="toc-article">
-      <nav id="TableOfContents">
+        
+        <div id="toc" class="toc-article">
+          <nav id="TableOfContents">
   <ul>
     <li><a href="#一配置-route-路由">一、配置 route 路由</a>
       <ul>
@@ -179,43 +140,11 @@ import { defineConfig } from &#39;vite&#39; import vue from &#39;@vitejs/plugin-
     <li><a href="#viteconfigjs-配置集合">vite.config.js 配置集合</a></li>
   </ul>
 </nav>
-    </div>
-    
-
-  </div>
-
-  <div class="index-about-mobile">
-    <i> Do something, anything—just give fate's gears a chance to turn. </i>
-  </div>
-</div>
-
-    <main class="index-middle">
-      <div class="post-container">
-        <div class="post-title">vite 配置相关笔记</div>
-        
-        
-        <div class="post-meta">
-          <span class="attr">发布于：<span>2024-08-15</span></span>
-          
-          <span class="attr">标签：
-            
-            <a href="/%20/tags/%E7%AC%94%E8%AE%B0" class="tag">笔记</a>
-            <span>/</span>
-            
-            <a href="/%20/tags/vite" class="tag">vite</a>
-            <span>/</span>
-            
-            <a href="/%20/tags/%E8%B7%AF%E7%94%B1" class="tag">路由</a>
-            <span>/</span>
-            
-          </span>
-          
         </div>
         
 
-        <div class="post-content no-indent">
-          
-          <h2 id="一配置-route-路由">一、配置 route 路由</h2>
+        
+        <h2 id="一配置-route-路由">一、配置 route 路由</h2>
 <p>使用 vite + vue 构建项目默认是没有 route 的，所以需要手动引入。</p>
 <h3 id="1-基础配置">1. 基础配置</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 建立一个 vite 项目</span>
@@ -332,11 +261,11 @@ import { defineConfig } from &#39;vite&#39; import vue from &#39;@vitejs/plugin-
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">},</span>
 </span></span><span class="line"><span class="cl"><span class="p">})</span>
 </span></span></code></pre></div>
-        </div>
+      </div>
 
-        
-        
-        <hr class="sep">
+      
+      
+      <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -433,29 +362,16 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-        
+      
 
-      </div>
     </main>
 
-  </div>
 
-  <footer class="footer">
-  <ul class="list-inline text-center">
-
-  </ul>
-  <p>
-    <time>© 2020 - 2025 Powered by </time>
-    <a href="https://github.com/anghunk">anghunk(Github)</a>.
-    <span>Some rights reserved.</span>
-  </p>
-  <p>
-    <span>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</span>
-  </p>
-
+  <footer>
+  <p id="back-to-top">返回顶部 ↑</p>
+  <span class="intro">© 2020 - 2025 <a href="/" title="子舒">子舒</a> | <a href="https://github.com/anghunk" title="Github" target="_blank">Github</a></span>
 </footer>
-  <button id="back-to-top" type="button" class="gotop"><i class="fas fa-angle-up"></i></button>
-<script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
+  <script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
 <script src="/js/main.js"></script>
 </body>
 

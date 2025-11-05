@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+
+<body>
+  {{ partial "header.html" . }}
+
+  <main>
+
+    {{ range (where .Data.Pages "Type" "in" site.Params.mainSections).GroupByDate "2006" -}}
+    <div class="one-tag-list">
+  
+      <h3>{{ .Key }}</h3>
+    
+      <ul class="posts">
+        {{ range .Pages }}
+          <li>
+            <span>
+              <time datetime=" {{ .Date.Format " 2006年01月02日" }}">
+                {{ .Date.Format "2006.01.02" }}
+              </time>
+            </span>
+            <div>
+              <a href="{{ .RelPermalink }}">
+                {{ .Title }}
+              </a>
+            <div>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+    
+  </main>
+
+  {{ partial "footer.html" . }}
+  {{ partial "scripts.html" . }}
+</body>
+
+</html>

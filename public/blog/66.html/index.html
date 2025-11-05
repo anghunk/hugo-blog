@@ -75,137 +75,67 @@ $(&#39;iframe&#39;).wrap(&#39;&lt;p class=&#34;iframe&#34;&gt;&lt;/p&gt;&#39;) �
 </head>
 
 <body>
-  <div class="site-nav-toggle" id="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+  <header>
+  <a class="title" href="/">
+    <h1>子舒的博客</h1>
+  </a>
+  <nav>
+    <p>
+      
+      <a href="/">首页</a>
+      
+      <a href="/blog/">归档</a>
+      
+      <a href="/tags/">标签</a>
+      
+      <a href="/message/">留言</a>
+      
+      <a href="/about/">关于</a>
+      
+      <a href="/shuoshuo/">碎碎念</a>
+      
+      <a href="/projects/">项目</a>
+      
+      <a href="/friends/">友链</a>
+      
+      <a href="/search/">搜索</a>
+      
+    </p>
+  </nav>
+</header>
 
-<div class="index-about">
-  <i> Do something, anything—just give fate's gears a chance to turn. </i>
-</div>
+    <main>
+      <p></p>
+      <h1>–</h1>
 
+      <h2>网站引入 iframe 视频，如何实现高度自适应？</h2>
 
-  <div class="index-container">
-    <div class="index-left">
-
-  <div class="nav" id="nav">
-    <div class="avatar-name">
-      <a href="/" class="avatar" title="子舒">
-        <img src="https://imgurl.zishu.me/author.webp" alt="子舒" />
-      </a>
-      <div class="name">
-        <i>子舒</i>
-      </div>
-    </div>
-    <div class="contents" id="nav-content">
-      <ul>
+      
+      <p><span class="attr">发布于：<span>2021-05-09</span></span></p>
+      <p>
         
-        <li>
-          <a href="/">
-            <i class="fa-fw fas fa-house"></i>
-            <span>首页</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/blog/">
-            <i class="fa-fw fas fa-stream"></i>
-            <span>归档</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/tags/">
-            <i class="fa-fw fas fa-tags"></i>
-            <span>标签</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/message/">
-            <i class="fa-fw fas fa-message"></i>
-            <span>留言</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/about/">
-            <i class="fa-fw fas fa-info-circle"></i>
-            <span>关于</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/shuoshuo/">
-            <i class="fa-fw fas fa-comments"></i>
-            <span>碎碎念</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/projects/">
-            <i class="fa-fw fas fa-tasks"></i>
-            <span>项目</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/friends/">
-            <i class="fa-fw fas fa-link"></i>
-            <span>友链</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/search/">
-            <i class="fa-fw fas fa-search"></i>
-            <span>搜索</span>
-          </a>
-        </li>
-        
-      </ul>
-    </div>
-
-    
-    <div id="toc" class="toc-article">
-      <nav id="TableOfContents"></nav>
-    </div>
-    
-
-  </div>
-
-  <div class="index-about-mobile">
-    <i> Do something, anything—just give fate's gears a chance to turn. </i>
-  </div>
-</div>
-
-    <main class="index-middle">
-      <div class="post-container">
-        <div class="post-title">网站引入 iframe 视频，如何实现高度自适应？</div>
-        
-        
-        <div class="post-meta">
-          <span class="attr">发布于：<span>2021-05-09</span></span>
+        <span class="attr">标签：
           
-          <span class="attr">标签：
-            
-            <a href="/%20/tags/%E5%8D%9A%E5%AE%A2" class="tag">博客</a>
-            <span>/</span>
-            
-            <a href="/%20/tags/css" class="tag">css</a>
-            <span>/</span>
-            
-          </span>
+          <a href="/tags/%E5%8D%9A%E5%AE%A2" class="tags">博客</a>
           
+          <a href="/tags/css" class="tags">css</a>
+          
+        </span>
+        
+      </p>
+      <hr>
+      
+
+      <div class="post-content content">
+
+        
+        <div id="toc" class="toc-article">
+          <nav id="TableOfContents"></nav>
         </div>
         
 
-        <div class="post-content no-indent">
-          
-          <p>我想很多小伙伴在写博客的时候都能遇到一个令人头疼的问题，某一篇文章想用 <code>iframe</code> 引入一个外链视频，但是大小总是有问题，宽度可以固定到 100% ，但是高度比如用实际高度来表示，比如 <code>100px</code>, <code>200px</code>，诸如此类。</p>
+        
+        <p>我想很多小伙伴在写博客的时候都能遇到一个令人头疼的问题，某一篇文章想用 <code>iframe</code> 引入一个外链视频，但是大小总是有问题，宽度可以固定到 100% ，但是高度比如用实际高度来表示，比如 <code>100px</code>, <code>200px</code>，诸如此类。</p>
 <p>但是问题来了，在不同的页面宽度下，视频的高度是一致的，就会导致一个很麻烦的问题，</p>
 <p>看下面两个图，</p>
 <p><strong>pc 端</strong></p>
@@ -259,11 +189,11 @@ $(&#39;iframe&#39;).wrap(&#39;&lt;p class=&#34;iframe&#34;&gt;&lt;/p&gt;&#39;) �
 </span></span></code></pre></div><p>这个时候再访问带有 iframe 视频的网页，不管宽度如何变化，高度可以随视频自适应。</p>
 <p>例如这个网页，可以看一下效果：<a href="/posts/20210507.html">https://imhan.cn/posts/20210507.html</a></p>
 
-        </div>
+      </div>
 
-        
-        
-        <hr class="sep">
+      
+      
+      <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -360,29 +290,16 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-        
+      
 
-      </div>
     </main>
 
-  </div>
 
-  <footer class="footer">
-  <ul class="list-inline text-center">
-
-  </ul>
-  <p>
-    <time>© 2020 - 2025 Powered by </time>
-    <a href="https://github.com/anghunk">anghunk(Github)</a>.
-    <span>Some rights reserved.</span>
-  </p>
-  <p>
-    <span>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</span>
-  </p>
-
+  <footer>
+  <p id="back-to-top">返回顶部 ↑</p>
+  <span class="intro">© 2020 - 2025 <a href="/" title="子舒">子舒</a> | <a href="https://github.com/anghunk" title="Github" target="_blank">Github</a></span>
 </footer>
-  <button id="back-to-top" type="button" class="gotop"><i class="fas fa-angle-up"></i></button>
-<script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
+  <script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
 <script src="/js/main.js"></script>
 </body>
 

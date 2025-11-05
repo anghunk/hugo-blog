@@ -59,137 +59,67 @@ $(document).ready(function () { $.ajax({ url: &#39;/index.json&#39;, type: &#39;
 </head>
 
 <body>
-  <div class="site-nav-toggle" id="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+  <header>
+  <a class="title" href="/">
+    <h1>子舒的博客</h1>
+  </a>
+  <nav>
+    <p>
+      
+      <a href="/">首页</a>
+      
+      <a href="/blog/">归档</a>
+      
+      <a href="/tags/">标签</a>
+      
+      <a href="/message/">留言</a>
+      
+      <a href="/about/">关于</a>
+      
+      <a href="/shuoshuo/">碎碎念</a>
+      
+      <a href="/projects/">项目</a>
+      
+      <a href="/friends/">友链</a>
+      
+      <a href="/search/">搜索</a>
+      
+    </p>
+  </nav>
+</header>
 
-<div class="index-about">
-  <i> Do something, anything—just give fate's gears a chance to turn. </i>
-</div>
+    <main>
+      <p></p>
+      <h1>–</h1>
 
+      <h2>hugo 纯静态编写一个字数统计脚本</h2>
 
-  <div class="index-container">
-    <div class="index-left">
-
-  <div class="nav" id="nav">
-    <div class="avatar-name">
-      <a href="/" class="avatar" title="子舒">
-        <img src="https://imgurl.zishu.me/author.webp" alt="子舒" />
-      </a>
-      <div class="name">
-        <i>子舒</i>
-      </div>
-    </div>
-    <div class="contents" id="nav-content">
-      <ul>
+      
+      <p><span class="attr">发布于：<span>2023-05-13</span></span></p>
+      <p>
         
-        <li>
-          <a href="/">
-            <i class="fa-fw fas fa-house"></i>
-            <span>首页</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/blog/">
-            <i class="fa-fw fas fa-stream"></i>
-            <span>归档</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/tags/">
-            <i class="fa-fw fas fa-tags"></i>
-            <span>标签</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/message/">
-            <i class="fa-fw fas fa-message"></i>
-            <span>留言</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/about/">
-            <i class="fa-fw fas fa-info-circle"></i>
-            <span>关于</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/shuoshuo/">
-            <i class="fa-fw fas fa-comments"></i>
-            <span>碎碎念</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/projects/">
-            <i class="fa-fw fas fa-tasks"></i>
-            <span>项目</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/friends/">
-            <i class="fa-fw fas fa-link"></i>
-            <span>友链</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/search/">
-            <i class="fa-fw fas fa-search"></i>
-            <span>搜索</span>
-          </a>
-        </li>
-        
-      </ul>
-    </div>
-
-    
-    <div id="toc" class="toc-article">
-      <nav id="TableOfContents"></nav>
-    </div>
-    
-
-  </div>
-
-  <div class="index-about-mobile">
-    <i> Do something, anything—just give fate's gears a chance to turn. </i>
-  </div>
-</div>
-
-    <main class="index-middle">
-      <div class="post-container">
-        <div class="post-title">hugo 纯静态编写一个字数统计脚本</div>
-        
-        
-        <div class="post-meta">
-          <span class="attr">发布于：<span>2023-05-13</span></span>
+        <span class="attr">标签：
           
-          <span class="attr">标签：
-            
-            <a href="/%20/tags/js" class="tag">js</a>
-            <span>/</span>
-            
-            <a href="/%20/tags/%E5%8D%9A%E5%AE%A2" class="tag">博客</a>
-            <span>/</span>
-            
-          </span>
+          <a href="/tags/js" class="tags">js</a>
           
+          <a href="/tags/%E5%8D%9A%E5%AE%A2" class="tags">博客</a>
+          
+        </span>
+        
+      </p>
+      <hr>
+      
+
+      <div class="post-content content">
+
+        
+        <div id="toc" class="toc-article">
+          <nav id="TableOfContents"></nav>
         </div>
         
 
-        <div class="post-content no-indent">
-          
-          <p>早上起来的时候看到微信群中有博友分享自己的建站时间，聊着聊着说到总字数上面，这时我才发现我的网站没有统计的地方，索性就自己写一个吧，因为是静态博客，所以不涉及后端、服务器等，只用前端的方式来解决。</p>
+        
+        <p>早上起来的时候看到微信群中有博友分享自己的建站时间，聊着聊着说到总字数上面，这时我才发现我的网站没有统计的地方，索性就自己写一个吧，因为是静态博客，所以不涉及后端、服务器等，只用前端的方式来解决。</p>
 <p>这里需要借助我之前的一篇文章，<a href="/blog/189.html/">《用原生 js 给网站写个搜索功能》</a>，里面有提到如何生成一个文章列表 json 文件，这里我们会用到这个文件 <code>index.json</code>。</p>
 <p>写一个 ajax 方法，让浏览器遍历每个页面。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
@@ -231,11 +161,11 @@ $(document).ready(function () { $.ajax({ url: &#39;/index.json&#39;, type: &#39;
   <figcaption class="text-center pt-2 pb-2 text-muted post-meta"></figcaption>
 </figure></p>
 
-        </div>
+      </div>
 
-        
-        
-        <hr class="sep">
+      
+      
+      <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -332,29 +262,16 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-        
+      
 
-      </div>
     </main>
 
-  </div>
 
-  <footer class="footer">
-  <ul class="list-inline text-center">
-
-  </ul>
-  <p>
-    <time>© 2020 - 2025 Powered by </time>
-    <a href="https://github.com/anghunk">anghunk(Github)</a>.
-    <span>Some rights reserved.</span>
-  </p>
-  <p>
-    <span>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</span>
-  </p>
-
+  <footer>
+  <p id="back-to-top">返回顶部 ↑</p>
+  <span class="intro">© 2020 - 2025 <a href="/" title="子舒">子舒</a> | <a href="https://github.com/anghunk" title="Github" target="_blank">Github</a></span>
 </footer>
-  <button id="back-to-top" type="button" class="gotop"><i class="fas fa-angle-up"></i></button>
-<script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
+  <script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
 <script src="/js/main.js"></script>
 </body>
 

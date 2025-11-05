@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+
+<body>
+  {{ partial "header.html" . }}
+
+  
+    
+
+    <main>
+
+      <h2>{{ .Title }}</h2>
+
+      <div class="post-content content">
+        {{ .Site.Params.postHeaderContent | safeHTML }}
+        {{ .Content }}
+      </div>
+
+      <div id="shuoshuo">
+        <ul>
+          <li></li>
+        </ul>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+      <script src="/js/shuoshuo.js"></script>
+      
+    </main>
+
+  {{ partial "footer.html" . }}
+  {{ partial "scripts.html" . }}
+</body>
+
+</html>

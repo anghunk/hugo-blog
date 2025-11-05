@@ -63,137 +63,67 @@ $sql = &#34;select FROM_UNIXTIME(created) as created,text from ... order by crea
 </head>
 
 <body>
-  <div class="site-nav-toggle" id="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+  <header>
+  <a class="title" href="/">
+    <h1>子舒的博客</h1>
+  </a>
+  <nav>
+    <p>
+      
+      <a href="/">首页</a>
+      
+      <a href="/blog/">归档</a>
+      
+      <a href="/tags/">标签</a>
+      
+      <a href="/message/">留言</a>
+      
+      <a href="/about/">关于</a>
+      
+      <a href="/shuoshuo/">碎碎念</a>
+      
+      <a href="/projects/">项目</a>
+      
+      <a href="/friends/">友链</a>
+      
+      <a href="/search/">搜索</a>
+      
+    </p>
+  </nav>
+</header>
 
-<div class="index-about">
-  <i> Do something, anything—just give fate's gears a chance to turn. </i>
-</div>
+    <main>
+      <p></p>
+      <h1>–</h1>
 
+      <h2>sql 中时间戳转日期</h2>
 
-  <div class="index-container">
-    <div class="index-left">
-
-  <div class="nav" id="nav">
-    <div class="avatar-name">
-      <a href="/" class="avatar" title="子舒">
-        <img src="https://imgurl.zishu.me/author.webp" alt="子舒" />
-      </a>
-      <div class="name">
-        <i>子舒</i>
-      </div>
-    </div>
-    <div class="contents" id="nav-content">
-      <ul>
+      
+      <p><span class="attr">发布于：<span>2022-03-10</span></span></p>
+      <p>
         
-        <li>
-          <a href="/">
-            <i class="fa-fw fas fa-house"></i>
-            <span>首页</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/blog/">
-            <i class="fa-fw fas fa-stream"></i>
-            <span>归档</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/tags/">
-            <i class="fa-fw fas fa-tags"></i>
-            <span>标签</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/message/">
-            <i class="fa-fw fas fa-message"></i>
-            <span>留言</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/about/">
-            <i class="fa-fw fas fa-info-circle"></i>
-            <span>关于</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/shuoshuo/">
-            <i class="fa-fw fas fa-comments"></i>
-            <span>碎碎念</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/projects/">
-            <i class="fa-fw fas fa-tasks"></i>
-            <span>项目</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/friends/">
-            <i class="fa-fw fas fa-link"></i>
-            <span>友链</span>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/search/">
-            <i class="fa-fw fas fa-search"></i>
-            <span>搜索</span>
-          </a>
-        </li>
-        
-      </ul>
-    </div>
-
-    
-    <div id="toc" class="toc-article">
-      <nav id="TableOfContents"></nav>
-    </div>
-    
-
-  </div>
-
-  <div class="index-about-mobile">
-    <i> Do something, anything—just give fate's gears a chance to turn. </i>
-  </div>
-</div>
-
-    <main class="index-middle">
-      <div class="post-container">
-        <div class="post-title">sql 中时间戳转日期</div>
-        
-        
-        <div class="post-meta">
-          <span class="attr">发布于：<span>2022-03-10</span></span>
+        <span class="attr">标签：
           
-          <span class="attr">标签：
-            
-            <a href="/%20/tags/sql" class="tag">sql</a>
-            <span>/</span>
-            
-            <a href="/%20/tags/%E6%97%B6%E9%97%B4%E6%88%B3" class="tag">时间戳</a>
-            <span>/</span>
-            
-          </span>
+          <a href="/tags/sql" class="tags">sql</a>
           
+          <a href="/tags/%E6%97%B6%E9%97%B4%E6%88%B3" class="tags">时间戳</a>
+          
+        </span>
+        
+      </p>
+      <hr>
+      
+
+      <div class="post-content content">
+
+        
+        <div id="toc" class="toc-article">
+          <nav id="TableOfContents"></nav>
         </div>
         
 
-        <div class="post-content no-indent">
-          
-          <p>需求：我将博客和 typecho 后台结合起来，打算做一个在线说说的功能，在 typecho 中输入内容，然后调用接口，实现在我的博客查看说说功能的功能。是不是有点绕？我也这么觉得，但是折腾一下也挺好的。</p>
+        
+        <p>需求：我将博客和 typecho 后台结合起来，打算做一个在线说说的功能，在 typecho 中输入内容，然后调用接口，实现在我的博客查看说说功能的功能。是不是有点绕？我也这么觉得，但是折腾一下也挺好的。</p>
 <p>typecho 导出的数据默认是时间戳格式，那我在前端调用的时候就很麻烦，所以选择在 sql 查询时直接转换，created 是表里面的参数。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">// 时间转换语句
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">FROM_UNIXTIME</span><span class="p">(</span><span class="nx">created</span><span class="p">)</span>
@@ -223,11 +153,11 @@ $sql = &#34;select FROM_UNIXTIME(created) as created,text from ... order by crea
 <p>成功导出，接下来调用就很简单了。</p>
 <p>多谢<a href="https://www.emoao.com/">梦繁星</a>的指导。</p>
 
-        </div>
+      </div>
 
-        
-        
-        <hr class="sep">
+      
+      
+      <hr class="sep">
 <ul class="comment-tabs">
   
   <li>LinuxDo</li>
@@ -324,29 +254,16 @@ document.querySelectorAll('.comment-tabs li').forEach((tab, index) => {
     display: none;
   }
 </style>
-        
+      
 
-      </div>
     </main>
 
-  </div>
 
-  <footer class="footer">
-  <ul class="list-inline text-center">
-
-  </ul>
-  <p>
-    <time>© 2020 - 2025 Powered by </time>
-    <a href="https://github.com/anghunk">anghunk(Github)</a>.
-    <span>Some rights reserved.</span>
-  </p>
-  <p>
-    <span>Using for <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</span>
-  </p>
-
+  <footer>
+  <p id="back-to-top">返回顶部 ↑</p>
+  <span class="intro">© 2020 - 2025 <a href="/" title="子舒">子舒</a> | <a href="https://github.com/anghunk" title="Github" target="_blank">Github</a></span>
 </footer>
-  <button id="back-to-top" type="button" class="gotop"><i class="fas fa-angle-up"></i></button>
-<script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
+  <script src="https://rawgit.com/indrimuska/zoomify/master/dist/zoomify.min.js"></script>
 <script src="/js/main.js"></script>
 </body>
 

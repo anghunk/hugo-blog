@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+
+<body>
+  {{ partial "header.html" . }}
+
+    <main>
+      <p></p>
+      <h1>–</h1>
+
+      <h2>{{ .Title }}</h2>
+
+      {{ if in .Site.Params.mainSections .Type }}
+      <p><span class="attr">发布于：<span>{{ .Date.Format "2006-01-02"}}</span></span></p>
+      <p>
+        {{ if .Params.tags }}
+        <span class="attr">标签：
+          {{ range .Params.tags }}
+          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tags">{{ . }}</a>
+          {{ end }}
+        </span>
+        {{ end }}
+      </p>
+      <hr>
+      {{ end }}
+
+      <div class="post-content content">
+
+        {{ if in .Site.Params.mainSections .Type }}
+        <div id="toc" class="toc-article">
+          {{ .TableOfContents }}
+        </div>
+        {{ end }}
+
+        {{ .Site.Params.postHeaderContent | safeHTML }}
+        {{ .Content }}
+      </div>
+
+      <!-- 评论 -->
+      {{ if in .Site.Params.mainSections .Type }}
+      {{ partial "comment.html" . }}
+      {{ end }}
+
+    </main>
+
+
+  {{ partial "footer.html" . }}
+  {{ partial "scripts.html" . }}
+</body>
+
+</html>

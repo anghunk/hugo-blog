@@ -1,0 +1,12 @@
+<header>
+  <a class="title" href="/">
+    <h1>{{ .Site.Params.Title }}</h1>
+  </a>
+  <nav>
+    <p>
+      {{ range .Site.Params.socials }}
+      <a href="{{ .link }}">{{ .name }}</a>
+      {{ end }}
+    </p>
+  </nav>
+</header>

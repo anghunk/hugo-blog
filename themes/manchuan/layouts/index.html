@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+
+<body>
+  {{ partial "header.html" . }}
+
+  <main>
+    <p></p>
+    <h1>–</h1>
+      <div class="post-content content">
+        {{ .Site.Params.postHeaderContent | safeHTML }}
+        {{ .Content }}
+      </div>
+    <h3>最近文章</h3>
+
+    <p></p>
+
+    <ul class="posts">
+
+      {{ $pages := .Site.RegularPages }}
+      {{ $paginator := .Paginate ($pages) }}
+      {{ $count := 0 }}
+
+      {{ range $paginator.Pages }}
+      {{ $title := .Title }}
+      {{ $summary := .Summary }}
+
+      <li>
+        <span>
+          <time datetime=" {{ .Date.Format " 2006年01月02日" }}">
+            {{ .Date.Format "2006.01.02" }}
+          </time>
+        </span>
+        <div>
+          <a href="{{ .RelPermalink }}">
+            {{ .Title }}
+          </a>
+        <div>
+      </li>
+      {{ end }}
+    </ul>
+
+    {{ partial "pagination.html" . }}
+
+  </main>
+
+  {{ partial "footer.html" . }}
+  {{ partial "scripts.html" . }}
+</body>
+
+</html>
