@@ -31,3 +31,4 @@ title: Friends
 - [Wcowin's Blog](https://wcowin.work/) - 向循此苦旅，以达星辰
 - [Rise'blogs](https://blogs.qipai360.cn/) - Rise'blogs
 - [运维咖啡吧](https://blog.ops-coffee.com/) - 享受技术带来的乐趣，体验生活给予的感动
+- [且听书吟](https://yufan.me/) - 诗与梦想的远方
