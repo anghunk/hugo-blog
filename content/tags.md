@@ -1,5 +1,5 @@
 ---
 slug: tags
-title: 标签
+title: Tags
 layout: tags
 ---

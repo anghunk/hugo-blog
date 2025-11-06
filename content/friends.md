@@ -1,6 +1,6 @@
 ---
 slug: friends
-title: 友情链接
+title: Friends
 ---
 
 > 感谢支持，暂不收录友链了哦~

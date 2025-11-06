@@ -12,7 +12,10 @@
       <h2>{{ .Title }}</h2>
 
       {{ if in .Site.Params.mainSections .Type }}
-      <p><span class="attr">发布于：<span>{{ .Date.Format "2006-01-02"}}</span></span></p>
+      <p>
+        <span class="attr">发布于：<span>{{ .Date.Format "2006-01-02"}}</span></span>
+        <span> · 已有 <span id="page_pv">...</span> 人看过</span>
+      </p>
       <p>
         {{ if .Params.tags }}
         <span class="attr">标签：

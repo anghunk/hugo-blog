@@ -1,6 +1,6 @@
 ---
 slug: projects
-title: 项目
+title: Projects
 layout: projects
 ---
 

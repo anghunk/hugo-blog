@@ -1,6 +1,6 @@
 ---
 slug: shuoshuo
-title: 说说
+title: Shuoshuo
 layout: shuoshuo
 ---
 
