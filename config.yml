@@ -31,7 +31,7 @@ permalinks:
 
 params:
   title: 子舒的博客
-  description: 一个热爱生活的前端开发工程师
+  description: 想留下点什么，证明我来过。
   logo:  https://imgurl.zishu.me/author.webp # 博主头像
   author:
     name: 子舒
