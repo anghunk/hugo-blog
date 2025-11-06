@@ -15,7 +15,7 @@ title: Friends
 
 ```md
 名称：子舒的博客
-简介：一个热爱生活的前端开发工程师
+简介：想留下点什么，证明我来过，一个热爱生活的前端开发工程师
 域名：https://zishu.me
 图标：https://imgurl.zishu.me/favicon.png
 ```
