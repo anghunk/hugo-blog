@@ -4,8 +4,7 @@
   </a>
   <nav>
     <p>
-      {{ range .Site.Params.socials }}
-      <a href="{{ .link }}">{{ .name }}</a>
+      {{ range .Site.Params.socials }}<a href="{{ .link }}">{{ .name }}</a>
       {{ end }}
     </p>
   </nav>

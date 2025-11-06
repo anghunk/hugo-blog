@@ -1,3 +1,50 @@
+:root {
+  --width: 660px;
+  --font-yahei: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFangSC-Regular", "Hiragino Sans GB", "Lantinghei SC", "Microsoft Yahei", "Source Han Sans CN", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  --font-fangsong: Baskerville, "Times New Roman", "Liberation Serif", STFangsong, FangSong, FangSong_GB2312, "CWTEX\-F", serif;
+  --font-songti: Georgia, "Nimbus Roman No9 L", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", "Source Han Serif CN", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun, SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU, serif;
+  --font-misans: "MiSans", "MiSans VF", "MiSans-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFangSC-Regular", "Hiragino Sans GB", "Lantinghei SC", "Microsoft Yahei", "Source Han Sans CN", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  --font-scale: 0.98em;
+  --background-color: #FFFFFF;
+  --heading-color: #030303;
+  --text-color: #030303;
+  --link-color: #030303;
+  --visited-color: #030303;
+  --code-background-color: #f2f2f2;
+  --code-color: #222;
+  --blockquote-color: #222;
+  --gray-color: #999;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #111;
+    --heading-color: #eee;
+    --text-color: #ddd;
+    --link-color: #6ab0e5;
+    --visited-color: #8b6fcb;
+    --code-background-color: #000;
+    --code-color: #ddd;
+    --blockquote-color: #ccc;
+    --gray-color: #999;
+  }
+}
+
+body {
+  font-family: "MiSans";
+  font-size: var(--font-scale);
+  margin: auto;
+  padding: 20px;
+  width: 36em;
+  max-width: var(--width);
+  text-align: left;
+  background-color: var(--background-color);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.8;
+  color: var(--text-color);
+}
+
 pre,
 .highlight {
   overflow: auto;
@@ -235,62 +282,6 @@ pre .javascript .function {
   margin-top: 10px;
 }
 
-@font-face {
-  font-family: "MiSans";
-  src: local("MiSans"), local("MiSans Regular");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-:root {
-  --width: 660px;
-  --font-yahei: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFangSC-Regular", "Hiragino Sans GB", "Lantinghei SC", "Microsoft Yahei", "Source Han Sans CN", "WenQuanYi Micro Hei", SimSun, sans-serif;
-  --font-fangsong: Baskerville, "Times New Roman", "Liberation Serif", STFangsong, FangSong, FangSong_GB2312, "CWTEX\-F", serif;
-  --font-songti: Georgia, "Nimbus Roman No9 L", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", "Source Han Serif CN", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun, SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU, serif;
-  --font-misans: "MiSans", "MiSans VF", "MiSans-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFangSC-Regular", "Hiragino Sans GB", "Lantinghei SC", "Microsoft Yahei", "Source Han Sans CN", "WenQuanYi Micro Hei", SimSun, sans-serif;
-  --font-scale: 0.98em;
-  --background-color: #FFFFFF;
-  --heading-color: #030303;
-  --text-color: #030303;
-  --link-color: #030303;
-  --visited-color: #030303;
-  --code-background-color: #f2f2f2;
-  --code-color: #222;
-  --blockquote-color: #222;
-  --gray-color: #999;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #111;
-    --heading-color: #eee;
-    --text-color: #ddd;
-    --link-color: #6ab0e5;
-    --visited-color: #8b6fcb;
-    --code-background-color: #000;
-    --code-color: #ddd;
-    --blockquote-color: #ccc;
-    --gray-color: #999;
-  }
-}
-
-body {
-  font-family: "MiSans";
-  /* 使用 MiSans；可替换为 --font-fangsong 或 --font-songti */
-  font-size: var(--font-scale);
-  margin: auto;
-  padding: 20px;
-  width: 36em;
-  max-width: var(--width);
-  text-align: left;
-  background-color: var(--background-color);
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  line-height: 1.8;
-  color: var(--text-color);
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -378,7 +369,7 @@ blockquote {
 input {
   border-radius: 4px;
   border: 1px solid var(--gray-color);
-  margin: 0 0 15px 0;
+  margin: 0;
   padding: 10px;
   width: 50%
 }

@@ -11,7 +11,6 @@ rssLimit: 10 # 限制 rss 输出的数量
 markup:
   highlight:
     noClasses: false
-    style: catppuccin-frappe
   goldmark:
     renderer:
       unsafe: true
@@ -37,37 +36,28 @@ params:
     name: 子舒
     email: hi@zishu.me
     github: anghunk
-  favicon:  https://imgurl.zishu.me/favicon.ico # 网站 favicon 图标
+  favicon:  /favicon.ico # 网站 favicon 图标
   buildDate: 2020-06-14 # 建站日期
 
   socials: # 导航
     - name: 首页
       link: /
-      icon: fa-house
     - name: 归档
       link: /blog/
-      icon: fa-stream
     - name: 标签
       link: /tags/
-      icon: fa-tags
     - name: 留言
       link: /message/
-      icon: fa-message
     - name: 关于
       link: /about/
-      icon: fa-info-circle
     - name: 碎碎念
       link: /shuoshuo/
-      icon: fa-comments
     - name: 项目
       link: /projects/
-      icon: fa-tasks
     - name: 友链
       link: /friends/
-      icon: fa-link
     - name: 搜索
       link: /search/
-      icon: fa-search
 
 sitemap:
   changefreq: monthly
